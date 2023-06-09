@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- css -->
-    <link rel="stylesheet" href="/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/css/common/header.css">
-    <link rel="stylesheet" href="/css/common/main.css">
-    <link rel="stylesheet" href="/css/common/footer.css">
-    <link rel="stylesheet" href="/css/writing/post.css">
+    <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
+    <link rel="stylesheet" href="/resources/css/common/header.css">
+    <link rel="stylesheet" href="/resources/css/common/main.css">
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
+    <link rel="stylesheet" href="/resources/css/writing/post.css">
 
     <title>JustGo-post</title>
 
@@ -38,28 +38,28 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container">
-    <form action="/html/account/login.html" method="get">
-        <a href="/html/account/login.html">
+    <form action="/resources/html/account/login.html" method="get">
+        <a href="/resources/html/account/login.html">
             <button type="button" class="btn btn-secondary btn-sm">로그인</button>
         </a>
     </form>
     <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
+        <a href="/resources/html/common/error.html">
             <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
         </a>
     </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
+    <form action="/resources/html/account/join.html" method="get">
+        <a href="/resources/html/account/join.html">
             <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
         </a>
     </form>
-    <form action="/html/account/myPage.html" method="get">
-        <a href="/html/account/myPage.html">
+    <form action="/resources/html/account/myPage.html" method="get">
+        <a href="/resources/html/account/myPage.html">
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
         </a>
     </form>
     <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
+        <a href="/resources/html/common/error.html">
             <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
         </a>
     </form>
@@ -69,8 +69,8 @@
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/html/common/main.html">
-        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
+    <a href="/resources/html/common/main.html">
+        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
         <form action="https://www.naver.com" method="get">
@@ -144,7 +144,7 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/images/officialPageTitle/PAGETITLE_SILVER.png" alt="기본">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_SILVER.png" alt="기본">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="https://www.naver.com">
                 ROOT게시판명
@@ -163,7 +163,7 @@
         <div class="writing--postTitle">푸켓으로 신혼여행을 가려고 하는데요~</div>
         <div class="writing--postInfoBox">
             <div class="writing--postProfile">
-                <img src="/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
+                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>폭탄배달부키키</div>
             </div>
             <div class="writing--postEnrollDate" style="font-size: 0.8rem">등록일: <a>2023년 3월 20일 14:30:20</a></div>
@@ -174,11 +174,11 @@
     <div class="writing--postContent">
 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다. 대통령의 선거에 관한 사항은 법률로 정한다. 대한민국은 민주공화국이다. 탄핵결정은 공직으로부터 파면함에 그친다. 그러나, 이에 의하여 민사상이나 형사상의 책임이 면제되지는 아니한다.
 
-<img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
+<img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
 
 헌법에 의하여 체결·공포된 조약과 일반적으로 승인된 국제법규는 국내법과 같은 효력을 가진다. 국채를 모집하거나 예산외에 국가의 부담이 될 계약을 체결하려 할 때에는 정부는 미리 국회의 의결을 얻어야 한다.
 
-<img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
+<img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
 
 정당의 설립은 자유이며, 복수정당제는 보장된다. 국무총리는 대통령을 보좌하며, 행정에 관하여 대통령의 명을 받아 행정각부를 통할한다. 국가안전보장회의는 대통령이 주재한다.
 
@@ -194,15 +194,15 @@
 
 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다. 국가는 모성의 보호를 위하여 노력하여야 한다. 국가는 균형있는 국민경제의 성장 및 안정과 적정한 소득의 분배를 유지하고, 시장의 지배와 경제력의 남용을 방지하며, 경제주체간의 조화를 통한 경제의 민주화를 위하여 경제에 관한 규제와 조정을 할 수 있다.
 
-<img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
+<img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
 
 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의 임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다. 탄핵소추의 의결을 받은 자는 탄핵심판이 있을 때까지 그 권한행사가 정지된다.
 
-<img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
+<img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
 
 선거와 국민투표의 공정한 관리 및 정당에 관한 사무를 처리하기 위하여 선거관리위원회를 둔다. 모든 국민은 언론·출판의 자유와 집회·결사의 자유를 가진다.
 
-<img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
+<img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="임시">
 
 여자의 근로는 특별한 보호를 받으며, 고용·임금 및 근로조건에 있어서 부당한 차별을 받지 아니한다. 저작자·발명가·과학기술자와 예술가의 권리는 법률로써 보호한다.
 
@@ -290,13 +290,13 @@
 </div>
 <div class="writing--postBottomBox">
     <form action="#" method="post">
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm">수정</button>
     </a>
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm">취소</button>
     </a>
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">삭제</button>
     </a>
     </form>
@@ -334,7 +334,7 @@
         <tr>
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
-                <span class="writing--commentProfileBox__profileImage"><img src="/images/officialProfile/KIKI.jpg" alt="프로필 이미지"></span>
+                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지"></span>
                 <span class="writing--commnetProfileBox__profileName">댓글돌이키키사마</span>
             </th>
             <td class="writing--commentContentBox">
@@ -355,7 +355,7 @@
         <tr>
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
-                <span class="writing--commentProfileBox__profileImage"><img src="/images/officialProfile/GITHUBICON.png" alt="프로필 이미지"></span>
+                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/GITHUBICON.png" alt="프로필 이미지"></span>
                 <span class="writing--commnetProfileBox__profileName">GITCATic</span>
             </th>
             <td class="writing--commentContentBox">
@@ -375,7 +375,7 @@
         </tr>
         <tr>
             <th class="writing--commentProfileBox">
-                <span class="writing--commentProfileBox__profileImage"><img src="/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
+                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
                 <span class="writing--commnetProfileBox__profileName">마루코는열여덟살</span>
             </th>
             <td class="writing--commentContentBox">
@@ -428,15 +428,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -449,8 +449,8 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="/resources/html/board/boardNotice.html">공지사항</a>
+        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
@@ -483,10 +483,12 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/header.js"></script>
-    <script src="/js/common/main.js"></script>
-    <script src="/js/common/footer.js"></script>
-    <script src="/js/writing/post.js"></script>
+    <script src="/resourcesjs/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+    <script src="/resources/js/writing/post.js"></script>
+    <script src="/resources/js/writing/post.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
+    <script src="/resources/js/writing/post.js"></script>
 </body>
 </html>

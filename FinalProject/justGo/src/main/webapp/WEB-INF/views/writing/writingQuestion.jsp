@@ -70,7 +70,7 @@
 <!-- header 시작 -->
 <header class="common--header__container">
     <a href="https://www.naver.com">
-        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
+        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
         <form action="https://www.naver.com" method="get">
@@ -83,7 +83,7 @@
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="https://www.naver.com">
-                <img src="/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
+                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>폭탄배달부키키</div>
             </a>
         </div>
@@ -107,16 +107,16 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardFree.html">자유게시판</a>
+            <a class="nav-link" href="/resources/html/board/boardFree.html">자유게시판</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
+            <a class="nav-link" href="/resources/html/board/boardQuestion.html">질문게시판</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+            <a class="nav-link" href="/resources/https://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+            <a class="nav-link" href="/resources/https://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li>
     </ul>
 </nav>
@@ -144,7 +144,7 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
         <div class="template--overlayedTitle">1:1문의</div>
     </div>
 </div>
@@ -216,15 +216,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -237,8 +237,8 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="/resources/html/board/boardNotice.html">공지사항</a>
+        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
@@ -271,10 +271,10 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/header.js"></script>
-    <script src="/js/common/main.js"></script>
-    <script src="/js/common/footer.js"></script>
-    <script src="/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
+    <script src="/resources/js/writing/writingBoard.js"></script>
 </body>
 </html>
