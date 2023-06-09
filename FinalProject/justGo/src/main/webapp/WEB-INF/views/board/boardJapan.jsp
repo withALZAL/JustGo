@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- css -->
-    <link rel="stylesheet" href="/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/css/common/header.css">
-    <link rel="stylesheet" href="/css/common/main.css">
-    <link rel="stylesheet" href="/css/common/footer.css">
-    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
+    <link rel="stylesheet" href="/resources/css/common/header.css">
+    <link rel="stylesheet" href="/resources/css/common/main.css">
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
+    <link rel="stylesheet" href="/resources/css/board/board.css">
 
     <title>JustGo-boardJapan</title>
 
@@ -38,28 +38,28 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container">
-    <form action="/html/account/login.html" method="get">
-        <a href="/html/account/login.html">
+    <form action="/resources/html/account/login.html" method="get">
+        <a href="/resources/html/account/login.html">
             <button type="button" class="btn btn-secondary btn-sm">로그인</button>
         </a>
     </form>
     <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
+        <a href="/resources/html/common/error.html">
             <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
         </a>
     </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
+    <form action="/resources/html/account/join.html" method="get">
+        <a href="/resources/html/account/join.html">
             <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
         </a>
     </form>
-    <form action="/html/account/myPage.html" method="get">
-        <a href="/html/account/myPage.html">
+    <form action="/resources/html/account/myPage.html" method="get">
+        <a href="/resources/html/account/myPage.html">
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
         </a>
     </form>
     <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
+        <a href="/resources/html/common/error.html">
             <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
         </a>
     </form>
@@ -69,8 +69,8 @@
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/html/common/main.html">
-        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
+    <a href="/resources/html/common/main.html">
+        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
         <form action="https://www.naver.com" method="get">
@@ -144,9 +144,9 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="일본_벚꽃">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="일본_벚꽃">
         <div class="template--overlayedTitle" style="color: black;">
-            <img src="/images/officialFlag/JAPANFLAG_BLACKBORDER.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+            <img src="/resources/images/officialFlag/JAPANFLAG_BLACKBORDER.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
                 일본게시판
             </a>
@@ -401,15 +401,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -422,8 +422,8 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="/resources/html/board/boardNotice.html">공지사항</a>
+        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
@@ -456,10 +456,10 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/header.js"></script>
-    <script src="/js/common/main.js"></script>
-    <script src="/js/common/footer.js"></script>
-    <script src="/js/board/board.js"></script>
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
+    <script src="/resources/js/board/board.js"></script>
 </body>
 </html>

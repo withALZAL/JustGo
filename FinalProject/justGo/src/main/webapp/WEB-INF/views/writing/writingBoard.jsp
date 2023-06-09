@@ -83,7 +83,7 @@
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="https://www.naver.com">
-                <img src="/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
+                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>폭탄배달부키키</div>
             </a>
         </div>
@@ -99,24 +99,24 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
             <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
+                <li><a class="dropdown-item" href="/resources/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
+                <li><a class="dropdown-item" href="/resources/html/board/boardJapan.html"><img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
+                <li><a class="dropdown-item" href="/resources/html/board/boardVietnam.html"><img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
+                <li><a class="dropdown-item" href="/resources/html/board/boardThai.html"><img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
+                <li><a class="dropdown-item" href="/resources/html/board/boardAustralia.html"><img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardFree.html">자유게시판</a>
+            <a class="nav-link" href="/resources/html/board/boardFree.html">자유게시판</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
+            <a class="nav-link" href="/resources/html/board/boardQuestion.html">질문게시판</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+            <a class="nav-link" href="/resourceshttps://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+            <a class="nav-link" href="/resourceshttps://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li>
     </ul>
 </nav>
@@ -144,7 +144,7 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
         <div class="template--overlayedTitle">글쓰기</div>
     </div>
 </div>
@@ -183,10 +183,10 @@
             여기에 썸머노트를 넣습니다.
         </div>
         <div class="writing--ButtonBox">
-            <a href="/html/common/main.html">
+            <a href="/resources/html/common/main.html">
                 <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
             </a>
-            <a href="/html/common/main.html">
+            <a href="/resources/html/common/main.html">
                 <button type="button" class="btn btn-secondary btn-sm">취소</button>
             </a>
         </div>
@@ -217,15 +217,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -238,8 +238,8 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="/resources/html/board/boardNotice.html">공지사항</a>
+        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
@@ -272,10 +272,10 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/header.js"></script>
-    <script src="/js/common/main.js"></script>
-    <script src="/js/common/footer.js"></script>
-    <script src="/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
+    <script src="/resources/js/writing/writingBoard.js"></script>
 </body>
 </html>
