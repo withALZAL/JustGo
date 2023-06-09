@@ -1,0 +1,44 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* footer ----------------------------------------------- */
+
+/* footer 컨테이너 */
+.common--footerContainer {
+    height: 200px;
+    margin: 30px 0 30px;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    place-items: center;
+}
+
+/* footer 오른쪽 조정 */
+.common--footerRight {
+    display: flex;
+    gap: 50px;
+}
+
+/* 우측 하단 버튼 조정 */
+#common--toTopBtn {
+    display: flex;
+    justify-content: right;
+    padding: 50px;
+    margin-left: 90%;
+    gap: 10px;
+}
+#common--toTopBtn a button {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+#common--toTopBtn a button:hover {
+    color: white;
+    background-color: #8B89FF;
+}
