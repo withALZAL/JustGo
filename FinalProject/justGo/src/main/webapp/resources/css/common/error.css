@@ -1,0 +1,50 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* error ----------------------------------------------- */
+
+/* 에러 페이지 컨테이너 */
+.common--errorContainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+/* 에러 페이지 박스 */
+.common--errorBox {
+    height: 700px;
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 문구 조정 */
+.common--errorSorry {
+    font-size: 30px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* 버튼 박스 조정 */
+.common--errorBtnBox {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* 버튼 상호작용 */
+.common--errorBtnBox button {
+    border: none;
+}
+.common--errorBtnBox button:hover {
+    color: white;
+    background-color: #8B89FF;
+}

@@ -1,0 +1,124 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* loginNav ----------------------------------------------- */
+
+/* loginNav 컨테이너 */
+.common--loginNav__container {
+    height: 40px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0 50px 0 50px;
+    background-color: white;
+}
+
+/* loginNav 버튼 조정 */
+.common--loginNav__container form {
+    margin-right: 10px;
+}
+.common--loginNav__container form button {
+    border: none;
+}
+
+/* loginNav 버튼 상호작용 */
+.common--loginNav__container form button:hover {
+    background-color: #8B89FF;
+}
+
+/* header ----------------------------------------------- */
+
+/* header 컨테이너 */
+.common--header__container {
+    height: 180px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* 로고 이미지 조정 */
+.common--header__container > a {
+    display: grid;
+    place-items: center;
+}
+.common--header__container > a > img {
+    height: 100px;
+}
+
+/* 검색창 컨테이너 */
+.common--header__searchContainer > form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+/* 검색창 크기 등 조정 */
+.common--header__searchContainer > form > input {
+    height: 50px;
+    border-radius: 50px;
+    width: 90%;
+    padding-left: 30px;
+}
+
+/* 검색 아이콘 조정 */
+.common--header__searchContainer > form > button {
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+.common--header__searchContainer > form > button:hover {
+    background-color: #8B89FF;
+}
+
+/* 프로필 박스 조정/상호작용 */
+.common--header__profileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common--header__profileBox {
+    height: 50%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common--header__profileBox > a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 프로필 이미지 크기 조정 */
+.common--header__profileBox > a > img {
+    height: 80px;
+    border-radius: 100%;
+}
+
+/* 프로필 상호작용 */
+.common--header__profileBox > a:hover {
+    font-weight: bold;
+}
+
+/* nav ----------------------------------------------- */
+
+/* nav 컨테이너 */
+.common--navContainer {
+    height: 40px;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+/* 게시판 나라 국기 이미지 조정 */
+.common--tripBoard img {
+    height: 15px;
+    padding-right: 10px;
+}

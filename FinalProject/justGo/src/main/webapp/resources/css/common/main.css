@@ -1,0 +1,157 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 배너 ----------------------------------------------- */
+
+/* 배너 컨테이너 */
+.common--bannerContainer {
+    margin: 10px 30px 10px;
+    height: 300px;
+}
+
+/* 배너 도시 이름 텍스트 조정 */
+.common--bannerText {
+    text-align: left;
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* 배너 웰컴 문구 조정 */
+.common--bannerWelcome {
+    border-top: 1px solid white;
+}
+
+/* 게시글 ----------------------------------------------- */
+
+/* 게시글 컨테이너 조정 */
+.common--boardListContainer {
+    margin: 10px 30px 10px 30px;
+}
+
+/* 게시글 컨테이너 제목 조정 */
+.common--boardListTitle {
+    font-size: 1.5rem;
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+/* 게시글 카드 묶음 조정 */
+.common--boardCards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+}
+
+/* 게시글 카드 조정 */
+.common--boardCard > a {
+    display: grid;
+    grid-template-rows: 180px 150px;
+}
+.common--boardCardBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 게시글 카드 이미지 조정 */
+.common--boardListImageContainer {
+    height: 180px;
+    overflow: hidden;
+}
+.common--boardListImageContainer img {
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+}
+
+/* 2열 공동 조정 ----------------------------------------------- */
+
+/* 2열 나누기 조정 */
+.common--TwoDivide {
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+/* 카드 높이 공동 조정 */
+.common--TwoDivide > div {
+    height: 250px;
+}
+
+/* 환율 계산기 ----------------------------------------------- */
+
+/* 환율 계산기 구역 조정 */
+.common--cardExchange {
+    display: grid;
+    height: 200px;
+    grid-template-rows: 1.5fr 1fr;
+}
+
+/* 환율 계산기 윗부분 조정 */
+.common--cardExchange__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #D9D9D9;
+    gap: 10px;
+}
+.common--cardExchange__top > button {
+    border-radius: 10%;
+    border: none;
+}
+.common--cardExchange__top > button:hover {
+    color: white;
+    background-color: #8B89FF;
+}
+
+/* 환율 계산기 아래부분 조정 */
+.common--cardExchange__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common--cardExchange__bottom div {
+    font-size: 30px;
+}
+
+/* 날씨 검색기 ----------------------------------------------- */
+
+/* 날씨 검색기 조정 */
+.common--cardWeather {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.common--cardWeather__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.common--cardWeather__right {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    font-weight: bold;
+    align-items: center;
+}
+.common--cardWeather__right > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 날씨 셀렉터 */
+.common--cardWeatherSelector {
+    height: 30px;
+    width: 100px;
+}
+.common--cardWeatherSelector option {
+    font-size: 15px;
+}
+.common--cardWeatherSelectorBox button:hover {
+    color: white;
+    background-color: #8B89FF;
+}

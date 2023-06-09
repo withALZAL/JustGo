@@ -1,0 +1,99 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 글쓰기 ----------------------------------------------- */
+
+/* 글쓰기 컨테이너 */
+.writing--contentContainer {
+    height: 700px;
+    display: grid;
+    place-items: center;
+}
+
+/* 글쓰기 박스 */
+.writing--contentBox {
+    height: 600px;
+    width: 90%;
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    place-items: center;
+}
+
+/* 글쓰기 제목 조정 */
+.writing--inputTitle {
+    display: grid;
+    grid-template-columns: 100px 1fr 200px;
+    grid-gap: 30px;
+    place-items: center;
+    padding-bottom: 20px;
+}
+.writing--inputTitle > div:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.writing--inputTitle > div:nth-child(2) input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 700px;
+}
+
+/* 글쓰기 태그 셀렉터 조정 */
+.writing--selectorBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* 글쓰기 내용 박스 ----------------------------------------------- */
+
+/* 글쓰기 박스 조정 */
+.writing--inputContentBox {
+    display: grid;
+    grid-template-rows: 1fr 70px;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+/* 썸머노트 박스 조정 */
+.writing--summernoteBox {
+    width: 90%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: grey;
+    margin: 10px 30px 10px;
+    padding: 0 30px 0;
+}
+
+/* 버튼 박스 조정 */
+.writing--ButtonBox {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 0 100px 0;
+}
+.writing--ButtonBox > a button {
+    font-size: 1.5rem;
+    border: none;
+}
+
+/* 1:1문의 글쓰기 ----------------------------------------------- */
+
+/* 1:1문의 textarea */
+.writing--textarea {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    position: absolute;
+    top: 0; 
+    left: 0;
+}
