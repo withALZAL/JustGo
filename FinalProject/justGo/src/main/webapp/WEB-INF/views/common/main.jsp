@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- css -->
-    <link rel="stylesheet" href="/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/css/common/header.css">
-    <link rel="stylesheet" href="/css/common/main.css">
-    <link rel="stylesheet" href="/css/common/footer.css">
+    <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
+    <link rel="stylesheet" href="/resources/css/common/header.css">
+    <link rel="stylesheet" href="/resources/css/common/main.css">
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
 
     <title>JustGo-main</title>
 
@@ -146,7 +146,7 @@
 <!-- header 시작 -->
 <header class="common--header__container">
     <a href="/html/common/main.html">
-        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
+        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
         <form action="https://www.naver.com" method="get">
@@ -159,7 +159,7 @@
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="https://www.naver.com">
-                <img src="/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
+                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>폭탄배달부키키</div>
             </a>
         </div>
@@ -175,11 +175,11 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
             <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
+                <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
+                <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
+                <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
+                <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
+                <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
             </ul>
         </li>
         <li class="nav-item">
@@ -232,7 +232,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
+                    <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">AUSTRALIA</h1>
@@ -241,7 +241,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERBEIJING.png" class="d-block w-100" alt="베이징 배너">
+                    <img src="/resources/images/officialBanner/BANNERBEIJING.png" class="d-block w-100" alt="베이징 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">BEIJING</h1>
@@ -250,7 +250,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERKYOTO.png" class="d-block w-100" alt="교토 배너">
+                    <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="d-block w-100" alt="교토 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">KYOTO</h1>
@@ -259,7 +259,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERSHANGHAI.png" class="d-block w-100" alt="상하이 배너">
+                    <img src="/resources/images/officialBanner/BANNERSHANGHAI.png" class="d-block w-100" alt="상하이 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">SHANGHAI</h1>
@@ -268,7 +268,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERTHAI.png" class="d-block w-100" alt="태국 배너">
+                    <img src="/resources/images/officialBanner/BANNERTHAI.png" class="d-block w-100" alt="태국 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">THAI</h1>
@@ -277,7 +277,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERTOKYO.png" class="d-block w-100" alt="도쿄 배너">
+                    <img src="/resources/images/officialBanner/BANNERTOKYO.png" class="d-block w-100" alt="도쿄 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">TOKYO</h1>
@@ -286,7 +286,7 @@
             </div>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.google.com" target="_blank">
-                    <img src="/images/officialBanner/BANNERVIETNAM.png" class="d-block w-100" alt="베트남 배너">
+                    <img src="/resources/images/officialBanner/BANNERVIETNAM.png" class="d-block w-100" alt="베트남 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">VIETNAM</h1>
@@ -324,7 +324,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -340,7 +340,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
+                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -356,7 +356,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
+                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -372,7 +372,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
+                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -388,7 +388,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
+                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -425,7 +425,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -441,7 +441,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
+                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -457,7 +457,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
+                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -473,7 +473,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
+                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -489,7 +489,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
+                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -526,7 +526,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -542,7 +542,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
+                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -558,7 +558,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
+                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -574,7 +574,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
+                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -590,7 +590,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
+                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -627,7 +627,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -643,7 +643,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
+                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -659,7 +659,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
+                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -675,7 +675,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
+                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -691,7 +691,7 @@
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
+                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -826,15 +826,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -881,9 +881,9 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/header.js"></script>
-    <script src="/js/common/main.js"></script>
-    <script src="/js/common/footer.js"></script>
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>
