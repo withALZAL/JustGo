@@ -55,10 +55,10 @@
         <div class="common--errorTitle" style="font-size: 100px;">ERROR!</div>
         <div class="common--errorSorry">"대단히 죄송합니다. 알 수 없는 에러가 발생했습니다."</d>
         <div class="common--errorBtnBox">
-            <a href="/html/common/main.html">
+            <a href="/resources/html/common/main.html">
                 <button type="button" class="btn btn-secondary btn-sm">메인 페이지로 돌아가기</button>
             </a>
-            <a href="/html/common/main.html">
+            <a href="/resources/html/common/main.html">
                 <button type="button" class="btn btn-secondary btn-sm">이전 페이지로 돌아가기</button>
             </a>
         </div>
@@ -87,15 +87,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -108,8 +108,8 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="/resources/html/board/boardNotice.html">공지사항</a>
+        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
