@@ -34,7 +34,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
     
 
@@ -53,7 +53,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://www.visitbeijing.or.kr/" target="_blank"> <%-- 베이징 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERBEIJING.png" class="d-block w-100" alt="베이징 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://www.kyototourism.org/ko/" target="_blank"> <%-- 교토 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="d-block w-100" alt="교토 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://ko.meet-in-shanghai.net/" target="_blank"> <%-- 상하이 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERSHANGHAI.png" class="d-block w-100" alt="상하이 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="http://www.visitthailand.or.kr/thai/" target="_blank"> <%-- 태국 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERTHAI.png" class="d-block w-100" alt="태국 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://www.gotokyo.org/kr/index.html" target="_blank"> <%-- 도쿄 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERTOKYO.png" class="d-block w-100" alt="도쿄 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.google.com" target="_blank">
+                <a href="http://vietnamtourism.or.kr/" target="_blank"> <%-- 베트남 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERVIETNAM.png" class="d-block w-100" alt="베트남 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -630,7 +630,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
     
