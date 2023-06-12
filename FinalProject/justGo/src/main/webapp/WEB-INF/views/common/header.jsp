@@ -94,7 +94,7 @@
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/account">
+    <a href="/">
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
