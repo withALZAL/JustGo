@@ -28,7 +28,7 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -139,12 +139,6 @@
         <li class="nav-item">
             <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
     </ul>
 </nav>
 <!-- nav 끝 -->
@@ -152,15 +146,15 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </header>
 <!-- Template-header 끝 -->
 
-    
-    
+
+
 <!-- ----------------------------------------------- -->
 
-    
+
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

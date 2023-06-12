@@ -27,7 +27,7 @@
 
 <!-- Template-footer 시작 -->
 <footer class="template--footer">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -36,7 +36,7 @@
 <footer class="common--footerContainer">
     <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
-        <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
+        <b><a href="https://github.com/withALZAL">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
@@ -44,19 +44,19 @@
         사업자등록번호 : 899-89-00001<br>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://www.naver.com">이상준</a> |
+        대표: <a href="https://github.com/NewTypeAsuka">이상준</a> |
         이사: 
-        <a href="https://www.naver.com">박종욱</a>
-        <a href="https://www.naver.com">배진현</a>
-        <a href="https://www.naver.com">정송이</a>
-        <a href="https://www.naver.com">정용화</a>
-        <a href="https://www.naver.com">조우형</a>
+        <a href="https://github.com/pakjongwook">박종욱</a>
+        <a href="https://github.com/stane0120">배진현</a>
+        <a href="https://github.com/nalsong">정송이</a>
+        <a href="https://github.com/jyh1108">정용화</a>
+        <a href="https://github.com/WOOJo11">조우형</a>
         <br>
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="#">공지사항</a>
+        <a href="#">1:1문의</a>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
         <a href="https://www.naver.com">
@@ -64,7 +64,7 @@
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </a>
-        <a href="https://www.google.com">
+        <a href="#" onclick="scrollToTop()">
             <button>
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
@@ -76,7 +76,7 @@
 
     
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </footer>
 <!-- Template-footer 끝 -->
     
@@ -91,5 +91,15 @@
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+
+<%-- 위로가기버튼 --%>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
 </body>
 </html>

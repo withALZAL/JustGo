@@ -29,11 +29,11 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </header>
 <!-- Template-header 끝 -->
 
@@ -44,7 +44,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
     
 
@@ -69,7 +69,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
     
@@ -80,7 +80,7 @@
 
 <!-- Template-footer 시작 -->
 <footer class="template--footer">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -129,7 +129,7 @@
 
     
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </footer>
 <!-- Template-footer 끝 -->
     
