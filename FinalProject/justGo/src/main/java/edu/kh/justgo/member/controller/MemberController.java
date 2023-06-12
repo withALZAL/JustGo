@@ -69,9 +69,11 @@ public class MemberController {
 	
 	// 로그아웃
 	@GetMapping("/account/logout")
-	public String logout(SessionStatus status, HttpSession session) {
+	public String logout(RedirectAttributes ra, SessionStatus status, HttpSession session) {
 		
 		status.setComplete();
+
+		ra.addFlashAttribute("message", "로그아웃되었습니다.");
 		
 		return "redirect:/";
 	}
