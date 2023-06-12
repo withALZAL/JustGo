@@ -1,0 +1,377 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 관리자 공통 ----------------------------------------------- */
+
+/* 관리자 컨테이너 */
+.manager--contentContainer {
+    height: 700px;
+    display: grid;
+    place-items: center;
+}
+
+/* 콘텐츠 박스 조정 */
+.manager--contentBox {
+    height: 600px;
+    width: 90%;
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 160px 1fr ;
+    place-items: center;
+}
+
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
+}
+.manager--sidebar {
+    width: 150px;
+    height: 50%;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.manager--sidebar a {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.manager--sidebar i {
+    padding-right: 5px;
+}
+
+/* 관리자 사이드바 상호작용 */
+.manager--sidebar a:hover {
+    color: #8B89FF;
+}
+
+/* mainBox 조정 */
+.manager--mainBox {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+
+/* 통계박스 조정 */
+.manager--statisticsBox {
+    height: 100px;
+    width: 1100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 통계 컨텐츠 조정 */
+.manager--statistics {
+    height: 80px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-columns: 80px 120px;
+}
+
+/* 통계 아이콘 조정 */
+.manager--statistics > div:nth-child(1) {
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+}
+
+/* 통계 텍스트 조정 */
+.manager--statistics > div:nth-child(2) {
+    display: grid;
+    grid-template-rows: 20px 60px;
+    align-items: center;
+    padding: 5px 0 5px;
+}
+.manager--statistics > div:nth-child(2) > div:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 매니저 개별 컨텐츠 조정 */
+.manager--content {
+    height: 500px;
+    width: 1100px;
+}
+
+/* 컨텐츠 배치 조정 */
+.manager--content {
+    display: grid;
+    grid-template-rows: 450px 1fr;
+}
+
+/* 컨텐츠 페이지 조정 */
+.manager--content > form:first-child {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    place-items: center;
+}
+
+/* 컨텐츠 리스트 조정 */
+.manager--contentList {
+    background-color: grey;
+}
+
+/* 컨텐츠 검색창 조정 */
+.manager--contentSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 회원관리 ----------------------------------------------- */
+
+/* 회원관리 테이블 조정*/
+.manager--memberTable {
+    padding: 50px;
+    margin: 50px;
+}
+
+/* 컬럼 조정 */
+.manager--memberTable th,
+.manager--memberTable td{
+    border-bottom: 1px solid #D9D9D9;
+    padding: 3px 0 3px;
+}
+.manager--memberTable th {
+    border-top: 1px solid #D9D9D9;
+    background-color: grey;
+}
+.manager--memberTable th:nth-child(1), /* 번호 컬럼 */
+.manager--memberTable td:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+.manager--memberTable th:nth-child(2), /* 닉네임 컬럼 */
+.manager--memberTable td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+.manager--memberTable th:nth-child(3), /* 이메일 컬럼 */
+.manager--memberTable td:nth-child(3) {
+    width: 350px;
+    max-width: 300px;
+}
+.manager--memberTable th:nth-child(3) {
+    text-align: center;
+}
+.manager--memberTable th:nth-child(4), /* 가입입 컬럼 */
+.manager--memberTable td:nth-child(4) {
+    width: 200px;
+    text-align: center;
+}
+.manager--memberTable th:nth-child(5), /* 계정상태 컬럼 */
+.manager--memberTable td:nth-child(5) {
+    width: 100px;
+    text-align: center;
+}
+.manager--memberTable th:nth-child(6), /* 작성글 컬럼 */
+.manager--memberTable td:nth-child(6) {
+    width: 100px;
+    text-align: center;
+}
+
+
+/* 신고 ----------------------------------------------- */
+
+/* 신고 테이블 조정 */
+.manager--reportTable {
+    padding: 50px;
+    margin: 50px;
+}
+
+/* 컬럼 조정 */
+.manager--reportTable th,
+.manager--reportTable td{
+    border-bottom: 1px solid #D9D9D9;
+    padding: 5px 0 5px;
+}
+.manager--reportTable th {
+    border-top: 1px solid #D9D9D9;
+    background-color: grey;
+}
+.manager--reportTable th:nth-child(1), /* 번호 컬럼 */
+.manager--reportTable td:nth-child(1) {
+    width: 50px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(2), /* 신고자 컬럼 */
+.manager--reportTable td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(3), /* 신고사유 컬럼 */
+.manager--reportTable td:nth-child(3) {
+    width: 100px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(4), /* 글제목 컬럼 */
+.manager--reportTable td:nth-child(4) {
+    width: 300px;
+    max-width: 300px;
+}
+.manager--reportTable th:nth-child(4) {
+    text-align: center;
+}
+.manager--reportTable th:nth-child(5), /* 글작성자 컬럼 */
+.manager--reportTable td:nth-child(5) {
+    width: 150px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(6), /* 신고일 컬럼 */
+.manager--reportTable td:nth-child(6) {
+    width: 200px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(7), /* 처리상태 컬럼 */
+.manager--reportTable td:nth-child(7) {
+    width: 100px;
+    text-align: center;
+}
+
+/* 1:1문의 ----------------------------------------------- */
+
+/* 1:1문의 테이블 조정 */
+.manager--inquiryTable {
+    padding: 50px;
+    margin: 50px;
+}
+
+/* 컬럼 조정 */
+.manager--inquiryTable th,
+.manager--inquiryTable td{
+    border-bottom: 1px solid #D9D9D9;
+    padding: 5px 0 5px;
+}
+.manager--inquiryTable th {
+    border-top: 1px solid #D9D9D9;
+    background-color: grey;
+}
+.manager--inquiryTable th:nth-child(1), /* 번호 컬럼 */
+.manager--inquiryTable td:nth-child(1) {
+    width: 50px;
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(2), /* 닉네임 컬럼 */
+.manager--inquiryTable td:nth-child(2) {
+    width: 150px;
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(3), /* 문의제목 컬럼 */
+.manager--inquiryTable td:nth-child(3) {
+    width: 500px;
+    max-width: 500px;
+}
+.manager--inquiryTable th:nth-child(3) {
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(4), /* 문의일 컬럼 */
+.manager--inquiryTable td:nth-child(4) {
+    width: 200px;
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(5), /* 처리상태 컬럼 */
+.manager--inquiryTable td:nth-child(5) {
+    width: 100px;
+    text-align: center;
+}
+
+/* 1:1문의 답변 ----------------------------------------------- */
+
+/* 1:1문의 전용 박스 조정 */
+.manager--inquiryAnswerBox {
+    height: 500px;
+    width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 문의 박스 */
+.manager--inquiryLeft {
+    display: grid;
+    grid-template-rows: 50px 30px 1fr;
+    align-items: center;
+    border-right: 1px solid #D9D9D9;
+    padding: 0 25px 0;
+}
+
+/* 문의 박스 제목 */
+.manager--inquiryLeft > div:nth-child(1) {
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color: #D9D9D9;
+    padding: 0 15px 0;
+}
+
+/* 문의 박스 작성자/작성일 */
+.manager--inquiryLeft > div:nth-child(2) {
+    text-align: right;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+/* 문의 내용 본문 */
+.manager--inquiryText {
+    background-color: #D9D9D9;
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    height: 400px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+/* 답변 박스 */
+.manager--answerRight {
+    display: grid;
+    grid-template-rows: 50px 30px 1fr;
+    align-items: center;
+    padding: 0 25px 0;
+}
+
+/* 답변 박스 제목 */
+.manager--answerRight > div:nth-child(1) {
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color: grey;
+    color: white;
+    padding: 0 15px 0;
+}
+
+/* 이스터에그 */
+.manager--inquiryLeft > div:nth-child(2) {
+    text-align: right;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+/* 답변 내용 본문/버튼 배치 */
+.manager--answerRight form {
+    display: grid;
+    grid-template-rows: 1fr 30px;
+    gap: 10px;
+}
+.manager--answerRight form > textarea {
+    width: 500px;
+    height: 360px;
+    padding: 30px;
+    border: none;
+    background-color: #D9D9D9;
+}
+.manager--answerRight form > div {
+    display: flex;
+    justify-content: right;
+}
