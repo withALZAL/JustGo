@@ -16,6 +16,7 @@
 	<typeAliases>
 	<typeAlias type="edu.kh.justgo.member.model.dto.Member" alias="Member"/>	
 	<typeAlias type="edu.kh.justgo.board.model.dto.Board" alias="Board"/>	
+	<typeAlias type="edu.kh.justgo.manager.model.dto.Manager" alias="Manager"/>	
 		
 	</typeAliases>
 
@@ -23,6 +24,7 @@
 	<mappers>
 	<mapper resource="/mappers/member-mapper.xml"/>
 	<mapper resource="/mappers/board-mapper.xml"/>
+	<mapper resource="/mappers/manager-mapper.xml"/>
 	</mappers>
 
 

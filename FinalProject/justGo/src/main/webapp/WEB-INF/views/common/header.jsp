@@ -56,12 +56,12 @@
         </a>
     </form>
     <form action="/account/login" method="post">
-        <a href="#">
-            <input type="hidden" name="userEmail" value="user@kh.or.kr">
-            <input type="hidden" name="userPW" value="pass01!">
-
-            <button type="button" class="btn btn-secondary btn-sm">로그인</button>
-        </a>
+        
+            <input type="hidden" name="memberEmail" value="user@kh.or.kr">
+            <input type="hidden" name="memberPw" value="pass01!">
+            
+            <button class="btn btn-secondary btn-sm">로그인</button>
+    
     </form>
     <form action="https://www.naver.com" method="get">
         <a href="/html/common/error.html">
@@ -78,11 +78,9 @@
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
         </a>
     </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
-        </a>
-    </form>
+    <a href="/manager/memberManager">
+        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+    </a>
 </nav>
 <!-- loginNav 끝 -->
 
@@ -100,14 +98,16 @@
             </button>
         </form>
     </div>
+    <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="https://www.naver.com">
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
-                <div>폭탄배달부키키</div>
+                <div>${loginMember.memberNickname}</div>
             </a>
         </div>
     </div>
+    </c:if>
 </header>
 <!-- header 끝 -->
 
