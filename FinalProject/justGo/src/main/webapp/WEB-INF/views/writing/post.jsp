@@ -324,10 +324,23 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/header.js"></script>
+    <script src="/resources/js/common/main.js"></script>
+=======
+=======
+>>>>>>> origin/main
     <script src="/resourcesjs/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/writing/post.js"></script>
+<<<<<<< HEAD
+    <script src="/resources/js/writing/post.js"></script>
+>>>>>>> origin/main
+=======
+>>>>>>> origin/main
     <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>

@@ -9,20 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.member.model.service.MemberService;
 
-
+@SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	@PostMapping("/login")
+	// 로그인 페이지로 이동
+	@GetMapping("/account/login")
+	public String login() {
+		return "/account/login";
+	}
+	
+	@PostMapping("/account/login")
 	public String login(String memberEmail, String memberPw,
 			Model model, HttpServletResponse resp ,RedirectAttributes ra
 			,@RequestHeader(value = "referer") String referer) {

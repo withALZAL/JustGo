@@ -45,9 +45,9 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="https://www.naver.com">
+            <a href="/manager/reportManager">
                 관리자_신고
             </a>
         </div>
@@ -62,10 +62,10 @@
 <div class="manager--contentBox">
     <aside class="manager--sideContainer">
         <div class="manager--sidebar">
-            <a href="https://www.naver.com"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
-            <a href="https://www.naver.com"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="https://www.naver.com"><i class="fa-solid fa-comments"></i>1:1문의</a>
-            <a href="https://www.naver.com"><i class="fa-solid fa-clipboard"></i>신고</a>
+            <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
+            <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
+            <a href="/manager/inquiryManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
+            <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
         </div>
     </aside>
     <div class="manager--mainBox">
