@@ -51,7 +51,7 @@
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
-        <form action="https://www.naver.com" method="post">
+        <form action="/account/login" method="post">
             <div class="account--loginImage">
                 <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 이미지">
             </div>
@@ -59,15 +59,15 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="email" placeholder="이메일을 입력해주세요."></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요."></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요."></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요."></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">로그인</button>
+                    <button class="btn btn-secondary btn-sm" style="background-color: blueviolet;">로그인</button>
                     <button type="button" class="btn btn-secondary btn-sm">취소</button>
                 </div>
             </div>
