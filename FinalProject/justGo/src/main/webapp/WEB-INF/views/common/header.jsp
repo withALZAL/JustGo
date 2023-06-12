@@ -61,18 +61,21 @@
             <input type="hidden" name="memberPw" value="pass01!">
             
             <button class="btn btn-secondary btn-sm">로그인</button>
-    
     </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
+
+    <form>
+        <a href="/account/logout">
             <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
         </a>
     </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
+
+    <form>
+        <a href="/account/join">
             <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
         </a>
     </form>
+
+
     <form action="/html/account/myPage.html" method="get">
         <a href="/html/account/myPage.html">
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>

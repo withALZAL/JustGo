@@ -23,6 +23,8 @@
 	<mappers>
 	<mapper resource="/mappers/member-mapper.xml"/>
 	<mapper resource="/mappers/manager-mapper.xml"/>
+	<mapper resource="/mappers/email-mapper.xml"/>
+	
 	</mappers>
 
 
