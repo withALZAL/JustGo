@@ -55,8 +55,11 @@
             <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
-    <form action="/html/account/login.html" method="get">
-        <a href="/html/account/login.html">
+    <form action="/account/login" method="post">
+        <a href="#">
+            <input type="hidden" name="userEmail" value="user@kh.or.kr">
+            <input type="hidden" name="userPW" value="pass01!">
+
             <button type="button" class="btn btn-secondary btn-sm">로그인</button>
         </a>
     </form>
