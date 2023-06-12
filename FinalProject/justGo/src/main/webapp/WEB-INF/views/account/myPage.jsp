@@ -77,7 +77,9 @@
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
+                    <a href="/myPage/updateInfo">
+                        <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
+                    </a>
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" class="btn btn-secondary btn-sm">비밀번호 찾기</button>
                     <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">회원탈퇴</button>

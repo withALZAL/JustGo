@@ -36,7 +36,7 @@
 <footer class="common--footerContainer">
     <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
-        <b><a href="https://github.com/withALZAL">주식회사 저스트고</a></b> <%-- 팀 github로 이동 --%>
+        <b><a href="https://github.com/withALZAL" target="_blank">주식회사 저스트고</a></b> <%-- 팀 github로 이동 --%>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
@@ -44,13 +44,13 @@
         사업자등록번호 : 899-89-00001<br>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://github.com/NewTypeAsuka">이상준</a> | <%-- 개인 github로 이동 --%>
+        대표: <a href="https://github.com/NewTypeAsuka" target="_blank">이상준</a> | <%-- 개인 github로 이동 --%>
         이사: 
-        <a href="https://github.com/pakjongwook">박종욱</a>
-        <a href="https://github.com/stane0120">배진현</a>
-        <a href="https://github.com/nalsong">정송이</a>
-        <a href="https://github.com/jyh1108">정용화</a>
-        <a href="https://github.com/WOOJo11">조우형</a>
+        <a href="https://github.com/pakjongwook" target="_blank">박종욱</a>
+        <a href="https://github.com/stane0120" target="_blank">배진현</a>
+        <a href="https://github.com/nalsong" target="_blank">정송이</a>
+        <a href="https://github.com/jyh1108" target="_blank">정용화</a>
+        <a href="https://github.com/WOOJo11" target="_blank">조우형</a>
         <br>
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>

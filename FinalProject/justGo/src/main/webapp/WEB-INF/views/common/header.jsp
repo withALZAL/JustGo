@@ -81,33 +81,49 @@
             
             <button class="btn btn-secondary btn-sm">로그인</button>
     </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
-        </a>
-    </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
-            <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
-        </a>
-    </form>
-    <form action="/html/account/myPage.html" method="get">
-        <a href="/html/account/myPage.html">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form>
-        <a href="/manager/memberManager">
-            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+
+    <form action="#">
+        <a href="#">
+            ---임시용|||실사용---
         </a>    
     </form>
-    <form>
-        <a href="/account/login">
-            <button type="button" class="btn btn-secondary btn-sm">로그인페이지로이동!</button>
-        </a>
-    </form>
+
+    <c:choose>
+        <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
+            <form>
+                <a href="/account/login">
+                    <button type="button" class="btn btn-secondary btn-sm">로그인</button>
+                </a>
+            </form>
+            <form action="/html/account/join.html" method="get">
+                <a href="/html/account/join.html">
+                    <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
+                </a>
+            </form>
+        </c:when>
+        <c:otherwise> <%-- 로그인했을 때 --%>
+            <form>
+                <a href="/account/logout" id="logoutBtn">
+                    <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
+                </a>
+            </form>
+            <form>
+                <a href="/myPage/info">
+                    <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
+                </a>
+            </form>
+            <%-- <c:if> --%> <%-- 로그인했는데 관리자였을 때 --%>
+                <form>
+                    <a href="/manager/memberManager">
+                        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+                    </a>    
+                </form>
+            <%-- </c:if> --%>
+        </c:otherwise>
+    </c:choose>
 </nav>
 <!-- loginNav 끝 -->
+
 
 
 <!-- header 시작 -->
@@ -139,7 +155,7 @@
 
 
 <!-- nav 시작 -->
-<nav class="common--navContainer">
+<nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>

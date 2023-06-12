@@ -43,31 +43,81 @@
 <div class="common--bannerContainer">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <c:choose>
+            <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </c:when>
+            <c:otherwise> <%-- 로그인했을 때 --%>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            </c:otherwise>
+        </c:choose>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="5000">
-                <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
-                    <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
-                </a>
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 class="common--bannerText">AUSTRALIA</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
-                </div>
-            </div>
+            <c:choose>
+                <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
+                            <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="common--bannerText">AUSTRALIA</h1>
+                            <p class="common--bannerWelcome">
+                            <c:if test="${!empty sessionScope.loginMember}">
+                                ${loginMember.memberNickname}님, 환영합니다.
+                            </c:if>
+                            즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                        </div>
+                    </div>
+                </c:when>
+                <c:otherwise> <%-- 로그인했을 때 --%>
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <a href="http://vietnamtourism.or.kr/" target="_blank">
+                            <img src="/resources/images/officialBanner/BANNERWELCOME.png" class="d-block w-100" alt="베트남 배너">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="common--bannerText" style="text-align: center;">${loginMember.memberNickname}님, 환영합니다!</h1>
+                            <p class="common--bannerWelcome">JustGo에서 즐거운 시간 보내세요!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
+                            <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="common--bannerText">AUSTRALIA</h1>
+                            <p class="common--bannerWelcome">
+                            <c:if test="${!empty sessionScope.loginMember}">
+                                ${loginMember.memberNickname}님, 환영합니다.
+                            </c:if>
+                            즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
             <div class="carousel-item" data-bs-interval="5000">
                 <a href="https://www.visitbeijing.or.kr/" target="_blank"> <%-- 베이징 관광청 --%>
                     <img src="/resources/images/officialBanner/BANNERBEIJING.png" class="d-block w-100" alt="베이징 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">BEIJING</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -76,7 +126,11 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">KYOTO</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -85,7 +139,11 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">SHANGHAI</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -94,7 +152,11 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">THAI</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -103,7 +165,11 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">TOKYO</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -112,7 +178,11 @@
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="common--bannerText">VIETNAM</h1>
-                    <p class="common--bannerWelcome">즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
+                    <p class="common--bannerWelcome">
+                    <c:if test="${!empty sessionScope.loginMember}">
+                        ${loginMember.memberNickname}님, 환영합니다.
+                    </c:if>
+                    즐거운 여행 커뮤니티 JustGo에 어서오세요.</p>
                 </div>
             </div>
         </div>
