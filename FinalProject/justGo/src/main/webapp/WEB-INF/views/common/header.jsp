@@ -28,16 +28,36 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
 
 <!-- loginNav 시작 -->
-<nav class="common--loginNav__container">
+<nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">에러</button>
+        </a>
+    </form>
     <form action="/html/board/boardNotice.html" method="get">
         <a href="/html/board/boardNotice.html">
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
     <form action="/html/writing/writingQuestion.html" method="get">
@@ -56,7 +76,6 @@
         </a>
     </form>
     <form action="/account/login" method="post">
-        
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
             
@@ -97,11 +116,11 @@
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/account">
+    <a href="/"> <%-- 메인페이지로 이동 --%>
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
-        <form action="https://www.naver.com" method="get">
+        <form action="#" method="get"> <%-- 전체 게시글 검색 --%>
             <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
             <button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -111,7 +130,7 @@
     <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
-            <a href="https://www.naver.com">
+            <a href="#"> <%-- 마이페이지로 이동 --%>
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>${loginMember.memberNickname}</div>
             </a>
@@ -142,12 +161,6 @@
         <li class="nav-item">
             <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
     </ul>
 </nav>
 <!-- nav 끝 -->
@@ -155,15 +168,15 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </header>
 <!-- Template-header 끝 -->
 
-    
-    
+
+
 <!-- ----------------------------------------------- -->
 
-    
+
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

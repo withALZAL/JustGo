@@ -28,12 +28,6 @@
     grid-template-columns: 1fr 1400px 1fr;
 }
 
-/* leftAside/rightAside 임시 조정 */
-.template--leftAside,
-.template--rightAside {
-    background-color: grey;
-}
-
 /* template3 ----------------------------------------------- */
 
 /* 페이지 제목 */
