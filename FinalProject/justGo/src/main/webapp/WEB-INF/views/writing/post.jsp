@@ -189,13 +189,13 @@
 </div>
 <div class="writing--postBottomBox">
     <form action="#" method="post">
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm">수정</button>
     </a>
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm">취소</button>
     </a>
-    <a href="/html/common/main.html">
+    <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">삭제</button>
     </a>
     </form>
@@ -254,7 +254,7 @@
         <tr>
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
-                <span class="writing--commentProfileBox__profileImage"><img src="/images/officialProfile/GITHUBICON.png" alt="프로필 이미지"></span>
+                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/GITHUBICON.png" alt="프로필 이미지"></span>
                 <span class="writing--commnetProfileBox__profileName">GITCATic</span>
             </th>
             <td class="writing--commentContentBox">
@@ -274,7 +274,7 @@
         </tr>
         <tr>
             <th class="writing--commentProfileBox">
-                <span class="writing--commentProfileBox__profileImage"><img src="/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
+                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
                 <span class="writing--commnetProfileBox__profileName">마루코는열여덟살</span>
             </th>
             <td class="writing--commentContentBox">
@@ -324,10 +324,10 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/resources/js/template/template.js"></script>
+    <script src="/resourcesjs/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
-    <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/post.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>
