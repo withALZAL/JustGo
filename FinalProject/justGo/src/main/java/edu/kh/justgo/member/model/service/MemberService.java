@@ -8,4 +8,6 @@ public interface MemberService {
 
 	Member login(Map<String, Object> map);
 
+	int joinUp(Member inputMember);
+
 }
