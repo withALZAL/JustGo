@@ -36,7 +36,7 @@
 <footer class="common--footerContainer">
     <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
-        <b><a href="https://github.com/withALZAL">주식회사 저스트고</a></b>
+        <b><a href="https://github.com/withALZAL">주식회사 저스트고</a></b> <%-- 팀 github로 이동 --%>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
@@ -44,7 +44,7 @@
         사업자등록번호 : 899-89-00001<br>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://github.com/NewTypeAsuka">이상준</a> |
+        대표: <a href="https://github.com/NewTypeAsuka">이상준</a> | <%-- 개인 github로 이동 --%>
         이사: 
         <a href="https://github.com/pakjongwook">박종욱</a>
         <a href="https://github.com/stane0120">배진현</a>
@@ -55,16 +55,16 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="#">공지사항</a>
-        <a href="#">1:1문의</a>
+        <a href="#">공지사항</a> <%-- 공지사항으로 이동 --%>
+        <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
-        <a href="https://www.naver.com">
+        <a href="https://www.naver.com"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </a>
-        <a href="#" onclick="scrollToTop()">
+        <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
