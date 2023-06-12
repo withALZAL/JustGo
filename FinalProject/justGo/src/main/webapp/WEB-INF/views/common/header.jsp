@@ -37,7 +37,27 @@
 <nav class="common--loginNav__container">
     <form action="/html/board/boardNotice.html" method="get">
         <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">에러</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
     <form action="/html/writing/writingQuestion.html" method="get">
@@ -94,7 +114,7 @@
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/account">
+    <a href="/"> <%-- 메인페이지로 이동 --%>
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
