@@ -25,16 +25,17 @@
       <!-- DB의 기본 키(복합키면 여러 개 작성) -->
       <id property="memberNo" column="MEMBER_NO" />
 
-      <!-- DB의 일반 컬럼들 -->
-      <result property="memberEmail" column="MEMBER_EMAIL" />
+        <result property="memberEmail" column="MEMBER_EMAIL" />
       <result property="memberPw" column="MEMBER_PW" />
       <result property="memberNickname" column="MEMBER_NICKNAME" />
-      <result property="memberTel" column="MEMBER_TEL" />
-      <result property="memberAddress" column="MEMBER_ADDR" />
-      <result property="profileImage" column="PROFILE_IMG" />
+      <result property="memberRole" column="MEMBER_ROLE" />
+      <result property="profileImg" column="PROFILE_IMG" />
       <result property="enrollDate" column="ENROLL_DATE" />
-      <result property="memberDeleteFlag" column="MEMBER_DEL_FL" />
-      <result property="authority" column="AUTHORITY" />
+      <result property="disableDate" column="DISABLE_DATE" />
+      <result property="deleteDate" column="DELETE_DATE" />
+      <result property="memberCondition" column="MEMBER_CONDITION" />
+      <result property="setAlarmReply" column="SET_AL_REPLY" />
+      <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
 
@@ -84,12 +85,13 @@
 	 
 	<!-- <select id="login" parameterType="edu.kh.project.member.model.dto.Member"> -->
 	<select id="login" parameterType="Member" resultMap="member_rm">
-	SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,MEMBER_TEL,MEMBER_ADDR,PROFILE_IMG,
-AUTHORITY, TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시"
+	SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
+ TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시"
 MI"분" SS"초"')
 FROM MEMBER
-WHERE MEMBER_DEL_FL = 'N'
+WHERE MEMBER_CONDITION  = 'N'
 AND MEMBER_EMAIL = #{memberEmail}
+
                                    
 	</select>
 	
