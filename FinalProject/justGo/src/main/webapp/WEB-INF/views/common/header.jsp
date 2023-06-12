@@ -78,11 +78,9 @@
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
         </a>
     </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
-        </a>
-    </form>
+    <a href="/manager/memberManager">
+        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+    </a>
 </nav>
 <!-- loginNav 끝 -->
 
