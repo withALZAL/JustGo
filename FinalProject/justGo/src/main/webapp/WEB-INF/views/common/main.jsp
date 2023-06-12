@@ -21,191 +21,13 @@
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
-<body class="template--body">
+<%-- <body class="template--body"> --%>
 
 
 
 <!-- ----------------------------------------------- -->
 
-
-<!-- Template-header 시작 -->
-<header class="template--header">
-<aside class="template--leftAside">left</aside>
-<section class="template--Section">
-
-
-
-<!-- loginNav 시작 -->
-<nav class="common--loginNav__container">
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
-        </a>
-    </form>
-    <form action="/html/writing/writingQuestion.html" method="get">
-        <a href="/html/writing/writingQuestion.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="/html/writing/post.html" method="get">
-        <a href="/html/writing/post.html">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form action="/html/writing/writingBoard.html" method="get">
-        <a href="/html/writing/writingBoard.html">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
-        </a>
-    </form>
-    <form action="/html/account/login.html" method="get">
-        <a href="/html/account/login.html">
-            <button type="button" class="btn btn-secondary btn-sm">로그인</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
-        </a>
-    </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
-            <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
-        </a>
-    </form>
-    <form action="/html/account/myPage.html" method="get">
-        <a href="/html/account/myPage.html">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form action="/html/account/updateInfo.html" method="get">
-        <a href="/html/account/updateInfo.html">
-            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">관리자1</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">관리자2</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">관리자3</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/writing/writingQuestion.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">에러</button>
-        </a>
-    </form>
-    <form action="https://www.naver.com" method="get">
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            로그인 모달
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">로그인</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div style="display: grid; place-items: center; padding: 10px 0 50px 0;">
-                        <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 로고" style="height: 100px;">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1" style="width: 80px;">이메일</span>
-                        <input type="email" class="form-control" placeholder="이메일을 입력해주세요." aria-label="email" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1" style="width: 80px;">비밀번호</span>
-                        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요." aria-label="password" aria-describedby="basic-addon1">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">로그인</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</nav>
-<!-- loginNav 끝 -->
-
-
-<!-- header 시작 -->
-<header class="common--header__container">
-    <a href="/html/common/main.html">
-        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
-    </a>
-    <div class="common--header__searchContainer">
-        <form action="https://www.naver.com" method="get">
-            <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
-            <button type="button" class="btn btn-secondary">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
-    </div>
-    <div class="common--header__profileContainer">
-        <div class="common--header__profileBox">
-            <a href="https://www.naver.com">
-                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
-                <div>폭탄배달부키키</div>
-            </a>
-        </div>
-    </div>
-</header>
-<!-- header 끝 -->
-
-
-
-<!-- nav 시작 -->
-<nav class="common--navContainer">
-    <ul class="nav justify-content-around" id="common--boardList">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
-            <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardFree.html">자유게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
-    </ul>
-</nav>
-<!-- nav 끝 -->
-
-
-
-</section>
-<aside class="template--rightAside">right</aside>
-</header>
-<!-- Template-header 끝 -->
-
-
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <!-- ----------------------------------------------- -->
 
@@ -813,76 +635,18 @@
 <!-- Template-main 끝 -->
     
     
-    
 <!-- ----------------------------------------------- -->
-    
-
 <!-- Template-footer 시작 -->
-<footer class="template--footer">
-<aside class="template--leftAside">left</aside>
-<section class="template--Section">
-
-
-
-<!-- footer 시작 -->
-<footer class="common--footerContainer">
-    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
-    <div>
-        <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
-        <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
-        <hr>
-        서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
-        사업자등록번호 : 899-89-00001<br>
-        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
-        <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://www.naver.com">이상준</a> |
-        이사: 
-        <a href="https://www.naver.com">박종욱</a>
-        <a href="https://www.naver.com">배진현</a>
-        <a href="https://www.naver.com">정송이</a>
-        <a href="https://www.naver.com">정용화</a>
-        <a href="https://www.naver.com">조우형</a>
-        <br>
-        Copyright © 1998-2023 JustGo All Right Reserved<br>
-    </div>
-    <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
-    </div>
-    <div class="fixed-bottom" id="common--toTopBtn">
-        <a href="https://www.naver.com">
-            <button>
-                <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-        </a>
-        <a href="https://www.google.com">
-            <button>
-                <i class="fa-solid fa-arrow-up"></i>
-            </button>
-        </a>
-    </div>
-</footer>
-<!-- footer 끝 -->
-
-
-    
-</section>
-<aside class="template--rightAside">right</aside>
-</footer>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
-    
-    
-    
 <!-- ----------------------------------------------- -->
-
     
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
-    <script src="/resources/js/common/header.js"></script>
+    <%-- <script src="/resources/js/common/header.js"></script> --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 </body>

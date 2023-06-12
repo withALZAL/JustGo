@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- css -->
-    <link rel="stylesheet" href="/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/css/common/footer.css">
+    <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
 
     <title>JustGo-footer</title>
 
@@ -20,47 +20,6 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
 <body class="template--body">
-
-
-
-<!-- ----------------------------------------------- -->
-
-
-<!-- Template-header 시작 -->
-<header class="template--header">
-<aside class="template--leftAside">left</aside>
-<section class="template--Section">
-
-</section>
-<aside class="template--rightAside">right</aside>
-</header>
-<!-- Template-header 끝 -->
-
-
-
-<!-- ----------------------------------------------- -->
-
-
-<!-- Template-main 시작 -->
-<main class="template--main">
-<aside class="template--leftAside">left</aside>
-<section class="template--Section">
-
-
-
-<!-- 실험용 div 시작 -->
-<div style="height: 2000px; background-color: grey;">
-    실험용 div
-</div>
-<!-- 실험용 div 끝 -->
-
-
-    
-</section>
-<aside class="template--rightAside">right</aside>
-</main>
-<!-- Template-main 끝 -->
-    
     
     
 <!-- ----------------------------------------------- -->
@@ -75,15 +34,15 @@
 
 <!-- footer 시작 -->
 <footer class="common--footerContainer">
-    <img src="/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
+    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
         <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
         서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
         사업자등록번호 : 899-89-00001<br>
-        <img src="/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
+        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
         대표: <a href="https://www.naver.com">이상준</a> |
         이사: 
@@ -130,7 +89,7 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/js/template/template.js"></script>
-    <script src="/js/common/footer.js"></script>
+    <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>
