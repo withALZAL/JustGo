@@ -91,5 +91,15 @@
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+
+      <script>
+    
+    // EL / JSTl 구문이 먼저 해석되는데
+    // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야 한다
+
+    // alert('${message}');
+
+    </script>
+
 </body>
 </html>
