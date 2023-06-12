@@ -13,4 +13,14 @@ public class BoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	public List<Map<String, Object>> selectBoardTypeList() {
+		
+		return sqlSession.selectList("boardMapper.selectBoardTypeList");
+	}
+
+	public List<Map<String, Object>> selectCountryList() {
+		
+		return sqlSession.selectList("boardMapper.selectCountryList");
+	}
+
 }

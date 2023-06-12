@@ -17,7 +17,7 @@ public class Board {
     private String boardTitle;
     private String boardText;
     private String createDate;
-    private String boardUpdateDate;
+    private String boardUpdate;
     private int readCount;
     private int boardCode;
     private String boardDelete;
