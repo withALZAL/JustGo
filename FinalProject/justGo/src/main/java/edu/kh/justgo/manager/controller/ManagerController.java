@@ -14,7 +14,6 @@ public class ManagerController {
 	@Autowired
 	private ManagerService service;
 	
-	
 	// 회원관리 관리자페이지 연결
 	@GetMapping("/memberManager")
 	public String memberManager() {
