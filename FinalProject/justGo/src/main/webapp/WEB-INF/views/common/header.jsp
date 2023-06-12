@@ -78,16 +78,23 @@
             <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
         </a>
     </form>
-    <a href="/manager/memberManager">
-        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
-    </a>
+    <form>
+        <a href="/manager/memberManager">
+            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+        </a>    
+    </form>
+    <form>
+        <a href="/account/login">
+            <button type="button" class="btn btn-secondary btn-sm">로그인페이지로이동!</button>
+        </a>
+    </form>
 </nav>
 <!-- loginNav 끝 -->
 
 
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/html/common/main.html">
+    <a href="/account">
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
