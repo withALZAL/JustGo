@@ -316,62 +316,7 @@
     
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
-<<<<<<< HEAD
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-=======
-<footer class="template--footer">
-<aside class="template--leftAside">left</aside>
-<section class="template--Section">
-
-
-
-<!-- footer 시작 -->
-<footer class="common--footerContainer">
-    <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
-    <div>
-        <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
-        <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
-        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
-        <hr>
-        서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F<br>
-        사업자등록번호 : 899-89-00001<br>
-        <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
-        <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://www.naver.com">이상준</a> |
-        이사: 
-        <a href="https://www.naver.com">박종욱</a>
-        <a href="https://www.naver.com">배진현</a>
-        <a href="https://www.naver.com">정송이</a>
-        <a href="https://www.naver.com">정용화</a>
-        <a href="https://www.naver.com">조우형</a>
-        <br>
-        Copyright © 1998-2023 JustGo All Right Reserved<br>
-    </div>
-    <div class="common--footerRight">
-        <a href="/resources/html/board/boardNotice.html">공지사항</a>
-        <a href="/resources/html/board/boardNotice.html">1:1문의</a>
-    </div>
-    <div class="fixed-bottom" id="common--toTopBtn">
-        <a href="https://www.naver.com">
-            <button>
-                <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-        </a>
-        <a href="https://www.google.com">
-            <button>
-                <i class="fa-solid fa-arrow-up"></i>
-            </button>
-        </a>
-    </div>
-</footer>
-<!-- footer 끝 -->
-
-
-    
-</section>
-<aside class="template--rightAside">right</aside>
-</footer>
->>>>>>> origin/main
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -380,17 +325,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
 =======
+=======
+>>>>>>> origin/main
     <script src="/resourcesjs/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/writing/post.js"></script>
+<<<<<<< HEAD
     <script src="/resources/js/writing/post.js"></script>
 >>>>>>> origin/main
+=======
+>>>>>>> origin/main
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/writing/post.js"></script>
 </body>
 </html>

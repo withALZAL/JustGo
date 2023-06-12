@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/writing/writingBoard.css">
 
+    <!-- summerNote css 추가  -->
+    <link rel="stylesheet" href="/resources/css/summernote/summernote-lite.css">
+
+
     <title>JustGo-writingBoard</title>
 
 <!-- bootstrap -->
@@ -76,9 +80,9 @@
                 </div>
             </div>
         <div class="writing--inputContentBox">
-        <div class="writing--summernoteBox">
-            여기에 썸머노트를 넣습니다.
-        </div>
+            <div class="writing--summernoteBox" id="summernote">
+                hello summernote 여기에 썸머노트를 넣습니다.
+            </div>
         <div class="writing--ButtonBox">
             <a href="/resources/html/common/main.html">
                 <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
@@ -110,6 +114,12 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <!-- summerNote script 추가 -->
+    <script src="/js/summernote/summernote-lite.js"></script>
+    <!-- summerNote script 추가 -->
+    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
