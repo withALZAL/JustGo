@@ -21,7 +21,7 @@
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
-<%-- <body class="template--body"> --%>
+<body class="template--body">
 
 
 
