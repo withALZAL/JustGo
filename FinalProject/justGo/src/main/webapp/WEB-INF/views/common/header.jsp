@@ -34,7 +34,7 @@
 
 
 <!-- loginNav 시작 -->
-<nav class="common--loginNav__container">
+<nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
     <form action="/html/board/boardNotice.html" method="get">
         <a href="/html/board/boardNotice.html">
             <button type="button" class="btn btn-secondary btn-sm">에러</button>
@@ -76,12 +76,10 @@
         </a>
     </form>
     <form action="/account/login" method="post">
-        
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
             
             <button class="btn btn-secondary btn-sm">로그인</button>
-    
     </form>
     <form action="https://www.naver.com" method="get">
         <a href="/html/common/error.html">
@@ -118,7 +116,7 @@
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
-        <form action="https://www.naver.com" method="get">
+        <form action="#" method="get"> <%-- 전체 게시글 검색 --%>
             <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
             <button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -128,7 +126,7 @@
     <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
-            <a href="https://www.naver.com">
+            <a href="#"> <%-- 마이페이지로 이동 --%>
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>${loginMember.memberNickname}</div>
             </a>
