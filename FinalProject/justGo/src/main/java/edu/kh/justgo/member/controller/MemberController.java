@@ -3,6 +3,7 @@ package edu.kh.justgo.member.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	@PostMapping
+	@PostMapping("/login")
 	public String login(String memberEmail, String memberPw,
 			Model model, HttpServletResponse resp ,RedirectAttributes ra
 			,@RequestHeader(value = "referer") String referer) {
@@ -36,13 +37,21 @@ public class MemberController {
 		if(loginMember != null) {
 			path += "/";
 			model.addAttribute("loginMember", loginMember); // 로그인 유저 정보
-		}else {
 			
+			Cookie cookie = new Cookie("map", loginMember.getMemberEmail());
+			if(loginMember != null) {
+				cookie.setMaxAge(60*60*24*30);
+			} 
+			cookie.setPath("/");
+			resp.addCookie(cookie);
+			
+		}else {
+			path += referer;
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호를 확인해 주세요.");
 			
 		}
 		
-		return null;
+		return path;
 	}
 	
 
