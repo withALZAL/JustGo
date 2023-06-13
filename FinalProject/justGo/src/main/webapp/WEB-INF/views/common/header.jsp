@@ -112,13 +112,13 @@
                     <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
                 </a>
             </form>
-            <%-- <c:if> --%> <%-- 로그인했는데 관리자였을 때 --%>
+            <c:if test="${loginMember.memberRole == 1}"> <%-- 로그인했는데 관리자였을 때 --%>
                 <form>
                     <a href="/manager/memberManager">
                         <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
                     </a>    
                 </form>
-            <%-- </c:if> --%>
+            </c:if>
         </c:otherwise>
     </c:choose>
 </nav>
@@ -157,7 +157,7 @@
 <!-- nav 시작 -->
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
-        <%-- <li class="nav-item dropdown">
+        <%--<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
             <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
                 <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
@@ -179,17 +179,28 @@
         <li class="nav-item">
             <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li> --%>
-                <c:forEach var="boardType"  items="${boardTypeList}" >
+        <c:forEach var="boardType" items="${boardTypeList}" >
+            <c:if test="${boardType.BOARD_CODE} = 1">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
+                <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
+                    <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
+                    <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
+                    <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
+                    <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
+                    <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
+                </ul>
+            </li>
+            </c:if>
             <li class="nav-item">
-                <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 
                 <%-- <c:if test="${boardType == 1}">
                 
                 <c:forEach items="country" var="countryList">
                 <li class="nav-item dropdown">
                     <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                         <li><a class="dropdown-item" href="/${country.COUNTRY_CODE}"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}</a></li>
+                        <li><a class="dropdown-item" href="/${country.COUNTRY_CODE}"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}</a></li>
                     </ul>
                 </li>
                 </c:forEach>
