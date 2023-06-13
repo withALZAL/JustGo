@@ -5,5 +5,9 @@ import java.util.Map;
 
 public interface BoardService {
 
+	List<Map<String, Object>> selectBoardTypeList();
+
+	List<Map<String, Object>> selectCountryList();
+
 
 }

@@ -11,7 +11,7 @@
 		<result property="boardTitle" column="BOARD_TITLE" />
 		<result property="boardText" column="BOARD_TEXT" />
 		<result property="createDate" column="CREATE_DATE" />
-		<result property="boardUpdateDate" column="UPDATE_DATE" />
+		<result property="boardUpdate" column="UPDATE_DATE" />
 		<result property="readCount" column="READ_COUNT" />
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardDelete" column="BOARD_DELETE" />
@@ -32,6 +32,16 @@
 		<collection property="replyList" select="selectReplyList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" />
 	</resultMap>
-
-
+	
+	
+	<select id="selectBoardTypeList" resultType="map">
+		SELECT * FROM "BOARD_TYPE" ORDER BY 1
+	</select>
+	
+	
+	<select id="selectCountryList" resultType="map">
+		SELECT * FROM COUNTRY ORDER BY 1
+	</select>
+	
+	
 </mapper>

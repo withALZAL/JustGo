@@ -15,4 +15,20 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO dao;
 
 	
+	@Override
+	public List<Map<String, Object>> selectBoardTypeList() {
+		
+		return dao.selectBoardTypeList();
+	}
+
+
+	@Override
+	public List<Map<String, Object>> selectCountryList() {
+		
+		return dao.selectCountryList();
+	}
+
+	
+	
+	
 }

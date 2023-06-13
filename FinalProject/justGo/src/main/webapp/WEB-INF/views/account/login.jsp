@@ -53,7 +53,7 @@
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
-        <form action="/account/login" method="post" id=loginFrm>
+        <form action="/account/login" method="post" id=loginFrm> <%-- 로그인 --%>
             <div class="account--loginImage">
                 <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 이미지">
             </div>
@@ -61,16 +61,16 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요."></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50"></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요."></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30"></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">로그인</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm">취소</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>
         </form>
@@ -103,6 +103,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/join.js"></script>
+    <script src="/resources/js/account/login.js"></script>
 </body>
 </html>
