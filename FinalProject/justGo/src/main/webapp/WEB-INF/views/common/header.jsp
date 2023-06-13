@@ -35,6 +35,11 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
+    <form>
+        <a href="/manager/memberManager">
+            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+        </a>    
+    </form>
     <form action="/html/board/boardNotice.html" method="get">
         <a href="/html/board/boardNotice.html">
             <button type="button" class="btn btn-secondary btn-sm">에러</button>
@@ -112,13 +117,13 @@
                     <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
                 </a>
             </form>
-            <%-- <c:if> --%> <%-- 로그인했는데 관리자였을 때 --%>
+            <c:if test="${loginMember.memberRole == 1}"> <%-- 로그인했는데 관리자였을 때 --%>
                 <form>
                     <a href="/manager/memberManager">
                         <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
                     </a>    
                 </form>
-            <%-- </c:if> --%>
+            </c:if>
         </c:otherwise>
     </c:choose>
 </nav>
@@ -142,7 +147,7 @@
     <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
-            <a href="#"> <%-- 마이페이지로 이동 --%>
+            <a href="/myPage/info"> <%-- 마이페이지로 이동 --%>
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>${loginMember.memberNickname}</div>
             </a>
@@ -206,7 +211,6 @@
 
                     </c:if>
                 </c:forEach>    
-
 
 
                 <%-- <c:if test="${boardType == 1}">

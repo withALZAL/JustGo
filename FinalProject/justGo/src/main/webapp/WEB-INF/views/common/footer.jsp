@@ -55,7 +55,7 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="#">공지사항</a> <%-- 공지사항으로 이동 --%>
+        <a href="/board/boardNotice">공지사항</a> <%-- 공지사항으로 이동 --%>
         <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
