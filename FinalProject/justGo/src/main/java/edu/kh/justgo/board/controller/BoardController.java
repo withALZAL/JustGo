@@ -22,9 +22,4 @@ public class BoardController {
 		return "/board/boardNotice";
 	}
 	
-	@RequestMapping("/writingBoard")
-	public String writingBoard() {
-		return "writing/writingBoard";
-	}
-	
 }

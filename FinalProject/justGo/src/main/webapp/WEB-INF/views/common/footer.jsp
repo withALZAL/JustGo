@@ -56,11 +56,11 @@
     </div>
     <div class="common--footerRight">
         <a href="/board/boardNotice">공지사항</a> <%-- 공지사항으로 이동 --%>
-        <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
+        <a href="/writing/writingQuestion">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
     <c:if test="${!empty sessionScope.loginMember}">
-        <a href="/board/writingBoard"> <%-- 글쓰기 버튼 --%>
+        <a href="/writing/writingBoard"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>

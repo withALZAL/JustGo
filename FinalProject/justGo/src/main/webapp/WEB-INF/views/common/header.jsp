@@ -50,8 +50,8 @@
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
         </a>
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/writing/writingQuestion">
             <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
         </a>
     </form>
@@ -60,14 +60,9 @@
             <button type="button" class="btn btn-secondary btn-sm">포스트</button>
         </a>
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/writing/writingBoard">
             <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
-        </a>
-    </form>
-    <form action="/html/writing/writingQuestion.html" method="get">
-        <a href="/html/writing/writingQuestion.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
         </a>
     </form>
     <form action="/html/writing/post.html" method="get">
