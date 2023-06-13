@@ -21,4 +21,10 @@ public class BoardController {
 	public String boardNotice() {
 		return "/board/boardNotice";
 	}
+	
+	@RequestMapping("/writingBoard")
+	public String writingBoard() {
+		return "writing/writingBoard";
+	}
+	
 }
