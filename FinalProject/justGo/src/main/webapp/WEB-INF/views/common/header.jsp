@@ -157,7 +157,7 @@
 <!-- nav 시작 -->
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
-        <li class="nav-item dropdown">
+        <%-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
             <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
                 <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
@@ -173,6 +173,30 @@
         <li class="nav-item">
             <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+        </li> --%>
+                <c:forEach var="boardType"  items="${boardTypeList}" >
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                
+                <%-- <c:if test="${boardType == 1}">
+                
+                <c:forEach items="country" var="countryList">
+                <li class="nav-item dropdown">
+                    <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
+                         <li><a class="dropdown-item" href="/${country.COUNTRY_CODE}"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}</a></li>
+                    </ul>
+                </li>
+                </c:forEach>
+                </c:if> --%>
+                
+            </li>
+        </c:forEach>
     </ul>
 </nav>
 <!-- nav 끝 -->
