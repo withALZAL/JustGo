@@ -70,8 +70,8 @@
             <button type="button" class="btn btn-secondary btn-sm">포스트</button>
         </a>
     </form>
-    <form action="/html/writing/writingBoard.html" method="get">
-        <a href="/html/writing/writingBoard.html">
+    <form >
+        <a href="board/writingBoard">
             <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
@@ -157,7 +157,7 @@
 <!-- nav 시작 -->
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
-        <%-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
             <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
                 <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
@@ -173,6 +173,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
         </li>
+
         <li class="nav-item">
             <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
         </li>
@@ -219,6 +220,7 @@
                 </c:forEach>
                 </c:if> --%>
                 
+
     </ul>
 </nav>
 <!-- nav 끝 -->
