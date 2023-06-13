@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="memberMapper">
 
-<<<<<<< HEAD
    <resultMap type="Member" id="member_rm">
       <!-- DB의 기본 키(복합키면 여러 개 작성) -->
       <id property="memberNo" column="MEMBER_NO" />
@@ -36,7 +35,6 @@
 		
 	</insert>
 	
-=======
 	<!--mapper 파일 생성 시 아래 태그 반드시 삭제! -->
 	<!-- <cache-ref namespace=""/> -->
 
@@ -90,7 +88,6 @@
 		WHERE MEMBER_CONDITION = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
->>>>>>> origin/정송이
 
 
 	<!-- insert, update , delete와 같은 DML구문은 수행 결과가 항상 성공한 행의 개수 (int 자료형)으로 
