@@ -103,5 +103,17 @@
 
     </script>
 
+    <c:if test="${not empty requestScope.message}">
+
+    <script>
+        // EL/JSTL 구문이 먼저 해석되는데
+        // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
+        alert('${message}');
+    </script>
+
+
+
+</c:if>
+
 </body>
 </html>

@@ -53,7 +53,7 @@
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
-        <form action="/account/login" method="post"> <%-- 로그인 --%>
+        <form action="/account/login" method="post" id=loginFrm> <%-- 로그인 --%>
             <div class="account--loginImage">
                 <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 이미지">
             </div>
@@ -69,8 +69,8 @@
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button class="btn btn-secondary btn-sm" style="background-color: blueviolet; border:none;">로그인</button>
-                    <button type="button" class="btn btn-secondary btn-sm" style="border:none;" onclick="goBack()">취소</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>
         </form>
@@ -98,6 +98,7 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
+    <script src="/resources/js/account/login.js"></script>
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>

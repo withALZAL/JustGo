@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="memberMapper">
+<mapper namespace="ajaxMapper">
 
    <resultMap type="Member" id="member_rm">
       <!-- DB의 기본 키(복합키면 여러 개 작성) -->
@@ -13,29 +13,23 @@
       <result property="enrollDate" column="ENROLL_DATE" />
       <result property="disableDate" column="DISABLE_DATE" />
       <result property="deleteDate" column="DELETE_DATE" />
-      <result property="memberRole" column="MEMBER_ROLE" />
+      <result property="memberCondition" column="MEMBER_CONDITION" />
       <result property="setAlarmReply" column="SET_AL_REPLY" />
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
-
-	<select id="login" parameterType="Member" resultMap="member_rm">
-		SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
-		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시"
-		MI"분" SS"초"'), MEMBER_ROLE
-		FROM MEMBER
-		WHERE MEMBER_CONDITION = 'N'
-		AND MEMBER_EMAIL = #{memberEmail}
+	<!-- 이메일 중복 검사 -->
+	<select id="checkEmail" resultType="int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_EMAIL = #{email}
+		AND MEMBER_CONDITION = 'N'
 	</select>
-	
-	<insert id="join" parameterType="member">
-	INSERT INTO "MEMBER"
-	VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
-	, '${memberNickname}', DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT,
-	DEFAULT, DEFAULT)
-		
-	</insert>
-	
 
+    <!-- 닉네임 중복 검사 -->
+	<select id="checkNickname" resultType="int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_NICKNAME = #{nickname}
+		AND MEMBER_CONDITION = 'N'
+	</select>
 
-</mapper>
+	</mapper>
