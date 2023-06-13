@@ -8,6 +8,8 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import edu.kh.justgo.member.model.dao.EmailDAO;
 
 @Service
@@ -22,6 +24,37 @@ public class EmailServiceImpl implements EmailService{
 	    private String fromEmail = "jim012111@gmail.com";
 	    private String fromUsername = "justgo";
 	
+
+	@Override
+	public String createAuthKey() {
+        String key = "";
+        for(int i=0 ; i< 6 ; i++) {
+            
+            int sel1 = (int)(Math.random() * 3); // 0:숫자 / 1,2:영어
+            
+            if(sel1 == 0) {
+                
+                int num = (int)(Math.random() * 10); // 0~9
+                key += num;
+                
+            }else {
+                
+                char ch = (char)(Math.random() * 26 + 65); // A~Z
+                
+                int sel2 = (int)(Math.random() * 2); // 0:소문자 / 1:대문자
+                
+                if(sel2 == 0) {
+                    ch = (char)(ch + ('a' - 'A')); // 대문자로 변경
+                }
+                
+                key += ch;
+            }
+            
+        }
+        return key;
+	}
+	
+	@Transactional
 	@Override
 	public int joinUp(String email, String title) {
         String authKey = createAuthKey();
@@ -73,40 +106,8 @@ public class EmailServiceImpl implements EmailService{
         	result = dao.insertAuthKey(map);
         }
         
-        System.out.println(map);
-        
-
         return result;
     }
-
-	@Override
-	public String createAuthKey() {
-        String key = "";
-        for(int i=0 ; i< 6 ; i++) {
-            
-            int sel1 = (int)(Math.random() * 3); // 0:숫자 / 1,2:영어
-            
-            if(sel1 == 0) {
-                
-                int num = (int)(Math.random() * 10); // 0~9
-                key += num;
-                
-            }else {
-                
-                char ch = (char)(Math.random() * 26 + 65); // A~Z
-                
-                int sel2 = (int)(Math.random() * 2); // 0:소문자 / 1:대문자
-                
-                if(sel2 == 0) {
-                    ch = (char)(ch + ('a' - 'A')); // 대문자로 변경
-                }
-                
-                key += ch;
-            }
-            
-        }
-        return key;
-	}
 
 	@Override
 	public int checkAuthKey(Map<String, Object> paramMap) {
