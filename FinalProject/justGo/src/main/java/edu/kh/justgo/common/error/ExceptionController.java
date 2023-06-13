@@ -3,6 +3,7 @@ package edu.kh.justgo.common.error;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 
 // 예외 처리용 컨트롤러(프로젝트 전역)
 @ControllerAdvice
