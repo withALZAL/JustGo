@@ -114,11 +114,11 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- summerNote script 추가 -->
-    <script src="/js/summernote/summernote-lite.js"></script>
+    <script src="/resources/js/summernote/summernote-lite.js"></script>
     <!-- summerNote script 추가 -->
-    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+    <script src="/resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
@@ -126,5 +126,30 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/writingBoard.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+    <script>
+        $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 500,
+        width : 1100,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+    
+
 </body>
 </html>
