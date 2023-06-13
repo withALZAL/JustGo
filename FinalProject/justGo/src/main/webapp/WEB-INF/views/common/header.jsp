@@ -173,6 +173,54 @@
         <li class="nav-item">
             <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
+        </li>  --%>
+
+
+                <c:forEach var="boardType"  items="${boardTypeList}" >
+
+                    <c:if test="${boardType.BOARD_CODE == 1}" >
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                                <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
+                                <c:forEach items="${countryList}" var="country">
+                                <li><a class="dropdown-item" href="/board/boardAustralia">
+                                <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">
+                                
+                                ${country.COUNTRY_NAME}</a></li>
+                                </c:forEach>
+                                </ul>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${boardType.BOARD_CODE != 1}" >
+                        <li class="nav-item">
+                            <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                        </li>
+
+                    </c:if>
+                </c:forEach>    
+
+
+
+                <%-- <c:if test="${boardType == 1}">
+                
+                <c:forEach items="country" var="countryList">
+                <li class="nav-item dropdown">
+                    <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
+                        <li><a class="dropdown-item" href="/${country.COUNTRY_CODE}"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}</a></li>
+                    </ul>
+                </li>
+                </c:forEach>
+                </c:if> --%>
+                
+
     </ul>
 </nav>
 <!-- nav 끝 -->
