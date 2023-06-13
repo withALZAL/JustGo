@@ -69,8 +69,8 @@
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet; border:none;">로그인</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm" style="border:none;" onclick="goBack()">취소</button>
+                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>
         </form>

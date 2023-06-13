@@ -22,4 +22,10 @@ public class BoardController {
 		return "/board/boardNotice";
 	}
 	
+	// 1:1문의 연결(/board/4 버전)
+	@GetMapping("/4")
+	public String writingQuestion() {
+		return "/writing/writingQuestion";
+	}
+	
 }

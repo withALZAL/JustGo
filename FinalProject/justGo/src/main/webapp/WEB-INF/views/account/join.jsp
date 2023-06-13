@@ -53,10 +53,8 @@
     <div class="account--joinBox">
         <form action="/account/join" method="post" id="signUpFrm">
             <div class="account--inputProfileBox">
-                <a href="https://www.google.com">
-                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="프로필 이미지" style="border: 3px solid black;">
-                    <!-- <input type="file"> -->
-                </a>
+                <div>
+                </div>
             </div>
             <div class="account--inputInfoBox">
                 <table>
@@ -115,8 +113,8 @@
 
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">회원가입</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm">취소</button>
+                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">회원가입</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg">취소</button>
                 </div>
             </div>
         </form>
