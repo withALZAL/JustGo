@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="memberMapper">
-	<!-- namespace : 공간(영역,지역,태그)의 이름 -->
 
+<<<<<<< HEAD
+   <resultMap type="Member" id="member_rm">
+      <!-- DB의 기본 키(복합키면 여러 개 작성) -->
+      <id property="memberNo" column="MEMBER_NO" />
+      <result property="memberEmail" column="MEMBER_EMAIL" />
+      <result property="memberPw" column="MEMBER_PW" />
+      <result property="memberNickname" column="MEMBER_NICKNAME" />
+      <result property="memberRole" column="MEMBER_ROLE" />
+      <result property="profileImg" column="PROFILE_IMG" />
+      <result property="enrollDate" column="ENROLL_DATE" />
+      <result property="disableDate" column="DISABLE_DATE" />
+      <result property="deleteDate" column="DELETE_DATE" />
+      <result property="memberCondition" column="MEMBER_CONDITION" />
+      <result property="setAlarmReply" column="SET_AL_REPLY" />
+      <result property="setAlarmLike" column="SET_AL_LIKE" />
+   </resultMap>
+
+
+	<select id="login" parameterType="Member" resultMap="member_rm">
+		SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
+		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시"
+		MI"분" SS"초"')
+		FROM MEMBER
+		WHERE MEMBER_CONDITION = 'N'
+		AND MEMBER_EMAIL = #{memberEmail}
+	</select>
+	
+	<insert id="joinUp" parameterType="member">
+	INSERT INTO "MEMBER"
+	VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
+	, '${memberNickname}')
+		
+	</insert>
+	
+=======
 	<!--mapper 파일 생성 시 아래 태그 반드시 삭제! -->
 	<!-- <cache-ref namespace=""/> -->
 
@@ -58,6 +92,7 @@
 		AND MEMBER_EMAIL = #{memberEmail}
 
 	</select>
+>>>>>>> origin/정송이
 
 
 	<!-- insert, update , delete와 같은 DML구문은 수행 결과가 항상 성공한 행의 개수 (int 자료형)으로 
