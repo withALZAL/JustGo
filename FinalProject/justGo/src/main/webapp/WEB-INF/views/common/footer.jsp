@@ -56,11 +56,11 @@
     </div>
     <div class="common--footerRight">
         <a href="/board/boardNotice">공지사항</a> <%-- 공지사항으로 이동 --%>
-        <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
+        <a href="/writing/writingQuestion">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
     <c:if test="${!empty sessionScope.loginMember}">
-        <a href="/board/writingBoard"> <%-- 글쓰기 버튼 --%>
+        <a href="/writing/writingBoard"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
@@ -94,25 +94,13 @@
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 
-    <script>
-    
-    // EL / JSTl 구문이 먼저 해석되는데
-    // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야 한다
-
-    // alert('${message}');
-
-    </script>
-
-    <c:if test="${not empty requestScope.message}">
-
+<%-- 메시지 출력 --%>
+<c:if test="${not empty requestScope.message}">
     <script>
         // EL/JSTL 구문이 먼저 해석되는데
         // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
         alert('${message}');
     </script>
-
-
-
 </c:if>
 
 </body>

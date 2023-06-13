@@ -13,7 +13,7 @@
       <result property="enrollDate" column="ENROLL_DATE" />
       <result property="disableDate" column="DISABLE_DATE" />
       <result property="deleteDate" column="DELETE_DATE" />
-      <result property="memberRole" column="MEMBER_ROLE" />
+      <result property="memberCondition" column="MEMBER_CONDITION" />
       <result property="setAlarmReply" column="SET_AL_REPLY" />
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
@@ -28,10 +28,11 @@
 		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
 	
-	<insert id="joinUp" parameterType="member">
+	<insert id="join" parameterType="member">
 	INSERT INTO "MEMBER"
 	VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
-	, '${memberNickname}')
+	, '${memberNickname}', DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT,
+	DEFAULT, DEFAULT)
 		
 	</insert>
 	
