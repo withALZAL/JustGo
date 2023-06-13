@@ -1,1 +1,1 @@
-const loginMemberNickname = "${loginMember.memberNickname}";
+const loginMemberNickname = "";
