@@ -60,7 +60,7 @@
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
     <c:if test="${!empty sessionScope.loginMember}">
-        <a href="https://www.naver.com"> <%-- 글쓰기 버튼 --%>
+        <a href="/board/writingBoard"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
