@@ -15,7 +15,7 @@ public class BoardController {
 
 	@Autowired
 	public BoardService service;
-  
+
   	// 공지사항 연결
 	@GetMapping("/boardNotice")
 	public String boardNotice() {
