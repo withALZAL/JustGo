@@ -28,16 +28,36 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
 
 <!-- loginNav 시작 -->
-<nav class="common--loginNav__container">
+<nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">에러</button>
+        </a>
+    </form>
     <form action="/html/board/boardNotice.html" method="get">
         <a href="/html/board/boardNotice.html">
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
+        </a>
+    </form>
+    <form action="/html/board/boardNotice.html" method="get">
+        <a href="/html/board/boardNotice.html">
+            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
     <form action="/html/writing/writingQuestion.html" method="get">
@@ -56,49 +76,63 @@
         </a>
     </form>
     <form action="/account/login" method="post">
-        
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
             
             <button class="btn btn-secondary btn-sm">로그인</button>
-    
     </form>
-    <form action="https://www.naver.com" method="get">
-        <a href="/html/common/error.html">
-            <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
-        </a>
-    </form>
-    <form action="/html/account/join.html" method="get">
-        <a href="/html/account/join.html">
-            <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
-        </a>
-    </form>
-    <form action="/html/account/myPage.html" method="get">
-        <a href="/html/account/myPage.html">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form>
-        <a href="/manager/memberManager">
-            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+
+    <form action="#">
+        <a href="#">
+            ---임시용|||실사용---
         </a>    
     </form>
-    <form>
-        <a href="/account/login">
-            <button type="button" class="btn btn-secondary btn-sm">로그인페이지로이동!</button>
-        </a>
-    </form>
+
+    <c:choose>
+        <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
+            <form>
+                <a href="/account/login">
+                    <button type="button" class="btn btn-secondary btn-sm">로그인</button>
+                </a>
+            </form>
+            <form action="/html/account/join.html" method="get">
+                <a href="/html/account/join.html">
+                    <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
+                </a>
+            </form>
+        </c:when>
+        <c:otherwise> <%-- 로그인했을 때 --%>
+            <form>
+                <a href="/account/logout" id="logoutBtn">
+                    <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
+                </a>
+            </form>
+            <form>
+                <a href="/myPage/info">
+                    <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
+                </a>
+            </form>
+            <%-- <c:if> --%> <%-- 로그인했는데 관리자였을 때 --%>
+                <form>
+                    <a href="/manager/memberManager">
+                        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+                    </a>    
+                </form>
+            <%-- </c:if> --%>
+        </c:otherwise>
+    </c:choose>
 </nav>
 <!-- loginNav 끝 -->
 
 
+
 <!-- header 시작 -->
 <header class="common--header__container">
-    <a href="/account">
+    <a href="/"> <%-- 메인페이지로 이동 --%>
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
-        <form action="https://www.naver.com" method="get">
+        <form action="#" method="get"> <%-- 전체 게시글 검색 --%>
             <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
             <button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -108,7 +142,7 @@
     <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
-            <a href="https://www.naver.com">
+            <a href="#"> <%-- 마이페이지로 이동 --%>
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>${loginMember.memberNickname}</div>
             </a>
@@ -121,7 +155,7 @@
 
 
 <!-- nav 시작 -->
-<nav class="common--navContainer">
+<nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
         <%-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
@@ -163,8 +197,6 @@
                 
             </li>
         </c:forEach>
-
-
     </ul>
 </nav>
 <!-- nav 끝 -->
@@ -172,15 +204,15 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </header>
 <!-- Template-header 끝 -->
 
-    
-    
+
+
 <!-- ----------------------------------------------- -->
 
-    
+
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

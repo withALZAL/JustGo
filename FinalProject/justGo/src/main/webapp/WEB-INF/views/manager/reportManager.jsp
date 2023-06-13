@@ -37,7 +37,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -64,7 +64,7 @@
         <div class="manager--sidebar">
             <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
             <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="/manager/inquiryManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
+            <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
             <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
         </div>
     </aside>
@@ -243,7 +243,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 

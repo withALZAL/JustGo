@@ -27,7 +27,7 @@
 
 <!-- Template-footer 시작 -->
 <footer class="template--footer">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -36,7 +36,7 @@
 <footer class="common--footerContainer">
     <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO_BLACK.png" alt="저스트고로고" class="common--footerLogo">
     <div>
-        <b><a href="https://www.naver.com">주식회사 저스트고</a></b>
+        <b><a href="https://github.com/withALZAL" target="_blank">주식회사 저스트고</a></b> <%-- 팀 github로 이동 --%>
         <i class="fa-solid fa-caret-left" style="color: #D9D9D9;"></i>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <hr>
@@ -44,27 +44,27 @@
         사업자등록번호 : 899-89-00001<br>
         <img src="/resources/images/officialProfile/GITHUBICON.png" alt="깃허브" style="height: 20px; padding-bottom: 2px;">
         <i class="fa-solid fa-caret-right" style="color: #D9D9D9;"></i>
-        대표: <a href="https://www.naver.com">이상준</a> |
+        대표: <a href="https://github.com/NewTypeAsuka" target="_blank">이상준</a> | <%-- 개인 github로 이동 --%>
         이사: 
-        <a href="https://www.naver.com">박종욱</a>
-        <a href="https://www.naver.com">배진현</a>
-        <a href="https://www.naver.com">정송이</a>
-        <a href="https://www.naver.com">정용화</a>
-        <a href="https://www.naver.com">조우형</a>
+        <a href="https://github.com/pakjongwook" target="_blank">박종욱</a>
+        <a href="https://github.com/stane0120" target="_blank">배진현</a>
+        <a href="https://github.com/nalsong" target="_blank">정송이</a>
+        <a href="https://github.com/jyh1108" target="_blank">정용화</a>
+        <a href="https://github.com/WOOJo11" target="_blank">조우형</a>
         <br>
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/html/board/boardNotice.html">공지사항</a>
-        <a href="/html/board/boardNotice.html">1:1문의</a>
+        <a href="#">공지사항</a> <%-- 공지사항으로 이동 --%>
+        <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
-        <a href="https://www.naver.com">
+        <a href="https://www.naver.com"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </a>
-        <a href="https://www.google.com">
+        <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>
                 <i class="fa-solid fa-arrow-up"></i>
             </button>
@@ -76,7 +76,7 @@
 
     
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </footer>
 <!-- Template-footer 끝 -->
     
@@ -92,7 +92,7 @@
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 
-      <script>
+    <script>
     
     // EL / JSTl 구문이 먼저 해석되는데
     // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야 한다

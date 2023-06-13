@@ -19,7 +19,7 @@ Servers
 *.rar
 
 # Spring관련 폴더, 파일
-tatget
+target
 /target/
 .springBeans
 pom.properties

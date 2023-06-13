@@ -8,10 +8,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import edu.kh.justgo.board.model.service.BoardService;
 
 @SessionAttributes({"loginMember"})
-@RequestMapping("board")
+@RequestMapping("/board")
 @Controller
 public class BoardController {
 
 	@Autowired
 	public BoardService service;
+  
+  	// 공지사항 연결
+	@GetMapping("/boardNotice")
+	public String boardNotice() {
+		return "/board/boardNotice";
+	}
 }

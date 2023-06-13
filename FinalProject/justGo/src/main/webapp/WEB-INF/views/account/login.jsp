@@ -34,7 +34,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -53,7 +53,7 @@
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
-        <form action="/account/login" method="post">
+        <form action="/account/login" method="post"> <%-- 로그인 --%>
             <div class="account--loginImage">
                 <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 이미지">
             </div>
@@ -61,16 +61,16 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요."></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50"></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요."></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30"></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button class="btn btn-secondary btn-sm" style="background-color: blueviolet;">로그인</button>
-                    <button type="button" class="btn btn-secondary btn-sm">취소</button>
+                    <button class="btn btn-secondary btn-sm" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>
         </form>
@@ -81,7 +81,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 
@@ -102,6 +102,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/join.js"></script>
+    <script src="/resources/js/account/login.js"></script>
 </body>
 </html>
