@@ -101,25 +101,20 @@
         // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
         /* alert('${message}'); */
 
-        let timerInterval
-        Swal.fire({
-        title: '${message}', /* 메시지 담기 */
-        timer: 1000, /* 1초 뒤에 닫힘 */
-        timerProgressBar: true, /* 시간 측정 바 */
-        didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 1000, /* 1초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-            }
+        })
+
+        Toast.fire({
+        title: '${message}' /* 메시지 담기 */
         })
     </script>
 </c:if>
