@@ -86,8 +86,8 @@
     
 <!-- ----------------------------------------------- -->
 
-    
-
+<%-- sweetalert --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
@@ -99,7 +99,28 @@
     <script>
         // EL/JSTL 구문이 먼저 해석되는데
         // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
-        alert('${message}');
+        /* alert('${message}'); */
+
+        let timerInterval
+        Swal.fire({
+        title: '${message}', /* 메시지 담기 */
+        timer: 1000, /* 1초 뒤에 닫힘 */
+        timerProgressBar: true, /* 시간 측정 바 */
+        didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
+        }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        })
     </script>
 </c:if>
 

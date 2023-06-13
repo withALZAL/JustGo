@@ -611,22 +611,22 @@
             <i class="fa-solid fa-money-bill" style="color: green;"></i>
             환율 계산기
         </div>
-        <form action="https://www.google.com" method="post">
+        <form action="/api/money" method="get">
             <div class="card-body common--cardExchange">
                 <div class="common--cardExchange__top">
-                    <input type="number" placeholder="숫자만 입력해주세요." value="10000">원
+                    <input type="number" id="krw" name="krw" placeholder="숫자만 입력해주세요." value="10000" min="0" max="99999999999">원
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select class="common--cardExchangeSelector">
-                        <option value="option1">달러 | USD</option>
-                        <option value="option2">엔 | JPY</option>
-                        <option value="option3">위안 | CNY</option>
-                        <option value="option4">유로 | EUR</option>
-                        <option value="option4">파운드 | GBP</option>
-                        <option value="option5">동 | VND</option>
-                        <option value="option6">바트 | THB</option>
-                        <option value="option7">대만달러 | TWD</option>
-                        <option value="option8">홍콩달러 | HKD</option>
-                        <option value="option9">호주달러 | AUD</option>
+                    <select class="common--cardExchangeSelector" onchange="handleSelection(this)">
+                        <option value="option1" name="usd">달러 | USD</option>
+                        <option value="option2" name="jpy">엔 | JPY</option>
+                        <option value="option3" name="cny">위안 | CNY</option>
+                        <option value="option4" name="eur">유로 | EUR</option>
+                        <option value="option4" name="gbp">파운드 | GBP</option>
+                        <option value="option5" name="vnd">동 | VND</option>
+                        <option value="option6" name="thb">바트 | THB</option>
+                        <option value="option7" name="twd">대만달러 | TWD</option>
+                        <option value="option8" name="khd">홍콩달러 | HKD</option>
+                        <option value="option9" name="aud">호주달러 | AUD</option>
                     </select>
                     <button>변환</button>
                 </div>

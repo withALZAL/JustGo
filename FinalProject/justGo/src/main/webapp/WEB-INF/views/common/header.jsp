@@ -36,6 +36,11 @@
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
     <form>
+        <a href="/">
+            <button type="button" class="btn btn-secondary btn-sm">메인</button>
+        </a>    
+    </form>
+    <form>
         <a href="/manager/memberManager">
             <button type="button" class="btn btn-secondary btn-sm">관리자</button>
         </a>    
@@ -89,8 +94,8 @@
                     <button type="button" class="btn btn-secondary btn-sm">로그인</button>
                 </a>
             </form>
-            <form action="/html/account/join.html" method="get">
-                <a href="/html/account/join.html">
+            <form>
+                <a href="/account/join">
                     <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
                 </a>
             </form>
@@ -190,7 +195,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 </li>
-
             </c:if>
         </c:forEach>    
 
