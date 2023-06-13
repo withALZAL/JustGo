@@ -26,5 +26,11 @@ public class WritingController {
 	public String writingBoard() {
 		return "writing/writingBoard";
 	}
+	
+	// 포스트 연결
+	@GetMapping("/writing/post")
+	public String post() {
+		return "writing/post";
+	}
 
 }
