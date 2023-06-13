@@ -16,8 +16,8 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO dao;
 	
-	@Autowired BCryptPasswordEncoder bcrypt;
-	
+	@Autowired
+	BCryptPasswordEncoder bcrypt;
 	
 	// 로그인
 	@Override
@@ -51,8 +51,4 @@ public class MemberServiceImpl implements MemberService {
 		
 	    return result;
 	}
-	
-	
-
-	
 }

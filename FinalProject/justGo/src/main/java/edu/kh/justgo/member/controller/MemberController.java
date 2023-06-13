@@ -23,6 +23,7 @@ import edu.kh.justgo.member.model.service.MemberService;
 @SessionAttributes({ "loginMember" })
 @Controller
 public class MemberController {
+	
 	@Autowired
 	private MemberService service;
 	
@@ -32,12 +33,12 @@ public class MemberController {
 		return "/account/login";
 	}
 	
-	
 	// 로그인
 	@PostMapping("/account/login")
-	public String login(String memberEmail, String memberPw,
-			Model model, HttpServletResponse resp ,RedirectAttributes ra
-			,@RequestHeader(value = "referer") String referer) {
+	public String login(
+			String memberEmail, String memberPw,
+			Model model, HttpServletResponse resp,
+			RedirectAttributes ra, @RequestHeader(value = "referer") String referer) {
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberEmail", memberEmail);
@@ -59,19 +60,20 @@ public class MemberController {
 			
 		}else {
 			path += referer;
-			ra.addFlashAttribute("message", "아이디 또는 비밀번호를 확인해 주세요.");
+			ra.addFlashAttribute("message", "아이디 또는 비밀번호를 확인해주세요.");
 			
 		}
 		
 		return path;
 	}
 	
-	
 	// 로그아웃
 	@GetMapping("/account/logout")
-	public String logout(SessionStatus status, HttpSession session) {
+	public String logout(RedirectAttributes ra, SessionStatus status, HttpSession session) {
 		
 		status.setComplete();
+
+		ra.addFlashAttribute("message", "로그아웃되었습니다.");
 		
 		return "redirect:/";
 	}
