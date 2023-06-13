@@ -9,4 +9,6 @@ public interface MemberService {
 	// 로그인
 	Member login(Map<String, Object> map);
 
+	int joinUp(Member inputMember);
+
 }

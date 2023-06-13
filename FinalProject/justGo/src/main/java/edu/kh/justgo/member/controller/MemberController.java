@@ -76,5 +76,33 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
+	// 회원 가입 페이지 이동
+	@GetMapping("/account/join")
+	public String join() {
+		return "/account/join";
+	}
+	
+	// 회원 가입 진행
+	@PostMapping("/account/join")
+	public String joinUp(Member inputMember, RedirectAttributes ra) {
+		
+		int result = service.joinUp(inputMember);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) {
+			path += "/";
+		    message = inputMember.getMemberNickname() + "님의 가입을 환영합니다.";
+		    
+	} else {
+		path += "join";
+		message = "회원 가입에 실패하셨습니다.";
+	}
+        ra.addFlashAttribute("message", message);
+		return path;
+	
+	}
 
 }
