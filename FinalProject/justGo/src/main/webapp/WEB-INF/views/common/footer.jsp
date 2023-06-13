@@ -59,11 +59,13 @@
         <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
+    <c:if test="${!empty sessionScope.loginMember}">
         <a href="https://www.naver.com"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </a>
+    </c:if>
         <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>
                 <i class="fa-solid fa-arrow-up"></i>
