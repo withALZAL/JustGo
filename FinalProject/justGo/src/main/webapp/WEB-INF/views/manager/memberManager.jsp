@@ -24,7 +24,8 @@
 </head>
 <body class="template--body">
 
-
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="memberList" value="${map.memberList}" />
 
 
 <!-- ----------------------------------------------- -->
@@ -39,7 +40,6 @@
 <main class="template--main">
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
-
 
 
 <!-- 페이지 제목 시작 -->
@@ -103,78 +103,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>100000</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>sangzoon0102@naver.com</td>
-                            <td>2023년 1월 1일</td>
-                            <td>활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td><form><a href="#">바트심슨</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><form><a href="#">유저1</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><form><a href="#">여덟글자닉네임임</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><form><a href="#">두글</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><form><a href="#">짱구는못말려</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><form><a href="#">뉴진스</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><form><a href="#">시진핑</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><form><a href="#">김정일</a></form></td>
-                            <td>simpson@gmail.com</td>
-                            <td>2023년 3월 1일</td>
-                            <td>비활성화</td>
-                            <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
-                        </tr>
+                        <c:choose>
+                            <c:when test="${empty memberList}">
+                                <tr>
+                                    <th colspan="6">회원이 존재하지 않습니다.</th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${memberList}" var="member">
+                                    <%-- ${member} --%>
+                                    <tr>
+                                        <td>${member.memberNo}</td>
+                                        <td><form><a href="#">${member.memberNickname}</a></form></td>
+                                        <td>${member.memberEmail}</td>
+                                        <td>${member.enrollDate}</td>
+                                        <td>${member.memberCondition}</td>
+                                        <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                        
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
