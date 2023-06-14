@@ -18,7 +18,6 @@
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
-
 	<select id="login" parameterType="Member" resultMap="member_rm">
 		SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
 		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE, MEMBER_ROLE
@@ -33,6 +32,19 @@
 		DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
+	<!-- 비밀번호 조회(진현씨랑 충돌 예상) -->
+	<select id="selectEncPw" resultType="string">
+		SELECT MEMBER_PW
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<!-- 회원탈퇴 -->
+	<update id="deleteAccount">
+		UPDATE "MEMBER"
+		SET MEMBER_CONDITION = 'Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 
 </mapper>

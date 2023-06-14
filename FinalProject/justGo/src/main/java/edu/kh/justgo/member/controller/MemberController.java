@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -109,7 +110,33 @@ public class MemberController {
 	
 	}
 	
+	// 회원탈퇴 진행(상준)
+	@PostMapping("/account/delete")
+	public String deleteAccount(
+			String memberPw,
+			@SessionAttribute("loginMember") Member loginMember,
+			SessionStatus status,
+			HttpServletResponse resp,
+			RedirectAttributes ra) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		int result = service.deleteAccount(memberPw, memberNo);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) {
+			message = "탈퇴되었습니다. 안녕히 가세요.";
+			status.setComplete(); // 로그아웃
+			path += "/";
+		} else {
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			path += "/myPage/info";
+		}
+		ra.addFlashAttribute("message", message);
+		return path;
 
-
+	}
 	
 }

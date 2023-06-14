@@ -82,7 +82,7 @@
                     </a>
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" class="btn btn-secondary btn-sm">비밀번호 찾기</button>
-                    <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">회원탈퇴</button>
+                    <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
                 </div>
             </div>
         </form>
@@ -92,18 +92,52 @@
 
 
 
+<%-- 탈퇴 모달창 시작 --%>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">회원탈퇴</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/account/delete" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">현재 비밀번호 입력</label>
+                        <input type="password" name="memberPw" class="form-control" id="recipient-password" maxlength="20" placeholder="비밀번호를 입력해주세요." required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">JustGo에 마지막으로 할 말이 있으신가요?</label>
+                        <textarea type="text" class="form-control" id="message-text" style="resize: none;" maxlength="300"
+                        placeholder="좋은 제언을 귀담아 듣겠습니다."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="submit" class="btn btn-primary" style="backgroundColor: red;">탈퇴</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%-- 탈퇴 모달창 끝 --%>
+
+
+
 </section>
 <aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 
 
-    
+
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
+
+
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -112,6 +146,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/join.js"></script>
+    <script src="/resources/js/account/myPage.js"></script>
 </body>
 </html>
