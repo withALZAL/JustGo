@@ -168,6 +168,7 @@
 		FROM "MEMBER"
 		WHERE MEMBER_ROLE ='2'
 		ORDER BY MEMBER_NO DESC
+
 	 </select>
 	 
 	 

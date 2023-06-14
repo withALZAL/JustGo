@@ -28,7 +28,7 @@ public class ManagerController {
 			, Model model
 			) {
 		
-		// 회원목록 불러오기
+		// 회원정보 불러오기
 		Map<String, Object> map = service.selectMemberList(cp);
 		
 		model.addAttribute("map", map);

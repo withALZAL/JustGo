@@ -24,8 +24,7 @@
 </head>
 <body class="template--body">
 
-<c:set var="pagination" value="${map.pagination}" />
-<c:set var="memberList" value="${map.memberList}" />
+
 
 
 <!-- ----------------------------------------------- -->
@@ -40,6 +39,7 @@
 <main class="template--main">
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
+
 
 
 <!-- 페이지 제목 시작 -->
@@ -88,6 +88,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <c:choose>
                             <c:when test="${empty memberList}">
                                 <tr>
@@ -109,6 +110,8 @@
                             </c:otherwise>
                         </c:choose>
                         
+
+                       
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">

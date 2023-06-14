@@ -166,23 +166,23 @@
                         <c:forEach items="${countryList}" var="country">
                             <c:choose>
                                 <c:when test="${country.COUNTRY_NAME == '중국'}">
-                                    <li><a class="dropdown-item" href="/board/boardChina">
+                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
                                     <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '일본'}">
-                                    <li><a class="dropdown-item" href="/board/boardJapan">
+                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
                                     <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '베트남'}">
-                                    <li><a class="dropdown-item" href="/board/boardVietnam">
+                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
                                     <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '태국'}">
-                                    <li><a class="dropdown-item" href="/board/boardThai">
+                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
                                     <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '호주'}">
-                                    <li><a class="dropdown-item" href="/board/boardAustralia">
+                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
                                     <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                             </c:choose>

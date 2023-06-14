@@ -155,6 +155,7 @@
 	  -->
 	 
 	 
+
 	<!-- 관리자를 제외한 모든 회원 수 조회 -->
 	<select id="getMemberListCount" parameterType="Member" resultType="_int">
 	 	SELECT COUNT(*)
@@ -168,6 +169,7 @@
 		FROM "MEMBER"
 		WHERE MEMBER_ROLE ='2'
 		ORDER BY MEMBER_NO DESC
+
 	 </select>
 	 
 	 

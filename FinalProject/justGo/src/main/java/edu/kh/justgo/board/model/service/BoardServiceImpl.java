@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.justgo.board.model.dao.BoardDAO;
 import edu.kh.justgo.board.model.dto.Board;
@@ -50,6 +51,7 @@ public class BoardServiceImpl implements BoardService{
 		Pagination pagination = new Pagination(listCount, cp);
 		
 		List<Board> boardList = dao.selectBoardList(pagination,boardCode);
+	
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination",pagination);
@@ -57,6 +59,66 @@ public class BoardServiceImpl implements BoardService{
 		
 		return map;
 	}
+
+
+	/** 여행자 게시판 조회
+	 *
+	 */
+	@Override
+	public Map<String, Object> countryList(int countryNo, int cp) {
+		
+		int countryCount = dao.countryCount(countryNo);
+		
+		Pagination pagination = new Pagination(countryCount,cp);
+		
+		List<Board> boardList = dao.countryList(pagination,countryNo);
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination",pagination);
+		map.put("boardList", boardList);
+		
+		
+		return map;
+	}
+
+
+	/** 게시글 상세내용
+	 *
+	 */
+	@Override
+	public Board selectBoard(Map<String, Object> map) {
+		
+		
+		return dao.selectBoard(map);
+	}
+
+
+	/** 좋아요 체크 
+	 *
+	 */
+	@Override
+	public int boardLikeCheck(Map<String, Object> map) {
+		
+		return dao.boardLikeCheck(map);
+	}
+
+
+	/** 조회수
+	 *
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateReadCount(int boardNo) {
+	
+		return dao.updateReadCount(boardNo);
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 
