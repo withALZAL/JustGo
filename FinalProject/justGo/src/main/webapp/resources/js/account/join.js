@@ -1,35 +1,28 @@
+/* 회원가입 전체 검사 객체 */
 const checkObj ={
-    "email" : false,
-    "memberPw" : false,
-    "memberPwConfirm" : false,
-    "memberNickname" : false,
-    "authKey" : false
+    "email": false,
+    "memberPw": false,
+    "memberPwConfirm": false,
+    "memberNickname": false,
+    "authKey": false
 };
-const cancelBtn = document.getElementById('cancelBtn');
-
-
-cancelBtn.addEventListener("click", () => {
-    location.href = "/";
-});
-
 
 // 이메일 유효성 검사
 const email = document.getElementById("email");
-const emailMessage = document.getElementById("emailMessage");
+const emailMessage = document.getElementById("emailMessage"); /* 유효성 검사 메시지 출력 */
 
-// 이메일이 입력될 때 마다
+// 이메일이 입력될 때마다
 email.addEventListener("input", () => {
 
     // 입력된 이메일이 없을 경우
     if(email.value.trim().length == 0){
         email.value = "";
 
-        emailMessage.innerText = "메일을 받을 수 있는 이메일을 입력해주세요.";
+        emailMessage.innerText = "인증번호를 받을 수 있는 이메일을 입력해주세요.";
+        emailMessage.classList.add("error");
+        emailMessage.classList.remove("confirm");
 
-        // confirm, error 클래스 삭제해서 검정 글씨로 만들기
-        emailMessage.classList.remove("confirm", "error");
-
-        checkObj.email = false; // 빈칸은 유효하지 않다.
+        checkObj.email = false;
         return;
     }
 
@@ -54,14 +47,14 @@ email.addEventListener("input", () => {
             // count : 중복되면 1, 중복 아니면 0
             if(count == 0){
                 emailMessage.innerText = "사용 가능한 이메일 입니다";
-                emailMessage.classList.add("confirm"); // css에 .confirm 스타일 적용
-                emailMessage.classList.remove("error"); // .error 스타일 제거
-                checkObj.memberEmail = true; // 유효할 때
+                emailMessage.classList.add("confirm");
+                emailMessage.classList.remove("error");
+                checkObj.memberEmail = true;
             } else {
                 emailMessage.innerText = "이미 사용 중인 이메일 입니다";
-                emailMessage.classList.add("error"); // css에 .confirm 스타일 적용
-                emailMessage.classList.remove("confirm"); // .error 스타일 제거
-                checkObj.memberEmail = false; // 유효하지 않을 때
+                emailMessage.classList.add("error");
+                emailMessage.classList.remove("confirm");
+                checkObj.memberEmail = false;
             }
 
 
@@ -100,8 +93,9 @@ memberPw.addEventListener("input", () => {
     if(memberPw.value.trim().length == 0){
         memberPw.value = ""; // 띄어쓰기 못넣게 하기
         
-        pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.";
-        pwMessage.classList.remove("confirm", "error"); // 검정 글씨
+        pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 8~15글자 사이로 입력해주세요.";
+        pwMessage.classList.add("error"); // .error 스타일 적용
+        pwMessage.classList.remove("confirm"); // .confirm 스타일 제거
 
         checkObj.memberPw = false; // 빈칸 == 유효 X
         return;
@@ -110,7 +104,7 @@ memberPw.addEventListener("input", () => {
 
     // 정규 표현식을 이용한 비밀번호 유효성 검사
 
-    // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
+    // 영어,숫자,특수문자(!,@,#,-,_) 8~15글자 사이
     const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
 
     // 입력한 비밀번호가 유효한 경우
