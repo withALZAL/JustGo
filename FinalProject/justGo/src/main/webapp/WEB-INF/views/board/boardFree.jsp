@@ -141,22 +141,41 @@
             <form action="#" method="get">
                 <nav aria-label="...">
                     <ul class="pagination">
-                        <li class="page-item disabled">
-                            <span class="page-link">이전</span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
                         <li class="page-item">
-                        <a class="page-link" href="#">다음</a>
+                            <a href="/board/${boardCode}?cp=1${sp}" class="page-link">맨처음</a>
+                            
                         </li>
+                        <li class="page-item">
+                            <a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
+                        </li>
+
+                        <c:forEach var="i" begin="${pagination.startPage}"
+                        end="${pagination.endPage}" step="1">
+
+                            <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <!-- 현재 보고있는 페이지 -->
+                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
+                            
+                            </c:when>
+
+                            <c:otherwise>
+                                <!-- 현재 페이지를 제외한 나머지 -->
+                                <li class="page-item"><a class="page-link" href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                
+                            </c:otherwise>
+                        </c:choose>
+
+                        </c:forEach>
+
+                        <li class="page-item">
+                        <a class="page-link" href="/board/${boardCode}?cp=${pagination.nextPage}${sp}">다음</a>
+                        </li>
+                        <li class="page-item">
+                        <a class="page-link" href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">마지막</a>
+                        </li>
+
+
                     </ul>
                 </nav>
             </form>
