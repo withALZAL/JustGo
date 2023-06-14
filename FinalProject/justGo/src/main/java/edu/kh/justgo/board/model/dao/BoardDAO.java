@@ -63,4 +63,27 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
 
+
+	
+	/** 여행게시판의 목록
+	 * @param countryNo
+	 * @return
+	 */
+	public int countryCount(int countryNo) {
+		
+		return sqlSession.selectOne("boardMapper.countryCount",countryNo);
+	}
+
+
+
+	public List<Board> countryList(Pagination pagination, int countryNo) {
+		
+		int offset = (pagination.getCurrentPage()-1
+				* pagination.getLimit());
+		
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+		
+		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
+	}
+
 }

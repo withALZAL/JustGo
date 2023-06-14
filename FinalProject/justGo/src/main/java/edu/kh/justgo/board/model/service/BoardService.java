@@ -14,5 +14,8 @@ public interface BoardService {
 	// 게시글 목록 조회
 	Map<String, Object> selectBoardList(int boardCode, int cp);
 
+	// 나라게시판 게시글 조회
+	Map<String, Object> countryList(int countryNo, int cp);
+
 
 }

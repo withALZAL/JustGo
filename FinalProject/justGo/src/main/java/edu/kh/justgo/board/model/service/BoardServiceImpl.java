@@ -50,6 +50,7 @@ public class BoardServiceImpl implements BoardService{
 		Pagination pagination = new Pagination(listCount, cp);
 		
 		List<Board> boardList = dao.selectBoardList(pagination,boardCode);
+	
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination",pagination);
@@ -57,6 +58,27 @@ public class BoardServiceImpl implements BoardService{
 		
 		return map;
 	}
+
+
+	@Override
+	public Map<String, Object> countryList(int countryNo, int cp) {
+		
+		int countryCount = dao.countryCount(countryNo);
+		
+		Pagination pagination = new Pagination(countryCount,cp);
+		
+		List<Board> boardList = dao.countryList(pagination,countryNo);
+		
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination",pagination);
+		map.put("boardList", boardList);
+		
+		
+		return map;
+	}
+	
+	
 	
 	
 
