@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/manager/manager.css">
 
-    <title>JustGo-inquiryAnswerManager</title>
+    <title>JustGo-askManager_detail</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/resources/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -47,7 +47,7 @@
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="/manager/askManager_detail">
-                관리자_1:1문의
+                관리자_1:1문의 상세페이지
             </a>
         </div>
     </div>
@@ -147,6 +147,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/manager/manager.js"></script>
+    <script src="/resources/js/manager/askManager_detail.js"></script>
 </body>
 </html>
