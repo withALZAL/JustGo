@@ -82,12 +82,24 @@
 	  -->
 	 
 	 
-	 <select id="memberList" parameterType="Member" resultMap="member_rm">
-	 	SELECT MEMBER_NO, MEMBER_NICKNAME, MEMBER_EMAIL, ENROLL_DATE, MEMBER_CONDITION
+
+	<select id="getMemberListCount" parameterType="Member" resultType="_int">
+	 	SELECT COUNT(*)
 		FROM "MEMBER"
+		WHERE MEMBER_CONDITION ='N'
 	 </select>
 	 
-	
-
+	 
+	<select id="selectMemberList" parameterType="Member" resultMap="member_rm">
+	 	SELECT MEMBER_NO, MEMBER_NICKNAME, MEMBER_EMAIL, ENROLL_DATE, MEMBER_CONDITION
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION ='N'
+	 </select>
+	 
+	 
+	 
+	 
+	 
+	 
 
 </mapper>

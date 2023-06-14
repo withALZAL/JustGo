@@ -19,8 +19,8 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.login", map);
 	}
 
-	public int joinUp(Member inputMember) {
-		return sqlSession.insert("memberMapper.joinUp", inputMember);
+	public int join(Member inputMember) {
+		return sqlSession.insert("memberMapper.join", inputMember);
 	}
 
 }

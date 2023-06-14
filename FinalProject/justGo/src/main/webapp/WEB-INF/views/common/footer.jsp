@@ -55,15 +55,17 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="#">공지사항</a> <%-- 공지사항으로 이동 --%>
-        <a href="#">1:1문의</a> <%-- 1:1문의로 이동 --%>
+        <a href="/board/boardNotice">공지사항</a> <%-- 공지사항으로 이동 --%>
+        <a href="/writing/writingQuestion">1:1문의</a> <%-- 1:1문의로 이동 --%>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
-        <a href="https://www.naver.com"> <%-- 글쓰기 버튼 --%>
+    <c:if test="${!empty sessionScope.loginMember}">
+        <a href="/writing/writingBoard"> <%-- 글쓰기 버튼 --%>
             <button>
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
         </a>
+    </c:if>
         <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>
                 <i class="fa-solid fa-arrow-up"></i>
@@ -84,22 +86,38 @@
     
 <!-- ----------------------------------------------- -->
 
-    
-
+<%-- sweetalert --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 
+<%-- 메시지 출력 --%>
+<c:if test="${not empty requestScope.message}">
     <script>
-    
-    // EL / JSTl 구문이 먼저 해석되는데
-    // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야 한다
+        // EL/JSTL 구문이 먼저 해석되는데
+        // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
+        /* alert('${message}'); */
 
-    // alert('${message}');
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 1000, /* 1초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
 
+        Toast.fire({
+        title: '${message}' /* 메시지 담기 */
+        })
     </script>
+</c:if>
 
 </body>
 </html>

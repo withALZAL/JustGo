@@ -35,51 +35,50 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">에러</button>
-        </a>
+    <form>
+        <a href="/">
+            <button type="button" class="btn btn-secondary btn-sm">메인</button>
+        </a>    
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/manager/memberManager">
+            <button type="button" class="btn btn-secondary btn-sm">관리자</button>
+        </a>    
+    </form>
+    <form>
+        <a href="/board/boardNotice">
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
         </a>
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/writing/writingBoard">
             <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
-    <form action="/html/writing/writingQuestion.html" method="get">
-        <a href="/html/writing/writingQuestion.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="/html/writing/post.html" method="get">
-        <a href="/html/writing/post.html">
+    <form>
+        <a href="/writing/post">
             <button type="button" class="btn btn-secondary btn-sm">포스트</button>
         </a>
     </form>
-    <form action="/html/writing/writingBoard.html" method="get">
-        <a href="/html/writing/writingBoard.html">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
+    <form>
+        <a href="/writing/writingQuestion">
+            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
+        </a>
+    </form>
+    <form>
+        <a href="/myPage/info">
+            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
+        </a>
+    </form>
+    <form>
+        <a href="/myPage/updateInfo">
+            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
         </a>
     </form>
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
-            
-            <button class="btn btn-secondary btn-sm">로그인</button>
+            <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
 
     <form action="#">
@@ -95,8 +94,8 @@
                     <button type="button" class="btn btn-secondary btn-sm">로그인</button>
                 </a>
             </form>
-            <form action="/html/account/join.html" method="get">
-                <a href="/html/account/join.html">
+            <form>
+                <a href="/account/join">
                     <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
                 </a>
             </form>
@@ -112,13 +111,13 @@
                     <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
                 </a>
             </form>
-            <%-- <c:if> --%> <%-- 로그인했는데 관리자였을 때 --%>
+            <c:if test="${loginMember.memberRole == 1}"> <%-- 로그인했는데 관리자였을 때 --%>
                 <form>
                     <a href="/manager/memberManager">
                         <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
                     </a>    
                 </form>
-            <%-- </c:if> --%>
+            </c:if>
         </c:otherwise>
     </c:choose>
 </nav>
@@ -142,7 +141,7 @@
     <c:if test="${!empty sessionScope.loginMember}" >
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
-            <a href="#"> <%-- 마이페이지로 이동 --%>
+            <a href="/myPage/info"> <%-- 마이페이지로 이동 --%>
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>${loginMember.memberNickname}</div>
             </a>
@@ -157,55 +156,47 @@
 <!-- nav 시작 -->
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
-        <%-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">여행게시판</a>
-            <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                <li><a class="dropdown-item" href="/html/board/boardChina.html"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">중국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardJapan.html"><img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">일본게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardVietnam.html"><img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">베트남게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardThai.html"><img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">태국게시판</a></li>
-                <li><a class="dropdown-item" href="/html/board/boardAustralia.html"><img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">호주게시판</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardFree.html">자유게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/html/board/boardQuestion.html">질문게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.naver.com" style="color:grey;">예비게시판실험</a>
-        </li>  --%>
+        <c:forEach var="boardType" items="${boardTypeList}">
 
+            <c:if test="${boardType.BOARD_CODE == 1}">
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                    <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
+                        <c:forEach items="${countryList}" var="country">
+                            <c:choose>
+                                <c:when test="${country.COUNTRY_NAME == '중국'}">
+                                    <li><a class="dropdown-item" href="/board/boardChina">
+                                    <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}게시판</a></li>
+                                </c:when>
+                                <c:when test="${country.COUNTRY_NAME == '일본'}">
+                                    <li><a class="dropdown-item" href="/board/boardJapan">
+                                    <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">${country.COUNTRY_NAME}게시판</a></li>
+                                </c:when>
+                                <c:when test="${country.COUNTRY_NAME == '베트남'}">
+                                    <li><a class="dropdown-item" href="/board/boardVietnam">
+                                    <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">${country.COUNTRY_NAME}게시판</a></li>
+                                </c:when>
+                                <c:when test="${country.COUNTRY_NAME == '태국'}">
+                                    <li><a class="dropdown-item" href="/board/boardThai">
+                                    <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">${country.COUNTRY_NAME}게시판</a></li>
+                                </c:when>
+                                <c:when test="${country.COUNTRY_NAME == '호주'}">
+                                    <li><a class="dropdown-item" href="/board/boardAustralia">
+                                    <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">${country.COUNTRY_NAME}게시판</a></li>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </ul>
+                </li>
+            </c:if>
 
-                <c:forEach var="boardType"  items="${boardTypeList}" >
-
-                    <c:if test="${boardType.BOARD_CODE == 1}" >
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                            href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
-                                <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                                <c:forEach items="${countryList}" var="country">
-                                <li><a class="dropdown-item" href="/board/boardAustralia">
-                                <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">
-                                
-                                ${country.COUNTRY_NAME}</a></li>
-                                </c:forEach>
-                                </ul>
-                        </li>
-                    </c:if>
-
-                    <c:if test="${boardType.BOARD_CODE != 1}" >
-                        <li class="nav-item">
-                            <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
-                        </li>
-
-                    </c:if>
-                </c:forEach>    
-
+            <c:if test="${boardType.BOARD_CODE != 1}" >
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                </li>
+            </c:if>
+        </c:forEach>    
 
 
                 <%-- <c:if test="${boardType == 1}">
@@ -219,6 +210,7 @@
                 </c:forEach>
                 </c:if> --%>
                 
+
     </ul>
 </nav>
 <!-- nav 끝 -->

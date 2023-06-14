@@ -29,7 +29,10 @@
 .account--joinBox {
     height: 500px;
     width: 50%;
-}
+} 
+
+
+
 
 /* 프로필 이미지 박스 조정 */
 .account--inputProfileBox {

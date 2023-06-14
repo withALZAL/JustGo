@@ -33,6 +33,7 @@
 	<mapper resource="/mappers/board-mapper.xml"/>
 	<mapper resource="/mappers/manager-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
+	<mapper resource="/mappers/ajax-mapper.xml"/>
 	
 	</mappers>
 

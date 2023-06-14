@@ -89,7 +89,7 @@ public class MemberController {
 	@PostMapping("/account/join")
 	public String joinUp(Member inputMember, RedirectAttributes ra) {
 		
-		int result = service.joinUp(inputMember);
+		int result = service.join(inputMember);
 		
 		String path = "redirect:";
 		String message = null;
@@ -106,5 +106,8 @@ public class MemberController {
 		return path;
 	
 	}
+	
 
+
+	
 }

@@ -37,7 +37,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -59,10 +59,9 @@
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" placeholder="제목을 입력해주세요." maxlength="50"></div>
+                <div><input type="text" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <!-- db조회해서 forEach문 돌려서 값 출력  -->
                         <option value="BoardFree">자유게시판</option>
                         <option value="boardQuestion">질문게시판</option>
                         <option value="BoardJapan">일본게시판</option>
@@ -81,14 +80,14 @@
             </div>
         <div class="writing--inputContentBox">
             <div class="writing--summernoteBox" id="summernote">
-                hello summernote 여기에 썸머노트를 넣습니다.
+                
             </div>
         <div class="writing--ButtonBox">
             <a href="/resources/html/common/main.html">
-                <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
             </a>
-            <a href="/resources/html/common/main.html">
-                <button type="button" class="btn btn-secondary btn-sm">취소</button>
+            <a>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
             </a>
         </div>
     </div>
@@ -100,7 +99,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 
@@ -114,11 +113,11 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- summerNote script 추가 -->
-    <script src="/js/summernote/summernote-lite.js"></script>
+    <script src="/resources/js/summernote/summernote-lite.js"></script>
     <!-- summerNote script 추가 -->
-    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+    <script src="/resources/js/summernote/lang/summernote-ko-KR.js"></script>
 
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
@@ -126,5 +125,29 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/writingBoard.js"></script>
+
+<%-- summernote --%>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+    <script>
+        $('#summernote').summernote({
+        placeholder: '여기에 내용을 작성해주세요.',
+        tabsize: 2,
+        height: 500,
+        width : 1100,
+        focus: true, /* 화면 auto-focus on */
+        disableResizeEditor: true, /* resize off */
+        toolbar: [ /* 썸머노트 상단 툴바 설정 */
+            ["style", ["style"]],
+            ["font", ["bold", "italic", "underline", "fontname"]],
+            ["color", ["color"]],
+            ["insert", ["link", "picture"]],
+            ["view", ["codeview", 'help']]
+            ]
+        });
+    </script>
 </body>
 </html>
