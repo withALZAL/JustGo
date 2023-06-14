@@ -20,12 +20,19 @@ public class ManagerDAO {
 	private SqlSessionTemplate sql;
 
 	
+	/** 회원 수 조회
+	 * @return result
+	 */
 	public int getMemberListCount() {
 		return sql.selectOne("managerMapper.getMemberListCount");
 	}
 	
 	
 	
+	/** 회원목록 조회
+	 * @param pagination
+	 * @return list
+	 */
 	public List<Member> selectMemberList(Pagination pagination) {
 		
 		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
