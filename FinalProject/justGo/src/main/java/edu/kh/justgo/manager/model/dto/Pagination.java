@@ -1,6 +1,6 @@
-package edu.kh.justgo.board.model.dto;
+package edu.kh.justgo.manager.model.dto;
 
-// 페이징 처리에 필요한 모든 값들을 저장 하고있는 객체
+//페이징 처리에 필요한 모든 값들을 저장 하고있는 객체
 public class Pagination {
 	
 	private int currentPage;		// 현재 페이지 번호
@@ -15,6 +15,7 @@ public class Pagination {
 	
 	private int prevPage;			// 이전 페이지의 페이지 번호 맨 끝
 	private int nextPage;			// 다음 페이지의 페이지 번호 맨 앞
+	
 	
 	
 	public Pagination(int listCount, int currentPage) {
@@ -170,4 +171,5 @@ public class Pagination {
 		else				   nextPage = endPage + 1;
 		
 	}
+
 }

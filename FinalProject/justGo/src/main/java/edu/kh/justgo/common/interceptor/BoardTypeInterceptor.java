@@ -32,14 +32,14 @@ public class BoardTypeInterceptor implements HandlerInterceptor {
 			List<Map<String,Object>> boardTypeList 
 			= service.selectBoardTypeList();
 			
-			System.out.println(boardTypeList);
+//			System.out.println(boardTypeList);
 			// application scope 에 세팅
 			application.setAttribute("boardTypeList", boardTypeList);
 			
 			List<Map<String, Object>> countryList 
 			= service.selectCountryList();
 			
-			System.out.println(countryList);
+//			System.out.println(countryList);
 			
 			application.setAttribute("countryList", countryList);
 			

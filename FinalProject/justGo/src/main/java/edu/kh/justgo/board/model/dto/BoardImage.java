@@ -12,4 +12,7 @@ public class BoardImage {
 	private String imagePath;
 	private String imageReName;
 	private int boardNo;
+	private String imageOriginal;
+	private int imageOrder;
+	
 }
