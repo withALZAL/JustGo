@@ -53,13 +53,13 @@
 <div class="common--errorContainer">
     <div class="common--errorBox">
         <div class="common--errorTitle" style="font-size: 100px;">ERROR!</div>
-        <div class="common--errorSorry">"대단히 죄송합니다. 알 수 없는 에러가 발생했습니다."</d>
+        <div class="common--errorSorry">"대단히 죄송합니다. 알 수 없는 에러가 발생했습니다."</div>
         <div class="common--errorBtnBox">
-            <a href="/resources/html/common/main.html">
+            <a href="/">
                 <button type="button" class="btn btn-secondary btn-sm">메인 페이지로 돌아가기</button>
             </a>
-            <a href="/resources/html/common/main.html">
-                <button type="button" class="btn btn-secondary btn-sm">이전 페이지로 돌아가기</button>
+            <a>
+                <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm">이전 페이지로 돌아가기</button>
             </a>
         </div>
     </div>

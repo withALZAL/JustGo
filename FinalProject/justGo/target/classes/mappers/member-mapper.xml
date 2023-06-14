@@ -28,11 +28,9 @@
 	</select>
 	
 	<insert id="join" parameterType="member">
-	INSERT INTO "MEMBER"
-	VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
-	, '${memberNickname}', DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT,
-	DEFAULT, DEFAULT)
-		
+		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}, '${memberNickname}',
+		DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
 

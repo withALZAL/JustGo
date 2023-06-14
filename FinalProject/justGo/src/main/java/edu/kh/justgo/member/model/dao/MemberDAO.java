@@ -19,6 +19,7 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.login", map);
 	}
 
+	// 회원가입
 	public int join(Member inputMember) {
 		return sqlSession.insert("memberMapper.join", inputMember);
 	}
