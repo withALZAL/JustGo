@@ -58,7 +58,21 @@ public class ManagerController {
 	
 	// 1:1문의 관리자페이지 연결
 	@GetMapping("/askManager")
-	public String askManager() {
+	public String askManager(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			, Model model
+			) {
+		
+		// 회원정보 불러오기
+		Map<String, Object> map = service.selectAskList(cp);
+		
+		model.addAttribute("map", map);
+		
+		// 콘솔에서 확인
+//		System.out.println(memberList);
+		
+		
+		
 		return "/manager/askManager";
 	}
 	

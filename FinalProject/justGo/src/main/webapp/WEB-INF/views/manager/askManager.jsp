@@ -24,15 +24,16 @@
 </head>
 <body class="template--body">
 
-
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="askList" value="${map.askList}" />
+<%-- ${map.pagination} --%>
+<%-- ${map.askList} --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
-
-
 
 <!-- Template-main 시작 -->
 <main class="template--main">
@@ -85,97 +86,62 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>100000</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>미답변</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>미답변</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><form><a href="#">바른말고운말여덟</a></form></td>
-                            <td><form><a href="https://www.naver.com">바른말 여행사입니다. 협업하고 싶어 문의드립니다.</a></form></td>
-                            <td>2023년 1월 1일</td>
-                            <td>답변완료</td>
-                        </tr>
+                        <c:choose>
+                            <c:when test="${empty askList}">
+                                <tr>
+                                    <th colspan="6">문의가 존재하지 않습니다.</th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${askList}" var="ask">
+                                
+                                    <tr>
+                                        <td>${ask.feedbackNo}</td>
+                                        <td><form><a href="#">${ask.memberNickname}</a></form></td>
+                                        <td><form><a href="https://www.naver.com">${ask.feedbackText}</a></form></td>
+                                        <td>${ask.feedbackDate}</td>
+                                        <td>${ask.feedback_CF_FL}</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                        
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
                     <form action="#" method="get">
                         <nav aria-label="...">
                             <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link">이전</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
-                                <a class="page-link" href="#">다음</a>
+                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=1">맨 처음</a>
+                                </li>
+
+                                <%-- 이전 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=${pagination.prevPage}">이전</a>
+                                </li>
+
+                                <%-- 특정 번호 목록 페이지 이동 --%>
+                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                    <c:choose>
+                                        <c:when test="${i==pagination.currentPage}">
+                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li class="page-item"><a class="page-link" href="/manager/memberManager?cp=${i}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+
+                                <%-- 다음 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.nextPage}">다음</a>
+                                </li>
+
+                                <%-- 맨 끝 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.endPage}">맨 끝</a>
                                 </li>
                             </ul>
                         </nav>

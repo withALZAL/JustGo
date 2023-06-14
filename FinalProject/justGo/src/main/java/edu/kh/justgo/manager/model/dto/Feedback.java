@@ -16,7 +16,7 @@ public class Feedback {
 	private int memberNo;
 	private String feedbackTitle;
 	private String feedbackText;
-	private String feedBackDate;
+	private String feedbackDate;
 	private String AdminText;
 	private String feedback_CF_FL;
 	private String feedback_CF_Date;
