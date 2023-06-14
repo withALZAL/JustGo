@@ -103,7 +103,7 @@
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">회원가입</button>
-                    <button type="button" class="btn btn-secondary btn-lg">취소</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
                 </div>
             </div>
         </form>
