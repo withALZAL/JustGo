@@ -15,6 +15,7 @@
 	<!-- VO클래스의 패키지명 + 클래스명 작성하는 것이 불편하기 때문에 짧은 별칭 부여 -->
 	<typeAliases>
 	<typeAlias type="edu.kh.justgo.member.model.dto.Member" alias="Member"/>	
+	<typeAlias type="edu.kh.justgo.main.model.dto.Main" alias="Main"/>	
 
 	<typeAlias type="edu.kh.justgo.board.model.dto.Board" alias="Board"/>	
 

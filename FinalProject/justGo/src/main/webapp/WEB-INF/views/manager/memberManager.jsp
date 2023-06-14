@@ -24,8 +24,8 @@
 </head>
 <body class="template--body">
 
-
-
+    <c:set var="pagination" value="${map.pagination}" />
+    <c:set var="memberList" value="${map.memberList}" />
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -33,7 +33,8 @@
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
-
+<%-- ${map.pagination} --%>
+<%-- ${map.memberList} --%>
 
 <!-- Template-main 시작 -->
 <main class="template--main">
@@ -111,7 +112,7 @@
                         </c:choose>
                         
 
-                       
+
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
