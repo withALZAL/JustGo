@@ -24,6 +24,15 @@ public class MainController {
 		List<Main> hotBoardList = service.hotBoard();
 		model.addAttribute("hotBoardList", hotBoardList);
 
+		List<Main> foodBoardList = service.foodBoard();
+		model.addAttribute("foodBoardList", foodBoardList);
+		
+		List<Main> tipBoardList = service.tipBoard();
+		model.addAttribute("tipBoardList", tipBoardList);
+
+		List<Main> healBoardList = service.healBoard();
+		model.addAttribute("healBoardList", healBoardList);
+
 		return "common/main";
 	}
 

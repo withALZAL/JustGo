@@ -19,6 +19,21 @@ public class MainServiceImpl implements MainService{
 	   public List<Main> hotBoard() {
 	      return dao.hotBoard();
 	   }
+
+	@Override
+	public List<Main> foodBoard() {
+		return dao.foodBoard();
+	}
+
+	@Override
+	public List<Main> tipBoard() {
+		return dao.tipBoard();
+	}
+
+	@Override
+	public List<Main> healBoard() {
+		return dao.healBoard();
+	}
 	
 	
 }
