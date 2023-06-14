@@ -54,7 +54,7 @@
 <!-- 회원가입창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="https://www.naver.com" method="post">
+        <form action="https://www.naver.com" method="post" id=updateInfo>
             <div class="account--inputProfileBox">
                 <a href="https://www.google.com">
                     <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;">
@@ -66,7 +66,7 @@
                     <tr>
                         <th>현재 비밀번호</th>
                         <td>
-                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요.">
+                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" >
 <!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">비밀번호가 일치합니다.</div> -->
                             <div style="height: 0.1px; font-size: 0.2rem; color: red;">비밀번호가 일치하지 않습니다.</div>
                         </td>
@@ -76,7 +76,7 @@
                     <tr>
                         <th>변경할 비밀번호</th>
                         <td>
-                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요.">
+                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw" >
                             <div style="height: 0.1px; font-size: 0.2rem; color: black;">15자 이내의 영문 소/대문자, 숫자, 특수문자(!, @, #, $, %)로 입력해주세요.</div>
 <!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 비밀번호입니다.</div>
                             <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 비밀번호입니다.</div> -->
@@ -85,7 +85,7 @@
                     <tr>
                         <th>비밀번호 확인</th>
                         <td>
-                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요.">
+                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
 <!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">비밀번호가 일치합니다.</div> -->
                             <div style="height: 0.1px; font-size: 0.2rem; color: red;">비밀번호가 일치하지 않습니다.</div>
                         </td>
@@ -93,7 +93,7 @@
                     <tr>
                         <th>변경할 닉네임</th>
                         <td>
-                            <input type="text" maxlength="8" placeholder="닉네임을 입력해주세요." value="폭탄배달부키키">
+                            <input type="text" maxlength="8" placeholder="닉네임을 입력해주세요." value="폭탄배달부키키" id="memberNickname">
                             <div style="height: 0.1px; font-size: 0.2rem; color: black;">8자 이내로 한글, 영문 소/대문자를 입력해주세요.</div>
 <!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 닉네임입니다.</div>
                             <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 닉네임입니다.</div> -->
@@ -102,7 +102,7 @@
                     </section>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="button" class="btn btn-secondary btn-sm">수정</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">수정</button>
                 </div>
             </div>
         </form>
@@ -132,6 +132,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/join.js"></script>
+    <script src="/resources/js/account/updateInfo.js"></script>
 </body>
 </html>
