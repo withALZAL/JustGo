@@ -84,11 +84,11 @@
                 </c:when>
                 <c:otherwise> <%-- 로그인했을 때 --%>
                     <div class="carousel-item active" data-bs-interval="5000">
-                        <a href="/myPage/info" target="_blank">
-                            <img src="/resources/images/officialBanner/BANNERWELCOME.png" class="d-block w-100" alt="웰컴 배너">
+                       <a href="/myPage/info" target="_blank">
+                         <img src="/resources/images/officialBanner/BANNERWELCOME.png" class="d-block w-100" alt="웰컴 배너">
                         </a>
                         <div class="carousel-caption d-none d-md-block">
-                            <h1 class="common--bannerText" id="welcomeText" style="text-align: center;">${loginMember.memberNickname}님, 환영합니다!</h1>
+                <h1 class="common--bannerText" id="welcomeText" style="text-align: center;">${loginMember.memberNickname}님, 환영합니다!</h1>
                             <p class="common--bannerWelcome">JustGo에서 즐거운 시간 보내세요!</p>
                         </div>
                     </div>
@@ -229,6 +229,7 @@
                     </div>
                     </a>
                 </div>
+
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
@@ -293,13 +294,12 @@
                     </div>
                     </a>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 <!-- 인기게시글 끝 -->
-
-
 
 <!-- 맛집게시글 시작 -->
 <div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
@@ -314,6 +314,7 @@
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
             <div class="accordion-body common--boardCards">
+            <c:forEach items="${foodBoardList}" var="foodList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
@@ -321,80 +322,17 @@
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
-                            사이판에서 생긴 일
+                            ${foodList.boardTitle}
                         </p>
                         <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
+                            <i class="fa-solid fa-eye right-align">&nbsp${foodList.readCount}</i>
+                            <i class="fa-solid fa-heart right-align">&nbsp${foodList.likeCount}</i>
                         </nav>
                     </div>
                     </a>
                 </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            이럴 때는 어떻게 처리해야 하나요?
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            [일본 게시판 공식]일본 여행 추천지와 맛집 리스트 정리입니다.
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            여권을 잃어버렸을 때 조치 방법
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            방콕행 비행기 세일한다고 하네요
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-            </div>
+            </c:forEach>
+            </div> 
         </div>
     </div>
 </div>
@@ -415,6 +353,7 @@
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
             <div class="accordion-body common--boardCards">
+            <c:forEach items="${tipBoardList}" var="tipBoardList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
@@ -422,79 +361,16 @@
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
-                            사이판에서 생긴 일
+                            ${tipBoardList.boardTitle}
                         </p>
                         <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
+                            <i class="fa-solid fa-eye right-align">&nbsp${tipBoardList.readCount}</i>
+                            <i class="fa-solid fa-heart right-align">&nbsp${tipBoardList.likeCount}</i>
                         </nav>
                     </div>
                     </a>
                 </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            이럴 때는 어떻게 처리해야 하나요?
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            [일본 게시판 공식]일본 여행 추천지와 맛집 리스트 정리입니다.
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            여권을 잃어버렸을 때 조치 방법
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            방콕행 비행기 세일한다고 하네요
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
+            </c:forEach>
             </div>
         </div>
     </div>
@@ -516,6 +392,7 @@
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
             <div class="accordion-body common--boardCards">
+            <c:forEach items="${healBoardList}" var="healList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
@@ -523,79 +400,16 @@
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
-                            사이판에서 생긴 일
+                            ${healList.boardTitle}
                         </p>
                         <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
+                            <i class="fa-solid fa-eye right-align">&nbsp${healList.readCount}</i>
+                            <i class="fa-solid fa-heart right-align">&nbsp${healList.likeCount}</i>
                         </nav>
                     </div>
                     </a>
                 </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            이럴 때는 어떻게 처리해야 하나요?
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" class="card-img-top" alt="게시글 사진 3">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            [일본 게시판 공식]일본 여행 추천지와 맛집 리스트 정리입니다.
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="card-img-top" alt="게시글 사진 4">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            여권을 잃어버렸을 때 조치 방법
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialFlag/CHINAFLAG.png" class="card-img-top" alt="게시글 사진 5">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            방콕행 비행기 세일한다고 하네요
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
+            </c:forEach>
             </div>
         </div>
     </div>
@@ -611,22 +425,22 @@
             <i class="fa-solid fa-money-bill" style="color: green;"></i>
             환율 계산기
         </div>
-        <form action="/api/money" method="get">
+        <form action="https://www.google.com" method="post">
             <div class="card-body common--cardExchange">
                 <div class="common--cardExchange__top">
-                    <input type="number" id="krw" name="krw" placeholder="숫자만 입력해주세요." value="10000" min="0" max="99999999999">원
+                    <input type="number" placeholder="숫자만 입력해주세요." value="10000">원
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select class="common--cardExchangeSelector" onchange="handleSelection(this)">
-                        <option value="option1" name="usd">달러 | USD</option>
-                        <option value="option2" name="jpy">엔 | JPY</option>
-                        <option value="option3" name="cny">위안 | CNY</option>
-                        <option value="option4" name="eur">유로 | EUR</option>
-                        <option value="option4" name="gbp">파운드 | GBP</option>
-                        <option value="option5" name="vnd">동 | VND</option>
-                        <option value="option6" name="thb">바트 | THB</option>
-                        <option value="option7" name="twd">대만달러 | TWD</option>
-                        <option value="option8" name="khd">홍콩달러 | HKD</option>
-                        <option value="option9" name="aud">호주달러 | AUD</option>
+                    <select class="common--cardExchangeSelector">
+                        <option value="option1">달러 | USD</option>
+                        <option value="option2">엔 | JPY</option>
+                        <option value="option3">위안 | CNY</option>
+                        <option value="option4">유로 | EUR</option>
+                        <option value="option4">파운드 | GBP</option>
+                        <option value="option5">동 | VND</option>
+                        <option value="option6">바트 | THB</option>
+                        <option value="option7">대만달러 | TWD</option>
+                        <option value="option8">홍콩달러 | HKD</option>
+                        <option value="option9">호주달러 | AUD</option>
                     </select>
                     <button>변환</button>
                 </div>

@@ -16,7 +16,19 @@ public class MainDAO {
 
 	public List<Main> hotBoard(){
 	      return sqlSession.selectList("mainMapper.hotBoard");
-	   }   
+	   }
+
+	public List<Main> foodBoard() {
+		return sqlSession.selectList("mainMapper.foodBoard");
+	}
+
+	public List<Main> tipBoard() {
+		return sqlSession.selectList("mainMapper.tipBoard");
+	}
+
+	public List<Main> healBoard() {
+		return sqlSession.selectList("mainMapper.healBoard");
+	}   
 	
 	
 	

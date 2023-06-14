@@ -9,4 +9,10 @@ public interface MainService {
 
 	List<Main> hotBoard();
 
+	List<Main> foodBoard();
+
+	List<Main> tipBoard();
+
+	List<Main> healBoard();
+
 }
