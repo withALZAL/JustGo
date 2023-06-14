@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="memberMapper">
+<mapper namespace="myPageMapper">
 
    <resultMap type="Member" id="member_rm">
       <!-- DB의 기본 키(복합키면 여러 개 작성) -->
@@ -18,21 +18,44 @@
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
+	<!-- 회원 정보 수정 -->
+	<update id="updateInfo" parameterType="Member">
+		UPDATE "MEMBER"
+		SET MEMBER_NICKNAME = #{memberNickname}
+		WHERE MEMBER_NO = #{memberNo} AND #{memberNickname} IS NOT NULL
+	</update>
 
-	<select id="login" parameterType="Member" resultMap="member_rm">
-		SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
-		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE, MEMBER_ROLE
-		FROM MEMBER
-		WHERE MEMBER_CONDITION = 'N'
-		AND MEMBER_EMAIL = #{memberEmail}
+
+	<!-- 비밀번호 확인 -->
+	<select id="selectEncPw" parameterType="_int" resultType="string">
+		SELECT MEMBER_PW 
+		FROM "MEMBER" 
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
-	
-	<insert id="join" parameterType="member">
-		INSERT INTO "MEMBER"
-		VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}, '${memberNickname}',
-		DEFAULT, NULL, DEFAULT, NULL, NULL, DEFAULT, DEFAULT, DEFAULT)
-	</insert>
-	
+
+
+	<!-- 비밀번호 변경 -->
+	<update id="changePw" parameterType="Member">
+		UPDATE "MEMBER" 
+		SET MEMBER_PW = #{memberPw}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
+
+	<!-- 회원 탈퇴 -->
+	<update id="secession" parameterType="_int">
+		UPDATE "MEMBER" 
+		SET MEMBER_CONDITION = 'Y'
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
+
+	<!-- 프로필 이미지 수정 -->
+	<update id="updateProfileImage">
+		UPDATE "MEMBER" 
+		SET PROFILE_IMG = #{profileImage}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 
 </mapper>

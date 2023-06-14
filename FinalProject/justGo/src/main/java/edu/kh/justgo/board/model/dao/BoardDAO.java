@@ -16,6 +16,7 @@ public class BoardDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
 	/** 게시판 목록
 	 * @return

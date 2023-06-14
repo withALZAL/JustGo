@@ -58,6 +58,8 @@ public class MemberController {
 			cookie.setPath("/");
 			resp.addCookie(cookie);
 			
+			ra.addFlashAttribute("message", "환영합니다.");
+			
 		}else {
 			path += referer;
 			ra.addFlashAttribute("message", "아이디 또는 비밀번호를 확인해주세요.");

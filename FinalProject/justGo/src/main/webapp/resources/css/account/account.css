@@ -5,6 +5,10 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 /* font-family: 'Noto Serif KR', serif; */
 
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }
+
 /* 회원가입 위 ----------------------------------------------- */
 
 /* 회원가입 컨테이너 */
@@ -30,9 +34,6 @@
     height: 500px;
     width: 50%;
 } 
-
-
-
 
 /* 프로필 이미지 박스 조정 */
 .account--inputProfileBox {

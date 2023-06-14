@@ -15,7 +15,7 @@
 		<result property="readCount" column="READ_COUNT" />
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardDelete" column="BOARD_DELETE" />
-		
+		<result property="boardThumbnail" column="BOARD_THUMBNAIL" />
 
 		<!-- JOIN -->
 		<result property="commentCount" column="COMMENT_COUNT" />
@@ -27,10 +27,6 @@
 		<result property="tagNo" column="TAG_NO" />
 		<result property="thumbnail" column="THUMBNAIL"/>
 		
-		
-
-
-
 
 		<collection property="imageList" select="selectImageList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
@@ -47,10 +43,8 @@
       <result property="updateDate" column="REPLY_UPDATE"/>
       <result property="replyDelete" column="REPLY_DELETE"/>
       <result property="parentReplyNo" column="PARENT_REPLY_NO"/>
-
    
    </resultMap>
-	
 	
 		<!-- BoardImage resultMap -->
 		<resultMap type="BoardImage" id="boardImage_rm">
@@ -64,16 +58,16 @@
 		</resultMap>
 	
 	
-	
-	
-	<select id="selectBoardTypeList" resultType="map">
-		SELECT * FROM "BOARD_TYPE" ORDER BY 1
-	</select>
-	
-	
 	<select id="selectCountryList" resultType="map">
-		SELECT * FROM COUNTRY ORDER BY 1
+		SELECT * FROM COUNTRY
+		ORDER BY 1
 	</select>
+
+	<select id="selectBoardTypeList" resultType="map">
+		SELECT * FROM
+		"BOARD_TYPE" ORDER BY 1
+	</select>
+
 	
 		 <!-- 특정 게시판의 삭제되지 않은 게시글 수 조회  -->
 	<select id="listCount" parameterType="int" resultType="int" >
@@ -123,6 +117,7 @@
 	WHERE BOARD_NO=#{boardCode}
 	ORDER BY IMG_ORDER
 	</select>
+
 	
 		<select id="countryList" resultMap="board_rm">
 	SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
@@ -156,4 +151,5 @@
 	
 	
 	
+
 </mapper>

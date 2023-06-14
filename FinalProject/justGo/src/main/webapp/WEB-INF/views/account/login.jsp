@@ -61,16 +61,16 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50"></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="30" autocomplete="off" required></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30"></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="goBack()">취소</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="history.back()">취소</button>
                 </div>
             </div>
         </form>
@@ -93,8 +93,8 @@
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
 
-    
 
+    
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
