@@ -1,6 +1,15 @@
 package edu.kh.justgo.board.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +18,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.service.BoardService;
+import edu.kh.justgo.member.model.dto.Member;
 
 @SessionAttributes({"loginMember"})
 @RequestMapping("/board")
@@ -60,6 +73,115 @@ public class BoardController {
 	   }
 	   
 	   // 게시글 상세확인
+	   @GetMapping("/{boardCode}/{boardNo}")
+	   public String boardDetail(@PathVariable("boardCode") int boardCode
+				,@PathVariable("boardNo") int boardNo, Model model
+				,RedirectAttributes ra
+				,@SessionAttribute(value="loginMember",required=false) Member loginMember
+				,HttpServletRequest req
+				,HttpServletResponse resp) throws ParseException {
+		   		
+		   Map<String, Object> map = new HashMap<String, Object>();
+		   map.put("boardCode", boardCode);
+		   map.put("boardNo", boardNo);
+		   
+		   Board board = service.selectBoard(map);
+		   
+		   String path = null;
+		   
+		   if(board != null) {
+			   	// 좋아요 체크
+				if(loginMember !=null) { 
+					
+					map.put("memberNo",loginMember.getMemberNo());
+					
+					int result = service.boardLikeCheck(map);
+					System.out.println(result);
+					
+					if(result>0) model.addAttribute("likeCheck","on");
+				}
+			   
+				//
+				if(loginMember == null || 
+						loginMember.getMemberNo() != board.getBoardNo()) {
+					
+					Cookie c = null;
+					Cookie[] cookies = req.getCookies(); 
+					
+					if(cookies != null) {
+						for(Cookie cookie : cookies) {
+							if(cookie.getName().equals("readBoardNo")) {
+								c= cookie;
+								break;
+							}
+						}
+						
+					}
+					
+					int result = 0;
+					
+					if(c==null) {
+						// 쿠키가 존재하지 않아서 하나 생성해줌
+						c= new Cookie("readBoardNo","|"+ boardNo +"|");
+						
+						// 조회수 증가 서비스 호출
+						
+						result = service.updateReadCount(boardNo);
+					
+					}else {
+						if(c.getValue().indexOf("|"+ boardNo +"|")== -1 ) {
+							// 쿠키에 현재 게시글 번호가 없다면 
+							
+							// 기존 값에 게시글 번호 추가해서 다시 세팅
+							c.setValue(c.getValue()+"|"+ boardNo +"|");
+							
+							result = service.updateReadCount(boardNo);
+						}
+						
+					}
+					
+					if(result > 0) {
+						board.setReadCount(board.getReadCount()+1);
+						
+						c.setPath("/");
+						Calendar cal = Calendar.getInstance();
+						cal.add(cal.DATE,1);
+						
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						
+						Date a = new Date(); 
+						
+						Date temp = new Date(cal.getTimeInMillis()); // 내일
+						
+						Date b = sdf.parse(sdf.format(temp));
+				
+						// 내일 0시 0분 0초 - 현재시간
+						long diff = (b.getTime() - a.getTime()) / 1000;
+						
+						c.setMaxAge((int)diff); // 수명설정
+						
+						resp.addCookie(c);
+					
+					}
+					
+					
+				}
+				
+				path +="writing/post";
+				model.addAttribute("board",board);
+				
+		   }else { // 조회 결과가 없을 경우
+				
+				path = "redirect:/board/"+ boardCode; // 게시판 첫 페이지로 redirect
+				
+				ra.addFlashAttribute("message","해당 게시글이 존재하지 않습니다.");
+				
+			} 
+		   
+		   
+		   return path;
+	   }
+	  
 	   
 	   
 	  

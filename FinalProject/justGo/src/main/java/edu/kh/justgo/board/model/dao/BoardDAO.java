@@ -76,6 +76,11 @@ public class BoardDAO {
 
 
 
+	/** 여행자 게시판
+ 	 * @param pagination
+	 * @param countryNo
+	 * @return
+	 */
 	public List<Board> countryList(Pagination pagination, int countryNo) {
 		
 		int offset = (pagination.getCurrentPage()-1
@@ -84,6 +89,35 @@ public class BoardDAO {
 		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
 		
 		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
+	}
+
+
+	// 게시글 확인
+	public Board selectBoard(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.selectBoard",map);
+	}
+
+
+
+	/** 좋아요 확인
+	 * @param map
+	 * @return
+	 */
+	public int boardLikeCheck(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.boardLikeCheck",map);
+	}
+
+
+
+	/** 조회수 
+	 * @param boardNo
+	 * @return
+	 */
+	public int updateReadCount(int boardNo) {
+		
+		return sqlSession.update("boardMapper.updateReadCount",boardNo);
 	}
 
 }
