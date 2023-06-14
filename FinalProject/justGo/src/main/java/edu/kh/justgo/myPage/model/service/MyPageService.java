@@ -1,6 +1,7 @@
 package edu.kh.justgo.myPage.model.service;
 
 
+
 public interface MyPageService {
 
 	/** 회원 정보 수정 서비스
@@ -16,5 +17,6 @@ public interface MyPageService {
 	 * @return result
 	 */
 	 // int changePw(String currentPw, String newPw, int memberNo); 
+
 
 }

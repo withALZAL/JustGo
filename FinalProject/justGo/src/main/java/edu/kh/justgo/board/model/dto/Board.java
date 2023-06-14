@@ -21,7 +21,6 @@ public class Board {
     private int readCount;
     private int boardCode;
     private String boardDelete;
-    private String boardThumbnail;
     
     private String thumbnail;
     
@@ -33,6 +32,8 @@ public class Board {
     private String profileImage;
     private int countryNo;
     private int tagNo;
+    
+    
     
     // 이미지 목록
     private List<BoardImage> imageList;

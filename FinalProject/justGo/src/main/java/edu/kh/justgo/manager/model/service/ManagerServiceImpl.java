@@ -23,7 +23,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		int listCount = dao.getMemberListCount();
 		
-//		System.out.println("listCount : " +listCount);
+		System.out.println("listCount : " +listCount);
 		
 		Pagination pagination = new Pagination(listCount, cp);
 		

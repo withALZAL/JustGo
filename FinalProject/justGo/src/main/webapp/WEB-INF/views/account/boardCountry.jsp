@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="boardList" value="${map.boardList}"/>
@@ -10,12 +9,11 @@
 <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/>
 --%>
 
-<c:forEach items="${boardTypeList}" var="boardType">
-    <c:if test="${boardType.BOARD_CODE == boardCode}" >
-        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
+<c:forEach items="${countryList}" var="boardType">
+    <c:if test="${boardType.COUNTRY_NO == countryNo}" >
+        <c:set var="countryName" value="${boardType.COUNTRY_NAME}"/>
     </c:if>
 </c:forEach>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -30,8 +28,8 @@
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/board/board.css">
-
-    <title>${boardName}</title>
+    
+    <title>${countryName}</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -59,10 +57,11 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
         <div class="template--overlayedTitle" style="color: black;">
+            <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
-                ${boardName}
+                ${countryName}
             </a>
         </div>
     </div>
@@ -81,7 +80,6 @@
             <div><a href="#">꿀팁</a></div>
             <div><a href="#">맛집</a></div>
             <div><a href="#">힐링</a></div>
-            <button type="button" class="btn btn-secondary btn-sm">임시버튼</button>
         </form>
     </div>
 
@@ -102,7 +100,7 @@
                 </tr>
             </thead>
             <tbody>
-        <c:choose>
+            <c:choose>
             <c:when test="${empty boardList}">
                 <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
                 
@@ -129,6 +127,7 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
+                <!-- 추가적인 글 목록을 여기에 추가할 수 있습니다 -->
             </tbody>
         </table>
     </div>
@@ -141,12 +140,12 @@
             <form action="#" method="get">
                 <nav aria-label="...">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a href="/board/${boardCode}?cp=1${sp}" class="page-link">맨처음</a>
+                    <li class="page-item">
+                            <a href="/board/1/${countryNo}?cp=1${sp}" class="page-link">맨처음</a>
                             
                         </li>
                         <li class="page-item">
-                            <a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
+                            <a href="/board/1/${countryNo}?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
                         </li>
 
                         <c:forEach var="i" begin="${pagination.startPage}"
@@ -161,7 +160,7 @@
 
                             <c:otherwise>
                                 <!-- 현재 페이지를 제외한 나머지 -->
-                                <li class="page-item"><a class="page-link" href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                <li class="page-item"><a class="page-link" href="/board/1/${countryNo}?cp=${i}${sp}">${i}</a></li>
                                 
                             </c:otherwise>
                         </c:choose>
@@ -169,13 +168,11 @@
                         </c:forEach>
 
                         <li class="page-item">
-                        <a class="page-link" href="/board/${boardCode}?cp=${pagination.nextPage}${sp}">다음</a>
+                        <a class="page-link" href="/board/1/${countryNo}?cp=${pagination.nextPage}${sp}">다음</a>
                         </li>
                         <li class="page-item">
-                        <a class="page-link" href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">마지막</a>
+                        <a class="page-link" href="/board/1/${countryNo}?cp=${pagination.maxPage}${sp}">마지막</a>
                         </li>
-
-
                     </ul>
                 </nav>
             </form>
@@ -212,12 +209,14 @@
 </main>
 <!-- Template-main 끝 -->
 
+
     
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
+
     
 
 <!-- bootstrap -->
