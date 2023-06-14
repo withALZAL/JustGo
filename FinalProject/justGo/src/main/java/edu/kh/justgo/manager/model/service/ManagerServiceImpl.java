@@ -27,15 +27,15 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		Pagination pagination = new Pagination(listCount, cp);
 		
-		List<Member> userList = dao.selectMemberList(pagination);
+		List<Member> memberList = dao.selectMemberList(pagination);
 		
 		// pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
-		map.put("userList", userList);
+		map.put("memberList", memberList);
 		
 		
-		System.out.println(map);
+//		System.out.println(map);
 		
 		
 		return map;
