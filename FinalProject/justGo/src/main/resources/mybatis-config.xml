@@ -20,6 +20,10 @@
 
 	<typeAlias type="edu.kh.justgo.manager.model.dto.Manager" alias="Manager"/>	
 
+	<typeAlias type="edu.kh.justgo.board.model.dto.Reply" alias="Reply"/>	
+	
+	<typeAlias type="edu.kh.justgo.board.model.dto.BoardImage" alias="BoardImage"/>	
+
 		
 	</typeAliases>
 
