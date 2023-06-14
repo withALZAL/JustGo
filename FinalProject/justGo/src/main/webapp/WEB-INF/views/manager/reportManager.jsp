@@ -69,26 +69,11 @@
         </div>
     </aside>
     <div class="manager--mainBox">
-        <nav class="manager--statisticsBox">
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-user-plus"></i></div>
-                <div>
-                    <div>가입자 수</div>
-                    <div>12000명</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-scroll"></i></div>
-                <div>
-                    <div>게시글 수</div>
-                    <div>20000개</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div></div>
-                <div>예비칸 실험</div>
-            </div>
-        </nav>
+    
+        <%-- statisticsBox.jsp --%>
+        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
+
+
         <div class="manager--content">
             <form action="#" method="post">
                 <table class="manager--reportTable">
@@ -264,6 +249,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/manager/manager.js"></script>
+    <script src="/resources/js/manager/reportManager.js"></script>
 </body>
 </html>

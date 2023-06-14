@@ -43,6 +43,19 @@ public class ManagerController {
 
 	
 	
+	// 관리자페이지 회원별 게시글 목록 연결
+	@GetMapping("/memberBoard")
+	public String memberBoardList() {
+		
+		
+		
+		
+		
+		return "/manager/memberBoard";
+	}
+	
+	
+	
 	// 1:1문의 관리자페이지 연결
 	@GetMapping("/askManager")
 	public String askManager() {
