@@ -86,8 +86,8 @@
     
 <!-- ----------------------------------------------- -->
 
-    
-
+<%-- sweetalert --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
@@ -99,7 +99,23 @@
     <script>
         // EL/JSTL 구문이 먼저 해석되는데
         // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
-        alert('${message}');
+        /* alert('${message}'); */
+
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 1000, /* 1초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+        title: '${message}' /* 메시지 담기 */
+        })
     </script>
 </c:if>
 
