@@ -23,6 +23,7 @@ public class Board {
     private String boardDelete;
     private String boardThumbnail;
     
+    private String thumbnail;
     
     // 서브쿼리
     private int commentCount; // 댓글 수 

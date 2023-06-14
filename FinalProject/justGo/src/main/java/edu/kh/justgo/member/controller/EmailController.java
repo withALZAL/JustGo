@@ -4,14 +4,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import edu.kh.justgo.member.model.service.EmailService;
 
 @Controller
-@RequestMapping("/sendEmail")
 @SessionAttributes("authKey")
 public class EmailController {
     
@@ -19,20 +17,18 @@ public class EmailController {
     private EmailService service;
     
     
-    @GetMapping("/join")
+    // 이메일 인증
+    @GetMapping("/sendEmail/join")
     @ResponseBody
-    public int joinUp(String email) {
-    	
-    System.out.println(email);
+    public int joinUp(String email, String title) {
+
     
-        return service.joinUp(email, "회원 가입");
-        
-        
-        
+        return service.joinUp(email, "회원 가입");   
     }
     
     
-    @GetMapping("/checkAuthKey")
+    // 인증 체크하는 코드
+    @GetMapping("/sendEmail/checkAuthKey")
     @ResponseBody
     public int checkAuthKey(@RequestParam Map<String, Object> paramMap){
      
@@ -40,5 +36,4 @@ public class EmailController {
     	
         return service.checkAuthKey(paramMap);
     }
-    
 }

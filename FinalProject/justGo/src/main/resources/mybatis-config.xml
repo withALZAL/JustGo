@@ -20,6 +20,10 @@
 
 	<typeAlias type="edu.kh.justgo.manager.model.dto.Manager" alias="Manager"/>	
 
+	<typeAlias type="edu.kh.justgo.board.model.dto.Reply" alias="Reply"/>	
+	
+	<typeAlias type="edu.kh.justgo.board.model.dto.BoardImage" alias="BoardImage"/>	
+
 		
 	</typeAliases>
 
@@ -29,6 +33,7 @@
 	<mapper resource="/mappers/board-mapper.xml"/>
 	<mapper resource="/mappers/manager-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
+	<mapper resource="/mappers/ajax-mapper.xml"/>
 	
 	</mappers>
 

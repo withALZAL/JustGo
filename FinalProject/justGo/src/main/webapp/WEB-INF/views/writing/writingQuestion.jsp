@@ -33,7 +33,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -55,33 +55,17 @@
             <div class="writing--inputTitle">
                 <div>제목</div>
                 <div><input type="text" placeholder="제목을 입력해주세요." maxlength="50"></div>
-                <div class="writing--selectorBox">
-                    <!-- <select class="writing--boardSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option value="BoardFree">자유게시판</option>
-                        <option value="boardQuestion">질문게시판</option>
-                        <option value="BoardJapan">일본게시판</option>
-                        <option value="BoardChina">중국게시판</option>
-                        <option value="BoardVietname">베트남게시판</option>
-                        <option value="BoardThai">태국게시판</option>
-                        <option value="BoardAustraila">호주게시판</option>
-                    </select>
-                    <select class="writing--tagSelector" name="tagSelector" id="tagSelector" required>
-                        <option value="TagCommon">일반</option>
-                        <option value="TagTip">꿀팁</option>
-                        <option value="TagFood">맛집</option>
-                        <option value="TagHealing">힐링</option>
-                    </select> -->
-                </div>
+                <div class="writing--selectorBox"></div>
             </div>
         <div class="writing--inputContentBox">
         <div class="writing--summernoteBox" style="position: relative;">
-            <textarea class="writing--textarea"></textarea>
+            <textarea class="writing--textarea" placeholder="문의 내용을 입력해주세요."></textarea>
         </div>
         <div class="writing--ButtonBox">
-            <a href="/html/common/main.html">
+            <a href="javascript:history.back()">
                 <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
             </a>
-            <a href="/html/common/main.html">
+            <a href="javascript:history.back()">
                 <button type="button" class="btn btn-secondary btn-sm">취소</button>
             </a>
         </div>
@@ -94,7 +78,7 @@
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 

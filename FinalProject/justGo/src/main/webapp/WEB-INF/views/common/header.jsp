@@ -36,55 +36,49 @@
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
     <form>
-        <a href="/manager/memberManager">
-            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+        <a href="/">
+            <button type="button" class="btn btn-secondary btn-sm">메인</button>
         </a>    
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">에러</button>
-        </a>
+    <form>
+        <a href="/manager/memberManager">
+            <button type="button" class="btn btn-secondary btn-sm">관리자</button>
+        </a>    
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/board/boardNotice">
             <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
         </a>
     </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form action="/html/board/boardNotice.html" method="get">
-        <a href="/html/board/boardNotice.html">
+    <form>
+        <a href="/writing/writingBoard">
             <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
         </a>
     </form>
-    <form action="/html/writing/writingQuestion.html" method="get">
-        <a href="/html/writing/writingQuestion.html">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form action="/html/writing/post.html" method="get">
-        <a href="/html/writing/post.html">
+    <form>
+        <a href="/writing/post">
             <button type="button" class="btn btn-secondary btn-sm">포스트</button>
         </a>
     </form>
-    <form >
-        <a href="board/writingBoard">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
+    <form>
+        <a href="/writing/writingQuestion">
+            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
+        </a>
+    </form>
+    <form>
+        <a href="/myPage/info">
+            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
+        </a>
+    </form>
+    <form>
+        <a href="/myPage/updateInfo">
+            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
         </a>
     </form>
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
-            
-            <button class="btn btn-secondary btn-sm">로그인</button>
+            <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
 
     <form action="#">
@@ -100,8 +94,8 @@
                     <button type="button" class="btn btn-secondary btn-sm">로그인</button>
                 </a>
             </form>
-            <form action="/html/account/join.html" method="get">
-                <a href="/html/account/join.html">
+            <form>
+                <a href="/account/join">
                     <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
                 </a>
             </form>
@@ -201,7 +195,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 </li>
-
             </c:if>
         </c:forEach>    
 
