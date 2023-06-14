@@ -61,17 +61,21 @@
                     <tr>
                         <th>이메일</th>
                         <td>
-                            <input type="email" placeholder="이메일을 입력해주세요." name="memberEmail" id="email" autocomplete="off" required>
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="emailMessage"></div> 
+                            <input type="email" placeholder="이메일을 입력해주세요." name="memberEmail" id="email">
+                            <%-- <div style="height: 0.1px; font-size: 0.2rem; color: green;">사용할 수 있는 이메일입니다.</div> --%>
+                            <div style="height: 0.1px; font-size: 0.2rem; color: green;" class="signUp-message" id="emailMessage"></div> 
                             <td><button type="button" class="btn btn-secondary btn-sm" id="sendAuthKeyBtn">인증</button></td>
                         </td>                       
                     </tr>
+                    
 
                     <tr>
                         <th>인증번호</th>
                         <td>
-                            <input type="text" placeholder="이메일로 발송된 인증번호를 입력해주세요." name="authKey" id="authKey" autocomplete="off" required>
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="authKeyMessage"></div>                        
+                            <input type="text" placeholder="이메일로 발송된 인증번호를 입력해주세요." name="authKey" id="authKey">
+<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">인증되었습니다.</div> -->
+                            <%-- <div style="height: 0.1px; font-size: 0.2rem; color: red;">인증번호가 일치하지 않습니다.</div> --%>
+                            <div class="signUp-message" id="authKeyMessage"></div>                        
                             <td><button type="button" class="btn btn-secondary btn-sm" id="checkAuthKeyBtn">확인</button></td>
                         </td>
                     </tr>
@@ -79,31 +83,38 @@
                     <tr>
                         <th>비밀번호</th>
                         <td>
-                            <input type="password" maxlength="15" name="memberPw" id="memberPw" placeholder="비밀번호를 입력해주세요." autocomplete="off" required>
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="pwMessage"></div>   
+                            <input type="password" maxlength="15" name="memberPw" id="memberPw" placeholder="비밀번호를 입력해주세요.">
+                            <%-- <div style="height: 0.1px; font-size: 0.2rem; color: black;">15자 이내의 영문 소/대문자, 숫자, 특수문자(!, @, #, $, %)로 입력해주세요.</div> --%>
+<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 비밀번호입니다.</div>
+                            <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 비밀번호입니다.</div> -->
+                            <div style="height: 0.1px; font-size: 0.2rem; color: red;" class="signUp-message" id="pwMessage"></div>   
                         </td>
                     </tr>
 
                     <tr>
                         <th>비밀번호 확인</th>
                         <td>
-                            <input type="password" maxlength="15" id="memberPwConfirm" placeholder="비밀번호를 입력해주세요." autocomplete="off" required>
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="pwConfirmMessage"></div>
+                            <input type="password" maxlength="15" id="memberPwConfirm" placeholder="비밀번호를 입력해주세요.">
+<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">비밀번호가 일치합니다.</div> -->
+                            <%-- <div style="height: 0.1px; font-size: 0.2rem; color: red;">비밀번호가 일치하지 않습니다.</div> --%>
+                            <div style="height: 0.1px; font-size: 0.2rem; color: red;" class="signUp-message" id="pwConfirmMessage"></div>
                         </td>
                     </tr>
 
                     <tr>
                         <th>닉네임</th>
                         <td>
-                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요." >
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
+                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요.">
+                            <div style="height: 0.1px; font-size: 0.2rem; color: black;" class="signUp-message" id="nickMessage"></div>
+<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 닉네임입니다.</div>
+                            <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 닉네임입니다.</div> -->
                         </td>
                     </tr>
 
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">회원가입</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg">취소</button>
                 </div>
             </div>
         </form>

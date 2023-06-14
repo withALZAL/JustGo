@@ -24,7 +24,6 @@
 	
 	<typeAlias type="edu.kh.justgo.board.model.dto.BoardImage" alias="BoardImage"/>	
 
-	<typeAlias type="edu.kh.justgo.main.model.dto.Main" alias="Main"/>	
 		
 	</typeAliases>
 
@@ -35,8 +34,6 @@
 	<mapper resource="/mappers/manager-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
 	<mapper resource="/mappers/ajax-mapper.xml"/>
-	<mapper resource="/mappers/myPage-mapper.xml"/>
-	<mapper resource="/mappers/main-mapper.xml"/>
 	
 	</mappers>
 
