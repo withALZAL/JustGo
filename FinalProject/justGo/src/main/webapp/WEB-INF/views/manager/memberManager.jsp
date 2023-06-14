@@ -24,8 +24,7 @@
 </head>
 <body class="template--body">
 
-<c:set var="pagination" value="${map.pagination}" />
-<c:set var="memberList" value="${map.memberList}" />
+
 
 
 <!-- ----------------------------------------------- -->
@@ -40,6 +39,7 @@
 <main class="template--main">
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
+
 
 
 <!-- 페이지 제목 시작 -->
@@ -69,26 +69,11 @@
         </div>
     </aside>
     <div class="manager--mainBox">
-        <nav class="manager--statisticsBox">
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-user-plus"></i></div>
-                <div>
-                    <div>가입자 수</div>
-                    <div>12000명</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-scroll"></i></div>
-                <div>
-                    <div>게시글 수</div>
-                    <div>20000개</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div></div>
-                <div>예비칸 실험</div>
-            </div>
-        </nav>
+
+        <%-- statisticsBox.jsp --%>
+        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
+
+        
         <div class="manager--content">
             <form action="#" method="post">
                 <table class="manager--memberTable">
@@ -103,6 +88,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <c:choose>
                             <c:when test="${empty memberList}">
                                 <tr>
@@ -118,33 +104,50 @@
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
                                         <td>${member.memberCondition}</td>
-                                        <td><form action="#"><a href="#"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
+                                        <td><form action="#"><a href="/manager/memberBoard"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
                         </c:choose>
                         
+
+                       
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
                     <form action="#" method="get">
                         <nav aria-label="...">
                             <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link">이전</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
-                                <a class="page-link" href="#">다음</a>
+                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=1">맨 처음</a>
+                                </li>
+
+                                <%-- 이전 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=${pagination.prevPage}">이전</a>
+                                </li>
+
+                                <%-- 특정 번호 목록 페이지 이동 --%>
+                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                    <c:choose>
+                                        <c:when test="${i==pagination.currentPage}">
+                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li class="page-item"><a class="page-link" href="/manager/memberManager?cp=${i}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+
+                                <%-- 다음 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.nextPage}">다음</a>
+                                </li>
+
+                                <%-- 맨 끝 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.endPage}">맨 끝</a>
                                 </li>
                             </ul>
                         </nav>
@@ -192,6 +195,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/manager/manager.js"></script>
+    <script src="/resources/js/manager/memberManager.js"></script>
 </body>
 </html>
