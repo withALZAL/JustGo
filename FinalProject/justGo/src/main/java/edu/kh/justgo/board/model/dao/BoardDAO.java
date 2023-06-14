@@ -7,11 +7,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.justgo.board.model.dto.Board;
+
 @Repository
 public class BoardDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
 	public List<Map<String, Object>> selectBoardTypeList() {
 		

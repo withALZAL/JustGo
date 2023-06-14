@@ -213,23 +213,25 @@
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
             <div class="accordion-body common--boardCards">
+        <c:forEach items="${hotBoardList}" var="hotList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
-                            사이판에서 생긴 일
+                            ${hotList.boardTitle}
                         </p>
                         <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp123</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp321</i>
+                            <i class="fa-solid fa-eye right-align">&nbsp${hotList.readCount}</i>
+                            <i class="fa-solid fa-heart right-align">&nbsp${hotList.likeCount}</i>
                         </nav>
                     </div>
                     </a>
                 </div>
-                <div class="card common--boardCard" style="width: 15rem;">
+        </c:forEach>
+                <%-- <div class="card common--boardCard" style="width: 15rem;">
                     <a href="https://www.google.com" class="common--boardListContent">
                     <div class="common--boardListImageContainer">
                         <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 2">
@@ -292,7 +294,7 @@
                         </nav>
                     </div>
                     </a>
-                </div>
+                </div> --%>
             </div>
         </div>
     </div>

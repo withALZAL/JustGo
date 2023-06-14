@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.kh.justgo.board.model.dao.BoardDAO;
+import edu.kh.justgo.board.model.dto.Board;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -27,6 +28,8 @@ public class BoardServiceImpl implements BoardService{
 		
 		return dao.selectCountryList();
 	}
+
+
 
 	
 	

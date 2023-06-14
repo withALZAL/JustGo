@@ -15,6 +15,7 @@
 		<result property="readCount" column="READ_COUNT" />
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardDelete" column="BOARD_DELETE" />
+		<result property="boardThumbnail" column="BOARD_THUMBNAIL" />
 
 		<!-- JOIN -->
 		<result property="commentCount" column="COMMENT_COUNT" />
@@ -25,23 +26,19 @@
 		<result property="countryNo" column="COUNTRY_NO" />
 		<result property="tagNo" column="TAG_NO" />
 
-
-		<collection property="imageList" select="selectImageList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
-
-		<collection property="replyList" select="selectReplyList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" />
 	</resultMap>
-	
-	
-	<select id="selectBoardTypeList" resultType="map">
-		SELECT * FROM "BOARD_TYPE" ORDER BY 1
-	</select>
-	
-	
+
+
+
+
 	<select id="selectCountryList" resultType="map">
-		SELECT * FROM COUNTRY ORDER BY 1
+		SELECT * FROM COUNTRY
+		ORDER BY 1
 	</select>
-	
-	
+
+	<select id="selectBoardTypeList" resultType="map">
+		SELECT * FROM
+		"BOARD_TYPE" ORDER BY 1
+	</select>
+
 </mapper>
