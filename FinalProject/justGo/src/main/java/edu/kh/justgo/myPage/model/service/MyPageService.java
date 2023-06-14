@@ -1,6 +1,5 @@
 package edu.kh.justgo.myPage.model.service;
 
-import edu.kh.justgo.member.model.dto.Member;
 
 public interface MyPageService {
 
@@ -8,7 +7,7 @@ public interface MyPageService {
 	 * @param updateMember
 	 * @return
 	 */
-	int updateInfo(Member updateMember);
+	int updateInfo(String currentPw, String newPw, String memberNickname, int memberNo);
 
 	/** 비밀번호 변경 서비스
 	 * @param currentPw
@@ -16,6 +15,6 @@ public interface MyPageService {
 	 * @param memberNo
 	 * @return result
 	 */
-	int changePw(String currentPw, String newPw, int memberNo);
+	 // int changePw(String currentPw, String newPw, int memberNo); 
 
 }

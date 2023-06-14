@@ -18,11 +18,11 @@
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
-	<!-- 회원 정보 수정 -->
+	<!-- 닉네임 수정 -->
 	<update id="updateInfo" parameterType="Member">
-		UPDATE "MEMBER"
-		SET MEMBER_NICKNAME = #{memberNickname}
-		WHERE MEMBER_NO = #{memberNo} AND #{memberNickname} IS NOT NULL
+		UPDATE "MEMBER" SET 
+		MEMBER_NICKNAME = #{memberNickname}
+		WHERE MEMBER_NO = #{memberNo} 
 	</update>
 
 
@@ -35,11 +35,12 @@
 
 
 	<!-- 비밀번호 변경 -->
-	<update id="changePw" parameterType="Member">
+    <update id="changePw" parameterType="Member">
 		UPDATE "MEMBER" 
 		SET MEMBER_PW = #{memberPw}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
 
 
 	<!-- 회원 탈퇴 -->

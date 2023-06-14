@@ -54,7 +54,7 @@
 <!-- 회원가입창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="https://www.naver.com" method="post">
+        <form action="info" method="post">
             <div class="account--inputProfileBox">
                 <a href="https://www.google.com">
                     <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;">
