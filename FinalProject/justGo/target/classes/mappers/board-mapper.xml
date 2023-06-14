@@ -16,7 +16,6 @@
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardDelete" column="BOARD_DELETE" />
 		<result property="boardThumbnail" column="BOARD_THUMBNAIL" />
-		
 
 		<!-- JOIN -->
 		<result property="commentCount" column="COMMENT_COUNT" />
@@ -27,8 +26,7 @@
 		<result property="countryNo" column="COUNTRY_NO" />
 		<result property="tagNo" column="TAG_NO" />
 		<result property="thumbnail" column="THUMBNAIL"/>
-
-	</resultMap>
+		
 
 
 		<collection property="imageList" select="selectImageList"
@@ -63,16 +61,14 @@
 		</resultMap>
 	
 	
-	
-	
-	<select id="selectBoardTypeList" resultType="map">
-		SELECT * FROM "BOARD_TYPE" ORDER BY 1
-	</select>
-	
-	
 	<select id="selectCountryList" resultType="map">
 		SELECT * FROM COUNTRY
 		ORDER BY 1
+	</select>
+
+	<select id="selectBoardTypeList" resultType="map">
+		SELECT * FROM
+		"BOARD_TYPE" ORDER BY 1
 	</select>
 
 	
@@ -117,7 +113,4 @@
 	WHERE BOARD_NO=#{boardCode}
 	ORDER BY IMG_ORDER
 	</select>
-	
-	
-	
 </mapper>

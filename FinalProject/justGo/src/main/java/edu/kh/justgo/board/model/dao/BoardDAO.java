@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.board.model.dto.Board;
-<<<<<<< HEAD
-=======
 import edu.kh.justgo.board.model.dto.Pagination;
->>>>>>> origin/정송이
 
 @Repository
 public class BoardDAO {

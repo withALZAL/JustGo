@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.justgo.board.model.dao.BoardDAO;
 import edu.kh.justgo.board.model.dto.Board;
-<<<<<<< HEAD
-=======
 import edu.kh.justgo.board.model.dto.Pagination;
->>>>>>> origin/정송이
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -42,8 +39,6 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 
-<<<<<<< HEAD
-=======
 	/** 게시글 목록 조회
 	 *
 	 */
@@ -62,11 +57,4 @@ public class BoardServiceImpl implements BoardService{
 		
 		return map;
 	}
-	
-	
->>>>>>> origin/정송이
-
-	
-	
-	
 }
