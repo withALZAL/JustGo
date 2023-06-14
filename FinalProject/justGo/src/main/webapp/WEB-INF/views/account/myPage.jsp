@@ -65,15 +65,15 @@
                 <table>
                     <tr>
                         <th>닉네임</th>
-                        <td>폭탄배달부키키</td>
+                        <td>${loginMember.memberNickname}</td>
                     </tr>
                     <tr>
                         <th>이메일</th>
-                        <td>kikitheterrorist@naver.com</td>
+                        <td>${loginMember.memberEmail}</td>
                     </tr>
                     <tr>
                         <th>가입일</th>
-                        <td>2023년 5월 30일</td>
+                        <td>${loginMember.enrollDate}</td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
@@ -96,6 +96,7 @@
 <aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
+
 
     
 <!-- ----------------------------------------------- -->

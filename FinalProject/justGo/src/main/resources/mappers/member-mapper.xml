@@ -21,8 +21,7 @@
 
 	<select id="login" parameterType="Member" resultMap="member_rm">
 		SELECT MEMBER_NO,MEMBER_EMAIL,MEMBER_PW,MEMBER_NICKNAME,PROFILE_IMG,
-		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시"
-		MI"분" SS"초"'), MEMBER_ROLE
+		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일"') ENROLL_DATE, MEMBER_ROLE
 		FROM MEMBER
 		WHERE MEMBER_CONDITION = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
