@@ -2,7 +2,7 @@ const loginFrm = document.getElementById("loginFrm");
 const memberEmail = document.querySelector("#loginFrm input[name='memberEmail']");
 const memberPw = document.querySelector("#loginFrm input[name='memberPw']");
 
-if(loginFrm != null){
+if(loginFrm != null) {
 // 로그인 시도를 할 때
 loginFrm.addEventListener("submit", e => {
 
@@ -36,16 +36,5 @@ loginFrm.addEventListener("submit", e => {
     }
 
 
-});
-
-const cancelBtn = document.getElementById('cancelBtn');
-
-cancelBtn.addEventListener("click", () => {
-    location.href = "/";
-});
-  
-// 취소 버튼 클릭 시 이전 페이지로 돌아가기
-function goBack() {
-    window.history.back();
+    });
 }
-

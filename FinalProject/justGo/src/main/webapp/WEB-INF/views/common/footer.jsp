@@ -96,9 +96,28 @@
 
 <%-- 메시지 출력 --%>
 <c:if test="${not empty requestScope.message}">
+<c:if test="${!empty sessionScope.loginMember}"> <%-- 로그인 시에는 닉네임도 붙혀서 alert 띄우기 --%>
     <script>
-        // EL/JSTL 구문이 먼저 해석되는데
-        // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 1000, /* 1초 간 뜨기 */
+        icon: 'info', /* 아이콘 */
+        timerProgressBar: true, /* 진행바 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+        title: '${loginMember.memberNickname}님 ${message}' /* 메시지 담기 */
+        })
+    </script>
+</c:if>
+
+    <script>
         /* alert('${message}'); */
 
         const Toast = Swal.mixin({
@@ -106,6 +125,7 @@
         position: 'top-end', /* 우측 상단 */
         showConfirmButton: false, /* 컨펌버튼 없음 */
         timer: 1000, /* 1초 간 뜨기 */
+        icon: 'info', /* 아이콘 */
         timerProgressBar: true, /* 진행바 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
