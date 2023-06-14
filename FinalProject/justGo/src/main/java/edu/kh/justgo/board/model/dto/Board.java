@@ -21,7 +21,6 @@ public class Board {
     private int readCount;
     private int boardCode;
     private String boardDelete;
-    private String boardThumbnail;
     
     private String thumbnail;
     

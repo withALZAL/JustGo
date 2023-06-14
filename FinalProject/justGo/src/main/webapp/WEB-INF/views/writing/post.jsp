@@ -193,7 +193,7 @@
         <button type="button" class="btn btn-secondary btn-sm">수정</button>
     </a>
     <a href="/resources/html/common/main.html">
-        <button type="button" id="cancelBtn" class="btn btn-secondary btn-sm" onclick="history.back()">취소</button>
+        <button type="button" class="btn btn-secondary btn-sm">취소</button>
     </a>
     <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">삭제</button>

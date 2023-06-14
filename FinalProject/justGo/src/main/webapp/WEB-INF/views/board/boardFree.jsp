@@ -120,7 +120,7 @@
                 <tr>
                     <td>${board.boardNo}</td>
                     <td>태그1</td>
-                    <td>${board.boardTitle}</td>
+                    <td><a href=#>${board.boardTitle}</a></td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
@@ -195,7 +195,9 @@
                 </a>
             </form>
             <form action="#" method="post">
+            <c:if test="${not empty loginMember}" >
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+            </c:if>
             </form>
         </div>
     </div>
