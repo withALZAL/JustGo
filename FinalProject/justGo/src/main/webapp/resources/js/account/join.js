@@ -46,12 +46,12 @@ email.addEventListener("input", () => {
         .then(count => {
             // count : 중복되면 1, 중복 아니면 0
             if(count == 0){
-                emailMessage.innerText = "사용 가능한 이메일 입니다";
+                emailMessage.innerText = "사용 가능한 이메일입니다.";
                 emailMessage.classList.add("confirm");
                 emailMessage.classList.remove("error");
                 checkObj.memberEmail = true;
             } else {
-                emailMessage.innerText = "이미 사용 중인 이메일 입니다";
+                emailMessage.innerText = "이미 사용 중인 이메일입니다.";
                 emailMessage.classList.add("error");
                 emailMessage.classList.remove("confirm");
                 checkObj.memberEmail = false;
@@ -64,14 +64,14 @@ email.addEventListener("input", () => {
 
 
 
-        emailMessage.innerText = "유효한 형식 입니다";
+        emailMessage.innerText = "유효한 이메일 형식입니다.";
         emailMessage.classList.add("confirm"); // css에 .confirm 스타일 적용
         emailMessage.classList.remove("error"); // .error 스타일 제거
 
         checkObj.email = true; // 유효할 때
 
     } else { // 유효하지 않은 경우 (무효인 경우)
-        emailMessage.innerText = "이메일 형식이 유효하지 않습니다";
+        emailMessage.innerText = "이메일 형식이 유효하지 않습니다.";
         emailMessage.classList.add("error"); // .error 스타일 적용
         emailMessage.classList.remove("confirm"); // .confirm 스타일 제거
 
@@ -93,7 +93,7 @@ memberPw.addEventListener("input", () => {
     if(memberPw.value.trim().length == 0){
         memberPw.value = ""; // 띄어쓰기 못넣게 하기
         
-        pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 8~15글자 사이로 입력해주세요.";
+        pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
         pwMessage.classList.add("error"); // .error 스타일 적용
         pwMessage.classList.remove("confirm"); // .confirm 스타일 제거
 
@@ -115,7 +115,7 @@ memberPw.addEventListener("input", () => {
         // 비밀번호가 유효하게 작성된 상태에서
         // 비밀번호 확인이 입력되지 않았을 때
         if(memberPwConfirm.value.trim().length == 0){
-        pwMessage.innerText = "유효한 비밀번호 형식입니다";
+        pwMessage.innerText = "유효한 비밀번호 형식입니다.";
         pwMessage.classList.add("confirm");
         pwMessage.classList.remove("error");
         
@@ -125,13 +125,13 @@ memberPw.addEventListener("input", () => {
 
             // 비밀번호 == 비밀번호 확인 (같을 경우)
             if (memberPw.value == memberPwConfirm.value) {
-                pwMessage.innerText = "비밀번호가 일치합니다";
+                pwMessage.innerText = "비밀번호가 일치합니다.";
                 pwMessage.classList.add("confirm");
                 pwMessage.classList.remove("error");
                 checkObj.memberPwConfirm = true;
 
             } else { // 다를 경우
-                pwMessage.innerText = "비밀번호가 일치하지 않습니다";
+                pwMessage.innerText = "비밀번호가 일치하지 않습니다.";
                 pwMessage.classList.add("error");
                 pwMessage.classList.remove("confirm");
                 checkObj.memberPwConfirm = false;
@@ -141,7 +141,7 @@ memberPw.addEventListener("input", () => {
 
     } else { // 유효하지 않은 경우
 
-        pwMessage.innerText = "비밀번호 형식이 유효하지 않습니다";
+        pwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
         pwMessage.classList.add("error");
         pwMessage.classList.remove("confirm");
         checkObj.memberPw = false;
@@ -156,13 +156,13 @@ memberPwConfirm.addEventListener('input', ()=>{
     
     // 비밀번호 == 비밀번호 확인 (같을 경우)
     if(memberPw.value == memberPwConfirm.value) {
-        pwMessage.innerText = "비밀번호가 일치합니다";
+        pwMessage.innerText = "비밀번호가 일치합니다.";
         pwMessage.classList.add("confirm");
         pwMessage.classList.remove("error");
         checkObj.memberPwConfirm = true;
 
     } else { // 다를 경우
-        pwMessage.innerText = "비밀번호가 일치하지 않습니다";
+        pwMessage.innerText = "비밀번호가 일치하지 않습니다.";
         pwMessage.classList.add("error");
         pwMessage.classList.remove("confirm");
         checkObj.memberPwConfirm = false;
@@ -184,8 +184,7 @@ memberNickname.addEventListener("input", () => {
     
     // 닉네임에 입력이 되지 않은 경우
     if(memberNickname.value.trim() == ''){
-        nickMessage.innerText = "한글,영어,숫자로만 2~10글자";
-
+        nickMessage.innerText = "영문, 한글, 숫자로 구성된 2~8글자 사이의 닉네임을 입력해주세요.";
         nickMessage.classList.remove("confirm", "error");
         checkObj.memberNickname = false;
         memberNickname.value = "";
@@ -201,13 +200,13 @@ memberNickname.addEventListener("input", () => {
         .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
         .then(count => {
             if(count == 0){ // 중복이 아닌 경우
-                nickMessage.innerText = "사용 가능한 닉네임 입니다.";
+                nickMessage.innerText = "사용 가능한 닉네임입니다.";
                 nickMessage.classList.add("confirm");
                 nickMessage.classList.remove("error");
                 checkObj.memberNickname = true;
 
             } else { // 중복인 경우
-                nickMessage.innerText = "이미 사용중인 닉네임 입니다";
+                nickMessage.innerText = "이미 사용 중인 닉네임입니다.";
                 nickMessage.classList.add("error");
                 nickMessage.classList.remove("confirm");
                 checkObj.memberNickname = false;
@@ -217,7 +216,7 @@ memberNickname.addEventListener("input", () => {
         .catch(err => console.log(err));
         
         
-        nickMessage.innerText = "유효한 닉네임 형식입니다";
+        nickMessage.innerText = "유효한 닉네임 형식입니다.";
         nickMessage.classList.add("confirm");
         nickMessage.classList.remove("error");
         checkObj.memberNickname = true;
@@ -225,7 +224,7 @@ memberNickname.addEventListener("input", () => {
 
 
     } else { // 무효
-        nickMessage.innerText = "닉네임 형식이 유효하지 않습니다";
+        nickMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
         nickMessage.classList.add("error");
         nickMessage.classList.remove("confirm");
         checkObj.memberNickname = false;
@@ -264,17 +263,15 @@ sendAuthKeyBtn.addEventListener("click", function(){
                 console.log("인증 번호가 발송되었습니다.")
                 tempEmail = email.value;
             }else{
-                console.log("인증번호 발송 실패")
+                console.log("인증번호 발송에 실패했습니다.")
             }
         })
         .catch(err => {
-            console.log("이메일 발송 중 에러 발생");
+            console.log("이메일 발송 중 에러가 발생했습니다.");
             console.log(err);
         });
-        
 
         alert("인증번호가 발송 되었습니다.");
-
         
         authKeyMessage.innerText = "05:00";
         authKeyMessage.classList.remove("confirm");
@@ -370,16 +367,16 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
 
             switch(key){
                 case "email" : 
-                alert("이메일이 유효하지 않습니다"); break;
+                alert("이메일이 유효하지 않습니다."); break;
 
                 case "memberPw" : 
-                alert("비밀번호가 유효하지 않습니다"); break;
+                alert("비밀번호가 유효하지 않습니다."); break;
 
                 case "memberPwConfirm" :
-                alert("비밀번호가 확인되지 않았습니다"); break;
+                alert("비밀번호가 확인되지 않았습니다."); break;
 
                 case "memberNickname" :
-                alert("닉네임이 유효하지 않습니다"); break;
+                alert("닉네임이 유효하지 않습니다."); break;
             }
 
             // 유효하지 않은 input 태그로 focus 이동
