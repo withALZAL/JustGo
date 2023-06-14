@@ -54,37 +54,37 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="#" method="post">
+<form action="/writing/insert" method="post" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" placeholder="제목을 입력해주세요." maxlength="40"></div>
+                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option value="BoardFree">자유게시판</option>
-                        <option value="boardQuestion">질문게시판</option>
-                        <option value="BoardJapan">일본게시판</option>
-                        <option value="BoardChina">중국게시판</option>
-                        <option value="BoardVietname">베트남게시판</option>
-                        <option value="BoardThai">태국게시판</option>
-                        <option value="BoardAustraila">호주게시판</option>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" onchange="changeSecondSelect()" required>
+                        <option value="2" class="b">자유게시판</option>
+                        <option value="3" class="b">질문게시판</option>
+                        <option value="2">일본게시판</option>
+                        <option value="1">중국게시판</option>
+                        <option value="3">베트남게시판</option>
+                        <option value="4">태국게시판</option>
+                        <option value="5">호주게시판</option>
                     </select>
-                    <select class="writing--tagSelector" name="tagSelector" id="tagSelector" required>
-                        <option value="TagCommon">일반</option>
-                        <option value="TagTip">꿀팁</option>
-                        <option value="TagFood">맛집</option>
-                        <option value="TagHealing">힐링</option>
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
+                        <option value="1">일반</option>
+                        <option value="3">꿀팁</option>
+                        <option value="2">맛집</option>
+                        <option value="4">힐링</option>
                     </select>
                 </div>
             </div>
         <div class="writing--inputContentBox">
-            <div class="writing--summernoteBox" id="summernote">
+            <textarea class="writing--summernoteBox" id="summernote" name="boardText"></textarea>
                 
-            </div>
+            </textarea>
         <div class="writing--ButtonBox">
             <a href="/resources/html/common/main.html">
-                <button type="button" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
+                <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
             </a>
             <a>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
@@ -95,7 +95,6 @@
 </div>
 </form>
 <!-- 콘텐츠 끝 -->
-
 
 
 </section>
@@ -149,5 +148,6 @@
             ]
         });
     </script>
+    
 </body>
 </html>

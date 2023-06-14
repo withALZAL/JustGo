@@ -37,6 +37,7 @@
 	<mapper resource="/mappers/ajax-mapper.xml"/>
 	<mapper resource="/mappers/myPage-mapper.xml"/>
 	<mapper resource="/mappers/main-mapper.xml"/>
+	<mapper resource="/mappers/writing-mapper.xml"/>
 	
 	</mappers>
 

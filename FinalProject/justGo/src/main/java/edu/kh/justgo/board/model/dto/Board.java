@@ -34,6 +34,8 @@ public class Board {
     private int countryNo;
     private int tagNo;
     
+    
+    
     // 이미지 목록
     private List<BoardImage> imageList;
     
