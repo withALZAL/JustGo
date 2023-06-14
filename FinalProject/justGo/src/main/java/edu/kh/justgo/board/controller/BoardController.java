@@ -28,6 +28,9 @@ public class BoardController {
 
 	}
 
+	
+	// 게시글 목록 
+
 	@GetMapping("/{boardCode:[0-9]+}")
 	public String selectBoardList(@PathVariable("boardCode") int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
@@ -38,6 +41,32 @@ public class BoardController {
 
 		return "board/boardFree";
 	}
+
+	
+	   // 1:1문의 연결(/board/4 버전)
+	   @GetMapping("/4")
+	   public String writingQuestion() {
+	      return "/writing/writingQuestion";
+	   }
+	
+	   
+	   //  여행게시판 게시글 
+	   @GetMapping("/1/{countryNo}")
+	   public String countryList(@PathVariable("countryNo") int countryNo
+			   , @RequestParam(value="cp",required=false,defaultValue = "1")int cp 
+				, Model model) {
+		   
+		   Map<String , Object> map = service.countryList(countryNo, cp);
+		   model.addAttribute("map",map);
+		   return "account/boardCountry";
+	   }
+	  
+	
+	
+		
+		
+	
+
 
 
 	// 1:1문의 연결(/board/4 버전)
