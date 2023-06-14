@@ -1,5 +1,12 @@
 package edu.kh.justgo.myPage.model.dao;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.kh.justgo.member.model.dto.Member;
+
+@Repository
 public class MyPageDAO {
 
 
