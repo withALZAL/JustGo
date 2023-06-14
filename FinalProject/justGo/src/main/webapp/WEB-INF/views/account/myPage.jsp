@@ -54,7 +54,7 @@
 <!-- 회원가입창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="https://www.naver.com" method="post">
+        <form action="info" method="post">
             <div class="account--inputProfileBox">
                 <a href="https://www.google.com">
                     <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;">
@@ -65,15 +65,15 @@
                 <table>
                     <tr>
                         <th>닉네임</th>
-                        <td>${loginMember.memberNickname}</td>
+                        <td>폭탄배달부키키</td>
                     </tr>
                     <tr>
                         <th>이메일</th>
-                        <td>${loginMember.memberEmail}</td>
+                        <td>kikitheterrorist@naver.com</td>
                     </tr>
                     <tr>
                         <th>가입일</th>
-                        <td>${loginMember.enrollDate}</td>
+                        <td>2023년 5월 30일</td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
@@ -96,7 +96,6 @@
 <aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
-
 
     
 <!-- ----------------------------------------------- -->

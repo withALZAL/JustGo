@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/board/board.css">
 
-    <title>JustGo-boardCountry</title>
+    <title>memberBoard</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -24,14 +24,11 @@
 </head>
 <body class="template--body">
 
-
-
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
-
 
 <!-- Template-main 시작 -->
 <main class="template--main">
@@ -43,11 +40,11 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="베트남_하롱베이">
         <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
+            <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필사진" style="height: 50px; padding-right: 10px; border-radius: 100%">
             <a href="https://www.naver.com">
-                나라게시판
+                누구누구의 게시판
             </a>
         </div>
     </div>
@@ -57,7 +54,7 @@
 
 
 <!-- 콘텐츠 시작 -->
-<div class="board--contentContainer">
+<%-- <div class="board--contentContainer">
 <div class="board--contentBox">
     <div class="board--contentBox__top">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
@@ -66,8 +63,9 @@
             <div><a href="#">꿀팁</a></div>
             <div><a href="#">맛집</a></div>
             <div><a href="#">힐링</a></div>
+            <button type="button" class="btn btn-secondary btn-sm">임시버튼</button>
         </form>
-    </div>
+    </div> --%>
 
 
 
@@ -255,24 +253,7 @@
                 </nav>
             </form>
         </div>
-        <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
-            <form action="#"></form>
-            <form action="#" method="post">
-                <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>제목+내용</option>
-                        <option>제목</option>
-                        <option>내용</option>
-                        <option>글쓴이</option>
-                    </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm">검색</button>
-                </a>
-            </form>
-            <form action="#" method="post">
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
-            </form>
-        </div>
+        
     </div>
 </div>
 </div>
@@ -285,14 +266,12 @@
 </main>
 <!-- Template-main 끝 -->
 
-
     
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
-
     
 
 <!-- bootstrap -->
