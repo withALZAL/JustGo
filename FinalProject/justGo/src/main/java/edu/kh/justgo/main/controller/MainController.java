@@ -9,14 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.service.BoardService;
+import edu.kh.justgo.main.model.dto.Main;
+import edu.kh.justgo.main.model.service.MainService;
 
-@Controller 
+@Controller
 public class MainController {
 
-	
+	@Autowired
+	private MainService service;
+
 	@RequestMapping("/")
-	public String mainForward() {
+	public String mainForward(Model model) {
+//	      인기 게시글 조회
+		List<Main> hotBoardList = service.hotBoard();
+		model.addAttribute("hotBoardList", hotBoardList);
+
 		return "common/main";
 	}
-	
+
 }

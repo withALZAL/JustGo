@@ -28,7 +28,6 @@
 		<result property="thumbnail" column="THUMBNAIL"/>
 		
 
-
 		<collection property="imageList" select="selectImageList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
 
@@ -44,10 +43,8 @@
       <result property="updateDate" column="REPLY_UPDATE"/>
       <result property="replyDelete" column="REPLY_DELETE"/>
       <result property="parentReplyNo" column="PARENT_REPLY_NO"/>
-
    
    </resultMap>
-	
 	
 		<!-- BoardImage resultMap -->
 		<resultMap type="BoardImage" id="boardImage_rm">
