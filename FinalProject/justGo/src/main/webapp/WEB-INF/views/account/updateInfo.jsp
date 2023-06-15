@@ -67,8 +67,7 @@
                         <th>현재 비밀번호</th>
                         <td>
                             <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" >
-<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">비밀번호가 일치합니다.</div> -->
-                            <div style="height: 0.1px; font-size: 0.2rem; color: red;" class="currentPw-message" id="currentPwMessage"></div>
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
                         </td>
                         <td></td>
                     </tr>
@@ -77,29 +76,21 @@
                         <th>변경할 비밀번호</th>
                         <td>
                             <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw" >
-                            <div style="height: 0.1px; font-size: 0.2rem; color: black;" id="newPwMessage"></div>
-<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 비밀번호입니다.</div>
-                            <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 비밀번호입니다.</div> -->
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwMessage"></div>
                         </td>
                     </tr>
                     <tr>
                         <th>비밀번호 확인</th>
                         <td>
                             <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
-<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">비밀번호가 일치합니다.</div> -->
-                            <div style="height: 0.1px; font-size: 0.2rem; color: red;" class="newPw-message" id="newPwConfirmMessage"></div>
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwConfirmMessage"></div>
                         </td>
                     </tr>
-                    
-
-    
                     <tr>
                         <th>변경할 닉네임</th>
                         <td>
                             <input type="text" maxlength="8" placeholder="닉네임을 입력해주세요." id="memberNickname" name="memberNickname">
-                            <div style="height: 0.1px; font-size: 0.2rem; color: black;" class="signUp-message" id="nickMessage"></div>
-<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 닉네임입니다.</div>
-                            <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 닉네임입니다.</div> -->
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
                         </td>
                     </tr>
                     </section>

@@ -18,9 +18,7 @@ email.addEventListener("input", () => {
         email.value = "";
 
         emailMessage.innerText = "인증번호를 받을 수 있는 이메일을 입력해주세요.";
-        emailMessage.classList.add("error");
-        emailMessage.classList.remove("confirm");
-
+        emailMessage.classList.remove("confirm", "error");
         checkObj.email = false;
         return;
     }
@@ -80,7 +78,7 @@ email.addEventListener("input", () => {
 
 
 
-// 비밀번호/비밀번호 확인 유효성 검사
+// 비밀번호 유효성 검사
 const memberPw = document.getElementById("memberPw");
 const memberPwConfirm = document.getElementById("memberPwConfirm");
 const pwMessage = document.getElementById("pwMessage");
@@ -91,22 +89,14 @@ memberPw.addEventListener("input", () => {
 
     // 비밀번호가 입력되지 않은 경우
     if(memberPw.value.trim().length == 0){
-        memberPw.value = ""; // 띄어쓰기 못넣게 하기
+        memberPw.value = ""; 
         pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
-        pwMessage.classList.add("error"); // .error 스타일 적용
-        pwMessage.classList.remove("confirm"); // .confirm 스타일 제거
-
-        checkObj.memberPw = false; // 빈칸 == 유효 X
+        pwMessage.classList.remove("error", "confirm"); 
+        checkObj.memberPw = false; 
         return;
     }
 
-
-    // 정규 표현식을 이용한 비밀번호 유효성 검사
-
-    // 영어,숫자,특수문자(!,@,#,-,_) 8~15글자 사이
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
-
-    // 입력한 비밀번호가 유효한 경우
+    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{8,15}$/;
     if(regEx.test(memberPw.value)){
         checkObj.memberPw = true;
 
@@ -130,24 +120,23 @@ memberPw.addEventListener("input", () => {
 // 비밀번호 확인 유효성 검사
 memberPwConfirm.addEventListener('input', ()=>{
 
-    if(checkObj.memberPw){ // 비밀번호가 유효하게 작성된 경우에
+    if(checkObj.memberPw){ 
     
-    // 비밀번호 == 비밀번호 확인 (같을 경우)
     if(memberPw.value == memberPwConfirm.value) {
         pwConfirmMessage.innerText = "비밀번호가 일치합니다.";
         pwConfirmMessage.classList.add("confirm");
         pwConfirmMessage.classList.remove("error");
         checkObj.memberPwConfirm = true;
 
-    } else { // 다를 경우
-        pwComfirmMessage.innerText = "비밀번호가 일치하지 않습니다.";
+    } else { 
+        pwConfirmMessage.innerText = "비밀번호가 일치하지 않습니다.";
         pwConfirmMessage.classList.add("error");
         pwConfirmMessage.classList.remove("confirm");
         checkObj.memberPwConfirm = false;
     }
 
-    } else { // 비밀번호가 유효하지 않은 경우
-        pwComfirmMessage.innerText = "비밀번호가 유효하지 않습니다.";
+    } else { 
+        pwConfirmMessage.innerText = "비밀번호가 유효하지 않습니다.";
         pwConfirmMessage.classList.add("error");
         pwConfirmMessage.classList.remove("confirm");
         checkObj.memberPwConfirm = false;
