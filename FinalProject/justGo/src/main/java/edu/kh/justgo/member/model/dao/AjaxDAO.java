@@ -7,13 +7,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AjaxDAO {
 	
-	@Autowired // bean 중에서 타입이 같은 객체를 DI
+	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	// 이메일 중복 검사
 	public int checkEmail(String email) {
 		return sqlSession.selectOne("ajaxMapper.checkEmail", email);
 	}
 
+	// 닉네임 중복 검사
 	public int checkNickname(String nickname) {
 		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
 	}

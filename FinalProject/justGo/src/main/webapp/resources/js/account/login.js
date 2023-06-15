@@ -2,7 +2,7 @@ const loginFrm = document.getElementById("loginFrm");
 const memberEmail = document.querySelector("#loginFrm input[name='memberEmail']");
 const memberPw = document.querySelector("#loginFrm input[name='memberPw']");
 
-if(loginFrm != null){
+if(loginFrm != null) {
 // 로그인 시도를 할 때
 loginFrm.addEventListener("submit", e => {
 
@@ -36,7 +36,10 @@ loginFrm.addEventListener("submit", e => {
     }
 
 
-});
+    });
+}
+
+
 
 const cancelBtn = document.getElementById('cancelBtn');
 

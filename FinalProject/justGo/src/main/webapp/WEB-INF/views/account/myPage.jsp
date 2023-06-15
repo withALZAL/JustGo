@@ -59,28 +59,27 @@
                 <a href="#" id="updateProfileImage">
                     <%-- <img src="/resources/images/memberImage/${loginMember.memberNo}/profile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;"> --%> <%-- 프로필 이미지 있으면 --%>
                     <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지" style="border: 3px solid black;">
-                </a>
             </div>
             <div class="account--inputInfoBox">
                 <table>
                     <tr>
                         <th>닉네임</th>
-                        <td>폭탄배달부키키</td>
+                        <td>${loginMember.memberNickname}</td>
                     </tr>
                     <tr>
                         <th>이메일</th>
-                        <td>kikitheterrorist@naver.com</td>
+                        <td>${loginMember.memberEmail}</td>
                     </tr>
                     <tr>
                         <th>가입일</th>
-                        <td>2023년 5월 30일</td>
+                        <td>${loginMember.enrollDate}</td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
                     <a href="/myPage/updateInfo">
                         <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
                     </a>
-                    <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
                     <input type="file" id="imageUpload" accept="image/*" style="display: none; ">                    
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" class="btn btn-secondary btn-sm">비밀번호 찾기</button>
