@@ -51,15 +51,15 @@
 
 
 
-<!-- 회원가입창 시작 -->
+<!-- 마이페이지 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
         <form action="https://www.naver.com" method="post">
             <div class="account--inputProfileBox">
-                <a href="https://www.google.com">
-                    <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;">
+                <a href="#" id="updateProfileImage">
+                    <%-- <img src="/resources/images/memberImage/${loginMember.memberNo}/profile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;"> --%> <%-- 프로필 이미지 있으면 --%>
+                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지" style="border: 3px solid black;">
                 </a>
-                <!-- <input type="file"> -->
             </div>
             <div class="account--inputInfoBox">
                 <table>
@@ -80,6 +80,8 @@
                     <a href="/myPage/updateInfo">
                         <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
                     </a>
+                    <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none; ">                    
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" class="btn btn-secondary btn-sm">비밀번호 찾기</button>
                     <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
@@ -88,7 +90,7 @@
         </form>
     </div>
 </div>
-<!-- 회원가입창 끝 -->
+<!-- 마이페이지 끝 -->
 
 
 
@@ -108,7 +110,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">JustGo에 마지막으로 할 말이 있으신가요?</label>
-                        <textarea type="text" class="form-control" id="message-text" style="resize: none;" maxlength="300"
+                        <textarea type="text" name="lastWord" class="form-control" id="message-text" style="resize: none;" maxlength="100"
                         placeholder="좋은 제언을 귀담아 듣겠습니다."></textarea>
                     </div>
                 </div>
@@ -147,5 +149,12 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/account/myPage.js"></script>
+<%-- 파일 업로드 --%>
+    <script>
+        function triggerFileInput() {
+            var fileInput = document.getElementById("imageUpload");
+            fileInput.click();
+        }
+    </script>
 </body>
 </html>

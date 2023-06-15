@@ -14,5 +14,5 @@ public interface MemberService {
 	
 	// 회원탈퇴(비밀번호 체크)
 	int deleteAccount(String memberPw, int memberNo);
-
+	
 }

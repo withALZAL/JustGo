@@ -31,7 +31,7 @@ public class MemberDAO {
 	
 	// 회원번호 비밀번호 조회(진현씨랑 충돌 예상)
 	public String selectEncPw(int memberNo) {
-		return sqlSession.selectOne("memberMapper.selectEncPw", memberNo);
+		return sqlSession.selectOne("memberMapper.selectEncPw2", memberNo);
 	}
 	
 	// 회원탈퇴

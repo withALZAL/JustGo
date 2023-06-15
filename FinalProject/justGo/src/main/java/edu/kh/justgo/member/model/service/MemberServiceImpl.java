@@ -60,6 +60,7 @@ public class MemberServiceImpl implements MemberService {
 		String encPw = dao.selectEncPw(memberNo);
 		
 		if(bcrypt.matches(memberPw, encPw)) {
+			
 			return dao.deleteAccount(memberNo); // 성공시 1 반환
 		}
 		return 0; // 실패시 0 반환
