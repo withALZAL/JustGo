@@ -56,8 +56,7 @@
     <div class="account--joinBox">
         <form action="info" method="post">
             <div class="account--inputProfileBox">
-                <a href="#" id="updateProfileImage">
-                    <%-- <img src="/resources/images/memberImage/${loginMember.memberNo}/profile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;"> --%> <%-- 프로필 이미지 있으면 --%>
+                <a>
                     <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지" style="border: 3px solid black;">
                 </a>
             </div>
