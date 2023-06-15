@@ -50,6 +50,7 @@
 
 
 
+
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
@@ -61,15 +62,16 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50"></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50" autocomplete="off" required></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30"></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30" autocomplete="off" required></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="button" class="btn btn-secondary btn-lg" style="border:none;">비밀번호 찾기</button>
                     <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>

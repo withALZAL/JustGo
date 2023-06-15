@@ -83,7 +83,6 @@
                     <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
                     <input type="file" id="imageUpload" accept="image/*" style="display: none; ">                    
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
-                    <button type="button" class="btn btn-secondary btn-sm">비밀번호 찾기</button>
                     <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
                 </div>
             </div>
