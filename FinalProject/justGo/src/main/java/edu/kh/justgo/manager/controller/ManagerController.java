@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import edu.kh.justgo.manager.model.service.ManagerService;
 import edu.kh.justgo.member.model.dto.Member;
@@ -63,14 +64,10 @@ public class ManagerController {
 			, Model model
 			) {
 		
-		// 회원정보 불러오기
+		// 1:1문의정보 불러오기
 		Map<String, Object> map = service.selectAskList(cp);
 		
 		model.addAttribute("map", map);
-		
-		// 콘솔에서 확인
-//		System.out.println(memberList);
-		
 		
 		
 		return "/manager/askManager";
@@ -83,7 +80,16 @@ public class ManagerController {
 	
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
-	public String reportManager() {
+	public String reportManager(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			, Model model
+			) {
+		
+		// 신고 목록 불러오기
+		Map<String, Object> map = service.selectReportList(cp);
+		
+		model.addAttribute("map", map);
+		
 		return "/manager/reportManager";
 	}
 	

@@ -24,7 +24,7 @@
 </head>
 <body class="template--body">
 
-    <c:set var="pagination" value="${map.pagination}" />
+    <c:set var="memberPagination" value="${map.memberPagination}" />
     <c:set var="memberList" value="${map.memberList}" />
 
 <!-- ----------------------------------------------- -->
@@ -126,13 +126,13 @@
 
                                 <%-- 이전 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=${pagination.prevPage}">이전</a>
+                                    <a class="page-link" id="prev" href="/manager/memberManager?cp=${memberPagination.prevPage}">이전</a>
                                 </li>
 
                                 <%-- 특정 번호 목록 페이지 이동 --%>
-                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                <c:forEach var="i" begin="${memberPagination.startPage}" end="${memberPagination.endPage}" step="1">
                                     <c:choose>
-                                        <c:when test="${i==pagination.currentPage}">
+                                        <c:when test="${i==memberPagination.currentPage}">
                                             <li class="page-item"><a class="page-link">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
@@ -143,12 +143,12 @@
 
                                 <%-- 다음 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.nextPage}">다음</a>
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${memberPagination.nextPage}">다음</a>
                                 </li>
 
                                 <%-- 맨 끝 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${pagination.endPage}">맨 끝</a>
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${memberPagination.endPage}">맨 끝</a>
                                 </li>
                             </ul>
                         </nav>

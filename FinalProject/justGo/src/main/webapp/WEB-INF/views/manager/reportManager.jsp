@@ -25,15 +25,16 @@
 <body class="template--body">
 
 
+<c:set var="reportPagination" value="${map.reportPagination}" />
+<c:set var="reportList" value="${map.reportList}" />
 
+<%-- ${map.reportList} --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
-
-
 
 <!-- Template-main 시작 -->
 <main class="template--main">
@@ -89,117 +90,62 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>100000</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><form><a href="#">바른말고운말</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><form><a href="#">바른말고운말신고</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>악플러</td>
-                            <td>2023년 1월 1일</td>
-                            <td>반려</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><form><a href="#">바른말지킴이</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>악플러입니다만1</td>
-                            <td>2023년 1월 1일</td>
-                            <td>미처리</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><form><a href="#">신고자</a></form></td>
-                            <td>욕설</td>
-                            <td>시베리아에서수박이나까먹어라</td>
-                            <td>악플다는재미로삼</td>
-                            <td>2023년 1월 1일</td>
-                            <td>처리완료</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><form><a href="#">신고러</a></form></td>
-                            <td>욕설</td>
-                            <td><form><a href="https://www.naver.com">시베리아에서수박이나까먹어라</a></form></td>
-                            <td>나쁜말</td>
-                            <td>2023년 1월 1일</td>
-                            <td>반려</td>
-                        </tr>
+                        <c:choose>
+                            <c:when test="${empty reportList}">
+                                <tr>
+                                    <th colspan="7">신고가 존재하지 않습니다.</th>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${reportList}" var="report">
+                                    <tr>
+                                        <td>${report.reportNo}</td>
+                                        <td><form><a href="#">${report.memberNickname}</a></form></td>
+                                        <td>${report.reportCategory}</td>
+                                        <td><form><a href="https://www.naver.com">${report.boardTitle}</a></form></td>
+                                        <td>${report.reportedNickname}</td>
+                                        <td>${report.reportDate}</td>
+                                        <td>${report.reprot_CF_FL}</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
                     <form action="#" method="get">
                         <nav aria-label="...">
                             <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link">이전</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
-                                <a class="page-link" href="#">다음</a>
+                                    <a class="page-link" id="prev" href="/manager/reportManager?cp=1">맨 처음</a>
+                                </li>
+
+                                <%-- 이전 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="prev" href="/manager/reportManager?cp=${reportPagination.prevPage}">이전</a>
+                                </li>
+
+                                <%-- 특정 번호 목록 페이지 이동 --%>
+                                <c:forEach var="i" begin="${reportPagination.startPage}" end="${reportPagination.endPage}" step="1">
+                                    <c:choose>
+                                        <c:when test="${i==reportPagination.currentPage}">
+                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li class="page-item"><a class="page-link" href="/manager/reportManager?cp=${i}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+
+                                <%-- 다음 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/reportManager?cp=${reportPagination.nextPage}">다음</a>
+                                </li>
+
+                                <%-- 맨 끝 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberManager?cp=${reportPagination.endPage}">맨 끝</a>
                                 </li>
                             </ul>
                         </nav>

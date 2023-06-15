@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import edu.kh.justgo.manager.model.dao.ManagerDAO;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Report;
 import edu.kh.justgo.member.model.dto.Member;
 
 @Service
@@ -26,18 +27,17 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		System.out.println("listCount : " +listCount);
 		
-		Pagination pagination = new Pagination(listCount, cp);
+		Pagination memberPagination = new Pagination(listCount, cp);
 		
-		List<Member> memberList = dao.selectMemberList(pagination);
+		List<Member> memberList = dao.selectMemberList(memberPagination);
 		
 		// pagination, memberList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pagination", pagination);
+		map.put("memberPagination", memberPagination);
 		map.put("memberList", memberList);
 		
 		
 //		System.out.println(map);
-		
 		
 		return map;
 	}
@@ -51,18 +51,45 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		System.out.println("askListCount : " + askListCount);
 		
-		Pagination pagination = new Pagination(askListCount, cp);
+		Pagination askPagination = new Pagination(askListCount, cp);
 		
-		List<Feedback> askList = dao.selectAskList(pagination);
+		List<Feedback> askList = dao.selectAskList(askPagination);
 		
 		// pagination, askList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<>();
-		map.put("pagination", pagination);
+		map.put("askPagination", askPagination);
 		map.put("askList", askList);
+		
+//		System.out.println(map);
+		
+		return map;
+	}
+	
+	
+	
+	// 신고 목록조회
+	@Override
+	public Map<String, Object> selectReportList(int cp) {
+		
+		int reportListCount = dao.getReportListCount();
+		
+		System.out.println("reportListCount : " + reportListCount);
+		
+		Pagination reportPagination = new Pagination(reportListCount, cp);
+		
+		List<Report> reportList = dao.selectReportList(reportPagination);
+		
+		
+		// pagination, askList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<>();
+		map.put("reportPagination", reportPagination);
+		map.put("reportList", reportList);
 		
 		System.out.println(map);
 		
 		return map;
 	}
+	
+	
 	
 }

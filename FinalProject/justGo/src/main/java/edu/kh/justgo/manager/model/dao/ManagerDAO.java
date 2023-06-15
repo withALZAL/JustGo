@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Report;
 import edu.kh.justgo.member.model.dto.Member;
 
 
@@ -65,6 +66,32 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.selectAskList", null, rowBounds);
 		
 	}
+
+
+
+	/** 신고 수 조회
+	 * @return result
+	 */
+	public int getReportListCount() {
+		
+		return sql.selectOne("managerMapper.getReportListCount");
+	}
+
+
+
+	/** 신고목록 조회
+	 * @param pagination
+	 * @return list
+	 */
+	public List<Report> selectReportList(Pagination pagination) {
+		
+		int offset = (pagination.getCurrentPage()-1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sql.selectList("managerMapper.selectReportList", null, rowBounds);
+	}
+	
+	
+	
 
 
 
