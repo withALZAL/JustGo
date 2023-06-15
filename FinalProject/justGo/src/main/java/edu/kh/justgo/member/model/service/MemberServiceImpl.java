@@ -19,7 +19,6 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired 
 	private BCryptPasswordEncoder bcrypt;
 	
-	
 	// 로그인
 	@Override
 	public Member login(Map<String, Object> map) {
@@ -52,4 +51,22 @@ public class MemberServiceImpl implements MemberService {
 		
 	    return result;
 	}
+
+	// 회원탈퇴
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int deleteAccount(String memberPw, int memberNo) {
+		
+		String encPw = dao.selectEncPw(memberNo);
+		
+		if(bcrypt.matches(memberPw, encPw)) {
+			
+			return dao.deleteAccount(memberNo); // 성공시 1 반환
+		}
+		return 0; // 실패시 0 반환
+		
+	}
+
+	
+	
 }

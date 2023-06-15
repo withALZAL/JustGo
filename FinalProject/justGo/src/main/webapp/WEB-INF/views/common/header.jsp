@@ -190,13 +190,17 @@
                     </ul>
                 </li>
             </c:if>
-
-            <c:if test="${boardType.BOARD_CODE != 1}" >
+            <c:if test="${boardType.BOARD_CODE != 1 && boardType.BOARD_CODE != 4}" >
                 <li class="nav-item">
                     <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 </li>
             </c:if>
-        </c:forEach>    
+            <c:if test="${!empty sessionScope.loginMember && boardType.BOARD_CODE == 4}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                </li>
+            </c:if>
+        </c:forEach>   
 
 
                 <%-- <c:if test="${boardType == 1}">

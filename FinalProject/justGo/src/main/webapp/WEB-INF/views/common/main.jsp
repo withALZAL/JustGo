@@ -69,7 +69,7 @@
             <c:choose>
                 <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
                     <div class="carousel-item active" data-bs-interval="5000">
-                        <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
+                        <a href="https://zrr.kr/aPUq" target="_blank"> <%-- 호주 울룰루 --%>
                             <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
                         </a>
                         <div class="carousel-caption d-none d-md-block">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <a href="https://www.australia.com/ko-kr" target="_blank"> <%-- 호주 관광청 --%>
+                        <a href="https://zrr.kr/aPUq" target="_blank"> <%-- 호주 울룰루 --%>
                             <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="d-block w-100" alt="호주 배너">
                         </a>
                         <div class="carousel-caption d-none d-md-block">
@@ -108,7 +108,7 @@
                 </c:otherwise>
             </c:choose>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.visitbeijing.or.kr/" target="_blank"> <%-- 베이징 관광청 --%>
+                <a href="https://zrr.kr/MlZe" target="_blank"> <%-- 베이징 만리장성 --%>
                     <img src="/resources/images/officialBanner/BANNERBEIJING.png" class="d-block w-100" alt="베이징 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.kyototourism.org/ko/" target="_blank"> <%-- 교토 관광청 --%>
+                <a href="https://zrr.kr/MHQC" target="_blank"> <%-- 교토 청수사 --%>
                     <img src="/resources/images/officialBanner/BANNERKYOTO.png" class="d-block w-100" alt="교토 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://ko.meet-in-shanghai.net/" target="_blank"> <%-- 상하이 관광청 --%>
+                <a href="https://zrr.kr/Tnki" target="_blank"> <%-- 상하이 와이탄 --%>
                     <img src="/resources/images/officialBanner/BANNERSHANGHAI.png" class="d-block w-100" alt="상하이 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -147,7 +147,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="http://www.visitthailand.or.kr/thai/" target="_blank"> <%-- 태국 관광청 --%>
+                <a href="https://zrr.kr/lMyv" target="_blank"> <%-- 방콕 왕궁 --%>
                     <img src="/resources/images/officialBanner/BANNERTHAI.png" class="d-block w-100" alt="태국 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="https://www.gotokyo.org/kr/index.html" target="_blank"> <%-- 도쿄 관광청 --%>
+                <a href="https://zrr.kr/vQwA" target="_blank"> <%-- 도쿄타워 --%>
                     <img src="/resources/images/officialBanner/BANNERTOKYO.png" class="d-block w-100" alt="도쿄 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -173,7 +173,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <a href="http://vietnamtourism.or.kr/" target="_blank"> <%-- 베트남 관광청 --%>
+                <a href="https://zrr.kr/5jh0" target="_blank"> <%-- 호치민 통일궁 --%>
                     <img src="/resources/images/officialBanner/BANNERVIETNAM.png" class="d-block w-100" alt="베트남 배너">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
@@ -505,5 +505,7 @@
     <%-- <script src="/resources/js/common/header.js"></script> --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+
+    
 </body>
 </html>

@@ -54,6 +54,7 @@
         <form action="/account/join" method="post" id="signUpFrm">
             <div class="account--inputProfileBox">
                 <div>
+                    <img src="/resources/images/officialImages/earth.gif" alt="지구본">
                 </div>
             </div>
             <div class="account--inputInfoBox">
@@ -104,10 +105,8 @@
                     <tr>
                         <th>닉네임</th>
                         <td>
-                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요.">
-                            <div style="height: 0.1px; font-size: 0.2rem; color: black;" class="signUp-message" id="nickMessage"></div>
-<!--                             <div style="height: 5px; font-size: 0.2rem; color: green;">사용할 수 있는 닉네임입니다.</div>
-                            <div style="height: 5px; font-size: 0.2rem; color: red;">사용할 수 없는 닉네임입니다.</div> -->
+                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요." autocomplete="off" required>
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
                         </td>
                     </tr>
 
