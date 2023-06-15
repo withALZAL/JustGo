@@ -73,6 +73,9 @@
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
                     <button type="button" class="btn btn-secondary btn-lg" style="border:none;">비밀번호 찾기</button>
+                    <a href="/account/join">
+                        <button type="button" class="btn btn-secondary btn-lg" style="border:none;">회원가입</button>
+                    </a>
                     <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>
