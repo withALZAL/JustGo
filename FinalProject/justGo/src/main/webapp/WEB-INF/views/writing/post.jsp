@@ -65,10 +65,15 @@
                 <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
                 <div>폭탄배달부키키</div>
             </div>
+            <div class="writing--postUpdateDate" style="font-size: 0.8rem" style="text-align: center;">
+            &nbsp <i class="fa-solid fa-eye"></i> 123 &nbsp&nbsp&nbsp
+            <a href="#"><i class="fa-solid fa-heart" style="color: red;"></i></a> 123</div>
             <div class="writing--postEnrollDate" style="font-size: 0.8rem">등록일: <a>2023년 3월 20일 14:30:20</a></div>
             <div class="writing--postUpdateDate" style="font-size: 0.8rem">수정일: <a>2023년 3월 20일 14:30:20</a></div>
         </div>
     </div>
+
+
 <div class="writing--postBox">
     <div class="writing--postContent">
 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다. 대통령의 선거에 관한 사항은 법률로 정한다. 대한민국은 민주공화국이다. 탄핵결정은 공직으로부터 파면함에 그친다. 그러나, 이에 의하여 민사상이나 형사상의 책임이 면제되지는 아니한다.
@@ -189,6 +194,9 @@
 </div>
 <div class="writing--postBottomBox">
     <form action="#" method="post">
+    <a href="/resources/html/common/main.html">
+        <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-heart" style="color: red;"></i>  좋아요</button>
+    </a>
     <a href="/resources/html/common/main.html">
         <button type="button" class="btn btn-secondary btn-sm">수정</button>
     </a>
@@ -324,23 +332,10 @@
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-<<<<<<< HEAD
-<<<<<<< HEAD
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
-=======
-=======
->>>>>>> origin/main
-    <script src="/resourcesjs/template/template.js"></script>
-    <script src="/resources/js/common/header.js"></script>
-    <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/writing/post.js"></script>
-<<<<<<< HEAD
-    <script src="/resources/js/writing/post.js"></script>
->>>>>>> origin/main
-=======
->>>>>>> origin/main
     <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>

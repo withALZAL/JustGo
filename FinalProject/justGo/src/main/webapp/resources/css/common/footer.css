@@ -42,3 +42,9 @@
     color: white;
     background-color: #8B89FF;
 }
+
+/* 좌측 하단 nav 조정 */
+#common--sideNav {
+    padding: 100px;
+    margin: 100px;
+}

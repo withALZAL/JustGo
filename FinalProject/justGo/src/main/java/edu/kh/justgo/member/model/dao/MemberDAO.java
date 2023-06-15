@@ -23,4 +23,19 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.join", inputMember);
 	}
 
+	// 회원탈퇴 진행
+	public int deleteAccount(Member deleteMember) {
+		return sqlSession.update("memberMapper.deleteMember", deleteMember);
+	}
+	
+	// 회원번호 비밀번호 조회(진현씨랑 충돌 예상)
+	public String selectEncPw(int memberNo) {
+		return sqlSession.selectOne("memberMapper.selectEncPw2", memberNo);
+	}
+	
+	// 회원탈퇴
+	public int deleteAccount(int memberNo) {
+		return sqlSession.update("memberMapper.deleteAccount", memberNo);
+	}
+
 }
