@@ -167,7 +167,7 @@ public class BoardController {
 					
 				}
 				
-				path +="writing/post";
+				path ="writing/post";
 				model.addAttribute("board",board);
 				
 		   }else { // 조회 결과가 없을 경우
