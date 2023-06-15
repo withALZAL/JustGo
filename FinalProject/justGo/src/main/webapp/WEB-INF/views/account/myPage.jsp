@@ -54,7 +54,6 @@
 <!-- 마이페이지 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="info" method="post">
         <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
             <div class="account--inputProfileBox">
                 <div id="previewImage" onclick="triggerFileInput()">
@@ -86,8 +85,6 @@
                     <a href="/myPage/updateInfo">
                         <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
                     </a>
-                                        <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
-                    <input type="file" id="imageUpload" accept="image/*" style="display: none; ">                    
                     <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>

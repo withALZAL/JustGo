@@ -109,3 +109,14 @@ table {
     width: 180px;
     height: 180px;
 }
+
+/* 비밀번호 유효성 문자 개행 */
+#emailMessage,
+#pwMessage,
+#authKeyMessage,
+#pwConfirmMessage,
+#nickMessage {
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}

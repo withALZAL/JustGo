@@ -51,7 +51,7 @@ public class MyPageServiceImpl implements MyPageService{
 	}
 
 
-	// 프로필 이미지 변경
+	// 프로필 이미지 변경(상준)
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
 	public int updateProfileImage(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException {

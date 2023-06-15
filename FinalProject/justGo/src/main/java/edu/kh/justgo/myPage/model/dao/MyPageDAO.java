@@ -33,7 +33,7 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.changePw", member);
 	}
 
-	// 프로필 이미지 변경
+	// 프로필 이미지 변경(상준)
 	public int updateProfileImage(Member loginMember) {
 		return sqlSession.update("myPageMapper.updateProfileImage", loginMember);
 	}

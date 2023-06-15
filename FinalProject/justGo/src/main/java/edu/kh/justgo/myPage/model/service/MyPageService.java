@@ -16,7 +16,7 @@ public interface MyPageService {
 	int updateInfo(String currentPw, String newPw, String memberNickname, int memberNo);
 
 	/**
-	 * 프로필 이미지 변경 서비스
+	 * 프로필 이미지 변경 서비스(상준)
 	 * @param profileImage
 	 * @param updateMember
 	 * @return
