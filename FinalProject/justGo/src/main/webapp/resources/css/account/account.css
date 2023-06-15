@@ -31,6 +31,9 @@
     width: 50%;
 } 
 
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }
 
 
 
