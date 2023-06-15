@@ -58,10 +58,10 @@
             <div class="account--inputProfileBox">
                 <div id="previewImage" onclick="triggerFileInput()">
                 <c:if test="${!empty sessionScope.loginMember.profileImg}">
-                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지" style="border: 3px solid black;">
+                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
                 </c:if>
                 <c:if test="${empty sessionScope.loginMember.profileImg}">
-                    <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" name="profileImage" alt="기본 프로필 이미지" style="border: 3px solid black;">
+                    <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" name="profileImage" alt="기본 프로필 이미지">
                 </c:if>
                 </div>
             </div>

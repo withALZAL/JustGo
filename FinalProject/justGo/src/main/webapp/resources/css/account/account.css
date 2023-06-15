@@ -96,14 +96,28 @@ table {
 /* 이미지 업로드 커서 */
 #previewImage > img {
     cursor: pointer;
+    border: 3px solid black;
+}
+#previewImage > img:hover {
+    border: 3px solid red;
 }
 
 /* 이미지 업로드 크기 조정 */
-#previewImage {
+#previewImage { /* 마이페이지 */
     height: 180px;
     overflow: hidden;
 }
 #previewImage img {
+    object-fit: cover;
+    object-position: center center;
+    width: 180px;
+    height: 180px;
+}
+.account--inputProfileBox { /* 마이페이지 수정 */
+    height: 200px;
+    overflow: hidden;
+}
+.account--inputProfileBox img {
     object-fit: cover;
     object-position: center center;
     width: 180px;
@@ -115,6 +129,10 @@ table {
 #pwMessage,
 #authKeyMessage,
 #pwConfirmMessage,
+#nickMessage,
+#currentPwMessage,
+#newPwMessage,
+#newPwConfirmMessage,
 #nickMessage {
     max-width: 300px;
     word-wrap: break-word;

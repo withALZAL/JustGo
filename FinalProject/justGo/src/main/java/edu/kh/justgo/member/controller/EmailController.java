@@ -23,7 +23,7 @@ public class EmailController {
     public int joinUp(String email, String title) {
 
     
-        return service.joinUp(email, "회원 가입");   
+        return service.joinUp(email, "회원가입");   
     }
     
     

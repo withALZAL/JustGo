@@ -21,7 +21,3 @@ imageUpload.addEventListener("change", function (event) {
     };
     reader.readAsDataURL(file);
 });
-
-function displayUpdateImgBtn() {
-
-}

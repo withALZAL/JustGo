@@ -78,14 +78,14 @@ public class MyPageController {
 			Model model
 			) throws IllegalStateException, IOException {
 		
-		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/";
+		String relativePath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/";
+		String realPath = session.getServletContext().getRealPath("/");
+		String absolutePath = realPath + relativePath;
+
+		File checkFolder = new File(absolutePath);
+		if (!checkFolder.exists()) checkFolder.mkdirs(); // 폴더가 없는 경우 만들기
 		
-		File checkFolder = new File(webPath);
-		if (!checkFolder.exists()) {
-		    checkFolder.mkdirs(); // 없는 폴더 미리 만들기 -> 강사님께 컨펌받기
-		}
-		
-		
+		String webPath = relativePath;
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		int result = service.updateProfileImage(profileImage, webPath, filePath, loginMember);

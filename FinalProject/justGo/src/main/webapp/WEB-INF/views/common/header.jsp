@@ -159,6 +159,18 @@
         </div>
     </div>
     </c:if>
+    <c:if test="${empty sessionScope.loginMember}">
+    <div class="common--header__profileContainer">
+        <div class="common--header__profileBox">
+            <a href="/account/join"> <%-- 로그인으로 이동 --%>
+                <div class="common--header__profileImageBox">
+                    <img src="/resources/images/officialImages/earth.gif" alt="지구본">
+                </div>
+            <div id="greeting" class="common--greeting" style="font-family: 'Noto Serif KR', serif; color: grey; font-weight: bold;"></div>
+            </a>
+        </div>
+    </div>
+    </c:if>
 </header>
 <!-- header 끝 -->
 
@@ -168,7 +180,6 @@
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
         <c:forEach var="boardType" items="${boardTypeList}">
-
             <c:if test="${boardType.BOARD_CODE == 1}">
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
