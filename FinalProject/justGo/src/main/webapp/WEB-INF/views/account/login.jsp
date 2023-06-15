@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -62,11 +63,11 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="50" autocomplete="off" required></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="30" autocomplete="off" required></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="30" autocomplete="off" required></td>
+                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required></td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
@@ -95,12 +96,11 @@
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
 
-    
 
+    
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
-    <script src="/resources/js/account/login.js"></script>
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
