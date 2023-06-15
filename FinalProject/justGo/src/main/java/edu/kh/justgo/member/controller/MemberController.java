@@ -58,6 +58,8 @@ public class MemberController {
 			} 
 			cookie.setPath("/");
 			resp.addCookie(cookie);
+			ra.addFlashAttribute("message", "환영합니다.");
+
 			
 		}else {
 			path += referer;
@@ -97,7 +99,7 @@ public class MemberController {
 		
 		if(result > 0) {
 			path += "/";
-		    message = inputMember.getMemberNickname() + "님의 가입을 환영합니다.";
+		    message = "환영합니다.";
 		    
 	} else {
 		path += "join";

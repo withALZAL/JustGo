@@ -34,7 +34,6 @@ public class MainController {
 		List<Main> healBoardList = service.healBoard();
 		model.addAttribute("healBoardList", healBoardList);
 
-
 		return "common/main";
 	}
 
