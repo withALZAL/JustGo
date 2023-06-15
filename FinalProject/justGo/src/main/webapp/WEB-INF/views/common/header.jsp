@@ -147,10 +147,22 @@
                         <img src="/resources/images/memberImage/${loginMember.memberNo}/KIKI.jpg" alt="프로필 이미지">
                     </c:when>
                     <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
+            <c:choose>
+                <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
+                    <div class="common--header__profileImageBox">
+                        <img src="${sessionScope.loginMember.profileImg}" alt="프로필 이미지">
+                    </div>
+                </c:when>
+                <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
+                    <div class="common--header__profileImageBox">
                         <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지">
                     </c:otherwise>
                 </c:choose>
                 <div>${loginMember.memberNickname}</div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+            <div>${loginMember.memberNickname}</div>
             </a>
         </div>
     </div>

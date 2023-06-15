@@ -55,6 +55,7 @@
 	<update id="updateProfileImage">
 		UPDATE "MEMBER" 
 		SET PROFILE_IMG = #{profileImage}
+		SET PROFILE_IMG = #{profileImg}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 

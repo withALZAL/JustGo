@@ -87,3 +87,22 @@ table {
 .account--loginImage img {
     height: 180px;
 }
+
+/* 기타 ----------------------------------------------- */
+
+/* 이미지 업로드 커서 */
+#previewImage > img {
+    cursor: pointer;
+}
+
+/* 이미지 업로드 크기 조정 */
+#previewImage {
+    height: 180px;
+    overflow: hidden;
+}
+#previewImage img {
+    object-fit: cover;
+    object-position: center center;
+    width: 180px;
+    height: 180px;
+}
