@@ -1,5 +1,6 @@
 package edu.kh.justgo.myPage.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -77,7 +78,14 @@ public class MyPageController {
 			Model model
 			) throws IllegalStateException, IOException {
 		
-		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/"; // 없는 폴더에서 만들 수 있도록 추후 처리
+		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/";
+		
+		File checkFolder = new File(webPath);
+		if (!checkFolder.exists()) {
+		    checkFolder.mkdirs(); // 없는 폴더 미리 만들기 -> 강사님께 컨펌받기
+		}
+		
+		
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		int result = service.updateProfileImage(profileImage, webPath, filePath, loginMember);
