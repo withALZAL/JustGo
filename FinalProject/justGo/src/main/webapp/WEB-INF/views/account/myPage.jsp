@@ -57,8 +57,6 @@
         <form action="info" method="post">
         <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
             <div class="account--inputProfileBox">
-                <a>
-                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지" style="border: 3px solid black;">
                 <div id="previewImage" onclick="triggerFileInput()">
                 <c:if test="${!empty sessionScope.loginMember.profileImg}">
                     <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지" style="border: 3px solid black;">

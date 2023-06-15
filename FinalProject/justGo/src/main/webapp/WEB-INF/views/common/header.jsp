@@ -142,11 +142,6 @@
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="/myPage/info"> <%-- 마이페이지로 이동 --%>
-                <c:choose>
-                    <c:when test="${!empty loginMember.profileImg}}"> <%-- 프로필 이미지 있을 때 --%>
-                        <img src="/resources/images/memberImage/${loginMember.memberNo}/KIKI.jpg" alt="프로필 이미지">
-                    </c:when>
-                    <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
             <c:choose>
                 <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
                     <div class="common--header__profileImageBox">
@@ -156,9 +151,6 @@
                 <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
                     <div class="common--header__profileImageBox">
                         <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지">
-                    </c:otherwise>
-                </c:choose>
-                <div>${loginMember.memberNickname}</div>
                     </div>
                 </c:otherwise>
             </c:choose>

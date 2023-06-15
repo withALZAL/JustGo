@@ -98,7 +98,6 @@
 }
 
 /* 프로필 이미지 크기 조정 */
-.common--header__profileBox > a > img {
 .common--header__profileImageBox {
     height: 80px;
     overflow: hidden;
