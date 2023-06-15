@@ -17,6 +17,7 @@ public class Report {
 	
 	private int memberNo;
 	private int boardNo;
+	private int adminNo;
 	
 	private String reportCategory;
 	private String reportDate;
@@ -24,4 +25,7 @@ public class Report {
 	private String report_CF_Date;
 	
 	private String memberNickname;
+	private String reportedNickname;
+	private String boardTitle;
+	
 }
