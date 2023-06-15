@@ -7,7 +7,17 @@ import edu.kh.justgo.member.model.dto.Member;
 
 public interface ManagerService {
 
+	/** 회원목록 조회
+	 * @param cp
+	 * @return
+	 */
 	Map<String, Object> selectMemberList(int cp);
+
+	/** 1:1문의 목록조회
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectAskList(int cp);
 
 	
 
