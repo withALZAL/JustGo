@@ -118,7 +118,7 @@
                 <tr>
                     <td>${board.boardNo}</td>
                     <td>태그1</td>
-                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                    <td><a href="/board/1/1/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
