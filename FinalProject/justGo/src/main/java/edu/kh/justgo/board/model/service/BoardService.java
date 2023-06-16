@@ -31,5 +31,8 @@ public interface BoardService {
 	// 여행게시판 상세글 조회
 	Board boardCountryDetail(Map<String, Object> map);
 
+	//목록게시판 조회
+	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
+
 
 }

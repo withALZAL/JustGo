@@ -15,7 +15,7 @@
 		<result property="readCount" column="READ_COUNT" />
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardDelete" column="BOARD_DELETE" />
-		
+
 
 		<!-- JOIN -->
 		<result property="commentCount" column="COMMENT_COUNT" />
@@ -25,9 +25,9 @@
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="countryNo" column="COUNTRY_NO" />
 		<result property="tagNo" column="TAG_NO" />
-		<result property="thumbnail" column="THUMBNAIL"/>
-		
-		
+		<result property="thumbnail" column="THUMBNAIL" />
+
+
 
 
 
@@ -35,62 +35,66 @@
 		<collection property="imageList" select="selectImageList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
 
-<!-- 		<collection property="replyList" select="selectReplyList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" /> -->
+		<!-- <collection property="replyList" select="selectReplyList" column="BOARD_NO" 
+			javaType="java.util.ArrayList" ofType="Reply" /> -->
 	</resultMap>
-	
-		<!--리플   -->
-		 <resultMap type="Reply" id="reply_rm">
-      <id property="replyNo" column="COMMENT_NO"/>
-      <result property="replyContent" column="REPLY_CONTENT"/>
-      <result property="replyDate" column="REPLY_DATE"/>
-      <result property="updateDate" column="REPLY_UPDATE"/>
-      <result property="replyDelete" column="REPLY_DELETE"/>
-      <result property="parentReplyNo" column="PARENT_REPLY_NO"/>
 
-   
-   </resultMap>
-	
-	
-		<!-- BoardImage resultMap -->
-		<resultMap type="BoardImage" id="boardImage_rm">
-		<id property="imageNo" column="IMG_NO"/>
-		<result property="imagePath" column="IMG_PATH"/>
-		<result property="imageReName" column="IMG_RENAME"/>
-		<result property="imageOriginal" column="IMG_ORIGINAL"/>
-		<result property="imageOrder" column="IMG_ORDER"/>
-		<result property="boardNo" column="BOARD_NO"/>
-		
-		</resultMap>
-	
-	
-	
-	
+	<!--리플 -->
+	<resultMap type="Reply" id="reply_rm">
+		<id property="replyNo" column="COMMENT_NO" />
+		<result property="replyContent" column="REPLY_CONTENT" />
+		<result property="replyDate" column="REPLY_DATE" />
+		<result property="updateDate" column="REPLY_UPDATE" />
+		<result property="replyDelete" column="REPLY_DELETE" />
+		<result property="parentReplyNo" column="PARENT_REPLY_NO" />
+
+
+	</resultMap>
+
+
+	<!-- BoardImage resultMap -->
+	<resultMap type="BoardImage" id="boardImage_rm">
+		<id property="imageNo" column="IMG_NO" />
+		<result property="imagePath" column="IMG_PATH" />
+		<result property="imageReName" column="IMG_RENAME" />
+		<result property="imageOriginal" column="IMG_ORIGINAL" />
+		<result property="imageOrder" column="IMG_ORDER" />
+		<result property="boardNo" column="BOARD_NO" />
+
+	</resultMap>
+
+
+
+
 	<select id="selectBoardTypeList" resultType="map">
-		SELECT * FROM "BOARD_TYPE" ORDER BY 1
+		SELECT * FROM
+		"BOARD_TYPE" ORDER BY 1
 	</select>
-	
-	
+
+
 	<select id="selectCountryList" resultType="map">
-		SELECT * FROM COUNTRY ORDER BY 1
+		SELECT * FROM COUNTRY
+		ORDER BY 1
 	</select>
-	
-		 <!-- 특정 게시판의 삭제되지 않은 게시글 수 조회  -->
-	<select id="listCount" parameterType="int" resultType="int" >
+
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
+	<select id="listCount" parameterType="int" resultType="int">
 		SELECT COUNT(*) FROM "BOARD"
 		WHERE BOARD_DELETE='N'
-		AND BOARD_CODE=#{boardCode}
+		AND
+		BOARD_CODE=#{boardCode}
 	</select>
-	
-	<select id="countryCount" parameterType="int" resultType="int" >
+
+	<select id="countryCount" parameterType="int" resultType="int">
 		SELECT COUNT(*) FROM "BOARD"
 		WHERE BOARD_DELETE='N'
 		AND BOARD_CODE=1
-		AND COUNTRY_NO = #{countryNo}
+		AND
+		COUNTRY_NO = #{countryNo}
 	</select>
-	
+
 	<select id="selectBoardList" resultMap="board_rm">
-	SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -102,30 +106,29 @@
 		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
 			END CREATE_DATE,
 			]]>
-			(SELECT COUNT(*) FROM "REPLY" C
-			 WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
-			(SELECT COUNT(*) FROM CONTENT_LIKE L
-			 WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-<!-- 			(SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I
-			WHERE I.BOARD_NO = B.BOARD_NO
-			AND IMG_ORDER = 0) THUMBNAIL -->
-		
+		(SELECT COUNT(*) FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+		(SELECT COUNT(*) FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
+			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
+
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = #{boardCode}
 		ORDER BY BOARD_NO DESC
-	
+
 	</select>
-	
-		<select id="selectImageList" resultMap="boardImage_rm">
-	SELECT * FROM "BOARD_IMG"
-	WHERE BOARD_NO=#{boardCode}
-	ORDER BY IMG_ORDER
+
+	<select id="selectImageList" resultMap="boardImage_rm">
+		SELECT * FROM "BOARD_IMG"
+		WHERE BOARD_NO=#{boardCode}
+		ORDER BY IMG_ORDER
 	</select>
-	
-		<select id="countryList" resultMap="board_rm">
-	SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+
+	<select id="countryList" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -137,67 +140,157 @@
 		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
 			END CREATE_DATE,
 			]]>
-			(SELECT COUNT(*) FROM "REPLY" C
-			 WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
-			(SELECT COUNT(*) FROM CONTENT_LIKE L
-			 WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-<!-- 			(SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I
-			WHERE I.BOARD_NO = B.BOARD_NO
-			AND IMG_ORDER = 0) THUMBNAIL -->
-		
+		(SELECT COUNT(*) FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+		(SELECT COUNT(*) FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
+			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
+
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
 		AND COUNTRY_NO = #{countryNo}
 		ORDER BY BOARD_NO DESC
-	
+
 	</select>
-	
-	<!--게시글 상세내용  -->
-	<select id="selectBoard"  resultMap="board_rm">
-	SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE, 
-	MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
-	TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
-	TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
-	(SELECT COUNT(*) FROM "CONTENT_LIKE" L
-	WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-	FROM "BOARD" B
-	JOIN "MEMBER" USING(MEMBER_NO)
-	WHERE BOARD_DELETE='N'
-	AND BOARD_CODE=#{boardCode}
-	AND BOARD_NO=#{boardNo}
+
+	<!--게시글 상세내용 -->
+	<select id="selectBoard" resultMap="board_rm">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
+		TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
+		TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
+		(SELECT COUNT(*) FROM "CONTENT_LIKE" L
+		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		FROM "BOARD" B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_DELETE='N'
+		AND BOARD_CODE=#{boardCode}
+		AND BOARD_NO=#{boardNo}
 	</select>
-	
-	<!-- 여행게시판 상세글 조회  -->
-		<select id="boardCountryDetail"  resultMap="board_rm">
-	SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE, 
-	MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
-	TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
-	TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
-	(SELECT COUNT(*) FROM "CONTENT_LIKE" L
-	WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-	FROM "BOARD" B
-	JOIN "MEMBER" USING(MEMBER_NO)
-	WHERE BOARD_DELETE='N'
-	AND BOARD_CODE=1
-	AND COUNTRY_NO = #{countryNo}
-	AND BOARD_NO=#{boardNo}
-	
+
+	<!-- 여행게시판 상세글 조회 -->
+	<select id="boardCountryDetail" resultMap="board_rm">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
+		TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
+		TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
+		(SELECT COUNT(*) FROM "CONTENT_LIKE" L
+		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		FROM "BOARD" B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_DELETE='N'
+		AND BOARD_CODE=1
+		AND COUNTRY_NO = #{countryNo}
+		AND BOARD_NO=#{boardNo}
+
 	</select>
-	
+
 	<!--좋아요 체크 -->
-		<select id="boardLikeCheck" parameterType="int" resultType="int">
-	SELECT COUNT(*) FROM "CONTENT_LIKE"
-	WHERE BOARD_NO = #{boardNo}
-	AND MEMBER_NO = #{memberNo}
+	<select id="boardLikeCheck" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM "CONTENT_LIKE"
+		WHERE BOARD_NO = #{boardNo}
+		AND MEMBER_NO = #{memberNo}
 	</select>
-	
+
 	<!-- 조회수 증가 -->
-	
-		<update id="updateReadCount">
-	UPDATE "BOARD" SET
-	READ_COUNT = READ_COUNT + 1
-	WHERE BOARD_NO = #{boardNo} 
+
+	<update id="updateReadCount">
+		UPDATE "BOARD" SET
+		READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = #{boardNo}
 	</update>
+	
+	
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 + 검색 조건이 일치하는 게시글 수 조회 -->
+	<select id="listCount_search" parameterType="int"
+		resultType="int">
+		SELECT COUNT(*) FROM "BOARD"
+		<if test='key == "w"'>
+			JOIN "MEMBER" USING(MEMBER_NO)
+		</if>
+		WHERE BOARD_DELETE='N'
+		AND BOARD_CODE=#{boardCode}
+
+
+		<choose>
+			<when test='key == "t"'>
+				<!-- 제목 -->
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+
+			<when test='key =="c"'>
+				<!-- 내용 -->
+				AND BOARD_TEXT LIKE '%${query}%'
+			</when>
+
+			<when test='key == "tc"'>
+				<!-- 제목 + 내용 -->
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_TEXT LIKE
+				'%${query}%')
+			</when>
+			<when test='key == "w"'>
+				<!-- 작성자(닉네임) -->
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		</choose>
+	</select>
+
+	<select id="selectBoardList_search" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+	<![CDATA[
+	CASE  
+		WHEN SYSDATE - CREATE_DATE < 1/24/60
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		WHEN SYSDATE - CREATE_DATE < 1/24
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		WHEN SYSDATE - CREATE_DATE < 1
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+			END CREATE_DATE,
+			]]>
+		(SELECT COUNT(*) FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
+		(SELECT COUNT(*) FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
+		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
+			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
+
+		FROM "BOARD" B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_DELETE = 'N'
+		AND BOARD_CODE = #{boardCode}
+
+		<choose>
+			<when test='key == "t"'>
+				<!-- 제목 -->
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+
+			<when test='key =="c"'>
+				<!-- 내용 -->
+				AND BOARD_TEXT LIKE '%${query}%'
+			</when>
+
+			<when test='key == "tc"'>
+				<!-- 제목 + 내용 -->
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_TEXT LIKE
+				'%${query}%')
+			</when>
+			<when test='key == "w"'>
+				<!-- 작성자(닉네임) -->
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		</choose>
+
+
+		ORDER BY BOARD_NO DESC
+
+	</select>
+
+
 </mapper>

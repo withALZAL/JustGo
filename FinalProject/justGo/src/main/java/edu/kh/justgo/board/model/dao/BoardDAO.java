@@ -138,5 +138,32 @@ public class BoardDAO {
 
 
 
+	/** 검색
+	 * @param paramMap
+	 * @return
+	 */
+	public int listCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("boardMapper.listCount_search", paramMap);
+	}
+	
+	
+	/**
+	 * 게시글 목록 조회 (검색)
+	 * 
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
+	public List<Board> selectBoardList(Pagination pagination, Map<String, Object> paramMap) {
+
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.selectBoardList_search", paramMap, rowBounds);
+	}
+
+
+
 
 }
