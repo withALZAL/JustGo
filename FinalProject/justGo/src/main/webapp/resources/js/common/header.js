@@ -1,5 +1,5 @@
 /* 인사말 */
-const greetings = [
+const greetingWord = [
     'HELLO!',
     '안녕하세요!',
     '你好!',
@@ -17,9 +17,9 @@ const greetings = [
 ];
 
 const greetingElement = document.getElementById('greeting');
-const randomIndex = Math.floor(Math.random() * greetings.length);
+const randomIndex = Math.floor(Math.random() * greetingWord.length);
 
 // 랜덤 인사말
 window.addEventListener('load', () => {
-    greetingElement.innerText = greetings[randomIndex];
+    greetingElement.innerText = greetingWord[randomIndex];
 });

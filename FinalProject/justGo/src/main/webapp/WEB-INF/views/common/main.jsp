@@ -26,9 +26,9 @@
 
 
 <!-- ----------------------------------------------- -->
-
+<!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+<!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
 
@@ -214,65 +214,31 @@
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
             <div class="accordion-body common--boardCards">
-        <c:forEach items="${hotBoardList}" var="hotList">
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
+            <c:forEach items="${hotBoardList}" var="hotList">
+                    <div class="card common--boardCard" style="width: 15rem;">
+                        <a href="https://www.google.com" class="common--boardListContent">
+                        <div class="common--boardListImageContainer">
+                            <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
+                        </div>
+                        <div class="card-body common--boardCardBottom">
+                            <p class="card-text">
+                                ${hotList.boardTitle}
+                            </p>
+                            <nav class="common--boardListLikeBox">
+                                <i class="fa-solid fa-eye right-align">&nbsp${hotList.readCount}</i>
+                                <i class="fa-solid fa-heart right-align">&nbsp${hotList.likeCount}</i>
+                            </nav>
+                        </div>
+                        </a>
                     </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            ${hotList.boardTitle}
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp${hotList.readCount}</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp${hotList.likeCount}</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-        </c:forEach>
+            </c:forEach>
             </div>
         </div>
     </div>
 </div>
 <!-- 인기게시글 끝 -->
 
-<!-- 맛집게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseTwo">
-                <i class="fa-solid fa-burger" style="color:orange; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">맛집 태그 인기게시글</div>
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
-            <c:forEach items="${foodBoardList}" var="foodList">
-                <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
-                    <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
-                    </div>
-                    <div class="card-body common--boardCardBottom">
-                        <p class="card-text">
-                            ${foodList.boardTitle}
-                        </p>
-                        <nav class="common--boardListLikeBox">
-                            <i class="fa-solid fa-eye right-align">&nbsp${foodList.readCount}</i>
-                            <i class="fa-solid fa-heart right-align">&nbsp${foodList.likeCount}</i>
-                        </nav>
-                    </div>
-                    </a>
-                </div>
-            </c:forEach>
-            </div> 
-        </div>
-    </div>
-</div>
+
 
 <!-- 맛집게시글 시작 -->
 <div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
@@ -499,13 +465,13 @@
 <!-- ----------------------------------------------- -->
     
 
-<!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <%-- <script src="/resources/js/common/header.js"></script> --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+<!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     
 </body>
