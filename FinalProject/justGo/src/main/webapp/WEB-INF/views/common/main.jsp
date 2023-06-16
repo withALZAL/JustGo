@@ -32,6 +32,7 @@
 <!-- ----------------------------------------------- -->
 
 
+
 <!-- Template-main 시작 -->
 <main class="template--main">
 <aside class="template--leftAside"></aside>
@@ -84,8 +85,8 @@
                 </c:when>
                 <c:otherwise> <%-- 로그인했을 때 --%>
                     <div class="carousel-item active" data-bs-interval="5000">
-                       <a href="/myPage/info" target="_blank">
-                         <img src="/resources/images/officialBanner/BANNERWELCOME.png" class="d-block w-100" alt="웰컴 배너">
+                        <a href="/myPage/info" target="_blank">
+                            <img src="/resources/images/officialBanner/BANNERWELCOME.png" class="d-block w-100" alt="웰컴 배너">
                         </a>
                         <div class="carousel-caption d-none d-md-block">
                 <h1 class="common--bannerText" id="welcomeText" style="text-align: center;">${loginMember.memberNickname}님, 환영합니다!</h1>

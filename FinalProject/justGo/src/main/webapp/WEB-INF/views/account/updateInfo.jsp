@@ -51,15 +51,19 @@
 
 
 
-<!-- 회원가입창 시작 -->
+<!-- 개인정보변경창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
         <form action="updateInfo" method="post" id=updateInfo>
             <div class="account--inputProfileBox">
-                <a href="https://www.google.com">
-                    <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;">
-                </a>
-                <!-- <input type="file"> -->
+                <c:choose>
+                    <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
+                        <img src="${sessionScope.loginMember.profileImg}" alt="프로필 이미지">
+                    </c:when>
+                    <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
+                        <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지">
+                    </c:otherwise>
+                </c:choose>
             </div>
             <div class="account--inputInfoBox">
                 <table>
@@ -103,7 +107,7 @@
     </div>
 </div>
 
-<!-- 회원가입창 끝 -->
+<!-- 개인정보변경창 끝 -->
 
 
 

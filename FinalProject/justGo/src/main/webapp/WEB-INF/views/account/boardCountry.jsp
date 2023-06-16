@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/board/board.css">
     
-    <title>${countryName}</title>
+    <title>JustGo - ${countryName}게시판</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -61,7 +61,7 @@
         <div class="template--overlayedTitle" style="color: black;">
             <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
-                ${countryName}
+                ${countryName}게시판
             </a>
         </div>
     </div>

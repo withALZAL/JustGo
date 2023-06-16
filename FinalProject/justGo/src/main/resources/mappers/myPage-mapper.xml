@@ -42,8 +42,7 @@
 	</update>
 	
 
-
-	<!-- 회원 탈퇴 -->
+	<!-- 회원탈퇴 -->
 	<update id="secession" parameterType="_int">
 		UPDATE "MEMBER" 
 		SET MEMBER_CONDITION = 'Y'
@@ -51,10 +50,10 @@
 	</update>
 
 
-	<!-- 프로필 이미지 수정 -->
+	<!-- 프로필 이미지 수정(상준) -->
 	<update id="updateProfileImage">
-		UPDATE "MEMBER" 
-		SET PROFILE_IMG = #{profileImage}
+		UPDATE "MEMBER"
+		SET PROFILE_IMG = #{profileImg}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 

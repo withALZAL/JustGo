@@ -142,15 +142,31 @@
     <div class="common--header__profileContainer">
         <div class="common--header__profileBox">
             <a href="/myPage/info"> <%-- 마이페이지로 이동 --%>
-                <c:choose>
-                    <c:when test="${!empty loginMember.profileImg}}"> <%-- 프로필 이미지 있을 때 --%>
-                        <img src="/resources/images/memberImage/${loginMember.memberNo}/KIKI.jpg" alt="프로필 이미지">
-                    </c:when>
-                    <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
+            <c:choose>
+                <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
+                    <div class="common--header__profileImageBox">
+                        <img src="${sessionScope.loginMember.profileImg}" alt="프로필 이미지">
+                    </div>
+                </c:when>
+                <c:otherwise> <%-- 프로필 이미지 없을 때 --%>
+                    <div class="common--header__profileImageBox">
                         <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지">
-                    </c:otherwise>
-                </c:choose>
-                <div>${loginMember.memberNickname}</div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+            <div>${loginMember.memberNickname}</div>
+            </a>
+        </div>
+    </div>
+    </c:if>
+    <c:if test="${empty sessionScope.loginMember}">
+    <div class="common--header__profileContainer">
+        <div class="common--header__profileBox">
+            <a href="/account/join"> <%-- 로그인으로 이동 --%>
+                <div class="common--header__profileImageBox">
+                    <img src="/resources/images/officialImages/earth.gif" alt="지구본">
+                </div>
+            <div id="greeting" class="common--greeting" style="font-family: 'Noto Serif KR', serif; color: grey; font-weight: bold;"></div>
             </a>
         </div>
     </div>
@@ -164,7 +180,6 @@
 <nav class="common--navContainer sticky-top">
     <ul class="nav justify-content-around" id="common--boardList">
         <c:forEach var="boardType" items="${boardTypeList}">
-
             <c:if test="${boardType.BOARD_CODE == 1}">
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
