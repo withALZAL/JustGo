@@ -77,16 +77,12 @@ public class MyPageController {
 			HttpSession session,
 			Model model
 			) throws IllegalStateException, IOException {
-		
-		String relativePath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/";
-		String realPath = session.getServletContext().getRealPath("/");
-		String absolutePath = realPath + relativePath;
 
-		File checkFolder = new File(absolutePath);
-		if (!checkFolder.exists()) checkFolder.mkdirs(); // 폴더가 없는 경우 만들기
-		
-		String webPath = relativePath;
+		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/profile/";
 		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		File checkFolder = new File(filePath);
+		if (!checkFolder.exists()) checkFolder.mkdirs(); // 폴더가 없는 경우 만들기
 		
 		int result = service.updateProfileImage(profileImage, webPath, filePath, loginMember);
 		

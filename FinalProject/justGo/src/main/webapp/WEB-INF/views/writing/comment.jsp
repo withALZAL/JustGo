@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/writing/post.css">
+    <link rel="stylesheet" href="/resources/css/writing/post.css"> <%-- comment.jsp는 post.css 같이 사용 --%>
 
     <title>JustGo-comment</title>
 
