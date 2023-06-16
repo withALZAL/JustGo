@@ -26,6 +26,7 @@
 <!-- ----------------------------------------------- -->
 
 
+
 <!-- Template-header 시작 -->
 <header class="template--header">
 <aside class="template--leftAside"></aside>
@@ -223,20 +224,6 @@
                 </li>
             </c:if>
         </c:forEach>   
-
-
-                <%-- <c:if test="${boardType == 1}">
-                
-                <c:forEach items="country" var="countryList">
-                <li class="nav-item dropdown">
-                    <ul class="dropdown-menu common--tripBoard" aria-labelledby="moreDropdown">
-                        <li><a class="dropdown-item" href="/${country.COUNTRY_CODE}"><img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}</a></li>
-                    </ul>
-                </li>
-                </c:forEach>
-                </c:if> --%>
-                
-
     </ul>
 </nav>
 <!-- nav 끝 -->
