@@ -103,7 +103,7 @@
     overflow: hidden;
     border-radius: 100%;
 }
-.common--header__profileImageBox> img {
+.common--header__profileImageBox > img {
     object-fit: cover;
     object-position: center center;
     width: 80px;
