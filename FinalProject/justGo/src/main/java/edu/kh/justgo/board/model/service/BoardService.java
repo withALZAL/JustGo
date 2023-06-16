@@ -28,5 +28,8 @@ public interface BoardService {
 	// 리드카운트
 	int updateReadCount(int boardNo);
 
+	// 여행게시판 상세글 조회
+	Board boardCountryDetail(Map<String, Object> map);
+
 
 }
