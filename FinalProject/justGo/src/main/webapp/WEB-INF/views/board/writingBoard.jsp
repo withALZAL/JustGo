@@ -61,8 +61,8 @@
                 <div>제목</div>
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option value="2" class="b">자유게시판</option>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
+                        <option value="2" class="b" >자유게시판</option>
                         <option value="3" class="b">질문게시판</option>
                         <option value="2">일본게시판</option>
                         <option value="1">중국게시판</option>
