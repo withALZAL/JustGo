@@ -54,7 +54,7 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="/writing/insert" method="post" enctype="multipart/form-data">
+<form action="/board/write" method="post" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
@@ -148,6 +148,38 @@
             ]
         });
     </script>
-    
+
+    <script> 
+                $(document).ready(function(){ 
+                    $('#summernote').summernote({ 
+                        height : 300, 
+                        width : 700, 
+                        lang : "ko-KR", 
+                        callbacks:{ 
+                            onImageUpload : function(files){ 
+                            uploadSummernoteImageFile(files[0],this); 
+                            } 
+                        } 
+                    }); 
+                    function uploadSummernoteImageFile(file,editor){ 
+                        data = new FormData(); 
+                        data.append("file",file); 
+                        $.ajax({ 
+                            data:data, 
+                            type:"POST", 
+                            url:"/uploadSummernoteImageFile", 
+                            dataType:"JSON", 
+                            contentType:false, 
+                            processData:false, 
+
+                            success:function(data){ 
+                                $(editor).summernote("insertImage",data.url); 
+                                $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
+                            } 
+                        }); 
+                    } 
+                }); 
+ </script> 
+            
 </body>
 </html>

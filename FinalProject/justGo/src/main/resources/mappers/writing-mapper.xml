@@ -4,7 +4,7 @@
 	
 	<insert id="boardInsert">
 		INSERT INTO BOARD 
-		VALUES (SEQ_BOARD_NO.NEXTVAL, #{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,11,#{tagNo},#{boardCode},NULL,NULL)
+		VALUES (SEQ_BOARD_NO.NEXTVAL, #{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{memberNo},#{tagNo},#{boardCode},NULL,NULL)
 	</insert>
 
 	

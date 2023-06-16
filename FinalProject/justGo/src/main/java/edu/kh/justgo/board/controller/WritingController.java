@@ -34,7 +34,7 @@ public class WritingController {
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
 	public String writingBoard() {
-		return "writing/writingBoard";
+		return "board/writingBoard";
 	}
 	
 	// 포스트 연결
@@ -44,9 +44,9 @@ public class WritingController {
 	}
 	
 	// 게시글 작성 
-	   @PostMapping("/writing/insert")
+	   @PostMapping("/board/write")
 	   public String boardInsert(
-	          Board board 
+	         Board board 
 	         ,@SessionAttribute("loginMember") Member loginMember
 	         , RedirectAttributes ra
 	         , HttpSession session
@@ -56,22 +56,24 @@ public class WritingController {
 		   board.setMemberNo(loginMember.getMemberNo());
 		   
 		   
-		   
 		  int boardNo = service.boardInsert(board);
 		   
 		  String message = null;
-		  String path = "redirect:";
+		  String path = "redirect:/";
 		  
 		  if(boardNo > 0) { // 성공 시			  
 			  message = "게시글 등록 성공";
-			  path += "/board/boardCode";
+			  path += "board/" +  board.getBoardCode() + "/" + boardNo;
+			  
 		  }else {
 			  message = "게시글 등록 실패.......";
-			  path += "/writing/writingBoard"; // 게시글 쓰는 화면 
+			  path += "board/writingBoard"; // 게시글 쓰는 화면 
 		  }
 		  	
 		  ra.addFlashAttribute("message", message);
 		   
+		  System.out.println(path);
+		  
 		   return path;
 		   
 	   } 
