@@ -34,5 +34,8 @@ public interface BoardService {
 	//목록게시판 조회
 	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
 
+	// 좋아요 처리
+	int like(Map<String, Integer> paramMap);
+
 
 }

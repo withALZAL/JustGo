@@ -194,6 +194,26 @@
 		WHERE BOARD_NO = #{boardNo}
 		AND MEMBER_NO = #{memberNo}
 	</select>
+	
+	
+	<!-- 좋아요 추가 -->
+		<insert id="insertBoardLike">
+		INSERT INTO "CONTENT_LIKE" VALUES(#{boardNo},${memberNo})
+	
+	</insert>
+	<!-- 좋아요 삭제 -->
+	<delete id="deleteBoardLike">
+		DELETE FROM "CONTENT_LIKE" 
+		WHERE BOARD_NO=#{boardNo}
+		AND MEMBER_NO= #{memberNo}
+	</delete>
+	
+	<!-- 좋아요 수 -->
+	<select id="countBoardLike" resultType="int">
+	SELECT COUNT(*) FROM "CONTENT_LIKE" WHERE BOARD_NO = ${boardNo}
+	
+	</select>
+	
 
 	<!-- 조회수 증가 -->
 

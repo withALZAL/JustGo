@@ -16,8 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -25,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.service.BoardService;
 import edu.kh.justgo.member.model.dto.Member;
+import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes({ "loginMember" })
 @RequestMapping("/board")
@@ -289,5 +293,20 @@ public class BoardController {
 		return path;
 
 	}
+	
+	// 좋아요 처리
+	@PostMapping("/like")
+	@ResponseBody
+	public int like(@RequestBody Map<String, Integer> paramMap) {
+		System.out.println(paramMap);
+		
+		
+		return service.like(paramMap);
+	}
+	
+	
+	
+	
+	
 
 }
