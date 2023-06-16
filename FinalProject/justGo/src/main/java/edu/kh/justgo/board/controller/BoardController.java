@@ -183,6 +183,118 @@ public class BoardController {
 	   return path;
    }
 	  
+   // 여행게시판 상세글 조회
+   @GetMapping("/1/{countryNo}/{boardNo}")
+   public String boardCountryDetail(@PathVariable("countryNo") int countryNo
+			,@PathVariable("boardNo") int boardNo, Model model
+			,RedirectAttributes ra
+			,@SessionAttribute(value="loginMember",required=false) Member loginMember
+			,HttpServletRequest req
+			,HttpServletResponse resp) throws ParseException {
+	   
+		   Map<String, Object> map = new HashMap<String, Object>();
+		   map.put("countryNo", countryNo);
+		   map.put("boardNo", boardNo);	
+	   
+		   Board board = service.boardCountryDetail(map);
+		   
+		   String path = "";
+		   
+		   if(board != null) {
+			   	// 좋아요 체크
+				if(loginMember !=null) { 
+					
+					map.put("memberNo",loginMember.getMemberNo());
+					
+					int result = service.boardLikeCheck(map);
+					System.out.println(result);
+					
+					if(result>0) model.addAttribute("likeCheck","on");
+				}
+			   
+				//
+				if(loginMember == null || 
+						loginMember.getMemberNo() != board.getBoardNo()) {
+					
+					Cookie c = null;
+					Cookie[] cookies = req.getCookies(); 
+					
+					if(cookies != null) {
+						for(Cookie cookie : cookies) {
+							if(cookie.getName().equals("readBoardNo")) {
+								c= cookie;
+								break;
+							}
+						}
+						
+					}
+					
+					int result = 0;
+					
+					if(c==null) {
+						// 쿠키가 존재하지 않아서 하나 생성해줌
+						c= new Cookie("readBoardNo","|"+ boardNo +"|");
+						
+						// 조회수 증가 서비스 호출
+						
+						result = service.updateReadCount(boardNo);
+					
+					}else {
+						if(c.getValue().indexOf("|"+ boardNo +"|")== -1 ) {
+							// 쿠키에 현재 게시글 번호가 없다면 
+							
+							// 기존 값에 게시글 번호 추가해서 다시 세팅
+							c.setValue(c.getValue()+"|"+ boardNo +"|");
+							
+							result = service.updateReadCount(boardNo);
+						}
+						
+					}
+					
+					if(result > 0) {
+						board.setReadCount(board.getReadCount()+1);
+						
+						c.setPath("/");
+						Calendar cal = Calendar.getInstance();
+						cal.add(cal.DATE,1);
+						
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						
+						Date a = new Date(); 
+						
+						Date temp = new Date(cal.getTimeInMillis()); // 내일
+						
+						Date b = sdf.parse(sdf.format(temp));
+				
+						// 내일 0시 0분 0초 - 현재시간
+						long diff = (b.getTime() - a.getTime()) / 1000;
+						
+						c.setMaxAge((int)diff); // 수명설정
+						
+						resp.addCookie(c);
+					
+					}
+					
+					
+				}
+				
+				path +="writing/post";
+				model.addAttribute("board",board);
+				
+		   }else { // 조회 결과가 없을 경우
+				
+				path += "redirect:/board/1/"+countryNo ; // 게시판 첫 페이지로 redirect
+				
+				ra.addFlashAttribute("message","해당 게시글이 존재하지 않습니다.");
+				
+			} 
+		   
+		   
+		   return path;
+	   
+	   
+	  
+   }
 	   
 		  
   

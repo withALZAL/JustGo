@@ -113,6 +113,18 @@ public class BoardServiceImpl implements BoardService{
 	
 		return dao.updateReadCount(boardNo);
 	}
+
+
+	/** 여행게시판 상세글 조회
+	 *
+	 */
+	@Override
+	public Board boardCountryDetail(Map<String, Object> map) {
+		
+		return dao.boardCountryDetail(map);
+	}
+	
+	
 	
 	
 	

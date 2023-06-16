@@ -11,6 +11,14 @@ import org.springframework.stereotype.Repository;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 
@@ -99,6 +107,14 @@ public class BoardDAO {
 	}
 
 
+	/** 여행게시판 상세게시글
+	 * @param map
+	 * @return
+	 */
+	public Board boardCountryDetail(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.boardCountryDetail",map);
+	}
 
 	/** 좋아요 확인
 	 * @param map
@@ -119,5 +135,8 @@ public class BoardDAO {
 		
 		return sqlSession.update("boardMapper.updateReadCount",boardNo);
 	}
+
+
+
 
 }
