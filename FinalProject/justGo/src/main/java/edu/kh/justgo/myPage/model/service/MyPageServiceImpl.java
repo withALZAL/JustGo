@@ -64,7 +64,7 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		if(result > 0) { // 경로 삽입 성공
 			
-			profileImage.transferTo(new File(filePath+rename));
+			profileImage.transferTo(new File(filePath+rename)); // File 안에는 절대경로만 작성해야 함
 			
 		} else { //경로 삽입 실패
 			throw new FileUploadException();
