@@ -35,7 +35,7 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
-<aside class="template--leftAside">left</aside>
+<aside class="template--leftAside"></aside>
 <section class="template--Section">
 
 
@@ -213,8 +213,8 @@
 
 
 
-<!-- 댓글 시작 -->
-<div class="writing--commentContainer">
+<!-- 댓글 시작 --> <%-- 나중에 안정화 되면 지우기 --%>
+<%-- <div class="writing--commentContainer">
 <div class="writing--commentBox">
     <table class="writing--commentTable">
         <tr>
@@ -311,13 +311,21 @@
             <button type="button" class="btn btn-secondary btn-sm">등록</a></form></button>
         </div>
     </form>
-</div>
-<!-- 댓글 끝 -->
+</div> --%>
+<!-- 댓글 끝 --> <%-- 나중에 안정화 되면 지우기 --%>
+
+
+
+<!-- ----------------------------------------------- -->
+<!-- writing-comment 시작 -->
+<jsp:include page="/WEB-INF/views/writing/comment.jsp"/>
+<!-- writing-comment 끝 -->
+<!-- ----------------------------------------------- -->
 
 
 
 </section>
-<aside class="template--rightAside">right</aside>
+<aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
 
