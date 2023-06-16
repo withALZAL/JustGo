@@ -38,4 +38,14 @@ public class MemberDAO {
 		return sqlSession.update("memberMapper.deleteAccount", memberNo);
 	}
 
+	// 이메일 인증코드 만들기
+	public int updateAuthKey(Map<String, String> map) {
+		return sqlSession.update("memberMapper.updateAuthkey", map);
+	}
+
+	// 이메일 인증코드 보내기
+	public int insertAuthKey(Map<String, String> map) {
+		return sqlSession.update("memberMapper.insertAuthkey", map);
+	}
+
 }
