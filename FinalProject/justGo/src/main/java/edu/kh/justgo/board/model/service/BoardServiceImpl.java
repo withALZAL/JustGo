@@ -137,4 +137,32 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
+	
+	/** 좋아요 처리
+	 *
+	 */
+	@Override
+	public int like(Map<String, Integer> paramMap) {
+		
+		int result = 0;
+		if(paramMap.get("check")==0) { // 좋아요 상태 X
+			// BOARD_LIKE테이블 insert
+			result = dao.insertBoardLike(paramMap);
+			
+		}else {
+			// Board_Like 테이블 DELETE 
+			result = dao.deleteBoardLike(paramMap);
+			
+		}
+		if(result == 0) return -1;
+		
+		int count = dao.countBoardLike(paramMap.get("boardNo"));
+		
+		return count;
+	}
+
+	
+	
+	
+	
 }

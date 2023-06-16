@@ -67,7 +67,24 @@
             </div>
             <div class="writing--postUpdateDate" style="font-size: 0.8rem" style="text-align: center;">
             &nbsp <i class="fa-solid fa-eye"></i> ${board.readCount} &nbsp&nbsp&nbsp
-            <a href="#"><i class="fa-solid fa-heart" style="color: red;"></i></a> ${board.likeCount}</div>
+            
+
+            <a>
+            
+
+            <c:if test="${empty likeCheck}" >
+            <i class="fa-regular fa-heart" id="boardLike" style="color: red;"></i>
+            </c:if>
+
+            <%-- 로그인이 되어있고 나의 게시물에 좋아요를 누른적이 있을 때  --%>
+            <c:if test="${not empty likeCheck}" >
+            <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i>
+            </c:if>
+            
+            
+    
+            
+            </a> <span>${board.likeCount}</span></div>
             <div class="writing--postEnrollDate" style="font-size: 0.8rem">등록일: <a>${board.createDate}</a></div>
             <c:if test="${not empty board.boardUpdate}" >
             <div class="writing--postUpdateDate" style="font-size: 0.8rem">수정일: <a>${board.boardUpdate}</a></div>
@@ -223,7 +240,25 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
+    <script>
+    // JSP에서 작성 가능한 언어/ 라이브러리
+    // html,css,js,java,EL,JSTL
+    
+    // JSP 해석 우선순위 : Java/EL/JSTL > HTML,CSS,JS
+    
+    // 게시글 번호 전역 변수로 선언
+    const boardNo = ${board.boardNo};
 
+    // 로그인한 회원 번호를 전역 변수로 선언
+    // -> 작성한 EL구문이 null일 경우 빈칸으로 출력되어
+    //    변수에 값이 대입되지 않는 문제가 발생할 수 있음!
+    // 해결방법 : EL구문을 '',""문자열로 감싸는 것 
+    //          -> EL값이 null이여도 "" 빈문자열로 출력
+    const loginMemberNo = "${loginMember.memberNo}";
+    console.log(boardNo);
+    console.log(loginMemberNo);
+
+    </script>
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
