@@ -111,6 +111,16 @@ public class ManagerDAO {
         RowBounds rowBounds = new RowBounds(offset, memberPostPagination.getLimit());
         return sql.selectList("managerMapper.selectMemberPostList", memberNo, rowBounds);
 	}
+
+
+
+	/** 1:1문의 상세 조회 
+	 * @param feedbackNo
+	 * @return LIST
+	 */
+	 public Feedback selectAskDetailList(int feedbackNo) {
+		return sql.selectOne("managerMapper.selectAskDetailList", feedbackNo);
+	}
 	
 	
 	

@@ -23,7 +23,7 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
 <body class="template--body">
-
+<c:set var="askList" value="${askList}" />
 
 
 <!-- ----------------------------------------------- -->
@@ -46,8 +46,8 @@
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="/manager/askManager_detail">
-                관리자_1:1문의 상세페이지
+            <a href="#">
+                '${askList.memberNickname}' 님의 1:1문의
             </a>
         </div>
     </div>
@@ -68,42 +68,21 @@
         </div>
     </aside>
     <div class="manager--mainBox">
-        <nav class="manager--statisticsBox">
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-user-plus"></i></div>
-                <div>
-                    <div>가입자 수</div>
-                    <div>12000명</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div><i class="fa-solid fa-scroll"></i></div>
-                <div>
-                    <div>게시글 수</div>
-                    <div>20000개</div>
-                </div>
-            </div>
-            <div class="manager--statistics">
-                <div></div>
-                <div>예비칸 실험</div>
-            </div>
-        </nav>
+        
+        <%-- statisticsBox.jsp --%>
+        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
+
+
         <div class="manager--content">
             <div class="manager--inquiryAnswerBox">
                 <div class="manager--inquiryLeft">
                     <div class="manager--inquiryAnswerTitle"><i class="fa-solid fa-circle-question" style="padding-right: 10px;"></i>문의내용</div>
-                    <div>바른말고운말여덟 | 2023년 3월 12일</div>
+                    <div>${askList.memberNickname} | ${askList.feedbackDate}</div>
+                    <%-- <div class="manager--inquiryText">
+                        ${askList.feedbackTitle}
+                    </div> --%>
                     <div class="manager--inquiryText">
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
-                        문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.문의내용입니다.
+                        ${askList.feedbackText}
                     </div>
                 </div>
                 <div class="manager--answerRight">

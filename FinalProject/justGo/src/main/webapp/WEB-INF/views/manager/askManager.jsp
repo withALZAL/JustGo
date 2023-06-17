@@ -98,7 +98,7 @@
                                     <tr>
                                         <td>${ask.feedbackNo}</td>
                                         <td><form><a href="#">${ask.memberNickname}</a></form></td>
-                                        <td><form><a href="/manager/askManager_detail">${ask.feedbackText}</a></form></td>
+                                        <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackText}</a></form></td>
                                         <td>${ask.feedbackDate}</td>
                                         <td>${ask.feedback_CF_FL}</td>
                                     </tr>
