@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
-<%-- <c:forEach items="${map.memberPostList}" var="memberPost">
-    <c:if test="${memberPost.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${memberPost.memberNickname}"/>
-    </c:if>
-</c:forEach> --%>
 
 <!DOCTYPE html>
 <html lang="ko">

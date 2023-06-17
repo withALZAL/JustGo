@@ -101,7 +101,7 @@
                                     <%-- ${member} --%>
                                     <tr>
                                         <td>${member.memberNo}</td>
-                                        <td><form><a href="/myPage/info">${member.memberNickname}</a></form></td>
+                                        <td><form><a href="#">${member.memberNickname}</a></form></td>
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
                                         <td>${member.memberCondition}</td>

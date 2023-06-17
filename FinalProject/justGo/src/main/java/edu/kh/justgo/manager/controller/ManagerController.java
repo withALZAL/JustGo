@@ -1,6 +1,5 @@
 package edu.kh.justgo.manager.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.manager.model.service.ManagerService;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -45,31 +43,25 @@ public class ManagerController {
 	
 	
 
-
+	
 	
 	// 관리자페이지 회원별 게시글 목록 연결
 	@GetMapping("/memberBoard/{memberNo}")
 	public String memberBoardList(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model
-			, @PathVariable("memberNo") int memberNo
+            @RequestParam(value="cp", required=false, defaultValue="1") int cp
+            , Model model
+            , @PathVariable("memberNo") int memberNo
 			) {
-		
-		
-		System.out.println("memberNo: " + memberNo);
-		
-		
+				
+//        System.out.println("memberNo: " + memberNo);
+        
 		// 회원별 글 목록 불러오기
-		Map<String, Object> map = service.selectMemberPostList(memberNo, cp);
-		
-		
-		model.addAttribute("map", map);
-		
-		// 콘솔에서 확인
-		System.out.println("model" +model);
-
-		
-		
+        Map<String, Object> map = service.selectMemberPostList(memberNo, cp);
+        model.addAttribute("map", map);
+        
+        // 콘솔에서 확인
+//        System.out.println("model" +model);
+        
 		return "/manager/memberBoard";
 	}
 	
@@ -92,11 +84,12 @@ public class ManagerController {
 	}
 	
 	
-	// 1:1문의 상세페이지 연결
-	@GetMapping("/askManager_detail")
-	public String askManagerDetail() {
-		return "/manager/askManager_detail";
-	}
+	
+    // 1:1문의 상세페이지 연결
+    @GetMapping("/askManager_detail")
+    public String askManagerDetail() {
+        return "/manager/askManager_detail";
+    }
 	
 	
 	// 신고관리 관리자페이지 연결

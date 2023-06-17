@@ -94,29 +94,28 @@ public class ManagerServiceImpl implements ManagerService{
 	
 	
 	
-	// 회원별 글 목록 조회
+    // 회원별 글 목록 조회
 	@Override
 	public Map<String, Object> selectMemberPostList(int memberNo, int cp) {
+
 		
-		int memberPostCount = dao.getMemberPostCount(memberNo);
+        int memberPostCount = dao.getMemberPostCount(memberNo);
 		
-//		System.out.println("memberPostCount : " + memberPostCount);
-		
-		Pagination memberPostPagination = new Pagination(memberPostCount, cp);
-		
-		List<Board> memberPostList = dao.selectMemberPostList(memberPostPagination, memberNo);
-		
-		
-		// pagination, askList를 Map에 담아서 반환
-		Map<String, Object> map = new HashMap<>();
-		map.put("memberPostPagination", memberPostPagination);
-		map.put("memberPostList", memberPostList);
-		
-//		System.out.println(map);
+//      System.out.println("memberPostCount : " + memberPostCount);
+        
+        Pagination memberPostPagination = new Pagination(memberPostCount, cp);
+        
+        List<Board> memberPostList = dao.selectMemberPostList(memberPostPagination, memberNo);
+        
+        // pagination, askList를 Map에 담아서 반환
+        Map<String, Object> map = new HashMap<>();
+        map.put("memberPostPagination", memberPostPagination);
+        map.put("memberPostList", memberPostList);
+        
+//      System.out.println(map);
 		
 		return map;
 	}
-	
 	
 	
 }

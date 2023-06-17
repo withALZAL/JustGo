@@ -33,7 +33,7 @@ public class ManagerDAO {
 	
 	
 	/** 관리자를 제외한 회원목록 조회
-	 * @param memberPagination
+	 * @param pagination
 	 * @return list
 	 */
 	public List<Member> selectMemberList(Pagination memberPagination) {
@@ -57,7 +57,7 @@ public class ManagerDAO {
 
 
 	/** 1:1문의 목록조회
-	 * @param askPagination
+	 * @param pagination
 	 * @return list
 	 */
 	public List<Feedback> selectAskList(Pagination askPagination) {
@@ -92,29 +92,24 @@ public class ManagerDAO {
 	}
 
 
-
-	/** 회원별 글 목록 수 조회
+    /** 회원별 글 목록 수 조회
+     * @param memberNo
 	 * @return result
-	 */
+     */
 	public int getMemberPostCount(int memberNo) {
-		
-		return sql.selectOne("managerMapper.getMemberPostCount",memberNo);
+        return sql.selectOne("managerMapper.getMemberPostCount",memberNo);
 	}
 
 
-
-
-
-
-	/** 회원별 글 목록 조회
-	 * @param memberPostPagination
-	 * @param memberNo
-	 * @return list
-	 */
+    /** 회원별 글 목록 조회
+     * @param memberPostPagination
+     * @param memberNo
+     * @return list
+     */
 	public List<Board> selectMemberPostList(Pagination memberPostPagination, int memberNo) {
-		int offset = (memberPostPagination.getCurrentPage()-1) * memberPostPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, memberPostPagination.getLimit());
-		return sql.selectList("managerMapper.selectMemberPostList", memberNo, rowBounds);
+        int offset = (memberPostPagination.getCurrentPage()-1) * memberPostPagination.getLimit();
+        RowBounds rowBounds = new RowBounds(offset, memberPostPagination.getLimit());
+        return sql.selectList("managerMapper.selectMemberPostList", memberNo, rowBounds);
 	}
 	
 	
