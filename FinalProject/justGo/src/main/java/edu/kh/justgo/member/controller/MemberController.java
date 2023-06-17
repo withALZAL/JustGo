@@ -2,11 +2,9 @@ package edu.kh.justgo.member.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,6 +67,13 @@ public class MemberController {
 		
 		return path;
 	}
+	
+	// 비밀번호 찾기 페이지로 이동
+	@GetMapping("/account/password")
+	public String password() {
+		return "/account/password";
+	}
+	
 	
 	// 로그아웃
 	@GetMapping("/account/logout")

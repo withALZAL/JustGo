@@ -1,12 +1,10 @@
 package edu.kh.justgo.member.model.service;
 
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import edu.kh.justgo.member.model.dao.MemberDAO;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -18,6 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired 
 	private BCryptPasswordEncoder bcrypt;
+	
 	
 	// 로그인
 	@Override
@@ -38,8 +37,12 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return loginMember;
 	}
+	
+	
 
-    // 회원 가입 서비스
+
+
+	// 회원 가입 서비스
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
 	public int join(Member inputMember) {

@@ -8,6 +8,11 @@ public interface EmailService {
     
 	String createAuthKey();
 	
+	int passwordUp(String email, String title);
+	
 	int checkAuthKey(Map<String, Object> paramMap);
+
+	int pwConfirm(String newPw);
+
 
 }

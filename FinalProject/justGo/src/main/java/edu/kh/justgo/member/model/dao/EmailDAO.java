@@ -22,5 +22,16 @@ public class EmailDAO {
 	public int checkAuthKey(Map<String, Object> paramMap) {
 		return sqlSession.selectOne("emailMapper.checkAuthKey", paramMap);
 	}
+
+	public String getPassword(String email, String memberPw) {
+		return sqlSession.selectOne("emailMapper.getPassword", email);
+	}
+
+
+	public int pwConfirm(String encode) {
+		return sqlSession.selectOne("emailMapper.pwConfirm", encode);
+	}
+
+
 }
 
