@@ -105,11 +105,11 @@
 }
 .board--contentBox__main th:nth-child(6), /* 조회수 */
 .board--contentBox__main td:nth-child(6) {
-    width: 70px;
+    width: 80px;
 }
 .board--contentBox__main th:nth-child(7), /* 좋아요 */
 .board--contentBox__main td:nth-child(7) {
-    width: 70px;
+    width: 100px;
 }
 .board--contentBox__main th:nth-child(3), /* 제목 */
 .board--contentBox__main td:nth-child(3) {

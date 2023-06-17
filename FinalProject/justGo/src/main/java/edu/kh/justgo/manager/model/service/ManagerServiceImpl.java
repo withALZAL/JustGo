@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.manager.model.dao.ManagerDAO;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.dto.Pagination;
@@ -25,7 +26,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		int listCount = dao.getMemberListCount();
 		
-		System.out.println("listCount : " +listCount);
+//		System.out.println("listCount : " +listCount);
 		
 		Pagination memberPagination = new Pagination(listCount, cp);
 		
@@ -49,7 +50,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		int askListCount = dao.getAskListCount();
 		
-		System.out.println("askListCount : " + askListCount);
+//		System.out.println("askListCount : " + askListCount);
 		
 		Pagination askPagination = new Pagination(askListCount, cp);
 		
@@ -73,7 +74,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		int reportListCount = dao.getReportListCount();
 		
-		System.out.println("reportListCount : " + reportListCount);
+//		System.out.println("reportListCount : " + reportListCount);
 		
 		Pagination reportPagination = new Pagination(reportListCount, cp);
 		
@@ -85,7 +86,33 @@ public class ManagerServiceImpl implements ManagerService{
 		map.put("reportPagination", reportPagination);
 		map.put("reportList", reportList);
 		
-		System.out.println(map);
+//		System.out.println(map);
+		
+		return map;
+	}
+	
+	
+	
+	
+	// 회원별 글 목록 조회
+	@Override
+	public Map<String, Object> selectMemberPostList(int memberNo, int cp) {
+		
+		int memberPostCount = dao.getMemberPostCount(memberNo);
+		
+//		System.out.println("memberPostCount : " + memberPostCount);
+		
+		Pagination memberPostPagination = new Pagination(memberPostCount, cp);
+		
+		List<Board> memberPostList = dao.selectMemberPostList(memberPostPagination, memberNo);
+		
+		
+		// pagination, askList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<>();
+		map.put("memberPostPagination", memberPostPagination);
+		map.put("memberPostList", memberPostList);
+		
+//		System.out.println(map);
 		
 		return map;
 	}
