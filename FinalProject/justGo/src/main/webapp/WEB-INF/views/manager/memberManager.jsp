@@ -105,7 +105,7 @@
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
                                         <td>${member.memberCondition}</td>
-                                        <td><form action="#"><a href="/manager/memberBoard"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
+                                        <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

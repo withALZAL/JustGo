@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -45,13 +46,22 @@ public class ManagerController {
 	
 	
 	// 관리자페이지 회원별 게시글 목록 연결
-	@GetMapping("/memberBoard")
-	public String memberBoardList() {
-		
-		
-		
-		
-		
+	@GetMapping("/memberBoard/{memberNo}")
+	public String memberBoardList(
+            @RequestParam(value="cp", required=false, defaultValue="1") int cp
+            , Model model
+            , @PathVariable("memberNo") int memberNo
+			) {
+				
+//        System.out.println("memberNo: " + memberNo);
+        
+		// 회원별 글 목록 불러오기
+        Map<String, Object> map = service.selectMemberPostList(memberNo, cp);
+        model.addAttribute("map", map);
+        
+        // 콘솔에서 확인
+//        System.out.println("model" +model);
+        
 		return "/manager/memberBoard";
 	}
 	
@@ -75,7 +85,11 @@ public class ManagerController {
 	
 	
 	
-	
+    // 1:1문의 상세페이지 연결
+    @GetMapping("/askManager_detail")
+    public String askManagerDetail() {
+        return "/manager/askManager_detail";
+    }
 	
 	
 	// 신고관리 관리자페이지 연결

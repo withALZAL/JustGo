@@ -27,9 +27,12 @@ public interface ManagerService {
 
 	
 
-
-	
-	
-	
-	
+    /** 회원별 글 목록 조회
+     * @param memberNo
+     * @param cp
+     * @return list
+     */
+    Map<String, Object> selectMemberPostList(int memberNo, int cp);
+    
+    
 }
