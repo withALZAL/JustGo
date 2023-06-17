@@ -236,7 +236,13 @@
       </select>
 	 
 	 
-	 
+	      <!-- 1:1문의 상세 조회 -->
+      <select id="selectAskDetailList" parameterType="Feedback" resultMap="feedback_rm">
+		SELECT FEEDBACK_NO, FEEDBACK_TITLE ,FEEDBACK_TEXT, FEEDBACK_DATE, MEMBER_NICKNAME
+		FROM "FEEDBACK"
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE FEEDBACK_NO =${FeedbackNo}
+      </select>
 	 
 	 
 	 

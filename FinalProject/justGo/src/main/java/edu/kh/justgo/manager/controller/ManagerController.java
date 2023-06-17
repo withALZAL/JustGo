@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.service.ManagerService;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -86,12 +87,31 @@ public class ManagerController {
 	
 	
     // 1:1문의 상세페이지 연결
-    @GetMapping("/askManager_detail")
-    public String askManagerDetail() {
+    @GetMapping("/askManager_detail/{feedbackNo}")
+    public String askManagerDetail(
+    		@PathVariable("feedbackNo") int feedbackNo
+    		, @SessionAttribute(value="loginUser", required=false) Member loginManager
+    		, Model model
+    		) {
+    	
+    	System.out.println("feedbackNo: " + feedbackNo);
+    	
+    	// 1:1문의 상세글 불러오기
+       Feedback askList = service.selectAskDetailList(feedbackNo);
+        model.addAttribute("askList", askList);
+        model.addAttribute("loginManager", loginManager);
+        
+        // 콘솔에서 확인
+        System.out.println("model" +model);
+    	
+    	
+    	
         return "/manager/askManager_detail";
     }
 	
 	
+    
+    
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
 	public String reportManager(

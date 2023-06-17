@@ -118,4 +118,38 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 	
 	
+	
+	// 1:1문의 상세조회
+	@Override
+	 public Feedback selectAskDetailList(int feedbackNo) {
+		return dao.selectAskDetailList(feedbackNo);
+	}
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
