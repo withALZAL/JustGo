@@ -101,11 +101,11 @@
                                     <%-- ${member} --%>
                                     <tr>
                                         <td>${member.memberNo}</td>
-                                        <td><form><a href="/myPage/info">${member.memberNickname}</a></form></td>
+                                        <td><form><a href="#">${member.memberNickname}</a></form></td>
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
                                         <td>${member.memberCondition}</td>
-                                        <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></td>
+                                        <td><form action="#"><a href="/manager/memberBoard"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></form></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

@@ -26,17 +26,6 @@
 
 /* 게시판 상단 ----------------------------------------------- */
 
-
-
-
-/* 프로필 이미지 조정 */
-.board--img {
-    height: 80px;
-    width: 80px;
-    border-radius: 100%;
-}
-
-
 /* 게시판 top 조정 */
 .board--contentBox__top {
     height: 50px;

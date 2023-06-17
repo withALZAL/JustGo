@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
-
-<%-- <c:forEach items="${map.memberPostList}" var="memberPost">
-    <c:if test="${memberPost.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${memberPost.memberNickname}"/>
-    </c:if>
-</c:forEach> --%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/board/memberBoard.css">
+    <link rel="stylesheet" href="/resources/css/board/board.css">
 
     <title>memberBoard</title>
 
@@ -30,22 +23,6 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
 <body class="template--body">
-
-<c:set var="memberPostPagination" value="${map.memberPostPagination}" /> 
-<c:set var="memberPostList" value="${map.memberPostList}" /> 
-
-
-
-<c:forEach items="${memberPostList}" var="memberPost">
-    <c:if test="${memberPost.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${memberPost.memberNickname}"/>
-        <c:set var="profileImage" value="${memberPost.profileImage}"/>
-        <c:set var="memberNo" value="${memberPost.memberNo}"/>
-    </c:if>
-</c:forEach>
-
-<%-- ${map.memberPostPagination}
-${map.memberPostList}  --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -65,16 +42,9 @@ ${map.memberPostList}  --%>
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="베트남_하롱베이">
         <div class="template--overlayedTitle" style="color: black;">
-            <c:if test="${!empty profileImage}">
-                <img src="${profileImage}" name="profileImage" alt="프로필 이미지" class="board--img">
-                <%-- 이미지가 안 불러와짐 --%>
-            </c:if>
-            <c:if test="${empty profileImage}">
-                <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
-            </c:if>
-            <a href="#">
-                ${memberNickname}의 게시판
-
+            <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필사진" style="height: 50px; padding-right: 10px; border-radius: 100%">
+            <a href="https://www.naver.com">
+                누구누구의 게시판
             </a>
         </div>
     </div>
@@ -84,10 +54,9 @@ ${map.memberPostList}  --%>
 
 
 <!-- 콘텐츠 시작 -->
-<div class="board--contentContainer">
+<%-- <div class="board--contentContainer">
 <div class="board--contentBox">
     <div class="board--contentBox__top">
-    <%-- 
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
         <form action="#" method="get">
             <div><a href="#">일반</a></div>
@@ -95,8 +64,8 @@ ${map.memberPostList}  --%>
             <div><a href="#">맛집</a></div>
             <div><a href="#">힐링</a></div>
             <button type="button" class="btn btn-secondary btn-sm">임시버튼</button>
-        </form>--%>
-    </div> 
+        </form>
+    </div> --%>
 
 
 
@@ -105,37 +74,152 @@ ${map.memberPostList}  --%>
         <table class="board--boardTable">
             <thead>
                 <tr>
-                <th>글번호</th>
+                <th>번호</th>
                 <th>태그</th>
-                <th>글제목</th>
+                <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
                 <th>조회수</th>
-                <th>삭제여부</th>
+                <th>좋아요</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
-                <c:choose>
-                    <c:when test="${empty memberPostList}">
-                        <tr>
-                            <th colspan="7">게시글이 존재하지 않습니다.</th>
-                        </tr>
-                    </c:when>
-                    <c:otherwise>
-                        <c:forEach items="${memberPostList}" var="memberPost">
-                            <tr>
-                                <td>${memberPost.boardNo}</td>
-                                <td>${memberPost.tagNo}</td>
-                                <td><form><a href="#">${memberPost.boardTitle}</a></form></td>
-                                <td><form><a href="#">${memberPost.memberNickname}</a></form></td>
-                                <td>${memberPost.createDate}</td>
-                                <td>${memberPost.readCount}</td>
-                                <td>${memberPost.boardDelete}</td>
-                            </tr>
-                        </c:forEach>
-                    </c:otherwise>
-                </c:choose>  
+                <tr>
+                    <td>1</td>
+                    <td>태그1</td>
+                    <td>제목1제목1제목1제목1제목1제목1제목1제목1제목1</td>
+                    <td>글쓴이글쓴이글쓴</td>
+                    <td>작성일1</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>태그2</td>
+                    <td>제목2</td>
+                    <td>글쓴이2</td>
+                    <td>작성일2</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>태그3</td>
+                    <td>제목3</td>
+                    <td>글쓴이3</td>
+                    <td>작성일3</td>
+                    <td>13</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>태그4</td>
+                    <td>제목4</td>
+                    <td>글쓴이4</td>
+                    <td>작성일4</td>
+                    <td>14</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>태그5</td>
+                    <td>제목5</td>
+                    <td>글쓴이5</td>
+                    <td>작성일5</td>
+                    <td>15</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>태그6</td>
+                    <td>제목6</td>
+                    <td>글쓴이6</td>
+                    <td>작성일6</td>
+                    <td>16</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>태그7</td>
+                    <td>제목7</td>
+                    <td>글쓴이7</td>
+                    <td>작성일7</td>
+                    <td>17</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>태그8</td>
+                    <td>제목8</td>
+                    <td>글쓴이8</td>
+                    <td>작성일8</td>
+                    <td>18</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>태그9</td>
+                    <td>제목9</td>
+                    <td>글쓴이9</td>
+                    <td>작성일9</td>
+                    <td>19</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>태그10</td>
+                    <td>제목10</td>
+                    <td>글쓴이10</td>
+                    <td>작성일10</td>
+                    <td>110</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>태그11</td>
+                    <td>제목11</td>
+                    <td>글쓴이11</td>
+                    <td>작성일11</td>
+                    <td>111</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>태그12</td>
+                    <td>제목12</td>
+                    <td>글쓴이12</td>
+                    <td>작성일12</td>
+                    <td>112</td>
+                    <td>112</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>태그13</td>
+                    <td>제목13</td>
+                    <td>글쓴이13</td>
+                    <td>작성일13</td>
+                    <td>113</td>
+                    <td>113</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>태그14</td>
+                    <td>제목14</td>
+                    <td>글쓴이14</td>
+                    <td>작성일14</td>
+                    <td>114</td>
+                    <td>114</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>태그15</td>
+                    <td>제목15</td>
+                    <td>글쓴이15</td>
+                    <td>작성일15</td>
+                    <td>115</td>
+                    <td>115</td>
+                </tr>
                 <!-- 추가적인 글 목록을 여기에 추가할 수 있습니다 -->
             </tbody>
         </table>
@@ -149,36 +233,21 @@ ${map.memberPostList}  --%>
             <form action="#" method="get">
                 <nav aria-label="...">
                     <ul class="pagination">
-                        <%-- 맨 처음 페이지로 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=1">맨 처음</a>
+                        <li class="page-item disabled">
+                            <span class="page-link">이전</span>
                         </li>
-
-                        <%-- 이전 목록 페이지 이동 --%>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                        <li class="page-item"><a class="page-link" href="#">9</a></li>
+                        <li class="page-item"><a class="page-link" href="#">10</a></li>
                         <li class="page-item">
-                            <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.prevPage}">이전</a>
-                        </li>
-
-                        <%-- 특정 번호 목록 페이지 이동 --%>
-                        <c:forEach var="i" begin="${memberPostPagination.startPage}" end="${memberPostPagination.endPage}" step="1">
-                            <c:choose>
-                                <c:when test="${i==memberPostPagination.currentPage}">
-                                    <li class="page-item"><a class="page-link">${i}</a></li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li class="page-item"><a class="page-link" href="/manager/memberBoard/${memberNo}?cp=${i}">${i}</a></li>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
-
-                        <%-- 다음 목록 페이지 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
-                        </li>
-
-                        <%-- 맨 끝 페이지 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
+                        <a class="page-link" href="#">다음</a>
                         </li>
                     </ul>
                 </nav>

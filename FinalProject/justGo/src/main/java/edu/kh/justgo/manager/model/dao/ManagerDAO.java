@@ -8,7 +8,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.dto.Pagination;
 import edu.kh.justgo.manager.model.dto.Report;
@@ -33,13 +32,13 @@ public class ManagerDAO {
 	
 	
 	/** 관리자를 제외한 회원목록 조회
-	 * @param memberPagination
+	 * @param pagination
 	 * @return list
 	 */
-	public List<Member> selectMemberList(Pagination memberPagination) {
+	public List<Member> selectMemberList(Pagination pagination) {
 		
-		int offset = (memberPagination.getCurrentPage() - 1 ) * memberPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, memberPagination.getLimit());
+		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sql.selectList("managerMapper.selectMemberList", null, rowBounds);
 		
 	}
@@ -57,13 +56,13 @@ public class ManagerDAO {
 
 
 	/** 1:1문의 목록조회
-	 * @param askPagination
+	 * @param pagination
 	 * @return list
 	 */
-	public List<Feedback> selectAskList(Pagination askPagination) {
+	public List<Feedback> selectAskList(Pagination pagination) {
 		
-		int offset = (askPagination.getCurrentPage()-1) * askPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, askPagination.getLimit());
+		int offset = (pagination.getCurrentPage()-1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sql.selectList("managerMapper.selectAskList", null, rowBounds);
 		
 	}
@@ -81,40 +80,14 @@ public class ManagerDAO {
 
 
 	/** 신고목록 조회
-	 * @param reportPagination
+	 * @param pagination
 	 * @return list
 	 */
-	public List<Report> selectReportList(Pagination reportPagination) {
+	public List<Report> selectReportList(Pagination pagination) {
 		
-		int offset = (reportPagination.getCurrentPage()-1) * reportPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, reportPagination.getLimit());
+		int offset = (pagination.getCurrentPage()-1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sql.selectList("managerMapper.selectReportList", null, rowBounds);
-	}
-
-
-
-	/** 회원별 글 목록 수 조회
-	 * @return result
-	 */
-	public int getMemberPostCount(int memberNo) {
-		
-		return sql.selectOne("managerMapper.getMemberPostCount",memberNo);
-	}
-
-
-
-
-
-
-	/** 회원별 글 목록 조회
-	 * @param memberPostPagination
-	 * @param memberNo
-	 * @return list
-	 */
-	public List<Board> selectMemberPostList(Pagination memberPostPagination, int memberNo) {
-		int offset = (memberPostPagination.getCurrentPage()-1) * memberPostPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, memberPostPagination.getLimit());
-		return sql.selectList("managerMapper.selectMemberPostList", memberNo, rowBounds);
 	}
 	
 	
