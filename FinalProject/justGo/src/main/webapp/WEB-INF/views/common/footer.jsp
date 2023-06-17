@@ -14,6 +14,10 @@
 
     <title>JustGo-footer</title>
 
+<%--     <style>
+        * {background-color: darkgrey;}
+    </style> --%>
+
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
@@ -104,7 +108,7 @@
         toast: true,
         position: 'top-end', /* 우측 상단 */
         showConfirmButton: false, /* 컨펌버튼 없음 */
-        timer: 1000, /* 1초 간 뜨기 */
+        timer: 3000, /* 3초 간 뜨기 */
         timerProgressBar: true, /* 진행바 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -126,7 +130,7 @@
         toast: true,
         position: 'top-end', /* 우측 상단 */
         showConfirmButton: false, /* 컨펌버튼 없음 */
-        timer: 1000, /* 1초 간 뜨기 */
+        timer: 3000, /* 3초 간 뜨기 */
         timerProgressBar: true, /* 진행바 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)

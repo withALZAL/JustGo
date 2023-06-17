@@ -54,11 +54,16 @@
 <!-- 마이페이지 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="info" method="post">
+        <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
             <div class="account--inputProfileBox">
-                <a href="#" id="updateProfileImage">
-                    <%-- <img src="/resources/images/memberImage/${loginMember.memberNo}/profile/KIKI.jpg" alt="프로필 이미지" style="border: 3px solid black;"> --%> <%-- 프로필 이미지 있으면 --%>
-                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" alt="기본 프로필 이미지" style="border: 3px solid black;">
+                <div id="previewImage" onclick="triggerFileInput()">
+                <c:if test="${!empty sessionScope.loginMember.profileImg}">
+                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
+                </c:if>
+                <c:if test="${empty sessionScope.loginMember.profileImg}">
+                    <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" name="profileImage" alt="기본 프로필 이미지">
+                </c:if>
+                </div>
             </div>
             <div class="account--inputInfoBox">
                 <table>
@@ -76,11 +81,11 @@
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
+                    <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
                     <a href="/myPage/updateInfo">
                         <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button>
                     </a>
-                                        <button type="button" class="btn btn-secondary btn-sm" id="updateImage" onclick="triggerFileInput()">이미지 변경</button>
-                    <input type="file" id="imageUpload" accept="image/*" style="display: none; ">                    
+                    <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
                     <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
                 </div>

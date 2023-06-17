@@ -54,15 +54,15 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="/writing/insert" method="post" enctype="multipart/form-data">
+<form action="/board/write" method="post" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option value="2" class="b">자유게시판</option>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
+                        <option value="2" class="b" >자유게시판</option>
                         <option value="3" class="b">질문게시판</option>
                         <option value="2">일본게시판</option>
                         <option value="1">중국게시판</option>
@@ -148,6 +148,38 @@
             ]
         });
     </script>
-    
+
+    <script> 
+                $(document).ready(function(){ 
+                    $('#summernote').summernote({ 
+                        height : 300, 
+                        width : 700, 
+                        lang : "ko-KR", 
+                        callbacks:{ 
+                            onImageUpload : function(files){ 
+                            uploadSummernoteImageFile(files[0],this); 
+                            } 
+                        } 
+                    }); 
+                    function uploadSummernoteImageFile(file,editor){ 
+                        data = new FormData(); 
+                        data.append("file",file); 
+                        $.ajax({ 
+                            data:data, 
+                            type:"POST", 
+                            url:"/uploadSummernoteImageFile", 
+                            dataType:"JSON", 
+                            contentType:false, 
+                            processData:false, 
+
+                            success:function(data){ 
+                                $(editor).summernote("insertImage",data.url); 
+                                $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
+                            } 
+                        }); 
+                    } 
+                }); 
+ </script> 
+            
 </body>
 </html>

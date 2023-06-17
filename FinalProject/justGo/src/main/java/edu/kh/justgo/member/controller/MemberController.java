@@ -103,12 +103,12 @@ public class MemberController {
 		String message = null;
 		
 		if(result > 0) {
-			path += "/";
-		    message = "환영합니다.";
+			path += "/account/login";
+		    message = "환영합니다. 가입하신 계정으로 다시 한번 로그인해주세요.";
 		    
 	} else {
 		path += "join";
-		message = "회원 가입에 실패하셨습니다.";
+		message = "회원가입에 실패하셨습니다.";
 	}
         ra.addFlashAttribute("message", message);
 		return path;

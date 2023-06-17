@@ -73,12 +73,14 @@
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
 
+
                 <form>
                     <a href="/account/password">
                     <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기</button>
                     </a>
                 </form>
                 
+
                     <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" style="border:none;" onclick="goBack()">취소</button>
                 </div>
             </div>

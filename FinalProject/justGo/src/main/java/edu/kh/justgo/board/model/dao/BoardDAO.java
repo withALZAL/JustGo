@@ -11,6 +11,14 @@ import org.springframework.stereotype.Repository;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 
@@ -99,6 +107,14 @@ public class BoardDAO {
 	}
 
 
+	/** 여행게시판 상세게시글
+	 * @param map
+	 * @return
+	 */
+	public Board boardCountryDetail(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.boardCountryDetail",map);
+	}
 
 	/** 좋아요 확인
 	 * @param map
@@ -119,5 +135,56 @@ public class BoardDAO {
 		
 		return sqlSession.update("boardMapper.updateReadCount",boardNo);
 	}
+
+
+
+	/** 검색
+	 * @param paramMap
+	 * @return
+	 */
+	public int listCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("boardMapper.listCount_search", paramMap);
+	}
+	
+	
+	/**
+	 * 게시글 목록 조회 (검색)
+	 * 
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
+	public List<Board> selectBoardList(Pagination pagination, Map<String, Object> paramMap) {
+
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.selectBoardList_search", paramMap, rowBounds);
+	}
+
+
+
+	public int insertBoardLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.insert("boardMapper.insertBoardLike",paramMap);
+	}
+
+
+
+	public int deleteBoardLike(Map<String, Integer> paramMap) {
+	
+		return sqlSession.delete("boardMapper.deleteBoardLike",paramMap);
+	}
+
+
+
+	public int countBoardLike(Integer boardNo) {
+		
+		return sqlSession.selectOne("boardMapper.countBoardLike",boardNo);
+	}
+
+
+
 
 }

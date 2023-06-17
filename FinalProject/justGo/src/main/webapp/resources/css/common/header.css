@@ -98,7 +98,15 @@
 }
 
 /* 프로필 이미지 크기 조정 */
-.common--header__profileBox > a > img {
+.common--header__profileImageBox {
+    height: 80px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.common--header__profileImageBox > img {
+    object-fit: cover;
+    object-position: center center;
+    width: 80px;
     height: 80px;
     border-radius: 100%;
 }
@@ -107,6 +115,8 @@
 .common--header__profileBox > a:hover {
     font-weight: bold;
 }
+
+
 
 /* nav ----------------------------------------------- */
 

@@ -182,18 +182,18 @@
         </div>
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
-            <form action="#" method="post">
-                <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>제목+내용</option>
-                        <option>제목</option>
-                        <option>내용</option>
-                        <option>글쓴이</option>
+            <form action="${boardCode}" method="get" id="boardSearch">
+                    <a>
+                    <select class="board--searchSelector" name="key" id="boardSelect"> 
+                    <option value="tc">제목+내용</option>
+                    <option value="t">제목</option>
+                    <option value="c">내용</option>
+                    <option value="w">글쓴이</option>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm">검색</button>
-                </a>
-            </form>
+                    <input type="text"  name="query" maxlength="10" style="width: 300px;">
+                    <button type="submit" class="btn btn-secondary btn-sm">검색</button>
+                    </a>
+                    </form>
             <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
@@ -228,5 +228,6 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/board/board.js"></script>
+    <script src="/resources/js/board/boardFree.js"></script>
 </body>
 </html>

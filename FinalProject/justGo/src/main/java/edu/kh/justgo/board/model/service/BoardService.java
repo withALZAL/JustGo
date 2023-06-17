@@ -28,5 +28,14 @@ public interface BoardService {
 	// 리드카운트
 	int updateReadCount(int boardNo);
 
+	// 여행게시판 상세글 조회
+	Board boardCountryDetail(Map<String, Object> map);
+
+	//목록게시판 조회
+	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
+
+	// 좋아요 처리
+	int like(Map<String, Integer> paramMap);
+
 
 }

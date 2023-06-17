@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="writingMapper">
-	
-	<insert id="boardInsert">
-		INSERT INTO BOARD 
-		VALUES (SEQ_BOARD_NO.NEXTVAL, #{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,11,#{tagNo},#{boardCode},NULL,NULL)
+
+	<insert id="boardInsert" parameterType="Board"	useGeneratedKeys="true">
+
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="boardNo">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		</selectKey>
+
+		INSERT INTO BOARD
+		VALUES (#{boardNo},
+		#{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,
+		#{memberNo},#{tagNo},#{boardCode},#{countryNo},NULL)
 	</insert>
 
-	
+
 </mapper>

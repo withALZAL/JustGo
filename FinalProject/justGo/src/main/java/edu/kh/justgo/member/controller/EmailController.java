@@ -25,7 +25,9 @@ public class EmailController {
     @GetMapping("/sendEmail/join")
     @ResponseBody
     public int joinUp(String email, String title) {
+
         return service.joinUp(email, "회원 가입");   
+
     }
     
     // 비밀번호 찾기 이메일 인증
