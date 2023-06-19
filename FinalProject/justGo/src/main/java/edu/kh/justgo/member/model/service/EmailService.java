@@ -17,7 +17,7 @@ public interface EmailService {
 	int checkAuthKey(Map<String, Object> paramMap);
 
 	// 인증 완료된 이메일 비밀번호 변경
-	int pwConfirm(String newPw, int memberNo);
+	int pwConfirm(String memberEmail, String newPw);
 
 
 }

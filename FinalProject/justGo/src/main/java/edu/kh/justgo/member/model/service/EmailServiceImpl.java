@@ -174,11 +174,13 @@ public class EmailServiceImpl implements EmailService{
 		return dao.checkAuthKey(paramMap);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int pwConfirm(String newPw, int memberNo) {
-		return dao.pwConfirm(bcrypt.encode(newPw), memberNo);
-	}
+	public int pwConfirm(String newPw, String memberEmail) {
+		
 
-	
+		return dao.pwConfirm(bcrypt.encode(newPw), memberEmail);
+
+}
 	
 }

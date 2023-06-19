@@ -12,8 +12,7 @@ const newPwConfirmMessage = document.getElementById("newPwConfirmMessage");
 
 
 newPw.addEventListener("input", () => {
-
-    if(newPw.value.trim().length == 0){
+    if(newPw.value.trim().length == ""){
         newPw.value = "";
         newPwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
         newPwMessage.classList.remove("confirm", "error"); 
@@ -21,7 +20,7 @@ newPw.addEventListener("input", () => {
         return;
     }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{8,15}$/;
+    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
     if(regEx.test(newPw.value)){
         checkObj.newPw = true;
             newPwMessage.innerText = "유효한 비밀번호 형식입니다.";

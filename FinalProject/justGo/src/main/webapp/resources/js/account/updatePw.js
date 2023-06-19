@@ -25,8 +25,8 @@ currentPw.addEventListener("input", () => {
         return;
     }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
-    if(regEx.test(currentPw.value)){ 
+    const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    if(regEx1.test(currentPw.value)){ 
         fetch("/dupCheck/Pw?{w}="+currentPw.value)
         .then(resp => resp.text()) 
         .then(count => {
@@ -55,16 +55,23 @@ currentPw.addEventListener("input", () => {
 
 newPw.addEventListener("input", () => {
 
-        if(newPw.value.trim() == ""){
-            newPw.value = "";       
-            nickMessage.classList.add("error");
-            nickMessage.classList.remove("confirm");
-            nickMessage.innerText = "새 비밀번호를 입력하세요";
-            return;
-        }
+    if(newPw.value.trim() == ""){
+        newPw.value = "";       
+        newPwMessage.classList.add("error");
+        newPwMessage.classList.remove("confirm");
+        newPwMessage.innerText = "새 비밀번호를 입력하세요.";
+        return;
+    }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
-    if(regEx.test(newPw.value)){
+    if(currentPw.value == newPw.value) {
+        newPwMessage.classList.add("error");
+        newPwMessage.classList.remove("confirm");
+        newPwMessage.innerText = "현재 비밀번호와 일치합니다.";
+        return;
+    }
+
+    const regEx2 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    if(regEx2.test(newPw.value)){
         checkObj.newPw = true;
             newPwMessage.innerText = "유효한 비밀번호 형식입니다.";
             newPwMessage.classList.add("confirm");
@@ -146,6 +153,14 @@ updateInfo.addEventListener("submit", e => {
     return;
     }
 
+    // 현재 비밀번호 = 새 비밀번호 확인
+    if(currentPw.value == newPw.value){
+    alert("현재 비밀번호와 동일합니다");
+    e.preventDefault();
+    newPw.focus();
+    return;
+    }
+
     // 비밀번호 == 비밀번호 확인
     if(newPw.value != newPwConfirm.value){
     alert("비밀번호가 일치하지 않습니다");
@@ -153,6 +168,9 @@ updateInfo.addEventListener("submit", e => {
     newPw.focus();
     return;
     }
+
+
+
 });
 
 
