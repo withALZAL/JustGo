@@ -28,7 +28,7 @@
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -42,7 +42,7 @@
 
 
 <!-- 페이지 제목 시작 -->
-<div class="template--pageTitleContainer">
+<%-- <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
         <div class="template--overlayedTitle" style="color: black;">
@@ -51,7 +51,7 @@
             </a>
         </div>
     </div>
-</div>
+</div> --%>
 <!-- 페이지 제목 끝 -->
 
 
@@ -60,41 +60,50 @@
 <div class="manager--contentContainer">
 <div class="manager--contentBox">
     <aside class="manager--sideContainer">
-        <div class="manager--sidebar">
-            <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
-            <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
-            <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
-        </div>
+        <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
     <div class="manager--mainBox">
-        
-        <%-- statisticsBox.jsp --%>
-        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
-
-
+        <%-- 타이틀 --%>
+        <div class="manager--overlayedTitle">
+            <a href="#">
+                '${askList.memberNickname}' 님의 1:1문의
+            </a>
+        </div>
         <div class="manager--content">
             <div class="manager--inquiryAnswerBox">
                 <div class="manager--inquiryLeft">
-                    <div class="manager--inquiryAnswerTitle"><i class="fa-solid fa-circle-question" style="padding-right: 10px;"></i>문의내용</div>
+                    <div class="manager--inquiryAnswerTitle">
+                        <%-- <i class="fa-solid fa-circle-question" style="padding-right: 10px;"></i> --%>
+                        Q. ${askList.feedbackTitle}
+                    </div>
                     <div>${askList.memberNickname} | ${askList.feedbackDate}</div>
-                    <%-- <div class="manager--inquiryText">
-                        ${askList.feedbackTitle}
-                    </div> --%>
                     <div class="manager--inquiryText">
                         ${askList.feedbackText}
                     </div>
                 </div>
                 <div class="manager--answerRight">
-                    <div class="manager--inquiryAnswerTitle"><i class="fa-solid fa-headset" style="padding-right: 10px;"></i>답변내용</div>
-                    <div><a href="#" style="color: white;">???</a></div> <!-- 이스터에그 -->
+                    <div class="manager--inquiryAnswerTitle">
+                        <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
+                        A. 답변 준비중입니다.
+                    </div>
+                    <!--<div><a href="#" style="color: white;">???</a></div>--> <!-- 이스터에그 -->
+                    <div class="manager--answerTextBefore">
+                        빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
+                    </div>
+                    <div class="manager--answerBtns">
+                        <a href="/manager/askManager">
+                            <button type="button" class="manager--askListBTN">목록</button>
+                        </a>
+                        <button type="button" class="manager--answerStartBTN" id="manager--answerStartBtn">답변하기</button>
+                    </div>
+                </div>
                     <form action="#" method="post">
-                        <textarea placeholder="답변 내용을 입력하세요."></textarea>
+                        <%-- <input type="text" placeholder="답변 제목을 입력하세요."> --%>
+                        <%-- <textarea placeholder="답변 내용을 입력하세요."></textarea> --%>
                         <div>
-                            <button type="button" class="btn btn-secondary btn-sm">답변 제출</button>
+                            <%-- <button type="button" class="btn btn-secondary btn-sm">답변 제출</button> --%>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>

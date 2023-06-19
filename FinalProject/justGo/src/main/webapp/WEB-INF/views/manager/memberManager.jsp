@@ -10,7 +10,6 @@
 
 <!-- css -->
     <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/manager/manager.css">
@@ -29,7 +28,7 @@
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -44,6 +43,7 @@
 
 
 <!-- 페이지 제목 시작 -->
+<%--
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
@@ -52,8 +52,9 @@
                 관리자_회원관리
             </a>
         </div>
-    </div>
+    </div> 
 </div>
+--%>
 <!-- 페이지 제목 끝 -->
 
 
@@ -62,25 +63,23 @@
 <div class="manager--contentContainer">
 <div class="manager--contentBox">
     <aside class="manager--sideContainer">
-        <div class="manager--sidebar">
-            <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
-            <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
-            <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
-        </div>
+        <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
     <div class="manager--mainBox">
-
-        <%-- statisticsBox.jsp --%>
-        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
-
+        <%-- 타이틀 --%>
+        <div class="manager--overlayedTitle">
+            <a href="/manager/memberManager">
+                회원관리
+            </a>
+        </div>
+        
         
         <div class="manager--content">
             <form action="#" method="post">
                 <table class="manager--memberTable">
                     <thead>
                         <tr>
-                            <th>번호</th>
+                            <th>회원번호</th>
                             <th>닉네임</th>
                             <th>이메일</th>
                             <th>가입일</th>
@@ -105,7 +104,7 @@
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
                                         <td>${member.memberCondition}</td>
-                                        <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="btn btn-secondary btn-sm">작성글</button></a></td>
+                                        <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="manager--memberPostListBTN">작성글</button></a></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

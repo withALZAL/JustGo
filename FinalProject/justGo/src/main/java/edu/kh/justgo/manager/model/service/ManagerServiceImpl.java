@@ -98,24 +98,36 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	public Map<String, Object> selectMemberPostList(int memberNo, int cp) {
 
+
 		
-        int memberPostCount = dao.getMemberPostCount(memberNo);
 		
-//      System.out.println("memberPostCount : " + memberPostCount);
+		int postMemberCount = dao.getPostMemberCount(memberNo);
+		
+		int memberPostCount = dao.getMemberPostCount(memberNo);
+		
+      System.out.println("memberPostCount : " + memberPostCount);
+      System.out.println("postMemberCount : " + postMemberCount);
         
         Pagination memberPostPagination = new Pagination(memberPostCount, cp);
+        Pagination postMemberPagination = new Pagination(postMemberCount, cp);
         
         List<Board> memberPostList = dao.selectMemberPostList(memberPostPagination, memberNo);
+        List<Member> postMemberList = dao.selectPostMemberList(postMemberPagination, memberNo);
         
-        // pagination, askList를 Map에 담아서 반환
+        // pagination, boardList를 Map에 담아서 반환
         Map<String, Object> map = new HashMap<>();
         map.put("memberPostPagination", memberPostPagination);
+        map.put("postMemberPagination", postMemberPagination);
         map.put("memberPostList", memberPostList);
+        map.put("postMemberList", postMemberList);
         
-//      System.out.println(map);
+      System.out.println(map);
 		
 		return map;
 	}
+	
+	
+		
 	
 	
 	

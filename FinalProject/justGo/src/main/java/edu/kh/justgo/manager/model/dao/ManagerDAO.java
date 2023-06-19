@@ -92,14 +92,25 @@ public class ManagerDAO {
 	}
 
 
-    /** 회원별 글 목록 수 조회
-     * @param memberNo
-	 * @return result
-     */
-	public int getMemberPostCount(int memberNo) {
-        return sql.selectOne("managerMapper.getMemberPostCount",memberNo);
+
+
+	/** 글 목록 조회하려는 회원count 
+	 * @param memberNo
+	 * @return
+	 */
+	public int getPostMemberCount(int memberNo) {
+		return sql.selectOne("managerMapper.getPostMemberCount", memberNo);
 	}
 
+	/** 회원별 글 목록 count 
+	 * @param memberNo
+	 * @return
+	 */
+	public int getMemberPostCount(int memberNo) {
+		return sql.selectOne("managerMapper.getMemberPostCount", memberNo);
+	}
+
+	
 
     /** 회원별 글 목록 조회
      * @param memberPostPagination
@@ -111,9 +122,23 @@ public class ManagerDAO {
         RowBounds rowBounds = new RowBounds(offset, memberPostPagination.getLimit());
         return sql.selectList("managerMapper.selectMemberPostList", memberNo, rowBounds);
 	}
+	
+	
+	/** 회원별 글 목록 조회
+	 * @param postMemberPagination
+	 * @param memberNo
+	 * @return list
+	 */
+	public List<Member> selectPostMemberList(Pagination postMemberPagination, int memberNo) {
+		int offset = (postMemberPagination.getCurrentPage()-1) * postMemberPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, postMemberPagination.getLimit());
+		return sql.selectList("managerMapper.selectPostMemberList", memberNo, rowBounds);
+	}
 
+	
 
-
+	
+	
 	/** 1:1문의 상세 조회 
 	 * @param feedbackNo
 	 * @return LIST
@@ -121,6 +146,27 @@ public class ManagerDAO {
 	 public Feedback selectAskDetailList(int feedbackNo) {
 		return sql.selectOne("managerMapper.selectAskDetailList", feedbackNo);
 	}
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
 	
 	
 	

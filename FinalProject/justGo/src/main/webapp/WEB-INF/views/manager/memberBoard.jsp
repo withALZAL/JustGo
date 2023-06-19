@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/board/memberBoard.css">
+    <link rel="stylesheet" href="/resources/css/manager/memberBoard.css">
 
     <title>memberBoard</title>
 
@@ -27,23 +27,29 @@
 
 <c:set var="memberPostPagination" value="${map.memberPostPagination}" /> 
 <c:set var="memberPostList" value="${map.memberPostList}" /> 
+<c:set var="postMemberPagination" value="${map.postMemberPagination}" /> 
+<c:set var="postMemberList" value="${map.postMemberList}" /> 
+
+<%-- ${map.postMemberList}
+${map.postMemberPagination}
+${map.memberPostList}  
+${map.memberPostPagination} --%>
 
 
-
-<c:forEach items="${memberPostList}" var="memberPost">
-    <c:if test="${memberPost.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${memberPost.memberNickname}"/>
-        <c:set var="profileImage" value="${memberPost.profileImage}"/>
-        <c:set var="memberNo" value="${memberPost.memberNo}"/>
+<c:forEach items="${postMemberList}" var="postMember">
+    <c:if test="${postMember.memberNo == memberNo}" >
+        <c:set var="memberNickname" value="${postMember.memberNickname}"/>
+        <c:set var="profileImg" value="${postMember.profileImg}"/>
+        <c:set var="memberNo" value="${postMember.memberNo}"/>
     </c:if>
 </c:forEach>
 
-<%-- ${map.memberPostPagination}
-${map.memberPostList}  --%>
+
+
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -57,19 +63,21 @@ ${map.memberPostList}  --%>
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="베트남_하롱베이">
-        <div class="template--overlayedTitle" style="color: black;">
-            <c:if test="${!empty profileImage}">
-                <img src="${profileImage}" name="profileImage" alt="프로필 이미지" class="board--img">
-                <%-- 이미지가 안 불러와짐 --%>
-            </c:if>
-            <c:if test="${empty profileImage}">
+        <div class="manager--overlayedTitle">
+        <c:choose>
+            <c:when test="${!empty profileImg}">
+                <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                
+            </c:when>
+            <c:otherwise>
                 <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
-            </c:if>
+            </c:otherwise>
+        </c:choose>
+        <c:if test="${!empty memberNickname}">
             <a href="#">
-                ${memberNickname}의 게시판
-
+                '${memberNickname}' 님의 게시판
             </a>
+        </c:if>
         </div>
     </div>
 </div>
