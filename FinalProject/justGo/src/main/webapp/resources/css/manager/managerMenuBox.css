@@ -1,0 +1,84 @@
+
+/* 관리자 사이드바 */
+.manager--sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+}
+
+
+/* .manager--sidebar{
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: right;
+    align-items: top;
+    padding: 5px 0 5px 0;
+} */
+.manager--menu{
+    width: 150px;
+    /* height: ; */
+    /* background-color: #D9D9D9; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.manager--menu a{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+.manager--menu i{
+    padding-right: 5px;
+}
+
+/* 관리자 사이드바 상호작용 */
+.manager--menu a:hover {
+    color: cornflowerblue;
+}
+
+
+/* -------------------- statisticsBox ------------------------- */
+
+/* 통계박스 조정 */
+
+/* 통계 컨텐츠 조정 */
+.manager--statistics {
+    height: 80px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    background-color: lightblue;
+    color: black;
+    display: grid;
+    grid-template-columns: 60px 100px;
+    margin-bottom: 10px;
+}
+
+/* 통계 아이콘 조정 */
+.manager--statistics > div:nth-child(1) {
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+}
+
+/* 통계 텍스트 조정 */
+.manager--statistics > div:nth-child(2) {
+    display: grid;
+    grid-template-rows: 40px 5px;
+    align-items: center;
+    padding: 5px 0 5px;
+}
+.manager--statistics > div:nth-child(2) > div:nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: bold;
+}

@@ -10,7 +10,6 @@
 
 <!-- css -->
     <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
-    <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/manager/manager.css">
@@ -32,7 +31,7 @@
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -44,7 +43,7 @@
 
 
 <!-- 페이지 제목 시작 -->
-<div class="template--pageTitleContainer">
+<%-- <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
         <div class="template--overlayedTitle" style="color: black;">
@@ -53,7 +52,7 @@
             </a>
         </div>
     </div>
-</div>
+</div> --%>
 <!-- 페이지 제목 끝 -->
 
 
@@ -63,24 +62,23 @@
 <div class="manager--contentBox">
     <aside class="manager--sideContainer">
         <div class="manager--sidebar">
-            <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
-            <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
-            <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
+            <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
         </div>
     </aside>
     <div class="manager--mainBox">
-    
-        <%-- statisticsBox.jsp --%>
-        <jsp:include page="/WEB-INF/views/manager/statisticsBox.jsp"/>
-
+        <%-- 타이틀 --%>
+        <div class="manager--overlayedTitle">
+            <a href="/manager/memberManager">
+                신고관리
+            </a>
+        </div>
 
         <div class="manager--content">
             <form action="#" method="post">
                 <table class="manager--reportTable">
                     <thead>
                         <tr>
-                            <th>번호</th>
+                            <th>신고번호</th>
                             <th>신고자</th>
                             <th>신고사유</th>
                             <th>글제목</th>
