@@ -179,16 +179,16 @@
         </div>
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
-            <form action="#" method="post">
+            <form action="${countryNo}" method="get" id="boardSearch">
                 <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>제목+내용</option>
-                        <option>제목</option>
-                        <option>내용</option>
-                        <option>글쓴이</option>
+                    <select class="board--searchSelector" name="key2" id="boardSelect">  <%-- 수정1 --%>
+                        <option value="tc">제목+내용</option>
+                        <option value="t">제목</option> 
+                        <option value="c">내용</option>
+                        <option value="w">글쓴이</option>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm">검색</button>
+                    <input type="text"  name="query" maxlength="10" style="width: 300px;">
+                    <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>
             <form action="#" method="post">

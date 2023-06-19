@@ -74,11 +74,23 @@ public class BoardController {
 	// 여행게시판 게시글
 	@GetMapping("/1/{countryNo}")
 	public String countryList(@PathVariable("countryNo") int countryNo,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
+			@RequestParam Map<String, Object> paramMap) {
 
-		Map<String, Object> map = service.countryList(countryNo, cp);
-		model.addAttribute("map", map);
-		return "account/boardCountry";
+		if (paramMap.get("key2") == null) {
+			
+			Map<String, Object> map = service.countryList(countryNo, cp);
+
+			model.addAttribute("map", map);
+
+			}else {
+				paramMap.put("countryNo", countryNo);
+
+				Map<String, Object> map = service.selectCountryList(paramMap, cp); // 오버로딩
+
+				model.addAttribute("map", map);
+			}
+			return "account/boardCountry";
 	}
 
 	// 게시글 상세확인
