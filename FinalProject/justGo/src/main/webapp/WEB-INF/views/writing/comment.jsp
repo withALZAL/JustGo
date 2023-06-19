@@ -35,20 +35,17 @@
 <div class="writing--commentBox">
     
     <table class="writing--commentTable">
-            <c:forEach items="${board.replyList}" var="reply">
+        <c:forEach items="${board.replyList}" var="reply">
         <tr>
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__profileImage">
-                <c:if test="${empty reply.profileImage}" >
-                <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png"  alt="프로필 이미지">
-                </c:if>
-                <c:if test="${!empty reply.profileImage}" >
-                <img src="${reply.profileImage}">
-                </c:if>
-            
+                    <c:if test="${empty reply.profileImage}" >
+                        <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
+                    </c:if>
+                    <c:if test="${!empty reply.profileImage}" >
+                        <img src="${reply.profileImage}">
+                    </c:if>
                 </span>
-                
-                
                 <span class="writing--commnetProfileBox__profileName">${reply.memberNickname}</span>
             </th>
             <td class="writing--commentContentBox">${reply.replyContent}</td>
@@ -56,16 +53,16 @@
             <td class="writing--commentBtnBox">
                 <form action="#" method="get">
                     <a href="#">
+                        <button type="button" class="btn btn-primary btn-sm">답글</button>
                         <c:if test="${loginMember.memberNo == reply.memberNo}" >
-                        <button type="button" class="btn btn-secondary btn-sm">답글</button>
-                        <button type="button" class="btn btn-secondary btn-sm">수정</button>
-                        <button type="button" class="btn btn-secondary btn-sm">삭제</button>
+                        <button type="button" class="btn btn-primary btn-sm">수정</button>
+                        <button type="button" class="btn btn-primary btn-sm">삭제</button>
                         </c:if>
                     </a>
                 </form>
             </td>
         </tr>
-            </c:forEach>
+        </c:forEach>
         
 
         <%-- <tr>
