@@ -105,8 +105,8 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		int memberPostCount = dao.getMemberPostCount(memberNo);
 		
-      System.out.println("memberPostCount : " + memberPostCount);
-      System.out.println("postMemberCount : " + postMemberCount);
+//      System.out.println("memberPostCount : " + memberPostCount);
+//      System.out.println("postMemberCount : " + postMemberCount);
         
         Pagination memberPostPagination = new Pagination(memberPostCount, cp);
         Pagination postMemberPagination = new Pagination(postMemberCount, cp);
@@ -121,7 +121,7 @@ public class ManagerServiceImpl implements ManagerService{
         map.put("memberPostList", memberPostList);
         map.put("postMemberList", postMemberList);
         
-      System.out.println(map);
+//      System.out.println(map);
 		
 		return map;
 	}

@@ -81,11 +81,12 @@
                         ${askList.feedbackText}
                     </div>
                 </div>
-                <div class="manager--answerRight">
+                <div class="manager--answerRight" id="manager--answerBefore">
                     <div class="manager--inquiryAnswerTitle">
                         <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
                         A. 답변 준비중입니다.
                     </div>
+                    <div>1</div>
                     <!--<div><a href="#" style="color: white;">???</a></div>--> <!-- 이스터에그 -->
                     <div class="manager--answerTextBefore">
                         빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
@@ -97,13 +98,22 @@
                         <button type="button" class="manager--answerStartBTN" id="manager--answerStartBtn">답변하기</button>
                     </div>
                 </div>
-                    <form action="#" method="post">
+                <div class="manager--answerRight" id="manager--answerWrite">
+                    <div class="manager--inquiryAnswerTitle">
+                        <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
                         <%-- <input type="text" placeholder="답변 제목을 입력하세요."> --%>
-                        <%-- <textarea placeholder="답변 내용을 입력하세요."></textarea> --%>
-                        <div>
-                            <%-- <button type="button" class="btn btn-secondary btn-sm">답변 제출</button> --%>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="manager--answerTextWrite">
+                        <form action="#" method="post">
+                            <%-- <textarea placeholder="답변 내용을 입력하세요."></textarea> --%>
+                            <div>
+                                <%-- <button type="button" class="btn btn-secondary btn-sm">답변 제출</button> --%>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
