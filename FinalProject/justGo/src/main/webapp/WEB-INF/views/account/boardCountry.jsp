@@ -187,6 +187,7 @@
                 </nav>
             </form>
         </div>
+        
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
             <form action="${countryNo}" method="get" id="boardSearch">

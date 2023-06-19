@@ -67,15 +67,18 @@
                     </tr>
                     <tr>
                         <th>비밀번호</th>
-                        <td><input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required></td>
+                        <td>
+                            <input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required>
+                            <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck">ㅇ</div>
+                        </td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet; border:none;">로그인</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="border:none;">로그인</button>
 
                     <form>
                         <a href="/account/password">
-                        <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기(후순위)</button>
+                        <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기</button>
                         </a>
                     </form>
                 

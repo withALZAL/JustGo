@@ -63,7 +63,12 @@
         <div class="writing--postTitle">${board.boardTitle}</div>
         <div class="writing--postInfoBox">
             <div class="writing--postProfile">
-                <img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지">
+                <c:if test="${!empty sessionScope.loginMember.profileImg}">
+                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
+                </c:if>
+                <c:if test="${empty sessionScope.loginMember.profileImg}">
+                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지">
+                </c:if>
                 <div>${board.memberNickname}</div>
             </div>
             <div class="writing--postUpdateDate" style="font-size: 0.8rem" style="text-align: center;">
@@ -99,21 +104,26 @@
     <div class="writing--postContent">${board.boardText}</div>
 </div>
 <div class="writing--postBottomBox">
-    <form action="#" method="post">
-    <a href="/resources/html/common/main.html">
-        <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-heart" style="color: red;"></i>  좋아요</button>
-    </a>
-    <a href="/resources/html/common/main.html">
-        <button type="button" class="btn btn-secondary btn-sm">수정</button>
-    </a>
-    <a href="/resources/html/common/main.html">
-        <button type="button" class="btn btn-secondary btn-sm">취소</button>
-    </a>
-    <a href="/resources/html/common/main.html">
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: red;">삭제</button>
-    </a>
-    </form>
-</div>
+    <div class="writing--like">
+        <a href="#">
+            <c:if test="${empty likeCheck}" >
+            <i class="fa-regular fa-heart" id="boardLike" style="color: red;"></i> 123
+            </c:if>
+
+            <%-- 로그인이 되어있고 나의 게시물에 좋아요를 누른적이 있을 때  --%>
+            <c:if test="${not empty likeCheck}" >
+            <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i> 123
+            </c:if>
+        </a>
+    </div>
+    <div class="writing--postBtn">
+        <a href="/resources/html/common/main.html">
+            <button type="button" class="btn btn-primary btn-lg">수정</button>
+        </a>
+        <a href="/resources/html/common/main.html">
+            <button type="button" class="btn btn-danger btn-lg">삭제</button>
+        </a>
+    </div>
 </div>
 <!-- 포스트 끝 -->
 

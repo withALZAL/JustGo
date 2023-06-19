@@ -48,6 +48,7 @@
 		
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="feedbackTitle" column="FEEDBACK_TITLE" />
 		<result property="feedbackText" column="FEEDBACK_TEXT" />
 		<result property="feedbackDate" column="FEEDBACK_DATE" />
 		<result property="AdminText" column="ADMIN_TEXT" />
@@ -175,7 +176,7 @@
 	 
 	 <!-- 관리자를 제외한 모든 회원목록 조회 -->
 	<select id="selectMemberList" parameterType="Member" resultMap="member_rm">
-	 	SELECT MEMBER_NO, MEMBER_NICKNAME, MEMBER_EMAIL, ENROLL_DATE, MEMBER_CONDITION
+	 	SELECT MEMBER_NO, MEMBER_NICKNAME, MEMBER_EMAIL, ENROLL_DATE, MEMBER_CONDITION, PROFILE_IMG
 		FROM "MEMBER"
 		WHERE MEMBER_ROLE ='2'
 		ORDER BY MEMBER_NO DESC
@@ -193,7 +194,7 @@
 		FROM FEEDBACK
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE MEMBER_ROLE =2
-
+		ORDER BY FEEDBACK_NO DESC
 	 </select>
 	 
 	<!-- 신고 수 조회 -->
@@ -218,31 +219,53 @@
 	 
 	 
 	 
-      <!-- 회원별 글 목록 수 조회 -->
+      <!-- 회원 수 조회 -->
       <select id="getMemberPostCount" parameterType="Board" resultType="_int">
           SELECT COUNT(*) 
           FROM "BOARD"
          WHERE MEMBER_NO =#{memberNo}
       </select>
+      
+      <!-- 회원 수 조회 -->
+      <select id="getPostMemberCount" parameterType="Member" resultType="_int">
+          SELECT COUNT(*) 
+          FROM "MEMBER"
+         WHERE MEMBER_NO =#{memberNo}
+      </select>
+ 
+ 
+   
  
 	 
       <!-- 회원별 글 목록 조회 -->
       <select id="selectMemberPostList" parameterType="Board" resultMap="board_rm">
-          SELECT MEMBER_NO, BOARD_NO, TAG_NO, BOARD_TITLE, MEMBER_NICKNAME, PROFILE_IMG, CREATE_DATE, READ_COUNT, BOARD_DELETE 
-          FROM "BOARD"
-         JOIN "MEMBER" USING(MEMBER_NO)
-         WHERE MEMBER_NO = #{memberNo}
-         ORDER BY BOARD_NO DESC
+      	SELECT BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, BOARD_TITLE, CREATE_DATE, TAG_NO, READ_COUNT, BOARD_DELETE
+		FROM "BOARD"
+		JOIN "MEMBER" USING("MEMBER_NO")
+		WHERE MEMBER_NO = #{memberNo}
+		ORDER BY BOARD_NO DESC
+      </select>
+      
+      
+ 
+      
+      <!-- 글 목록 조회 시 회원정보 가져오기 -->
+       <select id="selectPostMemberList" parameterType="Member" resultMap="member_rm">
+      	SELECT MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo} 
       </select>
 	 
 	 
-	      <!-- 1:1문의 상세 조회 -->
+	  <!-- 1:1문의 상세 조회 -->
       <select id="selectAskDetailList" parameterType="Feedback" resultMap="feedback_rm">
 		SELECT FEEDBACK_NO, FEEDBACK_TITLE ,FEEDBACK_TEXT, FEEDBACK_DATE, MEMBER_NICKNAME
 		FROM "FEEDBACK"
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE FEEDBACK_NO =${FeedbackNo}
       </select>
+	 
+	 
 	 
 	 
 	 
