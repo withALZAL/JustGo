@@ -81,8 +81,10 @@
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
+
                     <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
                     <a href="/myPage/updateNickname">
+
                         <button type="button" class="btn btn-secondary btn-sm">닉네임 수정</button>
                     </a>
                     <a href="/myPage/updatePw">
@@ -90,7 +92,7 @@
                     </a>
                     <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         
                     <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
-                    <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
+                    <button type="button" id="deleteAccount" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
                 </div>
             </div>
         </form>
@@ -121,8 +123,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">탈퇴</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                    <button type="submit" class="btn btn-primary" style="backgroundColor: red;">탈퇴</button>
                 </div>
             </form>
         </div>

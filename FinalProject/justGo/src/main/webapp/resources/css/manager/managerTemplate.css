@@ -1,0 +1,76 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 문서 기본 통일 ----------------------------------------------- */
+
+/* 전체 문서 글꼴 통일 */
+.template--body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 전체 문서 a태그 밑줄 없애기/색깔 조정 통일 */
+.template--body a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 문서 기본 화면 배치 통일 ----------------------------------------------- */
+
+/* 화면 가로 길이 1400px 통일 */
+.template--header,
+.template--main,
+.template--footer {
+    display: grid;
+    grid-template-columns: 1fr 1400px 1fr;
+}
+
+/* template3 ----------------------------------------------- */
+
+/* 페이지 제목 */
+.template--pageTitleContainer {
+    padding: 10px 0 10px;
+    height: 120px;
+    display: grid;
+    place-items: center;
+}
+.template--pageTitleBox {
+    height: 150px;
+    width: 100%;
+}
+
+/* 페이지 제목 사진 조정 */
+.template--pageTitleBox {
+    height: 100px;
+    position: relative;
+}
+.template--overlayedTitle {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* 콘텐츠 컨테이너 */
+.template--contentContainer {
+    height: 700px; /* 1) 이 높이와 */
+    background-color: red;
+    display: grid;
+    place-items: center;
+}
+
+/* 콘텐츠 박스 조정 */
+.template--contentBox {
+    height: 600px; /* 2) 이 높이를 적당히 조정하여 콘텐츠 박스를 사용 */
+    width: 90%;
+    margin: 10px 30px 10px 30px;
+    background-color: grey;
+    display: grid;
+    place-items: center;
+}

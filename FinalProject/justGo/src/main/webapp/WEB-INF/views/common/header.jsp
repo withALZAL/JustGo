@@ -82,8 +82,8 @@
             <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
 
-    <form action="#">
-        <a href="#">
+    <form>
+        <a>
             ---임시용|||실사용---
         </a>    
     </form>

@@ -33,50 +33,39 @@
 <!-- 댓글 시작 -->
 <div class="writing--commentContainer">
 <div class="writing--commentBox">
+    
     <table class="writing--commentTable">
+        <c:forEach items="${board.replyList}" var="reply">
         <tr>
             <th class="writing--commentProfileBox">
-                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
-                <span class="writing--commnetProfileBox__profileName">마루코는열여덟살</span>
+                <span class="writing--commentProfileBox__profileImage">
+                    <c:if test="${empty reply.profileImage}" >
+                        <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
+                    </c:if>
+                    <c:if test="${!empty reply.profileImage}" >
+                        <img src="${reply.profileImage}">
+                    </c:if>
+                </span>
+                <span class="writing--commnetProfileBox__profileName">${reply.memberNickname}</span>
             </th>
-            <td class="writing--commentContentBox">
-                내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-            </td>
-            <td class="writing--commentDateBox">
-                2023년 3월 3일
-            </td>
+            <td class="writing--commentContentBox">${reply.replyContent}</td>
+            <td class="writing--commentDateBox">${reply.replyDate}</td>
             <td class="writing--commentBtnBox">
                 <form action="#" method="get">
                     <a href="#">
-                        <button type="button" class="btn btn-secondary btn-sm">답글</button>
-                        <button type="button" class="btn btn-secondary btn-sm">수정</button>
-                        <button type="button" class="btn btn-secondary btn-sm">삭제</button>
+                        <button type="button" class="btn btn-primary btn-sm">답글</button>
+                        <c:if test="${loginMember.memberNo == reply.memberNo}" >
+                        <button type="button" class="btn btn-primary btn-sm">수정</button>
+                        <button type="button" class="btn btn-primary btn-sm">삭제</button>
+                        </c:if>
                     </a>
                 </form>
             </td>
         </tr>
-        <tr>
-            <th class="writing--commentProfileBox">
-                <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
-                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/KIKI.jpg" alt="프로필 이미지"></span>
-                <span class="writing--commnetProfileBox__profileName">댓글돌이키키사마</span>
-            </th>
-            <td class="writing--commentContentBox">
-                내용내용내용내용내용내용내용내용
-            </td>
-            <td class="writing--commentDateBox">
-                2023년 3월 3일
-            </td>
-            <td class="writing--commentBtnBox">
-                <form action="#" method="get">
-                    <a href="#">
-                        <button type="button" class="btn btn-secondary btn-sm">수정</button>
-                        <button type="button" class="btn btn-secondary btn-sm">삭제</button>
-                    </a>
-                </form>
-            </td>
-        </tr>
-        <tr>
+        </c:forEach>
+        
+
+        <%-- <tr>
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
                 <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/GITHUBICON.png" alt="프로필 이미지"></span>
@@ -96,28 +85,8 @@
                     </a>
                 </form>
             </td>
-        </tr>
-        <tr>
-            <th class="writing--commentProfileBox">
-                <span class="writing--commentProfileBox__profileImage"><img src="/resources/images/officialProfile/MARUKO.jpg" alt="프로필 이미지"></span>
-                <span class="writing--commnetProfileBox__profileName">마루코는열여덟살</span>
-            </th>
-            <td class="writing--commentContentBox">
-                내용내용내용내용내용내용내용내용내용내용내용내용내용내용내
-                용내용내용내용내용내용내용내용내용내용내용
-            </td>
-            <td class="writing--commentDateBox">
-                2023년 3월 3일
-            </td>
-            <td class="writing--commentBtnBox">
-                <form action="#" method="get">
-                    <a href="#">
-                        <button type="button" class="btn btn-secondary btn-sm">답글</button>
-                        <button type="button" class="btn btn-secondary btn-sm">수정</button>
-                        <button type="button" class="btn btn-secondary btn-sm">삭제</button>
-                    </a>
-                </form>
-            </td>
+        </tr> --%>
+
         </tr>
     </table>
 </div>

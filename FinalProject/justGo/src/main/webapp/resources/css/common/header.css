@@ -65,6 +65,9 @@
     width: 90%;
     padding-left: 30px;
 }
+.common--header__searchContainer > form > input:hover {
+    border: 1px solid #8B89FF;
+}
 
 /* 검색 아이콘 조정 */
 .common--header__searchContainer > form > button {

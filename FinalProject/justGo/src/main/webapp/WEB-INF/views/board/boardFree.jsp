@@ -51,6 +51,10 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+
+<c:if test="${not empty param.key}" >
+    <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+</c:if>
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -62,8 +66,16 @@
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="https://www.naver.com">
-                ${boardName}
+                
+
+                <c:if test="${not empty param.query}" >
+                    <h3 style="margin:30px">${boardName}/"${param.query}"검색결과</h3>
+                </c:if>
+                <c:if test="${empty param.query}" >
+                    <h3> ${boardName}</h3>
+                </c:if>
             </a>
+
         </div>
     </div>
 </div>
@@ -119,7 +131,7 @@
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <td>태그1</td>
+                    <td>${board.tagNo}</td>
                     <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
