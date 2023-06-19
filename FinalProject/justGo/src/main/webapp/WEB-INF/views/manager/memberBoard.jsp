@@ -147,45 +147,55 @@ ${map.memberPostPagination} --%>
 
     
     <div class="board--contentBox__bottom">
-        <div class="board--pagenationBox" style="height: 50%; width: 100%;">
-            <form action="#" method="get">
-                <nav aria-label="...">
-                    <ul class="pagination">
-                        <%-- 맨 처음 페이지로 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=1">맨 처음</a>
-                        </li>
+        <c:choose>
+            <c:when test="${empty memberPostList}">
+                <div>
+                    <a href="/manager/memberManager"><button type="button" class="manager--memberListBtn" >목록</button></a>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="board--pagenationBox" style="height: 50%; width: 100%;">
+                    <form action="#" method="get">
+                        <nav aria-label="...">
+                            <ul class="pagination">
+                                <%-- 맨 처음 페이지로 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=1">맨 처음</a>
+                                </li>
 
-                        <%-- 이전 목록 페이지 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.prevPage}">이전</a>
-                        </li>
+                                <%-- 이전 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.prevPage}">이전</a>
+                                </li>
 
-                        <%-- 특정 번호 목록 페이지 이동 --%>
-                        <c:forEach var="i" begin="${memberPostPagination.startPage}" end="${memberPostPagination.endPage}" step="1">
-                            <c:choose>
-                                <c:when test="${i==memberPostPagination.currentPage}">
-                                    <li class="page-item"><a class="page-link">${i}</a></li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li class="page-item"><a class="page-link" href="/manager/memberBoard/${memberNo}?cp=${i}">${i}</a></li>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
+                                <%-- 특정 번호 목록 페이지 이동 --%>
+                                <c:forEach var="i" begin="${memberPostPagination.startPage}" end="${memberPostPagination.endPage}" step="1">
+                                    <c:choose>
+                                        <c:when test="${i==memberPostPagination.currentPage}">
+                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li class="page-item"><a class="page-link" href="/manager/memberBoard/${memberNo}?cp=${i}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
 
-                        <%-- 다음 목록 페이지 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
-                        </li>
+                                <%-- 다음 목록 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
+                                </li>
 
-                        <%-- 맨 끝 페이지 이동 --%>
-                        <li class="page-item">
-                            <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
-                        </li>
-                    </ul>
-                </nav>
-            </form>
-        </div>
+                                <%-- 맨 끝 페이지 이동 --%>
+                                <li class="page-item">
+                                    <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </form>
+                </div>
+            </c:otherwise>
+        </c:choose>
+        
         
     </div>
 </div>

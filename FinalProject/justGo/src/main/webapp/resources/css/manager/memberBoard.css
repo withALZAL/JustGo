@@ -171,3 +171,19 @@
     color: white;
     background-color: #0E00AA;
 }
+
+/* 목록 버튼 */
+.manager--memberListBtn{
+    width: 70px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.manager--memberListBtn:hover{
+    background-color: powderblue;
+    color: black;
+}
