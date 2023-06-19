@@ -66,7 +66,9 @@ ${map.memberPostPagination} --%>
         <div class="manager--overlayedTitle">
         <c:choose>
             <c:when test="${!empty profileImg}">
-                <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                <div class="manager--profileImage">
+                    <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                </div>
                 
             </c:when>
             <c:otherwise>
