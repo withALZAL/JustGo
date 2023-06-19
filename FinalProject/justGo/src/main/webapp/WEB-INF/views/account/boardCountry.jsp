@@ -49,6 +49,11 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+
+<c:if test="${not empty param.key}" >
+    <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+</c:if>
+
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -61,7 +66,12 @@
         <div class="template--overlayedTitle" style="color: black;">
             <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
-                ${countryName}게시판
+                <c:if test="${not empty param.query}" >
+                    <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
+                </c:if>
+                <c:if test="${empty param.query}" >
+                    <h3> ${countryName}게시판</h3>
+                </c:if>
             </a>
         </div>
     </div>
@@ -180,16 +190,16 @@
         
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
-            <form action="#" method="post">
+            <form action="${countryNo}" method="get" id="boardSearch">
                 <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>제목+내용</option>
-                        <option>제목</option>
-                        <option>내용</option>
-                        <option>글쓴이</option>
+                    <select class="board--searchSelector" name="key2" id="boardSelect">  <%-- 수정1 --%>
+                        <option value="tc">제목+내용</option>
+                        <option value="t">제목</option> 
+                        <option value="c">내용</option>
+                        <option value="w">글쓴이</option>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm">검색</button>
+                    <input type="text"  name="query" maxlength="10" style="width: 300px;">
+                    <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>
             <form action="#" method="post">
