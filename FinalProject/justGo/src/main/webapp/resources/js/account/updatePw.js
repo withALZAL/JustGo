@@ -7,23 +7,63 @@ const checkObj ={
 
 
 // 새 비밀번호 유효성 검사
+const currentPw = document.getElementById("currentPw");
 const newPw = document.getElementById("newPw");
 const newPwMessage = document.getElementById("newPwMessage");
 const newPwConfirm = document.getElementById("newPwConfirm");
 const newPwConfirmMessage = document.getElementById("newPwConfirmMessage");
+const updateInfo = document.getElementById("updateInfo");
+
+
+currentPw.addEventListener("input", () => {
+    if(currentPw.value.trim() == ""){
+        currentPw.value == ""
+        currentPwMessage.classList.add("error");
+        currentPwMessage.classList.remove("confirm");
+        currentPwMessage.innerText = "비밀번호를 입력해 주세요."
+        checkObj.currentPw = false;
+        return;
+    }
+
+    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    if(regEx.test(currentPw.value)){ 
+        fetch("/dupCheck/Pw?{w}="+currentPw.value)
+        .then(resp => resp.text()) 
+        .then(count => {
+            if(count != 0){ 
+                currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
+                currentPwMessage.classList.add("confirm");
+                currentPwMessage.classList.remove("error");
+                checkObj.currentPw = true;
+
+            } else {
+                currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
+                currentPwMessage.classList.add("error");
+                currentPwMessage.classList.remove("confirm");
+                checkObj.currentPw = false;
+            }
+        })
+        } else {
+                currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+                currentPwMessage.classList.add("error");
+                currentPwMessage.classList.remove("confirm");
+                checkObj.currentPw  = false;
+            }
+});
+
 
 
 newPw.addEventListener("input", () => {
 
-    if(newPw.value.trim().length == 0){
-        newPw.value = "";
-        newPwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
-        newPwMessage.classList.remove("confirm", "error"); 
-        checkObj.newPw = false;
-        return;
-    }
+        if(newPw.value.trim() == ""){
+            newPw.value = "";       
+            nickMessage.classList.add("error");
+            nickMessage.classList.remove("confirm");
+            nickMessage.innerText = "새 비밀번호를 입력하세요";
+            return;
+        }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{8,15}$/;
+    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
     if(regEx.test(newPw.value)){
         checkObj.newPw = true;
             newPwMessage.innerText = "유효한 비밀번호 형식입니다.";
@@ -37,7 +77,6 @@ newPw.addEventListener("input", () => {
             checkObj.newPw = false;
 
         }
-    
 
 });
 
@@ -69,33 +108,52 @@ newPwConfirm.addEventListener("input", () => {
     }
 });
 
-const currentPw = document.getElementById("currentPw");
-const updateInfo = document.getElementById("updateInfo");
+
+
 
 updateInfo.addEventListener("submit", e => {
 
+    // 현재 비밀번호를 입력하지 않을 경우
     if(currentPw.value.trim() == ""){
-        alert("현재 비밀번호를 입력해주세요");
-        e.preventDefault();
-        currentPw.focus();
-        return;
-}
+    alert("현재 비밀번호를 입력해주세요");
+    e.preventDefault();
+    currentPw.focus();
+    return;
+    }
 
-const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
-if(!regEx.test(newPw.value)){
-    alert("비밀번호가 유효하지 않습니다");
+    // 현재 비밀번호가 유효하지 않을 경우
+    if(currentPwMessage.classList.contains("error")){
+    alert("현재 비밀번호가 유효하지 않습니다");
+    e.preventDefault();
+    currentPwMessage.focus();
+    return;
+    }
+
+    // 새 비밀번호를 입력하지 않을 경우
+    if(newPw.value.trim() == ""){
+    alert("새 비밀번호를 입력해주세요");
     e.preventDefault();
     newPw.focus();
     return;
-}
+    }
 
-// 비밀번호 == 비밀번호 확인
-if(newPw.value != newPwConfirm.value){
+    // 새 비밀번호가 유효하지 않을 경우
+    const regEx3 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    if(!regEx3.test(newPw.value)){
+    alert("새 비밀번호가 유효하지 않습니다");
+    e.preventDefault();
+    newPw.focus();
+    return;
+    }
+
+    // 비밀번호 == 비밀번호 확인
+    if(newPw.value != newPwConfirm.value){
     alert("비밀번호가 일치하지 않습니다");
     e.preventDefault();
     newPw.focus();
     return;
-}
-
+    }
 });
+
+
 

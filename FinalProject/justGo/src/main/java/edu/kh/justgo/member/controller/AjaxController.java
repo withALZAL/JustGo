@@ -29,5 +29,13 @@ public class AjaxController {
 		   return service.checkNickname(nickname);
 	   }
 	   
+	   // 비밀번호 중복 검사
+	   @GetMapping("/dupCheck/Pw") 
+	   @ResponseBody
+	   public int CheckPw(String Pw) {
+		   return service.checkNickname(Pw);
+	   }
+	   
+	   
 	   
 }
