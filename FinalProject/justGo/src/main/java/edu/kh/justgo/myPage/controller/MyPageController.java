@@ -2,10 +2,7 @@ package edu.kh.justgo.myPage.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,40 +30,71 @@ public class MyPageController {
 	}
 	
 	// 개인정보수정 화면 들어가기
-	@GetMapping("/updateInfo")
-
-	public String updateinfo1() {
-		return "/account/updateInfo";
+	@GetMapping("/updateNickname")
+	public String updateNickname() {
+		return "/account/updateNickname";
+	}
+	
+	// 개인정보수정 화면 들어가기
+	@GetMapping("/updatePw")
+	public String updateNickPw() {
+		return "/account/updatePw";
 	}
 	
 	
-	// 개인정보수정
-	@PostMapping("/updateInfo")
+	// 비밀번호 변경
+	@PostMapping("/updatePw")
 	public String updateInfo(
 		   String currentPw,
 		   String newPw,
-		   String memberNickname,
-		   Member updateMember,
     	  @SessionAttribute("loginMember") Member loginMember
     	 , RedirectAttributes ra) {
 		
 		int memberNo = loginMember.getMemberNo();
 		
-		int result = service.updateInfo(currentPw, newPw, memberNickname, memberNo);
+		int result = service.updatePw(currentPw, newPw, memberNo);
 		
     	String message = null;
     	
     	if(result > 0) {
-    		message = "회원 정보가 수정되었습니다.";
-    		loginMember.setMemberNickname( updateMember.getMemberNickname() );
+    		message = "비밀번호가 변경 되었습니다.";
     	} else {
-    		message = "회원 정보 수정 실패";
-
+    		message = "비밀번호가 일치하지 않습니다";
     	}
     	
     	ra.addFlashAttribute("message", message);
 		return "redirect:info";
 	}
+	
+	
+	// 닉네임 수정
+	@PostMapping("/updateNickname")
+	public String updateNickname(
+			Member updateMember
+		  ,	String currentPw
+		  , String memberNickname
+		  , @SessionAttribute("loginMember") Member loginMember
+    	  , RedirectAttributes ra
+			) {
+		
+		updateMember.setMemberNo( loginMember.getMemberNo() );
+		
+		int result = service.updateNickname(updateMember);
+		
+		String message = null;
+		
+    	if(result > 0) { // 성공
+    		message = "회원 정보가 수정되었습니다.";
+    		loginMember.setMemberNickname( updateMember.getMemberNickname() );
+     	} else {
+     		message = "회원 정보 수정 실패";
+	    }
+    	ra.addFlashAttribute("message", message);
+    	
+    	return "redirect:info"; 
+	}
+	
+	
 	
 	// 프로필 이미지 수정(상준)
 	@PostMapping("/updateProfileImage")

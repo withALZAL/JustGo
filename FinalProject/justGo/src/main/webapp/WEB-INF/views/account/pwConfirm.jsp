@@ -51,13 +51,13 @@
 <!-- 회원가입창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="/account/pwConfirm" method="POST" id="passwordFrm">
+        <form action="pwConfirm" method="post" id="passwordFrm">
             <div class="account--inputProfileBox">
                 <div>
                     <img src="/resources/images/officialImages/earth.gif" alt="지구본">
                 </div>
             </div>
-            <div class="account--inputInfoBox">
+            <section class="account--inputInfoBox">
                 <table>
                     <tr>
                         <th>변경할 비밀번호</th>
@@ -73,11 +73,12 @@
                             <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwConfirmMessage"></div>
                         </td>
                     </tr>
+                    </section>
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-secondary btn-sm">수정</button>
                 </div>
-            </div>
+                </div>
         </form>
     </div>
 </div>

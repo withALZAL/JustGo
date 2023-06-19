@@ -23,13 +23,8 @@ public class EmailDAO {
 		return sqlSession.selectOne("emailMapper.checkAuthKey", paramMap);
 	}
 
-	public String getPassword(String email, String memberPw) {
-		return sqlSession.selectOne("emailMapper.getPassword", email);
-	}
-
-
-	public int pwConfirm(String encode) {
-		return sqlSession.selectOne("emailMapper.pwConfirm", encode);
+	public int pwConfirm(String encode, int memberNo) {
+		return sqlSession.selectOne("emailMapper.changePw", encode);
 	}
 
 
