@@ -40,25 +40,10 @@ if(loginFrm != null) {
     });
 }
 
-
-
-const cancelBtn = document.getElementById('cancelBtn');
-const password = document.getElementById('password');
-
-cancelBtn.addEventListener("click", () => {
-    location.href = "/";
-});
-
-
-// 취소 버튼 클릭 시 이전 페이지로 돌아가기
-function goBack() {
-    window.history.back();
-}
-
-
 /* CapsLock 체크 */
 memberPw.addEventListener('keyup', e => {
     if(e.getModifierState('CapsLock')) {
+        capslockCheck.textContent = '';
         capslockCheck.textContent = 'CapsLock이 걸려있습니다.';
         capslockCheck.classList.add("error");
     } else {

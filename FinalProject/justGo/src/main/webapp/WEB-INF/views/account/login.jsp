@@ -69,7 +69,7 @@
                         <th>비밀번호</th>
                         <td>
                             <input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required>
-                            <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck">ㅇ</div>
+                            <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck"></div>
                         </td>
                     </tr>
                 </table>
