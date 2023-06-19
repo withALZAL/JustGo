@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.member.model.service.EmailService;
 
 @Controller
@@ -39,28 +36,25 @@ public class EmailController {
     }
     
     // 새 비밀번호 설정
-    @PostMapping("/pwConfirm")
+    @PostMapping("/account/pwConfirm")
     public String pwConfirm(
+    		String memberEmail,
     		String newPw, 
-    		Member updateMember,
-    		@SessionAttribute("loginMember") Member loginMember,
      	    RedirectAttributes ra) {
     	
-    	int memberNo = loginMember.getMemberNo();
     	
-    	int result = service.pwConfirm(newPw, memberNo);
-    	
+    	int result = service.pwConfirm(newPw, memberEmail);
+  
     	String message = null;
     	
     	if(result > 0) {
     		message = "비밀번호가 변경되었습니다";
-    		loginMember.setMemberPw( updateMember.getMemberPw() );
     	} else {
     		message = "비밀번호 변경 실패";
     	}
     	
     	ra.addFlashAttribute("message", message);
-    	return "redirect:main";
+    	return "redirect:login";
     
     }
     
@@ -76,5 +70,7 @@ public class EmailController {
     public int checkAuthKey(@RequestParam Map<String, Object> paramMap){
         return service.checkAuthKey(paramMap);
         }
+    
+    
     }
 
