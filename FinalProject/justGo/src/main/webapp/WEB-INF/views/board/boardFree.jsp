@@ -51,6 +51,10 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+
+<c:if test="${not empty param.key}" >
+    <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+</c:if>
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -62,8 +66,16 @@
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="https://www.naver.com">
-                ${boardName}
+                
+
+                <c:if test="${not empty param.query}" >
+                    <h3 style="margin:30px">${boardName}/"${param.query}"검색결과</h3>
+                </c:if>
+                <c:if test="${empty param.query}" >
+                    <h3> ${boardName}</h3>
+                </c:if>
             </a>
+
         </div>
     </div>
 </div>

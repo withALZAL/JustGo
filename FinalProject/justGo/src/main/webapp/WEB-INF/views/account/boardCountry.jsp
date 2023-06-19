@@ -49,6 +49,11 @@
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+
+<c:if test="${not empty param.key}" >
+    <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+</c:if>
+
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -61,7 +66,12 @@
         <div class="template--overlayedTitle" style="color: black;">
             <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
-                ${countryName}게시판
+                <c:if test="${not empty param.query}" >
+                    <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
+                </c:if>
+                <c:if test="${empty param.query}" >
+                    <h3> ${countryName}게시판</h3>
+                </c:if>
             </a>
         </div>
     </div>
