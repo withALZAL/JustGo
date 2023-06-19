@@ -82,10 +82,10 @@
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
-                    <a href="/myPage/updateInfo">
+                    <a href="/myPage/updateNickname">
                         <button type="button" class="btn btn-secondary btn-sm">닉네임 수정</button>
                     </a>
-                    <a href="/myPage/updateInfo">
+                    <a href="/myPage/updatePw">
                         <button type="button" class="btn btn-secondary btn-sm">비밀번호 변경</button>
                     </a>
                     <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         

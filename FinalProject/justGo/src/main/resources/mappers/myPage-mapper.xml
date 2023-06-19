@@ -19,7 +19,7 @@
    </resultMap>
 
 	<!-- 닉네임 수정 -->
-	<update id="updateInfo" parameterType="Member">
+	<update id="updateNickname" parameterType="Member">
 		UPDATE "MEMBER" SET 
 		MEMBER_NICKNAME = #{memberNickname}
 		WHERE MEMBER_NO = #{memberNo} 

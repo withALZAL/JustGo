@@ -54,7 +54,7 @@
 <!-- 개인정보변경창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="updateInfo" method="post" id=updateInfo>
+        <form action="updatePw" method="post" id=updateInfo>
             <div class="account--inputProfileBox">
                 <c:choose>
                     <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
@@ -124,7 +124,7 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/updateInfo.js"></script>
+    <script src="/resources/js/account/updatePw.js"></script>
 </body>
 </html>
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -21,7 +22,7 @@ public class EmailController {
     private EmailService service;
     
     
-    // 이메일 인증
+    // 회원가입 이메일 인증
     @GetMapping("/sendEmail/join")
     @ResponseBody
     public int joinUp(String email, String title) {
@@ -34,7 +35,7 @@ public class EmailController {
     @GetMapping("/sendEmail/password")
     @ResponseBody
     public int passwordUp(String email, String title) {
-        return service.passwordUp(email, "회원 가입");   
+        return service.passwordUp(email, "비밀번호 찾기");   
     }
     
     // 새 비밀번호 설정
@@ -42,14 +43,18 @@ public class EmailController {
     public String pwConfirm(
     		String newPw, 
     		Member updateMember,
+    		@SessionAttribute("loginMember") Member loginMember,
      	    RedirectAttributes ra) {
     	
-    	int result = service.pwConfirm(newPw);
+    	int memberNo = loginMember.getMemberNo();
+    	
+    	int result = service.pwConfirm(newPw, memberNo);
     	
     	String message = null;
     	
     	if(result > 0) {
     		message = "비밀번호가 변경되었습니다";
+    		loginMember.setMemberPw( updateMember.getMemberPw() );
     	} else {
     		message = "비밀번호 변경 실패";
     	}
@@ -59,7 +64,7 @@ public class EmailController {
     
     }
     
-	// 로그인 페이지로 이동
+	// 비밀번호 변경 페이지로 이동
 	@GetMapping("/account/pwConfirm")
 	public String login() {
 		return "/account/pwConfirm";
