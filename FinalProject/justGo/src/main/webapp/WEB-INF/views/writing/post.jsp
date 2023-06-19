@@ -78,19 +78,19 @@
             <a>
             
 
-            <c:if test="${empty likeCheck}" >
+            <%-- <c:if test="${empty likeCheck}" >
             <i class="fa-regular fa-heart" id="boardLike" style="color: red;"></i>
-            </c:if>
+            </c:if> --%>
 
             <%-- 로그인이 되어있고 나의 게시물에 좋아요를 누른적이 있을 때  --%>
-            <c:if test="${not empty likeCheck}" >
+            <%-- <c:if test="${not empty likeCheck}" >
             <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i>
             </c:if>
-            
+            --%>
             
     
             
-            </a> <span>${board.likeCount}</span></div>
+            </a> </div>
             <div class="writing--postEnrollDate" style="font-size: 0.8rem">등록일: <a>${board.createDate}</a></div>
             <c:if test="${not empty board.boardUpdate}" >
             <div class="writing--postUpdateDate" style="font-size: 0.8rem">수정일: <a>${board.boardUpdate}</a></div>
@@ -105,16 +105,16 @@
 </div>
 <div class="writing--postBottomBox">
     <div class="writing--like">
-        <a href="#">
+        <a>
             <c:if test="${empty likeCheck}" >
-            <i class="fa-regular fa-heart" id="boardLike" style="color: red;"></i> 123
+            <i class="fa-regular fa-heart" id="boardLike" style="color: red;"></i> 
             </c:if>
 
             <%-- 로그인이 되어있고 나의 게시물에 좋아요를 누른적이 있을 때  --%>
             <c:if test="${not empty likeCheck}" >
-            <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i> 123
+            <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i> 
             </c:if>
-        </a>
+       </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
         <a href="/resources/html/common/main.html">
