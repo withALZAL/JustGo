@@ -65,18 +65,18 @@
 
 /* 포스트 아래 박스 조정 */
 .writing--postBottomBox {
-    display: flex;
-    justify-content: right;
-    align-items: center;
     width: 100%;
-    gap: 10px;
-    padding: 0 150px 0;
+    height: 30px;
+    padding: 30px 100px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-/* 버튼 조정 */
-.writing--postBottomBox > form a button {
-    font-size: 1.5rem;
+.writing--postBtn button {
     border: none;
+}
+.writing--like {
+    font-size: 1.8rem;
 }
 
 /* 댓글 ----------------------------------------------- */
@@ -121,10 +121,17 @@
 }
 
 /* 댓글 프로필 이미지 조정 */
-tr img {
+.writing--commentProfileBox__profileImage {
     height: 30px;
+    overflow: hidden;
     border-radius: 100%;
-    padding: 0 3px 0;
+}
+tr img {
+    object-fit: cover;
+    object-position: center center;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
 }
 
 /* 댓글 내용 박스 조정 */

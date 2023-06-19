@@ -64,7 +64,7 @@
                         <td>
                             <input type="email" placeholder="이메일을 입력해주세요." name="memberEmail" id="email" autocomplete="off" required>
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="emailMessage"></div> 
-                            <td><button type="button" class="btn btn-secondary btn-sm" id="sendAuthKeyBtn">인증</button></td>
+                            <td><button type="button" class="btn btn-outline-primary btn-sm" id="sendAuthKeyBtn">인증</button></td>
                         </td>                       
                     </tr>
 
@@ -73,7 +73,7 @@
                         <td>
                             <input type="text" placeholder="이메일로 발송된 인증번호를 입력해주세요." name="authKey" id="authKey" autocomplete="off" required>
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="authKeyMessage"></div>                        
-                            <td><button type="button" class="btn btn-secondary btn-sm" id="checkAuthKeyBtn">확인</button></td>
+                            <td><button type="button" class="btn btn-outline-primary btn-sm" id="checkAuthKeyBtn">확인</button></td>
                         </td>
                     </tr>
             
@@ -103,7 +103,7 @@
 
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">회원가입</button>
+                    <button type="submit" class="btn btn-primary btn-lg">회원가입</button>
                     <button type="button" id="cancelBtn" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
                 </div>
             </div>
