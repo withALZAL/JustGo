@@ -76,6 +76,10 @@
     width: 100%;
 }
 
+.board--boardTable {
+    border-left: none;
+}
+
 /* 테이블 박스 조정(GPT가 작성) */
 .board--contentBox__main {
     height: 740px;
@@ -91,6 +95,7 @@
     padding: 10px;
     text-align: center;
     border: 1px solid #D9D9D9;
+    border-left: none;
 }
 .board--contentBox__main thead th {
     background-color: lightblue;

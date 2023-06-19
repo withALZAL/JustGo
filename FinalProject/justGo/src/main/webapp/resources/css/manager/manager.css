@@ -361,7 +361,7 @@
 /* 답변 박스 */
 .manager--answerRight {
     display: grid;
-    /* grid-template-rows: 50px 30px 1fr; */
+    grid-template-rows: 50px 30px 1fr 30px;
     align-items: center;
     padding: 0 25px 0;
 }
@@ -376,9 +376,14 @@
 }
 
 /* 이스터에그 */
-.manager--inquiryLeft > div:nth-child(2) {
+.manager--answerRight > div:nth-child(2) {
     text-align: right;
     border-bottom: 1px solid #D9D9D9;
+}
+
+/* 답변창 */
+.manager--answerRight > div:nth-child(3) {
+    margin-top: 27px;
 }
 
 /* 답변 내용 본문/버튼 배치 */
@@ -409,18 +414,18 @@
     height: 400px;
     max-height: 400px;
     overflow: auto;
-   
+
 }
 
-
+/* 버튼 구역 */
 .manager--answerBtns{
     display: flex;
     flex-direction: row;
     justify-content: end;
-    margin: 20px 5px 10px 5px;
+    margin: 40px 5px 10px 5px;
 }
 
-
+/* 1:1문의 답변 작성하기 버튼 */
 .manager--answerStartBTN{
     width: 80px;
     height: 30px;
@@ -436,7 +441,7 @@
     color: black;
 }
 
-
+/* 1:1문의 목록페이지 이동하는 버튼 */
 .manager--askListBTN{
     width: 50px;
     height: 30px;
