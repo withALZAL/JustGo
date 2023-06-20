@@ -120,7 +120,7 @@ public class MyPageController {
 		return "redirect:info";
 	}
 	
-	// 마이페이지 리뉴얼
+	// 마이페이지 작성글 확인
 	
 	
 }
