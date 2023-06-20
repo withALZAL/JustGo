@@ -1,3 +1,4 @@
+<%-- 상준 점검 완료 20230620 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,6 +23,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
@@ -55,7 +58,7 @@
 <!-- 로그인창 시작 -->
 <div class="account--loginContainer">
     <div class="account--loginBox">
-        <form action="/account/login" method="post" id=loginFrm> <%-- 로그인 --%>
+        <form action="/account/login" method="post" id="loginForm"> <%-- 로그인 --%>
             <div class="account--loginImage">
                 <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="로그인 이미지">
             </div>
@@ -63,25 +66,21 @@
                 <table>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="30" autocomplete="off" required></td>
+                        <td><input type="text" name="memberEmail" placeholder="이메일을 입력해주세요." maxlength="30" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <th>비밀번호</th>
                         <td>
-                            <input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off" required>
+                            <input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요." maxlength="15" autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck"></div>
                         </td>
                     </tr>
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-primary btn-lg" style="border:none;">로그인</button>
-
-                    <form>
-                        <a href="/account/password">
-                        <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기</button>
-                        </a>
-                    </form>
-                
+                <a href="/account/password">
+                    <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기</button>
+                </a>
                 </div>
             </div>
         </form>

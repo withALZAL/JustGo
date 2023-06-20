@@ -1,46 +1,72 @@
-const loginFrm = document.getElementById("loginFrm");
-const memberEmail = document.querySelector("#loginFrm input[name='memberEmail']");
-const memberPw = document.querySelector("#loginFrm input[name='memberPw']");
+/* 상준 점검 완료 20230620 */
+
+const loginForm = document.getElementById("loginForm");
+const memberEmail = document.querySelector("#loginForm input[name='memberEmail']");
+const memberPw = document.querySelector("#loginForm input[name='memberPw']");
 const capslockCheck = document.getElementById("capslockCheck");
 
-if(loginFrm != null) {
-    // 로그인 시도를 할 때
-    loginFrm.addEventListener("submit", e => {
+/* 로그인 체크 */
+if (loginForm != null) {
+    loginForm.addEventListener("submit", e => {
         
-        // alert("로그인");
-        
-        // form태그 기본 이벤트 제거
-        // e.preventDefault();
-        
-        // 이메일이 입력되지 않은 경우
-        // 문자열.trim() : 문자열 좌우 공백 제거
-        if(memberEmail.value.trim().length == 0) {
-            alert("이메일을 입력해주세요.");
-            
-            memberEmail.value = ""; // 잘못 입력된 값(공백) 제거
-            memberEmail.focus(); // 이메일 input태그에 초점을 맞춤
-            
-            e.preventDefault(); // 제출 못하게 하기
-            return; 
-        }
-        
-        
-        // 비밀번호가 입력되지 않은 경우
-        if(memberPw.value.trim().length == 0) {
-            alert("비밀번호를 입력해주세요.");
-            
-            memberPw.value = ""; // 잘못 입력된 값(공백) 제거
-            memberPw.focus(); // 이메일 input태그에 초점을 맞춤
-            
-            e.preventDefault(); // 제출 못하게 하기
-            return; 
+        /* 이메일 체크 */
+        if (memberEmail.value.trim().length == 0) {
+            e.preventDefault(); /* 제출 방지 */
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                },
+                didClose: () => {
+                    memberEmail.value = "";
+                    memberEmail.focus();
+                }
+            });
+            Toast.fire({
+                icon: "warning",
+                title: "이메일을 입력해주세요."
+            });
+
+            return;
         }
 
-        
+        /* 비밀번호 체크 */
+        if (memberPw.value.trim().length == 0) {
+            e.preventDefault(); /* 제출 방지 */
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                },
+                didClose: () => {
+                    memberPw.value = "";
+                    memberPw.focus();
+                }
+            });
+
+            Toast.fire({
+                icon: "warning",
+                title: "비밀번호를 입력해주세요."
+            });
+
+            return;
+        }
     });
 }
 
-/* CapsLock 체크 */
+/* 비밀번호 CapsLock 체크 */
 memberPw.addEventListener('keyup', e => {
     if(e.getModifierState('CapsLock')) {
         capslockCheck.textContent = '';
