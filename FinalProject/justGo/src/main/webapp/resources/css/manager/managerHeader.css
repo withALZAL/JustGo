@@ -54,7 +54,7 @@
     /* height: 180px; */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    background-image: url(/resources/images/officialPageTitle/PAGETITLE_MANAGER.png);  
+    background-image: url(/resources/images/officialPageTitle/PAGETITLE_MANAGER_HEADER.png);  
     position: relative;
 }
 
