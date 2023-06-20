@@ -65,9 +65,11 @@ public class BoardDAO {
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
 
-		int offset = (pagination.getCurrentPage() - 1 * pagination.getLimit());
-
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		int offset = ((pagination.getCurrentPage()-1) * pagination.getLimit());
+		
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+		
 
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
@@ -92,9 +94,13 @@ public class BoardDAO {
 	 */
 	public List<Board> countryList(Pagination pagination, int countryNo) {
 
-		int offset = (pagination.getCurrentPage() - 1 * pagination.getLimit());
-
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		int offset = ((pagination.getCurrentPage()-1)
+				* pagination.getLimit());
+		
+		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
+		
+=======
 
 		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
 	}

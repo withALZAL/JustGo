@@ -36,6 +36,7 @@
 	<mapper resource="/mappers/manager-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
 	<mapper resource="/mappers/ajax-mapper.xml"/>
+	<mapper resource="/mappers/reply-mapper.xml"/>
 
 	<mapper resource="/mappers/myPage-mapper.xml"/>
 	<mapper resource="/mappers/main-mapper.xml"/>

@@ -34,9 +34,10 @@
 <div class="writing--commentContainer">
 <div class="writing--commentBox">
     
-    <table class="writing--commentTable">
+    <table class="writing--commentTable" >
+    <tbody id="replyList <c:if test='${reply.parentReplyNo!=0}'>child-reply</c:if>">
         <c:forEach items="${board.replyList}" var="reply">
-        <tr>
+        <tr class="reply-row">
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__profileImage">
                     <c:if test="${empty reply.profileImage}" >
@@ -51,18 +52,19 @@
             <td class="writing--commentContentBox">${reply.replyContent}</td>
             <td class="writing--commentDateBox">${reply.replyDate}</td>
             <td class="writing--commentBtnBox">
-                <form action="#" method="get">
-                    <a href="#">
-                        <button type="button" class="btn btn-primary btn-sm">답글</button>
+                <%-- <form action="#" method="get">
+                    <a href="#"> --%>
+                        <button onclick="showInsertComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">답글</button>
                         <c:if test="${loginMember.memberNo == reply.memberNo}" >
-                        <button type="button" class="btn btn-primary btn-sm">수정</button>
-                        <button type="button" class="btn btn-primary btn-sm">삭제</button>
+                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="btn btn-primary btn-sm">수정</button>
+                        <button onclick="deleteComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">삭제</button>
                         </c:if>
-                    </a>
-                </form>
+                    <%-- </a>
+                </form> --%>
             </td>
         </tr>
         </c:forEach>
+    </tbody>
         
 
         <%-- <tr>
@@ -87,14 +89,14 @@
             </td>
         </tr> --%>
 
-        </tr>
+        
     </table>
 </div>
     <form action="#" post="get">
         <div class="writing--commentInput">
             <div style="font-weight: bold;">댓글 달기</div>
-            <textarea></textarea>
-            <button type="button" class="btn btn-secondary btn-sm">등록</a></form></button>
+            <textarea id="replyContent"></textarea>
+            <button type="button" class="btn btn-secondary btn-sm" id="addReply">등록</button>
         </div>
     </form>
 </div>
@@ -112,7 +114,7 @@
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
-    <script src="/resources/js/writing/post.js"></script>
+    <script src="/resources/js/writing/comment.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 </body>
 </html>

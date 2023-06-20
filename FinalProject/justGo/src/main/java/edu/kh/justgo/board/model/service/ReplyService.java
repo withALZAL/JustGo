@@ -8,4 +8,6 @@ public interface ReplyService {
 
 	List<Reply> select(int boardNo);
 
+	int insert(Reply reply);
+
 }
