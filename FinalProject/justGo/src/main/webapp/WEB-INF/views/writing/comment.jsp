@@ -17,6 +17,19 @@
 
     <title>JustGo-comment</title>
 
+<%-- 댓글 버튼 꾸미기 --%>
+    <style>
+        .commentBtn {
+            color: white;
+            background-color: #0D6EFD;
+            border: none;
+            border-radius: 3px;
+        }
+        .comment--delete {
+            background-color: #DC3545;
+        }
+    </style>
+
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
@@ -54,10 +67,10 @@
             <td class="writing--commentBtnBox">
                 <%-- <form action="#" method="get">
                     <a href="#"> --%>
-                        <button onclick="showInsertComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">답글</button>
+                        <button onclick="showInsertComment(${reply.replyNo},this)" class="commentBtn comment--reply">답글</button>
                         <c:if test="${loginMember.memberNo == reply.memberNo}" >
-                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="btn btn-primary btn-sm">수정</button>
-                        <button onclick="deleteComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">삭제</button>
+                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
+                        <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
                         </c:if>
                     <%-- </a>
                 </form> --%>
