@@ -35,9 +35,9 @@
 <div class="writing--commentBox">
     
     <table class="writing--commentTable" >
-    <tbody id="replyList <c:if test='${reply.parentReplyNo!=0}'>child-reply</c:if>">
+    <tbody id="replyList">
         <c:forEach items="${board.replyList}" var="reply">
-        <tr class="reply-row">
+        <tr class="reply-row  <c:if test='${reply.parentReplyNo!=0}'>child-reply</c:if>">
             <th class="writing--commentProfileBox">
                 <span class="writing--commentProfileBox__profileImage">
                     <c:if test="${empty reply.profileImage}" >
@@ -92,13 +92,13 @@
         
     </table>
 </div>
-    <form action="#" post="get">
+    <%-- <form action="#" post="get"> --%>
         <div class="writing--commentInput">
             <div style="font-weight: bold;">댓글 달기</div>
             <textarea id="replyContent"></textarea>
-            <button type="button" class="btn btn-secondary btn-sm" id="addReply">등록</button>
+            <button  class="btn btn-secondary btn-sm" id="addReply">등록</button>
         </div>
-    </form>
+    <%-- </form> --%>
 </div>
 <!-- 댓글 끝 -->
 

@@ -180,7 +180,11 @@ tr img {
 /* 대댓글 ----------------------------------------------- */
 
 
-
+.update-textarea{
+	width: 100%;
+    height: 90px;
+    resize: none;
+}
 
 
 
