@@ -1,11 +1,14 @@
 package edu.kh.justgo.board.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.board.model.service.BoardService;
 import edu.kh.justgo.board.model.service.WritingService;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -23,6 +27,9 @@ public class WritingController {
 
 	@Autowired
 	private WritingService service;
+	
+	@Autowired // 게시글 수정 시 상세조회 서비스 호출용
+	private BoardService boardService;
 
 	// 1:1문의 쓰기 연결
 	@GetMapping("/writing/writingQuestion")
@@ -85,5 +92,47 @@ public class WritingController {
 		return path;
 
 	}
+	
+	// 게시글 수정 화면 전환 // 자유/질문
+	@GetMapping("/writing/{boardCode}/{boardNo}/update")
+	public String boardUpdate(
+			@PathVariable("boardCode") int boardCode
+			,@PathVariable("boardNo") int boardNo
+			,Model model // jsp로 전달하는 객체
+			) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		Board board = boardService.selectBoard(map);
+		
+		model.addAttribute("board", board); // forward(요청위임)
+		
+		return "board/writingUpdate";
+	}
+	
+	@PostMapping("/writing/{boardCode}/{boardNo}/update")
+	public String boardUpdate(
+			Board board
+			,@PathVariable("boardCode") int boardCode
+			,@PathVariable("boardNo") int boardNo
+			,HttpSession session
+			,RedirectAttributes ra
+			) throws IllegalStateException, IOException {
+		
+		// 1) boardCode, boardNo를 board에 세팅
+		board.setBoardCode(boardCode);
+		board.setBoardNo(boardNo);
+		
+		
+			
+		
+		return null;
+	}
+	
+	            
+	
+	
 
 }
