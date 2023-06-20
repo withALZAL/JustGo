@@ -49,7 +49,7 @@ public class WritingController {
 		return "writing/post";
 	}
 
-	// 게시글 작성 질문/자유 전용
+	// 게시글 작성 
 	@PostMapping("/board/write")
 	public String boardInsert(Board board, @SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra,
 			HttpSession session) throws IllegalStateException, IOException {
@@ -89,6 +89,8 @@ public class WritingController {
 
 		System.out.println(path);
 
+		
+		 
 		return path;
 
 	}
