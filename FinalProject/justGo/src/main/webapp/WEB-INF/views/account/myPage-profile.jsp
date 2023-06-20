@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/account.css">
+    <link rel="stylesheet" href="/resources/css/account/accountNew.css">
 
-    <title>JustGo-myPage</title>
+    <title>JustGo-myPage_profile</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -31,6 +31,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
+
 
 
 <!-- Template-main 시작 -->
@@ -52,24 +53,61 @@
 
 
 <!-- 마이페이지 시작 -->
-<div class="account--joinContainer">
-    <div class="account--joinBox">
-        <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
-            <div class="account--inputProfileBox">
-                <div id="previewImage" onclick="triggerFileInput()">
-                <c:if test="${!empty sessionScope.loginMember.profileImg}">
-                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
-                </c:if>
-                <c:if test="${empty sessionScope.loginMember.profileImg}">
-                    <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" name="profileImage" alt="기본 프로필 이미지">
-                </c:if>
+<div class="account--myPageContainer">
+    <div class="account--leftBox">
+        <a href="/myPage/info">
+            <button type="button" class="btn btn-primary btn-lg">프로필</button>
+        </a>
+        <a href="/myPage/myWriting">
+            <button type="button" class="btn btn-primary btn-lg">작성글 보기</button>
+        </a>
+        <a href="/myPage/updatePw">
+            <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
+        </a>
+        <a>
+            <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
+        </a>
+    </div>
+    <div class="account--rightBox">
+
+
+
+    <%-- 프로필 시작 --%>
+    <div class="account--profile">
+        <div class="account--subtitle"><i class="fa-solid fa-user"></i>프로필</div>
+        <div class="account--myPageBox">
+            <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
+                <div class="account--profileImageContainer">
+                    <div class="account--profileImageBox">
+                        <div id="previewImageBox" onclick="triggerFileInput()">
+                            <c:if test="${!empty sessionScope.loginMember.profileImg}">
+                                <img src="${sessionScope.loginMember.profileImg}" alt="프로필 이미지">
+                            </c:if>
+                            <c:if test="${empty sessionScope.loginMember.profileImg}">
+                                <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" alt="기본 프로필 이미지">
+                            </c:if>
+                        </div>
+                    </div>
+                    <div class="account--profileUpdateBtn">
+                        <input type="file" name="profileImage" id="uploadImage" accept="image/*" style="display: none;">
+                        <button type="submit" id="updateImageBtn" class="btn btn-primary btn-sm" style="display: none;">이미지 변경</button>
+                        <button type="button" id="deleteImageBtn" class="btn btn-danger btn-sm" style="display: none;" onclick="cancelImage()">취소</button>
+                    </div>
                 </div>
-            </div>
-            <div class="account--inputInfoBox">
+            </form>
+            <div class="account--profileInfoBox">
                 <table>
                     <tr>
                         <th>닉네임</th>
-                        <td>${loginMember.memberNickname}</td>
+                        <td class="myPage--updateNickname">
+                            <form action="/myPage/updateNickname" method="post">
+                                <span>
+                                    <input type="text" name="memberNickname" value="${loginMember.memberNickname}" maxlength="8">
+                                </span>
+                                <button type="submit" class="btn btn-secondary btn-sm">수정</button>
+                            </form>
+                            <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
+                        </td>
                     </tr>
                     <tr>
                         <th>이메일</th>
@@ -80,22 +118,12 @@
                         <td>${loginMember.enrollDate}</td>
                     </tr>
                 </table>
-                <div class="account--joinBtnBox">
-
-                    <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
-                    <a href="/myPage/updateNickname">
-
-                        <button type="button" class="btn btn-secondary btn-sm">닉네임 수정</button>
-                    </a>
-                    <a href="/myPage/updatePw">
-                        <button type="button" class="btn btn-secondary btn-sm">비밀번호 변경</button>
-                    </a>
-                    <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         
-                    <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
-                    <button type="button" id="deleteAccount" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
-                </div>
             </div>
-        </form>
+        </div>
+    </div>
+    <%-- 프로필 끝 --%>
+
+
     </div>
 </div>
 <!-- 마이페이지 끝 -->
@@ -156,13 +184,11 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/myPage.js"></script>
-<%-- 파일 업로드 --%>
+    <script src="/resources/js/account/updateProfileImage.js"></script> <%-- 프로필 이미지 변경 --%>
+    <script src="/resources/js/account/updateNickname.js"></script> <%-- 닉네임 변경 --%>
+<%-- 이미지 수정 취소 함수 --%>
     <script>
-        function triggerFileInput() {
-            var fileInput = document.getElementById("imageUpload");
-            fileInput.click();
-        }
+        var profileImageSrc = "${!empty sessionScope.loginMember.profileImg ? sessionScope.loginMember.profileImg : '/resources/images/officialProfile/COMMONPROFILEPLUS.png'}";
     </script>
 </body>
 </html>

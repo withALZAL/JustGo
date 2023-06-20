@@ -18,10 +18,10 @@
       <result property="setAlarmLike" column="SET_AL_LIKE" />
    </resultMap>
 
-	<!-- 닉네임 수정 -->
-	<update id="updateNickname" parameterType="Member">
-		UPDATE "MEMBER" SET 
-		MEMBER_NICKNAME = #{memberNickname}
+	<!-- 닉네임 수정(상준 추가 수정) -->
+	<update id="updateNickname">
+		UPDATE "MEMBER"
+		SET MEMBER_NICKNAME = #{memberNickname}
 		WHERE MEMBER_NO = #{memberNo} 
 	</update>
 

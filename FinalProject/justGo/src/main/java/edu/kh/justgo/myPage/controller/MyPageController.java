@@ -23,24 +23,23 @@ public class MyPageController {
 	@Autowired
 	private MyPageService service;
 	
-	// 마이페이지
+	// 마이페이지-프로필
 	@GetMapping("/info")
 	public String info() {
-		return "/account/myPage";
+		return "/account/myPage-profile";
 	}
 	
-	// 개인정보수정 화면 들어가기
-	@GetMapping("/updateNickname")
-	public String updateNickname() {
-		return "/account/updateNickname";
+	// 마이페이지-내가쓴글
+	@GetMapping("/myWriting")
+	public String myWriting() {
+		return "/account/myPage-myWriting";
 	}
 	
-	// 개인정보수정 화면 들어가기
+	// 마이페이지-비밀번호변경
 	@GetMapping("/updatePw")
-	public String updateNickPw() {
-		return "/account/updatePw";
+	public String updatePw() {
+		return "/account/myPage-updatePw";
 	}
-	
 	
 	// 비밀번호 변경
 	@PostMapping("/updatePw")
@@ -67,27 +66,25 @@ public class MyPageController {
 	}
 	
 	
-	// 닉네임 수정
+	// 닉네임 수정(상준 추가 수정)
 	@PostMapping("/updateNickname")
 	public String updateNickname(
-			Member updateMember
-		  ,	String currentPw
-		  , String memberNickname
-		  , @SessionAttribute("loginMember") Member loginMember
-    	  , RedirectAttributes ra
+			Member updateMember,
+			@SessionAttribute("loginMember") Member loginMember,
+			RedirectAttributes ra
 			) {
 		
-		updateMember.setMemberNo( loginMember.getMemberNo() );
+		updateMember.setMemberNo(loginMember.getMemberNo());
 		
 		int result = service.updateNickname(updateMember);
 		
 		String message = null;
 		
     	if(result > 0) { // 성공
-    		message = "회원 정보가 수정되었습니다.";
+    		message = "닉네임이 수정되었습니다.";
     		loginMember.setMemberNickname( updateMember.getMemberNickname() );
-     	} else {
-     		message = "회원 정보 수정 실패";
+     	} else { // 실패
+     		message = "닉네임 수정에 실패했습니다.";
 	    }
     	ra.addFlashAttribute("message", message);
     	
@@ -122,6 +119,9 @@ public class MyPageController {
 		
 		return "redirect:info";
 	}
+	
+	// 마이페이지 리뉴얼
+	
 	
 }
 

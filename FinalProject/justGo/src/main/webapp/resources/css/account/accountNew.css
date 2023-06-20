@@ -1,0 +1,355 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 마이페이지 공통 ----------------------------------------------- */
+
+/* 마이페이지 컨테이너 */
+.account--myPageContainer {
+    height: 600px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    place-items: center;
+}
+
+/* 마이페이지 왼쪽 박스 */
+.account--leftBox {
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+.account--leftBox {
+    display: flex;
+    flex-direction: column;
+}
+.account--leftBox > a {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 마이페이지 오른쪽 박스 */
+.account--rightBox {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+/* ajax 프로필 박스 */
+.account--profile {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+}
+
+/* ajax 타이틀 조정 */
+.account--subtitle {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #D9D9D9;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0;
+    gap: 10px;
+}
+
+/* ajax 버튼 박스 조정 */
+.account--BtnBox {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+/* 마이페이지 프로필 ----------------------------------------------- */
+
+/* 프로필 박스 */
+.account--myWritingBox {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 프로필 이미지 컨테이너 조정 */
+.account--profileImageContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 100px;
+}
+
+/* 프로필 이미지 박스 조정 */
+.account--profileImageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+.account--profileImageBox > div {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.account--profileImageBox img {
+    object-fit: cover;
+    object-position: center center;
+    width: 180px;
+    height: 180px;
+    border: 3px solid black;
+    border-radius: 100%;
+}
+
+/* 프로필 이미지 상호작용 */
+.account--profileImageBox img:hover {
+    border: 3px solid #8B89FF;
+    transform: scale(1.05);
+}
+
+/* 이미지 버튼 박스 조정 */
+.account--profileUpdateBtn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 프로필 정보 박스 조정 */
+.account--profileInfoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account--profileInfoBox table {
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+.account--profileInfoBox table tr th {
+    font-size: 1.2rem;
+}
+
+/* 닉네임 input 조정 */
+.myPage--updateNickname form input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-weight: bold;
+}
+
+
+
+/* 마이페이지 작성글 보기 ----------------------------------------------- */
+
+/* 내가 작성한 글 박스 */
+.account--myPageBox {
+    width: 100%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+/* 작성글 테이블 */
+.account--myWritingTable {
+    width: 100%;
+    height: 100%;
+}
+.account--myWritingTable > thead > tr {
+    border-bottom: 1px solid #D9D9D9;
+    text-align: center;
+    font-size: 1.0rem;
+    background-color: #D9D9D9;
+}
+.account--myWritingTable > thead > tr > th:nth-child(1) { /* 글번호 */
+    width: 80px;
+}
+.account--myWritingTable > tbody > tr > td:nth-child(1) {
+    text-align: center;
+}
+.account--myWritingTable > thead > tr > th:nth-child(2) { /* 태그 */
+    width: 80px;
+}
+.account--myWritingTable > tbody > tr > td:nth-child(2) {
+    text-align: center;
+}
+.account--myWritingTable > tbody > tr > td:nth-child(3) { /* 글제목 */
+    text-align: left;
+    padding: 0 10px 0;
+}
+.account--myWritingTable > thead > tr > th:nth-child(4) { /* 작성일 */
+    width: 100px;
+}
+.account--myWritingTable > tbody > tr > td:nth-child(4) {
+    text-align: center;
+}
+.account--myWritingTable > thead > tr > th:nth-child(5) { /* 조회수 */
+    width: 80px;
+}
+.account--myWritingTable > tbody > tr > td:nth-child(5) {
+    text-align: center;
+}
+
+/* 페이지네이션 박스 */
+.account--PaginationBox {
+    display: flex;
+    justify-content: center;
+}
+
+/* 마이페이지 비밀번호 변경 ----------------------------------------------- */
+
+/* 테이블 박스 조정 */
+.account--updatePwBox {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account--updatePwBox table th {
+    font-size: 1.2rem;
+}
+.account--updatePwBox table{
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+
+
+
+
+
+
+/* 회원가입 위 ----------------------------------------------- */
+
+/* 회원가입 버튼 상호작용 */
+.account--joinContainer button {
+    border: none;
+    font-size: 1.2rem;
+}
+
+/* 회원가입 박스 조정 */
+.account--joinBox {
+    height: 500px;
+    width: 50%;
+} 
+
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }
+
+
+/* 프로필 이미지 박스 조정 */
+.account--inputProfileBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 10px 0;
+}
+
+/* 프로필 이미지 조정 */
+.account--inputProfileBox img {
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+}
+
+/* 회원가입 아래 ----------------------------------------------- */
+
+/* 정보 입력 박스 조정 */
+.account--inputInfoBox {
+    display: grid;
+    place-items: center;
+}
+
+/* 테이블 간격 조정 */
+.account--inputInfoBox td, th {
+    padding: 15px;
+}
+.account--inputInfoBox th {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.account--inputInfoBox input {
+    width: 300px;
+}
+
+.account--inputInfoBox table {
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 10px;
+}
+
+/* 로그인 ----------------------------------------------- */
+
+/* 로그인 이미지 */
+.account--loginImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0 50px 0;
+}
+.account--loginImage img {
+    height: 180px;
+}
+
+/* 기타 ----------------------------------------------- */
+
+/* 이미지 업로드 커서 */
+#previewImage > img {
+    cursor: pointer;
+    border: 3px solid black;
+    transition: all 0.2s linear;
+}
+#previewImage > img:hover {
+    border: 3px solid #8B89FF;
+    transform: scale(1.05);
+}
+
+/* 이미지 업로드 크기 조정 */
+#previewImage { /* 마이페이지 */
+    height: 180px;
+}
+#previewImage img {
+    object-fit: cover;
+    object-position: center center;
+    width: 180px;
+    height: 180px;
+}
+.account--inputProfileBox { /* 마이페이지 수정 */
+    height: 200px;
+    overflow: hidden;
+}
+.account--inputProfileBox img {
+    object-fit: cover;
+    object-position: center center;
+    width: 180px;
+    height: 180px;
+}
+
+/* 비밀번호 유효성 문자 개행 */
+#emailMessage,
+#pwMessage,
+#authKeyMessage,
+#pwConfirmMessage,
+#nickMessage,
+#currentPwMessage,
+#newPwMessage,
+#newPwConfirmMessage,
+#nickMessage {
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
