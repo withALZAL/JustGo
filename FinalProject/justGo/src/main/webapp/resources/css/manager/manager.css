@@ -34,7 +34,7 @@
     align-items: top;
     padding: 5px 0 5px;
 }
-.manager--sidebar {
+/* .manager--sidebar {
     width: 150px;
     height: 50%;
     background-color: #D9D9D9;
@@ -50,30 +50,36 @@
 }
 .manager--sidebar i {
     padding-right: 5px;
-}
+} */
 
 /* 관리자 사이드바 상호작용 */
-.manager--sidebar a:hover {
+/* .manager--sidebar a:hover {
     color: #8B89FF;
-}
+} */
 
 /* mainBox 조정 */
 .manager--mainBox {
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 50px 1fr;
+}
+
+.manager--overlayedTitle{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 0 0 50px;
 }
 
 /* 통계박스 조정 */
-.manager--statisticsBox {
+/* .manager--statisticsBox {
     height: 100px;
     width: 1100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+} */
 
 /* 통계 컨텐츠 조정 */
-.manager--statistics {
+/* .manager--statistics {
     height: 80px;
     width: 200px;
     border-radius: 10px;
@@ -81,26 +87,26 @@
     background-color: #D9D9D9;
     display: grid;
     grid-template-columns: 80px 120px;
-}
+} */
 
 /* 통계 아이콘 조정 */
-.manager--statistics > div:nth-child(1) {
+/* .manager--statistics > div:nth-child(1) {
     display: grid;
     place-items: center;
     font-size: 1.5rem;
-}
+} */
 
 /* 통계 텍스트 조정 */
-.manager--statistics > div:nth-child(2) {
+/* .manager--statistics > div:nth-child(2) {
     display: grid;
     grid-template-rows: 20px 60px;
     align-items: center;
     padding: 5px 0 5px;
-}
-.manager--statistics > div:nth-child(2) > div:nth-child(2) {
+} */
+/* .manager--statistics > div:nth-child(2) > div:nth-child(2) {
     font-size: 1.5rem;
     font-weight: bold;
-}
+} */
 
 /* 매니저 개별 컨텐츠 조정 */
 .manager--content {
@@ -131,6 +137,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 
@@ -150,7 +157,7 @@
 }
 .manager--memberTable th {
     border-top: 1px solid #D9D9D9;
-    background-color: grey;
+    background-color: lightblue;
 }
 .manager--memberTable th:nth-child(1), /* 번호 컬럼 */
 .manager--memberTable td:nth-child(1) {
@@ -166,6 +173,7 @@
 .manager--memberTable td:nth-child(3) {
     width: 350px;
     max-width: 300px;
+    text-align: center;
 }
 .manager--memberTable th:nth-child(3) {
     text-align: center;
@@ -186,6 +194,17 @@
     text-align: center;
 }
 
+.manager--memberPostListBTN{
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.manager--memberPostListBTN:hover{
+    background-color: powderblue;
+    color: black;
+}
 
 /* 신고 ----------------------------------------------- */
 
@@ -203,11 +222,11 @@
 }
 .manager--reportTable th {
     border-top: 1px solid #D9D9D9;
-    background-color: grey;
+    background-color: lightblue;
 }
 .manager--reportTable th:nth-child(1), /* 번호 컬럼 */
 .manager--reportTable td:nth-child(1) {
-    width: 50px;
+    width: 70px;
     text-align: center;
 }
 .manager--reportTable th:nth-child(2), /* 신고자 컬럼 */
@@ -224,6 +243,7 @@
 .manager--reportTable td:nth-child(4) {
     width: 300px;
     max-width: 300px;
+    text-align: center;
 }
 .manager--reportTable th:nth-child(4) {
     text-align: center;
@@ -260,11 +280,11 @@
 }
 .manager--inquiryTable th {
     border-top: 1px solid #D9D9D9;
-    background-color: grey;
+    background-color: lightblue;
 }
 .manager--inquiryTable th:nth-child(1), /* 번호 컬럼 */
 .manager--inquiryTable td:nth-child(1) {
-    width: 50px;
+    width: 70px;
     text-align: center;
 }
 .manager--inquiryTable th:nth-child(2), /* 닉네임 컬럼 */
@@ -276,6 +296,7 @@
 .manager--inquiryTable td:nth-child(3) {
     width: 500px;
     max-width: 500px;
+    text-align: center;
 }
 .manager--inquiryTable th:nth-child(3) {
     text-align: center;
@@ -299,6 +320,7 @@
     width: 1100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 30px 0 0 0;
 }
 
 /* 문의 박스 */
@@ -314,7 +336,7 @@
 .manager--inquiryLeft > div:nth-child(1) {
     font-weight: bold;
     font-size: 1.8rem;
-    background-color: #D9D9D9;
+    background-color: cornflowerblue;
     padding: 0 15px 0;
 }
 
@@ -326,19 +348,20 @@
 
 /* 문의 내용 본문 */
 .manager--inquiryText {
-    background-color: #D9D9D9;
+    background-color: whitesmoke;
     width: 500px;
     height: 400px;
     padding: 30px;
     height: 400px;
     max-height: 400px;
     overflow: auto;
+    font-size: 1.2rem;
 }
 
 /* 답변 박스 */
 .manager--answerRight {
     display: grid;
-    grid-template-rows: 50px 30px 1fr;
+    grid-template-rows: 50px 30px 1fr 30px;
     align-items: center;
     padding: 0 25px 0;
 }
@@ -347,15 +370,20 @@
 .manager--answerRight > div:nth-child(1) {
     font-weight: bold;
     font-size: 1.8rem;
-    background-color: grey;
+    background-color: cornflowerblue;
     color: white;
     padding: 0 15px 0;
 }
 
 /* 이스터에그 */
-.manager--inquiryLeft > div:nth-child(2) {
+.manager--answerRight > div:nth-child(2) {
     text-align: right;
     border-bottom: 1px solid #D9D9D9;
+}
+
+/* 답변창 */
+.manager--answerRight > div:nth-child(3) {
+    margin-top: 27px;
 }
 
 /* 답변 내용 본문/버튼 배치 */
@@ -369,9 +397,62 @@
     height: 360px;
     padding: 30px;
     border: none;
-    background-color: #D9D9D9;
+    background-color: whitesmoke;
 }
 .manager--answerRight form > div {
     display: flex;
     justify-content: right;
+}
+
+
+/* 답변 내용 본문 */
+.manager--answerTextBefore{
+    background-color: whitesmoke;
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    height: 400px;
+    max-height: 400px;
+    overflow: auto;
+
+}
+
+/* 버튼 구역 */
+.manager--answerBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 40px 5px 10px 5px;
+}
+
+/* 1:1문의 답변 작성하기 버튼 */
+.manager--answerStartBTN{
+    width: 80px;
+    height: 30px;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 0 5px;
+}
+
+.manager--answerStartBTN:hover{
+    background-color: powderblue;
+    color: black;
+}
+
+/* 1:1문의 목록페이지 이동하는 버튼 */
+.manager--askListBTN{
+    width: 50px;
+    height: 30px;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 0 5px;
+}
+
+.manager--askListBTN:hover{
+    background-color: powderblue;
+    color: black;
 }

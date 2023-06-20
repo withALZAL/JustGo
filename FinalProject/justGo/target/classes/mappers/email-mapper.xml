@@ -2,7 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="emailMapper">
   
+     <resultMap type="Member" id="member_rm">
+      <!-- DB의 기본 키(복합키면 여러 개 작성) -->
+      <id property="memberNo" column="MEMBER_NO" />
+      <result property="memberEmail" column="MEMBER_EMAIL" />
+      <result property="memberPw" column="MEMBER_PW" />
+      <result property="memberNickname" column="MEMBER_NICKNAME" />
+      <result property="memberRole" column="MEMBER_ROLE" />
+      <result property="profileImg" column="PROFILE_IMG" />
+      <result property="enrollDate" column="ENROLL_DATE" />
+      <result property="disableDate" column="DISABLE_DATE" />
+      <result property="deleteDate" column="DELETE_DATE" />
+      <result property="memberCondition" column="MEMBER_CONDITION" />
+      <result property="setAlarmReply" column="SET_AL_REPLY" />
+      <result property="setAlarmLike" column="SET_AL_LIKE" />
+   </resultMap>
+  
 
+    <!-- 인증코드 생성하기 -->
 	<update id="updateAuthKey">
 		UPDATE  "AUTH_KEY" SET
 		AUTH_CODE = #{authKey},
@@ -11,30 +28,24 @@
 		
 	</update>
 	
+	<!-- 인증코드 만들기 -->
 	<insert id="insertAuthKey">
 		INSERT INTO "AUTH_KEY" VALUES(SEQ_AUTH_KEY_NO.NEXTVAL, 
 		#{authKey}, #{email}, DEFAULT)
 	</insert>
 	
+	<!-- 인증 확인 -->
 	<select id="checkAuthKey" resultType="int">
 		SELECT COUNT(*) FROM "AUTH_KEY"
 		WHERE EMAIL = #{email}
 		AND AUTH_CODE = #{inputKey}
-	</select>
-	
-	<select id="getPassword" resultType="int">
-	
-	    SELECT MEMBER_PW
-	    FROM MEMBER
-	    WHERE MEMBER_EMAIL = #{memberEmail}
-	
 	</select>
 
 	<!-- 비밀번호 변경 -->
     <update id="changePw" parameterType="Member">
 		UPDATE "MEMBER" 
 		SET MEMBER_PW = #{memberPw}
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>	
-	
+   	
 </mapper>

@@ -123,14 +123,14 @@ public class EmailServiceImpl implements EmailService{
              MimeMessage mail = mailSender.createMimeMessage();
              
              // 제목
-             String subject = "[Board Project]"+title+" 인증코드";
+             String subject = "[JustGo]"+title+" 인증코드";
              
              // 문자 인코딩
              String charset = "UTF-8";
              
              // 메일 내용
              String mailContent 
-                 = "<p>Board Project "+title+" 인증코드입니다.</p>"
+                 = "<p>Just "+title+" 인증코드입니다.</p>"
                  + "<h3 style='color:blue'>" + authKey + "</h3>";
              
              
@@ -174,11 +174,13 @@ public class EmailServiceImpl implements EmailService{
 		return dao.checkAuthKey(paramMap);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int pwConfirm(String newPw) {
-		return dao.pwConfirm(bcrypt.encode(newPw));
-	}
+	public int pwConfirm(String newPw, String memberEmail) {
+		
 
-	
+		return dao.pwConfirm(bcrypt.encode(newPw), memberEmail);
+
+}
 	
 }

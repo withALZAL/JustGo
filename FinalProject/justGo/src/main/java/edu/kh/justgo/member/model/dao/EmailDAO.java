@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.justgo.member.model.dto.Member;
+
 @Repository
 public class EmailDAO {
 
@@ -22,14 +24,14 @@ public class EmailDAO {
 	public int checkAuthKey(Map<String, Object> paramMap) {
 		return sqlSession.selectOne("emailMapper.checkAuthKey", paramMap);
 	}
-
-	public String getPassword(String email, String memberPw) {
-		return sqlSession.selectOne("emailMapper.getPassword", email);
-	}
-
-
-	public int pwConfirm(String encode) {
-		return sqlSession.selectOne("emailMapper.pwConfirm", encode);
+	
+	public int pwConfirm(String newPw, String memberEmail) {
+		
+		Member member = new Member();
+		member.setMemberEmail(memberEmail);
+		member.setMemberPw(newPw);
+		
+		return sqlSession.update("emailMapper.changePw", member);
 	}
 
 

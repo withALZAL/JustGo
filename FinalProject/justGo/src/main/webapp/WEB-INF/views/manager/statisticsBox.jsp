@@ -27,10 +27,10 @@
                 <div>20000개</div>
             </div>
         </div>
-        <div class="manager--statistics">
+        <%-- <div class="manager--statistics">
             <div></div>
             <div>예비칸 실험</div>
-        </div>
+        </div> --%>
     </nav>
     
 </body>

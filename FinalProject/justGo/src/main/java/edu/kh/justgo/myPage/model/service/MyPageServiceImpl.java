@@ -2,18 +2,14 @@ package edu.kh.justgo.myPage.model.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
 import edu.kh.justgo.common.utility.Util;
 import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.myPage.model.dao.MyPageDAO;
-import edu.kh.justgo.myPage.model.dto.UpdateProfileImg;
 import edu.kh.justgo.myPage.model.exception.FileUploadException;
 
 @Service
@@ -26,31 +22,23 @@ public class MyPageServiceImpl implements MyPageService{
 	private BCryptPasswordEncoder bcrypt;
 	
 	
-	// 회원 정보 수정 
+	// 비밀번호 변경 
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
-	public int updateInfo(String currentPw, String newPw, String memberNickname, int memberNo) {
-		String encPw = dao.selectEncPw(memberNo);
+	public int updatePw(String currentPw, String newPw, int memberNo) {
 		
-		int result = 0;
+		String encPw = dao.selectEncPw(memberNo);
+
 		if(bcrypt.matches(currentPw, encPw)) {
 			
-			 result = dao.changePw(bcrypt.encode(newPw) , memberNo);
-		}
-		
-		if(result > 0) {
-			Member member = new Member();
-			
-			member.setMemberNo(memberNo);
-			member.setMemberNickname(memberNickname);
-			return dao.updateInfo(member);
-		}
+			 return dao.changePw(bcrypt.encode(newPw) , memberNo);
 
-
-		return 0;
 	}
-
-
+		return 0;	
+	
+	}
+		
+		
 	// 프로필 이미지 변경(상준)
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
@@ -72,8 +60,17 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		return result;
 	}
+	
+	
+	// 닉네임 변경
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int updateNickname(Member updateMember) {
+		return dao.updateNickname(updateMember);
+	}
 
 	
+
 	
 	
 }

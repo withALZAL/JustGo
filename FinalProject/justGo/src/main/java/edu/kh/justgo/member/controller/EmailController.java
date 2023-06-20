@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.member.model.service.EmailService;
 
 @Controller
@@ -21,7 +19,7 @@ public class EmailController {
     private EmailService service;
     
     
-    // 이메일 인증
+    // 회원가입 이메일 인증
     @GetMapping("/sendEmail/join")
     @ResponseBody
     public int joinUp(String email, String title) {
@@ -34,18 +32,19 @@ public class EmailController {
     @GetMapping("/sendEmail/password")
     @ResponseBody
     public int passwordUp(String email, String title) {
-        return service.passwordUp(email, "회원 가입");   
+        return service.passwordUp(email, "비밀번호 찾기");   
     }
     
     // 새 비밀번호 설정
-    @PostMapping("/pwConfirm")
+    @PostMapping("/account/pwConfirm")
     public String pwConfirm(
+    		String memberEmail,
     		String newPw, 
-    		Member updateMember,
      	    RedirectAttributes ra) {
     	
-    	int result = service.pwConfirm(newPw);
     	
+    	int result = service.pwConfirm(newPw, memberEmail);
+  
     	String message = null;
     	
     	if(result > 0) {
@@ -55,11 +54,11 @@ public class EmailController {
     	}
     	
     	ra.addFlashAttribute("message", message);
-    	return "redirect:main";
+    	return "redirect:login";
     
     }
     
-	// 로그인 페이지로 이동
+	// 비밀번호 변경 페이지로 이동
 	@GetMapping("/account/pwConfirm")
 	public String login() {
 		return "/account/pwConfirm";
@@ -71,5 +70,7 @@ public class EmailController {
     public int checkAuthKey(@RequestParam Map<String, Object> paramMap){
         return service.checkAuthKey(paramMap);
         }
+    
+    
     }
 

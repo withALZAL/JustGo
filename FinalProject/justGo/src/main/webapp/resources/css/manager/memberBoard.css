@@ -5,6 +5,20 @@
 /* font-family: 'Noto Sans KR', sans-serif; */
 /* font-family: 'Noto Serif KR', serif; */
 
+
+
+
+.manager--overlayedTitle{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 100px 0 0 80px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 /* 게시판 공통 ----------------------------------------------- */
 
 /* 게시판 컨테이너 */
@@ -27,10 +41,24 @@
 /* 게시판 상단 ----------------------------------------------- */
 
 /* 프로필 이미지 조정 */
-.board--img {
+
+.manager--profileImage{
     height: 80px;
     width: 80px;
-    border-radius: 100%;
+    overflow: hidden;
+    /* border-radius: 100%; */
+}
+
+.manager--profileImage img{
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+}
+
+.board--img{
+    height: 80px;
+    width: 80px;
 }
 
 /* 게시판 top 조정 */
@@ -66,6 +94,10 @@
     width: 100%;
 }
 
+.board--boardTable {
+    border-left: none;
+}
+
 /* 테이블 박스 조정(GPT가 작성) */
 .board--contentBox__main {
     height: 740px;
@@ -81,9 +113,11 @@
     padding: 10px;
     text-align: center;
     border: 1px solid #D9D9D9;
+    border-left: none;
+    border-right: none;
 }
 .board--contentBox__main thead th {
-    background-color: #F5F5F5;
+    background-color: lightblue;
 }
 .board--contentBox__main tbody td {
     background-color: #FFFFFF;
@@ -91,7 +125,7 @@
 .board--contentBox__main tbody tr:nth-child(even) td {
     background-color: #F9F9F9;
 }
-.board--contentBox__main th:nth-child(1), /* 번호 */
+.board--contentBox__main th:nth-child(1), /* 글번호 */
 .board--contentBox__main td:nth-child(1) {
     width: 70px;
 }
@@ -103,9 +137,9 @@
 .board--contentBox__main td:nth-child(6) {
     width: 80px;
 }
-.board--contentBox__main th:nth-child(7), /* 좋아요 */
+.board--contentBox__main th:nth-child(7), /* 삭제여부 */
 .board--contentBox__main td:nth-child(7) {
-    width: 100px;
+    width: 90px;
 }
 .board--contentBox__main th:nth-child(3), /* 제목 */
 .board--contentBox__main td:nth-child(3) {
@@ -160,4 +194,20 @@
 #board--writingBtn:hover {
     color: white;
     background-color: #0E00AA;
+}
+
+/* 목록 버튼 */
+.manager--memberListBtn{
+    width: 70px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.manager--memberListBtn:hover{
+    background-color: powderblue;
+    color: black;
 }

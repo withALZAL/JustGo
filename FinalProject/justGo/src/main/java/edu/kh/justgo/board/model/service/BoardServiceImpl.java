@@ -161,6 +161,23 @@ public class BoardServiceImpl implements BoardService {
 		return count;
 	}
 
+	/**  여행게시글 조회
+	 *
+	 */
+	@Override
+	public Map<String, Object> selectCountryList(Map<String, Object> paramMap, int cp) {
+		int listCount2 = dao.listCount2(paramMap); // 오버로딩
+		Pagination pagination = new Pagination(listCount2, cp);
+
+		List<Board> boardList = dao.selectCountryList(pagination, paramMap);
+
+		Map<String, Object> map = new HashMap<>(); // time 추론--> 생략가능 앞 Map 이랑 같음
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		return map;
+	}
+
 	
 	
 	

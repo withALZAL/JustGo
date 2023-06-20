@@ -37,5 +37,8 @@ public interface BoardService {
 	// 좋아요 처리
 	int like(Map<String, Integer> paramMap);
 
+	//게시글 검색
+	Map<String, Object> selectCountryList(Map<String, Object> paramMap, int cp);
+
 
 }
