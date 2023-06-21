@@ -2,8 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="writingMapper">
 
+	
+	<!-- 게시글 삽입 -->
+	<!-- useGeneratedKeys 속성 : DB 내부적으로 생성한 키 (시퀸스)를 전달된 파라미터의 필드로 대입 가능 여부 
+		지정 ** 동적 SQL ** - 프로그램 수행 중 SQL의 변경하는 기능 (마이바티스의 가장 강력한 기능) <selectKey> 태그 
+		: INSERT/UPDATE 시 사용할 키(시퀸스)를 조회해서 파라미터의 지정된 필드에 대입 order 속성 : 메인 SQL이 수행되지 
+		전/후에 selectkey가 수행되도록 지정 전 : BEFORE 후 : AFTER keyProperty 속성 : selectKey 
+		조회 결과를 저장할 파라미터의 필드 -->
 	<insert id="boardInsert" parameterType="Board"	useGeneratedKeys="true">
-
+	
 		<selectKey order="BEFORE" resultType="_int"
 			keyProperty="boardNo">
 			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
@@ -15,6 +22,7 @@
 		#{memberNo},#{tagNo},#{boardCode},#{countryNo},NULL)
 	</insert>
 	
+	<!-- 게시글 수정(자유/질문) -->
 	<update id="writingUpdate">
 		UPDATE "BOARD" SET
 		BOARD_TITLE = #{boardTitle},
@@ -23,6 +31,41 @@
 		WHERE BOARD_CODE = #{boardCode}
 		AND BOARD_NO = #{boardNo}
 	</update>
-
-
+	
+	<!-- 게시글 수정(여행) -->
+	<update id="writingUpdate2">
+		UPDATE "BOARD" SET
+		BOARD_TITLE = #{boardTitle},
+		BOARD_TEXT  = #{boardText},
+		UPDATE_DATE = SYSDATE 
+		WHERE BOARD_CODE = #{boardCode}
+		AND COUNTRY_NO = #{countryNo}
+		AND BOARD_NO = #{boardNo}
+	</update>
+	
+	<!-- 게시글 삭제(자유/질문) -->
+	<update id="writingDelete">
+		UPDATE "BOARD" SET
+		BOARD_DELETE = 'Y'
+		WHERE BOARD_NO = #{boardNo}
+		AND BOARD_CODE = #{boardCode}
+	</update>
+	
+	<!-- 게시글 삭제(여행) -->
+	<update id="writingDelete2">
+		UPDATE "BOARD" SET
+		BOARD_DELETE = 'Y'
+		WHERE BOARD_NO = #{boardNo}
+		AND COUNTRY_NO = #{countryNo}
+		AND BOARD_CODE = #{boardCode}
+	</update>
+	
+	<!-- 자유/질문 리스트 -->
+	<select id="boardSelector" resultType="_int">
+		SELECT * 
+		FROM BOARD_TYPE 
+		WHERE BOARD_CODE= #{boardCode}
+		OR  BOARD_CODE = #{boardCode}
+	</select>
+	
 </mapper>
