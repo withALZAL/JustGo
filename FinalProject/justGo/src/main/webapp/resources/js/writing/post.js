@@ -64,6 +64,7 @@ document.getElementById("updateBtn").addEventListener("click",()=>{
 
     const pathname =location.pathname.replace("board","writing")+ "/update";
 
+
     location.href = pathname;
 });
 

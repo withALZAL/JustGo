@@ -54,7 +54,7 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="/board/write" method="post" enctype="multipart/form-data">
+<form action="/board/write" method="post" id="writeFrm" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
@@ -83,12 +83,8 @@
                 
             </textarea>
         <div class="writing--ButtonBox">
-            <a href="/resources/html/common/main.html">
                 <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
-            </a>
-            <a>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
-            </a>
         </div>
     </div>
 </div>

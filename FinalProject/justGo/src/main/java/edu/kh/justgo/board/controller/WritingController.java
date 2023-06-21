@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -107,19 +108,22 @@ public class WritingController {
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
 		
+		 
 		Board board = boardService.selectBoard(map);
 		
-		model.addAttribute("board", board); // forward(요청위임)
+		model.addAttribute("board", board); // forward(요청위임) -> request scope 유지 
 		
 		return "board/writingUpdate";
 	}
 	
+	// 게시글 수정 (자유/질문)
 	@PostMapping("/writing/{boardCode}/{boardNo}/update")
 	public String boardUpdate(
-			Board board
+			Board board // 커멘드 객체 (name==필드 경우 필드에 파라미터 세팅)
+			,@RequestParam(value="cp", required=false, defaultValue="1") int cp // 쿼리스트링 유지
 			,@PathVariable("boardCode") int boardCode
 			,@PathVariable("boardNo") int boardNo
-			,HttpSession session
+			,HttpSession session 
 			,RedirectAttributes ra
 			) throws IllegalStateException, IOException {
 		
@@ -127,10 +131,31 @@ public class WritingController {
 		board.setBoardCode(boardCode);
 		board.setBoardNo(boardNo);
 		
+		// board(boardCode, boardNo, boardTitle, boardText)
 		
-			
+		// 2) 이미지 서버 저장 경로, 웹 접근 경로
 		
-		return null;
+		
+		// 나중에 map 묶어서 보내야됨
+		
+		
+		// 3) 게시글 수정 서비스 호출
+		int result  = service.writingUpdate(board);
+		
+		// 4) 결과에 따라 message 설정
+		String message = null;
+		String path = "redirect:";
+		
+		if(result >0) {
+			message = "게시글이 수정되었습니다";
+			path += "/board/"+boardCode+"/"+boardNo+"?cp" + cp; // 상세조회 페이지
+		}else {
+			message = "게시글이 수정이 실패하였습니다";
+			path += "update";
+		}
+		ra.addFlashAttribute("message", message);
+		
+		return path;
 	}
 	
 	            
