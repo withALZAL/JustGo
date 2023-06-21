@@ -191,7 +191,7 @@
     padding: 0 10px 0;
 }
 .account--myWritingTable > thead > tr > th:nth-child(4) { /* 작성일 */
-    width: 100px;
+    width: 250px;
 }
 .account--myWritingTable > tbody > tr > td:nth-child(4) {
     text-align: center;
@@ -207,6 +207,10 @@
 .account--PaginationBox {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.account--PaginationBox form nav {
+    padding-top: 20px;
 }
 
 /* 마이페이지 비밀번호 변경 ----------------------------------------------- */

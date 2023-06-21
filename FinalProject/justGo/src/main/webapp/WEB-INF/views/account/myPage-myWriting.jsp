@@ -116,7 +116,13 @@ ${myPostList} --%>
                                     <tr>
                                         <td>${post.boardNo}</td>
                                         <td>${post.tagContent}</td>
-                                        <td><form><a href="#">${post.boardTitle}</a></form></td>
+                                        <%-- <c:if test="${post.countryNo != 0}">
+                                            <td><form><a href="/board/${post.boardCode}/${post.countryNo}}/${post.boardNo}">${post.boardTitle}</a></form></td>
+                                        </c:if>
+                                        <c:if test="${post.countryNo == 0 || post.countryNo == null}">
+                                            <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td>
+                                        </c:if> --%>
+                                        <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td>
                                         <td>${post.createDate}</td>
                                         <td>${post.readCount}</td>
                                     </tr>
@@ -127,45 +133,47 @@ ${myPostList} --%>
                     </tbody>
                 </table>
             </div>
+            <c:if test="${!empty myPostList}"> <%-- 페이지 없으면 페이지네이션도 없음 --%>
             <div class="account--PaginationBox">
                 <form action="#" method="get">
                     <nav aria-label="...">
                         <ul class="pagination">
                             <%-- 맨 처음 페이지로 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=1">맨 처음</a>
+                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=1">처음</a>
                             </li>
 
                             <%-- 이전 목록 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="prev" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.prevPage}">이전</a>
+                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=${pagination.prevPage}">이전</a>
                             </li>
 
                             <%-- 특정 번호 목록 페이지 이동 --%>
-                            <c:forEach var="i" begin="${memberPostPagination.startPage}" end="${memberPostPagination.endPage}" step="1">
+                            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
                                 <c:choose>
-                                    <c:when test="${i==memberPostPagination.currentPage}">
-                                        <li class="page-item"><a class="page-link">${i}</a></li>
+                                    <c:when test="${i==pagination.currentPage}">
+                                        <li class="page-item"><a class="page-link active">${i}</a></li> <%-- 현재 보고 있는 페이지 --%>
                                     </c:when>
                                     <c:otherwise>
-                                        <li class="page-item"><a class="page-link" href="/manager/memberBoard/${memberNo}?cp=${i}">${i}</a></li>
+                                        <li class="page-item"><a class="page-link" href="/myPage/myWriting?cp=${i}">${i}</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
 
                             <%-- 다음 목록 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
+                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.nextPage}">다음</a>
                             </li>
 
                             <%-- 맨 끝 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="next" href="/manager/memberBoard/${memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
+                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.maxPage}">끝</a>
                             </li>
                         </ul>
                     </nav>
                 </form>
             </div>
+            </c:if>
         </form>
     </div>
     <%-- 내가 쓴 글 끝 --%>
