@@ -97,8 +97,6 @@ public class ManagerServiceImpl implements ManagerService{
     // 회원별 글 목록 조회
 	@Override
 	public Map<String, Object> selectMemberPostList(int memberNo, int cp) {
-
-
 		
 		
 		int postMemberCount = dao.getPostMemberCount(memberNo);
@@ -136,7 +134,9 @@ public class ManagerServiceImpl implements ManagerService{
 	 public Feedback selectAskDetailList(int feedbackNo) {
 		return dao.selectAskDetailList(feedbackNo);
 	}
-
+	
+	
+	
 
 
 

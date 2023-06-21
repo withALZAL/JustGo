@@ -44,30 +44,7 @@ public class ManagerController {
 	
 	
 
-	
-	
 	// 관리자페이지 회원별 게시글 목록 연결
-/*	
-  	@GetMapping("/memberBoard/{memberNo}")
-	public String memberBoardList(
-            @RequestParam(value="cp", required=false, defaultValue="1") int cp
-            , Model model
-            , @PathVariable("memberNo") int memberNo
-			) {
-				
-//        System.out.println("memberNo: " + memberNo);
-        
-		// 회원별 글 목록 불러오기
-        Map<String, Object> map = service.selectMemberPostList(memberNo, cp);
-        model.addAttribute("map", map);
-        
-        // 콘솔에서 확인
-//        System.out.println("model" +model);
-        
-		return "/manager/memberBoard";
-	}
-*/
-	
 	@GetMapping("/memberBoard/{memberNo}")
 	public String memberBoardList(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp
@@ -121,18 +98,21 @@ public class ManagerController {
     	
     	// 1:1문의 상세글 불러오기
        Feedback askList = service.selectAskDetailList(feedbackNo);
-        model.addAttribute("askList", askList);
-        model.addAttribute("loginManager", loginManager);
-        
+       model.addAttribute("loginManager", loginManager);
+
+       model.addAttribute("askList", askList);
         // 콘솔에서 확인
 //        System.out.println("model" +model);
-    	
     	
     	
         return "/manager/askManager_detail";
     }
 	
 	
+    
+    
+    
+    
     
     
 	// 신고관리 관리자페이지 연결
