@@ -117,6 +117,7 @@
         </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
+
             <c:if test="${loginMember.memberNo == board.memberNo}" >
         <a href="/resources/html/common/main.html">
             <button type="button" class="btn btn-primary btn-lg">수정</button>
@@ -125,6 +126,7 @@
             <button type="button" class="btn btn-danger btn-lg">삭제</button>
         </a>
             </c:if>
+
     </div>
 </div>
 <!-- 포스트 끝 -->

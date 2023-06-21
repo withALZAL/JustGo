@@ -14,6 +14,15 @@
 		#{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,
 		#{memberNo},#{tagNo},#{boardCode},#{countryNo},NULL)
 	</insert>
+	
+	<update id="writingUpdate">
+		UPDATE "BOARD" SET
+		BOARD_TITLE = #{boardTitle},
+		BOARD_TEXT = #{boardText},
+		UPDATE_DATE = SYSDATE
+		WHERE BOARD_CODE = #{boardCode}
+		AND BOARD_NO = #{boardNo}
+	</update>
 
 
 </mapper>

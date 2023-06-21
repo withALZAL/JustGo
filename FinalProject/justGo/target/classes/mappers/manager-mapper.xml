@@ -219,12 +219,16 @@
 	 
 	 
 	 
-      <!-- 회원 수 조회 -->
+      <!-- 회원별 게시글 수 조회 -->
       <select id="getMemberPostCount" parameterType="Board" resultType="_int">
           SELECT COUNT(*) 
           FROM "BOARD"
          WHERE MEMBER_NO =#{memberNo}
       </select>
+      
+      
+      
+      
       
       <!-- 회원 수 조회 -->
       <select id="getPostMemberCount" parameterType="Member" resultType="_int">

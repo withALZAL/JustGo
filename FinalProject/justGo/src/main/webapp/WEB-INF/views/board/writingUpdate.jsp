@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:forEach items="${boardTypeList}" var="boardType">
+    <c:if test="${boardType.BOARD_CODE == boardCode}" >
+        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
+    </c:if>
+</c:forEach>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +26,7 @@
     <link rel="stylesheet" href="/resources/css/summernote/summernote-lite.css">
 
 
-    <title>JustGo-writingBoard</title>
+    <title>${boardName}</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -45,8 +52,8 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
-        <div class="template--overlayedTitle">글쓰기</div>
+        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글수정">
+        <div class="template--overlayedTitle">글수정</div>
     </div>
 </div>
 <!-- 페이지 제목 끝 -->
@@ -54,14 +61,14 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="/board/write" method="post" id="writeFrm" enctype="multipart/form-data">
+<form action="update" method="post" id="wirteUpdateFrm" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
+                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" value="${board.boardTitle}"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" value="${board.boardCode}" required>
                         <option value="2" class="b" >자유게시판</option>
                         <option value="3" class="b">질문게시판</option>
                         <option value="2">일본게시판</option>
@@ -70,7 +77,7 @@
                         <option value="4">태국게시판</option>
                         <option value="5">호주게시판</option>
                     </select>
-                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" value="${board.tagNo}" required>
                         <option value="1">일반</option>
                         <option value="3">꿀팁</option>
                         <option value="2">맛집</option>
@@ -79,15 +86,15 @@
                 </div>
             </div>
         <div class="writing--inputContentBox">
-            <textarea class="writing--summernoteBox" id="summernote" name="boardText"></textarea>
-                
-            </textarea>
-        <div class="writing--ButtonBox">
-                <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                                                                                        <%-- 빈틈없이 pre태그 처럼 띄어쓰기도 같이 들어감 --%>
+            <textarea class="writing--summernoteBox" id="summernote" name="boardText">${board.boardText}</textarea>
+                    
+                <div class="writing--ButtonBox">
+                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">수정</button>
+                    <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                </div>
         </div>
     </div>
-</div>
 </div>
 </form>
 <!-- 콘텐츠 끝 -->
@@ -120,6 +127,7 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/writing/writingUpdate.js"></script>
 
 <%-- summernote --%>
     <script>

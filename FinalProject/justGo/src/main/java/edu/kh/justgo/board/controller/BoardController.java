@@ -78,19 +78,19 @@ public class BoardController {
 			@RequestParam Map<String, Object> paramMap) {
 
 		if (paramMap.get("key2") == null) {
-			
+
 			Map<String, Object> map = service.countryList(countryNo, cp);
 
 			model.addAttribute("map", map);
 
-			}else {
-				paramMap.put("countryNo", countryNo);
+		} else {
+			paramMap.put("countryNo", countryNo);
 
-				Map<String, Object> map = service.selectCountryList(paramMap, cp); // 오버로딩
+			Map<String, Object> map = service.selectCountryList(paramMap, cp); // 오버로딩
 
-				model.addAttribute("map", map);
-			}
-			return "account/boardCountry";
+			model.addAttribute("map", map);
+		}
+		return "account/boardCountry";
 	}
 
 	// 게시글 상세확인
@@ -305,20 +305,29 @@ public class BoardController {
 		return path;
 
 	}
-	
+
 	// 좋아요 처리
 	@PostMapping("/like")
 	@ResponseBody
 	public int like(@RequestBody Map<String, Integer> paramMap) {
 		System.out.println(paramMap);
-		
-		
+
 		return service.like(paramMap);
 	}
-	
-	
-	
-	
-	
+
+	// 전체게시판 검색
+	@GetMapping("/boardSearch")
+	public String searchList(
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
+			@RequestParam Map<String, Object> paramMap) {
+
+
+		Map<String, Object> map = service.selectAllList(paramMap, cp); // 오버로딩
+
+		model.addAttribute("map", map);
+
+		return "board/boardSearch";
+
+	}
 
 }

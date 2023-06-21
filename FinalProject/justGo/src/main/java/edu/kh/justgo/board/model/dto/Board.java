@@ -32,6 +32,7 @@ public class Board {
     private String profileImage;
     private int countryNo;
     private int tagNo;
+    private String tagContent;
     
     
     

@@ -40,5 +40,8 @@ public interface BoardService {
 	//게시글 검색
 	Map<String, Object> selectCountryList(Map<String, Object> paramMap, int cp);
 
+	//전체게시글 검색
+	Map<String, Object> selectAllList(Map<String, Object> paramMap, int cp);
+
 
 }

@@ -20,6 +20,7 @@ public class EmailServiceImpl implements EmailService{
 	
 	@Autowired 
 	private BCryptPasswordEncoder bcrypt;
+	 
 	
 	   @Autowired
 	    private JavaMailSender mailSender;
@@ -57,9 +58,10 @@ public class EmailServiceImpl implements EmailService{
         return key;
 	}
 	
+	// 회원가입 이메일 인증코드
 	@Transactional
 	@Override
-	public int joinUp(String email, String title) {
+	public int joinUp(String email) {
         String authKey = createAuthKey();
         try {
 
@@ -67,14 +69,14 @@ public class EmailServiceImpl implements EmailService{
             MimeMessage mail = mailSender.createMimeMessage();
             
             // 제목
-            String subject = "[JustGo]"+title+" 인증코드입니다.";
+            String subject = "[JustGo]"+"인증코드입니다.";
             
             // 문자 인코딩
             String charset = "UTF-8";
             
             // 메일 내용
             String mailContent 
-                = "<p>안녕하세요. JustGo에서 발송된 "+title+" 인증코드입니다.</p>"
+                = "<p>안녕하세요. JustGo에서 발송된 "+" 인증코드입니다.</p>"
                 + "<h3 style='color:blue'>" + authKey + "</h3>";
             
             
@@ -112,10 +114,13 @@ public class EmailServiceImpl implements EmailService{
         return result;
     }
 	
-	// 이메일 인증코드 보내기
+	
+	
+	
+	// 비밀번호 이메일 인증코드 보내기
 	@Transactional
     @Override
-	public int passwordUp(String email, String title) {
+	public int passwordUp(String email) {
     	 String authKey = createAuthKey();
          try {
 
@@ -123,14 +128,14 @@ public class EmailServiceImpl implements EmailService{
              MimeMessage mail = mailSender.createMimeMessage();
              
              // 제목
-             String subject = "[JustGo]"+title+" 인증코드";
+             String subject = "[JustGo]"+"인증코드";
              
              // 문자 인코딩
              String charset = "UTF-8";
              
              // 메일 내용
              String mailContent 
-                 = "<p>Just "+title+" 인증코드입니다.</p>"
+                 = "<p>안녕하세요. JustGo에서 발송된"+" 인증코드입니다.</p>"
                  + "<h3 style='color:blue'>" + authKey + "</h3>";
              
              
@@ -166,21 +171,21 @@ public class EmailServiceImpl implements EmailService{
          }
          
          return result;
-     }
-
-
+     }	
+	
 	@Override
 	public int checkAuthKey(Map<String, Object> paramMap) {
 		return dao.checkAuthKey(paramMap);
 	}
-
+	
+	
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int pwConfirm(String newPw, String memberEmail) {
-		
-
-		return dao.pwConfirm(bcrypt.encode(newPw), memberEmail);
-
+	public int pwConfirm(String newPw) {
+		return dao.pwConfirm(bcrypt.encode(newPw));
 }
+
+
+	
 	
 }
