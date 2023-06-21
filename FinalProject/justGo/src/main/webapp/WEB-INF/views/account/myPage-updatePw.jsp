@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/accountNew.css">
+    <link rel="stylesheet" href="/resources/css/account/myPage.css">
 
     <title>JustGo-myPage_updatePw</title>
 
@@ -81,14 +81,14 @@
                         <tr>
                             <th>현재 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" >
+                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
                             </td>
                         </tr>
                         <tr>
                             <th>새 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw" >
+                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwMessage"></div>
                             </td>
                         </tr>
@@ -102,7 +102,7 @@
                     </table>
                 </div>
                 <div class="account--BtnBox">
-                    <button type="submit" class="btn btn-primary btn-lg">수정</button>
+                    <button type="submit" id="updatePwBtn" class="btn btn-primary btn-lg">수정</button>
                 </div>
             </form>
         </div>
@@ -174,6 +174,10 @@
             var fileInput = document.getElementById("imageUpload");
             fileInput.click();
         }
+    </script>
+<%-- memberNo 추출 --%>
+    <script>
+        let memberNo = ${loginMember.memberNo};
     </script>
 </body>
 </html>

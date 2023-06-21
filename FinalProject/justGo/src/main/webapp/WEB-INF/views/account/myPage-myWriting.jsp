@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/accountNew.css">
+    <link rel="stylesheet" href="/resources/css/account/myPage.css">
 
-    <title>JustGo-myPage</title>
+    <title>JustGo-myPage_myWriting</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -24,6 +24,16 @@
 </head>
 <body class="template--body">
 
+<%-- <c:set var="memberPost" value="${memberPostList}"/>
+<c:set var="loginMember" value="${memberPostList.loginMember}" />
+<c:set var="myPostList" value="${memberPostList.myPostList}" /> --%>
+<%-- ${map.loginMember} --%>
+<%-- ${memberPost}
+${myPostList} --%>
+
+
+
+
 
 
 <!-- ----------------------------------------------- -->
@@ -31,6 +41,12 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
+
+
+
+<%-- map에 저장된 값 변수에 저장 --%>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="myPostList" value="${map.myPostList}"/>
 
 
 
@@ -90,33 +106,19 @@
                     <tbody>
                         <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                         <c:choose>
-                            <c:when test="${empty memberPostList}">
+                            <c:when test="${empty myPostList}">
                                 <tr>
                                     <th colspan="5" style="text-align: center;">게시글이 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach items="${memberPostList}" var="memberPost">
+                                <c:forEach items="${myPostList}" var="post">
                                     <tr>
-                                        <td>${memberPost.boardNo}100000</td>
-                                        <td>${memberPost.tagNo}일반</td>
-                                        <td><form><a href="#">${memberPost.boardTitle}글제목</a></form></td>
-                                        <td>${memberPost.createDate}</td>
-                                        <td>${memberPost.readCount}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>${memberPost.boardNo}100000</td>
-                                        <td>${memberPost.tagNo}일반</td>
-                                        <td><form><a href="#">${memberPost.boardTitle}글제목</a></form></td>
-                                        <td>${memberPost.createDate}</td>
-                                        <td>${memberPost.readCount}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>${memberPost.boardNo}100000</td>
-                                        <td>${memberPost.tagNo}일반</td>
-                                        <td><form><a href="#">${memberPost.boardTitle}</a></form></td>
-                                        <td>${memberPost.createDate}</td>
-                                        <td>${memberPost.readCount}</td>
+                                        <td>${post.boardNo}</td>
+                                        <td>${post.tagContent}</td>
+                                        <td><form><a href="#">${post.boardTitle}</a></form></td>
+                                        <td>${post.createDate}</td>
+                                        <td>${post.readCount}</td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

@@ -1,3 +1,6 @@
+/* 공통 변수 선언 ----------------------------------------------------------------------------------- */
+
+/* 인증 객체 생성 */
 const checkObj ={
     "email": false,
     "memberPw": false,
@@ -8,9 +11,24 @@ const checkObj ={
 
 // 이메일 유효성 검사
 const email = document.getElementById("email");
-const emailMessage = document.getElementById("emailMessage"); /* 유효성 검사 메시지 출력 */
+const emailMessage = document.getElementById("emailMessage");
+// 비밀번호 유효성 검사
+const memberPw = document.getElementById("memberPw");
+const memberPwConfirm = document.getElementById("memberPwConfirm");
+const pwMessage = document.getElementById("pwMessage");
+const pwConfirmMessage = document.getElementById("pwConfirmMessage");
+// 닉네임 유효성 검사
+const memberNickname = document.getElementById("memberNickname");
+const nickMessage = document.getElementById('nickMessage');
+// 인증번호 발송
+const sendAuthKeyBtn = document.getElementById("sendAuthKeyBtn");
+const authKeyMessage = document.getElementById("authKeyMessage");
+// 인증 확인
+const authKey = document.getElementById("authKey");
+const checkAuthKeyBtn = document.getElementById("checkAuthKeyBtn");
 
-// 이메일이 입력될 때마다
+/* 이메일 유효성 검사 ----------------------------------------------------------------------------------- */
+
 email.addEventListener("input", () => {
 
     // 입력된 이메일이 없을 경우
@@ -30,12 +48,11 @@ email.addEventListener("input", () => {
 
     // 2) 입력 받은 이메일과 정규식 일치 여부 판별
     if(  regEx.test(email.value)  ){ // 유효한 경우
-
         
         /*************************************************************/
         /* fetch() API를 이용한 ajax(비동기 통신) */
         
-        // GET 방식 ajax 요청 (파리미터는 쿼리스트링으로......)
+        // GET 방식 ajax 요청 (파라미터는 쿼리스트링으로......)
         fetch('/dupCheck/email?email=' + email.value)
 
         .then(response => response.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
@@ -46,20 +63,18 @@ email.addEventListener("input", () => {
                 emailMessage.innerText = "사용 가능한 이메일입니다.";
                 emailMessage.classList.add("confirm");
                 emailMessage.classList.remove("error");
-                checkObj.memberEmail = true;
+                checkObj.email = true;
             } else {
                 emailMessage.innerText = "이미 사용 중인 이메일입니다.";
                 emailMessage.classList.add("error");
                 emailMessage.classList.remove("confirm");
-                checkObj.memberEmail = false;
+                checkObj.email = false;
             }
 
 
         }) // 파싱한 데이터를 이용해서 수행할 코드 작성
 
         .catch(err => console.log(err))
-
-
 
         emailMessage.innerText = "유효한 이메일 형식입니다.";
         emailMessage.classList.add("confirm"); // css에 .confirm 스타일 적용
@@ -76,22 +91,15 @@ email.addEventListener("input", () => {
     }
 });
 
+/* 비밀번호 유효성 검사 ----------------------------------------------------------------------------------- */
 
-
-// 비밀번호 유효성 검사
-const memberPw = document.getElementById("memberPw");
-const memberPwConfirm = document.getElementById("memberPwConfirm");
-const pwMessage = document.getElementById("pwMessage");
-const pwConfirmMessage = document.getElementById("pwConfirmMessage");
-
-// 비밀번호 입력 시 유효성 검사
 memberPw.addEventListener("input", () => {
 
     // 비밀번호가 입력되지 않은 경우
     if(memberPw.value.trim().length == 0){
         memberPw.value = ""; 
         pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
-        pwMessage.classList.remove("error", "confirm"); 
+        pwMessage.classList.remove("error", "confirm");
         checkObj.memberPw = false; 
         return;
     }
@@ -145,9 +153,7 @@ memberPwConfirm.addEventListener('input', ()=>{
 
 
 
-// 닉네임 유효성 검사
-const memberNickname = document.getElementById("memberNickname");
-const nickMessage = document.getElementById('nickMessage');
+
 
 // 닉네임이 입력이 되었을 때
 memberNickname.addEventListener("input", () => {
@@ -206,9 +212,7 @@ memberNickname.addEventListener("input", () => {
 
 // ------------------------------ 이메일 인증 -------------------------------------------
 
-// 인증번호 발송
-const sendAuthKeyBtn = document.getElementById("sendAuthKeyBtn");
-const authKeyMessage = document.getElementById("authKeyMessage");
+
 let authTimer;
 let authMin = 4;
 let authSec = 59;
@@ -241,7 +245,25 @@ sendAuthKeyBtn.addEventListener("click", function(){
             console.log(err);
         });
 
-        alert("인증번호가 발송 되었습니다.");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            didClose: () => {
+                memberEmail.value = "";
+                memberEmail.focus();
+            }
+        });
+        Toast.fire({
+            icon: 'success',
+            title: "인증번호가 발송 되었습니다."
+        });
         
         authKeyMessage.innerText = "05:00";
         authKeyMessage.classList.remove("confirm");
@@ -269,16 +291,33 @@ sendAuthKeyBtn.addEventListener("click", function(){
         }, 1000)
 
     } else{
-        alert("중복되지 않은 이메일을 작성해주세요.");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            didClose: () => {
+                memberEmail.value = "";
+                memberEmail.focus();
+            }
+        });
+        Toast.fire({
+            icon: "warning",
+            title: "사용 가능한 이메일을 작성해주세요."
+        });
+
         memberEmail.focus();
     }
 
 });
 
 
-// 인증 확인
-const authKey = document.getElementById("authKey");
-const checkAuthKeyBtn = document.getElementById("checkAuthKeyBtn");
+
 
 checkAuthKeyBtn.addEventListener("click", function(){
 
@@ -296,7 +335,27 @@ checkAuthKeyBtn.addEventListener("click", function(){
                 checkObj.authKey = true;
 
             } else{
-                alert("인증번호가 일치하지 않습니다.")
+                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    },
+                    didClose: () => {
+                        memberEmail.value = "";
+                        memberEmail.focus();
+                    }
+                });
+                Toast.fire({
+                    icon: "warning",
+                    title: "인증번호가 일치하지 않습니다."
+                });
+
                 checkObj.authKey = false;
             }
         })
@@ -304,7 +363,26 @@ checkAuthKeyBtn.addEventListener("click", function(){
 
 
     } else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+            didClose: () => {
+                memberEmail.value = "";
+                memberEmail.focus();
+            }
+        });
+        Toast.fire({
+            icon: "warning",
+            title: "인증 시간이 만료되었습니다. 다시 시도해주세요."
+        });
     }
 
 });
@@ -337,16 +415,92 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
 
             switch(key){
                 case "email" : 
-                alert("이메일이 유효하지 않습니다."); break;
+                const Toast1 = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    },
+                    didClose: () => {
+                        memberEmail.value = "";
+                        memberEmail.focus();
+                    }
+                });
+                Toast1.fire({
+                    icon: "warning",
+                    title: "이메일이 유효하지 않습니다."
+                });
+                break;
 
                 case "memberPw" : 
-                alert("비밀번호가 유효하지 않습니다."); break;
+                const Toast2 = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    },
+                    didClose: () => {
+                        memberEmail.value = "";
+                        memberEmail.focus();
+                    }
+                });
+                Toast2.fire({
+                    icon: "warning",
+                    title: "비밀번호가 유효하지 않습니다."
+                });
+                break;
 
                 case "memberPwConfirm" :
-                alert("비밀번호가 확인되지 않았습니다."); break;
+                const Toast3 = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    },
+                    didClose: () => {
+                        memberEmail.value = "";
+                        memberEmail.focus();
+                    }
+                });
+                Toast3.fire({
+                    icon: "warning",
+                    title: "비밀번호가 확인되지 않았습니다."
+                });
+                break;
 
                 case "memberNickname" :
-                alert("닉네임이 유효하지 않습니다."); break;
+                const Toast4 = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    },
+                    didClose: () => {
+                        memberEmail.value = "";
+                        memberEmail.focus();
+                    }
+                });
+                Toast4.fire({
+                    icon: "warning",
+                    title: "닉네임이 유효하지 않습니다."
+                });
+                break;
             }
 
             // 유효하지 않은 input 태그로 focus 이동

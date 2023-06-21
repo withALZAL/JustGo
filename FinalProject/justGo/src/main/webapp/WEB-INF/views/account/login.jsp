@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/accountNew.css">
+    <link rel="stylesheet" href="/resources/css/account/join.css">
 
     <title>JustGo-login</title>
 

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/accountNew.css">
+    <link rel="stylesheet" href="/resources/css/account/myPage.css">
 
     <title>JustGo-myPage_profile</title>
 
@@ -91,7 +91,7 @@
                     <div class="account--profileUpdateBtn">
                         <input type="file" name="profileImage" id="uploadImage" accept="image/*" style="display: none;">
                         <button type="submit" id="updateImageBtn" class="btn btn-primary btn-sm" style="display: none;">이미지 변경</button>
-                        <button type="button" id="deleteImageBtn" class="btn btn-danger btn-sm" style="display: none;" onclick="cancelImage()">취소</button>
+                        <button type="button" id="deleteImageBtn" class="btn btn-danger btn-sm" style="display: none;" onclick="cancelImage()">변경 취소</button>
                     </div>
                 </div>
             </form>
@@ -102,9 +102,10 @@
                         <td class="myPage--updateNickname">
                             <form action="/myPage/updateNickname" method="post">
                                 <span>
-                                    <input type="text" name="memberNickname" value="${loginMember.memberNickname}" maxlength="8">
+                                    <input type="text" id="memberNickname" name="memberNickname" value="${loginMember.memberNickname}" maxlength="8" autocomplete="off">
                                 </span>
-                                <button type="submit" class="btn btn-secondary btn-sm">수정</button>
+                                <button type="submit" class="btn btn-primary btn-sm">수정</button>
+                                <button type="button" id="nickCancel" class="btn btn-secondary btn-sm">취소</button>
                             </form>
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
                         </td>
@@ -189,6 +190,12 @@
 <%-- 이미지 수정 취소 함수 --%>
     <script>
         var profileImageSrc = "${!empty sessionScope.loginMember.profileImg ? sessionScope.loginMember.profileImg : '/resources/images/officialProfile/COMMONPROFILEPLUS.png'}";
+    </script>
+<%-- 취소 버튼 클릭 시 memberNickname 복귀 --%>
+    <script>
+        nickCancel.addEventListener("click", () => {
+            memberNickname.value = "${loginMember.memberNickname}";
+        });
     </script>
 </body>
 </html>

@@ -2,6 +2,8 @@ package edu.kh.justgo.myPage.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.justgo.member.model.dto.Member;
@@ -18,6 +21,7 @@ import edu.kh.justgo.myPage.model.service.MyPageService;
 
 @Controller
 @RequestMapping("/myPage")
+@SessionAttributes({ "loginMember" })
 public class MyPageController {
 	
 	@Autowired
@@ -29,12 +33,6 @@ public class MyPageController {
 		return "/account/myPage-profile";
 	}
 	
-	// 마이페이지-내가쓴글
-	@GetMapping("/myWriting")
-	public String myWriting() {
-		return "/account/myPage-myWriting";
-	}
-	
 	// 마이페이지-비밀번호변경
 	@GetMapping("/updatePw")
 	public String updatePw() {
@@ -43,13 +41,14 @@ public class MyPageController {
 	
 	// 비밀번호 변경
 	@PostMapping("/updatePw")
-	public String updateInfo(
+	public String updatePw(
 		   String currentPw,
 		   String newPw,
     	  @SessionAttribute("loginMember") Member loginMember
     	 , RedirectAttributes ra) {
 		
 		int memberNo = loginMember.getMemberNo();
+		String path = "redirect:";
 		
 		int result = service.updatePw(currentPw, newPw, memberNo);
 		
@@ -57,12 +56,14 @@ public class MyPageController {
     	
     	if(result > 0) {
     		message = "비밀번호가 변경 되었습니다.";
+    		path += "info";
     	} else {
     		message = "비밀번호가 일치하지 않습니다";
+    		path += "updatePw";
     	}
     	
     	ra.addFlashAttribute("message", message);
-		return "redirect:info";
+		return path;
 	}
 	
 	
@@ -120,7 +121,29 @@ public class MyPageController {
 		return "redirect:info";
 	}
 	
-	// 마이페이지 작성글 확인
+
+	// 마이페이지-내가쓴글(상준)
+	@GetMapping("/myWriting")
+	public String myPost(
+			@SessionAttribute(value="loginMember", required=false) Member loginMember,
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
+			Model model
+			) {
+		
+			System.out.println("loginMember.getMemberNo():"+loginMember.getMemberNo()); // 잘 담김
+			System.out.println("cp:"+cp); 		// 잘 담김
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = service.myPost(memberNo, cp);
+		
+		model.addAttribute("map", map);
+		
+			System.out.println(model); // 잘 담김
+		
+		return "/account/myPage-myWriting";
+	}
+	
 	
 	
 }
