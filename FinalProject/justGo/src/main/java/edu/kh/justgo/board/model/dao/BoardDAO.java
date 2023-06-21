@@ -104,7 +104,6 @@ public class BoardDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
 		
-=======
 
 		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
 	}
