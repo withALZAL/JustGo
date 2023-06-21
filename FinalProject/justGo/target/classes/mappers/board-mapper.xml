@@ -25,6 +25,7 @@
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="countryNo" column="COUNTRY_NO" />
 		<result property="tagNo" column="TAG_NO" />
+		<result property="tagContent" column="TAG_CONTENT" />
 		<result property="thumbnail" column="THUMBNAIL" />
 
 
@@ -102,7 +103,7 @@
 
 	<!-- 게시글 리스트 -->
 	<select id="selectBoardList" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -125,6 +126,7 @@
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = #{boardCode}
 		ORDER BY BOARD_NO DESC
@@ -140,7 +142,7 @@
 
 	<!-- 나라게시판 게시글 -->
 	<select id="countryList" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -163,6 +165,7 @@
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
 		AND COUNTRY_NO = #{countryNo}
@@ -174,7 +177,7 @@
 	<!--게시글 상세내용 -->
 	<select id="selectBoard" resultMap="board_rm">
 		SELECT
-		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_NO,
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
 		TO_CHAR(CREATE_DATE,'YYYY"년"
 		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
@@ -195,7 +198,7 @@
 	<!-- 여행게시판 상세글 조회 -->
 	<select id="boardCountryDetail" resultMap="board_rm">
 		SELECT
-		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_CONTENT,
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
 		TO_CHAR(CREATE_DATE,'YYYY"년"
 		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
@@ -207,6 +210,7 @@
 		FROM "BOARD"
 		B
 		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE='N'
 		AND BOARD_CODE=1
 		AND COUNTRY_NO = #{countryNo}
@@ -313,7 +317,7 @@
 	</select>
 
 	<select id="selectBoardList_search" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -336,6 +340,7 @@
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = #{boardCode}
 
@@ -402,7 +407,7 @@
 
 	<!--여행게시판 검색 -->
 	<select id="selectCountryList_search" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -425,6 +430,7 @@
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
 		AND COUNTRY_NO = #{countryNo}
@@ -485,7 +491,7 @@
 
 	<!-- 전체게시판 검색 -->
 	<select id="selectAllList_search" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,BOARD_CODE,COUNTRY_NO,
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,BOARD_CODE,COUNTRY_NO,TAG_NO,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60

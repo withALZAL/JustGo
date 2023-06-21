@@ -216,7 +216,15 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${hotBoardList}" var="hotList">
                     <div class="card common--boardCard" style="width: 15rem;">
-                        <a href="https://www.google.com" class="common--boardListContent">
+                     <c:choose>
+                        <c:when test="${hotList.boardCode != '1'}">
+                           <a href="/board/${hotList.boardCode}/${hotList.boardNo}"  class="common--boardListContent">
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/board/1/${hotList.countryNo}/${hotList.boardNo}"  class="common--boardListContent">
+                        </c:otherwise>
+                    </c:choose>
+                        <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                         <div class="common--boardListImageContainer">
                             <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
                         </div>
@@ -255,7 +263,15 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${foodBoardList}" var="foodList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
+                 <c:choose>
+                        <c:when test="${foodList.boardCode != '1'}">
+                           <a href="/board/${foodList.boardCode}/${foodList.boardNo}"  class="common--boardListContent">
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/board/1/${foodList.countryNo}/${foodList.boardNo}"  class="common--boardListContent">
+                        </c:otherwise>
+                    </c:choose>
+                    <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
                         <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
@@ -294,7 +310,15 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${tipBoardList}" var="tipBoardList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
+                 <c:choose>
+                        <c:when test="${tipBoardList.boardCode != '1'}">
+                           <a href="/board/${tipBoardList.boardCode}/${tipBoardList.boardNo}"  class="common--boardListContent">
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/board/1/${tipBoardList.countryNo}/${tipBoardList.boardNo}"  class="common--boardListContent">
+                        </c:otherwise>
+                    </c:choose>
+                    <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
                         <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
@@ -333,7 +357,15 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${healBoardList}" var="healList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                    <a href="https://www.google.com" class="common--boardListContent">
+                 <c:choose>
+                        <c:when test="${healList.boardCode != '1'}">
+                           <a href="/board/${healList.boardCode}/${healList.boardNo}"  class="common--boardListContent">
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/board/1/${healList.countryNo}/${healList.boardNo}"  class="common--boardListContent">
+                        </c:otherwise>
+                    </c:choose>
+                    <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
                         <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
                     </div>
