@@ -117,12 +117,8 @@
        </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-        <a href="/resources/html/common/main.html">
-            <button type="button" class="btn btn-primary btn-lg">수정</button>
-        </a>
-        <a href="/resources/html/common/main.html">
-            <button type="button" class="btn btn-danger btn-lg">삭제</button>
-        </a>
+            <button id="updateBtn" type="button" class="btn btn-primary btn-lg">수정</button>
+            <button id="deleteBtn" type="button" class="btn btn-danger btn-lg">삭제</button>
     </div>
 </div>
 <!-- 포스트 끝 -->
