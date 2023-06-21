@@ -178,8 +178,18 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
-	
-	
-	
+	@Override
+	public Map<String, Object> selectAllList(Map<String, Object> paramMap, int cp) {
+		int listCount3 = dao.listCount3(paramMap); // 오버로딩
+		Pagination pagination = new Pagination(listCount3, cp);
+
+		List<Board> boardList2 = dao.selectAllList(pagination, paramMap);
+
+		Map<String, Object> map = new HashMap<>(); // time 추론--> 생략가능 앞 Map 이랑 같음
+		map.put("pagination", pagination);
+		map.put("boardList2", boardList2);
+		
+		return map;
+	}
 	
 }

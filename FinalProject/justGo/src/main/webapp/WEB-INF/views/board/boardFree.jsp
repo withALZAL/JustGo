@@ -131,7 +131,7 @@
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <td>${board.tagNo}</td>
+                    <td>${board.tagContent}</td>
                     <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>

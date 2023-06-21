@@ -47,5 +47,13 @@
 		SET MEMBER_PW = #{memberPw}
 		WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>	
+	
+		<!-- 비밀번호 조회 -->
+    <select id="selectPw" resultType="int">
+		SELECT MEMBER_PW 
+		FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>	
+   	
    	
 </mapper>
