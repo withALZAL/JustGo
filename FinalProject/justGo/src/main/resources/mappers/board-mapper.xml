@@ -35,8 +35,8 @@
 		<collection property="imageList" select="selectImageList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
 
-		<collection property="replyList" select="selectReplyList" column="BOARD_NO" 
-			javaType="java.util.ArrayList" ofType="Reply" />
+		<collection property="replyList" select="selectReplyList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" />
 	</resultMap>
 
 	<!--리플 -->
@@ -47,10 +47,10 @@
 		<result property="updateDate" column="REPLY_UPDATE" />
 		<result property="replyDelete" column="REPLY_DELETE" />
 		<result property="parentReplyNo" column="PARENT_REPLY_NO" />
-		      <result property="boardNo" column="BOARD_NO"/>
-      <result property="memberNo" column="MEMBER_NO"/>
-            <result property="memberNickname" column="MEMBER_NICKNAME"/>
-      <result property="profileImage" column="PROFILE_IMG"/>
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="profileImage" column="PROFILE_IMG" />
 
 
 	</resultMap>
@@ -75,7 +75,7 @@
 		"BOARD_TYPE" ORDER BY 1
 	</select>
 
-	<!-- 나라 게시판 리스트  -->
+	<!-- 나라 게시판 리스트 -->
 	<select id="selectCountryList" resultType="map">
 		SELECT * FROM COUNTRY
 		ORDER BY 1
@@ -83,22 +83,24 @@
 
 	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
 	<select id="listCount" parameterType="int" resultType="int">
-		SELECT COUNT(*) FROM "BOARD"
+		SELECT
+		COUNT(*) FROM "BOARD"
 		WHERE BOARD_DELETE='N'
 		AND
 		BOARD_CODE=#{boardCode}
 	</select>
 
-	<!-- 나라게시판의 삭제되지 않은 게시글 수  -->
+	<!-- 나라게시판의 삭제되지 않은 게시글 수 -->
 	<select id="countryCount" parameterType="int" resultType="int">
-		SELECT COUNT(*) FROM "BOARD"
+		SELECT
+		COUNT(*) FROM "BOARD"
 		WHERE BOARD_DELETE='N'
 		AND BOARD_CODE=1
 		AND
 		COUNTRY_NO = #{countryNo}
 	</select>
 
-	<!-- 게시글 리스트  -->
+	<!-- 게시글 리스트 -->
 	<select id="selectBoardList" resultMap="board_rm">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
 	<![CDATA[
@@ -113,9 +115,11 @@
 			END CREATE_DATE,
 			]]>
 		(SELECT COUNT(*) FROM "REPLY" C
-		WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
 		(SELECT COUNT(*) FROM CONTENT_LIKE L
-		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
 		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
 			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
 
@@ -127,7 +131,7 @@
 
 	</select>
 
-	<!-- 이미지 리스트  -->
+	<!-- 이미지 리스트 -->
 	<select id="selectImageList" resultMap="boardImage_rm">
 		SELECT * FROM "BOARD_IMG"
 		WHERE BOARD_NO=#{boardCode}
@@ -149,9 +153,11 @@
 			END CREATE_DATE,
 			]]>
 		(SELECT COUNT(*) FROM "REPLY" C
-		WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
 		(SELECT COUNT(*) FROM CONTENT_LIKE L
-		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
 		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
 			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
 
@@ -167,28 +173,39 @@
 	<!-- 게시글 내용 상세조회 -->
 	<!--게시글 상세내용 -->
 	<select id="selectBoard" resultMap="board_rm">
-		SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		SELECT
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
-		TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
-		TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
-		(SELECT COUNT(*) FROM "CONTENT_LIKE" L
+		TO_CHAR(CREATE_DATE,'YYYY"년"
+		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
+		TO_CHAR(UPDATE_DATE,'YYYY"년"
+		MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
+		(SELECT COUNT(*) FROM
+		"CONTENT_LIKE" L
 		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-		FROM "BOARD" B
+		FROM "BOARD"
+		B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE BOARD_DELETE='N'
-		AND BOARD_CODE=#{boardCode}
+		AND
+		BOARD_CODE=#{boardCode}
 		AND BOARD_NO=#{boardNo}
 	</select>
 
 	<!-- 여행게시판 상세글 조회 -->
 	<select id="boardCountryDetail" resultMap="board_rm">
-		SELECT BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
+		SELECT
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
-		TO_CHAR(CREATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
-		TO_CHAR(UPDATE_DATE,'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
-		(SELECT COUNT(*) FROM "CONTENT_LIKE" L
+		TO_CHAR(CREATE_DATE,'YYYY"년"
+		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
+		TO_CHAR(UPDATE_DATE,'YYYY"년"
+		MM"월" DD"일" HH24:MI:SS') UPDATE_DATE,
+		(SELECT COUNT(*) FROM
+		"CONTENT_LIKE" L
 		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
-		FROM "BOARD" B
+		FROM "BOARD"
+		B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE BOARD_DELETE='N'
 		AND BOARD_CODE=1
@@ -196,68 +213,71 @@
 		AND BOARD_NO=#{boardNo}
 
 	</select>
-	
-	
+
+
 	<!-- 게시글 댓글 -->
-		<select id="selectReplyList" resultMap="reply_rm">
-		  SELECT REPLY_NO , REPLY_CONTENT,
-  TO_CHAR(REPLY_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') REPLY_DATE,
-  BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG, PARENT_REPLY_NO, REPLY_DELETE
-  FROM "REPLY"
-  JOIN MEMBER USING(MEMBER_NO)
-  WHERE BOARD_NO = #{boardNo}
-  AND REPLY_DELETE = 'N'
-  ORDER BY REPLY_NO
-<!-- 	SELECT LEVEL,C.* FROM 
-	(SELECT REPLY_NO , REPLY_CONTENT,
-  TO_CHAR(REPLY_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') REPLY_DATE,
-  BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG, PARENT_REPLY_NO, REPLY_DELETE
-  FROM "REPLY"
-  JOIN MEMBER USING(MEMBER_NO)
-  WHERE BOARD_NO = #{boardNo})C
-  WHERE REPLY_DELETE = 'N'
-  START WITH PARENT_REPLY_NO IS NULL 
-  CONNECT BY PRIOR REPLY_NO = PARENT_REPLY_NO
-  ORDER SIBLINGS BY REPLY_NO  -->
-	</select> 
-	
+	<select id="selectReplyList" resultMap="reply_rm">
+		SELECT REPLY_NO , REPLY_CONTENT,
+		TO_CHAR(REPLY_DATE, 'YYYY"년" MM"월"
+		DD"일" HH24"시" MI"분" SS"초"') REPLY_DATE,
+		BOARD_NO, MEMBER_NO,
+		MEMBER_NICKNAME, PROFILE_IMG, PARENT_REPLY_NO,
+		REPLY_DELETE
+		FROM "REPLY"
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_NO = #{boardNo}
+		AND
+		REPLY_DELETE = 'N'
+		ORDER BY REPLY_NO
+		<!-- SELECT LEVEL,C.* FROM (SELECT REPLY_NO , REPLY_CONTENT, TO_CHAR(REPLY_DATE, 
+			'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') REPLY_DATE, BOARD_NO, MEMBER_NO, 
+			MEMBER_NICKNAME, PROFILE_IMG, PARENT_REPLY_NO, REPLY_DELETE FROM "REPLY" 
+			JOIN MEMBER USING(MEMBER_NO) WHERE BOARD_NO = #{boardNo})C WHERE REPLY_DELETE 
+			= 'N' START WITH PARENT_REPLY_NO IS NULL CONNECT BY PRIOR REPLY_NO = PARENT_REPLY_NO 
+			ORDER SIBLINGS BY REPLY_NO -->
+	</select>
+
 
 	<!--좋아요 체크 -->
 	<select id="boardLikeCheck" parameterType="int" resultType="int">
 		SELECT COUNT(*) FROM "CONTENT_LIKE"
 		WHERE BOARD_NO = #{boardNo}
-		AND MEMBER_NO = #{memberNo}
+		AND
+		MEMBER_NO = #{memberNo}
 	</select>
-	
-	
+
+
 	<!-- 좋아요 추가 -->
-		<insert id="insertBoardLike">
-		INSERT INTO "CONTENT_LIKE" VALUES(#{boardNo},${memberNo})
-	
+	<insert id="insertBoardLike">
+		INSERT INTO "CONTENT_LIKE"
+		VALUES(#{boardNo},${memberNo})
+
 	</insert>
 	<!-- 좋아요 삭제 -->
 	<delete id="deleteBoardLike">
-		DELETE FROM "CONTENT_LIKE" 
+		DELETE FROM "CONTENT_LIKE"
 		WHERE BOARD_NO=#{boardNo}
 		AND MEMBER_NO= #{memberNo}
 	</delete>
-	
+
 	<!-- 좋아요 수 -->
 	<select id="countBoardLike" resultType="int">
-	SELECT COUNT(*) FROM "CONTENT_LIKE" WHERE BOARD_NO = ${boardNo}
-	
+		SELECT COUNT(*) FROM
+		"CONTENT_LIKE" WHERE BOARD_NO = ${boardNo}
+
 	</select>
-	
+
 
 	<!-- 조회수 증가 -->
 
 	<update id="updateReadCount">
 		UPDATE "BOARD" SET
 		READ_COUNT = READ_COUNT + 1
-		WHERE BOARD_NO = #{boardNo}
+		WHERE
+		BOARD_NO = #{boardNo}
 	</update>
-	
-	
+
+
 	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 + 검색 조건이 일치하는 게시글 수 조회 -->
 	<select id="listCount_search" parameterType="int"
 		resultType="int">
@@ -345,9 +365,9 @@
 		ORDER BY BOARD_NO DESC
 
 	</select>
-	
 
-<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 + 검색 조건이 일치하는 게시글 수 조회 -->
+
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 + 검색 조건이 일치하는 게시글 수 조회 -->
 	<select id="listCount2_search" parameterType="int"
 		resultType="int">
 		SELECT COUNT(*) FROM "BOARD"
@@ -379,8 +399,8 @@
 			</when>
 		</choose>
 	</select>
-	
-	<!--여행게시판 검색  -->
+
+	<!--여행게시판 검색 -->
 	<select id="selectCountryList_search" resultMap="board_rm">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
 	<![CDATA[
@@ -395,9 +415,11 @@
 			END CREATE_DATE,
 			]]>
 		(SELECT COUNT(*) FROM "REPLY" C
-		WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
 		(SELECT COUNT(*) FROM CONTENT_LIKE L
-		WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
 		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
 			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
 
@@ -406,7 +428,7 @@
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
 		AND COUNTRY_NO = #{countryNo}
-	
+
 		<choose>
 			<when test='key2 == "t"'>
 				<!-- 제목 -->
@@ -428,10 +450,83 @@
 				AND MEMBER_NICKNAME LIKE '%${query}%'
 			</when>
 		</choose>
-			ORDER BY BOARD_NO DESC
+		ORDER BY BOARD_NO DESC
 
 	</select>
 
 
+	<!--전체 게시판의 삭제되지 않은 게시글 수 조회 + 검색 조건이 일치하는 게시글 수 조회 -->
 
+	<select id="listCount3_search" parameterType="int"
+		resultType="int">
+		SELECT COUNT(*) FROM "BOARD"
+		WHERE BOARD_DELETE='N'
+		<choose>
+			<when test='key3 == "t"'>
+			<!-- 	제목 -->
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+			<when test='key3 =="c"'>
+				<!-- 내용 -->
+				AND BOARD_TEXT LIKE '%${query}%'
+			</when>
+
+			<when test='key3 == "tc"'>
+				<!-- 제목 + 내용 -->
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_TEXT LIKE
+				'%${query}%')
+			</when>
+			<when test='key3 == "w"'>
+				<!-- 작성자(닉네임) -->
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		</choose>
+	</select>
+
+	<!-- 전체게시판 검색 -->
+	<select id="selectAllList_search" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,BOARD_CODE,COUNTRY_NO,
+	<![CDATA[
+	CASE  
+		WHEN SYSDATE - CREATE_DATE < 1/24/60
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		WHEN SYSDATE - CREATE_DATE < 1/24
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		WHEN SYSDATE - CREATE_DATE < 1
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+			END CREATE_DATE,
+			]]>
+		(SELECT COUNT(*) FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
+		(SELECT COUNT(*) FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
+		FROM "BOARD" B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_DELETE = 'N'
+
+		<choose>
+			<when test='key3 == "t"'>
+				<!-- 제목 -->
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+			<when test='key3 =="c"'>
+				<!-- 내용 -->
+				AND BOARD_TEXT LIKE '%${query}%'
+			</when>
+
+			<when test='key3 == "tc"'>
+				<!-- 제목 + 내용 -->
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_TEXT LIKE
+				'%${query}%')
+			</when>
+			<when test='key3 == "w"'>
+				<!-- 작성자(닉네임) -->
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		</choose>
+		ORDER BY BOARD_NO DESC
+	</select>
 </mapper>

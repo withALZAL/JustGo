@@ -82,8 +82,8 @@
             <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
 
-    <form>
-        <a>
+    <form action="#">
+        <a href="#">
             ---임시용|||실사용---
         </a>    
     </form>
@@ -132,9 +132,11 @@
         <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
     </a>
     <div class="common--header__searchContainer">
-        <form action="#" method="get"> <%-- 전체 게시글 검색 --%>
-            <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
-            <button type="button" class="btn btn-secondary">
+        <form action="/board/boardSearch" method="GET"> <%-- 전체 게시글 검색 --%>
+
+            <input type="hidden" name="key3" value="t">
+            <input type="search" name="query" id="query" placeholder="검색어를 입력해주세요." maxlength="30" value="${param.query}">
+            <button type="submit" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
