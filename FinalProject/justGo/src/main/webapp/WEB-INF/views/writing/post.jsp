@@ -114,11 +114,19 @@
             <c:if test="${not empty likeCheck}" >
             <i class="fa-solid fa-heart" id="boardLike" style="color: red;"></i> 
             </c:if>
-       </a> <span>${board.likeCount}</span>
+        </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-            <button id="updateBtn" type="button" class="btn btn-primary btn-lg">수정</button>
-            <button id="deleteBtn" type="button" class="btn btn-danger btn-lg">삭제</button>
+
+            <c:if test="${loginMember.memberNo == board.memberNo}" >
+        <a href="/resources/html/common/main.html">
+            <button type="button" class="btn btn-primary btn-lg">수정</button>
+        </a>
+        <a href="/resources/html/common/main.html">
+            <button type="button" class="btn btn-danger btn-lg">삭제</button>
+        </a>
+            </c:if>
+
     </div>
 </div>
 <!-- 포스트 끝 -->
@@ -255,6 +263,7 @@
     
     // 게시글 번호 전역 변수로 선언
     const boardNo = ${board.boardNo};
+
 
     // 로그인한 회원 번호를 전역 변수로 선언
     // -> 작성한 EL구문이 null일 경우 빈칸으로 출력되어
