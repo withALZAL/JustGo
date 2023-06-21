@@ -21,8 +21,6 @@ VALUES (SEQ_REPLY_NO.NEXTVAL,#{replyContent},DEFAULT,NULL,DEFAULT,
 UPDATE "REPLY" SET
 REPLY_DELETE = 'Y'
 WHERE REPLY_NO = #{replyNo}
-
-
 </update>
 
 <!-- 댓글 수정   -->

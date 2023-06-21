@@ -156,6 +156,8 @@ tr img {
 }
 
 
+
+
 /* 댓글 달기 */
 .writing--commentInput {
     width: 1000px;
@@ -187,4 +189,10 @@ tr img {
 }
 
 
-
+/* 답글 */
+.commentInsertContent{
+	width: 100%;
+    height: 90px;
+    resize: none;
+    margin-top : 20px;
+}

@@ -37,8 +37,12 @@
     <table class="writing--commentTable" >
     <tbody id="replyList">
         <c:forEach items="${board.replyList}" var="reply">
-        <tr class="reply-row  <c:if test='${reply.parentReplyNo!=0}'>child-reply</c:if>">
+        <tr id="re" class="reply-row <c:if test='${reply.parentReplyNo!=0}'>child-reply
+        </c:if>">
             <th class="writing--commentProfileBox">
+                <c:if test="${reply.parentReplyNo!=0}" >
+                <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
+                </c:if>
                 <span class="writing--commentProfileBox__profileImage">
                     <c:if test="${empty reply.profileImage}" >
                         <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
