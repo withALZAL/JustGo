@@ -80,6 +80,11 @@
     background-color: #8B89FF;
 }
 
+/* input 태그 outline 없애기 */
+input:focus {
+    outline: none;
+}
+
 /* 프로필 박스 조정/상호작용 */
 .common--header__profileContainer {
     display: flex;
@@ -97,8 +102,9 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
+
 
 /* 프로필 이미지 크기 조정 */
 .common--header__profileImageBox {
@@ -116,10 +122,8 @@
 
 /* 프로필 상호작용 */
 .common--header__profileBox > a:hover {
-    font-weight: bold;
+    color: #8B89FF;
 }
-
-
 
 /* nav ----------------------------------------------- */
 
@@ -136,4 +140,12 @@
     padding-right: 10px;
 }
 
-/* 로그인 성공 시 환영 메시지 ----------------------------------------------- */
+/* nav 애니메이션 효과 */
+#common--boardList li a {
+    color: black;
+    transition: color 0.3s ease;
+}
+#common--boardList li a:hover {
+    color: white;
+    background-color: #8B89FF;
+}

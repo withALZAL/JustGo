@@ -138,7 +138,7 @@
     </a>
     <div class="common--header__searchContainer">
         <form action="#" method="get"> <%-- 전체 게시글 검색 --%>
-            <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
+            <input type="text" placeholder="검색어를 입력해주세요." maxlength="38">
             <button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
