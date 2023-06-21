@@ -58,10 +58,6 @@ public class WritingController {
 
 		// 로그인한 회원 번호를 얻어와 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
-
-		List<Board> boardSelector = service.boardSelector();
-		model.addAttribute("boardSelector",boardSelector);
-		
 		
 		// 자유/질문 게시판 선택 O : boardCode > 0, countryNo == 0
 		// 자유/질문 게시판 선택 X : boardCode == 0, countryNo > 0

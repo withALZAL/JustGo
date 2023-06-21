@@ -119,12 +119,8 @@
     <div class="writing--postBtn">
 
             <c:if test="${loginMember.memberNo == board.memberNo}" >
-        <a href="/resources/html/common/main.html">
-            <button type="button" class="btn btn-primary btn-lg">수정</button>
-        </a>
-        <a href="/resources/html/common/main.html">
-            <button type="button" class="btn btn-danger btn-lg">삭제</button>
-        </a>
+            <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>
+            <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
             </c:if>
 
     </div>

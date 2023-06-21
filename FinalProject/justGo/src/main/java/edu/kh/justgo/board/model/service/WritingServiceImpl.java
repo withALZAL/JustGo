@@ -63,11 +63,8 @@ public class WritingServiceImpl implements WritingService{
 		return dao.writingDelete2(board);
 	}
 	
-	// 자유/질문 list
-	@Override
-	public List<Board> boardSelector() {
-		return dao.boardSelector();
-	}
+
+	
 	
 
 

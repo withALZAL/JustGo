@@ -54,11 +54,6 @@ public class WritingDAO {
 		return sqlSession.update("writingMapper.writingDelete2", board);
 	}
 
-	/** 자유/질문 List
-	 * @return list
-	 */
-	public List<Board> boardSelector() {
-		return sqlSession.selectList("writingMapper.boardSelector");
-	}
+	
 
 }

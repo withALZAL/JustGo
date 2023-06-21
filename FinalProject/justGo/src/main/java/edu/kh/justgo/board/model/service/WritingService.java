@@ -38,9 +38,5 @@ public interface WritingService {
 	int wiritngDelete2(Board board);
 	
 	
-	/** 자유/질문 List
-	 * @return list
-	 */
-	List<Board> boardSelector();
-
+	
 }
