@@ -17,7 +17,7 @@ function selectReplyList(){
 
             // 행
             const replyRow = document.createElement("tr");
-            replyRow.classList.add("reply-row")
+            replyRow.classList.add("reply-row");
             
             // 답글일 경우 자식 클래스 추가
             if(reply.parentReplyNo != 0) replyRow.classList.add("child-reply");
@@ -493,7 +493,11 @@ function showInsertComment(parentReplyNo, btn){
     textarea.classList.add("commentInsertContent");
 
     // 답글 부모의 뒤쪽에 칸 추가
-    btn.parentElement.after(textarea);
+    const thTemp = document.createElement("th");
+    thTemp.classList.add("writing--commentProfileBox");
+    const tdElement = document.querySelector(".writing--commentBtnBox");
+    tdElement.insertAdjacentElement("afterend", thTemp);
+    btn.parentElement.nextElementSibling.after(textarea);
 
     // 7. 버튼 영역 + 수정/취소 버튼 생성
     const replyBtnArea = document.createElement("td");

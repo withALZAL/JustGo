@@ -22,3 +22,7 @@ const randomIndex = Math.floor(Math.random() * greetingWord.length);
 window.addEventListener('load', () => {
     greetingElement.innerText = greetingWord[randomIndex];
 });
+
+
+
+
