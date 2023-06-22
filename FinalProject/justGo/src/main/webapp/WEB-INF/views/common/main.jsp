@@ -432,10 +432,11 @@
             <i class="fa-solid fa-sun" style="color: orange;"></i>
             날씨 검색기
         </div>
-        <form action="https://www.naver.com" method="post">
+        <form action="#" method="post">
             <div class="card-body common--cardWeather">
                 <div class="common--cardWeather__left">
-                    <i class="fa-solid fa-sun" style="color:orange; font-size: 100px;"></i>
+                    <img id="icon" src="">
+                    <%-- <i class="fa-solid fa-sun" style="color:orange; font-size: 100px;"></i> --%>
                     <!-- <i class="fa-solid fa-cloud-sun" style="color: yellowgreen; font-size: 100px;"></i> -->
                     <!-- <i class="fa-solid fa-cloud" style="color:orange; font-size: 100px;"></i> -->
                     <!-- <i class="fa-solid fa-cloud-showers-heavy" style="color:orange; font-size: 100px;"></i> -->
@@ -444,11 +445,11 @@
                 </div>
                 <div class="common--cardWeather__right">
                     <div style="border-bottom: 1px solid #D9D9D9;">
-                        <div style="font-size: 30px;">현재 방콕 날씨</div>
+                        <div id="city" style="font-size: 30px;"></div>
                         <div class="common--cardWeatherSelectorBox">
                             <select class="common--cardWeatherSelector">
-                                <option value="option1">도쿄</option>
-                                <option value="option2">교토</option>
+                                <option id="Tokyo" value="option1">Tokyo</option>
+                                <option id="Sydney"value="option2">Sydney</option>
                                 <option value="option3">삿포로</option>
                                 <option value="option4">오키나와</option>
                                 <option value="option5">베이징</option>
@@ -466,14 +467,13 @@
                                 <option value="option17">브리즈번</option>
                                 <option value="option18">퍼스</option>
                             </select>
-                            <button style="border: none; border-radius: 10%;">검색</button>
+                            <button id="btn" style="border: none; border-radius: 10%;">검색</button>
                         </div>
                     </div>
-                    <div style="font-size: 30px;">맑음 30˚C</div>
+                    <div id="currentTemp" style="font-size: 30px;"></div>
                     <div style="font-size: 20px; color: grey;">
-                        <span>습도 50%</span>
-                        <span>강수 5%</span>
-                        <span>바람 4m/s</span>
+                        <span id="humidity">습도 50%</span>
+                        <span id="wind">바람 4m/s</span>
                     </div>
                 </div>
             </div>
@@ -504,7 +504,33 @@
     <script src="/resources/js/common/footer.js"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <script>
+    let cityName  = document.getElementById("Sydney").innerText;
+    let url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b690d0fd2f1b2fe624fa0586e5e0d458&units=metric"
 
+    fetch(url)
+        .then((response) => {
+        return response.json();
+        })
+        .then((json) => {
+        console.log(json);
+
+        document.getElementById("currentTemp").innerText = Math.floor(json.main.temp);
+        document.getElementById("humidity").innerText = json.main.humidity;
+        document.getElementById("wind").innerText = json.wind.speed;
+        document.getElementById("city").innerText = json.name;
+        
+        
+          let icon = json.weather[0].icon; //아이콘 받아옴
+
+        let iconurl = document.getElementById('icon'); //img id를 iconurl이라는 이름으로 받아옴
+
+        iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
+        });
+    </script>
     
 </body>
+
+
 </html>
