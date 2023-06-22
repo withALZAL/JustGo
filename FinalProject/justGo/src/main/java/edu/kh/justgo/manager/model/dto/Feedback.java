@@ -22,6 +22,7 @@ public class Feedback {
 	private String feedback_CF_Date;
 
 	private String memberNickname;
+	private String managerNickname;
 	
 	
 

@@ -48,6 +48,7 @@
 		
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="managerNickname" column="MANAGER_NICKNAME" />
 		<result property="feedbackTitle" column="FEEDBACK_TITLE" />
 		<result property="feedbackText" column="FEEDBACK_TEXT" />
 		<result property="feedbackDate" column="FEEDBACK_DATE" />
@@ -283,6 +284,18 @@
 		JOIN "MEMBER" M USING(MEMBER_NO)
 		WHERE FEEDBACK_NO =#{FeedbackNo}
       </select>
+	 
+	 
+	 
+	 <!-- 1:1문의 관리자 답변 입력 -->
+	 <update id="insertManagerAnswer">
+	 	UPDATE "FEEDBACK" SET
+		ADMIN_NO = #{memberNo},
+		ADMIN_TEXT = #{adminText},
+		CONFIRM_FL = 'Y',
+		CONFIRM_DATE = SYSDATE 
+		WHERE FEEDBACK_NO = #{feedbackNo}
+	 </update>
 	 
 	 
 
