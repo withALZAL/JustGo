@@ -1,6 +1,8 @@
 package edu.kh.justgo.myPage.model.service;
 
 import java.io.IOException;
+import java.util.Map;
+
 import org.springframework.web.multipart.MultipartFile;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -25,6 +27,13 @@ public interface MyPageService {
 	 * @return
 	 */
 	int updateNickname(Member updateMember);
+
+	/**
+	 * 내가 쓴 글
+	 * @param memberNo
+	 * @return
+	 */
+	Map<String, Object> myPost(int memberNo, int cp);
 
 
 

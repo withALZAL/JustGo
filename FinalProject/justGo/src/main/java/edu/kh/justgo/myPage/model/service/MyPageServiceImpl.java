@@ -2,11 +2,18 @@ package edu.kh.justgo.myPage.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+
+import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.board.model.dto.Pagination;
 import edu.kh.justgo.common.utility.Util;
 import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.myPage.model.dao.MyPageDAO;
@@ -67,6 +74,30 @@ public class MyPageServiceImpl implements MyPageService{
 	@Override
 	public int updateNickname(Member updateMember) {
 		return dao.updateNickname(updateMember);
+	}
+
+
+	// 내가 쓴 글(상준 수정 중)
+	@Override
+	public Map<String, Object> myPost(int memberNo, int cp) {
+		
+		int postCount = dao.postCount(memberNo);
+		
+			System.out.println("postCount:"+postCount); // 잘 담김
+		
+		Pagination pagination = new Pagination(postCount, cp);
+		
+			System.out.println("pagination:"+pagination); // 잘 담김
+		
+		List<Board> myPostList = dao.selectMyPostList(pagination, memberNo); // Board의 5개 열 정보가 담긴 List 형태로 반환
+		
+		Map<String, Object> map = new HashMap<>(); // myPostList와 myPostPagination을 Map에 담아서 반환
+		map.put("pagination", pagination);
+		map.put("myPostList", myPostList);
+		
+		System.out.println("map:      "+map);
+		
+		return map;
 	}
 
 	

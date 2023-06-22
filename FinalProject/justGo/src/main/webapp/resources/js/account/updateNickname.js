@@ -1,67 +1,26 @@
 const checkObj ={
-    "currentPw": false,
     "memberNickname": false
 };
 
-
-const currentPw = document.getElementById("currentPw");
 const memberNickname = document.getElementById("memberNickname");
 const nickMessage = document.getElementById("nickMessage");
-const currentPwMessage = document.getElementById("currentPwMessage");
+const nickCancel = document.getElementById("nickCancel");
 
 
-currentPw.addEventListener("input", () => {
-    if(currentPw.value.trim() == ""){
-        currentPw.value == ""
-        currentPwMessage.classList.add("error");
-        currentPwMessage.classList.remove("confirm");
-        currentPwMessage.innerText = "비밀번호를 입력해 주세요."
-        checkObj.currentPw = false;
+// 닉네임 유효성 검사
+memberNickname.addEventListener("input", () => {
+
+    if(memberNickname.value.trim() == ""){
+        memberNickname.value = "";       
+        nickMessage.classList.add("error");
+        nickMessage.classList.remove("confirm");
+        nickMessage.innerText = "닉네임을 입력하세요";
+        checkObj.memberNickname = false;
         return;
-    }
+    } 
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{8,15}$/;
-    if(regEx.test(currentPw.value)){ 
-        fetch("/dupCheck/Pw?{w}="+currentPw.value)
-        .then(resp => resp.text()) 
-        .then(count => {
-            if(count != 0){ 
-                currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-                currentPwMessage.classList.add("confirm");
-                currentPwMessage.classList.remove("error");
-                checkObj.currentPw = true;
-
-            } else {
-                currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-                currentPwMessage.classList.add("error");
-                currentPwMessage.classList.remove("confirm");
-                checkObj.currentPw = false;
-            }
-        })
-        } else {
-                currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
-                currentPwMessage.classList.add("error");
-                currentPwMessage.classList.remove("confirm");
-                checkObj.currentPw  = false;
-            }
-});
-
-
-
-    // 닉네임 유효성 검사
-    memberNickname.addEventListener("input", () => {
-
-        if(memberNickname.value.trim() == ""){
-            memberNickname.value = "";       
-            nickMessage.classList.add("error");
-            nickMessage.classList.remove("confirm");
-            nickMessage.innerText = "닉네임을 입력하세요";
-            checkObj.memberNickname = false;
-            return;
-        } 
-
-        const regEx2 = /^[가-힣\w\d]{2,10}$/;
-        if(regEx2.test(memberNickname.value)){ 
+    const regEx2 = /^[가-힣\w\d]{2,8}$/;
+    if(regEx2.test(memberNickname.value)){ 
         fetch("/dupCheck/nickname?nickname="+memberNickname.value)
         .then(resp => resp.text()) 
         .then(count => {
@@ -78,7 +37,7 @@ currentPw.addEventListener("input", () => {
             nickMessage.classList.remove("confirm");
             checkObj.memberNickname = false;
         }
-    
+
     })
 
     nickMessage.innerText = "유효한 닉네임 형식입니다.";
