@@ -30,6 +30,7 @@ public class ManagerController {
 	public String selectMemberList(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp
 			, Model model, RedirectAttributes ra
+			
 			) {
 		
 		// 회원정보 불러오기

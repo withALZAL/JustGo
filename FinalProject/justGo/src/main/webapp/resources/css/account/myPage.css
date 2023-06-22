@@ -114,7 +114,7 @@
 
 /* 프로필 이미지 상호작용 */
 .account--profileImageBox img:hover {
-    border: 3px solid #8B89FF;
+    border: 5px solid #8B89FF;
     transform: scale(1.05);
 }
 
@@ -150,6 +150,18 @@
     font-weight: bold;
     padding-top: 3px;
 }
+
+/* 이미지 회전 */
+/* @keyframes rotateImage {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(30deg);}
+    100% {transform: rotate(0deg);}
+}
+#previewImageBox img:hover {
+    animation: rotateImage 10s linear infinite;
+    border: 3px solid #8B89FF;
+    transform: scale(1.05);
+} */
 
 
 

@@ -45,12 +45,12 @@ memberNickname.addEventListener("input", () => {
     nickMessage.classList.remove("error");
     checkObj.memberNickname = true;
 
-} else {
-    nickMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
-    nickMessage.classList.add("error");
-    nickMessage.classList.remove("confirm");
-    checkObj.memberNickname = false;
-}
+    } else {
+        nickMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
+        nickMessage.classList.add("error");
+        nickMessage.classList.remove("confirm");
+        checkObj.memberNickname = false;
+    }
 });
 
 
@@ -92,9 +92,6 @@ updateInfo.addEventListener("submit", e => {
         nickMessage.focus(); // 기본 이벤트 제거
         return;
     }
-
-
-
 });
 
 
