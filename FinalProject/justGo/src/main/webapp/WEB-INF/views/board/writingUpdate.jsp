@@ -68,20 +68,28 @@
                 <div>제목</div>
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" value="${board.boardTitle}"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" value="${board.boardCode}" required>
-                        <option value="2" class="b" >자유게시판</option>
-                        <option value="3" class="b">질문게시판</option>
-                        <option value="2">일본게시판</option>
-                        <option value="1">중국게시판</option>
-                        <option value="3">베트남게시판</option>
-                        <option value="4">태국게시판</option>
-                        <option value="5">호주게시판</option>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
+                        <c:forEach items="${typeList}" var="board2">
+                            <option class="b" value="${board2.boardCode}">${board2.boardName}</option>
+                       <!-- <option value="2" class="b" >자유게시판</option>
+                        <option value="3" class="b">질문게시판</option> -->
+                        </c:forEach>
+                        <c:forEach items="${typeList2}" var="board1">
+                            <option value="${board1.countryNo}">${board1.countryName}</option>
+                           <!-- <option value="1">중국게시판</option>
+                            <option value="3">베트남게시판</option>
+                            <option value="4">태국게시판</option>
+                            <option value="5">호주게시판</option> -->
+                        </c:forEach>
                     </select>
-                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" value="${board.tagNo}" required>
-                        <option value="1">일반</option>
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector"  required>
+                        <c:forEach items="${typeList3}" var="tag">
+                            <option value="${tag.tagNo}">${tag.tagContent}</option>
+                        </c:forEach>
+                        <!-- <option value="1">일반</option>
                         <option value="3">꿀팁</option>
                         <option value="2">맛집</option>
-                        <option value="4">힐링</option>
+                        <option value="4">힐링</option> -->
                     </select>
                 </div>
             </div>
