@@ -137,10 +137,15 @@
     </div>
     <div class="writing--postBtn">
 
-            <c:if test="${loginMember.memberNo == board.memberNo}" >
-            <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>
-            <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
-            </c:if>
+            <c:choose>
+                <c:when test="${loginMember.memberNo == board.memberNo}">
+                    <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>
+                    <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
+                </c:when>
+                <c:when test="${loginMember.memberRole == 1}">
+                    <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
+                </c:when>
+            </c:choose>
 
     </div>
 </div>
