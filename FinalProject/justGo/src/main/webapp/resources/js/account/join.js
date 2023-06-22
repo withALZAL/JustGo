@@ -160,10 +160,10 @@ memberNickname.addEventListener("input", () => {
     
     // 닉네임에 입력이 되지 않은 경우
     if(memberNickname.value.trim() == ''){
+        memberNickname.value = "";
         nickMessage.innerText = "영문, 한글, 숫자로 구성된 2~8글자 사이의 닉네임을 입력해주세요.";
         nickMessage.classList.remove("confirm", "error");
         checkObj.memberNickname = false;
-        memberNickname.value = "";
         return;
     }
     

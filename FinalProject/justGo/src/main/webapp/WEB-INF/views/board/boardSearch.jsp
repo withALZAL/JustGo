@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="boardList" value="${map.boardList}"/>
+<c:set var="boardList2" value="${map.boardList2}"/>
 
 <%-- 
 <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/>
 --%>
 
-<c:forEach items="${countryList}" var="boardType">
-    <c:if test="${boardType.COUNTRY_NO == countryNo}" >
-        <c:set var="countryName" value="${boardType.COUNTRY_NAME}"/>
+<c:forEach items="${boardTypeList}" var="boardType">
+    <c:if test="${boardType.BOARD_CODE == boardCode}" >
+        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
     </c:if>
 </c:forEach>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -28,8 +30,8 @@
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/board/board.css">
-    
-    <title>JustGo - ${countryName}게시판</title>
+
+    <title>${param.query}</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -50,10 +52,9 @@
 <!-- Template-main 시작 -->
 <main class="template--main">
 
-<c:if test="${not empty param.key2}" >
-    <c:set var="sp" value="&key2=${param.key2}&query=${param.query}"/>
+<c:if test="${not empty param.key3}" >
+    <c:set var="sp" value="&key3=${param.key3}&query=${param.query}"/>
 </c:if>
-
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -62,17 +63,16 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
             <a href="https://www.naver.com">
+                
+
                 <c:if test="${not empty param.query}" >
-                    <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
-                </c:if>
-                <c:if test="${empty param.query}" >
-                    <h3> ${countryName}게시판</h3>
+                    <h3 style="margin:30px">"${param.query}"검색결과</h3>
                 </c:if>
             </a>
+
         </div>
     </div>
 </div>
@@ -84,12 +84,13 @@
 <div class="board--contentContainer">
 <div class="board--contentBox">
     <div class="board--contentBox__top">
-        <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
+        <%-- <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div> --%>
         <form action="#" method="get">
-            <div><a href="#">일반</a></div>
+            <%-- <div><a href="#">일반</a></div>
             <div><a href="#">꿀팁</a></div>
             <div><a href="#">맛집</a></div>
             <div><a href="#">힐링</a></div>
+            <button type="button" class="btn btn-secondary btn-sm">임시버튼</button> --%>
         </form>
     </div>
 
@@ -101,7 +102,7 @@
             <thead>
                 <tr>
                 <th>번호</th>
-                <th>태그</th>
+                <%-- <th>태그</th> --%>
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
@@ -110,8 +111,8 @@
                 </tr>
             </thead>
             <tbody>
-            <c:choose>
-            <c:when test="${empty boardList}">
+        <c:choose>
+            <c:when test="${empty boardList2}">
                 <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
                 
                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
@@ -123,12 +124,19 @@
             <c:otherwise>
                                 <!-- 게시글 목록 조회 결과가 있다면 -->
 
-                <c:forEach items="${boardList}" var="board">
+                <c:forEach items="${boardList2}" var="board">
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <td>${board.tagContent}</td>
-                    <td><a href="/board/1/${countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                    <%-- <td>${board.tagNo}</td> --%>   
+                    <c:choose>
+                        <c:when test="${board.boardCode != '1'}">
+                            <td><a href="/board/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><a href="/board/1/${board.countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                        </c:otherwise>
+                    </c:choose>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
@@ -137,7 +145,6 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
-                <!-- 추가적인 글 목록을 여기에 추가할 수 있습니다 -->
             </tbody>
         </table>
     </div>
@@ -150,12 +157,12 @@
             <form action="#" method="get">
                 <nav aria-label="...">
                     <ul class="pagination">
-                    <li class="page-item">
-                            <a href="/board/1/${countryNo}?cp=1${sp}" class="page-link">맨처음</a>
+                        <li class="page-item">
+                            <a href="/board/boardSearch?cp=1${sp}" class="page-link">맨처음</a>
                             
                         </li>
                         <li class="page-item">
-                            <a href="/board/1/${countryNo}?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
+                            <a href="/board/boardSearch?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
                         </li>
 
                         <c:forEach var="i" begin="${pagination.startPage}"
@@ -170,7 +177,7 @@
 
                             <c:otherwise>
                                 <!-- 현재 페이지를 제외한 나머지 -->
-                                <li class="page-item"><a class="page-link" href="/board/1/${countryNo}?cp=${i}${sp}">${i}</a></li>
+                                <li class="page-item"><a class="page-link" href="/board/boardSearch?cp=${i}${sp}">${i}</a></li>
                                 
                             </c:otherwise>
                         </c:choose>
@@ -178,30 +185,31 @@
                         </c:forEach>
 
                         <li class="page-item">
-                        <a class="page-link" href="/board/1/${countryNo}?cp=${pagination.nextPage}${sp}">다음</a>
+                        <a class="page-link" href="/board/boardSearch?cp=${pagination.nextPage}${sp}">다음</a>
                         </li>
                         <li class="page-item">
-                        <a class="page-link" href="/board/1/${countryNo}?cp=${pagination.maxPage}${sp}">마지막</a>
+                        <a class="page-link" href="/board/boardSearch?cp=${pagination.maxPage}${sp}">마지막</a>
                         </li>
+
+
                     </ul>
                 </nav>
             </form>
         </div>
-        
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
-            <form action="${countryNo}" method="get" id="boardSearch">
-                <a>
-                    <select class="board--searchSelector" name="key2" id="boardSelect">  <%-- 수정1 --%>
-                        <option value="tc">제목+내용</option>
-                        <option value="t">제목</option> 
-                        <option value="c">내용</option>
-                        <option value="w">글쓴이</option>
+            <form action="/board/boardSearch" method="GET" id="boardSearch">
+                    <a>
+                    <select class="board--searchSelector" name="key3" id="boardSelect"> 
+                    <option value="tc">제목+내용</option>
+                    <option value="t">제목</option>
+                    <option value="c">내용</option>
+                    <option value="w">글쓴이</option>
                     </select>
                     <input type="text"  name="query" maxlength="10" style="width: 300px;">
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
-                </a>
-            </form>
+                    </a>
+                    </form>
             <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
@@ -220,14 +228,12 @@
 </main>
 <!-- Template-main 끝 -->
 
-
     
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
-
     
 
 <!-- bootstrap -->

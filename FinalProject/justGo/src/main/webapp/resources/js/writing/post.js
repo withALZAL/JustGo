@@ -54,3 +54,28 @@ fetch("/board/like",{
 })
 
 });
+
+
+
+document.getElementById("updateBtn").addEventListener("click",()=>{
+    // http://localhost/board/2/175?cp=1
+    // http://localhost/writing/{boardCode}/{boardNo}/update
+    // 1. location.href = boardNo + "/update";
+
+    const pathname =location.pathname.replace("board","writing")+ "/update";
+
+    location.href = pathname;
+
+});
+
+document.getElementById("deleteBtn").addEventListener("click",()=>{
+    // http://localhost/board/2/175?cp=1
+    // http://localhost/writing/{boardCode}/{boardNo}/update
+    // 1. location.href = boardNo + "/update";
+
+    const pathname =location.pathname.replace("board","writing")+ "/delete";
+
+    location.href = pathname;
+
+});
+

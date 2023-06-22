@@ -368,7 +368,7 @@
 }
 
 /* 답변 박스 제목 */
-.manager--answerRight > div:nth-child(1) {
+.manager--inquiryAnswerTitle{
     font-weight: bold;
     font-size: 1.8rem;
     background-color: cornflowerblue;
@@ -376,14 +376,29 @@
     padding: 0 15px 0;
 }
 
-/* 이스터에그 */
-.manager--answerRight > div:nth-child(2) {
+/* 제목 textarea */
+/* .manager--titleTextarea{
+    height: 35px;
+    width: 470px;
+    border: 1px solid #D9D9D9;
+    font-weight: bold;
+    font-size: 1.8rem;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 0 15px 0;
+    resize: none;
+    overflow: hidden;
+    
+} */
+
+/* 담당자 배정중 */
+.manager--managerArea{
     text-align: right;
     border-bottom: 1px solid #D9D9D9;
 }
 
 /* 답변창 */
-.manager--answerRight > div:nth-child(3) {
+.manager--answerTextBefore{
     margin-top: 27px;
 }
 
@@ -393,12 +408,24 @@
     grid-template-rows: 1fr 30px;
     gap: 10px;
 }
-.manager--answerRight form > textarea {
+
+
+/* .manager--answerRight form > textarea {
     width: 500px;
     height: 360px;
     padding: 30px;
     border: none;
     background-color: whitesmoke;
+} */
+
+.manager--answerTextarea {
+    width: 440px;
+    height: 330px;
+    padding: 30px;
+    border: 1px solid #D9D9D9;
+    background-color: whitesmoke;
+    resize: none;
+    /* overflow: hidden; */
 }
 .manager--answerRight form > div {
     display: flex;
@@ -457,3 +484,7 @@
     background-color: powderblue;
     color: black;
 }
+
+
+
+

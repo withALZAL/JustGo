@@ -44,6 +44,9 @@ public interface ManagerService {
 	 */
     public Feedback selectAskDetailList(int feedbackNo);
 
+    
+
+
 
     
 

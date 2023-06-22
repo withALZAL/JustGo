@@ -19,6 +19,10 @@ import edu.kh.justgo.board.model.dto.Pagination;
  * @author user1
  *
  */
+/**
+ * @author kobco
+ *
+ */
 @Repository
 public class BoardDAO {
 
@@ -210,4 +214,28 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.selectCountryList_search", paramMap, rowBounds);
 	}
 
+	/**
+	 * 전체게시판 검색
+	 * 
+	 * @param paramMap
+	 * @return
+	 */
+	public int listCount3(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("boardMapper.listCount3_search", paramMap);
+	}
+
+	
+	/** 전체게시판 리스트 검색
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
+	public List<Board> selectAllList(Pagination pagination, Map<String, Object> paramMap) {
+
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.selectAllList_search", paramMap, rowBounds);
+	}
 }
