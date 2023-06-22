@@ -79,7 +79,6 @@ ${map.managerAnswerList} --%>
             <div class="manager--inquiryAnswerBox">
                 <div class="manager--inquiryLeft">
                     <div class="manager--inquiryAnswerTitle">
-                        <%-- <i class="fa-solid fa-circle-question" style="padding-right: 10px;"></i> --%>
                         Q. ${memberAskList.feedbackTitle}
                     </div>
                     <div>${memberAskList.memberNickname} | ${memberAskList.feedbackDate}</div>
@@ -92,7 +91,6 @@ ${map.managerAnswerList} --%>
                 <c:when test="${managerAnswerList.feedback_CF_FL == 'N'}">
                     <div class="manager--answerRight" id="manager--answerWrite">
                         <div class="manager--inquiryAnswerTitle" id="manager--answerTitle">
-                            <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
                             A. 답변 준비중입니다.
                         </div>
                         <div class="manager--managerArea" id="manager--answerManager">담당자 배정중</div>
@@ -113,7 +111,7 @@ ${map.managerAnswerList} --%>
                             A. 문의에 대한 답변드립니다.
                         </div>
                         <div class="manager--managerArea" id="manager--answerManager">
-                            ${managerAnswerList.memberNickname} | ${managerAnswerList.feedback_CF_Date}
+                            ${managerAnswerList.managerNickname} | ${managerAnswerList.feedback_CF_Date}
                         </div>
                         <div class="manager--answerTextBefore" id="manager--answerText">
                             ${managerAnswerList.adminText}
