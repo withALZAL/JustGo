@@ -19,4 +19,5 @@ public class AjaxDAO {
 	public int checkNickname(String nickname) {
 		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
 	}
+
 }

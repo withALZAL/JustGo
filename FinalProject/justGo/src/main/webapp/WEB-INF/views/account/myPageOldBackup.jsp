@@ -69,7 +69,12 @@
                 <table>
                     <tr>
                         <th>닉네임</th>
-                        <td>${loginMember.memberNickname}</td>
+                        <td class="myPage--updateNickname">
+                            <form action="#" method="">
+                                <input type="text" value="${loginMember.memberNickname}">
+                                <button type="button" class="btn btn-secondary btn-sm">수정</button>
+                            </form>
+                        </td>
                     </tr>
                     <tr>
                         <th>이메일</th>
@@ -83,10 +88,9 @@
                 <div class="account--joinBtnBox">
 
                     <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
-                    <a href="/myPage/updateNickname">
-
+                    <%-- <a href="/myPage/updateNickname">
                         <button type="button" class="btn btn-secondary btn-sm">닉네임 수정</button>
-                    </a>
+                    </a> --%>
                     <a href="/myPage/updatePw">
                         <button type="button" class="btn btn-secondary btn-sm">비밀번호 변경</button>
                     </a>

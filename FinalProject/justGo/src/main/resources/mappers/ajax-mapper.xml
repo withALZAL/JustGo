@@ -31,5 +31,6 @@
 		WHERE MEMBER_NICKNAME = #{nickname}
 		AND MEMBER_CONDITION = 'N'
 	</select>
+	
 
 	</mapper>

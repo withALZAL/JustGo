@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/account.css">
+    <link rel="stylesheet" href="/resources/css/account/join.css">
 
     <title>JustGo-join</title>
 
@@ -21,6 +21,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<!-- sweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
@@ -62,7 +64,7 @@
                     <tr>
                         <th>이메일</th>
                         <td>
-                            <input type="email" placeholder="이메일을 입력해주세요." name="memberEmail" id="email" autocomplete="off" required>
+                            <input type="email" placeholder="이메일을 입력해주세요." name="memberEmail" id="email" autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="emailMessage"></div> 
                             <td><button type="button" class="btn btn-outline-primary btn-sm" id="sendAuthKeyBtn">인증</button></td>
                         </td>                       
@@ -71,7 +73,7 @@
                     <tr>
                         <th>인증번호</th>
                         <td>
-                            <input type="text" placeholder="이메일로 발송된 인증번호를 입력해주세요." name="authKey" id="authKey" autocomplete="off" required>
+                            <input type="text" placeholder="이메일로 발송된 인증번호를 입력해주세요." name="authKey" id="authKey" autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="authKeyMessage"></div>                        
                             <td><button type="button" class="btn btn-outline-primary btn-sm" id="checkAuthKeyBtn">확인</button></td>
                         </td>
@@ -80,7 +82,7 @@
                     <tr>
                         <th>비밀번호</th>
                         <td>
-                            <input type="password" maxlength="15" name="memberPw" id="memberPw" placeholder="비밀번호를 입력해주세요." autocomplete="off" required>
+                            <input type="password" maxlength="15" name="memberPw" id="memberPw" placeholder="비밀번호를 입력해주세요." autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="pwMessage"></div>   
                         </td>
                     </tr>
@@ -88,7 +90,7 @@
                     <tr>
                         <th>비밀번호 확인</th>
                         <td>
-                            <input type="password" maxlength="15" id="memberPwConfirm" placeholder="비밀번호를 입력해주세요." autocomplete="off" required>
+                            <input type="password" maxlength="15" id="memberPwConfirm" placeholder="비밀번호를 입력해주세요." autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="pwConfirmMessage"></div>
                         </td>
                     </tr>
@@ -96,7 +98,7 @@
                     <tr>
                         <th>닉네임</th>
                         <td>
-                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요." autocomplete="off" required>
+                            <input type="text" maxlength="8" name="memberNickname" id="memberNickname" placeholder="닉네임을 입력해주세요." autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
                         </td>
                     </tr>
@@ -121,7 +123,6 @@
 
 
 
-    
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
