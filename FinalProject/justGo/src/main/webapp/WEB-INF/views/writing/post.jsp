@@ -137,6 +137,7 @@
     </div>
     <div class="writing--postBtn">
 
+            <button type="button" id="updateBtn" class="btn btn-primary btn-lg">신고</button>
             <c:choose>
                 <c:when test="${loginMember.memberNo == board.memberNo}">
                     <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>

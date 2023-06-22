@@ -137,10 +137,26 @@
     font-weight: bold;
     align-items: center;
 }
-.common--cardWeather__right > div:first-child {
+.common--cardWeather__right > div:first-child { /* 도시 */
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.common--cardWeather__right > div:nth-child(2) { /* 온도, 날씨 */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.common--cardWeather__right > div:nth-child(3) { /* 습도, 바람 */
+    display: flex;
+    gap: 30px;
+}
+
+/* 날씨 아이콘 조정 */
+.common--cardWeather__left img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
 }
 
 /* 날씨 셀렉터 */
@@ -155,5 +171,3 @@
     color: white;
     background-color: #8B89FF;
 }
-
-/* 웰컴 배너 ----------------------------------------------- */

@@ -216,9 +216,9 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${hotBoardList}" var="hotList">
                     <div class="card common--boardCard" style="width: 15rem;">
-                     <c:choose>
+                    <c:choose>
                         <c:when test="${hotList.boardCode != '1'}">
-                           <a href="/board/${hotList.boardCode}/${hotList.boardNo}"  class="common--boardListContent">
+                            <a href="/board/${hotList.boardCode}/${hotList.boardNo}"  class="common--boardListContent">
                         </c:when>
                         <c:otherwise>
                             <a href="/board/1/${hotList.countryNo}/${hotList.boardNo}"  class="common--boardListContent">
@@ -263,9 +263,9 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${foodBoardList}" var="foodList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                 <c:choose>
+                    <c:choose>
                         <c:when test="${foodList.boardCode != '1'}">
-                           <a href="/board/${foodList.boardCode}/${foodList.boardNo}"  class="common--boardListContent">
+                            <a href="/board/${foodList.boardCode}/${foodList.boardNo}"  class="common--boardListContent">
                         </c:when>
                         <c:otherwise>
                             <a href="/board/1/${foodList.countryNo}/${foodList.boardNo}"  class="common--boardListContent">
@@ -310,9 +310,9 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${tipBoardList}" var="tipBoardList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                 <c:choose>
+                    <c:choose>
                         <c:when test="${tipBoardList.boardCode != '1'}">
-                           <a href="/board/${tipBoardList.boardCode}/${tipBoardList.boardNo}"  class="common--boardListContent">
+                            <a href="/board/${tipBoardList.boardCode}/${tipBoardList.boardNo}"  class="common--boardListContent">
                         </c:when>
                         <c:otherwise>
                             <a href="/board/1/${tipBoardList.countryNo}/${tipBoardList.boardNo}"  class="common--boardListContent">
@@ -357,9 +357,9 @@
             <div class="accordion-body common--boardCards">
             <c:forEach items="${healBoardList}" var="healList">
                 <div class="card common--boardCard" style="width: 15rem;">
-                 <c:choose>
+                    <c:choose>
                         <c:when test="${healList.boardCode != '1'}">
-                           <a href="/board/${healList.boardCode}/${healList.boardNo}"  class="common--boardListContent">
+                            <a href="/board/${healList.boardCode}/${healList.boardNo}"  class="common--boardListContent">
                         </c:when>
                         <c:otherwise>
                             <a href="/board/1/${healList.countryNo}/${healList.boardNo}"  class="common--boardListContent">
@@ -435,51 +435,62 @@
         <form action="#" method="post">
             <div class="card-body common--cardWeather">
                 <div class="common--cardWeather__left">
-                    <img id="icon" src="">
-                    <%-- <i class="fa-solid fa-sun" style="color:orange; font-size: 100px;"></i> --%>
-                    <!-- <i class="fa-solid fa-cloud-sun" style="color: yellowgreen; font-size: 100px;"></i> -->
-                    <!-- <i class="fa-solid fa-cloud" style="color:orange; font-size: 100px;"></i> -->
-                    <!-- <i class="fa-solid fa-cloud-showers-heavy" style="color:orange; font-size: 100px;"></i> -->
-                    <!-- <i class="fa-solid fa-cloud-bolt" style="color:orange; font-size: 100px;"></i> -->
-                    <!-- <i class="fa-solid fa-snowflake" style="color:orange; font-size: 100px;"></i> -->
+                    <img id="icon"> <%-- 아이콘 --%>
                 </div>
                 <div class="common--cardWeather__right">
                     <div style="border-bottom: 1px solid #D9D9D9;">
-                        <div id="city" style="font-size: 30px;"></div>
+                        <div id="city" style="font-size: 30px;"></div> <%-- 도시 --%>
                         <div class="common--cardWeatherSelectorBox">
-                            <select class="common--cardWeatherSelector">
-                                <option id="Tokyo" value="option1">Tokyo</option>
-                                <option id="Sydney"value="option2">Sydney</option>
-                                <option value="option3">삿포로</option>
-                                <option value="option4">오키나와</option>
-                                <option value="option5">베이징</option>
-                                <option value="option6">상하이</option>
-                                <option value="option7">홍콩</option>
-                                <option value="option8">타이페이</option>
-                                <option value="option9">하노이</option>
-                                <option value="option10">호치민</option>
-                                <option value="option11">방콕</option>
-                                <option value="option12">푸켓</option>
-                                <option value="option13">싱가포르</option>
-                                <option value="option14">마닐라</option>
-                                <option value="option15">보라카이</option>
-                                <option value="option16">시드니</option>
-                                <option value="option17">브리즈번</option>
-                                <option value="option18">퍼스</option>
+                            <select id="citySelect" class="common--cardWeatherSelector" style="width: 100px;">
+                                <option id="Seoul">서울</option>
+                                <option id="Tokyo">도쿄</option>
+                                <option id="Osaka">오사카</option>
+                                <option id="Sapporo">삿포로</option>
+                                <option id="Okinawa">오키나와</option>
+                                <option id="Beijing">베이징</option>
+                                <option id="Shanghai">상하이</option>
+                                <option id="Hongkong">홍콩</option>
+                                <option id="Taipei">타이페이</option>
+                                <option id="Hanoi">하노이</option>
+                                <option id="Bangkok">방콕</option>
+                                <option id="Phuket">푸켓</option>
+                                <option id="Singapore">싱가포르</option>
+                                <option id="Manila">마닐라</option>
+                                <option id="Sydney">시드니</option>
+                                <option id="Brisbane">브리즈번</option>
+                                <option id="Perth">퍼스</option>
+                                <option id="Guam">괌</option>
                             </select>
-                            <button id="btn" style="border: none; border-radius: 10%;">검색</button>
+                            <button type="button" class="btn btn-secondary btn-sm">검색</button>
                         </div>
                     </div>
-                    <div id="currentTemp" style="font-size: 30px;"></div>
+                    <div>
+                        <span>
+                            <span id="currentTemp" style="font-size: 30px;"></span> <%-- 온도 --%>
+                            <span style="font-size: 30px;">°C</span>
+                        </span>
+                        <span id="weather">                        
+                        </span>
+                    </div>
                     <div style="font-size: 20px; color: grey;">
-                        <span id="humidity">습도 50%</span>
-                        <span id="wind">바람 4m/s</span>
+                        <span>
+                            <i class="fa-solid fa-droplet"></i>
+                            <span>습도</span>
+                            <span id="humidity"></span> <%-- 습도 --%>
+                            <span>%</span>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-wind"></i>
+                            <span>풍속</span>
+                            <span id="wind"></span> <%-- 바람 --%>
+                            <span>m/s</span>
+                        </span>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    <!-- 날씨 검색기 끝 -->
+<!-- 날씨 검색기 끝 -->
 </div>
 
 
@@ -504,33 +515,77 @@
     <script src="/resources/js/common/footer.js"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
+<!-- 날씨 API -->    
     <script>
-    let cityName  = document.getElementById("Sydney").innerText;
-    let url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b690d0fd2f1b2fe624fa0586e5e0d458&units=metric"
 
-    fetch(url)
-        .then((response) => {
-        return response.json();
-        })
-        .then((json) => {
-        console.log(json);
+    /* 날씨 가져오기 함수 */
+    function getWeather(cityName) {
+        let WeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b690d0fd2f1b2fe624fa0586e5e0d458&units=metric&lang=kr";
 
-        document.getElementById("currentTemp").innerText = Math.floor(json.main.temp);
-        document.getElementById("humidity").innerText = json.main.humidity;
-        document.getElementById("wind").innerText = json.wind.speed;
-        document.getElementById("city").innerText = json.name;
+        fetch(WeatherUrl)
+            .then((response) => { return response.json(); })
+            .then((json) => {
+                console.log(json);
+
+                let currentTemp = document.getElementById("currentTemp"); /* 온도 */
+                let humidity = document.getElementById("humidity"); /* 습도 */
+                let wind = document.getElementById("wind"); /* 바람 */
+                let city = document.getElementById("city"); /* 도시 */
+                let weather = document.getElementById("weather"); /* 날씨 */
+
+                currentTemp.innerText = Math.floor(json.main.temp);
+                humidity.innerText = json.main.humidity;
+                wind.innerText = json.wind.speed;
+                city.innerText = json.name;
+                weather.innerText = json.weather[0].description;
+
+                let icon = json.weather[0].icon; // 아이콘 let
+                let iconurl = document.getElementById('icon'); // img id를 iconurl이라는 이름으로 받아옴
+
+                iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
+            });
+    }
+
+    getWeather("Seoul"); // 초기값 서울
+
+    // 검색 버튼 클릭 시 선택한 도시의 날씨 정보를 가져오기
+    let searchButton = document.querySelector(".common--cardWeatherSelectorBox button");
+    searchButton.addEventListener("click", () => {
+        let selectElement = document.getElementById("citySelect");
+        let cityName = selectElement.options[selectElement.selectedIndex].id;
+        getWeather(cityName);
+    });
+
+
+
+/* 이전 코드 */
+    // let selectElement = document.getElementById("citySelect");
+    // let cityName = selectElement.options[selectElement.selectedIndex].id;
+    // console.log("도시 이름: " + cityName);
+    // let WeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b690d0fd2f1b2fe624fa0586e5e0d458&units=metric&lang=kr"
+
+    // fetch(WeatherUrl)
+    //     .then((response) => {return response.json();})
+    //     .then((json) => {
+    //     console.log(json);
+
+    //     let currentTemp = document.getElementById("currentTemp"); /* 온도 */
+    //     let humidity = document.getElementById("humidity"); /* 습도 */
+    //     let wind = document.getElementById("wind"); /* 바람 */
+    //     let city = document.getElementById("city"); /* 도시 */
+    //     let weather = document.getElementById("weather"); /* 날씨 */
+
+    //     currentTemp.innerText = Math.floor(json.main.temp);
+    //     humidity.innerText = json.main.humidity;
+    //     wind.innerText = json.wind.speed;
+    //     city.innerText = json.name;
+    //     weather.innerText = json.weather[0].description;
         
-        
-          let icon = json.weather[0].icon; //아이콘 받아옴
+    //     let icon = json.weather[0].icon; // 아이콘 let
+    //     let iconurl = document.getElementById('icon'); // img id를 iconurl이라는 이름으로 받아옴
 
-        let iconurl = document.getElementById('icon'); //img id를 iconurl이라는 이름으로 받아옴
-
-        iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
-        });
+    //     iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
+    //     });
     </script>
-    
 </body>
-
-
 </html>

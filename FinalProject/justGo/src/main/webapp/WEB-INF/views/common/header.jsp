@@ -140,7 +140,7 @@
         <form action="/board/boardSearch" method="GET"> <%-- 전체 게시글 검색 --%>
 
             <input type="hidden" name="key3" value="t">
-            <input type="search" name="query" id="query" placeholder="검색어를 입력해주세요." maxlength="30" value="${param.query}">
+            <input type="search" name="query" id="query" placeholder="검색어를 입력해주세요." maxlength="30" value="${param.query}" autocomplete="off">
             <button type="submit" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
