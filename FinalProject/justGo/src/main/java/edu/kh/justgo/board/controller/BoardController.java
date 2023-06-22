@@ -103,8 +103,8 @@ public class BoardController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
-
 		Board board = service.selectBoard(map);
+		model.addAttribute("board", board);
 
 		String path = null;
 
