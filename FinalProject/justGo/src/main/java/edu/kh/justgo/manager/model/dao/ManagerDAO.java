@@ -124,7 +124,7 @@ public class ManagerDAO {
 	}
 	
 	
-	/** 회원별 글 목록 조회
+	/** 글 목록 조회하려는 회원 조회
 	 * @param postMemberPagination
 	 * @param memberNo
 	 * @return list
@@ -135,6 +135,13 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.selectPostMemberList", memberNo, rowBounds);
 	}
 
+
+
+
+
+
+
+
 	
 
 	
@@ -143,13 +150,30 @@ public class ManagerDAO {
 	 * @param feedbackNo
 	 * @return LIST
 	 */
-	 public Feedback selectAskDetailList(int feedbackNo) {
-		return sql.selectOne("managerMapper.selectAskDetailList", feedbackNo);
+//	 public Feedback selectAskDetailList(int feedbackNo) {
+//		return sql.selectOne("managerMapper.selectAskDetailList", feedbackNo);
+//	}
+
+
+
+
+	/** 1:1문의 상세 조회 (회원 문의)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectMemberAskList(int feedbackNo) {
+		return sql.selectOne("managerMapper.selectMemberAskList", feedbackNo);
 	}
 
 
 
-
+	/** 1:1문의 상세조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectManagerAnswerList(int feedbackNo) {
+		return sql.selectOne("managerMapper.selectManagerAnswerList", feedbackNo);
+	}
 
 
 

@@ -1,5 +1,6 @@
 package edu.kh.justgo.manager.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.service.ManagerService;
@@ -29,7 +29,7 @@ public class ManagerController {
 	@GetMapping("/memberManager")
 	public String selectMemberList(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model, RedirectAttributes ra
+			, Model model
 			) {
 		
 		// 회원정보 불러오기
@@ -87,28 +87,34 @@ public class ManagerController {
 	
 	
 	
-    // 1:1문의 상세페이지 연결
+	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
     @GetMapping("/askManager_detail/{feedbackNo}")
     public String askManagerDetail(
     		@PathVariable("feedbackNo") int feedbackNo
-    		, @SessionAttribute(value="loginUser", required=false) Member loginManager
     		, Model model
     		) {
     	
 //    	System.out.println("feedbackNo: " + feedbackNo);
     	
-    	// 1:1문의 상세글 불러오기
-       Feedback askList = service.selectAskDetailList(feedbackNo);
-       model.addAttribute("loginManager", loginManager);
-
-       model.addAttribute("askList", askList);
-        // 콘솔에서 확인
+    	// 1:1문의 상세글 불러오기(회원문의글)
+    	Feedback memberAskList = service.selectMemberAskList(feedbackNo);
+        Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
+    	
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        map.put("memberAskList", memberAskList);
+        map.put("managerAnswerList", managerAnswerList);
+        
+//        System.out.println(map);
+        
+    	model.addAttribute("map", map);
+    	// 콘솔에서 확인
 //        System.out.println("model" +model);
     	
     	
-        return "/manager/askManager_detail";
+    	return "/manager/askManager_detail";
     }
-	
+    
 	
     
     
