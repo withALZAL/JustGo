@@ -36,17 +36,34 @@ public interface ManagerService {
     Map<String, Object> selectMemberPostList(int memberNo, int cp);
 
 
+
+
     
     
     /** 1:1문의 상세 조회
 	 * @param feedbackNo
 	 * @return list
 	 */
-    public Feedback selectAskDetailList(int feedbackNo);
+//    public Feedback selectAskDetailList(int feedbackNo);
 
     
 
 
+
+	
+	
+	
+	/**1:1문의 상세 조회(회원문의글)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectMemberAskList(int feedbackNo);
+
+	/**1:1문의 상세 조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectManagerAnswerList(int feedbackNo);
 
     
 

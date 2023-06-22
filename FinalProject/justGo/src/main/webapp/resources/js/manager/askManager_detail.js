@@ -31,10 +31,6 @@ answerBtn.addEventListener("click",() => {
     answerTitleWrite.innerText="A. 문의에 대한 답변드립니다.";
     answerWrite.append(answerTitleWrite);
     
-    // const titleTextarea = document.createElement("textarea");
-    // titleTextarea.className='manager--titleTextarea';
-    // answerTitleWrite.append(titleTextarea);
-    // titleTextarea.focus();
     
     const managerNickname = document.createElement("div");
     managerNickname.className='manager--inquiryAnswerTitle';
