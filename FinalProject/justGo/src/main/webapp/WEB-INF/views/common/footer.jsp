@@ -133,6 +133,7 @@
         showConfirmButton: false, /* 컨펌버튼 없음 */
         timer: 3000, /* 3초 간 뜨기 */
         timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)

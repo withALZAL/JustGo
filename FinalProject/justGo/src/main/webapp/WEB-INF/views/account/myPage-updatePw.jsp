@@ -64,6 +64,9 @@
         <a href="/myPage/updatePw">
             <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
         </a>
+        <a href="#">
+            <button type="button" class="btn btn-primary btn-lg">1:1문의</button>
+        </a>
         <a>
             <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
         </a>

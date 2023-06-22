@@ -251,6 +251,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            showCloseButton: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
                 toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -297,6 +298,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            showCloseButton: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
                 toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -342,6 +344,7 @@ checkAuthKeyBtn.addEventListener("click", function(){
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
+                    showCloseButton: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -370,6 +373,7 @@ checkAuthKeyBtn.addEventListener("click", function(){
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            showCloseButton: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer);
                 toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -421,6 +425,7 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
+                    showCloseButton: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -443,6 +448,7 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
+                    showCloseButton: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -465,6 +471,7 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
+                    showCloseButton: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -487,6 +494,7 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
+                    showCloseButton: true,
                     didOpen: (toast) => {
                         toast.addEventListener('mouseenter', Swal.stopTimer);
                         toast.addEventListener('mouseleave', Swal.resumeTimer);

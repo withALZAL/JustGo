@@ -19,12 +19,12 @@ if (loginForm != null) {
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
+                showCloseButton: true,
                 didOpen: (toast) => {
                     toast.addEventListener('mouseenter', Swal.stopTimer);
                     toast.addEventListener('mouseleave', Swal.resumeTimer);
                 },
                 didClose: () => {
-                    memberEmail.value = "";
                     memberEmail.focus();
                 }
             });
@@ -46,12 +46,12 @@ if (loginForm != null) {
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
+                showCloseButton: true,
                 didOpen: (toast) => {
                     toast.addEventListener('mouseenter', Swal.stopTimer);
                     toast.addEventListener('mouseleave', Swal.resumeTimer);
                 },
                 didClose: () => {
-                    memberPw.value = "";
                     memberPw.focus();
                 }
             });
