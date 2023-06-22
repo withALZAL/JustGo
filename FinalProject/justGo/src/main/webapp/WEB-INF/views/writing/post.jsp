@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
+<c:forEach items="${boardTypeList}" var="boardType">
+    <c:if test="${boardType.BOARD_CODE == boardCode}" >
+        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
+    </c:if>
+</c:forEach>
+<c:forEach items="${countryList}" var="boardType">
+    <c:if test="${boardType.COUNTRY_NO == countryNo}" >
+        <c:set var="countryName" value="${boardType.COUNTRY_NAME}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,7 +60,13 @@
         <img src="/resources/images/officialPageTitle/PAGETITLE_SILVER.png" alt="기본">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="https://www.naver.com">
-                ROOT게시판명
+                <c:if test="${board.boardCode != 1}" >
+                ${boardName}
+                </c:if>
+                <c:if test="${board.boardCode ==1}" >
+                ${countryName}게시판
+                </c:if>
+
             </a>
         </div>
     </div>
