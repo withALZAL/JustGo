@@ -442,7 +442,7 @@
                     <div style="border-bottom: 1px solid #D9D9D9;">
                         <div id="city" style="font-size: 30px;"></div> <%-- 도시 --%>
                         <div class="common--cardWeatherSelectorBox">
-                            <select id="citySelect" class="common--cardWeatherSelector" style="width: 100px;">
+                            <select id="citySelect" onchange="change();" class="common--cardWeatherSelector" style="width: 100px;">
                                 <option id="Seoul">서울</option>
                                 <option id="Tokyo">도쿄</option>
                                 <option id="Osaka">오사카</option>
@@ -463,7 +463,7 @@
                                 <option id="Perth">퍼스</option>
                                 <option id="Guam">괌</option>
                             </select>
-                            <button type="button" class="btn btn-secondary btn-sm" style="border: none;">검색</button>
+                            
                         </div>
                     </div>
                     <div>
@@ -583,16 +583,26 @@
             });
     }
 
+
+function change(){
+    let selectElement = document.getElementById("citySelect");
+    let cityName = selectElement.options[selectElement.selectedIndex].id;
+    getWeather(cityName);
+}
     getWeather("Seoul"); // 초기값 서울
 
-    // 검색 버튼 클릭 시 선택한 도시의 날씨 정보를 가져오기
-    let searchButton = document.querySelector(".common--cardWeatherSelectorBox button");
-    searchButton.addEventListener("click", () => {
-        let selectElement = document.getElementById("citySelect");
-        let cityName = selectElement.options[selectElement.selectedIndex].id;
-        getWeather(cityName);
-    });
+    // // 검색 버튼 클릭 시 선택한 도시의 날씨 정보를 가져오기
+    // let searchButton = document.querySelector(".common--cardWeatherSelectorBox button");
+    // searchButton.addEventListener("click", () => {
+    //     let selectElement = document.getElementById("citySelect");
+    //     let cityName = selectElement.options[selectElement.selectedIndex].id;
+    //     getWeather(cityName);
+    // });
 
+
+
+
+funth
 
 
 /* 이전 코드 */
