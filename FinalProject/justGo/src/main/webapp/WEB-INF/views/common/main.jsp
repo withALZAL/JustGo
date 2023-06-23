@@ -657,7 +657,6 @@ function change(){
         fetch(miniUrl)
         .then(response => {return response.json();})
         .then(resultMini => {
-            let after1usd2krw = document.getElementById("after1usd2krw");
             let calc1 = resultMini.conversion_rates.KRW; // 1296.8883
             let calc2 = Math.round(calc1); // 1297
             after1usd2krw.innerText = calc2; // 1297원
@@ -676,50 +675,16 @@ function change(){
         let resultMoney = document.getElementById("resultMoney"); /* 결과 숫자 */
         let resultCurr = document.getElementById("resultCurr"); /* 결과 통화 */
 
-        console.log("beforeMoney: "+beforeMoney);
-        console.log("beforeCurr: "+beforeCurr);
-        console.log("afterCurr: "+afterCurr);
-
         /* 오른쪽 변환 환율 */
         function moneyExchange(beforeMoney, beforeCurr, afterCurr) {
             let moneyUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/" + beforeCurr;
-                                console.log("moneyUrl: "+moneyUrl);
-                                console.log("beforeMoneyInside: "+beforeMoney)
-                                console.log("beforeCurrInside: "+beforeCurr)
-                                console.log("afterCurrInside: "+afterCurr)
 
             fetch(moneyUrl)
             .then(response => {return response.json();})
             .then(result => {
-                if(afterCurr === 'KRW') console.log("조센징이다!");
-                if(afterCurr == 'JPY') console.log("쪽빠리다!");
-                if(afterCurr == 'CNY') console.log("짱깨다!");
-                if(afterCurr == 'USD') console.log("양키다!");
-                if(afterCurr == 'AUD') console.log("어시다!");
-                if(afterCurr == 'THB') console.log("타이쉑이다!");
-                if(afterCurr == 'VND') console.log("베트콩이다!");
-                let calc1 = result.conversion_rates.JPY;
-                let calc1KRW = result.conversion_rates.KRW;
-                let calc1CNY = result.conversion_rates.CNY;
-                let calc1USD = result.conversion_rates.USD;
-                let calc1AUD = result.conversion_rates.AUD;
-                let calc1VND = result.conversion_rates.VND;
-                let calc1THB = result.conversion_rates.THB;
-                                console.log("calc1: "+calc1);
-                                console.log("calc1KRW: "+calc1KRW);
-                                console.log("calc1CNY: "+calc1CNY);
-                                console.log("calc1USD: "+calc1USD);
-                                console.log("calc1AUD: "+calc1AUD);
-                                console.log("calc1VND: "+calc1VND);
-                                console.log("calc1THB: "+calc1THB);
-
+                let calc1 = result.conversion_rates[afterCurr]; /* [] 대괄호 안에 써야 함! */
                 let calc2 = calc1 * beforeMoney;
-
-                                console.log("calc2: "+calc2);
-
                 let calc3 = Math.round(calc2);
-
-                                console.log("calc3: "+calc3);
                 resultMoney.innerText = calc3;
             });
         }
