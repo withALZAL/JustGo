@@ -1,6 +1,9 @@
 package edu.kh.justgo.board.model.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.justgo.board.model.dto.Board;
 
@@ -36,6 +39,15 @@ public interface WritingService {
 	 * @return result
 	 */
 	int wiritngDelete2(Board board);
+	
+	
+	/** 이미지 등록
+	 * @param file
+	 * @param webPath
+	 * @param filePath
+	 * @return result
+	 */
+	String imageUpload(MultipartFile file, String webPath, String filePath) throws IllegalStateException, IOException;
 	
 	
 	

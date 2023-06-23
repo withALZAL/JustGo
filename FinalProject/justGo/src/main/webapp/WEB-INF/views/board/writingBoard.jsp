@@ -124,53 +124,69 @@
     </script>
     <script>
         $('#summernote').summernote({
-        placeholder: '여기에 내용을 작성해주세요.',
-        tabsize: 2,
-        height: 500,
-        width : 1100,
-        focus: true, /* 화면 auto-focus on */
-        disableResizeEditor: true, /* resize off */
-        toolbar: [ /* 썸머노트 상단 툴바 설정 */
-            ["style", ["style"]],
-            ["font", ["bold", "italic", "underline", "fontname"]],
-            ["color", ["color"]],
-            ["insert", ["link", "picture"]],
-            ["view", ["codeview", 'help']]
-            ]
+            placeholder: '여기에 내용을 작성해주세요.',
+            tabsize: 2,
+            height: 500,
+            width : 1100,
+            focus: true, /* 화면 auto-focus on */
+            disableResizeEditor: true, /* resize off */
+            toolbar: [ /* 썸머노트 상단 툴바 설정 */
+                ["style", ["style"]],
+                ["font", ["bold", "italic", "underline", "fontname","fontsize"]],
+                ["color", ["color"]],
+                ["insert", ["link", "picture"]],
+                ["view", ["codeview", 'help']]
+                ],
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+            fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50'],
+            callbacks: { // callback : 일을 받으면 그 일을 처리해서 back 하겠다.
+                onImageUpload : function(files, editor, welEditable){
+                    console.log(files);
+                    console.log(editor);
+                    console.log(welEditable);
+                    console.log(this);
+                    
+                   // 파일 업로드(다중업로드를 위해 반복문 사용)
+                    for (var i = files.length - 1; i >= 0; i--) {
+                        uploadSummernoteImageFile(files[i],this);
+                    }
+                }
+            } 
         });
     </script>
 
-    <script> 
-                $(document).ready(function(){ 
-                    $('#summernote').summernote({ 
-                        height : 300, 
-                        width : 700, 
-                        lang : "ko-KR", 
-                        callbacks:{ 
-                            onImageUpload : function(files){ 
-                            uploadSummernoteImageFile(files[0],this); 
-                            } 
-                        } 
-                    }); 
-                    function uploadSummernoteImageFile(file,editor){ 
-                        data = new FormData(); 
-                        data.append("file",file); 
-                        $.ajax({ 
-                            data:data, 
-                            type:"POST", 
-                            url:"/uploadSummernoteImageFile", 
-                            dataType:"JSON", 
-                            contentType:false, 
-                            processData:false, 
+    <script>
+         $('#summernote').summernote('fontSize', '22');
+    </script>
 
-                            success:function(data){ 
-                                $(editor).summernote("insertImage",data.url); 
-                                $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
-                            } 
-                        }); 
-                    } 
-                }); 
- </script> 
+    <script>
+        function uploadSummernoteImageFile(file, el) {
+
+            var data = new FormData();	//form 태그가 데이터를 제출할 때의 모양을 그대로 따르는 객체
+            data.append("file",file);
+
+            $.ajax({
+                url: '/writing/uploadImage',
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: data,
+                cache: false,
+                contentType : false,
+                processData : false,
+                success : function(result) {
+                    console.log(result); // 저장된 이미지의 웹 접근 경로
+                    $(el).summernote('editor.insertImage',result);
+                },
+                error : function(e) {
+                    console.log(e);
+                }
+            });
+        }
+            
+    </script>
+
+
+
             
 </body>
 </html>

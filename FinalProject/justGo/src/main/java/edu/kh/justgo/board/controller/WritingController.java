@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.board.model.dto.Board;
@@ -33,11 +35,11 @@ public class WritingController {
 	@Autowired // 게시글 수정 시 상세조회 서비스 호출용
 	private BoardService boardService;
 
-	// 1:1문의 쓰기 연결
-	@GetMapping("/writing/writingQuestion")
-	public String writingQuestion() {
-		return "writing/writingQuestion";
-	}
+	   // 1:1문의 쓰기 연결
+	   @GetMapping("/writing/writingAsk")
+	   public String writingQuestion() {
+	      return "writing/writingAsk";
+	   }
 
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
@@ -53,6 +55,9 @@ public class WritingController {
 		return "board/writingBoard";
 	}
 
+	
+	
+	
 	// 포스트 연결
 	@GetMapping("/writing/post")
 	public String post() {
@@ -61,9 +66,12 @@ public class WritingController {
 
 	// 게시글 작성 
 	@PostMapping("/board/write")
-	public String boardInsert(Board board, @SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra,
-			HttpSession session,Model model) throws IllegalStateException, IOException {
-
+	public String boardInsert(
+			Board board
+			,@SessionAttribute("loginMember") Member loginMember
+			, RedirectAttributes ra
+			,HttpSession session,Model model) throws IllegalStateException, IOException {
+		
 		// 로그인한 회원 번호를 얻어와 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
 		
@@ -73,10 +81,9 @@ public class WritingController {
 		if (board.getBoardCode() == 0) {
 			board.setBoardCode(1); // 여행 게시판
 		}
+		
 
 		int result = service.boardInsert(board);
-		
-		
 
 		String message = null;
 		String path = "redirect:/";
@@ -108,6 +115,25 @@ public class WritingController {
 		return path;
 
 	}
+	
+	
+	// 게시글 이미지 업로드
+	@ResponseBody
+	@PostMapping("/writing/uploadImage")
+	public String imageUpload(
+			@RequestParam("file") MultipartFile file,
+			@SessionAttribute("loginMember") Member loginMember,
+			HttpSession session ) throws IllegalStateException, IOException {
+		
+		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+
+		
+		return service.imageUpload(file,webPath,filePath);
+	}
+	
+
+
 	
 	// 게시글 수정 화면 전환 // 자유/질문
 	@GetMapping("/writing/{boardCode}/{boardNo}/update")
