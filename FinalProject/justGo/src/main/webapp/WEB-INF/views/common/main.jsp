@@ -406,32 +406,38 @@
                     <span>원</span>
                 </div>
             </div>
+
+
+
+
+
+
             <div class="common--moneyRightBox">
                 <div class="what2what" style="border-bottom: 1px solid #D9D9D9;">
                     <input id="beforeMoney" type="number" value="1">
-                    <select id="beforeCountry" onchange="beforeMoneyChange();" class="common--cardExchangeSelector">
-                        <option id="US" selected>달러 | USD</option>
-                        <option id="KR">원 | KRW</option>
-                        <option id="JP">엔 | JPY</option>
-                        <option id="CN">위안 | CNY</option>
-                        <option id="VE">동 | VND</option>
-                        <option id="TH">바트 | THB</option>
-                        <option id="AU">호주달러 | AUD</option>
+                    <select id="beforeCurrSelect" onchange="moneyExchange();" class="common--cardExchangeSelector">
+                        <option id="USD" selected>달러 | USD</option>
+                        <option id="KRW">원 | KRW</option>
+                        <option id="JPY">엔 | JPY</option>
+                        <option id="CNY">위안 | CNY</option>
+                        <option id="VND">동 | VND</option>
+                        <option id="THB">바트 | THB</option>
+                        <option id="AUD">호주달러 | AUD</option>
                     </select>
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select id="afterCountry" onchange="afterMoneyChange();" class="common--cardExchangeSelector">
-                        <option id="US">달러 | USD</option>
-                        <option id="KR" selected> 원 | KRW</option>
-                        <option id="JP">엔 | JPY</option>
-                        <option id="CN">위안 | CNY</option>
-                        <option id="VE">동 | VND</option>
-                        <option id="TH">바트 | THB</option>
-                        <option id="AU">호주달러 | AUD</option>
+                    <select id="afterCurrSelect" onchange="moneyExchange();" class="common--cardExchangeSelector">
+                        <option id="USD">달러 | USD</option>
+                        <option id="KRW" selected>원 | KRW</option>
+                        <option id="JPY">엔 | JPY</option>
+                        <option id="CNY">위안 | CNY</option>
+                        <option id="VND">동 | VND</option>
+                        <option id="THB">바트 | THB</option>
+                        <option id="AUD">호주달러 | AUD</option>
                     </select>
                 </div>
                 <div class="moneyResult">
-                    <span id="afterMoney"></span>
-                    <span id="afterCurrency"></span>
+                    <span id="resultMoney"></span>
+                    <span id="resultCurr"></span>
                 </div>
             </div>
         </div>
@@ -651,8 +657,6 @@ function change(){
         fetch(miniUrl)
         .then(response => {return response.json();})
         .then(resultMini => {
-            console.log(resultMini);
-
             let after1usd2krw = document.getElementById("after1usd2krw");
             let calc1 = resultMini.conversion_rates.KRW; // 1296.8883
             let calc2 = Math.round(calc1); // 1297
@@ -661,6 +665,67 @@ function change(){
 
 
 /* -------------------------------------------------------------------------------------------- */
+
+        let beforeMoney = document.getElementById("beforeMoney").value; /* 기준 숫자 */
+        let beforeCurrSelect = document.getElementById("beforeCurrSelect");
+        let beforeCurr = beforeCurrSelect.options[beforeCurrSelect.selectedIndex].id; /* 기준 통화 */
+
+        let afterCurrSelect = document.getElementById("afterCurrSelect");
+        let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id; /* 변환 통화 */
+
+        let resultMoney = document.getElementById("resultMoney"); /* 결과 숫자 */
+        let resultCurr = document.getElementById("resultCurr"); /* 결과 통화 */
+
+        console.log("beforeMoney: "+beforeMoney);
+        console.log("beforeCurr: "+beforeCurr);
+        console.log("afterCurr: "+afterCurr);
+
+        /* 오른쪽 변환 환율 */
+        function moneyExchange(beforeMoney, beforeCurr, afterCurr) {
+            let moneyUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/" + beforeCurr;
+                                console.log("moneyUrl: "+moneyUrl);
+                                console.log("beforeMoneyInside: "+beforeMoney)
+                                console.log("beforeCurrInside: "+beforeCurr)
+                                console.log("afterCurrInside: "+afterCurr)
+
+            fetch(moneyUrl)
+            .then(response => {return response.json();})
+            .then(result => {
+                if(afterCurr === 'KRW') console.log("조센징이다!");
+                if(afterCurr == 'JPY') console.log("쪽빠리다!");
+                if(afterCurr == 'CNY') console.log("짱깨다!");
+                if(afterCurr == 'USD') console.log("양키다!");
+                if(afterCurr == 'AUD') console.log("어시다!");
+                if(afterCurr == 'THB') console.log("타이쉑이다!");
+                if(afterCurr == 'VND') console.log("베트콩이다!");
+                let calc1 = result.conversion_rates.JPY;
+                let calc1KRW = result.conversion_rates.KRW;
+                let calc1CNY = result.conversion_rates.CNY;
+                let calc1USD = result.conversion_rates.USD;
+                let calc1AUD = result.conversion_rates.AUD;
+                let calc1VND = result.conversion_rates.VND;
+                let calc1THB = result.conversion_rates.THB;
+                                console.log("calc1: "+calc1);
+                                console.log("calc1KRW: "+calc1KRW);
+                                console.log("calc1CNY: "+calc1CNY);
+                                console.log("calc1USD: "+calc1USD);
+                                console.log("calc1AUD: "+calc1AUD);
+                                console.log("calc1VND: "+calc1VND);
+                                console.log("calc1THB: "+calc1THB);
+
+                let calc2 = calc1 * beforeMoney;
+
+                                console.log("calc2: "+calc2);
+
+                let calc3 = Math.round(calc2);
+
+                                console.log("calc3: "+calc3);
+                resultMoney.innerText = calc3;
+            });
+        }
+
+        moneyExchange(beforeMoney, beforeCurr, afterCurr);
+
 
 
 
