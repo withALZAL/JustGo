@@ -67,7 +67,7 @@
         </a>
     </form>
     <form>
-        <a href="/writing/writingQuestion">
+        <a href="/board/boardAsk/{memberNo}">
             <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
         </a>
     </form>
@@ -227,7 +227,7 @@
             </c:if>
             <c:if test="${!empty sessionScope.loginMember && boardType.BOARD_CODE == 4}">
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}/${loginMember.memberNo}">${boardType.BOARD_NAME}</a>
                 </li>
             </c:if>
         </c:forEach>   

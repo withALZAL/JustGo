@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 /**
  * @author user1
@@ -294,4 +295,24 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.writingList");
 
 	}
+	
+	/**  로그인 한 회원의 1:1문의 갯수
+	 * @param memberNo
+	 * @return result
+	 */
+	public int getAskListCount(int memberNo) {
+		
+		return sqlSession.selectOne("askMapper.getAskListCount", memberNo);
+	}
+
+	/** 로그인한 회원의 1:1문의 목록
+	 * @param askPagination
+	 * @return list
+	 */
+	public List<Feedback> selectAskList(Pagination askPagination, int memberNo) {
+		int offset = (askPagination.getCurrentPage()-1) * askPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, askPagination.getLimit());
+		return sqlSession.selectList("askMapper.selectAskList", memberNo, rowBounds);
+	}
+	
 }
