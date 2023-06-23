@@ -315,4 +315,26 @@ public class BoardDAO {
 		return sqlSession.selectList("askMapper.selectAskList", memberNo, rowBounds);
 	}
 	
+	
+	
+	/** 1:1문의 상세 조회 (회원 문의)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectMemberAskList(int feedbackNo) {
+		return sqlSession.selectOne("askMapper.selectMemberAskList", feedbackNo);
+	}
+
+
+
+	/** 1:1문의 상세조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectManagerAnswerList(int feedbackNo) {
+		return sqlSession.selectOne("askMapper.selectManagerAnswerList", feedbackNo);
+	}
+
+	
+	
 }
