@@ -41,11 +41,13 @@ function basic(tagNo,cp) {
             ap1.classList.add("page-link");
             ap1.innerHTML="맨처음";
             ap1.setAttribute("onclick",`basic(${tagNo},1)`);
+            ap1.href=`#`;
             const li2 = document.createElement("li");
             li2.classList.add("page-item");
             const ap2 = document.createElement("a");
             ap2.classList.add("page-link");
             ap2.setAttribute("onclick",`basic(${tagNo},${result.pagination.prevPage})`);
+            ap2.href=`#`;
             ap2.innerHTML="이전";
             
             
@@ -99,6 +101,7 @@ function basic(tagNo,cp) {
                     ap4.classList.add("page-link");
                     ap4.innerHTML=p;
                     ap4.setAttribute("onclick",`basic(${tagNo},${p})`);
+                    ap4.href=`#`;
                     li4.append(ap4);
                     page.append(li4);
                 }
@@ -110,12 +113,14 @@ function basic(tagNo,cp) {
             ap5.classList.add("page-link");
             ap5.innerHTML="다음";
             ap5.setAttribute("onclick",`basic(${tagNo},${result.pagination.nextPage})`);
+            ap5.href=`#`;
             const li6 = document.createElement("li");
             li6.classList.add("page-item");
             const ap6 = document.createElement("a"); 
             ap6.classList.add("page-link");
             ap6.innerHTML="마지막";
             ap6.setAttribute("onclick",`basic(${tagNo},${result.pagination.maxPage})`);
+            ap6.href=`#`;
 
             li5.append(ap5);
             li6.append(ap6);

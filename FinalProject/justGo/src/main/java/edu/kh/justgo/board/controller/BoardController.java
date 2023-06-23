@@ -130,6 +130,9 @@ public class BoardController {
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
 			@RequestParam Map<String, Object> paramMap) {
 
+		List<Board> tagAllList = service.tagList();
+		model.addAttribute("tagAllList", tagAllList);
+		
 		if (paramMap.get("key2") == null) {
 
 			Map<String, Object> map = service.countryList(countryNo, cp);
