@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.kh.justgo.board.model.dao.BoardDAO;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -254,6 +255,27 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<Board> writingList() {
 		return dao.writingList();
+	}
+	
+	// 1:1문의정보 불러오기
+	@Override
+	public Map<String, Object> selectAskList(int cp, int memberNo) {
+		
+		// 로그인 한 회원의 1:1문의 갯수 
+		int askListCount = dao.getAskListCount(memberNo);
+		
+		Pagination askPagination = new Pagination(askListCount, cp);
+		
+		List<Feedback> askList = dao.selectAskList(askPagination, memberNo);
+		
+		// pagination, askList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<>();
+		map.put("askPagination", askPagination);
+		map.put("askList", askList);
+		
+//		System.out.println(map);
+		
+		return map;
 	}
 	
 }

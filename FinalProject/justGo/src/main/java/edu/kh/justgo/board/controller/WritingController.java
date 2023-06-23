@@ -34,9 +34,9 @@ public class WritingController {
 	private BoardService boardService;
 
 	// 1:1문의 쓰기 연결
-	@GetMapping("/writing/writingQuestion")
+	@GetMapping("/writing/writingAsk")
 	public String writingQuestion() {
-		return "writing/writingQuestion";
+		return "writing/writingAsk";
 	}
 
 	// 글쓰기 연결

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="askMapper">
+	<!-- namespace : 공간(영역,지역,태그)의 이름 -->
+
+ 	<!--mapper 파일 생성 시 아래 태그 반드시 삭제!  -->
+  <!-- <cache-ref namespace=""/> -->
+		
+		   <!-- 
+      resultMap  
+      - SELECT 조회 결과(ResultSet) 컬럼명과
+        컬럼 값을 옮겨 담을 DTO의 필드명이 같지 않을 때
+        이를 매핑 시켜 SELECT시 자동으로 담기게하는 역할
+    
+    
+       -속성
+       type : 연결할 VO (패키지명 + 클래스명 또는 별칭)
+       id : 만들어진 resultMap을 지칭할 식별명(이름)
+       
+       <id> 태그 : PK 역할 컬럼 - 필드 매핑
+       <result> 태그 : <id>제외 나머지
+    -->
+    
+   <resultMap type="Member" id="member_rm">
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="memberNo" column="MEMBER_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+		<result property="memberPw" column="MEMBER_PW" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberRole" column="MEMBER_ROLE" />
+		<result property="profileImg" column="PROFILE_IMG" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="disableDate" column="DISABLE_DATE" />
+		<result property="deleteDate" column="DELETE_DATE" />
+		<result property="memberCondition" column="MEMBER_CONDITION" />
+		<result property="setAlarmReply" column="SET_AL_REPLY" />
+		<result property="setAlarmLike" column="SET_AL_LIKE" />
+	</resultMap>
+	
+	
+	 <resultMap type="Feedback" id="feedback_rm">
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="feedbackNo" column="FEEDBACK_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="managerNickname" column="MANAGER_NICKNAME" />
+		<result property="feedbackTitle" column="FEEDBACK_TITLE" />
+		<result property="feedbackText" column="FEEDBACK_TEXT" />
+		<result property="feedbackDate" column="FEEDBACK_DATE" />
+		<result property="adminText" column="ADMIN_TEXT" />
+		<result property="feedback_CF_FL" column="CONFIRM_FL" />
+		<result property="feedback_CF_Date" column="CONFIRM_DATE" />
+		
+	</resultMap>
+	
+	
+	 <resultMap type="Report" id="report_rm">
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="reportNo" column="REPORT_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="reportedNickname" column="REPORTED_NICKNAME" />
+		<result property="reportCategory" column="REPORT_CATEGORY" />
+		<result property="reportDate" column="REPORT_DATE" />
+		<result property="reprot_CF_FL" column="CONFIRM_FL" />
+		<result property="report_CF_Date" column="CONFIRM_DATE" />
+		<result property="adminNo" column="ADMIN_NO" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
+		
+		
+		
+	</resultMap>
+	
+	
+
+	<resultMap type="Board" id="board_rm">
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="boardNo" column="BOARD_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardText" column="BOARD_TEXT" />
+		<result property="createDate" column="CREATE_DATE" />
+		<result property="boardUpdate" column="UPDATE_DATE" />
+		<result property="readCount" column="READ_COUNT" />
+		<result property="boardCode" column="BOARD_CODE" />
+		<result property="boardDelete" column="BOARD_DELETE" />
+		
+
+		<!-- JOIN -->
+		<result property="commentCount" column="COMMENT_COUNT" />
+		<result property="likeCount" column="LIKE_COUNT" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="profileImage" column="PROFILE_IMG" />
+		<result property="countryNo" column="COUNTRY_NO" />
+		<result property="tagNo" column="TAG_NO" />
+		<result property="thumbnail" column="THUMBNAIL"/>
+
+
+		<!--<collection property="imageList" select="selectImageList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />-->
+
+<!-- 		<collection property="replyList" select="selectReplyList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" /> -->
+	</resultMap>
+	
+		<!--리플   -->
+		 <resultMap type="Reply" id="reply_rm">
+      <id property="replyNo" column="COMMENT_NO"/>
+      <result property="replyContent" column="REPLY_CONTENT"/>
+      <result property="replyDate" column="REPLY_DATE"/>
+      <result property="updateDate" column="REPLY_UPDATE"/>
+      <result property="replyDelete" column="REPLY_DELETE"/>
+      <result property="parentReplyNo" column="PARENT_REPLY_NO"/>
+
+   
+   </resultMap>
+	
+	
+	
+
+
+	<!-- 
+		SQL 관련 태그의 속성 
+		- parameterType : 전달받은 값의 자료형
+						  기본 : 패키지명 + 클래스명
+						  별칭 : Mybatis 별칭 또는 사용자 지정 별칭
+						  
+	  	- parameterMap : (사용 안함)
+	  	
+	  	- resultType : select 결과를 담아서 반환할 자료형 
+	  				   단, DTO를 작성할 경우 필드명 = 컬럼명 경우만 가능
+	  				   						memberNo = Member_NO 달라 사용 불가 
+	  	
+	  	- resultMap : select 결과의 컬럼명과 결과를 저장할 DTO 필드명이 다를경우
+	  				  이를 알맞게 매핑(연결)시켜주는 <resultMap> id 작성
+	  				    
+	  	
+	  	
+	 -->
+	 
+	 <!-- 
+		*** 마이바티스에서 전달 받은 값을 SQL에 작성하는 방법 ***
+	 	
+	 	#{변수명|필드명} : PreparedStatement 
+	 					 : SQL에 값 대입 시 양쪽에 ''붙여서 대입
+	 	
+
+	 	${변수명|필드명} : Statement
+						 : SQL 값 대입시 양쪽에 아무것도 붙이지 않음
+						 
+		사용 예시 ) 
+		test1 = "user01"
+		
+		test2 = MEMBER_EMAIL	
+		
+		- MEMBER_EMAIL이  'user 01' 인 회원 조회			 
+		SELECT * FROM MEMBER WHERE MEMBER_EMAIL = #{test1}
+	  -->
+	 
+	 
+	
+	 
+	 <!-- 로그인한 회원의 1:1문의 수 조회 -->
+	<select id="getAskListCount" parameterType="Feedback" resultType="_int">
+	 	SELECT COUNT(*) FROM FEEDBACK 
+	 	WHERE MEMBER_NO =#{memberNO}
+	 </select>
+	 
+	 <!-- 로그인한 회원의 1:1문의목록 조회 -->
+	<select id="selectAskList" parameterType="Feedback" resultMap="feedback_rm">
+	 	SELECT FEEDBACK_NO, MEMBER_NICKNAME, FEEDBACK_TITLE, FEEDBACK_TEXT, FEEDBACK_DATE, CONFIRM_FL, CONFIRM_DATE
+		FROM FEEDBACK
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE MEMBER_NO = #{memberNO}
+		ORDER BY FEEDBACK_NO DESC
+	 </select>
+	 
+	
+	 
+	 
+	 
+	  <!-- 1:1문의 상세 조회 (회원문의)-->
+      <select id="selectMemberAskList" parameterType="Feedback" resultMap="feedback_rm">
+		SELECT FEEDBACK_NO, FEEDBACK_TITLE ,FEEDBACK_TEXT, FEEDBACK_DATE, MEMBER_NICKNAME
+		FROM "FEEDBACK"
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE FEEDBACK_NO =#{FeedbackNo}
+      </select>
+	 
+	 
+	 
+	 <!-- 1:1문의 상세 조회 (관리자 답글)-->
+	 <select id="selectManagerAnswerList" parameterType="Feedback" resultMap="feedback_rm">
+		SELECT FEEDBACK_NO, ADMIN_TEXT, CONFIRM_FL, CONFIRM_DATE,
+				(SELECT MEMBER_NICKNAME
+				FROM "MEMBER"
+				WHERE MEMBER_NO = (SELECT ADMIN_NO
+									FROM "FEEDBACK"
+									WHERE FEEDBACK_NO =#{FeedbackNo})) MANAGER_NICKNAME
+		FROM "FEEDBACK" F
+		JOIN "MEMBER" M USING(MEMBER_NO)
+		WHERE FEEDBACK_NO =#{FeedbackNo}
+      </select>
+	 
+	 
+	 
+	 <!-- 1:1문의 관리자 답변 입력 -->
+	 <update id="insertManagerAnswer">
+	 	UPDATE "FEEDBACK" SET
+		ADMIN_NO = #{memberNo},
+		ADMIN_TEXT = #{adminText},
+		CONFIRM_FL = 'Y',
+		CONFIRM_DATE = SYSDATE 
+		WHERE FEEDBACK_NO = #{feedbackNo}
+	 </update>
+	 
+	 
+
+</mapper>

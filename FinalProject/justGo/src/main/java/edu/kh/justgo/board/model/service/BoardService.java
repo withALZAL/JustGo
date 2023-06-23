@@ -65,5 +65,11 @@ public interface BoardService {
 	// board타입 셀렉트 가져오기 (글쓰기)
 	List<Board> writingList();
 
+	/** 1:1문의 정보 불러오기
+	 * @param cp
+	 * @return list
+	 */
+	Map<String, Object> selectAskList(int cp, int memberNo);
+	
 
 }
