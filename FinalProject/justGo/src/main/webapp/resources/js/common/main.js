@@ -20,3 +20,4 @@ function handleSelection(selectElement) {
     console.log(krw);
     console.log(changeMoney);
 }
+
