@@ -430,8 +430,8 @@
                     </select>
                 </div>
                 <div class="moneyResult">
-                    <span id="afterMoney">1300</span>
-                    <span id="afterCurrency">원</span>
+                    <span id="afterMoney"></span>
+                    <span id="afterCurrency"></span>
                 </div>
             </div>
         </div>
@@ -647,20 +647,28 @@ function change(){
 
         let after1usd2krw = document.getElementById("after1usd2krw"); // 1달러 원화로 얼마?
         let beforeCountry = document.getElementById("beforeCountry");
+        let befoeMoney = document.getElementById("beforeMoney");
+        let afterCountry = document.getElementById("afterCountry");
+        let afterMoney = document.getElementById("afterMoney");
+        let afterCurrency = document.getElementById("afterCurrency");
         let inputCountry = beforeCountry.options[beforeCountry.selectedIndex].id;
         let currency = null;
 
         /* 왼쪽 고정 1달러 환율 */
-        let korUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/KRW";
+        let korUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/USD";
         fetch(korUrl)
         .then(response => {return response.json();})
         .then(resultLeft => {
             console.log(resultLeft);
 
             let after1usd2krw = document.getElementById("after1usd2krw");
-            let calc1 = resultLeft.conversion_rates.USD; // 1296.8883
+            let calc1 = resultLeft.conversion_rates.KRW; // 1296.8883
             let calc2 = Math.round(calc1); // 1297
             after1usd2krw.innerText = calc2; // 1297원
+
+            console.log(resultLeft.conversion_rates.USD);
+            console.log(calc1);
+            console.log(calc2); // 셋 다 잘 들어감
         });
         
 
@@ -672,16 +680,21 @@ function change(){
         if(inputCountry == 'VN') currency = 'VND';
         if(inputCountry == 'TH') currency = 'THB';
 
+        console.log(currency);
+
         /* 오른쪽 환율 계산 */
         let url = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/"+ currency;
+
+        console.log(url);
 
         fetch(url)
         .then(response => {return response.json();})
         .then(result => {
-            console.log(result);
+            console.log("result:"+result);
 
-            let money = document.getElementById("money");
-            money.innerText = result.conversion_rates.KRW;
+            let calc1 = result.conversion_rates.KRW; // 1296.8883
+            let calc2 = Math.round(calc1); // 1297
+            afterMoney.innerText = calc2;
 
 
         });
