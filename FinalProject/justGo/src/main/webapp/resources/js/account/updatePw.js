@@ -25,6 +25,7 @@ currentPw.addEventListener("input", () => {
     console.log(memberNo);
     const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
     if (regEx1.test(currentPw.value)) {
+        /* POST 방식 */
         fetch("/dupCheck/password", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -35,20 +36,21 @@ currentPw.addEventListener("input", () => {
         })
         .then(resp => resp.text())
         .then(count => {
-            if (count != 0) {
-                currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-                currentPwMessage.classList.add("confirm");
-                currentPwMessage.classList.remove("error");
+            if (count != 0) { // 현재 비밀번호 일치하는 경우
+                // currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
+                // currentPwMessage.classList.add("confirm");
+                // currentPwMessage.classList.remove("error");
                 checkObj.currentPw = true;
-            } else {
-                currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-                currentPwMessage.classList.add("error");
-                currentPwMessage.classList.remove("confirm");
+            } else { // 현재 비밀번호 일치하지 않는 경우
+                // currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
+                // currentPwMessage.classList.add("error");
+                // currentPwMessage.classList.remove("confirm");
                 checkObj.currentPw = false;
             }
         });
     } else {
-        currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+        // currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+        currentPwMessage.innerText = "";
         currentPwMessage.classList.add("error");
         currentPwMessage.classList.remove("confirm");
         checkObj.currentPw = false;
@@ -201,6 +203,5 @@ updatePwBtn.addEventListener("submit", e => {
 
 
 });
-
 
 

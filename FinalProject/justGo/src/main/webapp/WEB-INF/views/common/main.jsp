@@ -20,6 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- jQuery --%>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="template--body">
 
@@ -416,7 +418,7 @@
                     <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
                 </div>
                 <div class="common--cardExchange__bottom">
-                    <div>100000</div>
+                    <div class="count-num" data-count="329000000"></div>
                     <div>엔</div>
                 </div>
             </div>

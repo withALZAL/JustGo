@@ -115,8 +115,15 @@
     justify-content: center;
     align-items: center;
 }
-.common--cardExchange__bottom div {
-    font-size: 30px;
+.count-num {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.common--cardExchange__bottom > div:nth-child(2) {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 /* 날씨 검색기 ----------------------------------------------- */

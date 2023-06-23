@@ -87,4 +87,4 @@ passwordFrm.addEventListener("submit", e => {
         return;
     }
     
-    });
+});
