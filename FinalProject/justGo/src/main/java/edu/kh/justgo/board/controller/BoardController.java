@@ -337,29 +337,12 @@ public class BoardController {
 	
 	
 	
-//	// 게시글 목록
-//	@GetMapping("/3/tag/{tagNo}")
-//	public String selectTagList(@PathVariable("tagNo") int tagNo,
-//			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
-//			@RequestParam Map<String, Object> paramMap) {
-//		
-//			Map<String, Object> map = service.selectTagList(tagNo, cp);
-//
-//			model.addAttribute("map", map);
-//		
-//		return "board/boardFree";
-//	}
-	
 	
 	
 	@GetMapping(value = "/boardList/tag", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public Map<String, Object> boardTagList(Board board,int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
-		
-//		Map<String, Object> map2 = new HashMap<>();
-//		map2.put("boardCode", boardCode);
-//		map2.put("tagNo", board.getTagNo());
 		
 		return service.boardTagList1(board,cp);
 	}
