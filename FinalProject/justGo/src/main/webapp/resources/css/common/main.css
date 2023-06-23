@@ -86,6 +86,60 @@
 /* 환율 계산기 ----------------------------------------------- */
 
 /* 환율 계산기 구역 조정 */
+.common--moneyBox {
+    display: grid;
+    height: 200px;
+    grid-template-columns: 200px 1fr;
+}
+
+/* 환율 계산기 왼쪽 */
+.common--moneyleftBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: #F3F3F3;
+    border-radius: 300px;
+}
+.common--moneyleftBox div:first-child {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.common--moneyleftBox div:last-child {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+/* 환율 계산기 오른쪽 */
+.common--moneyRightBox {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.what2what {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#beforeMoney {
+    width: 150px;
+}
+#beforeCountry {
+    width: 100px;
+}
+.moneyResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+
+
+
+/* 환율 계산기 구역 조정 */
 .common--cardExchange {
     display: grid;
     height: 200px;
@@ -115,8 +169,15 @@
     justify-content: center;
     align-items: center;
 }
-.common--cardExchange__bottom div {
-    font-size: 30px;
+.count-num {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.common--cardExchange__bottom > div:nth-child(2) {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 /* 날씨 검색기 ----------------------------------------------- */

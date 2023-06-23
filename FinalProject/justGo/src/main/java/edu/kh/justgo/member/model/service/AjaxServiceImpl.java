@@ -33,27 +33,24 @@ public class AjaxServiceImpl implements AjaxService{
 	}
 
 	// 현재 비밀번호 체크
-	@Override
-	public int checkPassword(
-			String password,
-			int memberNo
-			) {
-		
-		String encPw = daoTemp.selectEncPw(memberNo);
-		
-		int result = 0;
+//	@Override
+//	public int checkPassword(
+//			String password,
+//			int memberNo
+//			) {
+//		
+//		String encPw = daoTemp.selectEncPw(memberNo);
+//		
+//		int result = 0;
+//
+//		if(bcrypt.matches(password, encPw)) {
+//			result = 1;
+//		} else {
+//			result = 0;
+//		}
+//		
+//		return result;
+//	}
+	
 
-		if(bcrypt.matches(password, encPw)) {
-			result = 1;
-		} else {
-			result = 0;
-		}
-		
-		return result;
-	}
-	
-	
-
-	
-	
 }

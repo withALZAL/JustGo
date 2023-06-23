@@ -64,9 +64,6 @@
         <a href="/myPage/updatePw">
             <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
         </a>
-        <a href="#">
-            <button type="button" class="btn btn-primary btn-lg">1:1문의</button>
-        </a>
         <a>
             <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
         </a>
@@ -84,21 +81,21 @@
                         <tr>
                             <th>현재 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw">
+                                <input type="password" maxlength="15" placeholder="현재 비밀번호를 입력해주세요." name="currentPw" id="currentPw">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
                             </td>
                         </tr>
                         <tr>
                             <th>새 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw">
+                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPw" id="newPw">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwMessage"></div>
                             </td>
                         </tr>
                         <tr>
                             <th>새 비밀번호 확인</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
+                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwConfirmMessage"></div>
                             </td>
                         </tr>

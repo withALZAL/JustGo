@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
 <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == boardCode}" >
         <c:set var="boardName" value="${boardType.BOARD_NAME}"/>

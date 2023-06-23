@@ -64,9 +64,6 @@
         <a href="/myPage/updatePw">
             <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
         </a>
-        <a href="#">
-            <button type="button" class="btn btn-primary btn-lg">1:1문의</button>
-        </a>
         <a>
             <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
         </a>
@@ -79,7 +76,7 @@
     <div class="account--profile">
         <div class="account--subtitle"><i class="fa-solid fa-user"></i>프로필</div>
         <div class="account--myPageBox">
-            <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
+            <form action="/myPage/updateProfileImage" id="updateForm" method="post" encType="multipart/form-data">
                 <div class="account--profileImageContainer">
                     <div class="account--profileImageBox">
                         <div id="previewImageBox" onclick="triggerFileInput()">
@@ -107,7 +104,7 @@
                                 <span>
                                     <input type="text" id="memberNickname" name="memberNickname" value="${loginMember.memberNickname}" maxlength="8" autocomplete="off">
                                 </span>
-                                <button type="submit" class="btn btn-primary btn-sm">수정</button>
+                                <button type="submit" id="updateNickBtn" class="btn btn-primary btn-sm">수정</button>
                                 <button type="button" id="nickCancel" class="btn btn-secondary btn-sm">취소</button>
                             </form>
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
