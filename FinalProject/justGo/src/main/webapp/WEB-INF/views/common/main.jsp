@@ -399,7 +399,7 @@
         <form action="https://www.google.com" method="post">
             <div class="card-body common--cardExchange">
                 <div class="common--cardExchange__top">
-                    <input type="number" placeholder="숫자만 입력해주세요." value="10000">원
+                    <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
                     <i class="fa-solid fa-arrow-right"></i>
                     <select class="common--cardExchangeSelector">
                         <option value="option1">달러 | USD</option>
@@ -413,7 +413,7 @@
                         <option value="option8">홍콩달러 | HKD</option>
                         <option value="option9">호주달러 | AUD</option>
                     </select>
-                    <button>변환</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
                 </div>
                 <div class="common--cardExchange__bottom">
                     <div>100000</div>
@@ -435,7 +435,8 @@
         <form action="#" method="post">
             <div class="card-body common--cardWeather">
                 <div class="common--cardWeather__left">
-                    <img id="icon"> <%-- 아이콘 --%>
+                    <%-- <img id="icon"> --%> <%-- 이전 방식: 화질 구짐 --%>
+                    <div id="icon"></div> <%-- 아이콘 방식 --%>
                 </div>
                 <div class="common--cardWeather__right">
                     <div style="border-bottom: 1px solid #D9D9D9;">
@@ -452,6 +453,7 @@
                                 <option id="Hongkong">홍콩</option>
                                 <option id="Taipei">타이페이</option>
                                 <option id="Hanoi">하노이</option>
+                                <option id="Ho Chi Minh City">호치민</option>
                                 <option id="Bangkok">방콕</option>
                                 <option id="Phuket">푸켓</option>
                                 <option id="Singapore">싱가포르</option>
@@ -461,7 +463,7 @@
                                 <option id="Perth">퍼스</option>
                                 <option id="Guam">괌</option>
                             </select>
-                            <button type="button" class="btn btn-secondary btn-sm">검색</button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="border: none;">검색</button>
                         </div>
                     </div>
                     <div>
@@ -533,16 +535,51 @@
                 let city = document.getElementById("city"); /* 도시 */
                 let weather = document.getElementById("weather"); /* 날씨 */
 
+                let icon = json.weather[0].icon; /* 아이콘 */
+                let iconUrl = document.getElementById('icon'); // img id를 iconUrl이라는 이름으로 받아옴
+                console.log(icon);
+
+                /* https://openweathermap.org/weather-conditions */
+                /* 맑음 */
+                if(icon == '01d') weatherIcon = '<i class="fa-solid fa-sun fa-spin" style="color: orange; font-size: 4.5rem;"></i>';
+                if(icon == '01n') weatherIcon = '<i class="fa-solid fa-moon fa-beat" style="color: yellow; font-size: 4.5rem;"></i>';
+                 /* 구름 약간 */
+                if(icon == '02d') weatherIcon = '<i class="fa-solid fa-cloud-sun fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                if(icon == '02n') weatherIcon = '<i class="fa-solid fa-cloud-moon fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                 /* 구름 많음 */
+                if(icon == '03d') weatherIcon = '<i class="fa-solid fa-cloud fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                if(icon == '03n') weatherIcon = '<i class="fa-solid fa-cloud fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                 /* 흐림 */
+                if(icon == '04d') weatherIcon = '<i class="fa-solid fa-cloud fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                if(icon == '04n') weatherIcon = '<i class="fa-solid fa-cloud fa-beat" style="color: grey; font-size: 4.5rem;"></i>';
+                 /* 비 */
+                if(icon == '09d') weatherIcon = '<i class="fa-solid fa-cloud-sun-rain fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                if(icon == '19n') weatherIcon = '<i class="fa-solid fa-cloud-moon-rain fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                 /* 강한 비 */
+                if(icon == '10d') weatherIcon = '<i class="fa-solid fa-cloud-showers-heavy fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                if(icon == '10n') weatherIcon = '<i class="fa-solid fa-cloud-showers-heavy fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                 /* 강한 비 */
+                if(icon == '11d') weatherIcon = '<i class="fa-solid fa-cloud-bolt fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                if(icon == '11n') weatherIcon = '<i class="fa-solid fa-cloud-bolt fa-beat-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                 /* 눈 */
+                if(icon == '13d') weatherIcon = '<i class="fa-solid fa-snowflake fa-spin" style="font-size: 4.5rem;"></i>';
+                if(icon == '13n') weatherIcon = '<i class="fa-solid fa-snowflake fa-spin" style="font-size: 4.5rem;"></i>';
+                 /* 안개 */
+                if(icon == '50d') weatherIcon = '<i class="fa-solid fa-smog fa-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+                if(icon == '50n') weatherIcon = '<i class="fa-solid fa-smog fa-fade" style="color: lightgrey; font-size: 4.5rem;"></i>';
+
+                iconUrl.innerHTML = '';
+                iconUrl.innerHTML = weatherIcon;
+
                 currentTemp.innerText = Math.floor(json.main.temp);
                 humidity.innerText = json.main.humidity;
                 wind.innerText = json.wind.speed;
                 city.innerText = json.name;
                 weather.innerText = json.weather[0].description;
 
-                let icon = json.weather[0].icon; // 아이콘 let
-                let iconurl = document.getElementById('icon'); // img id를 iconurl이라는 이름으로 받아옴
 
-                iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
+
+                // iconUrl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
             });
     }
 
