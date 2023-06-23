@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.board.model.dto.BoardImage;
 
 @Repository
 public class WritingDAO {
@@ -53,6 +54,8 @@ public class WritingDAO {
 	public int writingDelete2(Board board) {
 		return sqlSession.update("writingMapper.writingDelete2", board);
 	}
+	
+	
 
 	
 
