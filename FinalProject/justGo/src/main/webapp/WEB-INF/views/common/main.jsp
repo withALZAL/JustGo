@@ -396,13 +396,13 @@
     <div class="card">
         <div class="card-header" style="font-weight: bold; font-size: 20px;">
             <i class="fa-solid fa-money-bill" style="color: green;"></i>
-            환율 계산기
+            환율
         </div>
         <div class="card-body common--moneyBox">
             <div class="common--moneyleftBox">
-                <div>현재 USD 환율</div>
+                <div>현재 달러당 환율</div>
                 <div>
-                    <span>1300</span>
+                    <span id="after1usd2krw"></span>
                     <span>원</span>
                 </div>
             </div>
@@ -410,8 +410,8 @@
                 <div class="what2what" style="border-bottom: 1px solid #D9D9D9;">
                     <input id="beforeMoney" type="number" value="1">
                     <select id="beforeCountry" class="common--cardExchangeSelector">
-                        <option id="US">달러 | USD</option>
-                        <option id="KR"> 원 | KRW</option>
+                        <option id="US" selected>달러 | USD</option>
+                        <option id="KR">원 | KRW</option>
                         <option id="JP">엔 | JPY</option>
                         <option id="CN">위안 | CNY</option>
                         <option id="VE">동 | VND</option>
@@ -419,9 +419,9 @@
                         <option id="AU">호주달러 | AUD</option>
                     </select>
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select id="beforeCountry" class="common--cardExchangeSelector">
+                    <select id="afterCountry" class="common--cardExchangeSelector">
                         <option id="US">달러 | USD</option>
-                        <option id="KR"> 원 | KRW</option>
+                        <option id="KR" selected> 원 | KRW</option>
                         <option id="JP">엔 | JPY</option>
                         <option id="CN">위안 | CNY</option>
                         <option id="VE">동 | VND</option>
@@ -431,7 +431,7 @@
                 </div>
                 <div class="moneyResult">
                     <span id="afterMoney">1300</span>
-                    <span id="afterCountry">원</span>
+                    <span id="afterCurrency">원</span>
                 </div>
             </div>
         </div>
@@ -441,7 +441,7 @@
                 <i class="fa-solid fa-arrow-right"></i>
                 <select id="country" class="common--cardExchangeSelector">
                     <option id="US">달러 | USD</option>
-                    <option id="KR"> 원 | KRW</option>
+                    <option id="KR">원 | KRW</option>
                     <option id="JP">엔 | JPY</option>
                     <option id="CN">위안 | CNY</option>
                     <option id="VE">동 | VND</option>
@@ -464,7 +464,7 @@
     <div class="card">
         <div class="card-header" style="font-weight: bold; font-size: 20px;">
             <i class="fa-solid fa-sun" style="color: orange;"></i>
-            날씨 검색기
+            날씨
         </div>
         <form action="#" method="post">
             <div class="card-body common--cardWeather">
@@ -645,10 +645,25 @@ function change(){
 
     // var currentDate = year+month+day;
 
+        let after1usd2krw = document.getElementById("after1usd2krw"); // 1달러 원화로 얼마?
         let beforeCountry = document.getElementById("beforeCountry");
         let inputCountry = beforeCountry.options[beforeCountry.selectedIndex].id;
         let currency = null;
+
+        /* 왼쪽 고정 1달러 환율 */
+        let korUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/KRW";
+        fetch(korUrl)
+        .then(response => {return response.json();})
+        .then(resultLeft => {
+            console.log(resultLeft);
+
+            let after1usd2krw = document.getElementById("after1usd2krw");
+            let calc1 = resultLeft.conversion_rates.USD; // 1296.8883
+            let calc2 = Math.round(calc1); // 1297
+            after1usd2krw.innerText = calc2; // 1297원
+        });
         
+
         if(inputCountry == 'KR') currency = 'KRW';
         if(inputCountry == 'US') currency = 'USD';
         if(inputCountry == 'JP') currency = 'JPY';
@@ -657,6 +672,7 @@ function change(){
         if(inputCountry == 'VN') currency = 'VND';
         if(inputCountry == 'TH') currency = 'THB';
 
+        /* 오른쪽 환율 계산 */
         let url = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/"+ currency;
 
         fetch(url)
