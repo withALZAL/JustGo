@@ -403,23 +403,26 @@
                 <div class="common--cardExchange__top">
                     <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select class="common--cardExchangeSelector">
-                        <option value="option1">달러 | USD</option>
-                        <option value="option2">엔 | JPY</option>
-                        <option value="option3">위안 | CNY</option>
-                        <option value="option4">유로 | EUR</option>
-                        <option value="option4">파운드 | GBP</option>
-                        <option value="option5">동 | VND</option>
-                        <option value="option6">바트 | THB</option>
-                        <option value="option7">대만달러 | TWD</option>
-                        <option value="option8">홍콩달러 | HKD</option>
-                        <option value="option9">호주달러 | AUD</option>
+                    <select id="country" class="common--cardExchangeSelector">
+                        <option id="KR">원 | KRW</option>
+                        <option id="US">달러 | USD</option>
+                        <option id="JP">엔 | JPY</option>
+                        <option id="CN">위안 | CNY</option>
+                        <option id="EU">유로 | EUR</option>
+                        <option id="GB">파운드 | GBP</option>
+                        <option id="VN">동 | VND</option>
+                        <option id="TH">바트 | THB</option>
+                        <option id="TW">대만달러 | TWD</option>
+                        <option id="HK">홍콩달러 | HKD</option>
+                        <option id="AU">호주달러 | AUD</option>
                     </select>
                     <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
                 </div>
                 <div class="common--cardExchange__bottom">
                     <div class="count-num" data-count="329000000"></div>
-                    <div>엔</div>
+                    <div id="countryCurrency">엔</div>
+                    <div id="money"></div>
+                    <div id="country"></div>
                 </div>
             </div>
         </form>
@@ -539,7 +542,7 @@
 
                 let icon = json.weather[0].icon; /* 아이콘 */
                 let iconUrl = document.getElementById('icon'); // img id를 iconUrl이라는 이름으로 받아옴
-                console.log(icon);
+                // console.log(icon); /* 아이콘 넘버 확인 */
 
                 /* https://openweathermap.org/weather-conditions */
                 /* 맑음 */
@@ -604,7 +607,6 @@ function change(){
 
 
 
-funth
 
 
 /* 이전 코드 */

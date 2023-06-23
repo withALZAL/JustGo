@@ -1,5 +1,5 @@
-/* 환율 jQuery 효과 */
-$(document).ready(function () {
+/* 환율 jQuery로 효과 */
+$(document).ready(() => {
     var $countNum = $('.count-num'),
         countTo = $countNum.attr('data-count');
 
@@ -7,7 +7,7 @@ $(document).ready(function () {
         countNum: countTo
     },
     {
-        duration: 1000,
+        duration: 1200, /* 1.2초 */
         easing: 'linear',
         step: function () {
             $countNum.text(Math.floor(this.countNum));
