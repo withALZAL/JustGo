@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 public interface BoardService {
 
@@ -70,6 +71,18 @@ public interface BoardService {
 	 * @return list
 	 */
 	Map<String, Object> selectAskList(int cp, int memberNo);
+	
+	/**1:1문의 상세 조회(회원문의글)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectMemberAskList(int feedbackNo);
+
+	/**1:1문의 상세 조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectManagerAnswerList(int feedbackNo);
 	
 
 }
