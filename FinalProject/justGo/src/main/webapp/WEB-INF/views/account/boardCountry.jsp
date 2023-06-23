@@ -86,10 +86,9 @@
     <div class="board--contentBox__top">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
         <form action="#" method="get">
-            <div><a href="#">일반</a></div>
-            <div><a href="#">꿀팁</a></div>
-            <div><a href="#">맛집</a></div>
-            <div><a href="#">힐링</a></div>
+        <c:forEach items="${tagAllList}" var="tag">
+            <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
+        </c:forEach>
         </form>
     </div>
 

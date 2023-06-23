@@ -197,21 +197,6 @@ public class BoardServiceImpl implements BoardService {
 	public List<Board> tagList() {
 		return dao.tagList();
 	}
-//태그 리스트별 목록조회
-//	@Override
-//	public Map<String, Object> selectTagList(int tagNo, int cp) {
-//		int listCount = dao.taglistCount(tagNo);
-//
-//		Pagination pagination = new Pagination(listCount, cp);
-//
-//		List<Board> boardList = dao.tagBoardList(pagination, tagNo);
-//
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		map.put("pagination", pagination);
-//		map.put("boardList", boardList);
-//
-//		return map;
-//	}
 
 	@Override
 	public Map<String, Object> boardTagList1(Board board, int cp) {
