@@ -62,19 +62,14 @@
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
-                        <option value="2" class="b" >자유게시판</option>
-                        <option value="3" class="b">질문게시판</option>
-                        <option value="2">일본게시판</option>
-                        <option value="1">중국게시판</option>
-                        <option value="3">베트남게시판</option>
-                        <option value="4">태국게시판</option>
-                        <option value="5">호주게시판</option>
+                       <c:forEach items="${writingList}" var="writing">
+                            <option value="${writing.boardCode}" class="b" >${writing.boardName}</option>
+                       </c:forEach>
                     </select>
                     <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
-                        <option value="1">일반</option>
-                        <option value="3">꿀팁</option>
-                        <option value="2">맛집</option>
-                        <option value="4">힐링</option>
+                        <c:forEach items="${boardTypeList3}" var="tag">
+                            <option value="${tag.tagNo}">${tag.tagContent}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </div>

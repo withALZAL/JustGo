@@ -41,7 +41,15 @@ public class WritingController {
 
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
-	public String writingBoard() {
+	public String writingBoard(Model model) {
+		
+		List<Board> writingList = boardService.writingList();
+		List<Board> boardTypeList3 = boardService.boardTypeList3();
+		
+		model.addAttribute("writingList", writingList);
+		model.addAttribute("boardTypeList3", boardTypeList3);
+		
+		
 		return "board/writingBoard";
 	}
 
@@ -67,6 +75,8 @@ public class WritingController {
 		}
 
 		int result = service.boardInsert(board);
+		
+		
 
 		String message = null;
 		String path = "redirect:/";
@@ -76,6 +86,8 @@ public class WritingController {
 			
 			message = "게시글 등록 성공";
 			
+			
+	
 			if(board.getBoardCode() != 1) {
 				path += "board/" + board.getBoardCode() + "/" + boardNo;
 			}else {
@@ -112,7 +124,15 @@ public class WritingController {
 		 
 		Board board = boardService.selectBoard(map);
 		
+
+		List<Board> typeList = boardService.boardTypeList();
+		
+		List<Board> typeList3 = boardService.boardTypeList3();
+		
+		
 		model.addAttribute("board", board); // forward(요청위임) -> request scope 유지 
+		model.addAttribute("typeList", typeList);
+		model.addAttribute("typeList3",typeList3);
 		
 		return "board/writingUpdate";
 	}
@@ -134,7 +154,12 @@ public class WritingController {
 		 
 		Board board = boardService.selectBoard(map);
 		
+		List<Board> typeList2 = boardService.boardTypeList2();
+		List<Board> typeList3 = boardService.boardTypeList3();
+		
 		model.addAttribute("board", board); // forward(요청위임) -> request scope 유지 
+		model.addAttribute("typeList2", typeList2);
+		model.addAttribute("typeList3", typeList3);
 		
 		return "board/writingUpdate";
 	}

@@ -33,6 +33,8 @@ public class Board {
     private int countryNo;
     private int tagNo;
     private String tagContent;
+    private String boardName;
+    private String countryName;
     
     
     
