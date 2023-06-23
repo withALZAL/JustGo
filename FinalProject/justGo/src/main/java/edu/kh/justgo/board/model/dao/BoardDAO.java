@@ -69,11 +69,9 @@ public class BoardDAO {
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
 
-		
-		int offset = ((pagination.getCurrentPage()-1) * pagination.getLimit());
-		
-		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
-		
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
@@ -98,12 +96,9 @@ public class BoardDAO {
 	 */
 	public List<Board> countryList(Pagination pagination, int countryNo) {
 
-		
-		int offset = ((pagination.getCurrentPage()-1)
-				* pagination.getLimit());
-		
-		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
-		
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
 	}
@@ -224,8 +219,9 @@ public class BoardDAO {
 		return sqlSession.selectOne("boardMapper.listCount3_search", paramMap);
 	}
 
-	
-	/** 전체게시판 리스트 검색
+	/**
+	 * 전체게시판 리스트 검색
+	 * 
 	 * @param pagination
 	 * @param paramMap
 	 * @return
@@ -237,6 +233,40 @@ public class BoardDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.selectAllList_search", paramMap, rowBounds);
+	}
+
+	/**
+	 * 태그 리스트
+	 * 
+	 * @return
+	 */
+	public List<Board> tagList() {
+		return sqlSession.selectList("boardMapper.tagList");
+	}
+
+	/**
+	 * 태그 리스트 카운트
+	 * 
+	 * @param map2
+	 * @return
+	 */
+	public int taglistCount(Board board) {
+		int result = sqlSession.selectOne("boardMapper.taglistCount", board);
+		return result;
+	}
+
+	/** 태그 리스트 목록 조회
+	 * @param pagination
+	 * @param map2
+	 * @return
+	 */
+	public List<Board> tagBoardList(Pagination pagination, Board board) {
+
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.tagBoardList", board, rowBounds);
 	}
 
 	/** board 리스트 불러오기 (자유/질문)
@@ -262,5 +292,6 @@ public class BoardDAO {
 
 	public List<Board> writingList() {
 		return sqlSession.selectList("boardMapper.writingList");
+
 	}
 }

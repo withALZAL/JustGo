@@ -42,6 +42,16 @@ public interface BoardService {
 
 	//전체게시글 검색
 	Map<String, Object> selectAllList(Map<String, Object> paramMap, int cp);
+	
+	//태그 리스트로 가져오기
+	List<Board> tagList();
+
+//	//태그로 목록조회
+//	Map<String, Object> selectTagList(int tagNo, int cp);
+
+	//태그 리스트로 검색
+	Map<String, Object> boardTagList1(Board board, int cp);
+
 
 	//board타입 셀렉트 가져오기 (수정화면: 자유/질문)
 	List<Board> boardTypeList();

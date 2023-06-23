@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -50,6 +51,10 @@ public class BoardController {
 	public String selectBoardList(@PathVariable("boardCode") int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
 			@RequestParam Map<String, Object> paramMap) {
+		
+		List<Board> tagAllList = service.tagList();
+		model.addAttribute("tagAllList", tagAllList);
+		
 		if (paramMap.get("key") == null) { // 수정3
 			Map<String, Object> map = service.selectBoardList(boardCode, cp);
 
@@ -329,5 +334,34 @@ public class BoardController {
 		return "board/boardSearch";
 
 	}
-
+	
+	
+	
+//	// 게시글 목록
+//	@GetMapping("/3/tag/{tagNo}")
+//	public String selectTagList(@PathVariable("tagNo") int tagNo,
+//			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
+//			@RequestParam Map<String, Object> paramMap) {
+//		
+//			Map<String, Object> map = service.selectTagList(tagNo, cp);
+//
+//			model.addAttribute("map", map);
+//		
+//		return "board/boardFree";
+//	}
+	
+	
+	
+	@GetMapping(value = "/boardList/tag", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> boardTagList(Board board,int boardCode,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
+		
+//		Map<String, Object> map2 = new HashMap<>();
+//		map2.put("boardCode", boardCode);
+//		map2.put("tagNo", board.getTagNo());
+		
+		return service.boardTagList1(board,cp);
+	}
+	
 }

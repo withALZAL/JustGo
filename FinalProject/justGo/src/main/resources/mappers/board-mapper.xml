@@ -546,6 +546,52 @@
 		</choose>
 		ORDER BY BOARD_NO DESC
 	</select>
+
+	<select id="tagList" resultMap="board_rm">
+		SELECT * FROM TAG
+		ORDER BY TAG_NO
+	</select>
+
+	<select id="taglistCount" resultType="_int">
+		SELECT COUNT(*) FROM "BOARD"
+		WHERE BOARD_DELETE='N'
+		AND BOARD_CODE=#{boardCode}
+		AND TAG_NO=#{tagNo}
+	</select>
+	
+	<select id="tagBoardList" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
+	<![CDATA[
+	CASE  
+		WHEN SYSDATE - CREATE_DATE < 1/24/60
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		WHEN SYSDATE - CREATE_DATE < 1/24
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		WHEN SYSDATE - CREATE_DATE < 1
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+			END CREATE_DATE,
+			]]>(SELECT
+		COUNT(*)
+		FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,(SELECT COUNT(*)
+		FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
+		FROM "BOARD" B
+		JOIN "MEMBER"
+		USING(MEMBER_NO)
+		JOIN
+		"TAG"
+		USING (TAG_NO)
+		WHERE BOARD_DELETE = 'N'
+		AND BOARD_CODE =
+		#{boardCode}
+		AND TAG_NO = #{tagNo}
+		ORDER BY BOARD_NO
+		DESC
+	</select>
 	
 	<!-- 자유/질문 리스트 불러오기 -->
 	<select id="boardTypeList" resultMap="board_rm">
@@ -586,6 +632,5 @@
 		)
 		ORDER BY TEMP, BOARD_CODE
 	</select>
-	
 	
 </mapper>
