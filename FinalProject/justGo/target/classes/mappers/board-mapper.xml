@@ -121,15 +121,15 @@
 		(SELECT COUNT(*) FROM CONTENT_LIKE L
 		WHERE L.BOARD_NO =
 		B.BOARD_NO) LIKE_COUNT
-		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
-			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
-		AND BOARD_CODE = #{boardCode}
-		ORDER BY BOARD_NO DESC
+		AND BOARD_CODE =
+		#{boardCode}
+		ORDER BY BOARD_NO
+		DESC
 
 	</select>
 
@@ -168,7 +168,8 @@
 		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
-		AND COUNTRY_NO = #{countryNo}
+		AND COUNTRY_NO =
+		#{countryNo}
 		ORDER BY BOARD_NO DESC
 
 	</select>
@@ -211,10 +212,12 @@
 		B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		JOIN "TAG" USING (TAG_NO)
-		WHERE BOARD_DELETE='N'
+		WHERE
+		BOARD_DELETE='N'
 		AND BOARD_CODE=1
 		AND COUNTRY_NO = #{countryNo}
-		AND BOARD_NO=#{boardNo}
+		AND
+		BOARD_NO=#{boardNo}
 
 	</select>
 
@@ -433,7 +436,8 @@
 		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
 		AND BOARD_CODE = 1
-		AND COUNTRY_NO = #{countryNo}
+		AND COUNTRY_NO =
+		#{countryNo}
 
 		<choose>
 			<when test='key2 == "t"'>
@@ -469,7 +473,7 @@
 		WHERE BOARD_DELETE='N'
 		<choose>
 			<when test='key3 == "t"'>
-			<!-- 	제목 -->
+				<!-- 제목 -->
 				AND BOARD_TITLE LIKE '%${query}%'
 			</when>
 			<when test='key3 =="c"'>
@@ -491,7 +495,8 @@
 
 	<!-- 전체게시판 검색 -->
 	<select id="selectAllList_search" resultMap="board_rm">
-		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,BOARD_CODE,COUNTRY_NO,TAG_NO,
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME,
+		READ_COUNT,BOARD_CODE,COUNTRY_NO,TAG_NO,
 	<![CDATA[
 	CASE  
 		WHEN SYSDATE - CREATE_DATE < 1/24/60
@@ -534,5 +539,51 @@
 			</when>
 		</choose>
 		ORDER BY BOARD_NO DESC
+	</select>
+
+	<select id="tagList" resultMap="board_rm">
+		SELECT * FROM TAG
+		ORDER BY TAG_NO
+	</select>
+
+	<select id="taglistCount" resultType="_int">
+		SELECT COUNT(*) FROM "BOARD"
+		WHERE BOARD_DELETE='N'
+		AND BOARD_CODE=#{boardCode}
+		AND TAG_NO=#{tagNo}
+	</select>
+	
+	<select id="tagBoardList" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,TAG_CONTENT,
+	<![CDATA[
+	CASE  
+		WHEN SYSDATE - CREATE_DATE < 1/24/60
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		WHEN SYSDATE - CREATE_DATE < 1/24
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		WHEN SYSDATE - CREATE_DATE < 1
+		THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+			END CREATE_DATE,
+			]]>(SELECT
+		COUNT(*)
+		FROM "REPLY" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,(SELECT COUNT(*)
+		FROM CONTENT_LIKE L
+		WHERE L.BOARD_NO =
+		B.BOARD_NO) LIKE_COUNT
+		FROM "BOARD" B
+		JOIN "MEMBER"
+		USING(MEMBER_NO)
+		JOIN
+		"TAG"
+		USING (TAG_NO)
+		WHERE BOARD_DELETE = 'N'
+		AND BOARD_CODE =
+		#{boardCode}
+		AND TAG_NO = #{tagNo}
+		ORDER BY BOARD_NO
+		DESC
 	</select>
 </mapper>
