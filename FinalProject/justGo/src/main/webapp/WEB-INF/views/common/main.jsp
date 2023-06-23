@@ -404,25 +404,19 @@
                     <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
                     <i class="fa-solid fa-arrow-right"></i>
                     <select id="country" class="common--cardExchangeSelector">
-                        <option id="KR">원 | KRW</option>
                         <option id="US">달러 | USD</option>
+                        <option id="KR"> 원 | KRW</option>
                         <option id="JP">엔 | JPY</option>
                         <option id="CN">위안 | CNY</option>
-                        <option id="EU">유로 | EUR</option>
-                        <option id="GB">파운드 | GBP</option>
-                        <option id="VN">동 | VND</option>
+                        <option id="VE">동 | VND</option>
                         <option id="TH">바트 | THB</option>
-                        <option id="TW">대만달러 | TWD</option>
-                        <option id="HK">홍콩달러 | HKD</option>
                         <option id="AU">호주달러 | AUD</option>
                     </select>
                     <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
                 </div>
                 <div class="common--cardExchange__bottom">
-                    <div class="count-num" data-count="329000000"></div>
-                    <div id="countryCurrency">엔</div>
                     <div id="money"></div>
-                    <div id="country"></div>
+                    <div id="do"></div>
                 </div>
             </div>
         </form>
@@ -604,39 +598,45 @@ function change(){
     //     getWeather(cityName);
     // });
 
-
-
-
-
-
-/* 이전 코드 */
-    // let selectElement = document.getElementById("citySelect");
-    // let cityName = selectElement.options[selectElement.selectedIndex].id;
-    // console.log("도시 이름: " + cityName);
-    // let WeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b690d0fd2f1b2fe624fa0586e5e0d458&units=metric&lang=kr"
-
-    // fetch(WeatherUrl)
-    //     .then((response) => {return response.json();})
-    //     .then((json) => {
-    //     console.log(json);
-
-    //     let currentTemp = document.getElementById("currentTemp"); /* 온도 */
-    //     let humidity = document.getElementById("humidity"); /* 습도 */
-    //     let wind = document.getElementById("wind"); /* 바람 */
-    //     let city = document.getElementById("city"); /* 도시 */
-    //     let weather = document.getElementById("weather"); /* 날씨 */
-
-    //     currentTemp.innerText = Math.floor(json.main.temp);
-    //     humidity.innerText = json.main.humidity;
-    //     wind.innerText = json.wind.speed;
-    //     city.innerText = json.name;
-    //     weather.innerText = json.weather[0].description;
-        
-    //     let icon = json.weather[0].icon; // 아이콘 let
-    //     let iconurl = document.getElementById('icon'); // img id를 iconurl이라는 이름으로 받아옴
-
-    //     iconurl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
-    //     });
     </script>
+<%-- 환율 API --%>
+    <script>
+    // 환율 API
+    // var today = new Date();
+
+    // var year = today.getFullYear();
+    // var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    // var day = ('0' + today.getDate()).slice(-2);
+
+    // var currentDate = year+month+day;
+
+        let country = document.getElementById("country");
+        let inputCountry = country.options[country.selectedIndex].id;
+        let currency = null;
+        
+        if(inputCountry == 'KR')  currency = 'KRW';
+        if(inputCountry == 'US')  currency = 'USD';
+        if(inputCountry == 'JP')  currency = 'JPY';
+        if(inputCountry == 'CN')  currency = 'CNY';
+        if(inputCountry == 'AU')  currency = 'AUD';
+        if(inputCountry == 'VN')  currency = 'VND';
+        if(inputCountry == 'TH')  currency = 'THB';
+
+        let url = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/"+ currency;
+
+        fetch(url)
+        .then(response => {return response.json();})
+        .then(result => {
+            console.log(result);
+
+            let money = document.getElementById("money");
+            money.innerText = result.conversion_rates.KRW;
+
+
+        });
+
+    </script>
+
+
 </body>
 </html>

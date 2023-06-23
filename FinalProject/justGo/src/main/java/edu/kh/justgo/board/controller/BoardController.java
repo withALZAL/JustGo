@@ -28,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.service.BoardService;
+import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -87,6 +88,41 @@ public class BoardController {
 		
 		return "/board/boardAsk";
 	}
+	
+	
+	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
+    @GetMapping("/boardAsk_detail/{feedbackNo}")
+    public String askManagerDetail(
+    		@PathVariable("feedbackNo") int feedbackNo
+    		, Model model
+    		) {
+    	
+//    	System.out.println("feedbackNo: " + feedbackNo);
+    	
+    	// 1:1문의 상세글 불러오기(회원문의글)
+    	Feedback memberAskList = service.selectMemberAskList(feedbackNo);
+        Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
+    	
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        map.put("memberAskList", memberAskList);
+        map.put("managerAnswerList", managerAnswerList);
+        
+//        System.out.println(map);
+        
+    	model.addAttribute("map", map);
+    	// 콘솔에서 확인
+//        System.out.println("model" +model);
+    	
+    	
+    	return "/board/boardAsk_detail";
+    }
+	
+	
+	
+	
+	
+	
 
 	// 여행게시판 게시글
 	@GetMapping("/1/{countryNo}")
@@ -349,29 +385,12 @@ public class BoardController {
 	
 	
 	
-//	// 게시글 목록
-//	@GetMapping("/3/tag/{tagNo}")
-//	public String selectTagList(@PathVariable("tagNo") int tagNo,
-//			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
-//			@RequestParam Map<String, Object> paramMap) {
-//		
-//			Map<String, Object> map = service.selectTagList(tagNo, cp);
-//
-//			model.addAttribute("map", map);
-//		
-//		return "board/boardFree";
-//	}
-	
 	
 	
 	@GetMapping(value = "/boardList/tag", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public Map<String, Object> boardTagList(Board board,int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
-		
-//		Map<String, Object> map2 = new HashMap<>();
-//		map2.put("boardCode", boardCode);
-//		map2.put("tagNo", board.getTagNo());
 		
 		return service.boardTagList1(board,cp);
 	}
