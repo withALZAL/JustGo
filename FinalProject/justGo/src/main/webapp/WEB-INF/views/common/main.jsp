@@ -398,12 +398,18 @@
             <i class="fa-solid fa-money-bill" style="color: green;"></i>
             환율 계산기
         </div>
-        <form action="https://www.google.com" method="post">
-            <div class="card-body common--cardExchange">
-                <div class="common--cardExchange__top">
-                    <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <select id="country" class="common--cardExchangeSelector">
+        <div class="card-body common--moneyBox">
+            <div class="common--moneyleftBox">
+                <div>현재 USD 환율</div>
+                <div>
+                    <span>1300</span>
+                    <span>원</span>
+                </div>
+            </div>
+            <div class="common--moneyRightBox">
+                <div class="what2what" style="border-bottom: 1px solid #D9D9D9;">
+                    <input id="beforeMoney" type="number" value="1">
+                    <select id="beforeCountry" class="common--cardExchangeSelector">
                         <option id="US">달러 | USD</option>
                         <option id="KR"> 원 | KRW</option>
                         <option id="JP">엔 | JPY</option>
@@ -412,14 +418,43 @@
                         <option id="TH">바트 | THB</option>
                         <option id="AU">호주달러 | AUD</option>
                     </select>
-                    <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <select id="beforeCountry" class="common--cardExchangeSelector">
+                        <option id="US">달러 | USD</option>
+                        <option id="KR"> 원 | KRW</option>
+                        <option id="JP">엔 | JPY</option>
+                        <option id="CN">위안 | CNY</option>
+                        <option id="VE">동 | VND</option>
+                        <option id="TH">바트 | THB</option>
+                        <option id="AU">호주달러 | AUD</option>
+                    </select>
                 </div>
-                <div class="common--cardExchange__bottom">
-                    <div id="money"></div>
-                    <div id="do"></div>
+                <div class="moneyResult">
+                    <span id="afterMoney">1300</span>
+                    <span id="afterCountry">원</span>
                 </div>
             </div>
-        </form>
+        </div>
+        <%-- <div class="card-body common--cardExchange">
+            <div class="common--cardExchange__top">
+                <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
+                <i class="fa-solid fa-arrow-right"></i>
+                <select id="country" class="common--cardExchangeSelector">
+                    <option id="US">달러 | USD</option>
+                    <option id="KR"> 원 | KRW</option>
+                    <option id="JP">엔 | JPY</option>
+                    <option id="CN">위안 | CNY</option>
+                    <option id="VE">동 | VND</option>
+                    <option id="TH">바트 | THB</option>
+                    <option id="AU">호주달러 | AUD</option>
+                </select>
+                <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
+            </div>
+            <div class="common--cardExchange__bottom">
+                <div id="money"></div>
+                <div id="do"></div>
+            </div>
+        </div> --%>
     </div>
 <!-- 환율 계산기 끝 -->
 
@@ -610,17 +645,17 @@ function change(){
 
     // var currentDate = year+month+day;
 
-        let country = document.getElementById("country");
-        let inputCountry = country.options[country.selectedIndex].id;
+        let beforeCountry = document.getElementById("beforeCountry");
+        let inputCountry = beforeCountry.options[beforeCountry.selectedIndex].id;
         let currency = null;
         
-        if(inputCountry == 'KR')  currency = 'KRW';
-        if(inputCountry == 'US')  currency = 'USD';
-        if(inputCountry == 'JP')  currency = 'JPY';
-        if(inputCountry == 'CN')  currency = 'CNY';
-        if(inputCountry == 'AU')  currency = 'AUD';
-        if(inputCountry == 'VN')  currency = 'VND';
-        if(inputCountry == 'TH')  currency = 'THB';
+        if(inputCountry == 'KR') currency = 'KRW';
+        if(inputCountry == 'US') currency = 'USD';
+        if(inputCountry == 'JP') currency = 'JPY';
+        if(inputCountry == 'CN') currency = 'CNY';
+        if(inputCountry == 'AU') currency = 'AUD';
+        if(inputCountry == 'VN') currency = 'VND';
+        if(inputCountry == 'TH') currency = 'THB';
 
         let url = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/"+ currency;
 
