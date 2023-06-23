@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -27,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.service.BoardService;
+import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -50,6 +52,10 @@ public class BoardController {
 	public String selectBoardList(@PathVariable("boardCode") int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
 			@RequestParam Map<String, Object> paramMap) {
+		
+		List<Board> tagAllList = service.tagList();
+		model.addAttribute("tagAllList", tagAllList);
+		
 		if (paramMap.get("key") == null) { // 수정3
 			Map<String, Object> map = service.selectBoardList(boardCode, cp);
 
@@ -66,10 +72,57 @@ public class BoardController {
 	}
 
 	// 1:1문의 연결(/board/4 버전)
-	@GetMapping("/4")
-	public String writingQuestion() {
-		return "/writing/writingQuestion";
+	@GetMapping("/4/{memberNo}")
+	public String writingQuestion(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			, Member loginMember
+			, Model model
+			) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		// 1:1문의정보 불러오기
+		Map<String, Object> map = service.selectAskList(cp, memberNo);
+		
+		model.addAttribute("map", map);
+		
+		return "/board/boardAsk";
 	}
+	
+	
+	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
+    @GetMapping("/boardAsk_detail/{feedbackNo}")
+    public String askManagerDetail(
+    		@PathVariable("feedbackNo") int feedbackNo
+    		, Model model
+    		) {
+    	
+//    	System.out.println("feedbackNo: " + feedbackNo);
+    	
+    	// 1:1문의 상세글 불러오기(회원문의글)
+    	Feedback memberAskList = service.selectMemberAskList(feedbackNo);
+        Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
+    	
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        map.put("memberAskList", memberAskList);
+        map.put("managerAnswerList", managerAnswerList);
+        
+//        System.out.println(map);
+        
+    	model.addAttribute("map", map);
+    	// 콘솔에서 확인
+//        System.out.println("model" +model);
+    	
+    	
+    	return "/board/boardAsk_detail";
+    }
+	
+	
+	
+	
+	
+	
 
 	// 여행게시판 게시글
 	@GetMapping("/1/{countryNo}")
@@ -329,5 +382,17 @@ public class BoardController {
 		return "board/boardSearch";
 
 	}
-
+	
+	
+	
+	
+	
+	@GetMapping(value = "/boardList/tag", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> boardTagList(Board board,int boardCode,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
+		
+		return service.boardTagList1(board,cp);
+	}
+	
 }

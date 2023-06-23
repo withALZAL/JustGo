@@ -1,6 +1,5 @@
 package edu.kh.justgo.manager.model.service;
 
-import java.util.List;
 import java.util.Map;
 
 import edu.kh.justgo.manager.model.dto.Feedback;
@@ -36,20 +35,6 @@ public interface ManagerService {
     Map<String, Object> selectMemberPostList(int memberNo, int cp);
 
 
-
-
-    
-    
-    /** 1:1문의 상세 조회
-	 * @param feedbackNo
-	 * @return list
-	 */
-//    public Feedback selectAskDetailList(int feedbackNo);
-
-    
-
-
-
 	
 	
 	
@@ -64,6 +49,16 @@ public interface ManagerService {
 	 * @return
 	 */
 	Feedback selectManagerAnswerList(int feedbackNo);
+
+	
+	
+	
+	/** 1:1문의 관리자 답변 입력
+	 * @param feedbackNo
+	 * @param loginMember
+	 * @return result
+	 */
+	int insertManagerAnswer(Feedback feedback);
 
     
 

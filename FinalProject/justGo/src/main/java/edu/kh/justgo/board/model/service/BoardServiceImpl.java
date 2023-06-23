@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.kh.justgo.board.model.dao.BoardDAO;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -191,6 +192,46 @@ public class BoardServiceImpl implements BoardService {
 		
 		return map;
 	}
+//태그 리스트
+	@Override
+	public List<Board> tagList() {
+		return dao.tagList();
+	}
+//태그 리스트별 목록조회
+//	@Override
+//	public Map<String, Object> selectTagList(int tagNo, int cp) {
+//		int listCount = dao.taglistCount(tagNo);
+//
+//		Pagination pagination = new Pagination(listCount, cp);
+//
+//		List<Board> boardList = dao.tagBoardList(pagination, tagNo);
+//
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		map.put("pagination", pagination);
+//		map.put("boardList", boardList);
+//
+//		return map;
+//	}
+
+	@Override
+	public Map<String, Object> boardTagList1(Board board, int cp) {
+		
+		int taglistCount = dao.taglistCount(board);
+
+		Pagination pagination = new Pagination(taglistCount, cp);
+
+		List<Board> tagBoardList = dao.tagBoardList(pagination, board);
+		
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("tagBoardList", tagBoardList);
+
+		return map;
+		
+	}
+
+
 	
 	// board 리스트 불러오기 (수정 : 자유/질문)
 	@Override
@@ -215,5 +256,45 @@ public class BoardServiceImpl implements BoardService {
 	public List<Board> writingList() {
 		return dao.writingList();
 	}
+	
+	// 1:1문의정보 불러오기
+	@Override
+	public Map<String, Object> selectAskList(int cp, int memberNo) {
+		
+		// 로그인 한 회원의 1:1문의 갯수 
+		int askListCount = dao.getAskListCount(memberNo);
+		
+		Pagination askPagination = new Pagination(askListCount, cp);
+		
+		List<Feedback> askList = dao.selectAskList(askPagination, memberNo);
+		
+		// pagination, askList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<>();
+		map.put("askPagination", askPagination);
+		map.put("askList", askList);
+		
+//		System.out.println(map);
+		
+		return map;
+	}
+	
+	
+	
+	// 1:1문의 상세 조회(회원문의글)
+	@Override
+	public Feedback selectMemberAskList(int feedbackNo) {
+		return dao.selectMemberAskList(feedbackNo);
+	}	
+	
+	
+	
+
+	// 1:1문의 상세 조회(관리자 답변)
+	@Override
+	public Feedback selectManagerAnswerList(int feedbackNo) {
+		return dao.selectManagerAnswerList(feedbackNo);
+	}
+	
+	
 	
 }

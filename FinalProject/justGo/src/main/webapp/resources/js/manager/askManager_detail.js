@@ -46,21 +46,47 @@ answerBtn.addEventListener("click",() => {
     const answerTextBefore = document.createElement("div");
     answerTextBefore.className='manager--answerTextBefore';
     answerWrite.append(answerTextBefore);
+
+    const answerForm = document.createElement("form");
+    answerForm.action = "/askManager_detail/{feedbackNo}";
+    answerForm.id = "manager--answerForm";
+    answerForm.method = "put";
+    answerTextBefore.append(answerForm);
     
     const answerTextarea = document.createElement("textarea");
     answerTextarea.className='manager--answerTextarea';
-    answerTextBefore.append(answerTextarea);
+    answerTextarea.id='manager--textarea';
+    answerForm.append(answerTextarea);
     answerTextarea.focus();
     
     const answerBtns = document.createElement("div");
     answerBtns.className='manager--answerBtns';
-    answerWrite.append(answerBtns);
+    answerForm.append(answerBtns);
     
     const answerStartBTN = document.createElement("button");
     answerStartBTN.className='manager--answerStartBTN';
+    answerStartBTN.style.disabled;
     answerStartBTN.innerText="완료";
     answerBtns.append(answerStartBTN);
     
     
     
+});
+
+const answerForm = document.getElementsByClassName("manager--answerForm");
+const managerTextarea = document.getElementsByClassName("manager--textarea");
+// const answerStartBTN = document.getElementsByClassName("manager--answerStartBTN");
+
+
+
+
+answerForm.addEventListener("submit", e=>{
+
+    if(managerTextarea.value === ""){
+        alert="답변을 입력해주세요."
+        managerTextarea.focus();
+        e.preventDefault();
+        return;
+    }
+
 });

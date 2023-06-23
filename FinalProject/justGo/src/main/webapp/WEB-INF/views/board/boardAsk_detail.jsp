@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/manager/manager.css">
+    <link rel="stylesheet" href="/resources/css/board/board.css">
 
-    <title>JustGo-askManager_detail</title>
+    <title>JustGo-boardAsk_detail</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/resources/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -34,7 +34,7 @@ ${map.managerAnswerList} --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
-<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
 
@@ -48,16 +48,16 @@ ${map.managerAnswerList} --%>
 
 
 <!-- 페이지 제목 시작 -->
-<%-- <div class="template--pageTitleContainer">
+<div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="1:1문의">
         <div class="template--overlayedTitle" style="color: black;">
             <a href="#">
-                '${askList.memberNickname}' 님의 1:1문의
+                1:1문의게시판
             </a>
         </div>
     </div>
-</div> --%>
+</div>
 <!-- 페이지 제목 끝 -->
 
 
@@ -65,18 +65,18 @@ ${map.managerAnswerList} --%>
 <!-- 콘텐츠 시작 -->
 <div class="manager--contentContainer">
 <div class="manager--contentBox">
-    <aside class="manager--sideContainer">
+    <%-- <aside class="manager--sideContainer">
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
-    </aside>
-    <div class="manager--mainBox">
+    </aside> --%>
+    <div class="manager--mainBox1">
         <%-- 타이틀 --%>
-        <div class="manager--overlayedTitle">
+        <%-- <div class="manager--overlayedTitle">
             <a href="#">
                 '${memberAskList.memberNickname}' 님의 1:1문의
             </a>
-        </div>
+        </div> --%>
         <div class="manager--content">
-            <div class="manager--inquiryAnswerBox">
+            <div class="manager--inquiryAnswerBox" style="padding-left: 160px;">
                 <div class="manager--inquiryLeft">
                     <div class="manager--inquiryAnswerTitle">
                         Q. ${memberAskList.feedbackTitle}
@@ -98,10 +98,7 @@ ${map.managerAnswerList} --%>
                             빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
-                            <a href="/manager/askManager">
-                                <button type="button" class="manager--askListBTN">목록</button>
-                            </a>
-                            <button type="button" class="manager--answerStartBTN" id="manager--answerStartBtn">답변하기</button>
+                            <button class="manager--askListBTN" onclick="history.back()">목록</button>
                         </div>
                     </div>
                 </c:when>
@@ -117,9 +114,7 @@ ${map.managerAnswerList} --%>
                             ${managerAnswerList.adminText}
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
-                            <a href="/manager/askManager/">
-                                <button type="button" class="manager--askListBTN">목록</button>
-                            </a>
+                            <button class="manager--askListBTN" onclick="history.back()">목록</button>
                         </div>
                     </div>
                 </c:otherwise>
@@ -178,6 +173,6 @@ ${map.managerAnswerList} --%>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/manager/askManager_detail.js"></script>
+    <%-- <script src="/resources/js/board/boardAsk_detail.js"></script> --%>
 </body>
 </html>

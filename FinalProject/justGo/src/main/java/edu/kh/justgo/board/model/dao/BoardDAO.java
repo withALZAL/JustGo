@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 /**
  * @author user1
@@ -69,11 +70,9 @@ public class BoardDAO {
 	 */
 	public List<Board> selectBoardList(Pagination pagination, int boardCode) {
 
-		
-		int offset = ((pagination.getCurrentPage()-1) * pagination.getLimit());
-		
-		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
-		
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
@@ -98,12 +97,9 @@ public class BoardDAO {
 	 */
 	public List<Board> countryList(Pagination pagination, int countryNo) {
 
-		
-		int offset = ((pagination.getCurrentPage()-1)
-				* pagination.getLimit());
-		
-		RowBounds rowBounds = new RowBounds(offset,pagination.getLimit());
-		
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.countryList", countryNo, rowBounds);
 	}
@@ -224,8 +220,9 @@ public class BoardDAO {
 		return sqlSession.selectOne("boardMapper.listCount3_search", paramMap);
 	}
 
-	
-	/** 전체게시판 리스트 검색
+	/**
+	 * 전체게시판 리스트 검색
+	 * 
 	 * @param pagination
 	 * @param paramMap
 	 * @return
@@ -237,6 +234,40 @@ public class BoardDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("boardMapper.selectAllList_search", paramMap, rowBounds);
+	}
+
+	/**
+	 * 태그 리스트
+	 * 
+	 * @return
+	 */
+	public List<Board> tagList() {
+		return sqlSession.selectList("boardMapper.tagList");
+	}
+
+	/**
+	 * 태그 리스트 카운트
+	 * 
+	 * @param map2
+	 * @return
+	 */
+	public int taglistCount(Board board) {
+		int result = sqlSession.selectOne("boardMapper.taglistCount", board);
+		return result;
+	}
+
+	/** 태그 리스트 목록 조회
+	 * @param pagination
+	 * @param map2
+	 * @return
+	 */
+	public List<Board> tagBoardList(Pagination pagination, Board board) {
+
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.tagBoardList", board, rowBounds);
 	}
 
 	/** board 리스트 불러오기 (자유/질문)
@@ -262,5 +293,48 @@ public class BoardDAO {
 
 	public List<Board> writingList() {
 		return sqlSession.selectList("boardMapper.writingList");
+
 	}
+	
+	/**  로그인 한 회원의 1:1문의 갯수
+	 * @param memberNo
+	 * @return result
+	 */
+	public int getAskListCount(int memberNo) {
+		
+		return sqlSession.selectOne("askMapper.getAskListCount", memberNo);
+	}
+
+	/** 로그인한 회원의 1:1문의 목록
+	 * @param askPagination
+	 * @return list
+	 */
+	public List<Feedback> selectAskList(Pagination askPagination, int memberNo) {
+		int offset = (askPagination.getCurrentPage()-1) * askPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, askPagination.getLimit());
+		return sqlSession.selectList("askMapper.selectAskList", memberNo, rowBounds);
+	}
+	
+	
+	
+	/** 1:1문의 상세 조회 (회원 문의)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectMemberAskList(int feedbackNo) {
+		return sqlSession.selectOne("askMapper.selectMemberAskList", feedbackNo);
+	}
+
+
+
+	/** 1:1문의 상세조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return list
+	 */
+	public Feedback selectManagerAnswerList(int feedbackNo) {
+		return sqlSession.selectOne("askMapper.selectManagerAnswerList", feedbackNo);
+	}
+
+	
+	
 }

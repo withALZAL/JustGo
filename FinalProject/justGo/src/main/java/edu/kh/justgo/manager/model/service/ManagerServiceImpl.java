@@ -125,18 +125,7 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 	
 	
-		
-	
-	
-	
-	// 1:1문의 상세조회
-//	@Override
-//	 public Feedback selectAskDetailList(int feedbackNo) {
-//		return dao.selectAskDetailList(feedbackNo);
-//	}
-	
-	
-	
+
 	
 	
 	// 1:1문의 상세 조회(회원문의글)
@@ -154,6 +143,12 @@ public class ManagerServiceImpl implements ManagerService{
 		return dao.selectManagerAnswerList(feedbackNo);
 	}
 	
+	
+	// 1:1문의 관리자 답변 입력
+	@Override
+	public int insertManagerAnswer(Feedback feedback) {
+		return dao.insertManagerAnswer(feedback);
+	}
 	
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.manager.model.dto.Feedback;
 
 public interface BoardService {
 
@@ -42,6 +43,16 @@ public interface BoardService {
 
 	//전체게시글 검색
 	Map<String, Object> selectAllList(Map<String, Object> paramMap, int cp);
+	
+	//태그 리스트로 가져오기
+	List<Board> tagList();
+
+//	//태그로 목록조회
+//	Map<String, Object> selectTagList(int tagNo, int cp);
+
+	//태그 리스트로 검색
+	Map<String, Object> boardTagList1(Board board, int cp);
+
 
 	//board타입 셀렉트 가져오기 (수정화면: 자유/질문)
 	List<Board> boardTypeList();
@@ -55,5 +66,23 @@ public interface BoardService {
 	// board타입 셀렉트 가져오기 (글쓰기)
 	List<Board> writingList();
 
+	/** 1:1문의 정보 불러오기
+	 * @param cp
+	 * @return list
+	 */
+	Map<String, Object> selectAskList(int cp, int memberNo);
+	
+	/**1:1문의 상세 조회(회원문의글)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectMemberAskList(int feedbackNo);
+
+	/**1:1문의 상세 조회(관리자 답변)
+	 * @param feedbackNo
+	 * @return
+	 */
+	Feedback selectManagerAnswerList(int feedbackNo);
+	
 
 }
