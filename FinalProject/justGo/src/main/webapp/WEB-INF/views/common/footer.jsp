@@ -92,7 +92,7 @@
     
 <!-- ----------------------------------------------- -->
 
-<%-- sweetalert --%>
+<%-- sweetAlert --%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -117,7 +117,8 @@
         })
 
         Toast.fire({
-        title: '${loginMember.memberNickname}님 ${message}' /* 메시지 담기 */
+            icon: 'success', /* 아이디 성공 시 v 체크 */
+            title: '${loginMember.memberNickname}님 ${message}' /* 메시지 담기 */
         })
     </script>
     </c:if>
@@ -132,6 +133,7 @@
         showConfirmButton: false, /* 컨펌버튼 없음 */
         timer: 3000, /* 3초 간 뜨기 */
         timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -139,7 +141,8 @@
         })
 
         Toast.fire({
-        title: '${message}' /* 메시지 담기 */
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '${message}' /* 메시지 담기 */
         })
     </script>
 </c:if>

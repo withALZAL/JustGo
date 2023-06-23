@@ -97,12 +97,11 @@
 
 
 <!-- 글쓰기 테이블 시작 -->
-    <div class="board--contentBox__main">
+    <div class="board--contentBox__boardSearch">
         <table class="board--boardTable">
             <thead>
                 <tr>
                 <th>번호</th>
-                <%-- <th>태그</th> --%>
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
@@ -128,7 +127,6 @@
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <%-- <td>${board.tagNo}</td> --%>   
                     <c:choose>
                         <c:when test="${board.boardCode != '1'}">
                             <td><a href="/board/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>

@@ -2,6 +2,8 @@ package edu.kh.justgo.myPage.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.justgo.member.model.dto.Member;
@@ -18,39 +21,34 @@ import edu.kh.justgo.myPage.model.service.MyPageService;
 
 @Controller
 @RequestMapping("/myPage")
+@SessionAttributes({ "loginMember" })
 public class MyPageController {
 	
 	@Autowired
 	private MyPageService service;
 	
-	// 마이페이지
+	// 마이페이지-프로필
 	@GetMapping("/info")
 	public String info() {
-		return "/account/myPage";
+		return "/account/myPage-profile";
 	}
 	
-	// 개인정보수정 화면 들어가기
-	@GetMapping("/updateNickname")
-	public String updateNickname() {
-		return "/account/updateNickname";
-	}
-	
-	// 개인정보수정 화면 들어가기
+	// 마이페이지-비밀번호변경
 	@GetMapping("/updatePw")
-	public String updateNickPw() {
-		return "/account/updatePw";
+	public String updatePw() {
+		return "/account/myPage-updatePw";
 	}
-	
 	
 	// 비밀번호 변경
 	@PostMapping("/updatePw")
-	public String updateInfo(
+	public String updatePw(
 		   String currentPw,
 		   String newPw,
     	  @SessionAttribute("loginMember") Member loginMember
     	 , RedirectAttributes ra) {
 		
 		int memberNo = loginMember.getMemberNo();
+		String path = "redirect:";
 		
 		int result = service.updatePw(currentPw, newPw, memberNo);
 		
@@ -58,36 +56,36 @@ public class MyPageController {
     	
     	if(result > 0) {
     		message = "비밀번호가 변경 되었습니다.";
+    		path += "info";
     	} else {
     		message = "비밀번호가 일치하지 않습니다";
+    		path += "updatePw";
     	}
     	
     	ra.addFlashAttribute("message", message);
-		return "redirect:info";
+		return path;
 	}
 	
 	
-	// 닉네임 수정
+	// 닉네임 수정(상준 추가 수정)
 	@PostMapping("/updateNickname")
 	public String updateNickname(
-			Member updateMember
-		  ,	String currentPw
-		  , String memberNickname
-		  , @SessionAttribute("loginMember") Member loginMember
-    	  , RedirectAttributes ra
+			Member updateMember,
+			@SessionAttribute("loginMember") Member loginMember,
+			RedirectAttributes ra
 			) {
 		
-		updateMember.setMemberNo( loginMember.getMemberNo() );
+		updateMember.setMemberNo(loginMember.getMemberNo());
 		
 		int result = service.updateNickname(updateMember);
 		
 		String message = null;
 		
     	if(result > 0) { // 성공
-    		message = "회원 정보가 수정되었습니다.";
+    		message = "닉네임이 수정되었습니다.";
     		loginMember.setMemberNickname( updateMember.getMemberNickname() );
-     	} else {
-     		message = "회원 정보 수정 실패";
+     	} else { // 실패
+     		message = "닉네임 수정에 실패했습니다.";
 	    }
     	ra.addFlashAttribute("message", message);
     	
@@ -122,6 +120,31 @@ public class MyPageController {
 		
 		return "redirect:info";
 	}
+	
+
+	// 마이페이지-내가쓴글(상준)
+	@GetMapping("/myWriting")
+	public String myPost(
+			@SessionAttribute(value="loginMember", required=false) Member loginMember,
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
+			Model model
+			) {
+		
+			System.out.println("loginMember.getMemberNo():"+loginMember.getMemberNo()); // 잘 담김
+			System.out.println("cp:"+cp); 		// 잘 담김
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = service.myPost(memberNo, cp);
+		
+		model.addAttribute("map", map);
+		
+			System.out.println(model); // 잘 담김
+		
+		return "/account/myPage-myWriting";
+	}
+	
+	
 	
 }
 

@@ -1,5 +1,7 @@
 package edu.kh.justgo.member.model.dto;
 
+import java.util.Map;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,4 +24,6 @@ public class Member {
 	private String memberCondition;
 	private String setAlarmReply;
 	private String setAlarmLike;
+	
+	private Map<String, Object> memberPostList; // 상준이 사용
 }

@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/resources/css/common/header.css">
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/account/account.css">
+    <link rel="stylesheet" href="/resources/css/account/myPage.css">
 
-    <title>JustGo-myPage</title>
+    <title>JustGo-myPage_updatePw</title>
 
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -31,6 +31,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
+
 
 
 <!-- Template-main 시작 -->
@@ -52,50 +53,63 @@
 
 
 <!-- 마이페이지 시작 -->
-<div class="account--joinContainer">
-    <div class="account--joinBox">
-        <form action="/myPage/updateProfileImage" method="post" encType="multipart/form-data">
-            <div class="account--inputProfileBox">
-                <div id="previewImage" onclick="triggerFileInput()">
-                <c:if test="${!empty sessionScope.loginMember.profileImg}">
-                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
-                </c:if>
-                <c:if test="${empty sessionScope.loginMember.profileImg}">
-                    <img src="/resources/images/officialProfile/COMMONPROFILEPLUS.png" name="profileImage" alt="기본 프로필 이미지">
-                </c:if>
-                </div>
-            </div>
-            <div class="account--inputInfoBox">
-                <table>
-                    <tr>
-                        <th>닉네임</th>
-                        <td>${loginMember.memberNickname}</td>
-                    </tr>
-                    <tr>
-                        <th>이메일</th>
-                        <td>${loginMember.memberEmail}</td>
-                    </tr>
-                    <tr>
-                        <th>가입일</th>
-                        <td>${loginMember.enrollDate}</td>
-                    </tr>
-                </table>
-                <div class="account--joinBtnBox">
+<div class="account--myPageContainer">
+    <div class="account--leftBox">
+        <a href="/myPage/info">
+            <button type="button" class="btn btn-primary btn-lg">프로필</button>
+        </a>
+        <a href="/myPage/myWriting">
+            <button type="button" class="btn btn-primary btn-lg">작성글 보기</button>
+        </a>
+        <a href="/myPage/updatePw">
+            <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
+        </a>
+        <a href="#">
+            <button type="button" class="btn btn-primary btn-lg">1:1문의</button>
+        </a>
+        <a>
+            <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
+        </a>
+    </div>
+    <div class="account--rightBox">
 
-                    <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
-                    <a href="/myPage/updateNickname">
 
-                        <button type="button" class="btn btn-secondary btn-sm">닉네임 수정</button>
-                    </a>
-                    <a href="/myPage/updatePw">
-                        <button type="button" class="btn btn-secondary btn-sm">비밀번호 변경</button>
-                    </a>
-                    <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">         
-                    <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button>
-                    <button type="button" id="deleteAccount" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
+
+        <%-- 비밀번호 변경 시작 --%>
+        <div class="account--profile">
+            <div class="account--subtitle"><i class="fa-solid fa-key"></i>비밀번호 변경</div>
+            <form action="updatePw" method="post">
+                <div class="account--updatePwBox">
+                    <table>
+                        <tr>
+                            <th>현재 비밀번호</th>
+                            <td>
+                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw">
+                                <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>새 비밀번호</th>
+                            <td>
+                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPw" id="newPw">
+                                <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwMessage"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>새 비밀번호 확인</th>
+                            <td>
+                                <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
+                                <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwConfirmMessage"></div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-            </div>
-        </form>
+                <div class="account--BtnBox">
+                    <button type="submit" id="updatePwBtn" class="btn btn-primary btn-lg">수정</button>
+                </div>
+            </form>
+        </div>
+        <%-- 비밀번호 변경 끝 --%>
     </div>
 </div>
 <!-- 마이페이지 끝 -->
@@ -156,13 +170,17 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/account/myPage.js"></script>
+    <script src="/resources/js/account/updatePw.js"></script>
 <%-- 파일 업로드 --%>
     <script>
         function triggerFileInput() {
             var fileInput = document.getElementById("imageUpload");
             fileInput.click();
         }
+    </script>
+<%-- memberNo 추출 --%>
+    <script>
+        let memberNo = ${loginMember.memberNo};
     </script>
 </body>
 </html>

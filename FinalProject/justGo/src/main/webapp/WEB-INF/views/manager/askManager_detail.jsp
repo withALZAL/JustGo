@@ -23,7 +23,13 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 </head>
 <body class="template--body">
-<c:set var="askList" value="${askList}" />
+<c:set var="memberAskList" value="${map.memberAskList}" />
+<c:set var="managerAnswerList" value="${map.managerAnswerList}" />
+
+<%-- ${map.memberAskList}
+${map.managerAnswerList} --%>
+
+
 
 
 <!-- ----------------------------------------------- -->
@@ -66,52 +72,79 @@
         <%-- 타이틀 --%>
         <div class="manager--overlayedTitle">
             <a href="#">
-                '${askList.memberNickname}' 님의 1:1문의
+                '${memberAskList.memberNickname}' 님의 1:1문의
             </a>
         </div>
         <div class="manager--content">
             <div class="manager--inquiryAnswerBox">
                 <div class="manager--inquiryLeft">
                     <div class="manager--inquiryAnswerTitle">
-                        <%-- <i class="fa-solid fa-circle-question" style="padding-right: 10px;"></i> --%>
-                        Q. ${askList.feedbackTitle}
+                        Q. ${memberAskList.feedbackTitle}
                     </div>
-                    <div>${askList.memberNickname} | ${askList.feedbackDate}</div>
+                    <div>${memberAskList.memberNickname} | ${memberAskList.feedbackDate}</div>
                     <div class="manager--inquiryText">
-                        ${askList.feedbackText}
+                        ${memberAskList.feedbackText}
                     </div>
                 </div>
-                <div class="manager--answerRight" id="manager--answerBefore">
+
+            <c:choose>
+                <c:when test="${managerAnswerList.feedback_CF_FL == 'N'}">
+                    <div class="manager--answerRight" id="manager--answerWrite">
+                        <div class="manager--inquiryAnswerTitle" id="manager--answerTitle">
+                            A. 답변 준비중입니다.
+                        </div>
+                        <div class="manager--managerArea" id="manager--answerManager">담당자 배정중</div>
+                        <div class="manager--answerTextBefore" id="manager--answerText">
+                            빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
+                        </div>
+                        <div class="manager--answerBtns" id="manager--aBtns">
+                            <a href="/manager/askManager">
+                                <button type="button" class="manager--askListBTN">목록</button>
+                            </a>
+                            <button type="button" class="manager--answerStartBTN" id="manager--answerStartBtn">답변하기</button>
+                        </div>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="manager--answerRight" id="manager--answerWrite">
+                        <div class="manager--inquiryAnswerTitle" id="manager--answerTitle">
+                            A. 문의에 대한 답변드립니다.
+                        </div>
+                        <div class="manager--managerArea" id="manager--answerManager">
+                            ${managerAnswerList.managerNickname} | ${managerAnswerList.feedback_CF_Date}
+                        </div>
+                        <div class="manager--answerTextBefore" id="manager--answerText">
+                            ${managerAnswerList.adminText}
+                        </div>
+                        <div class="manager--answerBtns" id="manager--aBtns">
+                            <a href="/manager/askManager">
+                                <button type="button" class="manager--askListBTN">목록</button>
+                            </a>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
+                
+
+
+                
+
+
+                <%-- <div class="manager--answerRight">
                     <div class="manager--inquiryAnswerTitle">
-                        <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
-                        A. 답변 준비중입니다.
-                    </div>
-                    <div>1</div>
-                    <!--<div><a href="#" style="color: white;">???</a></div>--> <!-- 이스터에그 -->
-                    <div class="manager--answerTextBefore">
-                        빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
-                    </div>
-                    <div class="manager--answerBtns">
-                        <a href="/manager/askManager">
-                            <button type="button" class="manager--askListBTN">목록</button>
-                        </a>
-                        <button type="button" class="manager--answerStartBTN" id="manager--answerStartBtn">답변하기</button>
-                    </div>
-                </div>
-                <div class="manager--answerRight" id="manager--answerWrite">
-                    <div class="manager--inquiryAnswerTitle">
-                        <%-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> --%>
-                        <%-- <input type="text" placeholder="답변 제목을 입력하세요."> --%>
+                        <!-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> -->
+                        <input type="text" placeholder="답변 제목을 입력하세요.">
                     </div>
                     <div class="manager--answerTextWrite">
                         <form action="#" method="post">
-                            <%-- <textarea placeholder="답변 내용을 입력하세요."></textarea> --%>
+                            <textarea placeholder="답변 내용을 입력하세요."></textarea>
                             <div>
-                                <%-- <button type="button" class="btn btn-secondary btn-sm">답변 제출</button> --%>
+                                <button type="button" class="btn btn-secondary btn-sm">답변 제출</button>
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --%>
 
 
             </div>

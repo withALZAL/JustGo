@@ -17,6 +17,19 @@
 
     <title>JustGo-comment</title>
 
+<%-- 댓글 버튼 꾸미기 --%>
+    <style>
+        .commentBtn {
+            color: white;
+            background-color: #0D6EFD;
+            border: none;
+            border-radius: 3px;
+        }
+        .comment--delete {
+            background-color: #DC3545;
+        }
+    </style>
+
 <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
@@ -35,10 +48,14 @@
 <div class="writing--commentBox">
     
     <table class="writing--commentTable" >
-    <tbody id="replyList <c:if test='${reply.parentReplyNo!=0}'>child-reply</c:if>">
+    <tbody id="replyList">
         <c:forEach items="${board.replyList}" var="reply">
-        <tr class="reply-row">
+        <tr id="re" class="reply-row <c:if test='${reply.parentReplyNo!=0}'>child-reply
+        </c:if>">
             <th class="writing--commentProfileBox">
+                <c:if test="${reply.parentReplyNo!=0}" >
+                <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
+                </c:if>
                 <span class="writing--commentProfileBox__profileImage">
                     <c:if test="${empty reply.profileImage}" >
                         <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
@@ -54,10 +71,10 @@
             <td class="writing--commentBtnBox">
                 <%-- <form action="#" method="get">
                     <a href="#"> --%>
-                        <button onclick="showInsertComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">답글</button>
+                        <button onclick="showInsertComment(${reply.replyNo},this)" class="commentBtn comment--reply">답글</button>
                         <c:if test="${loginMember.memberNo == reply.memberNo}" >
-                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="btn btn-primary btn-sm">수정</button>
-                        <button onclick="deleteComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">삭제</button>
+                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
+                        <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
                         </c:if>
                     <%-- </a>
                 </form> --%>
@@ -92,13 +109,13 @@
         
     </table>
 </div>
-    <form action="#" post="get">
+    <%-- <form action="#" post="get"> --%>
         <div class="writing--commentInput">
             <div style="font-weight: bold;">댓글 달기</div>
             <textarea id="replyContent"></textarea>
-            <button type="button" class="btn btn-secondary btn-sm" id="addReply">등록</button>
+            <button  class="btn btn-secondary btn-sm" id="addReply">등록</button>
         </div>
-    </form>
+    <%-- </form> --%>
 </div>
 <!-- 댓글 끝 -->
 

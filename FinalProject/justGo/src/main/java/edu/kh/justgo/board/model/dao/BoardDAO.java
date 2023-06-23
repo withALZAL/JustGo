@@ -268,4 +268,30 @@ public class BoardDAO {
 
 		return sqlSession.selectList("boardMapper.tagBoardList", board, rowBounds);
 	}
+
+	/** board 리스트 불러오기 (자유/질문)
+	 * @return List
+	 */
+	public List<Board> boardTypeList() {
+		return sqlSession.selectList("boardMapper.boardTypeList");
+	}
+
+	/** board 리스트 불러오기 (여행)
+	 * @return
+	 */
+	public List<Board> boardTypeList2() {
+		return sqlSession.selectList("boardMapper.boardTypeList2");
+	}
+	
+	/** board 리스트 불러오기 (tag)
+	 * @return
+	 */
+	public List<Board> boardTypeList3() {
+		return sqlSession.selectList("boardMapper.boardTypeList3");
+	}
+
+	public List<Board> writingList() {
+		return sqlSession.selectList("boardMapper.writingList");
+
+	}
 }

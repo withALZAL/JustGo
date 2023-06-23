@@ -232,4 +232,28 @@ public class BoardServiceImpl implements BoardService {
 
 
 	
+	// board 리스트 불러오기 (수정 : 자유/질문)
+	@Override
+	public List<Board> boardTypeList() {
+		return dao.boardTypeList();
+	}
+	
+	// board 리스트 불러오기 (수정 : 여행)
+	@Override
+	public List<Board> boardTypeList2() {
+		return dao.boardTypeList2();
+	}
+	
+	// board 리스트 불러오기 (수정 : 자유/질문 tag)
+	@Override
+	public List<Board> boardTypeList3() {
+		return dao.boardTypeList3();
+	}
+	
+	// board 리스트 불러오기 (글쓰기 )
+	@Override
+	public List<Board> writingList() {
+		return dao.writingList();
+	}
+	
 }

@@ -35,6 +35,27 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return dao.insert(reply);
 	}
+
+
+	// 댓글 삭제
+	@Override
+	public int delete(int replyNo) {
+		
+		int result = dao.delete(replyNo);
+		return result;
+	}
+
+
+	// 댓글 수정
+	@Override
+	public int update(Reply reply) {
+		reply.setReplyContent(Util.XSSHandling(reply.getReplyContent()));
+		
+		return dao.update(reply);
+	}
+	
+	
+	
 	
 	
 	

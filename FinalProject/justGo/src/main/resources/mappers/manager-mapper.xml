@@ -48,10 +48,11 @@
 		
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="managerNickname" column="MANAGER_NICKNAME" />
 		<result property="feedbackTitle" column="FEEDBACK_TITLE" />
 		<result property="feedbackText" column="FEEDBACK_TEXT" />
 		<result property="feedbackDate" column="FEEDBACK_DATE" />
-		<result property="AdminText" column="ADMIN_TEXT" />
+		<result property="adminText" column="ADMIN_TEXT" />
 		<result property="feedback_CF_FL" column="CONFIRM_FL" />
 		<result property="feedback_CF_Date" column="CONFIRM_DATE" />
 		
@@ -261,18 +262,40 @@
       </select>
 	 
 	 
-	  <!-- 1:1문의 상세 조회 -->
-      <select id="selectAskDetailList" parameterType="Feedback" resultMap="feedback_rm">
+	  <!-- 1:1문의 상세 조회 (회원문의)-->
+      <select id="selectMemberAskList" parameterType="Feedback" resultMap="feedback_rm">
 		SELECT FEEDBACK_NO, FEEDBACK_TITLE ,FEEDBACK_TEXT, FEEDBACK_DATE, MEMBER_NICKNAME
 		FROM "FEEDBACK"
 		JOIN "MEMBER" USING(MEMBER_NO)
-		WHERE FEEDBACK_NO =${FeedbackNo}
+		WHERE FEEDBACK_NO =#{FeedbackNo}
       </select>
 	 
 	 
 	 
+	 <!-- 1:1문의 상세 조회 (관리자 답글)-->
+	 <select id="selectManagerAnswerList" parameterType="Feedback" resultMap="feedback_rm">
+		SELECT FEEDBACK_NO, ADMIN_TEXT, CONFIRM_FL, CONFIRM_DATE,
+				(SELECT MEMBER_NICKNAME
+				FROM "MEMBER"
+				WHERE MEMBER_NO = (SELECT ADMIN_NO
+									FROM "FEEDBACK"
+									WHERE FEEDBACK_NO =#{FeedbackNo})) MANAGER_NICKNAME
+		FROM "FEEDBACK" F
+		JOIN "MEMBER" M USING(MEMBER_NO)
+		WHERE FEEDBACK_NO =#{FeedbackNo}
+      </select>
 	 
 	 
+	 
+	 <!-- 1:1문의 관리자 답변 입력 -->
+	 <update id="insertManagerAnswer">
+	 	UPDATE "FEEDBACK" SET
+		ADMIN_NO = #{memberNo},
+		ADMIN_TEXT = #{adminText},
+		CONFIRM_FL = 'Y',
+		CONFIRM_DATE = SYSDATE 
+		WHERE FEEDBACK_NO = #{feedbackNo}
+	 </update>
 	 
 	 
 

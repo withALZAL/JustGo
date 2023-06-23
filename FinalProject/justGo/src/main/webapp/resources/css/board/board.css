@@ -154,3 +154,63 @@
     color: white;
     background-color: #0E00AA;
 }
+
+/* boardSearch 전용 ----------------------------------------------- */
+
+/* 게시판 main 조정 */
+.board--contentBox__boardSearch {
+    height: 740px;
+    width: 100%;
+}
+
+/* 테이블 박스 조정(GPT가 작성) */
+.board--contentBox__boardSearch {
+    height: 740px;
+    width: 100%;
+    overflow: auto;
+}
+.board--contentBox__boardSearch table {
+    width: 1260px;
+    table-layout: fixed;
+}
+.board--contentBox__boardSearch th,
+.board--contentBox__boardSearch td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #D9D9D9;
+}
+.board--contentBox__boardSearch thead th {
+    background-color: #F5F5F5;
+}
+.board--contentBox__boardSearch tbody td {
+    background-color: #FFFFFF;
+}
+.board--contentBox__boardSearch tbody tr:nth-child(even) td {
+    background-color: #F9F9F9;
+}
+.board--contentBox__boardSearch th:nth-child(1), /* 번호 */
+.board--contentBox__boardSearch td:nth-child(1) {
+    width: 70px;
+}
+.board--contentBox__boardSearch th:nth-child(2), /* 제목 */
+.board--contentBox__boardSearch td:nth-child(2) {
+}
+.board--contentBox__boardSearch th:nth-child(3), /* 글쓴이 */
+.board--contentBox__boardSearch td:nth-child(3) {
+    width: 150px;
+}
+.board--contentBox__boardSearch th:nth-child(4), /* 작성일 */
+.board--contentBox__boardSearch td:nth-child(4) {
+    width: 150px;
+}
+.board--contentBox__boardSearch th:nth-child(5), /* 조회수 */
+.board--contentBox__boardSearch td:nth-child(5) {
+    width: 70px;
+}
+.board--contentBox__boardSearch th:nth-child(6), /* 좋아요 */
+.board--contentBox__boardSearch td:nth-child(6) {
+    width: 70px;
+}
+.board--contentBox__boardSearch td:nth-child(2) {
+    text-align: left; /* 수정: 제목 열의 텍스트를 좌측 정렬로 설정 */
+}

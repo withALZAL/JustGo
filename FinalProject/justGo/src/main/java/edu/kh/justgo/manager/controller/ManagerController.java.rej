@@ -1,0 +1,9 @@
+diff a/FinalProject/justGo/src/main/java/edu/kh/justgo/manager/controller/ManagerController.java b/FinalProject/justGo/src/main/java/edu/kh/justgo/manager/controller/ManagerController.java	(rejected hunks)
+@@ -11,6 +11,7 @@
+ import org.springframework.web.bind.annotation.RequestMapping;
+ import org.springframework.web.bind.annotation.RequestParam;
+ import org.springframework.web.bind.annotation.SessionAttribute;
++import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+ 
+ import edu.kh.justgo.manager.model.dto.Feedback;
+ import edu.kh.justgo.manager.model.service.ManagerService;

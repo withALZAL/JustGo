@@ -18,6 +18,13 @@
     color: inherit;
 }
 
+/* search 타입의 input에서 x자 없애기 */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 
 /* 화면 가로 길이 1400px 통일 */

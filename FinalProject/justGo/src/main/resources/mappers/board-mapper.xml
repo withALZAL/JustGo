@@ -27,6 +27,8 @@
 		<result property="tagNo" column="TAG_NO" />
 		<result property="tagContent" column="TAG_CONTENT" />
 		<result property="thumbnail" column="THUMBNAIL" />
+		<result property="boardName" column="BOARD_NAME" />
+		<result property="countryName" column="COUNTRY_NAME" />
 
 
 
@@ -116,18 +118,22 @@
 			END CREATE_DATE,
 			]]>
 		(SELECT COUNT(*) FROM "REPLY" C
-		WHERE C.BOARD_NO = B.BOARD_NO)
-		COMMENT_COUNT,
+
+		WHERE C.BOARD_NO = B.BOARD_NO
+		AND
+		REPLY_DELETE = 'N') COMMENT_COUNT,
+
 		(SELECT COUNT(*) FROM CONTENT_LIKE L
 		WHERE L.BOARD_NO =
 		B.BOARD_NO) LIKE_COUNT
+		<!-- (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I WHERE I.BOARD_NO = 
+			B.BOARD_NO AND IMG_ORDER = 0) THUMBNAIL -->
 
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
 		JOIN "TAG" USING (TAG_NO)
 		WHERE BOARD_DELETE = 'N'
-		AND BOARD_CODE =
-		#{boardCode}
+		AND BOARD_CODE = #{boardCode}
 		ORDER BY BOARD_NO
 		DESC
 
@@ -586,4 +592,45 @@
 		ORDER BY BOARD_NO
 		DESC
 	</select>
+	
+	<!-- 자유/질문 리스트 불러오기 -->
+	<select id="boardTypeList" resultMap="board_rm">
+		SELECT * FROM BOARD_TYPE
+		WHERE BOARD_CODE =2
+		or BOARD_CODE =3
+		ORDER BY BOARD_CODE ASC
+	</select>
+	
+	
+	<select id="boardTypeList2" resultMap="board_rm">
+		SELECT * FROM COUNTRY 
+		WHERE COUNTRY_NO = 1
+		OR  COUNTRY_NO = 2 
+		OR  COUNTRY_NO = 3
+		OR COUNTRY_NO = 4
+		OR COUNTRY_NO = 5
+		ORDER BY COUNTRY_NO ASC 
+	</select>
+	
+	
+	<select id="boardTypeList3" resultMap="board_rm">
+		SELECT * FROM TAG  
+		WHERE TAG_NO  = 1
+		OR  TAG_NO = 2 
+		OR  TAG_NO = 3
+		OR TAG_NO = 4
+		ORDER BY TAG_NO ASC
+	</select>
+	
+	<select id="writingList" resultMap="board_rm">
+		SELECT BOARD_CODE, BOARD_NAME FROM (
+			SELECT BOARD_TYPE.* , '1' TEMP FROM BOARD_TYPE 
+			WHERE BOARD_CODE NOT IN (1,4)
+			UNION 
+			SELECT COUNTRY.*, '2' TEMP FROM COUNTRY 
+			WHERE COUNTRY_NO != 0
+		)
+		ORDER BY TEMP, BOARD_CODE
+	</select>
+	
 </mapper>

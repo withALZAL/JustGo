@@ -53,5 +53,17 @@ public interface BoardService {
 	Map<String, Object> boardTagList1(Board board, int cp);
 
 
+	//board타입 셀렉트 가져오기 (수정화면: 자유/질문)
+	List<Board> boardTypeList();
+
+	// board타입 셀렉트 가져오기 (수정 : 여행)
+	List<Board> boardTypeList2();
+	
+	// board타입 셀렉트 가져오기 (자유/질문 : tag)
+	List<Board> boardTypeList3();
+
+	// board타입 셀렉트 가져오기 (글쓰기)
+	List<Board> writingList();
+
 
 }
