@@ -71,9 +71,21 @@ public class BoardController {
 	}
 
 	// 1:1문의 연결(/board/4 버전)
-	@GetMapping("/4")
-	public String writingQuestion() {
-		return "/writing/writingQuestion";
+	@GetMapping("/4/{memberNo}")
+	public String writingQuestion(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			, Member loginMember
+			, Model model
+			) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		// 1:1문의정보 불러오기
+		Map<String, Object> map = service.selectAskList(cp, memberNo);
+		
+		model.addAttribute("map", map);
+		
+		return "/board/boardAsk";
 	}
 
 	// 여행게시판 게시글

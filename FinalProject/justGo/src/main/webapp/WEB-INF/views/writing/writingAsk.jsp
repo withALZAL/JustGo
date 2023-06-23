@@ -40,7 +40,7 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="글쓰기">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_WRITING.png" alt="1:1문의">
         <div class="template--overlayedTitle">1:1문의</div>
     </div>
 </div>

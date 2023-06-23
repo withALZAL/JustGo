@@ -1,7 +1,6 @@
 package edu.kh.justgo.manager.model.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -140,23 +139,6 @@ public class ManagerDAO {
 
 
 
-
-
-	
-
-	
-	
-	/** 1:1문의 상세 조회 
-	 * @param feedbackNo
-	 * @return LIST
-	 */
-//	 public Feedback selectAskDetailList(int feedbackNo) {
-//		return sql.selectOne("managerMapper.selectAskDetailList", feedbackNo);
-//	}
-
-
-
-
 	/** 1:1문의 상세 조회 (회원 문의)
 	 * @param feedbackNo
 	 * @return list
@@ -173,6 +155,17 @@ public class ManagerDAO {
 	 */
 	public Feedback selectManagerAnswerList(int feedbackNo) {
 		return sql.selectOne("managerMapper.selectManagerAnswerList", feedbackNo);
+	}
+
+
+
+	/**  1:1문의 관리자 답변 입력
+	 * @param feedbackNo
+	 * @param loginMember
+	 * @return result
+	 */
+	public int insertManagerAnswer(Feedback feedback) {
+		return sql.selectOne("managerMapper.insertManagerAnswer", feedback);
 	}
 
 
