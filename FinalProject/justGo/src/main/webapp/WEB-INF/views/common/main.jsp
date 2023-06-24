@@ -425,7 +425,7 @@
                         <option id="AUD">호주달러 | AUD</option>
                     </select>
                     <i class="fa-solid fa-arrow-right"></i>
-                    <select id="afterCurrSelect" class="common--cardExchangeSelector">
+                    <select id="afterCurrSelect" onchange="resultCurrChange();" class="common--cardExchangeSelector">
                         <option id="USD">달러 | USD</option>
                         <option id="KRW" selected>원 | KRW</option>
                         <option id="JPY">엔 | JPY</option>
@@ -438,7 +438,7 @@
                 <div class="moneyResult">
                     <span id="resultMoney"></span>
                     <span id="resultCurr"></span>
-                    <span id="resultRate"></span>
+                    <span id="resultRate" style="display: none;"></span> <%-- 교환비 숨김 처리 --%>
                 </div>
             </div>
         </div>
@@ -747,18 +747,18 @@ function change(){
 
 
         /* after 통화 셀렉터하면 출력 통화 단위 바뀌는 함수 */
-        // function resultCurrChange() {
-        //     let afterCurrSelect = document.getElementById("afterCurrSelect");
-        //     let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id; /* 변환 통화 */
+        function resultCurrChange() {
+            let afterCurrSelect = document.getElementById("afterCurrSelect");
+            let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id; /* 변환 통화 */
 
-        //     if(afterCurr == 'USD') { resultCurr.innerText = '달러'; }
-        //     if(afterCurr == 'JPY') { resultCurr.innerText = '엔'; }
-        //     if(afterCurr == 'KRW') { resultCurr.innerText = '원'; }
-        //     if(afterCurr == 'CNY') { resultCurr.innerText = '위안'; }
-        //     if(afterCurr == 'THB') { resultCurr.innerText = '바트'; }
-        //     if(afterCurr == 'VND') { resultCurr.innerText = '동'; }
-        //     if(afterCurr == 'AUD') { resultCurr.innerText = '달러'; }
-        // }
+            if(afterCurr == 'USD') { resultCurr.innerText = '달러'; }
+            if(afterCurr == 'JPY') { resultCurr.innerText = '엔'; }
+            if(afterCurr == 'KRW') { resultCurr.innerText = '원'; }
+            if(afterCurr == 'CNY') { resultCurr.innerText = '위안'; }
+            if(afterCurr == 'THB') { resultCurr.innerText = '바트'; }
+            if(afterCurr == 'VND') { resultCurr.innerText = '동'; }
+            if(afterCurr == 'AUD') { resultCurr.innerText = '달러'; }
+        }
 
 
 
