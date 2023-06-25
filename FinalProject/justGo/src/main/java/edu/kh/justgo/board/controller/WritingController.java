@@ -40,7 +40,7 @@ public class WritingController {
 	// 1:1문의 쓰기 연결
 	@GetMapping("/ask/writingAsk")
 	public String writingQuestion() {
-		return "writing/writingAsk";
+		return "ask/writingAsk";
 	}
 	
 
