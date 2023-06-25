@@ -35,11 +35,14 @@ public class WritingController {
 	@Autowired // 게시글 수정 시 상세조회 서비스 호출용
 	private BoardService boardService;
 
+	
+	
 	// 1:1문의 쓰기 연결
-	@GetMapping("/writing/writingAsk")
+	@GetMapping("/ask/writingAsk")
 	public String writingQuestion() {
 		return "writing/writingAsk";
 	}
+	
 
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
