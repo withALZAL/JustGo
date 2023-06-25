@@ -227,7 +227,7 @@
             </c:if>
             <c:if test="${!empty sessionScope.loginMember && sessionScope.loginMember.memberRole == 2 && boardType.BOARD_CODE == 4}">
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}/${loginMember.memberNo}">${boardType.BOARD_NAME}</a>
+                    <a class="nav-link" href="/ask/boardAsk/${loginMember.memberNo}">${boardType.BOARD_NAME}</a>
                 </li>
             </c:if>
         </c:forEach>   
