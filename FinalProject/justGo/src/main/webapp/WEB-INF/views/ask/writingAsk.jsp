@@ -49,24 +49,24 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="#" method="post">
+<form action="/writing/ask" method="post" id="writeAskFrm" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" placeholder="제목을 입력해주세요." maxlength="50"></div>
+                <div><input type="text" name="askTitle" placeholder="제목을 입력해주세요." maxlength="15"></div>
                 <div class="writing--selectorBox"></div>
             </div>
         <div class="writing--inputContentBox">
         <div class="writing--summernoteBox" style="position: relative;">
-            <textarea class="writing--textarea" placeholder="문의 내용을 입력해주세요."></textarea>
+            <textarea class="writing--textarea" name="askText" placeholder="문의 내용을 입력해주세요."></textarea>
         </div>
         <div class="writing--ButtonBox">
             <a href="javascript:history.back()">
-                <button type="button" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
+                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
             </a>
             <a href="javascript:history.back()">
-                <button type="button" class="btn btn-secondary btn-sm">취소</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="history.back()">취소</button>
             </a>
         </div>
     </div>
@@ -97,6 +97,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <script src="/resources/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/writing/writingAsk.js"></script>
 </body>
 </html>
