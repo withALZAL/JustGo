@@ -174,7 +174,7 @@ ${map.memberPostPagination} --%>
                                 <c:forEach var="i" begin="${memberPostPagination.startPage}" end="${memberPostPagination.endPage}" step="1">
                                     <c:choose>
                                         <c:when test="${i==memberPostPagination.currentPage}">
-                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
                                             <li class="page-item"><a class="page-link" href="/manager/memberBoard/${memberNo}?cp=${i}">${i}</a></li>
