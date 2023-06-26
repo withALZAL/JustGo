@@ -87,7 +87,7 @@
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
         <form action="#" method="get">
         <c:forEach items="${tagAllList}" var="tag">
-            <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
+            <div onclick="basic2(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
         </form>
     </div>
@@ -108,7 +108,7 @@
                 <th>좋아요</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id ="tagList2">
             <c:choose>
             <c:when test="${empty boardList}">
                 <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
@@ -148,7 +148,7 @@
         <div class="board--pagenationBox" style="height: 50%; width: 100%;">
             <form action="#" method="get">
                 <nav aria-label="...">
-                    <ul class="pagination">
+                    <ul class="pagination" id="page2">
                     <li class="page-item">
                             <a href="/board/1/${countryNo}?cp=1${sp}" class="page-link">맨처음</a>
                             
@@ -228,11 +228,16 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <script>
+        const countryNo = "${countryNo}";
+    </script>
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/board/board.js"></script>
+    <script src="/resources/js/board/boardCountry.js"></script>
 </body>
 </html>

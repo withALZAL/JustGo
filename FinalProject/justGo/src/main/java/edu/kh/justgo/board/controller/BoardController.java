@@ -387,16 +387,22 @@ public class BoardController {
 
 	}
 	
-	
-	
-	
-	
+	//질문게시판 비동기처리
 	@GetMapping(value = "/boardList/tag", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public Map<String, Object> boardTagList(Board board,int boardCode,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
 		
 		return service.boardTagList1(board,cp);
+	}
+	
+	//여행게시판 비동기처리
+	@GetMapping(value = "/boardList/tag2", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> boardCountryTagList(Board board,int countryNo,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model){
+		
+		return service.boardCountryTagList(board,cp);
 	}
 	
 }
