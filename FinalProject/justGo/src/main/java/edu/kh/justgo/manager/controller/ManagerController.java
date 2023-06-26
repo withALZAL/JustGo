@@ -1,5 +1,6 @@
 package edu.kh.justgo.manager.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.service.ManagerService;
 import edu.kh.justgo.member.model.dto.Member;
@@ -122,34 +125,34 @@ public class ManagerController {
     
    
     // 1:1문의 관리자 답변 입력
-    @PutMapping("/askManager_detail/{feedbackNo}")
+    @PostMapping("/askManager_detail/{feedbackNo}")
     public String insertManagerAnswer(
     		Member loginMember
     		, Feedback feedback
     		, @PathVariable("feedbackNo") int feedbackNo
     		, RedirectAttributes ra // 리다이렉트 시 값 전달용
-    		) {
+    		) throws IllegalStateException, IOException{
     	
     	
-    	int managerNo = loginMember.getMemberNo();
-    	
+    	feedback.setMemberNo(loginMember.getMemberNo());
     	feedback.setFeedbackNo(feedbackNo);
-    	feedback.setMemberNo(managerNo);
     	
-    	int count = service.insertManagerAnswer(feedback);
+    	int result = service.insertManagerAnswer(feedback);
     	
-    	System.out.println(count);
+    	
+    	
+    	System.out.println(result);
     
     	
     	String message = null;
 		String path = "redirect:";
 		
-		if(count>0) {
+		if(result>0) {
 			message = "게시글이 수정되었습니다.";
-			path += "/manager/askManager_detail"; 
+			path += "/manager/askManager_detail"+feedbackNo; 
 		}else {
 			message= "게시글 수정 실패";
-			path += "/manager/askManager_detail";
+			path += "/manager/askManager_detail"+feedbackNo;
 		}
 		
 		ra.addFlashAttribute("message", message);

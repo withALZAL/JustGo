@@ -1,6 +1,8 @@
 const answerBtn = document.getElementById("manager--answerStartBtn");
 const answerBox = document.getElementsByClassName("manager--inquiryAnswerBox");
 let answerWrite = document.getElementById("manager--answerWrite");
+var answerForm;
+
 
 // 답변하기 버튼 클릭 시 답변 작성하는 textarea생성
 answerBtn.addEventListener("click",() => {
@@ -47,13 +49,13 @@ answerBtn.addEventListener("click",() => {
     answerTextBefore.className='manager--answerTextBefore';
     answerWrite.append(answerTextBefore);
 
-    const answerForm = document.createElement("form");
-    answerForm.action = "/askManager_detail/{feedbackNo}";
+    answerForm = document.createElement("form");
+    answerForm.action = "/manager/askManager_detail/"+ feedbackNo;
     answerForm.id = "manager--answerForm";
-    answerForm.method = "put";
+    answerForm.method = "post";
     answerTextBefore.append(answerForm);
     
-    const answerTextarea = document.createElement("textarea");
+    let answerTextarea = document.createElement("textarea");
     answerTextarea.className='manager--answerTextarea';
     answerTextarea.id='manager--textarea';
     answerForm.append(answerTextarea);
@@ -65,28 +67,38 @@ answerBtn.addEventListener("click",() => {
     
     const answerStartBTN = document.createElement("button");
     answerStartBTN.className='manager--answerStartBTN';
-    answerStartBTN.style.disabled;
+    // answerStartBTN.disabled=true;
     answerStartBTN.innerText="완료";
     answerBtns.append(answerStartBTN);
     
+    if (answerForm) {
+        answerForm.addEventListener("submit", (e) => {
+            if (answerTextarea.value === "") {
+                alert("답변을 입력해주세요.");
+                answerTextarea.focus();
+                e.preventDefault();
+                return;
+            }
+        });
+    }
     
     
 });
 
-const answerForm = document.getElementsByClassName("manager--answerForm");
-const managerTextarea = document.getElementsByClassName("manager--textarea");
+
+// const managerTextarea = document.getElementsByClassName("manager--textarea");
 // const answerStartBTN = document.getElementsByClassName("manager--answerStartBTN");
 
 
 
+// answerForm.addEventListener("submit", e=>{
 
-answerForm.addEventListener("submit", e=>{
+//     if(managerTextarea.value === ""){
+//         alert("답변을 입력해주세요.");
+//         managerTextarea.focus();
+//         e.preventDefault();
+//         return;
+//     }
 
-    if(managerTextarea.value === ""){
-        alert="답변을 입력해주세요."
-        managerTextarea.focus();
-        e.preventDefault();
-        return;
-    }
+// });
 
-});
