@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.member.model.service.EmailService;
 
 @Controller

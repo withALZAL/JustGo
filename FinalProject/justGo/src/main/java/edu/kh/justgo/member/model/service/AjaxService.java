@@ -14,11 +14,11 @@ public interface AjaxService {
 	 */
 	public int checkNickname(String nickname);
 
-//	/**
-//	 * 현재 비밀번호 체크
-//	 * @param password
-//	 * @return count
-//	 */
-//	public int checkPassword(String password, int memberNo);
+	/**
+	 * 현재 비밀번호 체크
+	 * @param password
+	 * @return count
+	 */
+	public int checkPassword(String password, int memberNo);
 
 }

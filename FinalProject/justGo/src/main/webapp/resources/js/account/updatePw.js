@@ -7,6 +7,7 @@ const checkObj ={
 
 // 새 비밀번호 유효성 검사
 const currentPw = document.getElementById("currentPw");
+const currentPwMessage = document.getElementById("currentPwMessage");
 const newPw = document.getElementById("newPw");
 const newPwMessage = document.getElementById("newPwMessage");
 const newPwConfirm = document.getElementById("newPwConfirm");
@@ -15,46 +16,53 @@ const updatePwBtn = document.getElementById("updatePwBtn");
 
 currentPw.addEventListener("input", () => {
     if(currentPw.value.trim() == ""){
-        currentPw.value == ""
+        currentPw.value = "";
         currentPwMessage.classList.add("error");
         currentPwMessage.classList.remove("confirm");
         currentPwMessage.innerText = "현재 비밀번호를 입력해주세요."
         checkObj.currentPw = false;
         return;
     }
+
     console.log(memberNo);
+
     const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
-    if (regEx1.test(currentPw.value)) {
+    if (regEx1.test(currentPw.value)) { 
+
         /* POST 방식 */
         fetch("/dupCheck/password", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({
                 password: currentPw.value,
                 memberNo: memberNo
             })
         })
         .then(resp => resp.text())
         .then(count => {
+
             if (count != 0) { // 현재 비밀번호 일치하는 경우
-                // currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-                // currentPwMessage.classList.add("confirm");
-                // currentPwMessage.classList.remove("error");
+                currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
+                currentPwMessage.classList.add("confirm");
+                currentPwMessage.classList.remove("error");
                 checkObj.currentPw = true;
+
             } else { // 현재 비밀번호 일치하지 않는 경우
-                // currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-                // currentPwMessage.classList.add("error");
-                // currentPwMessage.classList.remove("confirm");
+                
+                currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
+                currentPwMessage.classList.add("error");
+                currentPwMessage.classList.remove("confirm");
                 checkObj.currentPw = false;
             }
-        });
-    } else {
-        // currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
-        currentPwMessage.innerText = "";
+        })
+        .catch(err => console.log(err));
+
+    } else { // 무효
+        currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다";
         currentPwMessage.classList.add("error");
         currentPwMessage.classList.remove("confirm");
         checkObj.currentPw = false;
-    }
+    } 
 
     /* GET 방식 */
     // if(regEx1.test(currentPw.value)){ 
