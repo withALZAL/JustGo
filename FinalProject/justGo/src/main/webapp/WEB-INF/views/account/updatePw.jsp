@@ -54,7 +54,7 @@
 <!-- 개인정보변경창 시작 -->
 <div class="account--joinContainer">
     <div class="account--joinBox">
-        <form action="updatePw" method="post" id=updateInfo>
+        <form action="updatePw" method="post" id="updateInfo">
             <div class="account--inputProfileBox">
                 <c:choose>
                     <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
@@ -71,7 +71,7 @@
                         <th>현재 비밀번호</th>
                         <td>
                             <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" >
-                            <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
+                            <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck"></div>
                         </td>
                         <td></td>
                     </tr>
@@ -93,7 +93,7 @@
                     </section>
                 </table>
                 <div class="account--joinBtnBox">
-                    <button type="submit" class="btn btn-secondary btn-sm">수정</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" id="updatePwBtn">수정</button>
                 </div>
             </div>
         </form>
