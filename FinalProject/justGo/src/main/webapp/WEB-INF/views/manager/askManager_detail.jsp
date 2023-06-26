@@ -32,6 +32,7 @@ ${map.managerAnswerList} --%>
 ${feedbackNo}
 
 
+
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
@@ -95,7 +96,7 @@ ${feedbackNo}
                         </div>
                         <div class="manager--managerArea" id="manager--answerManager">담당자 배정중</div>
                         <div class="manager--answerTextBefore" id="manager--answerText">
-                            빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
+빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <a href="/manager/askManager">
@@ -114,7 +115,7 @@ ${feedbackNo}
                             ${managerAnswerList.managerNickname} | ${managerAnswerList.feedback_CF_Date}
                         </div>
                         <div class="manager--answerTextBefore" id="manager--answerText">
-                            ${managerAnswerList.adminText}
+${managerAnswerList.adminText}
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <a href="/manager/askManager/">
@@ -181,6 +182,7 @@ ${feedbackNo}
     <script src="/resources/js/manager/askManager_detail.js"></script>
     <script>
         const feedbackNo = ${feedbackNo};
+        
     </script>
 </body>
 </html>

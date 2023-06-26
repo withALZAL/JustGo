@@ -189,5 +189,6 @@
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <%-- <script src="/resources/js/manager/header.js"></script> --%>
+    <script>const loginMemberNo = "${loginMember.memberNo}";</script>
 </body>
 </html>
