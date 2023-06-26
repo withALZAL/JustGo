@@ -49,17 +49,17 @@
 
 
 <!-- 콘텐츠 시작 -->
-<form action="/writing/ask" method="post" id="writeAskFrm" enctype="multipart/form-data">
+<form action="/ask/write" method="post" id="writeAskFrm" enctype="multipart/form-data">
     <div class="writing--contentContainer">
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="askTitle" placeholder="제목을 입력해주세요." maxlength="15"></div>
+                <div><input type="text" name="feedbackTitle" placeholder="제목을 입력해주세요." maxlength="15"></div>
                 <div class="writing--selectorBox"></div>
             </div>
         <div class="writing--inputContentBox">
         <div class="writing--summernoteBox" style="position: relative;">
-            <textarea class="writing--textarea" name="askText" placeholder="문의 내용을 입력해주세요."></textarea>
+            <textarea class="writing--textarea" name="feedbackText" placeholder="문의 내용을 입력해주세요."></textarea>
         </div>
         <div class="writing--ButtonBox">
             <a href="javascript:history.back()">
