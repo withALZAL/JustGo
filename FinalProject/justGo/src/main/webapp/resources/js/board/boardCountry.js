@@ -1,23 +1,7 @@
-const insertBtn = document.querySelector("#insertBtn");
 
-if (insertBtn != null) {
+function basic2(tagNo,cp) { 
 
-    insertBtn.addEventListener("click", () => {
-
-        // JS BOM중 location
-        //location.htrf = "주소"
-
-        // 해당주소 요청 (GET 방식)
-
-        location.href = `/board2/${location.pathname.split("/")[2]}/insert`;
-        //   /board2/1/insert
-    })
-
-}
-
-function basic(tagNo,cp) { 
-
-    let url = "/board/boardList/tag?tagNo=" + tagNo + "&boardCode="+boardCode;
+    let url = "/board/boardList/tag2?tagNo=" + tagNo + "&countryNo="+countryNo;
 
     if(cp != undefined){
         url += "&cp="+cp;
@@ -27,10 +11,11 @@ function basic(tagNo,cp) {
         .then(resp => resp.json())
         .then(result => {
             console.log(result)
-            console.log(result.tagBoardList)
+            console.log(result.tagBoardCountryList)
             
-            const boardtaglist = document.getElementById("tagList");
-            const page = document.getElementById("page");
+            
+            const boardtaglist = document.getElementById("tagList2");
+            const page = document.getElementById("page2");
 
             boardtaglist.innerHTML="";
             page.innerHTML="";
@@ -40,13 +25,13 @@ function basic(tagNo,cp) {
             const ap1 = document.createElement("a");
             ap1.classList.add("page-link");
             ap1.innerHTML="맨처음";
-            ap1.setAttribute("onclick",`basic(${tagNo},1)`);
+            ap1.setAttribute("onclick",`basic2(${tagNo},1)`);
             ap1.href=`#`;
             const li2 = document.createElement("li");
             li2.classList.add("page-item");
             const ap2 = document.createElement("a");
             ap2.classList.add("page-link");
-            ap2.setAttribute("onclick",`basic(${tagNo},${result.pagination.prevPage})`);
+            ap2.setAttribute("onclick",`basic2(${tagNo},${result.pagination.prevPage})`);
             ap2.href=`#`;
             ap2.innerHTML="이전";
             
@@ -55,7 +40,7 @@ function basic(tagNo,cp) {
             li2.append(ap2);
             page.append(li1,li2);
             
-            for(let f of result.tagBoardList){
+            for(let f of result.tagBoardCountryList){
                 const tr1 = document.createElement("tr");
                 const td1 = document.createElement("td");
                 td1.innerHTML = f.boardNo;
@@ -64,7 +49,7 @@ function basic(tagNo,cp) {
                 const td3 = document.createElement("td");
                 const a1 = document.createElement("a");
                 a1.innerHTML = f.boardTitle;   
-                a1.href =  `/board/${f.boardCode}/${f.boardNo}`;
+                a1.href =  `/board/1/${f.countryNo}/${f.boardNo}`;
                 const td4 = document.createElement("td");
                 td4.innerHTML = f.memberNickname;
                 const td5 = document.createElement("td");
@@ -100,7 +85,7 @@ function basic(tagNo,cp) {
                     const ap4 = document.createElement("a");
                     ap4.classList.add("page-link");
                     ap4.innerHTML=p;
-                    ap4.setAttribute("onclick",`basic(${tagNo},${p})`);
+                    ap4.setAttribute("onclick",`basic2(${tagNo},${p})`);
                     ap4.href=`#`;
                     li4.append(ap4);
                     page.append(li4);
@@ -112,14 +97,14 @@ function basic(tagNo,cp) {
             const ap5 = document.createElement("a");
             ap5.classList.add("page-link");
             ap5.innerHTML="다음";
-            ap5.setAttribute("onclick",`basic(${tagNo},${result.pagination.nextPage})`);
+            ap5.setAttribute("onclick",`basic2(${tagNo},${result.pagination.nextPage})`);
             ap5.href=`#`;
             const li6 = document.createElement("li");
             li6.classList.add("page-item");
             const ap6 = document.createElement("a"); 
             ap6.classList.add("page-link");
             ap6.innerHTML="마지막";
-            ap6.setAttribute("onclick",`basic(${tagNo},${result.pagination.maxPage})`);
+            ap6.setAttribute("onclick",`basic2(${tagNo},${result.pagination.maxPage})`);
             ap6.href=`#`;
 
             li5.append(ap5);

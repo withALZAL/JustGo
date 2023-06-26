@@ -256,7 +256,9 @@ public class BoardDAO {
 		return result;
 	}
 
-	/** 태그 리스트 목록 조회
+	/**
+	 * 태그 리스트 목록 조회
+	 * 
 	 * @param pagination
 	 * @param map2
 	 * @return
@@ -270,21 +272,27 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.tagBoardList", board, rowBounds);
 	}
 
-	/** board 리스트 불러오기 (자유/질문)
+	/**
+	 * board 리스트 불러오기 (자유/질문)
+	 * 
 	 * @return List
 	 */
 	public List<Board> boardTypeList() {
 		return sqlSession.selectList("boardMapper.boardTypeList");
 	}
 
-	/** board 리스트 불러오기 (여행)
+	/**
+	 * board 리스트 불러오기 (여행)
+	 * 
 	 * @return
 	 */
 	public List<Board> boardTypeList2() {
 		return sqlSession.selectList("boardMapper.boardTypeList2");
 	}
-	
-	/** board 리스트 불러오기 (tag)
+
+	/**
+	 * board 리스트 불러오기 (tag)
+	 * 
 	 * @return
 	 */
 	public List<Board> boardTypeList3() {
@@ -295,29 +303,33 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.writingList");
 
 	}
-	
-	/**  로그인 한 회원의 1:1문의 갯수
+
+	/**
+	 * 로그인 한 회원의 1:1문의 갯수
+	 * 
 	 * @param memberNo
 	 * @return result
 	 */
 	public int getAskListCount(int memberNo) {
-		
+
 		return sqlSession.selectOne("askMapper.getAskListCount", memberNo);
 	}
 
-	/** 로그인한 회원의 1:1문의 목록
+	/**
+	 * 로그인한 회원의 1:1문의 목록
+	 * 
 	 * @param askPagination
 	 * @return list
 	 */
 	public List<Feedback> selectAskList(Pagination askPagination, int memberNo) {
-		int offset = (askPagination.getCurrentPage()-1) * askPagination.getLimit();
+		int offset = (askPagination.getCurrentPage() - 1) * askPagination.getLimit();
 		RowBounds rowBounds = new RowBounds(offset, askPagination.getLimit());
 		return sqlSession.selectList("askMapper.selectAskList", memberNo, rowBounds);
 	}
-	
-	
-	
-	/** 1:1문의 상세 조회 (회원 문의)
+
+	/**
+	 * 1:1문의 상세 조회 (회원 문의)
+	 * 
 	 * @param feedbackNo
 	 * @return list
 	 */
@@ -325,9 +337,9 @@ public class BoardDAO {
 		return sqlSession.selectOne("askMapper.selectMemberAskList", feedbackNo);
 	}
 
-
-
-	/** 1:1문의 상세조회(관리자 답변)
+	/**
+	 * 1:1문의 상세조회(관리자 답변)
+	 * 
 	 * @param feedbackNo
 	 * @return list
 	 */
@@ -335,6 +347,28 @@ public class BoardDAO {
 		return sqlSession.selectOne("askMapper.selectManagerAnswerList", feedbackNo);
 	}
 
-	
-	
+	/**
+	 * 여행게시판 태그별 리스트 조회 카운트
+	 * 
+	 * @param board
+	 * @return
+	 */
+	public int tagCountrylistCount(Board board) {
+		int result = sqlSession.selectOne("boardMapper.tagCountrylistCount", board);
+		return result;
+	}
+
+	/** 여행 태그별 목록조회
+	 * @param pagination
+	 * @param board
+	 * @return
+	 */
+	public List<Board> tagBoardCountryList(Pagination pagination, Board board) {
+		int offset = ((pagination.getCurrentPage() - 1) * pagination.getLimit());
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.tagBoardCountryList", board, rowBounds);
+	}
+
 }
