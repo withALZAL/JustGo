@@ -114,30 +114,37 @@
 /* 환율 계산기 오른쪽 */
 .common--moneyRightBox {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1px 1fr;
 }
-.what2what {
+.bottomMoneyBox,
+.middleMoneyBox,
+.topMoneyBox {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
+.middleMoneyBox {
+    background-color: #D9D9D9;
+}
+.middleMoneyBox i {
+    padding: 5px;
+    border-radius: 100%;
+    background-color: #C4C2FF;
+}
+#afterMoney,
 #beforeMoney {
     width: 150px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
-#beforeCountry {
-    width: 100px;
+#afterMoney:hover,
+#beforeMoney:hover,
+#afterMoney:focus,
+#beforeMoney:focus {
+    border-bottom: 3px solid black;
 }
-.moneyResult {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.8rem;
-}
-
-
-
 
 /* 환율 계산기 구역 조정 */
 .common--cardExchange {

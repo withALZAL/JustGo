@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -390,7 +393,6 @@
 <!-- 힐링게시글 끝 -->
 
 
-
 <div class="common--TwoDivide">
 <!-- 환율 계산기 시작-->
     <div class="card">
@@ -406,15 +408,11 @@
                     <span>원</span>
                 </div>
             </div>
-
-
-
-
-
-
+            <span id="resultRate" style="display: none;"></span> <%-- 교환비 숨김 처리 --%>
+            <span id="resultRateX" style="display: none;"></span> <%-- 역교환비 숨김 처리 --%>
             <div class="common--moneyRightBox">
-                <div class="what2what" style="border-bottom: 1px solid #D9D9D9;">
-                    <input id="beforeMoney" type="number" value="1">
+                <div class="topMoneyBox">
+                    <input id="beforeMoney" type="number" value="1.00">
                     <select id="beforeCurrSelect" onchange="beforeMoneyChange();" class="common--cardExchangeSelector">
                         <option id="USD" selected>달러 | USD</option>
                         <option id="KRW">원 | KRW</option>
@@ -424,7 +422,12 @@
                         <option id="THB">바트 | THB</option>
                         <option id="AUD">호주달러 | AUD</option>
                     </select>
-                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="middleMoneyBox">
+                    <i class="fa-regular fa-equals"></i>
+                </div>
+                <div class="bottomMoneyBox">
+                    <input id="afterMoney" type="number">
                     <select id="afterCurrSelect" onchange="resultCurrChange();" class="common--cardExchangeSelector">
                         <option id="USD">달러 | USD</option>
                         <option id="KRW" selected>원 | KRW</option>
@@ -434,11 +437,6 @@
                         <option id="THB">바트 | THB</option>
                         <option id="AUD">호주달러 | AUD</option>
                     </select>
-                </div>
-                <div class="moneyResult">
-                    <span id="resultMoney"></span>
-                    <span id="resultCurr"></span>
-                    <span id="resultRate" style="display: none;"></span> <%-- 교환비 숨김 처리 --%>
                 </div>
             </div>
         </div>
@@ -464,6 +462,7 @@
         </div> --%>
     </div>
 <!-- 환율 계산기 끝 -->
+
 
 
 
@@ -542,14 +541,16 @@
 <aside class="template--rightAside"></aside>
 </main>
 <!-- Template-main 끝 -->
-    
-    
+
+
+
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
-    
+
+
 
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
@@ -652,38 +653,62 @@ function change(){
 
     // var currentDate = year+month+day;
 
-        let after1usd2krw = document.getElementById("after1usd2krw");
+        // let after1usd2krw = document.getElementById("after1usd2krw");
         /* 왼쪽 고정 1달러 환율 */
         let miniUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/USD";
         fetch(miniUrl)
-        .then(response => {return response.json();})
+        .then(response => response.json())
         .then(resultMini => {
             let calc1 = resultMini.conversion_rates.KRW; // 1296.8883
-            let calc2 = Math.round(calc1); // 1297
-            after1usd2krw.innerText = calc2; // 1297원
+            let calc2 = calc1.toFixed(2); // 1296.88
+            document.getElementById("afterMoney").value = calc2;
+            let formattedNumber = calc2.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 1,296.88
+            after1usd2krw.innerText = formattedNumber;
         });
 
 
 /* -------------------------------------------------------------------------------------------- */
 
-        /* beforeCurrSelect 변경 발생 시 환율비 계산 */
-        document.getElementById('beforeCurrSelect').addEventListener('change', () => {
-            let beforeCurrSelect = document.getElementById('beforeCurrSelect');
+        /* 페이지 첫 로드 */
+        $(document).ready(() => {
+            calcRate('USD', 'KRW');
+            calcRateX('KRW', 'USD');
+        });
+
+        /* 1. before 통화 셀렉터하면 기본 단위 바뀌는 함수 */
+        function beforeMoneyChange() {
+            let beforeMoney = document.getElementById("beforeMoney"); /* 기준 숫자 */
+            let beforeCurrSelect = document.getElementById("beforeCurrSelect");
+            let beforeCurr = beforeCurrSelect.options[beforeCurrSelect.selectedIndex].id; /* 기준 통화 */
+
+            if(beforeCurr == 'USD') { beforeMoney.value = ''; beforeMoney.value = (1).toFixed(2); }
+            if(beforeCurr == 'JPY') { beforeMoney.value = ''; beforeMoney.value = (100).toFixed(2); }
+            if(beforeCurr == 'KRW') { beforeMoney.value = ''; beforeMoney.value = (1000).toFixed(2); }
+            if(beforeCurr == 'CNY') { beforeMoney.value = ''; beforeMoney.value = (1).toFixed(2); }
+            if(beforeCurr == 'THB') { beforeMoney.value = ''; beforeMoney.value = (1).toFixed(2); }
+            if(beforeCurr == 'VND') { beforeMoney.value = ''; beforeMoney.value = (100).toFixed(2); }
+            if(beforeCurr == 'AUD') { beforeMoney.value = ''; beforeMoney.value = (1).toFixed(2); }
+        }
+
+        let beforeCurrSelect = document.getElementById('beforeCurrSelect');
+        let afterCurrSelect = document.getElementById('afterCurrSelect');
+
+        /* 2. beforeCurrSelect 변경 발생 시 환율비/역환율비 계산 */
+        beforeCurrSelect.addEventListener('change', () => {
             let beforeCurr = beforeCurrSelect.options[beforeCurrSelect.selectedIndex].id;
-            let afterCurrSelect = document.getElementById('afterCurrSelect');
             let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id;
 
             calcRate(beforeCurr, afterCurr);
+            calcRateX(afterCurr, beforeCurr);
         });
         
-        /* afterCurrSelect 변경 발생 시 환율비 계산 */
-        document.getElementById('afterCurrSelect').addEventListener('change', () => {
-            let beforeCurrSelect = document.getElementById('beforeCurrSelect');
+        /* 2. afterCurrSelect 변경 발생 시 환율비/역환율비 계산 */
+        afterCurrSelect.addEventListener('change', () => {
             let beforeCurr = beforeCurrSelect.options[beforeCurrSelect.selectedIndex].id;
-            let afterCurrSelect = document.getElementById('afterCurrSelect');
             let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id;
 
             calcRate(beforeCurr, afterCurr);
+            calcRateX(afterCurr, beforeCurr);
         });
 
         /* 환율비 계산기 */
@@ -701,66 +726,50 @@ function change(){
             });
         }
 
+        /* 역환율비 계산기 */
+        function calcRateX(afterCurr, beforeCurr) {
+            let moneyUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/" + afterCurr;
+
+            fetch(moneyUrl)
+            .then(response => {return response.json();})
+            .then(result => {
+                let exchangeRateX = result.conversion_rates[beforeCurr]; /* 대괄호 안에 써야 함! */
+                let resultRateX = document.getElementById("resultRateX");
+                resultRateX.innerText = exchangeRateX;
+
+                resultMoney(exchangeRate);
+            });
+        }
+
         /* beforeMoney * 환율비 = 최종값 출력 */
         function resultMoney(exchangeRate) {
             let beforeMoney = document.getElementById("beforeMoney").value; /* 기준 숫자 */
 
             let result = beforeMoney * exchangeRate;
-            let resultMoney = document.getElementById("resultMoney");
-            resultMoney.innerText = result.toFixed(1);
+            let afterMoney = document.getElementById("afterMoney");
+            afterMoney.value = "";
+            afterMoney.value = result.toFixed(2);   
         } 
-
-        /* before 통화 셀렉터하면 기본 단위 바뀌는 함수 */
-        function beforeMoneyChange() {
-            let beforeMoney = document.getElementById("beforeMoney"); /* 기준 숫자 */
-            let beforeCurrSelect = document.getElementById("beforeCurrSelect");
-            let beforeCurr = beforeCurrSelect.options[beforeCurrSelect.selectedIndex].id; /* 기준 통화 */
-
-            if(beforeCurr == 'USD') { beforeMoney.value = ''; beforeMoney.value = 1; }
-            if(beforeCurr == 'JPY') { beforeMoney.value = ''; beforeMoney.value = 100; }
-            if(beforeCurr == 'KRW') { beforeMoney.value = ''; beforeMoney.value = 1000; }
-            if(beforeCurr == 'CNY') { beforeMoney.value = ''; beforeMoney.value = 1; }
-            if(beforeCurr == 'THB') { beforeMoney.value = ''; beforeMoney.value = 1; }
-            if(beforeCurr == 'VND') { beforeMoney.value = ''; beforeMoney.value = 100; }
-            if(beforeCurr == 'AUD') { beforeMoney.value = ''; beforeMoney.value = 1; }
-        }
 
         /* beforeMoney 값 변경 시 결과 계산 */
         document.getElementById('beforeMoney').addEventListener('input', () => {
             let beforeMoney = parseFloat(document.getElementById('beforeMoney').value);
             let exchangeRate = parseFloat(resultRate.innerText);
-            let finalResultMoney = beforeMoney * exchangeRate;
-            let resultMoney = document.getElementById("resultMoney");
-            resultMoney.innerText = '';
-            resultMoney.innerText = finalResultMoney.toFixed(1);
+            let resultMoney = beforeMoney * exchangeRate;
+            let afterMoney = document.getElementById("afterMoney");
+            afterMoney.value = '';
+            afterMoney.value = resultMoney.toFixed(2);
         });
 
-
-
-
-
-
-
-
-
-
-
-
-        /* after 통화 셀렉터하면 출력 통화 단위 바뀌는 함수 */
-        function resultCurrChange() {
-            let afterCurrSelect = document.getElementById("afterCurrSelect");
-            let afterCurr = afterCurrSelect.options[afterCurrSelect.selectedIndex].id; /* 변환 통화 */
-
-            if(afterCurr == 'USD') { resultCurr.innerText = '달러'; }
-            if(afterCurr == 'JPY') { resultCurr.innerText = '엔'; }
-            if(afterCurr == 'KRW') { resultCurr.innerText = '원'; }
-            if(afterCurr == 'CNY') { resultCurr.innerText = '위안'; }
-            if(afterCurr == 'THB') { resultCurr.innerText = '바트'; }
-            if(afterCurr == 'VND') { resultCurr.innerText = '동'; }
-            if(afterCurr == 'AUD') { resultCurr.innerText = '달러'; }
-        }
-
-
+        /* afterMoney 값 변경 시 결과 계산 */
+        document.getElementById('afterMoney').addEventListener('input', () => {
+            let afterMoney = parseFloat(document.getElementById('afterMoney').value);
+            let exchangeRateX = parseFloat(resultRateX.innerText);
+            let resultMoneyX = afterMoney * exchangeRateX;
+            let beforeMoney = document.getElementById("beforeMoney");
+            beforeMoney.value = '';
+            beforeMoney.value = resultMoneyX.toFixed(2);
+        });
 
 
 
