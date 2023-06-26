@@ -71,7 +71,7 @@ getWeather("Seoul"); // 초기값 서울
 /* 환율 API ----------------------------------------------- */
 
 /* 고정 1달러 환율(왼쪽) */
-let miniUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/USD";
+let miniUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/USD";
 fetch(miniUrl)
 .then(response => response.json())
 .then(resultMini => {
@@ -79,6 +79,7 @@ fetch(miniUrl)
     let calc2 = calc1.toFixed(2); // 1296.88
     document.getElementById("afterMoney").value = calc2;
     let formattedNumber = calc2.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 1,296.88
+
     after1usd2krw.innerText = formattedNumber;
 });
 
@@ -86,6 +87,8 @@ fetch(miniUrl)
 $(document).ready(() => {
     calcRate('USD', 'KRW');
     calcRateX('KRW', 'USD');
+
+    calcIcon();
 });
 
 /* before 통화 셀렉터하면 기본 단위 바뀌는 함수 */
@@ -126,7 +129,7 @@ afterCurrSelect.addEventListener('change', () => {
 
 /* 환율비 계산기 */
 function calcRate(beforeCurr, afterCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/" + beforeCurr;
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/" + beforeCurr;
 
     fetch(moneyUrl)
     .then(response => {return response.json();})
@@ -136,12 +139,13 @@ function calcRate(beforeCurr, afterCurr) {
         resultRate.innerText = exchangeRate;
 
         resultMoney(exchangeRate);
+        calcIcon();
     });
 }
 
 /* 역환율비 계산기 */
 function calcRateX(afterCurr, beforeCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/718bd98ce2ddeba87417536d/latest/" + afterCurr;
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/" + afterCurr;
 
     fetch(moneyUrl)
     .then(response => {return response.json();})
@@ -151,6 +155,7 @@ function calcRateX(afterCurr, beforeCurr) {
         resultRateX.innerText = exchangeRateX;
 
         resultMoney(exchangeRate);
+        calcIcon();
     });
 }
 
@@ -183,3 +188,17 @@ document.getElementById('afterMoney').addEventListener('input', () => {
     beforeMoney.value = '';
     beforeMoney.value = resultMoneyX.toFixed(2);
 });
+
+/* 애니메이션 효과 적용 함수 */
+function calcIcon() {
+    let calcIcon = document.querySelector('.fa-calculator');
+    let equalsIcon = document.querySelector('.fa-equals');
+
+    calcIcon.style.display = 'inline-block';
+    equalsIcon.style.display = 'none';
+
+    setTimeout(() => {
+        calcIcon.style.display = 'none';
+        equalsIcon.style.display = 'inline-block';
+    }, 1500);
+}

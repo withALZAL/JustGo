@@ -424,7 +424,8 @@
                     </select>
                 </div>
                 <div class="middleMoneyBox">
-                    <i class="fa-regular fa-equals"></i>
+                    <i class="fa-regular fa-equals" style="display: none;"></i>
+                    <i class="fa-solid fa-calculator fa-flip"></i>
                 </div>
                 <div class="bottomMoneyBox">
                     <input id="afterMoney" type="number">
@@ -440,29 +441,8 @@
                 </div>
             </div>
         </div>
-        <%-- <div class="card-body common--cardExchange">
-            <div class="common--cardExchange__top">
-                <input type="number" placeholder="숫자만 입력해주세요." value="10000" style="width: 120px;"><div style="font-weight: bold; font-size: 1.1rem;">원</div>
-                <i class="fa-solid fa-arrow-right"></i>
-                <select id="country" class="common--cardExchangeSelector">
-                    <option id="US">달러 | USD</option>
-                    <option id="KR">원 | KRW</option>
-                    <option id="JP">엔 | JPY</option>
-                    <option id="CN">위안 | CNY</option>
-                    <option id="VE">동 | VND</option>
-                    <option id="TH">바트 | THB</option>
-                    <option id="AU">호주달러 | AUD</option>
-                </select>
-                <button type="button" class="btn btn-secondary btn-sm" style="border: none;">변환</button>
-            </div>
-            <div class="common--cardExchange__bottom">
-                <div id="money"></div>
-                <div id="do"></div>
-            </div>
-        </div> --%>
     </div>
 <!-- 환율 계산기 끝 -->
-
 
 
 
