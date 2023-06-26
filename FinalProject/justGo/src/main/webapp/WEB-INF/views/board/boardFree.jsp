@@ -68,7 +68,7 @@
                 ${boardName}
             </div>
             <c:if test="${not empty param.query}">
-                <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                <div class="template--overlayedSearch">'${param.query} <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
         </div>
     </div>

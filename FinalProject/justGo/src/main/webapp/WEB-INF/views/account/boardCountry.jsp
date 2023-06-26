@@ -70,7 +70,7 @@
                     ${countryName}게시판
                 </div>
                 <c:if test="${not empty param.query}">
-                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                    <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
                 </c:if>
             </c:if>
             <c:if test="${countryNo == 2}" >
@@ -80,7 +80,7 @@
                     ${countryName}게시판
                 </div>
                 <c:if test="${not empty param.query}">
-                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                    <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
                 </c:if>
             </c:if>
             <c:if test="${countryNo == 3}" >
@@ -90,7 +90,7 @@
                     ${countryName}게시판
                 </div>
                 <c:if test="${not empty param.query}">
-                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                    <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
                 </c:if>
             </c:if>
             <c:if test="${countryNo == 4}" >
@@ -100,7 +100,7 @@
                     ${countryName}게시판
                 </div>
                 <c:if test="${not empty param.query}">
-                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                    <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
                 </c:if>
             </c:if>
             <c:if test="${countryNo == 5}" >
@@ -110,7 +110,7 @@
                     ${countryName}게시판
                 </div>
                 <c:if test="${not empty param.query}">
-                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                    <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
                 </c:if>
             </c:if>
             
