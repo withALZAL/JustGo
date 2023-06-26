@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-// 마이페이지와 회원가입&로그인 분리해서 관리해야 할 듯 싶슴다...
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/ask/*"})
-public class LoginFilter implements Filter {
+import edu.kh.justgo.member.model.dto.Member;
+
+@WebFilter(filterName = "ManagerloginFilter", urlPatterns = {"/manager/*"})
+public class ManagerLoginFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("--- 일반회원 로그인 필터 생성 ---");
+		System.out.println("--- 관리자 로그인 필터 생성 ---");
 	}
 
 	public void destroy() {
-		System.out.println("--- 일반회원 로그인 필터 파괴 ---");
+		System.out.println("--- 이전 관리자 로그인 필터 파괴 ---");
 	}
 
 
@@ -34,16 +35,18 @@ public class LoginFilter implements Filter {
 		// 2) 다운캐스팅한 HttpServletRequest를 이용해서 HttpSession 얻어오기
 		HttpSession session = req.getSession();
 		
-
+		// 3) session에서 “loginMember” key를 가진 속성을 얻어와, null인 경우 메인 페이지로 redirect
 		
-		if(session.getAttribute("loginMember") == null) {
-			resp.sendRedirect("/account/login");
-		// 4) 로그인 상태인 경우 다음 필터 또는 Dispatcher Servlet으로 전달
+//		관리자가 아니면 메인페이지로 보내는 필터 예시
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		if(loginMember.getMemberRole() != 1) {
+			resp.sendRedirect("/");
 		} else {
 			chain.doFilter(request, response);
 		}
-	}
-
+		
+		
+	}	
 
 
 }

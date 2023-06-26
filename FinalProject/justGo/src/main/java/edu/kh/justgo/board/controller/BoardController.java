@@ -71,6 +71,7 @@ public class BoardController {
 		return "board/boardFree";
 	}
 
+	/*
 	// 1:1문의 연결(/board/4 버전)
 	@GetMapping("/4/{memberNo}")
 	public String writingQuestion(
@@ -120,7 +121,7 @@ public class BoardController {
 	
 	
 	
-	
+	*/
 	
 	
 

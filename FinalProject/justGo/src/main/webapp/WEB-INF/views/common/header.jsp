@@ -37,8 +37,8 @@
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
     <form>
-        <a href="/myPage/infoNew">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지 리뉴얼</button>
+        <a href="/account/test">
+            <button type="button" class="btn btn-secondary btn-sm">실험용상준</button>
         </a>    
     </form>
     <form>
@@ -225,9 +225,9 @@
                     <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
                 </li>
             </c:if>
-            <c:if test="${!empty sessionScope.loginMember && boardType.BOARD_CODE == 4}">
+            <c:if test="${!empty sessionScope.loginMember && sessionScope.loginMember.memberRole == 2 && boardType.BOARD_CODE == 4}">
                 <li class="nav-item">
-                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}/${loginMember.memberNo}">${boardType.BOARD_NAME}</a>
+                    <a class="nav-link" href="/ask/boardAsk/${loginMember.memberNo}">${boardType.BOARD_NAME}</a>
                 </li>
             </c:if>
         </c:forEach>   

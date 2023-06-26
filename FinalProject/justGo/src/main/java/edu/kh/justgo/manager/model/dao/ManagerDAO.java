@@ -1,6 +1,7 @@
 package edu.kh.justgo.manager.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -161,11 +162,10 @@ public class ManagerDAO {
 
 	/**  1:1문의 관리자 답변 입력
 	 * @param feedbackNo
-	 * @param loginMember
 	 * @return result
 	 */
 	public int insertManagerAnswer(Feedback feedback) {
-		return sql.selectOne("managerMapper.insertManagerAnswer", feedback);
+		return sql.update("managerMapper.insertManagerAnswer", feedback);
 	}
 
 

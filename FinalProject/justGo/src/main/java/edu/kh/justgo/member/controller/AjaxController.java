@@ -35,12 +35,17 @@ public class AjaxController {
 //	   public int CheckPassword(String password, int memberNo) {
 //		   return service.checkPassword(password, memberNo);
 //	   }
-	   @PostMapping("/dupCheck/password")
-	   @ResponseBody
-	   public int checkPassword(
-			   @RequestParam("password") String password,
-			   @RequestParam("memberNo") int memberNo) {
-	       return service.checkPassword(password, memberNo);
-	   }
+	   
+//	   @PostMapping("/dupCheck/password")
+//	   @ResponseBody
+//	   public int checkPassword(
+//		   @RequestParam("password") String password,
+//		   @RequestParam("memberNo") int memberNo) {
+//		   
+//		   System.out.println(password);
+//		   System.out.println(memberNo);
+//		   
+//	       return service.checkPassword(password, memberNo);
+//	   }
 	   
 }

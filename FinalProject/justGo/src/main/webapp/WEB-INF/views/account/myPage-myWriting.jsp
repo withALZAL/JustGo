@@ -80,9 +80,6 @@ ${myPostList} --%>
         <a href="/myPage/updatePw">
             <button type="button" class="btn btn-primary btn-lg">비밀번호 변경</button>
         </a>
-        <a href="#">
-            <button type="button" class="btn btn-primary btn-lg">1:1문의</button>
-        </a>
         <a>
             <button type="button" id="deleteAccount" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">회원탈퇴</button>
         </a>
@@ -119,13 +116,15 @@ ${myPostList} --%>
                                     <tr>
                                         <td>${post.boardNo}</td>
                                         <td>${post.tagContent}</td>
-                                        <%-- <c:if test="${post.countryNo != 0}">
-                                            <td><form><a href="/board/${post.boardCode}/${post.countryNo}}/${post.boardNo}">${post.boardTitle}</a></form></td>
-                                        </c:if>
-                                        <c:if test="${post.countryNo == 0 || post.countryNo == null}">
-                                            <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td>
-                                        </c:if> --%>
-                                        <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td>
+                                        <c:choose>
+                                            <c:when test="${post.countryNo == 0 || post.countryNo == null}">
+                                                <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td><form><a href="/board/${post.boardCode}/${post.countryNo}/${post.boardNo}">${post.boardTitle}</a></form></td>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <%-- <td><form><a href="/board/${post.boardCode}/${post.boardNo}">${post.boardTitle}</a></form></td> --%>
                                         <td>${post.createDate}</td>
                                         <td>${post.readCount}</td>
                                     </tr>
