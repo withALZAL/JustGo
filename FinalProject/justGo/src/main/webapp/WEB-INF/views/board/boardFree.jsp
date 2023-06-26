@@ -88,7 +88,7 @@
 <div class="board--contentBox">
     <div class="board--contentBox__top">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
-        <form action="#" method="get">
+        <form id="tagForm" action="#" method="get">
             <c:forEach items="${tagAllList}" var="tag">
             <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
@@ -130,7 +130,7 @@
                 <tr>
                     <td>${board.boardNo}</td>
                     <td>${board.tagContent}</td>
-                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
@@ -206,7 +206,9 @@
                     </form>
             <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
+                <a href="/writing/writingBoard">
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                </a>
             </c:if>
             </form>
         </div>

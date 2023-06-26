@@ -245,6 +245,19 @@ function selectReplyList(){
 const addReply = document.getElementById("addReply");
 const replyContent = document.getElementById("replyContent");
 
+replyContent.addEventListener('keypress',e=>{
+    if(e.keyCode == 13  && !e.shiftKey){ 
+        e.preventDefault();
+    }
+    if(e.keyCode == 13 && !e.shiftKey && e.target.matches(":focus")) {
+        e.preventDefault();
+        e.target.nextElementSibling.click();
+    }
+
+
+
+})
+
 addReply.addEventListener("click",e =>{
 
     // 로그인 여부 전역변수 사용
@@ -289,6 +302,10 @@ addReply.addEventListener("click",e =>{
     .catch(err=>console.log(err));
 
 });
+
+
+
+
 
 //-------------------------------------------------------------
 // 댓글 삭제
@@ -423,6 +440,23 @@ function showUpdateComment(replyNo, btn){
     cancelBtn.setAttribute("onclick", "updateCancel(this)");
     cancelBtn.innerText = "취소";
 
+    textarea.addEventListener("keyup",e=>{
+        if(e.keyCode == 27){
+            if(confirm("댓글 수정을 취소하시겠습니까?")){
+                cancelBtn.parentElement.parentElement.innerHTML = beforeReplyRow;
+            }
+        }
+
+    })
+    textarea.addEventListener('keypress',e=>{
+        if(e.keyCode == 13  && !e.shiftKey){ 
+            e.preventDefault();
+        }
+        if(e.keyCode == 13 && !e.shiftKey && e.target.matches(":focus")) {
+            e.preventDefault();
+            e.target.nextElementSibling.firstChild.click();
+        }
+    })
 
     replyBtnArea.append(updateBtn,cancelBtn);
     replyRow.append(replyBtnArea);
@@ -510,6 +544,7 @@ function showInsertComment(parentReplyNo, btn){
     insertBtn.classList.add("btn-sm");
     insertBtn.setAttribute("onclick", "insertChildComment("+parentReplyNo+", this)");
     insertBtn.innerText = "등록";
+    
 
 
     const cancelBtn = document.createElement("button");
@@ -518,6 +553,24 @@ function showInsertComment(parentReplyNo, btn){
     cancelBtn.classList.add("btn-sm");
     cancelBtn.setAttribute("onclick", "insertCancel(this)");
     cancelBtn.innerText = "취소";
+    textarea.addEventListener('keyup',e =>{
+        if(e.keyCode == 27){
+            cancelBtn.parentElement.previousElementSibling.remove();
+            cancelBtn.parentElement.remove();
+        }
+       
+        
+    })
+    // 엔터키 입력시 등록
+    textarea.addEventListener('keypress',e=>{
+        if(e.keyCode == 13  && !e.shiftKey){ 
+            e.preventDefault();
+        }
+        if(e.keyCode == 13 && !e.shiftKey && e.target.matches(":focus")) {
+            e.preventDefault();
+            e.target.nextElementSibling.firstChild.click();
+        }
+    })
 
     replyBtnArea.append(insertBtn,cancelBtn);
     textarea.after(replyBtnArea);
@@ -530,6 +583,7 @@ function insertCancel(btn){
                     // 취소
     btn.parentElement.previousElementSibling.remove(); // 취소의 부모의 이전 요소(textarea) 제거
     btn.parentElement.remove(); // 취소의 부모 요소(comment-btn-area) 제거
+ 
 }
 
 // 답글 등록
