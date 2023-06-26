@@ -1,13 +1,10 @@
 package edu.kh.justgo.myPage.model.dao;
 
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
 import edu.kh.justgo.member.model.dto.Member;
@@ -60,7 +57,6 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectMyPostList", memberNo, rowBounds);
 		
 	}
-	
 
 
 }
