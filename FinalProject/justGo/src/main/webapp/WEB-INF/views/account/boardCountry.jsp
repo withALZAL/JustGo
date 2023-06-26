@@ -198,11 +198,13 @@
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>
-            <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                <form action="/writing/writingBoard" method="get">
+                    <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                    <input type="hidden" name="boardCode" value="1">
+                    <input type="hidden" name="countryNo" value="${countryNo}">
+                </form>
             </c:if>
-            </form>
         </div>
     </div>
 </div>

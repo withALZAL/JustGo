@@ -100,6 +100,11 @@
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
 
+    <script>
+        const boardCode = "${param.boardCode}";
+        const countryNo = "${param.countryNo}";
+    </script>
+
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -115,6 +120,7 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/writing/writingUpdate.js"></script>
 
 <%-- summernote --%>
     <script>
@@ -141,14 +147,16 @@
             fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50'],
             callbacks: { // callback : 일을 받으면 그 일을 처리해서 back 하겠다.
                 onImageUpload : function(files, editor, welEditable){
-                    console.log(files);
-                    console.log(editor);
-                    console.log(welEditable);
+                    console.log(files); // 업로드한 이미지 파일
+                    console.log(editor); //  내용,스타일,포커스를 제어하는 사용 
+                    console.log(welEditable); // 이미지 파일과 내용을 가져오거나 수정할 수 있는 코드
                     console.log(this);
                     
                    // 파일 업로드(다중업로드를 위해 반복문 사용)
                     for (var i = files.length - 1; i >= 0; i--) {
                         uploadSummernoteImageFile(files[i],this);
+
+
                     }
                 }
             } 

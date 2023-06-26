@@ -68,22 +68,21 @@
                 <div>제목</div>
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" value="${board.boardTitle}"></div>
                 <div class="writing--selectorBox">
-                    <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
+                    <select class="writing--boardSelector" name="boardCode" id="boardSelect"  required>
                         <c:forEach items="${typeList}" var="board2">
                             <option class="b" value="${board2.boardCode}">${board2.boardName}</option>
                        <!-- <option value="2" class="b" >자유게시판</option>
                         <option value="3" class="b">질문게시판</option> -->
                         </c:forEach>
                         <c:forEach items="${typeList2}" var="board1">
-                            <option value="${board1.countryNo}" <c:if test="${board.countryName eq board1.countryName}">
-                            selected="selected"</c:if>>${board1.countryName}</option>
+                            <option value="${board1.countryNo}">${board1.countryName}</option>
                            <!-- <option value="1">중국게시판</option>
                             <option value="3">베트남게시판</option>
                             <option value="4">태국게시판</option>
                             <option value="5">호주게시판</option> -->
                         </c:forEach>
                     </select>
-                    <select class="writing--tagSelector" name="tagNo" id="tagSelector"  required>
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
                         <c:forEach items="${typeList3}" var="tag">
                             <option value="${tag.tagNo}">${tag.tagContent}</option>
                         </c:forEach>
@@ -99,7 +98,8 @@
             <textarea class="writing--summernoteBox" id="summernote" name="boardText">${board.boardText}</textarea>
                     
                 <div class="writing--ButtonBox">
-                    <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">수정</button>
+                
+                    <button type="submit" id="updateBtn" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">수정</button>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
                 </div>
         </div>
@@ -120,7 +120,13 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
+<script>
+    const boardCode = '${boardCode}';
 
+    const countryNo = '${countryNo}';
+
+
+</script>
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -154,45 +160,20 @@
         disableResizeEditor: true, /* resize off */
         toolbar: [ /* 썸머노트 상단 툴바 설정 */
             ["style", ["style"]],
-            ["font", ["bold", "italic", "underline", "fontname"]],
+            ["font", ["bold", "italic", "underline", "fontname","fontsize"]],
             ["color", ["color"]],
             ["insert", ["link", "picture"]],
             ["view", ["codeview", 'help']]
-            ]
+            ],
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+            fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50']
         });
     </script>
 
-    <script> 
-                $(document).ready(function(){ 
-                    $('#summernote').summernote({ 
-                        height : 300, 
-                        width : 700, 
-                        lang : "ko-KR", 
-                        callbacks:{ 
-                            onImageUpload : function(files){ 
-                            uploadSummernoteImageFile(files[0],this); 
-                            } 
-                        } 
-                    }); 
-                    function uploadSummernoteImageFile(file,editor){ 
-                        data = new FormData(); 
-                        data.append("file",file); 
-                        $.ajax({ 
-                            data:data, 
-                            type:"POST", 
-                            url:"/uploadSummernoteImageFile", 
-                            dataType:"JSON", 
-                            contentType:false, 
-                            processData:false, 
+    <script>
+         $('#summernote').summernote('fontSize', '22');
+    </script>
 
-                            success:function(data){ 
-                                $(editor).summernote("insertImage",data.url); 
-                                $("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
-                            } 
-                        }); 
-                    } 
-                }); 
- </script> 
             
 </body>
 </html>
