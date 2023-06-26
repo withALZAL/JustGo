@@ -36,7 +36,7 @@ public class AskController {
 	
 	
 	
-	// 1:1문의 연결(/board/4 버전)
+	// 1:1문의 연결
 		@GetMapping("/boardAsk/{memberNo}")
 		public String writingQuestion(
 				@RequestParam(value="cp", required=false, defaultValue="1") int cp
@@ -71,6 +71,7 @@ public class AskController {
 	        Map<String, Object> map = new HashMap<String, Object>();
 	        
 	        map.put("memberAskList", memberAskList);
+	        
 	        map.put("managerAnswerList", managerAnswerList);
 	        
 //	        System.out.println(map);
@@ -84,13 +85,13 @@ public class AskController {
 	    }
 	
 	// 로그인한 회원의 1:1문의
-	@PostMapping("/ask")
+	@PostMapping("/write")
 	public String insertAsk(
 			Feedback feedback
 			, @SessionAttribute("loginMember") Member loginMember
 			, RedirectAttributes ra
 			, HttpSession session
-			, Model model) throws IllegalStateException, IOException{
+			) throws IllegalStateException, IOException{
 		
 		// 로그인한 회원 번호를 얻어와 feedback에 세팅
 		feedback.setMemberNo(loginMember.getMemberNo());
@@ -108,11 +109,11 @@ public class AskController {
 			int feedbackNo = feedback.getFeedbackNo();
 			
 			message = "1:1문의 등록 성공";
-			path += "board/boardAsk_detail/" + feedbackNo;
+			path += "ask/boardAsk_detail/" + feedbackNo;
 
 		} else {
 			message = "1:1문의 등록 실패.......";
-			path += "writing/writingAsk"; // 게시글 쓰는 화면
+			path += "ask/writingAsk"; // 게시글 쓰는 화면
 		}
 
 		ra.addFlashAttribute("message", message);
