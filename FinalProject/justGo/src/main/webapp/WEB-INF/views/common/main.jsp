@@ -736,16 +736,6 @@ function change(){
         });
 
 
-
-
-
-
-
-
-
-
-
-
         /* after 통화 셀렉터하면 출력 통화 단위 바뀌는 함수 */
         function resultCurrChange() {
             let afterCurrSelect = document.getElementById("afterCurrSelect");

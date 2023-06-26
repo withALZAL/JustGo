@@ -81,10 +81,10 @@
         <div class="writing--postTitle">${board.boardTitle}</div>
         <div class="writing--postInfoBox">
             <div class="writing--postProfile">
-                <c:if test="${!empty sessionScope.loginMember.profileImg}">
-                    <img src="${sessionScope.loginMember.profileImg}" name="profileImage" alt="프로필 이미지">
+                <c:if test="${!empty board.profileImage}">
+                    <img src="${board.profileImage}" name="profileImage" alt="프로필 이미지">
                 </c:if>
-                <c:if test="${empty sessionScope.loginMember.profileImg}">
+                <c:if test="${empty board.profileImage}">
                     <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지">
                 </c:if>
                 <div>${board.memberNickname}</div>
