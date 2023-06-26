@@ -62,10 +62,32 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
+            <c:if test="${countryNo == 1}" >
+        <img src="/resources/images/officialPageTitle/PAGETITLE_CHINA_FOBBIDDENCITY.png" alt="호주_그레이프베리어리프">
         <div class="template--overlayedTitle" style="color: black;">
+            <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기" style="height: 30px; padding-right: 10px;">
+            </c:if>
+            <c:if test="${countryNo == 2}" >
+                <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="호주_그레이프베리어리프">
+                <div class="template--overlayedTitle" style="color: black;">
+            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+            </c:if>
+            <c:if test="${countryNo == 3}" >
+                    <img src="/resources/images/officialPageTitle/PAGETITLE_VIETNAM_HALONGBAY.png" alt="호주_그레이프베리어리프">
+                    <div class="template--overlayedTitle" style="color: black;">
+            <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기" style="height: 30px; padding-right: 10px;">
+            </c:if>
+            <c:if test="${countryNo == 4}" >
+                <img src="/resources/images/officialPageTitle/PAGETITLE_THAI_CASTLE.png" alt="호주_그레이프베리어리프">
+                <div class="template--overlayedTitle" style="color: black;">
+            <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기" style="height: 30px; padding-right: 10px;">
+            </c:if>
+            <c:if test="${countryNo == 5}" >
+                <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
+                <div class="template--overlayedTitle" style="color: black;">
             <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
-            <a href="https://www.naver.com">
+            </c:if>
+            
                 <c:if test="${not empty param.query}" >
                     <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
                 </c:if>
@@ -85,7 +107,7 @@
 <div class="board--contentBox">
     <div class="board--contentBox__top">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
-        <form action="#" method="get">
+        <form id="tagForm" action="#" method="get">
         <c:forEach items="${tagAllList}" var="tag">
             <div onclick="basic2(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
@@ -127,7 +149,7 @@
                 <tr>
                     <td>${board.boardNo}</td>
                     <td>${board.tagContent}</td>
-                    <td><a href="/board/1/${countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                    <td><a href="/board/1/${countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>[${board.commentCount}]</td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
@@ -200,7 +222,9 @@
             </form>
             <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
+                <a href="/writing/writingBoard">
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                </a>
             </c:if>
             </form>
         </div>
