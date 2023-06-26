@@ -156,7 +156,7 @@ public class ManagerServiceImpl implements ManagerService{
 		System.out.println(feedback);
 		
 		int result = dao.insertManagerAnswer(feedback);
-		System.out.println("result :" +result);
+//		System.out.println("result :" +result);
 		return result;
 	}
 

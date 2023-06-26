@@ -36,6 +36,7 @@
 
 ${feedbackNo}
 
+
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
