@@ -1,7 +1,7 @@
 // 게시글 등록 시 제목, 내용 작성 여부 검사
 const writeAskFrm = document.getElementById('writeAskFrm');
-const askTitle = document.querySelector("[name=askTitle]");
-const askText = document.querySelector("[name=askText]");
+const askTitle = document.querySelector("[name=feedbackTitle]");
+const askText = document.querySelector("[name=feedbackText]");
 
 writeAskFrm.addEventListener("submit", e => {
 

@@ -29,23 +29,18 @@ public class AjaxController {
 		   return service.checkNickname(nickname);
 	   }
 	   
-	   // 현재 비밀번호 체크
-//	   @GetMapping("/dupCheck/password")
-//	   @ResponseBody
-//	   public int CheckPassword(String password, int memberNo) {
-//		   return service.checkPassword(password, memberNo);
-//	   }
-	   
-//	   @PostMapping("/dupCheck/password")
-//	   @ResponseBody
-//	   public int checkPassword(
-//		   @RequestParam("password") String password,
-//		   @RequestParam("memberNo") int memberNo) {
-//		   
-//		   System.out.println(password);
-//		   System.out.println(memberNo);
-//		   
-//	       return service.checkPassword(password, memberNo);
-//	   }
+	      
+	   // 비밀번호 중복 검사
+	   @PostMapping("/dupCheck/password")
+	   @ResponseBody
+	   public int checkPassword(
+		   @RequestParam(value = "password") String password,
+		   @RequestParam(value = "memberNo", defaultValue="0") int memberNo) {
+		   
+		   System.out.println(password);
+		   System.out.println(memberNo);
+		   
+	       return service.checkPassword(password, memberNo);
+	   }
 	   
 }

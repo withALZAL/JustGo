@@ -75,14 +75,14 @@
         <%-- 비밀번호 변경 시작 --%>
         <div class="account--profile">
             <div class="account--subtitle"><i class="fa-solid fa-key"></i>비밀번호 변경</div>
-            <form action="updatePw" method="post">
+            <form action="updatePw" method="post" id="updateInfo">
                 <div class="account--updatePwBox">
                     <table>
                         <tr>
                             <th>현재 비밀번호</th>
                             <td>
                                 <input type="password" maxlength="15" placeholder="현재 비밀번호를 입력해주세요." name="currentPw" id="currentPw">
-                                <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
+                                <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck"></div>
                             </td>
                         </tr>
                         <tr>

@@ -25,6 +25,24 @@ input[type="search"]::-webkit-search-decoration {
     appearance: none;
 }
 
+/* number 타입의 input에서 스피너 없애기 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* selector 꾸미기 */
+select {
+    border-radius: 4px;
+    outline: 0 none;
+}
+select option {
+    background: #8B89FF;
+    color: white;
+    padding: 3px 0;
+}
+
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 
 /* 화면 가로 길이 1400px 통일 */
