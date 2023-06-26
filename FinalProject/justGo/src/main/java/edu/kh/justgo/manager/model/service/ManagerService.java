@@ -54,11 +54,11 @@ public interface ManagerService {
 	
 	
 	/** 1:1문의 관리자 답변 입력
-	 * @param feedbackNo
-	 * @param loginMember
+	 * @param feedback
 	 * @return result
 	 */
 	int insertManagerAnswer(Feedback feedback);
+
 
     
 

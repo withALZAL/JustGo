@@ -29,7 +29,7 @@
 <%-- ${map.memberAskList}
 ${map.managerAnswerList} --%>
 
-
+${feedbackNo}
 
 
 <!-- ----------------------------------------------- -->
@@ -179,5 +179,8 @@ ${map.managerAnswerList} --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/manager/askManager_detail.js"></script>
+    <script>
+        const feedbackNo = ${feedbackNo};
+    </script>
 </body>
 </html>

@@ -37,7 +37,7 @@ public class AskController {
 	
 	
 	// 1:1문의 연결(/board/4 버전)
-		@GetMapping("/4/{memberNo}")
+		@GetMapping("/boardAsk/{memberNo}")
 		public String writingQuestion(
 				@RequestParam(value="cp", required=false, defaultValue="1") int cp
 				, Member loginMember
@@ -51,7 +51,7 @@ public class AskController {
 			
 			model.addAttribute("map", map);
 			
-			return "/board/boardAsk";
+			return "/ask/boardAsk";
 		}
 		
 		
@@ -80,11 +80,11 @@ public class AskController {
 //	        System.out.println("model" +model);
 	    	
 	    	
-	    	return "/board/boardAsk_detail";
+	    	return "/ask/boardAsk_detail";
 	    }
 	
 	// 로그인한 회원의 1:1문의
-	@PostMapping("/writing/ask")
+	@PostMapping("/ask")
 	public String insertAsk(
 			Feedback feedback
 			, @SessionAttribute("loginMember") Member loginMember

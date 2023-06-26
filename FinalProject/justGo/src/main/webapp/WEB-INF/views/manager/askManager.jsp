@@ -28,6 +28,14 @@
 <%-- ${map.pagination} --%>
 <%-- ${map.askList} --%>
 
+<c:forEach items="${askList}" var="ask">
+    <c:if test="${ask.feedbackNo == feedbackNo}" >
+        <c:set var="feedbackNo" value="${ask.feedbackNo}"/>
+    </c:if>
+</c:forEach>
+
+${feedbackNo}
+
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/manager/managerHeader.jsp"/>
@@ -190,5 +198,8 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/manager/askManager.js"></script>
+    <script>
+        const feedbackNo = ${feedbackNo};
+    </script>
 </body>
 </html>

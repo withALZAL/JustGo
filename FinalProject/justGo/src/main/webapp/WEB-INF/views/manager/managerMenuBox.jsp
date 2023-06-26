@@ -14,13 +14,13 @@
     
     <div class="manager--sidebar">
         <div class="manager--menu">
-            <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a>
+            <%-- <a href="/board/boardNotice"><i class="fa-solid fa-paper-plane"></i>공지사항</a> --%>
             <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
             <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
-            <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a>
+            <%-- <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고</a> --%>
         </div>
         <%-- statisticsBox--%>
-        <div>
+        <%-- <div>
             <div class="manager--statistics">
                 <div><i class="fa-solid fa-user-plus"></i></div>
                 <div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --%>
 
 </body>
 </html>

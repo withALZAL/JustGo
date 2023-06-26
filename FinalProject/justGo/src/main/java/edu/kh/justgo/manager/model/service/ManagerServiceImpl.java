@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.justgo.board.model.dto.Board;
+import edu.kh.justgo.common.utility.Util;
 import edu.kh.justgo.manager.model.dao.ManagerDAO;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.manager.model.dto.Pagination;
@@ -145,13 +147,22 @@ public class ManagerServiceImpl implements ManagerService{
 	
 	
 	// 1:1문의 관리자 답변 입력
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insertManagerAnswer(Feedback feedback) {
-		return dao.insertManagerAnswer(feedback);
+		
+		feedback.setAdminText(Util.XSSHandling(feedback.getAdminText()));
+		
+		System.out.println(feedback);
+		
+		int result = dao.insertManagerAnswer(feedback);
+		System.out.println("result :" +result);
+		return result;
 	}
+
 	
-
-
+	
+	
 }
 
 
