@@ -47,6 +47,7 @@
 <!-- ----------------------------------------------- -->
 
 
+
 <!-- Template-main 시작 -->
 <main class="template--main">
 
@@ -63,38 +64,62 @@
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
             <c:if test="${countryNo == 1}" >
-        <img src="/resources/images/officialPageTitle/PAGETITLE_CHINA_FOBBIDDENCITY.png" alt="호주_그레이프베리어리프">
-        <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기" style="height: 30px; padding-right: 10px;">
+                <img src="/resources/images/officialPageTitle/PAGETITLE_CHINA_FOBBIDDENCITY.png" alt="중국_자금성">
+                <div class="template--overlayedTitle" style="color: black;">
+                    <img class="template--flag" src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기" style="height: 30px; padding-right: 10px;">
+                    ${countryName}게시판
+                </div>
+                <c:if test="${not empty param.query}">
+                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                </c:if>
             </c:if>
             <c:if test="${countryNo == 2}" >
-                <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="호주_그레이프베리어리프">
+                <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="일본_벚꽃">
                 <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+                    <img class="template--flag" src="/resources/images/officialFlag/JAPANFLAG_BLACKBORDER.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+                    ${countryName}게시판
+                </div>
+                <c:if test="${not empty param.query}">
+                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                </c:if>
             </c:if>
             <c:if test="${countryNo == 3}" >
-                    <img src="/resources/images/officialPageTitle/PAGETITLE_VIETNAM_HALONGBAY.png" alt="호주_그레이프베리어리프">
-                    <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기" style="height: 30px; padding-right: 10px;">
+                <img src="/resources/images/officialPageTitle/PAGETITLE_VIETNAM_HALONGBAY.png" alt="베트남_하롱베이">
+                <div class="template--overlayedTitle" style="color: black;">
+                    <img class="template--flag" src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기" style="height: 30px; padding-right: 10px;">
+                    ${countryName}게시판
+                </div>
+                <c:if test="${not empty param.query}">
+                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                </c:if>
             </c:if>
             <c:if test="${countryNo == 4}" >
-                <img src="/resources/images/officialPageTitle/PAGETITLE_THAI_CASTLE.png" alt="호주_그레이프베리어리프">
+                <img src="/resources/images/officialPageTitle/PAGETITLE_THAI_CASTLE.png" alt="태국_왕궁">
                 <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기" style="height: 30px; padding-right: 10px;">
+                    <img class="template--flag" src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기" style="height: 30px; padding-right: 10px;">
+                    ${countryName}게시판
+                </div>
+                <c:if test="${not empty param.query}">
+                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                </c:if>
             </c:if>
             <c:if test="${countryNo == 5}" >
                 <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
                 <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
+                    <img class="template--flag" src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
+                    ${countryName}게시판
+                </div>
+                <c:if test="${not empty param.query}">
+                    <div class="template--overlayedSearch">${param.query} 검색결과</div>
+                </c:if>
             </c:if>
             
-                <c:if test="${not empty param.query}" >
-                    <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
-                </c:if>
-                <c:if test="${empty param.query}" >
-                    <h3> ${countryName}게시판</h3>
-                </c:if>
-            </a>
+            <%-- <c:if test="${not empty param.query}" >
+                <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
+            </c:if> --%>
+            <%-- <c:if test="${empty param.query}" >
+                <h3> ${countryName}게시판</h3>
+            </c:if> --%>
         </div>
     </div>
 </div>
