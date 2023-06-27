@@ -395,7 +395,7 @@
 
 
 
-<div class="common--TwoDivide">
+<div class="common--twoDivide">
 <!-- 환율 계산기 시작-->
     <div class="card">
         <div class="card-header" style="font-weight: bold; font-size: 20px;">
@@ -519,47 +519,88 @@
 
 
 
-<%-- 예비 칸 시작 --%>
-<div class="common--temp">
+<!-- 항공 시작-->
+<div class="common--oneDivide">
     <div class="card">
         <div class="card-header" style="font-weight: bold; font-size: 20px;">
-            <i class="fa-solid fa-map" style="color: blue;"></i>
-            지도(혹시 몰라서 만들어 둔 거니까 신경 x)
+            <i class="fa-solid fa-plane" style="color: blue;"></i>
+            항공
         </div>
-        <div class="card-body common--mapContainer">
-            <div class="common--mapBox">
-                <div style="background-Color: red;"></div>
-                <div style="background-Color: orange;"></div>
-                <div style="background-Color: yellow;"></div>
+        <div class="card-body common--airBox">
+            <div>어디로 떠나시나요? JustGo가 현재 항공권의 평균 가격을 알려드립니다.</div>
+            <div class="common--airContentBox">
+                <div class="common--airContent">
+                    <div>출발지</div>
+                    <div class="airportSelectBox">
+                        <select id="airportSelect">
+                            <option id="Seoul">서울</option>
+                            <option id="Tokyo">도쿄</option>
+                            <option id="Osaka">오사카</option>
+                            <option id="Sapporo">삿포로</option>
+                            <option id="Okinawa">오키나와</option>
+                            <option id="Beijing">베이징</option>
+                            <option id="Shanghai">상하이</option>
+                            <option id="Hongkong">홍콩</option>
+                            <option id="Taipei">타이페이</option>
+                            <option id="Hanoi">하노이</option>
+                            <option id="Ho Chi Minh City">호치민</option>
+                            <option id="Bangkok">방콕</option>
+                            <option id="Phuket">푸켓</option>
+                            <option id="Singapore">싱가포르</option>
+                            <option id="Manila">마닐라</option>
+                            <option id="Sydney">시드니</option>
+                            <option id="Brisbane">브리즈번</option>
+                            <option id="Perth">퍼스</option>
+                            <option id="Guam">괌</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="common--airContent">
+                    <div>도착지</div>
+                    <div class="airportSelectBox">
+                        <select id="airportSelect">
+                            <option id="Seoul">서울</option>
+                            <option id="Tokyo">도쿄</option>
+                            <option id="Osaka">오사카</option>
+                            <option id="Sapporo">삿포로</option>
+                            <option id="Okinawa">오키나와</option>
+                            <option id="Beijing">베이징</option>
+                            <option id="Shanghai">상하이</option>
+                            <option id="Hongkong">홍콩</option>
+                            <option id="Taipei">타이페이</option>
+                            <option id="Hanoi">하노이</option>
+                            <option id="Ho Chi Minh City">호치민</option>
+                            <option id="Bangkok">방콕</option>
+                            <option id="Phuket">푸켓</option>
+                            <option id="Singapore">싱가포르</option>
+                            <option id="Manila">마닐라</option>
+                            <option id="Sydney">시드니</option>
+                            <option id="Brisbane">브리즈번</option>
+                            <option id="Perth">퍼스</option>
+                            <option id="Guam">괌</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="common--airContent">
+                    <div>출발날짜</div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="common--airContent">
+                    <div>도착날짜</div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="common--airBoxBottom">
+                <button type="button" class="btn btn-primary btn-lg">검색</button>
             </div>
         </div>
     </div>
 </div>
-<%-- 예비 칸 끝 --%>
-
-
-
-<%-- 예비 칸 시작 --%>
-<%-- <div class="common--temp">
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fa-solid fa-map" style="color: blue; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">GoogleMaps</div>
-            </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <div class="common--mapContainer">
-                    1
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --%>
-<%-- 예비 칸 끝 --%>
+<!-- 항공 끝 -->
 
 
 
