@@ -279,6 +279,27 @@ public class BoardServiceImpl implements BoardService {
 	public Feedback selectManagerAnswerList(int feedbackNo) {
 		return dao.selectManagerAnswerList(feedbackNo);
 	}
+
+	
+	//여행 게시판 태그별 목록 조회
+	@Override
+	public Map<String, Object> boardCountryTagList(Board board, int cp) {
+		
+		
+		int taglistCount = dao.tagCountrylistCount(board);
+
+		Pagination pagination = new Pagination(taglistCount, cp);
+
+		List<Board> tagBoardCountryList = dao.tagBoardCountryList(pagination, board);
+		
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("tagBoardCountryList", tagBoardCountryList);
+
+		return map;
+		
+	}
 	
 	
 	

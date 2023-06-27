@@ -81,11 +81,16 @@
 <div class="board--contentContainer">
 <div class="board--contentBox">
     <div class="board--contentBox__top">
+<c:choose>
+    <c:when test="${boardCode == 3}">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
+
         <form id="tagForm" action="#" method="get">
             <c:forEach items="${tagAllList}" var="tag">
             <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
+    </c:when>
+</c:choose>
         </form>
     </div>
 
@@ -97,7 +102,11 @@
             <thead>
                 <tr>
                 <th>번호</th>
+                <%-- <c:choose>
+            <c:when test="${boardCode == 3}"> --%>
                 <th>태그</th>
+            <%-- </c:when> --%>
+            <%-- </c:choose> --%>
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>

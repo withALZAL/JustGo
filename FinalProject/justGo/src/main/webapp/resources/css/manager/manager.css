@@ -426,6 +426,7 @@
     background-color: whitesmoke;
     resize: none;
     /* overflow: hidden; */
+    /* white-space: pre-wrap; */
 }
 .manager--answerRight form > div {
     display: flex;
@@ -442,7 +443,7 @@
     height: 400px;
     max-height: 400px;
     overflow: auto;
-
+    white-space: pre-wrap;
 }
 
 /* 버튼 구역 */

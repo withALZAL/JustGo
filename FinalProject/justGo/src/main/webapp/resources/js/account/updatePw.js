@@ -13,6 +13,7 @@ const newPwMessage = document.getElementById("newPwMessage");
 const newPwConfirm = document.getElementById("newPwConfirm");
 const newPwConfirmMessage = document.getElementById("newPwConfirmMessage");
 const updatePwBtn = document.getElementById("updatePwBtn");
+const capslockCheck = document.getElementById("capslockCheck");
 
 currentPw.addEventListener("input", () => {
     if(currentPw.value.trim() == ""){
@@ -63,32 +64,34 @@ currentPw.addEventListener("input", () => {
         currentPwMessage.classList.remove("confirm");
         checkObj.currentPw = false;
     } 
-
-    /* GET 방식 */
-    // if(regEx1.test(currentPw.value)){ 
-    //     fetch("/dupCheck/password?password="+currentPw.value+"&memberNo="+memberNo)
-    //     .then(resp => resp.text())
-    //     .then(count => {
-    //         if(count != 0){ 
-    //             currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-    //             currentPwMessage.classList.add("confirm");
-    //             currentPwMessage.classList.remove("error");
-    //             checkObj.currentPw = true;
-
-    //         } else {
-    //             currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-    //             currentPwMessage.classList.add("error");
-    //             currentPwMessage.classList.remove("confirm");
-    //             checkObj.currentPw = false;
-    //         }
-    //     })
-    //     } else {
-    //             currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
-    //             currentPwMessage.classList.add("error");
-    //             currentPwMessage.classList.remove("confirm");
-    //             checkObj.currentPw  = false;
-    //     }
 });
+
+
+//     /* GET 방식 */
+//     // if(regEx1.test(currentPw.value)){ 
+//     //     fetch("/dupCheck/password?password="+currentPw.value+"&memberNo="+memberNo)
+//     //     .then(resp => resp.text())
+//     //     .then(count => {
+//     //         if(count != 0){ 
+//     //             currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
+//     //             currentPwMessage.classList.add("confirm");
+//     //             currentPwMessage.classList.remove("error");
+//     //             checkObj.currentPw = true;
+
+//     //         } else {
+//     //             currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
+//     //             currentPwMessage.classList.add("error");
+//     //             currentPwMessage.classList.remove("confirm");
+//     //             checkObj.currentPw = false;
+//     //         }
+//     //     })
+//     //     } else {
+//     //             currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+//     //             currentPwMessage.classList.add("error");
+//     //             currentPwMessage.classList.remove("confirm");
+//     //             checkObj.currentPw  = false;
+//     //     }
+
 
 
 
@@ -157,7 +160,7 @@ newPwConfirm.addEventListener("input", () => {
 
 
 
-updatePwBtn.addEventListener("submit", e => {
+document.getElementById("updatePwBtn").addEventListener("click", e => {
 
     // 현재 비밀번호를 입력하지 않을 경우
     if(currentPw.value.trim() == ""){
@@ -176,7 +179,7 @@ updatePwBtn.addEventListener("submit", e => {
     }
 
     // 새 비밀번호를 입력하지 않을 경우
-    if(newPw.value.trim() == ""){
+    if(newPw.value.trim().length == 0){
         alert("새 비밀번호를 입력해주세요.");
         e.preventDefault();
         newPw.focus();
@@ -208,8 +211,16 @@ updatePwBtn.addEventListener("submit", e => {
         return;
     }
 
-
-
 });
 
+currentPw.addEventListener('keyup', e => {
+    if(e.getModifierState('CapsLock')) {
+        capslockCheck.textContent = '';
+        capslockCheck.textContent = 'CapsLock이 걸려있습니다.';
+        capslockCheck.classList.add("error");
+    } else {
+        capslockCheck.textContent = '';
+        capslockCheck.classList.remove("error");
+    }
+});
 

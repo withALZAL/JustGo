@@ -83,6 +83,15 @@ public interface BoardService {
 	 * @return
 	 */
 	Feedback selectManagerAnswerList(int feedbackNo);
+
+	
+
+	/** 여행게시판 목록 검색
+	 * @param board
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> boardCountryTagList(Board board, int cp);
 	
 
 }

@@ -29,7 +29,8 @@
 <%-- ${map.memberAskList}
 ${map.managerAnswerList} --%>
 
-${feedbackNo}
+<%-- ${feedbackNo} --%>
+
 
 
 <!-- ----------------------------------------------- -->
@@ -94,9 +95,7 @@ ${feedbackNo}
                             A. 답변 준비중입니다.
                         </div>
                         <div class="manager--managerArea" id="manager--answerManager">담당자 배정중</div>
-                        <div class="manager--answerTextBefore" id="manager--answerText">
-                            빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
-                        </div>
+                        <div class="manager--answerTextBefore" id="manager--answerText">빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.</div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <a href="/manager/askManager">
                                 <button type="button" class="manager--askListBTN">목록</button>
@@ -113,9 +112,7 @@ ${feedbackNo}
                         <div class="manager--managerArea" id="manager--answerManager">
                             ${managerAnswerList.managerNickname} | ${managerAnswerList.feedback_CF_Date}
                         </div>
-                        <div class="manager--answerTextBefore" id="manager--answerText">
-                            ${managerAnswerList.adminText}
-                        </div>
+                        <div class="manager--answerTextBefore" id="manager--answerText">${managerAnswerList.adminText}</div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <a href="/manager/askManager/">
                                 <button type="button" class="manager--askListBTN">목록</button>
@@ -181,6 +178,7 @@ ${feedbackNo}
     <script src="/resources/js/manager/askManager_detail.js"></script>
     <script>
         const feedbackNo = ${feedbackNo};
+        
     </script>
 </body>
 </html>

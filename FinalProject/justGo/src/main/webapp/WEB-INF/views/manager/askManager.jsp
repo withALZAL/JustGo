@@ -34,7 +34,8 @@
     </c:if>
 </c:forEach>
 
-${feedbackNo}
+
+
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -119,7 +120,7 @@ ${feedbackNo}
                 <div class="manager--contentPagenation">
                     <form action="#" method="get">
                         <nav aria-label="...">
-                            <ul class="pagination">
+                            <ul class="pagination" id="page">
                                 <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
                                     <a class="page-link" id="prev" href="/manager/askManager?cp=1">맨 처음</a>
@@ -134,7 +135,7 @@ ${feedbackNo}
                                 <c:forEach var="i" begin="${askPagination.startPage}" end="${askPagination.endPage}" step="1">
                                     <c:choose>
                                         <c:when test="${i==askPagination.currentPage}">
-                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
                                             <li class="page-item"><a class="page-link" href="/manager/askManager?cp=${i}">${i}</a></li>
