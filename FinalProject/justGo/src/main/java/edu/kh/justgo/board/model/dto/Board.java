@@ -35,6 +35,7 @@ public class Board {
     private String tagContent;
     private String boardName;
     private String countryName;
+    private int type;
     
     
     

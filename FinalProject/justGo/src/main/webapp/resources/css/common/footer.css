@@ -42,10 +42,21 @@
     color: white;
     background-color: #8B89FF;
 }
+#common--toTopBtn form button {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+#common--toTopBtn form button:hover {
+    color: white;
+    background-color: #8B89FF;
+}
 
 /* 좌측 하단 nav 조정 */
 #common--sideNav {
     padding: 100px;
     margin: 100px;
 }
+
 
