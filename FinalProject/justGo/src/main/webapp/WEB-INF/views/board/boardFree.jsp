@@ -102,16 +102,16 @@
 
 
 <!-- 글쓰기 테이블 시작 -->
+<c:choose>
+    <c:when test="${boardCode == 3}"> <%-- 질문게시판 --%>
     <div class="board--contentBox__main">
         <table class="board--boardTable">
             <thead>
                 <tr>
                 <th>번호</th>
-                <c:choose>
-            <c:when test="${boardCode == 3}">
+            <%-- <c:if test="${boardCode == 3}"> --%>
                 <th>태그</th>
-            </c:when>
-            </c:choose>
+            <%-- </c:if> --%>
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
@@ -137,11 +137,9 @@
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <c:choose>
-                    <c:when test="${boardCode == 3}">
+                    <%-- <c:if test="${boardCode == 3}"> --%>
                             <td>${board.tagContent}</td>
-                    </c:when>
-                    </c:choose>
+                    <%-- </c:if> --%>
                     <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
@@ -154,6 +152,55 @@
             </tbody>
         </table>
     </div>
+
+    </c:when>
+    <c:otherwise>   <%-- 자유게시판 --%>
+    <div class="boardfree--contentBox__main">
+        <table class="board--boardTable">
+            <thead>
+                <tr>
+                <th>번호</th>
+                <%-- <th>태그</th> --%>
+                <th>제목</th>
+                <th>글쓴이</th>
+                <th>작성일</th>
+                <th>조회수</th>
+                <th>좋아요</th>
+                </tr>
+            </thead>
+            <tbody id="tagList">
+        <c:choose>
+            <c:when test="${empty boardList}">
+                <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
+                
+                <!-- 게시글 목록 조회 결과가 비어있다면 -->
+                <tr>
+                    <th colspan="6">게시글이 존재하지 않습니다.</th>
+                </tr>
+            </c:when>
+
+            <c:otherwise>
+                                <!-- 게시글 목록 조회 결과가 있다면 -->
+
+                <c:forEach items="${boardList}" var="board">
+                <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
+                <tr>
+                    <td>${board.boardNo}</td>
+                            <%-- <td>${board.tagContent}</td> --%>
+                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
+                    <td>${board.memberNickname}</td>
+                    <td>${board.createDate}</td>
+                    <td>${board.readCount}</td>
+                    <td>${board.likeCount}</td>
+                </tr>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
+            </tbody>
+        </table>
+    </div>
+    </c:otherwise>
+</c:choose>
 <!-- 글쓰기 테이블 끝 -->
 
 

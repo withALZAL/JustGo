@@ -111,6 +111,57 @@
     text-align: left; /* 수정: 제목 열의 텍스트를 좌측 정렬로 설정 */
 }
 
+/* 자유게시판(태그 없음) */
+.boardfree--contentBox__main {
+    height: 740px;
+    width: 100%;
+    overflow: auto;
+}
+.boardfree--contentBox__main table {
+    width: 1260px;
+    table-layout: fixed;
+}
+.boardfree--contentBox__main th,
+.boardfree--contentBox__main td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #D9D9D9;
+}
+.boardfree--contentBox__main thead th {
+    background-color: #F5F5F5;
+}
+.board--contentBox__main tbody td {
+    background-color: #FFFFFF;
+}
+.boardfree--contentBox__main tbody tr:nth-child(even) td {
+    background-color: #F9F9F9;
+}
+.boardfree--contentBox__main th:nth-child(1), /* 번호 */
+.boardfree--contentBox__main td:nth-child(1) {
+    width: 70px;
+}
+.boardfree--contentBox__main th:nth-child(2), /* 제목 */
+.boardfree--contentBox__main td:nth-child(2) {
+}
+.boardfree--contentBox__main th:nth-child(5), /* 조회수 */
+.boardfree--contentBox__main td:nth-child(5) {
+    width: 70px;
+}
+.boardfree--contentBox__main th:nth-child(6), /* 좋아요 */
+.boardfree--contentBox__main td:nth-child(6) {
+    width: 70px;
+}
+.boardfree--contentBox__main th:nth-child(2), /* 제목 */
+.boardfree--contentBox__main td:nth-child(2) {
+    width: 600px; /* 수정: 제목 열의 너비를 600px로 설정 */
+    max-width: 600px; /* 제목 열의 최대 너비 설정 (선택 사항) */
+    white-space: nowrap; /* 제목이 길어도 줄바꿈하지 않고 한 줄에 표시 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호로 표시 (선택 사항) */
+}
+.boardfree--contentBox__main td:nth-child(2) {
+    text-align: left; /* 수정: 제목 열의 텍스트를 좌측 정렬로 설정 */
+}
+
 /* 페이지네이션 ----------------------------------------------- */
 
 /* 게시판 bottom 조정 */
