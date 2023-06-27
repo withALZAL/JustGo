@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 // 마이페이지와 회원가입&로그인 분리해서 관리해야 할 듯 싶슴다...
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/ask/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/ask/*", "/myPage/*"})
 public class LoginFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
