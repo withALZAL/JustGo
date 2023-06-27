@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -42,7 +43,7 @@
 <main class="template--main">
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
-    
+
 
 
 <!-- 배너 시작 -->
@@ -393,6 +394,7 @@
 <!-- 힐링게시글 끝 -->
 
 
+
 <div class="common--TwoDivide">
 <!-- 환율 계산기 시작-->
     <div class="card">
@@ -514,6 +516,24 @@
     </div>
 <!-- 날씨 검색기 끝 -->
 </div>
+
+
+
+<%-- 예비 칸 시작 --%>
+<div class="common--temp">
+    <div class="card">
+        <div class="card-header" style="font-weight: bold; font-size: 20px; backgroud-Color: red;">
+            <i class="fa-solid fa-map" style="color: blue;"></i>
+            혹시 모를 예비 칸 확보(혹시 몰라서 만들어 둔 건지 신경 x)
+        </div>
+        <div class="card-body common--moneyBox">
+            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="ddd" style="height: 100px;">
+            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="ddd" style="height: 100px;">
+            연지곤지 응애
+        </div>
+    </div>
+</div>
+<%-- 예비 칸 끝 --%>
 
 
 

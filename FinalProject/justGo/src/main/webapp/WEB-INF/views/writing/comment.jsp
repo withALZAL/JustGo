@@ -67,7 +67,13 @@
                 <span class="writing--commnetProfileBox__profileName">${reply.memberNickname}</span>
             </th>
             <td class="writing--commentContentBox">${reply.replyContent}</td>
+            <c:if test="${reply.updateDate == null}" >
             <td class="writing--commentDateBox">${reply.replyDate}</td>
+            </c:if>
+            <c:if test="${reply.updateDate != null}" >
+            <td class="writing--commentDateBox">${reply.updateDate}에 수정</td>
+            </c:if>
+
             <td class="writing--commentBtnBox">
                 <%-- <form action="#" method="get">
                     <a href="#"> --%>

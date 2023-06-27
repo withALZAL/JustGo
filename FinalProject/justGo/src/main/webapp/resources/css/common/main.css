@@ -250,3 +250,10 @@
     background-color: #8B89FF;
 }
 
+/* 예비 ----------------------------------------------- */
+
+/* 예비 조정 */
+.common--temp {
+    margin: 10px 30px 10px 30px;
+    display: grid;
+}

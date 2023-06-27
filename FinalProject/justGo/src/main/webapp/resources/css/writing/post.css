@@ -140,6 +140,7 @@ tr img {
     max-width: 600px;
     text-align: left;
     padding: 0 10px 0;
+    white-space: pre-wrap;
 }
 
 /* 댓글 작성일 박스 조정 */
@@ -195,4 +196,10 @@ tr img {
     height: 90px;
     resize: none;
     margin-top : 20px;
+}
+
+/* 좋아요 */
+#boardLike {
+    cursor: pointer;
+    
 }

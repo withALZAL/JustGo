@@ -65,17 +65,11 @@
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="https://www.naver.com">
-                
-
-                <c:if test="${not empty param.query}" >
-                    <h3 style="margin:30px">${boardName}/"${param.query}"검색결과</h3>
-                </c:if>
-                <c:if test="${empty param.query}" >
-                    <h3> ${boardName}</h3>
-                </c:if>
-            </a>
-
+                ${boardName}
+            </div>
+            <c:if test="${not empty param.query}">
+                <div class="template--overlayedSearch">'${param.query} <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
+            </c:if>
         </div>
     </div>
 </div>
@@ -88,7 +82,7 @@
 <div class="board--contentBox">
     <div class="board--contentBox__top">
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
-        <form action="#" method="get">
+        <form id="tagForm" action="#" method="get">
             <c:forEach items="${tagAllList}" var="tag">
             <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
@@ -130,7 +124,7 @@
                 <tr>
                     <td>${board.boardNo}</td>
                     <td>${board.tagContent}</td>
-                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                    <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>
                     <td>${board.readCount}</td>
@@ -206,7 +200,9 @@
                     </form>
             <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
+                <a href="/writing/writingBoard">
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                </a>
             </c:if>
             </form>
         </div>

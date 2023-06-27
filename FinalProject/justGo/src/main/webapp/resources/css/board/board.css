@@ -465,3 +465,13 @@
     background-color: powderblue;
     color: black;
 }
+
+
+#tagForm div{
+    cursor: pointer;
+}
+
+#tagForm div:hover{
+    background-color: cornflowerblue;
+    border-radius: 10%;
+}
