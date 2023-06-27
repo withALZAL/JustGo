@@ -65,17 +65,11 @@
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="https://www.naver.com">
-                
-
-                <c:if test="${not empty param.query}" >
-                    <h3 style="margin:30px">${boardName}/"${param.query}"검색결과</h3>
-                </c:if>
-                <c:if test="${empty param.query}" >
-                    <h3> ${boardName}</h3>
-                </c:if>
-            </a>
-
+                ${boardName}
+            </div>
+            <c:if test="${not empty param.query}">
+                <div class="template--overlayedSearch">'${param.query} <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
+            </c:if>
         </div>
     </div>
 </div>
