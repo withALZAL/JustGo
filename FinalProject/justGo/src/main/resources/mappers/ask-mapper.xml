@@ -175,6 +175,7 @@
 	<select id="getAskListCount" parameterType="Feedback" resultType="_int">
 	 	SELECT COUNT(*) FROM FEEDBACK 
 	 	WHERE MEMBER_NO =#{memberNo}
+	 	AND FEEDBACK_DEL_FL ='N'
 	 </select>
 	 
 	 <!-- 로그인한 회원의 1:1문의목록 조회 -->

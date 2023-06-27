@@ -188,6 +188,7 @@
 	 <!-- 1:1문의 수 조회 -->
 	<select id="getAskListCount" parameterType="Feedback" resultType="_int">
 	 	SELECT COUNT(*) FROM FEEDBACK 
+	 	WHERE FEEDBACK_DEL_FL ='N'
 	 </select>
 	 
 	 <!-- 1:1문의목록 조회 -->
