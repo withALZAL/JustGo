@@ -82,9 +82,7 @@ ${map.managerAnswerList} --%>
                         Q. ${memberAskList.feedbackTitle}
                     </div>
                     <div>${memberAskList.memberNickname} | ${memberAskList.feedbackDate}</div>
-                    <div class="manager--inquiryText">
-                        ${memberAskList.feedbackText}
-                    </div>
+                    <div class="manager--inquiryText">${memberAskList.feedbackText}</div>
                 </div>
 
             <c:choose>
@@ -99,6 +97,7 @@ ${map.managerAnswerList} --%>
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <button class="manager--askListBTN" onclick="history.back()">목록</button>
+                            <button class="manager--askListBTN" id="askDeleteBtn">삭제</button>
                         </div>
                     </div>
                 </c:when>
@@ -110,9 +109,7 @@ ${map.managerAnswerList} --%>
                         <div class="manager--managerArea" id="manager--answerManager">
                             ${managerAnswerList.managerNickname} | ${managerAnswerList.feedback_CF_Date}
                         </div>
-                        <div class="manager--answerTextBefore" id="manager--answerText">
-                            ${managerAnswerList.adminText}
-                        </div>
+                        <div class="manager--answerTextBefore" id="manager--answerText">${managerAnswerList.adminText}</div>
                         <div class="manager--answerBtns" id="manager--aBtns">
                             <button class="manager--askListBTN" onclick="history.back()">목록</button>
                         </div>

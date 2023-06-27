@@ -153,7 +153,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		feedback.setAdminText(Util.XSSHandling(feedback.getAdminText()));
 		
-		System.out.println(feedback);
+//		System.out.println(feedback);
 		
 		int result = dao.insertManagerAnswer(feedback);
 //		System.out.println("result :" +result);
