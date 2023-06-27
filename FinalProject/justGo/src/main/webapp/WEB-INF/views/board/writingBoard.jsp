@@ -82,7 +82,7 @@
                 </div>
             </div>
         <div class="writing--inputContentBox">
-            <textarea class="writing--summernoteBox" id="summernote" name="boardText"></textarea>
+            <textarea class="writing--summernoteBox" id="summernote" name="boardText" ></textarea>
                 
             </textarea>
         <div class="writing--ButtonBox">
@@ -144,11 +144,6 @@
 
 <%-- summernote --%>
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-    </script>
-    <script>
         $('#summernote').summernote({
             placeholder: '여기에 내용을 작성해주세요.',
             tabsize: 2,
@@ -183,9 +178,6 @@
         });
     </script>
 
-    <script>
-         $('#summernote').summernote('fontSize', '22');
-    </script>
 
     <script>
         function uploadSummernoteImageFile(file, el) {

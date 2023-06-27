@@ -131,6 +131,9 @@ public class BoardController {
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
 			@RequestParam Map<String, Object> paramMap) {
 
+		model.addAttribute("boardCode", 1);
+		
+		
 		List<Board> tagAllList = service.tagList();
 		model.addAttribute("tagAllList", tagAllList);
 		
