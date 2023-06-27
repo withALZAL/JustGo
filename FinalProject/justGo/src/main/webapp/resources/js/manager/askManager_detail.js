@@ -96,8 +96,6 @@ answerBtn.addEventListener("click",() => {
             console.log(result)
             if(result > 0){
                 alert("1:1문의 답변이 등록되었습니다.");
-                // selectManagerAnswerList();
-
                 location.reload();
 
             }else{

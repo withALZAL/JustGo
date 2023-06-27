@@ -54,6 +54,7 @@
 		<result property="feedbackDate" column="FEEDBACK_DATE" />
 		<result property="adminText" column="ADMIN_TEXT" />
 		<result property="feedback_CF_FL" column="CONFIRM_FL" />
+		<result property="feedback_DEL_FL" column="FEEDBACK_DEL_FL" />
 		<result property="feedback_CF_Date" column="CONFIRM_DATE" />
 		
 	</resultMap>
@@ -182,6 +183,7 @@
 		FROM FEEDBACK
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE MEMBER_NO = #{memberNo}
+		AND FEEDBACK_DEL_FL ='N'
 		ORDER BY FEEDBACK_NO DESC
 	 </select>
 	 
@@ -238,6 +240,12 @@
 		WHERE FEEDBACK_NO = #{feedbackNo}
 	 </update>
 	 
-	 
+	 <!-- 1:1문의 삭제 -->
+	<update id="deleteAsk">
+		UPDATE "FEEDBACK" SET
+		FEEDBACK_DEL_FL ='Y'
+		WHERE FEEDBACK_NO = #{feedbackNo}
+		AND MEMBER_NO = #{memberNo}
+	</update>
 
 </mapper>

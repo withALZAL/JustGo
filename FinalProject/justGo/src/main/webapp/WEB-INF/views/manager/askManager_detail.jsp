@@ -114,7 +114,7 @@ ${map.managerAnswerList} --%>
                         </div>
                         <div class="manager--answerTextBefore" id="manager--answerText">${managerAnswerList.adminText}</div>
                         <div class="manager--answerBtns" id="manager--aBtns">
-                            <a href="/manager/askManager/">
+                            <a href="/manager/askManager">
                                 <button type="button" class="manager--askListBTN">목록</button>
                             </a>
                         </div>

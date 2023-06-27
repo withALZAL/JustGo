@@ -118,7 +118,7 @@ public class AskController {
 
 		ra.addFlashAttribute("message", message);
 
-		System.out.println(path);
+//		System.out.println(path);
 
 		
 		 
@@ -126,46 +126,52 @@ public class AskController {
 	}
 
 	
-	/*
+	
 	// 로그인한 회원의 1:1문의 삭제
-	@PostMapping("/write")
-	public int (
+	@GetMapping("/boardAsk_detail/{feedbackNo}/delete")
+	public String deleteAsk(
 			Feedback feedback
 			, @SessionAttribute("loginMember") Member loginMember
+			, @PathVariable("feedbackNo") int feedbackNo
 			, RedirectAttributes ra
 			, HttpSession session
 			) throws IllegalStateException, IOException{
 		
 		// 로그인한 회원 번호를 얻어와 feedback에 세팅
+		
+		
+		
 		feedback.setMemberNo(loginMember.getMemberNo());
+		feedback.setFeedbackNo(feedbackNo);
+	
 		
-//			System.out.println(feedback);
+//		System.out.println(feedback);
 		
-		int result = service1.insertAsk(feedback);
-
+		int result = service1.deleteAsk(feedback);
+		
+//		System.out.println("result :" +result);
 		
 		String message = null;
 		String path = "redirect:/";
-		
+	
 		
 		if (result > 0) { // 성공 시
-			int feedbackNo = feedback.getFeedbackNo();
 			
-			message = "1:1문의 등록 성공";
-			path += "ask/boardAsk_detail/" + feedbackNo;
+			message = "1:1문의 삭제 성공";
+			path += "ask/boardAsk/" + loginMember.getMemberNo();
 
 		} else {
-			message = "1:1문의 등록 실패.......";
-			path += "ask/writingAsk"; // 게시글 쓰는 화면
+			message = "1:1문의 삭제 실패.......";
+			path += "ask/boardAsk_detail/" + feedbackNo; 
 		}
 
 		ra.addFlashAttribute("message", message);
 
-		System.out.println(path);
+//		System.out.println(path);
 
 		
 		 
 		return path;
 	}
-	*/
+
 }

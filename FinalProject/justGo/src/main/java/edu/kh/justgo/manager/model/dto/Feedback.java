@@ -21,6 +21,7 @@ public class Feedback {
 	private String adminText;
 	private String feedback_CF_FL;
 	private String feedback_CF_Date;
+	private String feedback_DEL_FL;
 
 	private String memberNickname;
 	private String managerNickname;
