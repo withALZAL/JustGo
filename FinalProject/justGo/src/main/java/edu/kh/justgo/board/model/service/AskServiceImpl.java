@@ -1,5 +1,7 @@
 package edu.kh.justgo.board.model.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,15 @@ public class AskServiceImpl implements AskService{
 		
 		int result = dao.insertAsk(feedback);
 		return result;
+	}
+	
+	
+
+	// 로그인한 회원의 1:1문의 삭제
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int deleteAsk(Feedback feedback) {
+		return dao.deleteAsk(feedback);
 	}
 	
 }

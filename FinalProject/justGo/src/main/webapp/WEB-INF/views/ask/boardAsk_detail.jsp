@@ -31,7 +31,6 @@ ${map.managerAnswerList} --%>
 
 
 
-
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -96,8 +95,8 @@ ${map.managerAnswerList} --%>
                             빠른시일 내에 답변드리겠습니다. 잠시만 기다려주세요.
                         </div>
                         <div class="manager--answerBtns" id="manager--aBtns">
-                            <button class="manager--askListBTN" onclick="history.back()">목록</button>
-                            <button class="manager--askListBTN" id="askDeleteBtn">삭제</button>
+                            <a href="/ask/boardAsk/${loginMember.memberNo}"><button class="manager--askListBTN" onclick="history.back()">목록</button></a>
+                            <a href="/ask/boardAsk_detail/${memberAskList.feedbackNo}/delete"><button type="button" class="manager--askListBTN" id="askDeleteBtn">삭제</button></a>
                         </div>
                     </div>
                 </c:when>
@@ -111,7 +110,7 @@ ${map.managerAnswerList} --%>
                         </div>
                         <div class="manager--answerTextBefore" id="manager--answerText">${managerAnswerList.adminText}</div>
                         <div class="manager--answerBtns" id="manager--aBtns">
-                            <button class="manager--askListBTN" onclick="history.back()">목록</button>
+                            <a href="/ask/boardAsk/${loginMember.memberNo}"><button class="manager--askListBTN">목록</button></a>
                         </div>
                     </div>
                 </c:otherwise>
@@ -170,6 +169,6 @@ ${map.managerAnswerList} --%>
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-    <%-- <script src="/resources/js/board/boardAsk_detail.js"></script> --%>
+    <script src="/resources/js/board/boardAsk_detail.js"></script>
 </body>
 </html>
