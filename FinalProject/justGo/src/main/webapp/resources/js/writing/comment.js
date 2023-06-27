@@ -1,5 +1,4 @@
 // 댓글 목록 조회
-
 function selectReplyList(){
 
     fetch("/comment?boardNo="+boardNo)
@@ -12,7 +11,6 @@ function selectReplyList(){
         replyList.innerHTML="";
 
         // rList에 저장된 요소 하나씩 접근
-
         for(let reply of rList){
 
             // 행
@@ -22,7 +20,7 @@ function selectReplyList(){
             // 답글일 경우 자식 클래스 추가
             if(reply.parentReplyNo != 0) replyRow.classList.add("child-reply");
 
-
+            // 답글인 경우
             if(replyRow.classList.contains("child-reply")){
             // 작성자 
             const replyWriter = document.createElement("th");
@@ -50,7 +48,6 @@ function selectReplyList(){
                 profileImage.setAttribute("src",reply.profileImage);
             } else{
                 profileImage.setAttribute("src","/resources/images/officialProfile/COMMONPROFILE.png");
-
             }
             
             // 닉네임
@@ -71,8 +68,7 @@ function selectReplyList(){
             // 작성일
             const replyDate = document.createElement("td");
             replyDate.classList.add("writing--commentDateBox");
-            replyDate.innerHTML = reply.replyDate; 
-
+            replyDate.innerHTML = reply.replyDate;
 
             // 행에 작성자 내용 추가 
             replyRow.append(replyWriter,replyContent,replyDate);
@@ -91,6 +87,15 @@ function selectReplyList(){
                 childReplyBtn.setAttribute("onclick", "showInsertComment("+reply.replyNo+", this)");
                 childReplyBtn.innerText= "답글";
 
+                // childReplyBtn.style.marginLeft = "2px"; /* 상준 */
+                // childReplyBtn.style.marginRight = "2px"; /* 상준 */
+                // childReplyBtn.style.paddingRight = "6px"; /* 상준 */
+                // childReplyBtn.style.paddingLeft = "6px"; /* 상준 */
+                // childReplyBtn.style.paddingTop = "1px"; /* 상준 */
+                // childReplyBtn.style.paddingBottom = "1px"; /* 상준 */
+                // childReplyBtn.style.border = "none"; /* 상준 */
+
+
 
                 // 버튼 영역에 답글 버튼 추가
                 btnArea.append(childReplyBtn);
@@ -103,16 +108,31 @@ function selectReplyList(){
                     updateBtn.classList.add("btn-sm");
                     updateBtn.innerText = "수정";
 
+                    // updateBtn.style.marginLeft = "2px"; /* 상준 */
+                    // updateBtn.style.marginRight = "2px"; /* 상준 */
+                    // updateBtn.style.paddingRight = "6px"; /* 상준 */
+                    // updateBtn.style.paddingLeft = "6px"; /* 상준 */
+                    // updateBtn.style.paddingTop = "1px"; /* 상준 */
+                    // updateBtn.style.paddingBottom = "1px"; /* 상준 */
+                    // updateBtn.style.border = "none"; /* 상준 */
+
                     // 수정버튼에 이벤트 추가
                     updateBtn.setAttribute("onclick", "showUpdateComment("+reply.replyNo+", this)");
                     
                     // 삭제버튼
                     const deleteBtn = document.createElement("button");
                     deleteBtn.classList.add("btn");
-                    deleteBtn.classList.add("btn-primary");
+                    deleteBtn.classList.add("btn-danger");
                     deleteBtn.classList.add("btn-sm");
                     deleteBtn.innerText = "삭제";
 
+                    // deleteBtn.style.marginLeft = "2px"; /* 상준 */
+                    // deleteBtn.style.marginRight = "2px"; /* 상준 */
+                    // deleteBtn.style.paddingRight = "6px"; /* 상준 */
+                    // deleteBtn.style.paddingLeft = "6px"; /* 상준 */
+                    // deleteBtn.style.paddingTop = "1px"; /* 상준 */
+                    // deleteBtn.style.paddingBottom = "1px"; /* 상준 */
+                    // deleteBtn.style.border = "none"; /* 상준 */
 
                     // 삭제 버튼에 onclick 이벤트 속성 추가
                     deleteBtn.setAttribute("onclick", "deleteComment("+reply.replyNo+")");                       
@@ -195,6 +215,14 @@ function selectReplyList(){
                     childReplyBtn.classList.add("btn-sm");
                     childReplyBtn.setAttribute("onclick", "showInsertComment("+reply.replyNo+", this)");
                     childReplyBtn.innerText= "답글";
+
+                    // childReplyBtn.style.marginLeft = "2px"; /* 상준 */
+                    // childReplyBtn.style.marginRight = "2px"; /* 상준 */
+                    // childReplyBtn.style.paddingRight = "6px"; /* 상준 */
+                    // childReplyBtn.style.paddingLeft = "6px"; /* 상준 */
+                    // childReplyBtn.style.paddingTop = "1px"; /* 상준 */
+                    // childReplyBtn.style.paddingBottom = "1px"; /* 상준 */
+                    // childReplyBtn.style.border = "none"; /* 상준 */
     
                     // 버튼 영역에 답글 버튼 추가
                     btnArea.append(childReplyBtn);
@@ -207,16 +235,32 @@ function selectReplyList(){
                         updateBtn.classList.add("btn-sm");
                         updateBtn.innerText = "수정";
     
+                        // updateBtn.style.marginLeft = "2px"; /* 상준 */
+                        // updateBtn.style.marginRight = "2px"; /* 상준 */
+                        // updateBtn.style.paddingRight = "6px"; /* 상준 */
+                        // updateBtn.style.paddingLeft = "6px"; /* 상준 */
+                        // updateBtn.style.paddingTop = "1px"; /* 상준 */
+                        // updateBtn.style.paddingBottom = "1px"; /* 상준 */
+                        // updateBtn.style.border = "none"; /* 상준 */
+
                         // 수정버튼에 이벤트 추가
                         updateBtn.setAttribute("onclick", "showUpdateComment("+reply.replyNo+", this)");
                         
                         // 삭제버튼
                         const deleteBtn = document.createElement("button");
                         deleteBtn.classList.add("btn");
-                        deleteBtn.classList.add("btn-primary");
+                        deleteBtn.classList.add("btn-danger");
                         deleteBtn.classList.add("btn-sm");
                         deleteBtn.innerText = "삭제";
     
+                        // deleteBtn.style.marginLeft = "2px"; /* 상준 */
+                        // deleteBtn.style.marginRight = "2px"; /* 상준 */
+                        // deleteBtn.style.paddingRight = "6px"; /* 상준 */
+                        // deleteBtn.style.paddingLeft = "6px"; /* 상준 */
+                        // deleteBtn.style.paddingTop = "1px"; /* 상준 */
+                        // deleteBtn.style.paddingBottom = "1px"; /* 상준 */
+                        // deleteBtn.style.border = "none"; /* 상준 */
+
                         // 삭제 버튼에 onclick 이벤트 속성 추가
                         deleteBtn.setAttribute("onclick", "deleteComment("+reply.replyNo+")");                       
     
@@ -638,7 +682,7 @@ function insertChildComment(parentReplyNo, btn){
 // 부모 댓글은 누구?    parentNo (매개변수)
 
 // 답글 내용
-    const replyContent = btn.parentElement.previousElementSibling.value;
+    const replyContent = btn.parentElement.previousElementSibling.firstChild.value;
 
     // 답글 내용이 작성되지 않은 경우
     if(replyContent.trim().length == 0){
