@@ -63,14 +63,19 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
-        <div class="template--overlayedTitle" style="color: black;">
+        <c:if test="${empty param.query}">
+            <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
+            <div class="template--overlayedTitle" style="color: black;">
                 ${boardName}
             </div>
-            <c:if test="${not empty param.query}">
-                <div class="template--overlayedSearch">'${param.query} <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
-            </c:if>
+        </c:if>
+        <c:if test="${not empty param.query}">
+        <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
+        <div class="template--overlayedTitle" style="color: black;">
+            ${boardName}
         </div>
+        <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
+        </c:if>
     </div>
 </div>
 <!-- 페이지 제목 끝 -->
