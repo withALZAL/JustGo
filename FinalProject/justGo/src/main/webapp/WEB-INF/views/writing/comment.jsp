@@ -48,46 +48,46 @@
 <div class="writing--commentBox">
     
     <table class="writing--commentTable" >
-    <tbody id="replyList">
-        <c:forEach items="${board.replyList}" var="reply">
-        <tr id="re" class="reply-row <c:if test='${reply.parentReplyNo!=0}'>child-reply
-        </c:if>">
-            <th class="writing--commentProfileBox">
-                <c:if test="${reply.parentReplyNo!=0}" >
-                <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
-                </c:if>
-                <span class="writing--commentProfileBox__profileImage">
-                    <c:if test="${empty reply.profileImage}" >
-                        <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
+        <tbody id="replyList">
+            <c:forEach items="${board.replyList}" var="reply">
+            <tr id="re" class="reply-row <c:if test='${reply.parentReplyNo!=0}'>child-reply
+            </c:if>">
+                <th class="writing--commentProfileBox">
+                    <c:if test="${reply.parentReplyNo!=0}" >
+                    <span class="writing--commentProfileBox__reply"><i class="fa-solid fa-reply fa-rotate-180"></i></span>
                     </c:if>
-                    <c:if test="${!empty reply.profileImage}" >
-                        <img src="${reply.profileImage}">
-                    </c:if>
-                </span>
-                <span class="writing--commnetProfileBox__profileName">${reply.memberNickname}</span>
-            </th>
-            <td class="writing--commentContentBox">${reply.replyContent}</td>
-            <c:if test="${reply.updateDate == null}" >
-            <td class="writing--commentDateBox">${reply.replyDate}</td>
-            </c:if>
-            <c:if test="${reply.updateDate != null}" >
-            <td class="writing--commentDateBox">${reply.updateDate}에 수정</td>
-            </c:if>
-
-            <td class="writing--commentBtnBox">
-                <%-- <form action="#" method="get">
-                    <a href="#"> --%>
-                        <button onclick="showInsertComment(${reply.replyNo},this)" class="commentBtn comment--reply">답글</button>
-                        <c:if test="${loginMember.memberNo == reply.memberNo}" >
-                        <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
-                        <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
+                    <span class="writing--commentProfileBox__profileImage">
+                        <c:if test="${empty reply.profileImage}" >
+                            <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
                         </c:if>
-                    <%-- </a>
-                </form> --%>
-            </td>
-        </tr>
-        </c:forEach>
-    </tbody>
+                        <c:if test="${!empty reply.profileImage}" >
+                            <img src="${reply.profileImage}">
+                        </c:if>
+                    </span>
+                    <span class="writing--commentProfileBox__profileName">${reply.memberNickname}</span>
+                </th>
+                <td class="writing--commentContentBox">${reply.replyContent}</td>
+                <c:if test="${reply.updateDate == null}" >
+                <td class="writing--commentDateBox">${reply.replyDate}</td>
+                </c:if>
+                <c:if test="${reply.updateDate != null}" >
+                <td class="writing--commentDateBox">${reply.updateDate}에 수정</td>
+                </c:if>
+
+                <td class="writing--commentBtnBox">
+                    <%-- <form action="#" method="get">
+                        <a href="#"> --%>
+                            <button onclick="showInsertComment(${reply.replyNo},this)" class="commentBtn comment--reply">답글</button>
+                            <c:if test="${loginMember.memberNo == reply.memberNo}">
+                            <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
+                            <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
+                            </c:if>
+                        <%-- </a>
+                    </form> --%>
+                </td>
+            </tr>
+            </c:forEach>
+        </tbody>
         
 
         <%-- <tr>

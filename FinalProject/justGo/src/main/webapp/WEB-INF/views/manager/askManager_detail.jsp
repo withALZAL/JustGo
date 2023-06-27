@@ -178,6 +178,10 @@ ${map.managerAnswerList} --%>
     <script src="/resources/js/manager/askManager_detail.js"></script>
     <script>
         const feedbackNo = ${feedbackNo};
+
+        // const adminNickname = ${managerAnswerList.managerNickname} 
+        // const feedbackCFDate = ${managerAnswerList.feedback_CF_Date}
+        // const adminText = ${managerAnswerList.adminText}
         
     </script>
 </body>

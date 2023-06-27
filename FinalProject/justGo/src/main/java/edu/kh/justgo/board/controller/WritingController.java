@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -46,13 +47,16 @@ public class WritingController {
 
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
-	public String writingBoard(Model model) {
+	public String writingBoard(Model model
+			) {
+		
 		
 		List<Board> writingList = boardService.writingList();
 		List<Board> boardTypeList3 = boardService.boardTypeList3();
 		
 		model.addAttribute("writingList", writingList);
 		model.addAttribute("boardTypeList3", boardTypeList3);
+		
 		
 		
 		return "board/writingBoard";
@@ -75,6 +79,7 @@ public class WritingController {
 			, RedirectAttributes ra
 			,HttpSession session,Model model) throws IllegalStateException, IOException {
 		
+		
 		// 로그인한 회원 번호를 얻어와 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
 		
@@ -95,14 +100,13 @@ public class WritingController {
 			int boardNo = board.getBoardNo();
 			
 			message = "게시글 등록 성공";
-			
-			
 	
 			if(board.getBoardCode() != 1) {
 				path += "board/" + board.getBoardCode() + "/" + boardNo;
 			}else {
 				path += "board/1/" + board.getCountryNo() + "/" + boardNo;
 			}
+	
 
 		} else {
 			message = "게시글 등록 실패.......";
@@ -179,6 +183,7 @@ public class WritingController {
 		map.put("boardCode", boardCode);
 		map.put("countryNo", countryNo);
 		map.put("boardNo", boardNo);
+	
 		
 		 
 		Board board = boardService.selectBoard(map);
@@ -210,18 +215,11 @@ public class WritingController {
 		board.setBoardCode(boardCode);
 		board.setBoardNo(boardNo);
 		
-		// board(boardCode, boardNo, boardTitle, boardText)
 		
-		// 2) 이미지 서버 저장 경로, 웹 접근 경로
-		
-		
-		// 나중에 map 묶어서 보내야됨
-		
-		
-		// 3) 게시글 수정 서비스 호출
+		// 2) 게시글 수정 서비스 호출
 		int result  = service.writingUpdate(board);
 		
-		// 4) 결과에 따라 message 설정
+		// 3) 결과에 따라 message 설정
 		String message = null;
 		String path = "redirect:";
 		
@@ -255,18 +253,11 @@ public class WritingController {
 			board.setBoardNo(boardNo);
 			board.setCountryNo(countryNo);
 			
-			// board(boardCode, boardNo, boardTitle, boardText)
 			
-			// 2) 이미지 서버 저장 경로, 웹 접근 경로
-			
-			
-			// 나중에 map 묶어서 보내야됨
-			
-			
-			// 3) 게시글 수정 서비스 호출
+			// 2) 게시글 수정 서비스 호출
 			int result  = service.writingUpdate2(board);
 			
-			// 4) 결과에 따라 message 설정
+			// 3) 결과에 따라 message 설정
 			String message = null;
 			String path = "redirect:";
 			

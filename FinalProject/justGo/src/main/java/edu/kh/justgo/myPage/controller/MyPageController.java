@@ -130,16 +130,11 @@ public class MyPageController {
 			Model model
 			) {
 		
-			System.out.println("loginMember.getMemberNo():"+loginMember.getMemberNo()); // 잘 담김
-			System.out.println("cp:"+cp); 		// 잘 담김
-		
 		int memberNo = loginMember.getMemberNo();
 		
 		Map<String, Object> map = service.myPost(memberNo, cp);
 		
 		model.addAttribute("map", map);
-		
-			System.out.println(model); // 잘 담김
 		
 		return "/account/myPage-myWriting";
 	}

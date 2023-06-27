@@ -62,9 +62,17 @@
                 <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
-                       <c:forEach items="${writingList}" var="writing">
-                            <option value="${writing.boardCode}" class="b" >${writing.boardName}</option>
-                       </c:forEach>
+                    <c:forEach var="writing" items="${writingList}">
+                        <c:choose>
+                        <c:when test="${writing.type == '1'}">
+                                <option value="${writing.boardCode}" class="b" >${writing.boardName}</option>
+                        </c:when>
+                        <c:otherwise>
+                                <option value="${writing.boardCode}">${writing.boardName}</option>
+                        </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    
                     </select>
                     <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
                         <c:forEach items="${boardTypeList3}" var="tag">
@@ -115,6 +123,24 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/writing/writingBoard.js"></script>
+    <script src="/resources/js/writing/writingUpdate.js"></script>
+
+    <script>
+        const boardCode = "${param.boardCode}";  
+        const countryNo = "${param.countryNo}"; 
+        /* const boardCode = "${param.boardCode}";: JSP 페이지에서 전달된 boardCode라는 매개변수 값을 JavaScript 
+        변수 boardCode에 할당 
+        ${param.boardCode}는 JSP 내장 객체인 param을 통해 전달된 boardCode 매개변수의 값을 가져오는 역할
+        예를 들면, http://localhost/writing/writingBoard?boardCode=1&countryNo=1와 
+        같은 URL에서 boardCode의 값은 1 
+        
+        const countryNo = "${param.countryNo}";: JSP 페이지에서 전달된 countryNo라는 매개변수 값을 
+        JavaScript 변수 countryNo에 할당 
+        ${param.countryNo}는 JSP 내장 객체인 param을 통해 전달된 countryNo 매개변수의 값을 가져오는 역할
+        예를 들면, http://localhost/writing/writingBoard?boardCode=1&countryNo=1와 같은 URL에서 countryNo의 값은 1이 된다
+        즉, 위 코드는 JSP 페이지에서 URL 매개변수인 boardCode와 countryNo의 값을 JavaScript 변수로 가져와서 활용할 수 있도록 할당하는 역할을 한다*/
+    
+    </script>
 
 <%-- summernote --%>
     <script>
@@ -141,14 +167,16 @@
             fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50'],
             callbacks: { // callback : 일을 받으면 그 일을 처리해서 back 하겠다.
                 onImageUpload : function(files, editor, welEditable){
-                    console.log(files);
-                    console.log(editor);
-                    console.log(welEditable);
+                    console.log(files); // 업로드한 이미지 파일
+                    console.log(editor); //  내용,스타일,포커스를 제어하는 사용 
+                    console.log(welEditable); // 이미지 파일과 내용을 가져오거나 수정할 수 있는 코드
                     console.log(this);
                     
                    // 파일 업로드(다중업로드를 위해 반복문 사용)
                     for (var i = files.length - 1; i >= 0; i--) {
                         uploadSummernoteImageFile(files[i],this);
+
+
                     }
                 }
             } 

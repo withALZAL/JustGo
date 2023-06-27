@@ -59,9 +59,9 @@ public class EmailController {
         int result = service.pwConfirm(newPw);
   
     	if(result > 0) {
-    		message = "비밀번호가 변경되었습니다";
+    		message = "비밀번호가 변경되었습니다.";
     	} else {
-    		message = "비밀번호 변경 실패";
+    		message = "비밀번호에 실패했습니다.";
     	}
 
    

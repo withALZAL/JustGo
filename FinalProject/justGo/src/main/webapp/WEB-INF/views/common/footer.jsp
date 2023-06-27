@@ -66,11 +66,19 @@
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
     <c:if test="${!empty sessionScope.loginMember}">
-        <a href="/writing/writingBoard"> <%-- 글쓰기 버튼 --%>
-            <button>
+    <%-- <form action="/writing/writingBoard" method="get">
+        <button type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
+        <input type="hidden" name="boardCode" value="1">    
+        <input type="hidden" name="countryNo" value="${countryNo}">    
+    </form> --%>
+        <form action="/writing/writingBoard" method="get"> <%-- 글쓰기 버튼 --%>
+            <button type="submit">
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
-        </a>
+            <input type="hidden" name="boardCode" value="1">
+            <input type="hidden" name="countryNo" value="${countryNo}">
+        </form>
+
     </c:if>
         <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>

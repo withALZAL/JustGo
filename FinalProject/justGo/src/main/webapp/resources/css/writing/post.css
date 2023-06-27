@@ -99,7 +99,6 @@
 /* 댓글 정렬 */
 .writing--commentTable {
     border-top: 1px solid #D9D9D9;
-    border-bottom: 1px solid #D9D9D9;
     width: 1100px;
 }
 .writing--commentTable tr {
@@ -156,9 +155,6 @@ tr img {
     padding-right: 5px;
 }
 
-
-
-
 /* 댓글 달기 */
 .writing--commentInput {
     width: 1000px;
@@ -182,13 +178,12 @@ tr img {
 
 /* 대댓글 ----------------------------------------------- */
 
-
+/* 대댓글 창 조정 */
 .update-textarea{
 	width: 100%;
     height: 90px;
     resize: none;
 }
-
 
 /* 답글 */
 .commentInsertContent{
@@ -201,5 +196,4 @@ tr img {
 /* 좋아요 */
 #boardLike {
     cursor: pointer;
-    
 }

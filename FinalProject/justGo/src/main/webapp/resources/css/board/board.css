@@ -338,6 +338,7 @@
     max-height: 400px;
     overflow: auto;
     font-size: 1.2rem;
+    white-space: pre-wrap;
 }
 
 /* 답변 박스 */

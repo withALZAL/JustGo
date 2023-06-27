@@ -5,7 +5,7 @@ function selectReplyList(){
     fetch("/comment?boardNo="+boardNo)
     .then(resp => resp.json())
     .then(rList => {
-        console.log(rList);
+        console.log("rList: "+rList);
 
         // 화면에 출력되어 잇는 댓글 목록을 삭제
         const replyList = document.getElementById("replyList"); // tbody
@@ -55,7 +55,7 @@ function selectReplyList(){
             
             // 닉네임
             const replyNickname = document.createElement("span");
-            replyNickname.classList.add("writing--commnetProfileBox__profileName");
+            replyNickname.classList.add("writing--commentProfileBox__profileName");
             replyNickname.innerText = reply.memberNickname;
             
             // 작성자 영역에 프로필 관련 추가
@@ -158,7 +158,7 @@ function selectReplyList(){
                 
                 // 닉네임
                 const replyNickname = document.createElement("span");
-                replyNickname.classList.add("writing--commnetProfileBox__profileName");
+                replyNickname.classList.add("writing--commentProfileBox__profileName");
                 replyNickname.innerText = reply.memberNickname;
                 
                 // 작성자 영역에 프로필 관련 추가
@@ -262,13 +262,13 @@ addReply.addEventListener("click",e =>{
 
     // 로그인 여부 전역변수 사용
     if(loginMemberNo == ""){
-        alert("로그인 후 이용해주세요!!!");
+        alert("로그인 후 이용해주세요.");
         return;
     }
 
     // 2) 댓글 작성이 되어있나?
     if(replyContent.value.trim().length == 0){
-        alert("댓글을 입력해주세요!!!");
+        alert("댓글을 입력해주세요.");
 
         replyContent.value = "";
         replyContent.focus();
@@ -289,13 +289,13 @@ addReply.addEventListener("click",e =>{
     .then(resp => resp.text())
     .then(result => {
         if(result > 0){ // 댓글 등록
-            alert("댓글이 등록되었습니다!!!");
+            alert("댓글이 등록되었습니다.");
 
             replyContent.value = "";
             selectReplyList();
 
         } else { // 실패
-            alert("댓글 등록에 실패했습니다...왜죠...?");
+            alert("댓글 등록에 실패했습니다.");
 
         }
     })
@@ -312,7 +312,7 @@ addReply.addEventListener("click",e =>{
 
 function deleteComment(replyNo){
 
-    if(confirm("정말 삭제 하시겠습니까?????")){
+    if(confirm("정말 삭제하시겠습니까?")){
 
         fetch("/comment",{
             method : "DELETE",
@@ -323,10 +323,10 @@ function deleteComment(replyNo){
         .then(resp => resp.text())
         .then(result => {
             if(result > 0 ){
-                alert("삭제되었습니다!!");
+                alert("댓글이 삭제되었습니다.");
                 selectReplyList();
             }else{
-                alert("삭제 실패인데요..?")
+                alert("댓글 삭제에 실패했습니다.")
             }
 
         })
@@ -498,7 +498,7 @@ function updateComment(replyNo, btn){
             alert("댓글이 수정되었습니다.");
             selectReplyList();
         }else{
-            alert("댓글 수정 실패");
+            alert("댓글 수정에 실패했습니다.");
         }
     })
     .catch(err => console.log(err));
@@ -512,7 +512,7 @@ function showInsertComment(parentReplyNo, btn){
     const temp = document.getElementsByClassName("commentInsertContent");
     
     if(temp.length>0){
-        if(confirm("다른 답글을 작성 중 입니다. 현재 댓글에 답글을 작성하시겠어요?")){
+        if(confirm("다른 답글을 작성 중 입니다. 현재 댓글에 답글을 작성하시겠습니까?")){
             temp[0].nextElementSibling.remove();
             temp[0].remove();
         
@@ -623,7 +623,7 @@ function insertChildComment(parentReplyNo, btn){
     selectReplyList(); // 비동기 댓글 목록 조회 함수 호출
 
     } else { // 실패
-    alert("답글 등록에 실패했습니다...");
+    alert("답글 등록에 실패했습니다.");
     }
     })
     .catch(err => console.log(err));

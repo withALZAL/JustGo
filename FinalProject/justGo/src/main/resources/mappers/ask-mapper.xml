@@ -195,6 +195,7 @@
 		FROM "FEEDBACK"
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE FEEDBACK_NO =#{FeedbackNo}
+		AND FEEDBACK_DEL_FL ='N'
       </select>
       
       
@@ -206,7 +207,7 @@
       	</selectKey>
       
       	INSERT INTO "FEEDBACK"
-		VALUES ( #{feedbackNo}, #{memberNo}, #{feedbackTitle}, #{feedbackText}, DEFAULT, NULL, NULL, DEFAULT, NULL)
+		VALUES ( #{feedbackNo}, #{memberNo}, #{feedbackTitle}, #{feedbackText}, DEFAULT, NULL, NULL, DEFAULT, NULL, DEFAULT)
       
       </insert>
 	 
