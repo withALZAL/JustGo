@@ -522,17 +522,43 @@
 <%-- 예비 칸 시작 --%>
 <div class="common--temp">
     <div class="card">
-        <div class="card-header" style="font-weight: bold; font-size: 20px; backgroud-Color: red;">
+        <div class="card-header" style="font-weight: bold; font-size: 20px;">
             <i class="fa-solid fa-map" style="color: blue;"></i>
-            혹시 모를 예비 칸 확보(혹시 몰라서 만들어 둔 건지 신경 x)
+            지도(혹시 몰라서 만들어 둔 거니까 신경 x)
         </div>
-        <div class="card-body common--moneyBox">
-            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="ddd" style="height: 100px;">
-            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="ddd" style="height: 100px;">
-            연지곤지 응애
+        <div class="card-body common--mapContainer">
+            <div class="common--mapBox">
+                <div style="background-Color: red;"></div>
+                <div style="background-Color: orange;"></div>
+                <div style="background-Color: yellow;"></div>
+            </div>
         </div>
     </div>
 </div>
+<%-- 예비 칸 끝 --%>
+
+
+
+<%-- 예비 칸 시작 --%>
+<%-- <div class="common--temp">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fa-solid fa-map" style="color: blue; font-size:20px; padding-top: 4px;"></i>
+                <div class="common--boardListTitle">GoogleMaps</div>
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="common--mapContainer">
+                    1
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --%>
 <%-- 예비 칸 끝 --%>
 
 
