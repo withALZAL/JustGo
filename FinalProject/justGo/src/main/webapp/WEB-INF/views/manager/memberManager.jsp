@@ -157,12 +157,11 @@
             <form class="manager--contentSearch" action="#" method="get">
                 <a>
                     <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>닉네임</option>
-                        <option>이메일</option>
-                        <option>계정상태</option>
+                        <option value="t">닉네임</option>
+                        <option value="c">이메일</option>
                     </select>
                     <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
                 </a>
             </form>
         </div>
