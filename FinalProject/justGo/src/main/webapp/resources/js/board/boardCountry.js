@@ -48,7 +48,7 @@ function basic2(tagNo,cp) {
                 td2.innerHTML = f.tagContent;
                 const td3 = document.createElement("td");
                 const a1 = document.createElement("a");
-                a1.innerHTML = f.boardTitle;   
+                a1.innerHTML = f.boardTitle + "["+f.commentCount+"]";   
                 a1.href =  `/board/1/${f.countryNo}/${f.boardNo}`;
                 const td4 = document.createElement("td");
                 td4.innerHTML = f.memberNickname;
