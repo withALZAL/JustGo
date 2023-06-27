@@ -58,6 +58,7 @@ answerBtn.addEventListener("click",() => {
     let answerTextarea = document.createElement("textarea");
     answerTextarea.className='manager--answerTextarea';
     answerTextarea.id='manager--textarea';
+    answerTextarea.name='AdminText';
     answerForm.append(answerTextarea);
     answerTextarea.focus();
     
@@ -66,38 +67,57 @@ answerBtn.addEventListener("click",() => {
     answerForm.append(answerBtns);
     
     const answerStartBTN = document.createElement("button");
+    answerStartBTN.setAttribute("type", "button");
     answerStartBTN.className='manager--answerStartBTN';
     // answerStartBTN.disabled=true;
     answerStartBTN.innerText="완료";
     answerBtns.append(answerStartBTN);
     
-    if (answerForm) {
-        answerForm.addEventListener("submit", (e) => {
-            if (answerTextarea.value === "") {
-                alert("답변을 입력해주세요.");
-                answerTextarea.focus();
-                e.preventDefault();
-                return;
-            }
-        });
-    }
+    // if (answerForm) {
+    //     answerForm.addEventListener("submit", (e) => {
+    //         if (answerTextarea.value === "") {
+    //             alert("답변을 입력해주세요.");
+    //             answerTextarea.focus();
+    //             e.preventDefault();
+    //             return;
+    //         }
+    //     });
+    // }
     
+    // 댓글 수정(AJAX)
+    answerStartBTN.addEventListener("click", () => {
+
+        
+        const data = {"feedbackNo" : feedbackNo,
+        "adminText" : answerTextarea.value, 
+        "adminNo" : loginMemberNo 
+        }
+
+        fetch("/manager/askManager_detail/"+ feedbackNo,{
+            method : "post",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify(data)
+            
+            
+        })
+        .then(resp=>resp.text())
+        .then(result => {
+
+            console.log(result)
+            if(result > 0){
+                alert("1:1문의 답변이 등록되었습니다.");
+                // selectManagerAnswerList();
+
+                location.reload();
+            }else{
+                alert("1:1문의 답변 등록 실패");
+            }
+        })
+        .catch(err => console.log(err));
+            
+
+    });
+
     
 });
 
-
-// const managerTextarea = document.getElementsByClassName("manager--textarea");
-// const answerStartBTN = document.getElementsByClassName("manager--answerStartBTN");
-
-
-
-// answerForm.addEventListener("submit", e=>{
-
-//     if(managerTextarea.value === ""){
-//         alert("답변을 입력해주세요.");
-//         managerTextarea.focus();
-//         e.preventDefault();
-//         return;
-//     }
-
-// });

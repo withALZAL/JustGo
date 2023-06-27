@@ -202,3 +202,17 @@ function calcIcon() {
         equalsIcon.style.display = 'inline-block';
     }, 1500);
 }
+
+/* 지도 API ----------------------------------------------- */
+
+const resizableBox = document.getElementById('resizableBox');
+let startHeight = 200;
+let stepSize = 100;
+
+resizableBox.addEventListener('mousemove', (e) => {
+    if (e.buttons === 1) {
+        const mouseY = e.clientY;
+        const newHeight = Math.round(mouseY / stepSize) * stepSize;
+        resizableBox.style.height = `${newHeight}px`;
+    }
+});
