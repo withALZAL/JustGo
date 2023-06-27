@@ -32,7 +32,7 @@ function selectReplyList(){
             const replyChild = document.createElement("span");
             replyChild.classList.add("writing--commentProfileBox__reply");
 
-            // 답글 이미지 
+            // 답글 이미지
             const replyCheck = document.createElement("i");
             replyCheck.classList.add("fa-solid");
             replyCheck.classList.add("fa-reply");
@@ -91,6 +91,7 @@ function selectReplyList(){
                 childReplyBtn.setAttribute("onclick", "showInsertComment("+reply.replyNo+", this)");
                 childReplyBtn.innerText= "답글";
 
+
                 // 버튼 영역에 답글 버튼 추가
                 btnArea.append(childReplyBtn);
 
@@ -111,6 +112,7 @@ function selectReplyList(){
                     deleteBtn.classList.add("btn-primary");
                     deleteBtn.classList.add("btn-sm");
                     deleteBtn.innerText = "삭제";
+
 
                     // 삭제 버튼에 onclick 이벤트 속성 추가
                     deleteBtn.setAttribute("onclick", "deleteComment("+reply.replyNo+")");                       
@@ -378,6 +380,7 @@ function showUpdateComment(replyNo, btn){
                 // 작성자 
                 const replyWriter = document.createElement("th");
                 replyWriter.classList.add("writing--commentProfileBox");
+                replyWriter.innerText = "댓글 수정"; /* 상준 */
     
     
                 // // 프로필 이미지 태그
@@ -432,6 +435,9 @@ function showUpdateComment(replyNo, btn){
     updateBtn.setAttribute("onclick", "updateComment("+replyNo+", this)");
     updateBtn.innerText = "수정";
 
+    updateBtn.style.marginLeft = "2px"; /* 상준 */
+    updateBtn.style.marginRight = "2px"; /* 상준 */
+
 
     const cancelBtn = document.createElement("button");
     cancelBtn.classList.add("btn");
@@ -439,6 +445,9 @@ function showUpdateComment(replyNo, btn){
     cancelBtn.classList.add("btn-sm");
     cancelBtn.setAttribute("onclick", "updateCancel(this)");
     cancelBtn.innerText = "취소";
+
+    cancelBtn.style.marginLeft = "2px"; /* 상준 */
+    cancelBtn.style.marginRight = "2px"; /* 상준 */
 
     textarea.addEventListener("keyup",e=>{
         if(e.keyCode == 27){
@@ -527,13 +536,25 @@ function showInsertComment(parentReplyNo, btn){
     textarea.classList.add("commentInsertContent");
 
     // 답글 부모의 뒤쪽에 칸 추가
+    // const thTemp = document.createElement("th");
+    // thTemp.classList.add("writing--commentProfileBox");
+    // const tdElement = document.querySelector(".writing--commentBtnBox");
+    // tdElement.insertAdjacentElement("afterend", thTemp);
+    // btn.parentElement.nextElementSibling.after(textarea);
+    const trTemp = document.createElement("tr");
+    trTemp.classList.add("reply-row");
     const thTemp = document.createElement("th");
     thTemp.classList.add("writing--commentProfileBox");
-    const tdElement = document.querySelector(".writing--commentBtnBox");
-    tdElement.insertAdjacentElement("afterend", thTemp);
-    btn.parentElement.nextElementSibling.after(textarea);
+    thTemp.innerText = "답글 등록"; /* 상준 */
+    trTemp.appendChild(thTemp);
+    btn.parentElement.parentElement.after(trTemp);
+    
+    const tdTemp = document.createElement("td");
+    trTemp.append(tdTemp);
+    tdTemp.append(textarea);
+    // btn.parentElement.after(textarea); /* 6월 27일 상준 수정 */
 
-    // 7. 버튼 영역 + 수정/취소 버튼 생성
+    // 7. 버튼 영역 + 수정/취소 버튼 생성 /* 6월 27일 상준 추가 수정 */
     const replyBtnArea = document.createElement("td");
     replyBtnArea.classList.add("writing--commentBtnBox");
     
@@ -544,6 +565,8 @@ function showInsertComment(parentReplyNo, btn){
     insertBtn.classList.add("btn-sm");
     insertBtn.setAttribute("onclick", "insertChildComment("+parentReplyNo+", this)");
     insertBtn.innerText = "등록";
+        insertBtn.style.marginLeft = "2px"; /* 상준 */
+        insertBtn.style.marginRight = "2px"; /* 상준 */
     
 
 
@@ -553,12 +576,24 @@ function showInsertComment(parentReplyNo, btn){
     cancelBtn.classList.add("btn-sm");
     cancelBtn.setAttribute("onclick", "insertCancel(this)");
     cancelBtn.innerText = "취소";
+        cancelBtn.style.marginLeft = "2px"; /* 상준 */
+        cancelBtn.style.marginRight = "2px"; /* 상준 */
+
+    /* 상준 추가 작성 */
+    trTemp.append(replyBtnArea);
+    replyBtnArea.append(insertBtn);
+    replyBtnArea.append(cancelBtn);
+    /* 상준 추가 작성 */
+
+
+    /* esc */
     textarea.addEventListener('keyup',e =>{
         if(e.keyCode == 27){
-            cancelBtn.parentElement.previousElementSibling.remove();
-            cancelBtn.parentElement.remove();
+            // cancelBtn.parentElement.previousElementSibling.previousElementSibling.remove();
+            // cancelBtn.parentElement.previousElementSibling.remove();
+            // cancelBtn.parentElement.remove();
+            cancelBtn.parentElement.parentElement.remove(); /* 상준 */
         }
-       
         
     })
     // 엔터키 입력시 등록
@@ -572,18 +607,25 @@ function showInsertComment(parentReplyNo, btn){
         }
     })
 
-    replyBtnArea.append(insertBtn,cancelBtn);
-    textarea.after(replyBtnArea);
+    // replyBtnArea.append(insertBtn,cancelBtn);
+    // textarea.after(replyBtnArea);
 
 
 }
 
 // 답글 취소
 function insertCancel(btn){
+
+
                     // 취소
-    btn.parentElement.previousElementSibling.remove(); // 취소의 부모의 이전 요소(textarea) 제거
-    btn.parentElement.remove(); // 취소의 부모 요소(comment-btn-area) 제거
- 
+    // btn.parentElement.previousElementSibling.previousElementSibling.remove(); // 상준: textarea 전의 아이디 th 제거
+    // btn.parentElement.previousElementSibling.remove(); // 취소의 부모의 이전 요소(textarea) 제거
+    // btn.parentElement.remove(); // 취소의 부모 요소(comment-btn-area) 제거
+    btn.parentElement.parentElement.remove(); /* 상준: 답글 입력창을 담고 있는 tr 제거 */
+    // var row = btn.closest("tr");
+    // row.remove();
+
+    // btn.parentElement.parentElement.innerHTML = beforeReplyRow;
 }
 
 // 답글 등록
