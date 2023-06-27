@@ -249,6 +249,8 @@ public class BoardServiceImpl implements BoardService {
 		// 로그인 한 회원의 1:1문의 갯수 
 		int askListCount = dao.getAskListCount(memberNo);
 		
+//		System.out.println(askListCount);
+		
 		Pagination askPagination = new Pagination(askListCount, cp);
 		
 		List<Feedback> askList = dao.selectAskList(askPagination, memberNo);
@@ -258,7 +260,7 @@ public class BoardServiceImpl implements BoardService {
 		map.put("askPagination", askPagination);
 		map.put("askList", askList);
 		
-//		System.out.println(map);
+		System.out.println(map);
 		
 		return map;
 	}

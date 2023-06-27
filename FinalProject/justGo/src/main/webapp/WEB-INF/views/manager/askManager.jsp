@@ -25,7 +25,7 @@
 
 <c:set var="askPagination" value="${map.askPagination}" />
 <c:set var="askList" value="${map.askList}" />
-<%-- ${map.pagination} --%>
+${map.pagination}
 <%-- ${map.askList} --%>
 
 <c:forEach items="${askList}" var="ask">
@@ -107,7 +107,7 @@
                                     <tr>
                                         <td>${ask.feedbackNo}</td>
                                         <td><form><a href="#">${ask.memberNickname}</a></form></td>
-                                        <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackText}</a></form></td>
+                                        <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}</a></form></td>
                                         <td>${ask.feedbackDate}</td>
                                         <td>${ask.feedback_CF_FL}</td>
                                     </tr>
@@ -135,7 +135,7 @@
                                 <c:forEach var="i" begin="${askPagination.startPage}" end="${askPagination.endPage}" step="1">
                                     <c:choose>
                                         <c:when test="${i==askPagination.currentPage}">
-                                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
+                                            <li class="page-item active" aria-current="page"><a class="page-link" style="background:cornflowerblue; ">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
                                             <li class="page-item"><a class="page-link" href="/manager/askManager?cp=${i}">${i}</a></li>

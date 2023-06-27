@@ -26,8 +26,8 @@
 
 <c:set var="askPagination" value="${map.askPagination}" />
 <c:set var="askList" value="${map.askList}" />
-<%-- ${map.pagination} 
-${map.askList} --%>
+<%-- ${map.pagination}  --%>
+<%--${map.askList} --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -121,34 +121,34 @@ ${map.askList} --%>
 
                                 <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="prev" href="/ask/boardAsk?cp=1">맨 처음</a>
+                                    <a class="page-link" id="prev" href="/ask/boardAsk/${loginMember.memberNo}?cp=1">맨 처음</a>
                                 </li>
 
                                 <%-- 이전 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="prev" href="/ask/boardAsk?cp=${askPagination.prevPage}">이전</a>
+                                    <a class="page-link" id="prev" href="/ask/boardAsk/${loginMember.memberNo}?cp=${askPagination.prevPage}">이전</a>
                                 </li>
 
                                 <%-- 특정 번호 목록 페이지 이동 --%>
                                 <c:forEach var="i" begin="${askPagination.startPage}" end="${askPagination.endPage}" step="1">
                                     <c:choose>
                                         <c:when test="${i==askPagination.currentPage}">
-                                            <li class="page-item"><a class="page-link">${i}</a></li>
+                                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                            <li class="page-item"><a class="page-link" href="/ask/boardAsk?cp=${i}">${i}</a></li>
+                                            <li class="page-item"><a class="page-link" href="/ask/boardAsk/${loginMember.memberNo}?cp=${i}">${i}</a></li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
 
                                 <%-- 다음 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/ask/boardAsk/${memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
+                                    <a class="page-link" id="next" href="/ask/boardAsk/${loginMember.memberNo}?cp=${memberPostPagination.nextPage}">다음</a>
                                 </li>
 
                                 <%-- 맨 끝 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/ask/boardAsk/${memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
+                                    <a class="page-link" id="next" href="/ask/boardAsk/${loginMember.memberNo}?cp=${memberPostPagination.endPage}">맨 끝</a>
                                 </li>
                                 
                             </ul>

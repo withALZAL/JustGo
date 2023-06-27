@@ -26,11 +26,15 @@
 </head>
 <body class="template--body">
 
+
+
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <!-- Template-header 끝 -->
 <!-- ----------------------------------------------- -->
+
+
 
 <!-- Template-main 시작 -->
 <main class="template--main">
