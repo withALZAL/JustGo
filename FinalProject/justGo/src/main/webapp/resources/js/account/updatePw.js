@@ -43,54 +43,42 @@ currentPw.addEventListener("input", () => {
         .then(count => {
 
             if (count != 0) { // 현재 비밀번호 일치하는 경우
-                currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-                currentPwMessage.classList.add("confirm");
-                currentPwMessage.classList.remove("error");
                 checkObj.currentPw = true;
-
             } else { // 현재 비밀번호 일치하지 않는 경우
-                
-                currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-                currentPwMessage.classList.add("error");
-                currentPwMessage.classList.remove("confirm");
                 checkObj.currentPw = false;
             }
         })
         .catch(err => console.log(err));
-
     } else { // 무효
-        currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다";
-        currentPwMessage.classList.add("error");
-        currentPwMessage.classList.remove("confirm");
         checkObj.currentPw = false;
     } 
 });
 
 
-//     /* GET 방식 */
-//     // if(regEx1.test(currentPw.value)){ 
-//     //     fetch("/dupCheck/password?password="+currentPw.value+"&memberNo="+memberNo)
-//     //     .then(resp => resp.text())
-//     //     .then(count => {
-//     //         if(count != 0){ 
-//     //             currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
-//     //             currentPwMessage.classList.add("confirm");
-//     //             currentPwMessage.classList.remove("error");
-//     //             checkObj.currentPw = true;
+    /* GET 방식 */
+    // if(regEx1.test(currentPw.value)){ 
+    //     fetch("/dupCheck/password?password="+currentPw.value+"&memberNo="+memberNo)
+    //     .then(resp => resp.text())
+    //     .then(count => {
+    //         if(count != 0){ 
+    //             currentPwMessage.innerText = "현재 비밀번호가 일치합니다.";
+    //             currentPwMessage.classList.add("confirm");
+    //             currentPwMessage.classList.remove("error");
+    //             checkObj.currentPw = true;
 
-//     //         } else {
-//     //             currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
-//     //             currentPwMessage.classList.add("error");
-//     //             currentPwMessage.classList.remove("confirm");
-//     //             checkObj.currentPw = false;
-//     //         }
-//     //     })
-//     //     } else {
-//     //             currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
-//     //             currentPwMessage.classList.add("error");
-//     //             currentPwMessage.classList.remove("confirm");
-//     //             checkObj.currentPw  = false;
-//     //     }
+    //         } else {
+    //             currentPwMessage.innerText = "현재 비밀번호가 일치하지 않습니다.";
+    //             currentPwMessage.classList.add("error");
+    //             currentPwMessage.classList.remove("confirm");
+    //             checkObj.currentPw = false;
+    //         }
+    //     })
+    //     } else {
+    //             currentPwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+    //             currentPwMessage.classList.add("error");
+    //             currentPwMessage.classList.remove("confirm");
+    //             checkObj.currentPw  = false;
+    //     }
 
 
 
@@ -102,6 +90,7 @@ newPw.addEventListener("input", () => {
         newPwMessage.classList.add("error");
         newPwMessage.classList.remove("confirm");
         newPwMessage.innerText = "새 비밀번호를 입력하세요.";
+        checkObj.newPw = false;
         return;
     }
 
@@ -109,6 +98,7 @@ newPw.addEventListener("input", () => {
         newPwMessage.classList.add("error");
         newPwMessage.classList.remove("confirm");
         newPwMessage.innerText = "현재 비밀번호와 일치합니다.";
+        checkObj.newPw = false;
         return;
     }
 
@@ -160,7 +150,8 @@ newPwConfirm.addEventListener("input", () => {
 
 
 
-document.getElementById("updatePwBtn").addEventListener("click", e => {
+document.getElementById("updateInfo").addEventListener("submit", e => {
+
 
     // 현재 비밀번호를 입력하지 않을 경우
     if(currentPw.value.trim() == ""){
@@ -171,7 +162,7 @@ document.getElementById("updatePwBtn").addEventListener("click", e => {
     }
 
     // 현재 비밀번호가 유효하지 않을 경우
-    if(currentPwMessage.classList.contains("error")){
+    if(checkObj.currentPw === false){
         alert("현재 비밀번호가 유효하지 않습니다.");
         e.preventDefault();
         currentPwMessage.focus();
@@ -179,7 +170,7 @@ document.getElementById("updatePwBtn").addEventListener("click", e => {
     }
 
     // 새 비밀번호를 입력하지 않을 경우
-    if(newPw.value.trim().length == 0){
+    if(newPw.value.trim() == ""){
         alert("새 비밀번호를 입력해주세요.");
         e.preventDefault();
         newPw.focus();
