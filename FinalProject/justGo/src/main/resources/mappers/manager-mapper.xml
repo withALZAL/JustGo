@@ -299,5 +299,12 @@
 	 </update>
 	 
 	 
+	<!-- 1:1문의 삭제 -->
+	<update id="deleteAsk">
+		UPDATE "FEEDBACK" SET
+		FEEDBACK_DEL_FL ='Y'
+		WHERE FEEDBACK_NO = #{feedbackNo}
+		AND MEMBER_NO = #{memberNo}
+	</update>
 
 </mapper>

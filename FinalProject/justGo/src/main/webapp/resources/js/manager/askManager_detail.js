@@ -69,20 +69,10 @@ answerBtn.addEventListener("click",() => {
     const answerStartBTN = document.createElement("button");
     answerStartBTN.setAttribute("type", "button");
     answerStartBTN.className='manager--answerStartBTN';
-    // answerStartBTN.disabled=true;
     answerStartBTN.innerText="완료";
     answerBtns.append(answerStartBTN);
     
-    // if (answerForm) {
-    //     answerForm.addEventListener("submit", (e) => {
-    //         if (answerTextarea.value === "") {
-    //             alert("답변을 입력해주세요.");
-    //             answerTextarea.focus();
-    //             e.preventDefault();
-    //             return;
-    //         }
-    //     });
-    // }
+
     
     // 댓글 수정(AJAX)
     answerStartBTN.addEventListener("click", () => {
@@ -109,6 +99,7 @@ answerBtn.addEventListener("click",() => {
                 // selectManagerAnswerList();
 
                 location.reload();
+
             }else{
                 alert("1:1문의 답변 등록 실패");
             }
