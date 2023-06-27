@@ -29,6 +29,7 @@
 		<result property="thumbnail" column="THUMBNAIL" />
 		<result property="boardName" column="BOARD_NAME" />
 		<result property="countryName" column="COUNTRY_NAME" />
+		<result property="type" column="TYPE" />
 
 
 
@@ -674,17 +675,14 @@
 	</select>
 
 	<select id="writingList" resultMap="board_rm">
-		SELECT BOARD_CODE, BOARD_NAME
-		FROM (
-		SELECT BOARD_TYPE.* , '1' TEMP FROM BOARD_TYPE
-		WHERE BOARD_CODE
-		NOT IN (1,4)
-		UNION
-		SELECT COUNTRY.*, '2' TEMP FROM COUNTRY
-		WHERE
-		COUNTRY_NO != 0
+		SELECT BOARD_CODE, BOARD_NAME, "TYPE" FROM (
+			SELECT BOARD_TYPE.* , '1' "TYPE" FROM BOARD_TYPE 
+			WHERE BOARD_CODE NOT IN (1,4)
+			UNION 
+			SELECT COUNTRY.*, '2' "TYPE" FROM COUNTRY 
+			WHERE COUNTRY_NO != 0
 		)
-		ORDER BY TEMP, BOARD_CODE
+		ORDER BY "TYPE", BOARD_CODE
 	</select>
 
 	<select id="tagCountrylistCount" resultType="_int">
@@ -729,4 +727,5 @@
 		ORDER BY BOARD_NO
 		DESC
 	</select>
+	
 </mapper>

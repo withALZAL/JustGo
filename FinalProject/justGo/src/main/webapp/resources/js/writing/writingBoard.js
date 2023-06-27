@@ -50,3 +50,31 @@ writeFrm.addEventListener("submit", e => {
 
 });
 
+
+
+// 글쓰기 버튼을 눌렀을 때 countryNO의 select의 options 들 중에 value 일치하는 요소에 selected 속성 추가하기 
+document.addEventListener("DOMContentLoaded", function(){
+
+    const boardSelect = document.getElementById("boardSelect"); // boardSelect 의 아이디와 일치하는 요소(객체) 불러오기
+
+    for( let i =0; i< boardSelect.options.length; i++ ) { // for 문을 돌려 boardSelect.options.length 만큼 불러오기
+
+        if(boardSelect.options[i].value == countryNo){ // boardSelect.options의 요소가 countryNo 와 같다면 (여행)
+
+            boardSelect.options[i].selected = true; // boardSelect 의 options 들 중에 value 일치하는 요소에 selected 속성 추가
+
+            boardSelect.name="countryNo";
+        }
+
+        if(boardSelect.options[i].value == boardCode){ // boardSelect의 options 들 중에 boardCode와 같다면 (질문/자유)
+
+            boardSelect.options[i].selected = true;
+        }
+
+    }
+        
+   history.replaceState({}, null, location.pathname); 
+   // url의 주소창을 없애기 /* jsp의 주소 설정 http://localhost/writing/writingBoard/***?boardCode=1&countryNo=1 지우기***/
+
+
+});

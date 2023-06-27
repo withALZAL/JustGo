@@ -29,6 +29,7 @@
 		UPDATE "BOARD" SET
 		BOARD_TITLE = #{boardTitle},
 		BOARD_TEXT = #{boardText},
+		TAG_NO = #{tagNo},
 		UPDATE_DATE = SYSDATE
 		WHERE BOARD_CODE = #{boardCode}
 		AND BOARD_NO = #{boardNo}
@@ -39,6 +40,7 @@
 		UPDATE "BOARD" SET
 		BOARD_TITLE = #{boardTitle},
 		BOARD_TEXT  = #{boardText},
+		TAG_NO = #{tagNo},
 		UPDATE_DATE = SYSDATE 
 		WHERE BOARD_CODE = #{boardCode}
 		AND COUNTRY_NO = #{countryNo}

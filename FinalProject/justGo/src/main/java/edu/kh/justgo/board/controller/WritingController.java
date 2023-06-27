@@ -48,17 +48,8 @@ public class WritingController {
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
 	public String writingBoard(Model model
-			,@RequestHeader(value ="referer") String referer
 			) {
 		
-		System.out.println(referer);
-		  
-		String[] parts = referer.split("/");
-		
-		String boardCode = null;
-		String countryNo = null;
-		
-
 		
 		List<Board> writingList = boardService.writingList();
 		List<Board> boardTypeList3 = boardService.boardTypeList3();
@@ -192,6 +183,7 @@ public class WritingController {
 		map.put("boardCode", boardCode);
 		map.put("countryNo", countryNo);
 		map.put("boardNo", boardNo);
+	
 		
 		 
 		Board board = boardService.selectBoard(map);
