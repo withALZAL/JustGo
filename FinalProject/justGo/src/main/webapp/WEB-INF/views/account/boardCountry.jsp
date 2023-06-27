@@ -214,13 +214,13 @@
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>
-            <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
-                <a href="/writing/writingBoard">
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
-                </a>
+                <form action="/writing/writingBoard">
+                    <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                    <input type="hidden" name="boardCode" value="1">
+                    <input type="hidden" name="countryNo" value=${countryNo}>
+                </form>
             </c:if>
-            </form>
         </div>
     </div>
 </div>
@@ -258,3 +258,4 @@
 </body>
 </html>
 
+<%-- boardText 전체 img태그의 정규 표현식을 이용해서 자바에서 처리   --%>
