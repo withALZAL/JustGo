@@ -32,131 +32,86 @@ public class ManagerController {
 
 	@Autowired
 	private ManagerService service;
-	
-	
+
 	// 회원관리 관리자페이지 연결
 	@GetMapping("/memberManager")
-	public String selectMemberList(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model
-			) {
-		
+	public String selectMemberList(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			Model model) {
+
 		// 회원정보 불러오기
 		Map<String, Object> map = service.selectMemberList(cp);
-		
+
 		model.addAttribute("map", map);
-		
+
 		// 콘솔에서 확인
 //		System.out.println(memberList);
-		
+
 		return "/manager/memberManager";
 	}
-	
-	
 
 	// 관리자페이지 회원별 게시글 목록 연결
 	@GetMapping("/memberBoard/{memberNo}")
-	public String memberBoardList(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model
-			, @PathVariable("memberNo") int memberNo
-			) {
-		
+	public String memberBoardList(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
+			@PathVariable("memberNo") int memberNo) {
+
 //        System.out.println("memberNo: " + memberNo);
-		
+
 		// 회원별 글 목록 불러오기
 		Map<String, Object> map = service.selectMemberPostList(memberNo, cp);
 		model.addAttribute("map", map);
-		
+
 		// 콘솔에서 확인
 //        System.out.println("model" +model);
-		
+
 		return "/manager/memberBoard";
 	}
-	
-	
 
-	
-	
 	// 1:1문의 관리자페이지 연결
 	@GetMapping("/askManager")
-	public String askManager(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model
-			) {
-		
+	public String askManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
+
 		// 1:1문의정보 불러오기
 		Map<String, Object> map = service.selectAskList(cp);
-		
+
 		model.addAttribute("map", map);
-		
-		
+
 		return "/manager/askManager";
 	}
-	
-	
-	
-	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
-    @GetMapping("/askManager_detail/{feedbackNo}")
-    public String askManagerDetail(
-    		@PathVariable("feedbackNo") int feedbackNo
-    		, Model model
-    		) {
-    	
-//    	System.out.println("feedbackNo: " + feedbackNo);
-    	
-    	// 1:1문의 상세글 불러오기(회원문의글)
-    	Feedback memberAskList = service.selectMemberAskList(feedbackNo);
-        Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
-    	
-        Map<String, Object> map = new HashMap<String, Object>();
-        
-        map.put("memberAskList", memberAskList);
-        map.put("managerAnswerList", managerAnswerList);
-        
-//        System.out.println(map);
-        
-    	model.addAttribute("map", map);
-    	// 콘솔에서 확인
-//        System.out.println("model" +model);
-    	
-    	
-    	return "/manager/askManager_detail";
-    }
-    
-	
-    
 
-    
-    
-    
-    
+	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
+	@GetMapping("/askManager_detail/{feedbackNo}")
+	public String askManagerDetail(@PathVariable("feedbackNo") int feedbackNo, Model model) {
+
+//    	System.out.println("feedbackNo: " + feedbackNo);
+
+		// 1:1문의 상세글 불러오기(회원문의글)
+		Feedback memberAskList = service.selectMemberAskList(feedbackNo);
+		Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("memberAskList", memberAskList);
+		map.put("managerAnswerList", managerAnswerList);
+
+//        System.out.println(map);
+
+		model.addAttribute("map", map);
+		// 콘솔에서 확인
+//        System.out.println("model" +model);
+
+		return "/manager/askManager_detail";
+	}
+
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
-	public String reportManager(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model
-			) {
-		
+	public String reportManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
+
 		// 신고 목록 불러오기
 		Map<String, Object> map = service.selectReportList(cp);
-		
+
 		model.addAttribute("map", map);
-		
+
 		return "/manager/reportManager";
 	}
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
