@@ -389,6 +389,7 @@ let beforeReplyRow;
 function showUpdateComment(replyNo, btn){
 
     const temp = document.getElementsByClassName("update-textarea");
+    const temp2 = document.getElementsByClassName("commentInsertContent");
 
     if(temp.length > 0){ // 수정이 한 개 이상 열려 있는 경우
 
@@ -397,6 +398,17 @@ function showUpdateComment(replyNo, btn){
             temp[0].parentElement.innerHTML = beforeReplyRow;
             // comment-row                       // 백업한 댓글
             // 백업 내용으로 덮어 씌워 지면서 textarea 사라짐
+        
+        }else{ // 취소
+            return;
+        }
+    }
+
+    if(temp2.length > 0){ // 답글이 한 개 이상 열려 있는 경우(상준)
+
+        if(confirm("답글이 작성 중입니다. 현재 댓글을 수정 하시겠습니까?")){ // 확인
+
+            temp2[0].parentElement.parentElement.remove();
         
         }else{ // 취소
             return;
@@ -563,6 +575,7 @@ function updateComment(replyNo, btn){
 function showInsertComment(parentReplyNo, btn){
 
     const temp = document.getElementsByClassName("commentInsertContent");
+    const temp2 = document.getElementsByClassName("update-textarea");
     
     if(temp.length>0){
         if(confirm("다른 답글을 작성 중 입니다. 현재 댓글에 답글을 작성하시겠습니까?")){
@@ -570,6 +583,19 @@ function showInsertComment(parentReplyNo, btn){
             temp[0].remove();
         
         }else{
+            return;
+        }
+    }
+
+    if(temp2.length > 0){ // 수정이 한 개 이상 열려 있는 경우
+
+        if(confirm("다른 댓글이 수정 중입니다. 현재 댓글에 답글을 작성하시겠습니까?")){ // 확인
+
+            temp2[0].parentElement.innerHTML = beforeReplyRow;
+            // comment-row                       // 백업한 댓글
+            // 백업 내용으로 덮어 씌워 지면서 textarea 사라짐
+        
+        }else{ // 취소
             return;
         }
     }
