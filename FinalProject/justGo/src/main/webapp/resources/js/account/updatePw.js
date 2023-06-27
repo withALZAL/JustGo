@@ -272,7 +272,7 @@ document.getElementById("updateInfo").addEventListener("submit", e => {
         });
         Toast.fire({
             icon: 'warning',
-            title: "인증번호가 발송 되었습니다."
+            title: "새 비밀번호를 입력해주세요."
         });
 
         e.preventDefault();
