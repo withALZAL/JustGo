@@ -428,6 +428,19 @@ function showUpdateComment(replyNo, btn){
     
     let beforeReply = replyRow.children[1].innerHTML;
 
+/* 상준 실험------------------------------------------------------------------------ */
+/* 상준 실험------------------------------------------------------------------------ */
+/* 상준 실험------------------------------------------------------------------------ */
+
+
+let updateReplyNick = replyRow.children[0].querySelector('.writing--commentProfileBox__profileName').innerText;
+
+console.log(updateReplyNick); // 닉네임 출력됨
+
+/* 상준 실험------------------------------------------------------------------------ */
+/* 상준 실험------------------------------------------------------------------------ */
+/* 상준 실험------------------------------------------------------------------------ */
+
     // 4. 댓글 행 내부 내용을 모두 삭제
     replyRow.innerHTML = "";
 
@@ -436,7 +449,7 @@ function showUpdateComment(replyNo, btn){
                 // 작성자 
                 const replyWriter = document.createElement("th");
                 replyWriter.classList.add("writing--commentProfileBox");
-                replyWriter.innerHTML = `<i class="fa-solid fa-wrench"></i>댓글 수정`; /* 상준 댓글 수정 */
+                replyWriter.innerHTML = `<i class="fa-solid fa-wrench"></i>`+updateReplyNick; /* 상준 댓글 수정 */
     
     
                 // // 프로필 이미지 태그
