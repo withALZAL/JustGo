@@ -102,11 +102,11 @@
             <thead>
                 <tr>
                 <th>번호</th>
-                <%-- <c:choose>
-            <c:when test="${boardCode == 3}"> --%>
+                <c:choose>
+            <c:when test="${boardCode == 3}">
                 <th>태그</th>
-            <%-- </c:when> --%>
-            <%-- </c:choose> --%>
+            </c:when>
+            </c:choose>
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
@@ -132,7 +132,11 @@
                 <!-- 여기에 글 목록을 동적으로 추가할 수 있습니다 -->
                 <tr>
                     <td>${board.boardNo}</td>
-                    <td>${board.tagContent}</td>
+                    <c:choose>
+                    <c:when test="${boardCode == 3}">
+                            <td>${board.tagContent}</td>
+                    </c:when>
+                    </c:choose>
                     <td><a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                     <td>${board.memberNickname}</td>
                     <td>${board.createDate}</td>

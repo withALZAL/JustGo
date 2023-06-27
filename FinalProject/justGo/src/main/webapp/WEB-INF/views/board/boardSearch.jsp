@@ -129,10 +129,10 @@
                     <td>${board.boardNo}</td>
                     <c:choose>
                         <c:when test="${board.boardCode != '1'}">
-                            <td><a href="/board/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                            <td><a href="/board/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                         </c:when>
                         <c:otherwise>
-                            <td><a href="/board/1/${board.countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a></td>
+                            <td><a href="/board/1/${board.countryNo}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a> [${board.commentCount}]</td>
                         </c:otherwise>
                     </c:choose>
                     <td>${board.memberNickname}</td>
