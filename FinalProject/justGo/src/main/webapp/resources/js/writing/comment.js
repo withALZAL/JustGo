@@ -424,7 +424,7 @@ function showUpdateComment(replyNo, btn){
                 // 작성자 
                 const replyWriter = document.createElement("th");
                 replyWriter.classList.add("writing--commentProfileBox");
-                replyWriter.innerText = "댓글 수정"; /* 상준 */
+                replyWriter.innerHTML = `<i class="fa-solid fa-wrench"></i>댓글 수정`; /* 상준 댓글 수정 */
     
     
                 // // 프로필 이미지 태그
@@ -586,10 +586,10 @@ function showInsertComment(parentReplyNo, btn){
     // tdElement.insertAdjacentElement("afterend", thTemp);
     // btn.parentElement.nextElementSibling.after(textarea);
     const trTemp = document.createElement("tr");
-    trTemp.classList.add("reply-row");
+    trTemp.classList.add("re.reply-row");
     const thTemp = document.createElement("th");
     thTemp.classList.add("writing--commentProfileBox");
-    thTemp.innerText = "답글 등록"; /* 상준 */
+    thTemp.innerHTML = `<i class="fa-solid fa-reply fa-rotate-180"></i>답글 등록`; /* 상준 답글 등록 */
     trTemp.appendChild(thTemp);
     btn.parentElement.parentElement.after(trTemp);
     
