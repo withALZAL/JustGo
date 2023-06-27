@@ -25,7 +25,7 @@
 
 <c:set var="askPagination" value="${map.askPagination}" />
 <c:set var="askList" value="${map.askList}" />
-<%-- ${map.pagination} --%>
+${map.pagination}
 <%-- ${map.askList} --%>
 
 <c:forEach items="${askList}" var="ask">
