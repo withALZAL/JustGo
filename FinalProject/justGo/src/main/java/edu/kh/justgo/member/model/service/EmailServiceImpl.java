@@ -76,8 +76,10 @@ public class EmailServiceImpl implements EmailService{
             
             // 메일 내용
             String mailContent 
-                = "<p>안녕하세요. JustGo에서 발송된 "+" 인증코드입니다.</p>"
-                + "<h3 style='color:blue'>" + authKey + "</h3>";
+                = "<p>안녕하세요. JustGo입니다.</p>"
+                + "<p>회원가입에 사용할 인증번호를 전송해드립니다.</p>"
+                + "<p>아래 인증번호를 인증번호 란에 입력해주세요.</p>"
+            	+ "<h1 style='color:red'>" + authKey + "</h1>";
             
             
             
