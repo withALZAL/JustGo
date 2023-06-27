@@ -65,7 +65,6 @@
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="https://www.naver.com">
                 
 
                 <c:if test="${not empty param.query}" >
