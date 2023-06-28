@@ -635,7 +635,15 @@
             </div>
             <div class="modal-body airportBody">
 
-            <c:forEach begin="1" end="10" varStatus="loop">
+            <div class="loadingMessage">
+                <br>
+                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권을 검색 중입니다.
+            </div>
+
+            <c:forEach begin="1" end="5" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plane" style="color: blue;"></i>
@@ -688,6 +696,10 @@
                     </div>
                 </div>
             </c:forEach>
+
+            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
 
             </div>
             <div class="modal-footer">
