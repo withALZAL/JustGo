@@ -199,8 +199,16 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.selectAskList2_search", paramMap, rowBounds);
 	}
 
+	
+	// 회원별 게시글 삭제
 	public int deletePost(int boardNo) {
 		return sql.update("managerMapper.deletePost", boardNo);
+	}
+
+	
+	//회원별 게시글 복원
+	public int restorePost(int boardNo) {
+		return sql.update("managerMapper.restorePost", boardNo);
 	}
 
 }

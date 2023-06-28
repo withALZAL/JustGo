@@ -136,8 +136,26 @@ ${map.memberPostPagination} --%>
                                 <td><form><a href="#">${memberPost.memberNickname}</a></form></td>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
-                                <td>${memberPost.boardDelete}</td>
-                                <td><button class="manager--deleteBtn" id="manager--delBtn" onclick="nobtn(${memberPost.boardNo})">삭제</button></td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${memberPost.boardDelete =='N'}">
+                                            유지
+                                        </c:when>
+                                        <c:otherwise>
+                                            삭제
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${memberPost.boardDelete  == 'N'}">
+                                            <button class="manager--deleteBtn" id="manager--delBtn" onclick="nobtn(${memberPost.boardNo})">삭제</button>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button class="manager--restoreBtn" id="manager--reBtn" onclick="rebtn(${memberPost.boardNo})">복원</button>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                             </tr>   
                         </c:forEach>
                     </c:otherwise>

@@ -112,7 +112,16 @@ ${map.pagination}
                                         <td><form><a href="#">${ask.memberNickname}</a></form></td>
                                         <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}</a></form></td>
                                         <td>${ask.feedbackDate}</td>
-                                        <td>${ask.feedback_CF_FL}</td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${ask.feedback_CF_FL =='N'}">
+                                                    처리중
+                                                </c:when>
+                                                <c:otherwise>
+                                                    답변완료
+                                            </c:otherwise>
+                                    </c:choose>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

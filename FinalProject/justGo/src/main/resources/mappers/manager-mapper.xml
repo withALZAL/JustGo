@@ -161,24 +161,26 @@
 		WHERE FEEDBACK_DEL_FL ='N'
 	</select>
 
-<!-- 	 <update id="deletePost">
+<!-- 	 <update id="deleteMember">
 	 	UPDATE "MEMBER"
 		SET MEMBER_CONDITION = 'N'
 		WHERE MEMBER_NO = #{memberNo}
 	 </update> -->
 	 
-	 <!-- 회원 게시판 삭제 -->
+	 <!-- 회원의 게시글 삭제 -->
 	 <update id="deletePost">
 	 	UPDATE "BOARD"
 		SET BOARD_DELETE = 'Y'
 		WHERE BOARD_NO = #{boardNo}
 	 </update>
-	 <!-- 회원 게시판 삭제 취소-->
-	<!--  <update id="deletePost">
+	 
+	 
+	 <!-- 회원의 게시글 복원-->
+	<update id="restorePost">
 	 	UPDATE "BOARD"
 		SET BOARD_DELETE = 'N'
 		WHERE BOARD_NO = #{boardNo}
-	 </update> -->
+	 </update> 
 	 
 	 
 	 <!-- 1:1문의목록 조회 -->

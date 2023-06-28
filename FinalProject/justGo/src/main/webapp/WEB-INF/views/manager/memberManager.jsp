@@ -108,7 +108,16 @@
                                         <td><form><a href="#">${member.memberNickname}</a></form></td>
                                         <td>${member.memberEmail}</td>
                                         <td>${member.enrollDate}</td>
-                                        <td>${member.memberCondition}</td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${member.memberCondition == 'N'}">
+                                                    유지
+                                                </c:when>
+                                                <c:otherwise>
+                                                    탈퇴
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="manager--memberPostListBTN">작성글</button></a></td>
                                     </tr>
                                 </c:forEach>
