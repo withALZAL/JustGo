@@ -252,13 +252,6 @@
 
 /* 항공 ----------------------------------------------- */
 
-/* 1열 나누기 조정 */
-.common--oneDivide {
-    margin: 10px 30px 10px 30px;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
 /* 항공 박스 조정 */
 .common--airBox {
     height: 300px;
@@ -311,7 +304,6 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: blue;
     width: 100%;
     max-height: 800px;
     overflow-y: auto;
@@ -319,9 +311,83 @@
 
 /* 항공권 카드 조정 */
 .airportCard {
-    width: 60%;
+    width: 80%;
 }
 .airportTicketBox {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 1fr 250px;
+}
+.airplanePrice {
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+}
+.airplaneTicket {
+    width: calc(100% = 200px);
+    height: 200px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* 가는 편, 오는 편 공통 조정 */
+.goto {
+    border-bottom: 1px solid #D9D9D9;
+}
+.goto,
+.from {
+    height: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 150px 1fr;
+}
+.goto > div,
+.from > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* goto, from 아이콘 조정 */
+.goto i,
+.from i {
+    font-size: 1.5rem;
+}
+
+/* 티켓 좌우 칸 조정 */
+.goto__departure,
+.goto__arrival,
+.from__departure,
+.from__arrival {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 공항 도시 조정 */
+.airportCity {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* 아이콘 단 조정 */
+.goto__icon,
+.from__icon {
+    display: flex;
+    flex-direction: column;
+}
+.airInfo div {
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 가격칸 조정 */
+.airPrice {
+    display: grid;
+    place-items: center;
+    font-size: 2.0rem;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 }
