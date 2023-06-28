@@ -202,3 +202,5 @@ function calcIcon() {
         equalsIcon.style.display = 'inline-block';
     }, 1500);
 }
+
+
