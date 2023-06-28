@@ -178,7 +178,7 @@
         });
     </script>
 
-
+<%-- summernote 이미지 ajax 전송 처리 --%>
     <script>
         function uploadSummernoteImageFile(file, el) {
 
@@ -204,9 +204,5 @@
         }
             
     </script>
-
-
-
-            
 </body>
 </html>

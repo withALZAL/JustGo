@@ -78,7 +78,10 @@ public class WritingServiceImpl implements WritingService {
 		String rename =  Util.fileRename(file.getOriginalFilename());
 		
 		file.transferTo( new File(filePath + rename));
-	
+		
+		System.out.println("webPath:"+webPath);
+		System.out.println("rename:"+rename);
+		
 		return webPath + rename;
 	}
 

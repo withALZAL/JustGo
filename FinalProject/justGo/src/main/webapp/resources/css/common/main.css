@@ -252,6 +252,12 @@
 
 /* 항공 ----------------------------------------------- */
 
+/* oneDivide 조정 */
+.common--oneDivide {
+    margin: 10px 30px 10px 30px;
+    display: grid;
+}
+
 /* 항공 박스 조정 */
 .common--airBox {
     height: 300px;
@@ -315,7 +321,7 @@
 }
 .airportTicketBox {
     display: grid;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 220px;
 }
 .airplanePrice {
     width: 200px;

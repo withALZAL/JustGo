@@ -652,6 +652,7 @@
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
+                                        <div>Cathay Pacific Airline</div>
                                         <div>13시간 30분</div>
                                         <div>경유 1회</div>
                                     </div>
@@ -671,6 +672,7 @@
                                 <div class="from__icon">
                                     <i class="fa-solid fa-plane-arrival"></i>
                                     <div class="airInfo">
+                                        <div>koreanAir</div>
                                         <div>3시간</div>
                                         <div>경유 1회</div>
                                     </div>
