@@ -302,15 +302,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 5px;
 }
 
 /* 셀렉터 크기 조정 */
 .countrySelectBox select {
     width: 100px;
+    border: none;
+    background-color: #F3F3F3;
 }
 .airportSelectBox select {
-    width: 150px;
+    width: 180px;
+    border: none;
+    background-color: #F3F3F3;
+}
+
+/* datepicker */
+#datepicker1,
+#datepicker2 {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 3px solid black;
+    padding-top: 15px;
 }
 
 /* 항공권 모달창 조정 */

@@ -25,26 +25,26 @@
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 <%-- jQuery 날짜 셀렉터 --%>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-        <script>
-        $(function() {
-            $( "#datepicker1" ).datepicker({
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-            });
-            $( "#datepicker2" ).datepicker({
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-            });
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $( "#datepicker1" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         });
-        </script>
+        $( "#datepicker2" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        });
+    });
+    </script>
 </head>
 <body class="template--body">
 
@@ -563,6 +563,7 @@
                                 <option id="Australia">호주</option>
                             </select>
                         </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect">
                                 <option value="ICN" selected>인천공항(서울)</option>
@@ -588,6 +589,7 @@
                                 <option id="Australia">호주</option>
                             </select>
                         </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect2">
                                 <option value="HND">하네다공항(도쿄)</option>
@@ -603,13 +605,13 @@
                 <div class="common--airContent">
                     <div>가는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker1"></p>
+                        <p><input type="text" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
                 <div class="common--airContent">
                     <div>오는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker2"></p>
+                        <p><input type="text" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
             </div>
