@@ -162,6 +162,15 @@ public class ManagerServiceImpl implements ManagerService{
 
 	
 	
+	//회원별 게시글 목록에서 게시글 삭제
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int deletePost(Board board) {
+		return dao.deletePost(board);
+	}
+	
+	
+	
 	
 }
 

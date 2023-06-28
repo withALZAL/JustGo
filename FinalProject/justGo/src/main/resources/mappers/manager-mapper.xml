@@ -185,6 +185,15 @@
 		ORDER BY MEMBER_NO DESC
 	 </select>
 	 
+	 
+	 <update id="deletePost">
+	 	UPDATE "MEMBER"
+		SET MEMBER_CONDITION = 'N'
+		WHERE MEMBER_NO = #{memberNo}
+	 </update>
+	 
+	 
+	 
 	 <!-- 1:1문의 수 조회 -->
 	<select id="getAskListCount" parameterType="Feedback" resultType="_int">
 	 	SELECT COUNT(*) FROM FEEDBACK 
@@ -263,6 +272,16 @@
 		FROM "MEMBER"
 		WHERE MEMBER_NO = #{memberNo} 
       </select>
+	 
+	 
+	 
+	 <!-- 회원별 글 목록에서 글 삭제 -->
+	 <update id="deleteBoard">
+	 	UPDATE "BOARD" SET
+		BOARD_DELETE ='Y'
+		WHERE BOARD_NO = #{boardNo}
+		AND MEMBER_NO = #{memberNo}
+	 </update>
 	 
 	 
 	  <!-- 1:1문의 상세 조회 (회원문의)-->

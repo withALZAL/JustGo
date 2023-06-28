@@ -101,6 +101,57 @@ public class ManagerController {
 
 		return "/manager/askManager_detail";
 	}
+	
+	/*
+	
+	
+    // 회원의 게시글 삭제
+    @PostMapping("/managerPostDelete")
+    public String deletePost(
+    		@RequestBody Board board
+    		, @PathVariable("memberNo") int memberNo
+    		, RedirectAttributes ra
+			) throws IllegalStateException, IOException{
+    	
+    	board.setBoardNo(board.getBoardNo());
+    	board.setMemberNo(board.getMemberNo());
+    	
+    	int result = service.deletePost(board);
+    	
+    	System.out.println(result);
+    	
+    	String message = null;
+    	
+    	
+    	
+    	if(result>0) {
+    		message += "게시판이 삭제되었습니다.";
+    	}else {
+    		message += "게시판 삭제 실패..";
+    	}
+    	ra.addFlashAttribute("message", message);
+    	return "/memberBoard" ;
+    }
+	
+	
+	
+	
+	
+
+ 	//회원 강제탈퇴	
+    @GetMapping("/manager/memberBoard/{memberNo}/delete")
+	public String deleteMember() {
+		
+		
+		return null;
+	}
+	
+	
+	
+*/	
+	
+	
+	/* 삭제예정
 
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
@@ -113,5 +164,6 @@ public class ManagerController {
 
 		return "/manager/reportManager";
 	}
+	*/
 
 }
