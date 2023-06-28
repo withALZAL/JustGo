@@ -60,6 +60,20 @@ public interface ManagerService {
 	 */
 	int insertManagerAnswer(Feedback feedback);
 
+	/** 회원목록 검색 기능
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectMemberList(Map<String, Object> paramMap, int cp);
+
+	
+	/** 1:1문의 검색 목록 
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectAskList(Map<String, Object> paramMap, int cp);
 	
 	
 	/** 회원별 게시글 목록에서 게시글 삭제

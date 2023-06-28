@@ -45,6 +45,9 @@ ${map.pagination}
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+<c:if test="${not empty param.boardSelect2}" >
+    <c:set var="sp" value="&boardSelect2=${param.boardSelect2}&query=${param.query}"/>
+</c:if>
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -123,12 +126,12 @@ ${map.pagination}
                             <ul class="pagination" id="page">
                                 <%-- 맨 처음 페이지로 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="prev" href="/manager/askManager?cp=1">맨 처음</a>
+                                    <a class="page-link" id="prev" href="/manager/askManager?cp=1${sp}">맨 처음</a>
                                 </li>
 
                                 <%-- 이전 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="prev" href="/manager/askManager?cp=${askPagination.prevPage}">이전</a>
+                                    <a class="page-link" id="prev" href="/manager/askManager?cp=${askPagination.prevPage}${sp}">이전</a>
                                 </li>
 
                                 <%-- 특정 번호 목록 페이지 이동 --%>
@@ -138,34 +141,33 @@ ${map.pagination}
                                             <li class="page-item active" aria-current="page"><a class="page-link" style="background:cornflowerblue; ">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                            <li class="page-item"><a class="page-link" href="/manager/askManager?cp=${i}">${i}</a></li>
+                                            <li class="page-item"><a class="page-link" href="/manager/askManager?cp=${i}${sp}">${i}</a></li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
 
                                 <%-- 다음 목록 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/manager/askManager?cp=${askPagination.nextPage}">다음</a>
+                                    <a class="page-link" id="next" href="/manager/askManager?cp=${askPagination.nextPage}${sp}">다음</a>
                                 </li>
 
                                 <%-- 맨 끝 페이지 이동 --%>
                                 <li class="page-item">
-                                    <a class="page-link" id="next" href="/manager/askManager?cp=${askPagination.endPage}">맨 끝</a>
+                                    <a class="page-link" id="next" href="/manager/askManager?cp=${askPagination.endPage}${sp}">맨 끝</a>
                                 </li>
                             </ul>
                         </nav>
                     </form>
                 </div>
             </form>
-            <form class="manager--contentSearch" action="#" method="get">
+            <form class="manager--contentSearch" action="/manager/askManager" method="get">
                 <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>닉네임</option>
-                        <option>문의제목</option>
-                        <option>처리상태</option>
+                    <select class="board--searchSelector" name="boardSelect2" id="boardSelect" onchange="changeSecondSelect()" required>
+                        <option value="t">닉네임</option>
+                        <option value="c">문의제목</option>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
+                    <input type="text" name="query" maxlength="10" style="width: 300px;">
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
                 </a>
             </form>
         </div>
