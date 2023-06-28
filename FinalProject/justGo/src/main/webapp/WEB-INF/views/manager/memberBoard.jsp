@@ -130,7 +130,7 @@ ${map.memberPostPagination} --%>
                         <c:forEach items="${memberPostList}" var="memberPost">
                             <tr>
                                 <td>${memberPost.boardNo}</td>
-                                <td>${memberPost.tagNo}</td>
+                                <td>${memberPost.tagContent}</td>
                                 <td><form><a href="#">${memberPost.boardTitle}</a></form></td>
                                 <td><form><a href="#">${memberPost.memberNickname}</a></form></td>
                                 <td>${memberPost.createDate}</td>

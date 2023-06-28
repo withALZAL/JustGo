@@ -36,13 +36,24 @@ public class ManagerController {
 	// 회원관리 관리자페이지 연결
 	@GetMapping("/memberManager")
 	public String selectMemberList(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-			Model model) {
+			Model model,
+			@RequestParam Map<String, Object> paramMap) {
 
 		// 회원정보 불러오기
+		
+		if (paramMap.get("boardSelect") == null) {
+			
 		Map<String, Object> map = service.selectMemberList(cp);
 
 		model.addAttribute("map", map);
+		}else {
 
+			Map<String, Object> map = service.selectMemberList(paramMap, cp); // 오버로딩
+
+			model.addAttribute("map", map);
+		}
+
+		
 		// 콘솔에서 확인
 //		System.out.println(memberList);
 
@@ -68,12 +79,21 @@ public class ManagerController {
 
 	// 1:1문의 관리자페이지 연결
 	@GetMapping("/askManager")
-	public String askManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
+	public String askManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
+			@RequestParam Map<String, Object> paramMap) {
 
-		// 1:1문의정보 불러오기
-		Map<String, Object> map = service.selectAskList(cp);
+		
+		if (paramMap.get("boardSelect2") == null) {
+			
+			Map<String, Object> map = service.selectAskList(cp);
 
-		model.addAttribute("map", map);
+			model.addAttribute("map", map);
+			}else {
+
+				Map<String, Object> map = service.selectAskList(paramMap, cp); // 오버로딩
+
+				model.addAttribute("map", map);
+			}
 
 		return "/manager/askManager";
 	}
