@@ -187,5 +187,12 @@ public class ManagerServiceImpl implements ManagerService {
 	public int restorePost(int boardNo) {
 		return dao.restorePost(boardNo);
 	}
+	
+	
+	//회원 프로필페이지 이동
+	@Override
+	public Member memberProfile(int memberNo) {
+		return dao.memberProfile(memberNo);
+	}
 
 }
