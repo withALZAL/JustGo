@@ -314,7 +314,7 @@ function changeAirport2() {
         addOption(airportSelect2, "BNE", "브리즈번공항", "브리즈번");
         addOption(airportSelect2, "PER", "퍼스공항", "퍼스");
     }
-}2
+}
 
 // 새로운 옵션을 select 요소에 추가하는 함수
 function addOption(selectElement, id, text, city) {
