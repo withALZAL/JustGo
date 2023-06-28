@@ -164,7 +164,6 @@ public class ManagerServiceImpl implements ManagerService {
 
 		int askListCount = dao.getAskListCount2(paramMap);
 
-
 		Pagination askPagination = new Pagination(askListCount, cp);
 
 		List<Feedback> askList = dao.selectAskList2(askPagination, paramMap);
@@ -173,8 +172,14 @@ public class ManagerServiceImpl implements ManagerService {
 		map.put("askPagination", askPagination);
 		map.put("askList", askList);
 
-
 		return map;
+	}
+
+	// 회원별 게시글 목록에서 게시글 삭제
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int deletePost(Board board) {
+		return dao.deletePost(board);
 	}
 
 }

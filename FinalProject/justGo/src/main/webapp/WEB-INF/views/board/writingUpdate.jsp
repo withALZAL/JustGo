@@ -125,6 +125,10 @@
 
     const countryNo = '${countryNo}';
 
+    // EL 은 Jsp 내장 객체인 request page application session 꺼내쓰는 건데 c:set / model (controller board에 있는지 확인)
+    const tagNo = '${board.tagNo}';
+
+
 
 </script>
 
@@ -146,11 +150,6 @@
 
 <%-- summernote --%>
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-    </script>
-    <script>
         $('#summernote').summernote({
         placeholder: '여기에 내용을 작성해주세요.',
         tabsize: 2,
@@ -168,10 +167,6 @@
             fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
             fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50']
         });
-    </script>
-
-    <script>
-         $('#summernote').summernote('fontSize', '22');
     </script>
 
             

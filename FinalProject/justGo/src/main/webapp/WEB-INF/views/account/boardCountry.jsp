@@ -59,40 +59,62 @@
 <!-- 페이지 제목 시작 -->
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
-            <c:if test="${countryNo == 1}" >
-        <img src="/resources/images/officialPageTitle/PAGETITLE_CHINA_FOBBIDDENCITY.png" alt="호주_그레이프베리어리프">
-        <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기" style="height: 30px; padding-right: 10px;">
+        <c:if test="${countryNo == 1}" >
+            <img src="/resources/images/officialPageTitle/PAGETITLE_CHINA_FOBBIDDENCITY.png" alt="중국_자금성">
+            <div class="template--overlayedTitle" style="color: black;">
+                <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기" style="height: 30px; padding-right: 10px;">
+                ${countryName}게시판
+            </div>
+            <c:if test="${not empty param.query}" >
+                <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
-            <c:if test="${countryNo == 2}" >
-                <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="호주_그레이프베리어리프">
-                <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+        </c:if>
+        <c:if test="${countryNo == 2}" >
+            <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="일본_벚꽃">
+            <div class="template--overlayedTitle" style="color: black;">
+                <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+                ${countryName}게시판
+            </div>
+            <c:if test="${not empty param.query}" >
+                <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
-            <c:if test="${countryNo == 3}" >
-                    <img src="/resources/images/officialPageTitle/PAGETITLE_VIETNAM_HALONGBAY.png" alt="호주_그레이프베리어리프">
-                    <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기" style="height: 30px; padding-right: 10px;">
+        </c:if>
+        <c:if test="${countryNo == 3}" >
+            <img src="/resources/images/officialPageTitle/PAGETITLE_VIETNAM_HALONGBAY.png" alt="베트남_하롱베이">
+            <div class="template--overlayedTitle" style="color: black;">
+                <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기" style="height: 30px; padding-right: 10px;">
+                ${countryName}게시판
+            </div>
+            <c:if test="${not empty param.query}" >
+                <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
-            <c:if test="${countryNo == 4}" >
-                <img src="/resources/images/officialPageTitle/PAGETITLE_THAI_CASTLE.png" alt="호주_그레이프베리어리프">
-                <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기" style="height: 30px; padding-right: 10px;">
+        </c:if>
+        <c:if test="${countryNo == 4}" >
+            <img src="/resources/images/officialPageTitle/PAGETITLE_THAI_CASTLE.png" alt="태국_왕궁">
+            <div class="template--overlayedTitle" style="color: black;">
+                <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기" style="height: 30px; padding-right: 10px;">
+                ${countryName}게시판
+            </div>
+            <c:if test="${not empty param.query}" >
+                <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
-            <c:if test="${countryNo == 5}" >
-                <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
-                <div class="template--overlayedTitle" style="color: black;">
-            <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
+        </c:if>
+        <c:if test="${countryNo == 5}" >
+            <img src="/resources/images/officialPageTitle/PAGETITLE_AUSTRALIA_OCEAN.png" alt="호주_그레이프베리어리프">
+            <div class="template--overlayedTitle" style="color: black;">
+                <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기" style="height: 30px; padding-right: 10px;">
+                ${countryName}게시판
+            </div>
+            <c:if test="${not empty param.query}" >
+                <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
             </c:if>
-           
-                <c:if test="${not empty param.query}" >
+        </c:if>
+                <%-- <c:if test="${not empty param.query}" >
                     <h3 style="margin:30px">${countryName}게시판/"${param.query}"검색결과</h3>
-                </c:if>
-                <c:if test="${empty param.query}" >
+                </c:if> --%> <%-- 상준 주석 처리 --%>
+                <%-- <c:if test="${empty param.query}" >
                     <h3> ${countryName}게시판</h3>
-                </c:if>
-            </a>
-        </div>
+                </c:if> --%>
     </div>
 </div>
 <!-- 페이지 제목 끝 -->
@@ -214,13 +236,13 @@
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>
-            <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
-                <a href="/writing/writingBoard">
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
-                </a>
+                <form action="/writing/writingBoard">
+                    <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                    <input type="hidden" name="boardCode" value="1">
+                    <input type="hidden" name="countryNo" value=${countryNo}>
+                </form>
             </c:if>
-            </form>
         </div>
     </div>
 </div>
@@ -258,3 +280,4 @@
 </body>
 </html>
 
+<%-- boardText 전체 img태그의 정규 표현식을 이용해서 자바에서 처리   --%>

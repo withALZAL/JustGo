@@ -148,11 +148,10 @@ tr img {
 }
 
 /* 댓글 버튼 박스 조정 */
-.writing--commentBtnBox form a {
+.writing--commentBtnBox {
     display: flex;
-    gap: 5px;
-    justify-content: right;
-    padding-right: 5px;
+    gap: 2px;
+    justify-content: left;
 }
 
 /* 댓글 달기 */
@@ -190,7 +189,6 @@ tr img {
 	width: 100%;
     height: 90px;
     resize: none;
-    margin-top : 20px;
 }
 
 /* 좋아요 */

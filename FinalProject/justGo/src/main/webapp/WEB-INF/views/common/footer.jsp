@@ -75,7 +75,7 @@
             <button type="submit">
                 <i class="fa-solid fa-pen-to-square"></i>
             </button>
-            <input type="hidden" name="boardCode" value="1">
+            <input type="hidden" name="boardCode" value="${boardCode}" >  <%-- value ="3"은 boardCode --%>
             <input type="hidden" name="countryNo" value="${countryNo}">
         </form>
 

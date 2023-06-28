@@ -21,7 +21,7 @@
 		INSERT INTO BOARD
 		VALUES (#{boardNo},
 		#{boardTitle},#{boardText},DEFAULT,DEFAULT,DEFAULT,DEFAULT,
-		#{memberNo},#{tagNo},#{boardCode},#{countryNo},NULL)
+		#{memberNo},#{tagNo},#{boardCode},#{countryNo},#{thumbnail})
 	</insert>
 	
 	<!-- 게시글 수정(자유/질문) -->

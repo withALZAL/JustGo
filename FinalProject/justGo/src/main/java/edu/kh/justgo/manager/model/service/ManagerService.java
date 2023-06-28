@@ -2,6 +2,7 @@ package edu.kh.justgo.manager.model.service;
 
 import java.util.Map;
 
+import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.manager.model.dto.Feedback;
 import edu.kh.justgo.member.model.dto.Member;
 
@@ -73,6 +74,13 @@ public interface ManagerService {
 	 * @return
 	 */
 	Map<String, Object> selectAskList(Map<String, Object> paramMap, int cp);
+	
+	
+	/** 회원별 게시글 목록에서 게시글 삭제
+	 * @param board
+	 * @return result
+	 */
+	int deletePost(Board board);
 
 
     

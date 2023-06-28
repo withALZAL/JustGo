@@ -15,7 +15,9 @@ wirteUpdateFrm.addEventListener("submit", e => {
         return;
     }
 
-    if(boardText.value.trim().length == 0 ){
+    const contentTemp = boardText.value.replaceAll("<p>","").replaceAll("</p>","").replaceAll("<br>","").replaceAll("&nbsp;","").replaceAll(" ","");
+
+    if(contentTemp === '' ){
         alert("내용을 입력해주세요.");
         boardText.value = "";
         boardText.focus();
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(boardSelect.options[i].value == countryNo){
             boardSelect.options[i].selected = true;
+            boardSelect.name="countryNo";
         } 
 
         if(boardSelect.options[i].value ==  boardCode){
@@ -49,13 +52,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for(let i =0; i<tagSelector.options.length; i++){
 
-        if(tagSelector.options[i].value == countryNo){
+        if(tagSelector.options[i].value == tagNo){
             tagSelector.options[i].selected = true;
         }
 
-        if(tagSelector.options[i].value == boardCode){
-            tagSelector.options[i].selected = true;
-        }
+        
     }
     
 });

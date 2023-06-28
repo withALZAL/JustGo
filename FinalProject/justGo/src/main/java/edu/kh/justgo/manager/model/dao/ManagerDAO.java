@@ -176,9 +176,16 @@ public class ManagerDAO {
 		int offset = (memberPagination.getCurrentPage() - 1) * memberPagination.getLimit();
 
 		RowBounds rowBounds = new RowBounds(offset, memberPagination.getLimit());
-
 		return sql.selectList("managerMapper.selectMemberList_search", paramMap, rowBounds);
 	}
+	/** 회원별 게시글 목록에서 게시글 삭제
+	 * @param board
+	 * @return result
+	 */
+	public int deletePost(Board board) {
+		return sql.update("managerMapper.deletePost", board);
+	}
+
 
 	// 1:1문의 검색 목록 카운트
 	public int getAskListCount2(Map<String, Object> paramMap) {
