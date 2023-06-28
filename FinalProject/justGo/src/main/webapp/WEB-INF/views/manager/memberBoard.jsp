@@ -137,8 +137,8 @@ ${map.memberPostPagination} --%>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
                                 <td>${memberPost.boardDelete}</td>
-                                <td><button class="manager--deleteBtn" id="manager--delBtn">삭제</button></td>
-                            </tr>
+                                <td><button class="manager--deleteBtn" id="manager--delBtn" onclick="nobtn(${memberPost.boardNo})">삭제</button></td>
+                            </tr>   
                         </c:forEach>
                     </c:otherwise>
                 </c:choose>  
@@ -229,6 +229,7 @@ ${map.memberPostPagination} --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/board/board.js"></script>
+    <script src="/resources/js/manager/memberBoard.js"></script>
     <script> const postMemberNo= "${memberPost.memberNo}"</script>
 </body>
 </html>

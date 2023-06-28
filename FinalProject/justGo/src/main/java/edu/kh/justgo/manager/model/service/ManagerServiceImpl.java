@@ -175,11 +175,17 @@ public class ManagerServiceImpl implements ManagerService {
 		return map;
 	}
 
-	// 회원별 게시글 목록에서 게시글 삭제
-	@Transactional(rollbackFor = Exception.class)
+	//회원별 게시글 삭제
 	@Override
-	public int deletePost(Board board) {
-		return dao.deletePost(board);
+	public int deletePost(int boardNo) {
+		return dao.deletePost(boardNo);
 	}
+
+//	// 회원별 게시글 목록에서 게시글 삭제
+//	@Transactional(rollbackFor = Exception.class)
+//	@Override
+//	public int deletePost(Board board) {
+//		return dao.deletePost(board);
+//	}
 
 }
