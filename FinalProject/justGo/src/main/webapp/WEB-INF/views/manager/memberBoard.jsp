@@ -45,7 +45,7 @@ ${map.memberPostPagination} --%>
 </c:forEach>
 
 
-
+<%-- ${memberNo} --%>
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -116,6 +116,7 @@ ${map.memberPostPagination} --%>
                 <th>작성일</th>
                 <th>조회수</th>
                 <th>삭제여부</th>
+                <th>삭제</th>
                 </tr>
             </thead>
             <tbody>
@@ -123,7 +124,7 @@ ${map.memberPostPagination} --%>
                 <c:choose>
                     <c:when test="${empty memberPostList}">
                         <tr>
-                            <th colspan="7">게시글이 존재하지 않습니다.</th>
+                            <th colspan="8">게시글이 존재하지 않습니다.</th>
                         </tr>
                     </c:when>
                     <c:otherwise>
@@ -136,6 +137,7 @@ ${map.memberPostPagination} --%>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
                                 <td>${memberPost.boardDelete}</td>
+                                <td><button class="manager--deleteBtn" id="manager--delBtn">삭제</button></td>
                             </tr>
                         </c:forEach>
                     </c:otherwise>
@@ -227,5 +229,6 @@ ${map.memberPostPagination} --%>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/board/board.js"></script>
+    <script> const postMemberNo= "${memberPost.memberNo}"</script>
 </body>
 </html>

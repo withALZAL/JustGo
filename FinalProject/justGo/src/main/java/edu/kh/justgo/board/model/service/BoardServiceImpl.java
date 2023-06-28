@@ -260,7 +260,7 @@ public class BoardServiceImpl implements BoardService {
 		map.put("askPagination", askPagination);
 		map.put("askList", askList);
 		
-		System.out.println(map);
+//		System.out.println(map);
 		
 		return map;
 	}
