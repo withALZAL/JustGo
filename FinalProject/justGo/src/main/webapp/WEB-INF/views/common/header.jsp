@@ -36,6 +36,11 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
+    <form action="/account/login" method="post">
+            <input type="hidden" name="memberEmail" value="pso7364@naver.com">
+            <input type="hidden" name="memberPw" value="12345678">
+            <button class="btn btn-secondary btn-sm">관리자로그인</button>
+    </form>
     <form>
         <a href="/account/test">
             <button type="button" class="btn btn-secondary btn-sm">실험용상준</button>
@@ -86,6 +91,7 @@
             <input type="hidden" name="memberPw" value="pass01!">
             <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
+
 
     <form action="#">
         <a href="#">
