@@ -432,10 +432,12 @@ function showUpdateComment(replyNo, btn){
 /* 상준 실험------------------------------------------------------------------------ */
 /* 상준 실험------------------------------------------------------------------------ */
 
+console.log("beforeReply:"+beforeReplyRow);
+
 
 let updateReplyNick = replyRow.children[0].querySelector('.writing--commentProfileBox__profileName').innerText;
 
-console.log(updateReplyNick); // 닉네임 출력됨
+// console.log(updateReplyNick); // 닉네임 출력됨
 
 /* 상준 실험------------------------------------------------------------------------ */
 /* 상준 실험------------------------------------------------------------------------ */
