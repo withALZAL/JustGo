@@ -27,8 +27,7 @@
 
 <c:set var="memberPostPagination" value="${map.memberPostPagination}" /> 
 <c:set var="memberPostList" value="${map.memberPostList}" /> 
-<c:set var="postMemberPagination" value="${map.postMemberPagination}" /> 
-<c:set var="postMemberList" value="${map.postMemberList}" /> 
+<c:set var="postMember" value="${map.postMember}" /> 
 
 <%-- ${map.postMemberList}
 ${map.postMemberPagination}
@@ -36,16 +35,15 @@ ${map.memberPostList}
 ${map.memberPostPagination} --%>
 
 
-<c:forEach items="${postMemberList}" var="postMember">
-    <c:if test="${postMember.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${postMember.memberNickname}"/>
-        <c:set var="profileImg" value="${postMember.profileImg}"/>
-        <c:set var="memberNo" value="${postMember.memberNo}"/>
-    </c:if>
-</c:forEach>
 
 
-<%-- ${memberNo} --%>
+<c:if test="${postMember.memberNo == memberNo}" >
+    <c:set var="memberNickname" value="${postMember.memberNickname}"/>
+    <c:set var="profileImg" value="${postMember.profileImg}"/>
+    <c:set var="memberNo" value="${postMember.memberNo}"/>
+</c:if>
+
+
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
