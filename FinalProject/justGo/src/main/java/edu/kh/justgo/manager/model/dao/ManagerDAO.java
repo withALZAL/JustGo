@@ -202,4 +202,9 @@ public class ManagerDAO {
 		return sql.update("managerMapper.restorePost", boardNo);
 	}
 
+	//회원 프로필페이지 이동
+	public Member memberProfile(int memberNo) {
+		return sql.selectOne("managerMapper.memberProfile", memberNo);
+	}
+
 }

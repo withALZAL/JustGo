@@ -308,13 +308,7 @@
 
 	 
 	 
-	 <!-- 회원별 글 목록에서 글 삭제 -->
-<!-- 	 <update id="deleteBoard">
-	 	UPDATE "BOARD" SET
-		BOARD_DELETE ='Y'
-		WHERE BOARD_NO = #{boardNo}
-		AND MEMBER_NO = #{memberNo}
-	 </update> -->
+
 	 
 	 
 	  <!-- 1:1문의 상세 조회 (회원문의)-->
@@ -343,7 +337,19 @@
 	<!-- 1:1문의 상세 조회 (관리자 답글) -->
 	<select id="selectManagerAnswerList" parameterType="Feedback"
 		resultMap="feedback_rm">
-		SELECT FEEDBACK_NO, ADMIN_TEXT, CONFIRM_FL, CONFIRM_DATE,
+		SELECT FEEDBACK_NO, ADMIN_TEXT, CONFIRM_FL, 
+		<![CDATA[
+            CASE  
+               WHEN SYSDATE - CONFIRM_DATE < 1/24/60
+               THEN FLOOR( (SYSDATE - CONFIRM_DATE) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - CONFIRM_DATE < 1/24
+               THEN FLOOR( (SYSDATE - CONFIRM_DATE) * 24 * 60) || '분 전'
+               WHEN SYSDATE - CONFIRM_DATE < 1
+               THEN FLOOR( (SYSDATE - CONFIRM_DATE) * 24) || '시간 전'
+               ELSE TO_CHAR(CONFIRM_DATE, 'YYYY-MM-DD')
+            END CONFIRM_DATE
+            ]]>
+		,
 		(SELECT MEMBER_NICKNAME
 		FROM "MEMBER"
 		WHERE MEMBER_NO = (SELECT ADMIN_NO
@@ -445,4 +451,81 @@
 		</choose>
 		ORDER BY FEEDBACK_NO DESC
 	</select>
+	
+	
+	
+	<!-- 회원 프로필페이지 이동 -->
+	<select id="memberProfile" parameterType="Member"
+		resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG, MEMBER_ROLE
+		, 
+		<![CDATA[
+            CASE  
+               WHEN SYSDATE - ENROLL_DATE < 1/24/60
+               THEN FLOOR( (SYSDATE - ENROLL_DATE) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - ENROLL_DATE < 1/24
+               THEN FLOOR( (SYSDATE - ENROLL_DATE) * 24 * 60) || '분 전'
+               WHEN SYSDATE - ENROLL_DATE < 1
+               THEN FLOOR( (SYSDATE - ENROLL_DATE) * 24) || '시간 전'
+               ELSE TO_CHAR(ENROLL_DATE, 'YYYY-MM-DD')
+            END ENROLL_DATE
+            ]]>
+		, 
+		<![CDATA[
+            CASE  
+               WHEN SYSDATE - DISABLE_DATE < 1/24/60
+               THEN FLOOR( (SYSDATE - DISABLE_DATE) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - DISABLE_DATE < 1/24
+               THEN FLOOR( (SYSDATE - DISABLE_DATE) * 24 * 60) || '분 전'
+               WHEN SYSDATE - DISABLE_DATE < 1
+               THEN FLOOR( (SYSDATE - DISABLE_DATE) * 24) || '시간 전'
+               ELSE TO_CHAR(DISABLE_DATE, 'YYYY-MM-DD')
+            END ENROLL_DATE
+            ]]>
+		, 
+		<![CDATA[
+            CASE  
+               WHEN SYSDATE - DELETE_DATE < 1/24/60
+               THEN FLOOR( (SYSDATE - DELETE_DATE) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - DELETE_DATE < 1/24
+               THEN FLOOR( (SYSDATE - DELETE_DATE) * 24 * 60) || '분 전'
+               WHEN SYSDATE - DELETE_DATE < 1
+               THEN FLOOR( (SYSDATE - DELETE_DATE) * 24) || '시간 전'
+               ELSE TO_CHAR(DELETE_DATE, 'YYYY-MM-DD')
+            END ENROLL_DATE
+            ]]>
+		, MEMBER_CONDITION
+		FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>
