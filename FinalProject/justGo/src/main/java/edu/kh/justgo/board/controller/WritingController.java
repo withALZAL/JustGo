@@ -134,7 +134,7 @@ public class WritingController {
 		
 		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/";
 		String filePath = session.getServletContext().getRealPath(webPath);
-
+		
 		
 		return service.imageUpload(file,webPath,filePath);
 	}
