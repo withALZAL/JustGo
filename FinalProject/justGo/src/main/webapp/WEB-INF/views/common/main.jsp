@@ -566,12 +566,12 @@
                         <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect">
-                                <option value="ICN" selected>인천공항(서울)</option>
-                                <option value="GMP">김포공항(서울)</option>
-                                <option value="CJU">제주공항(제주)</option>
-                                <option value="PUS">김해공항(부산)</option>
-                                <option value="CJJ">청주공항(청주)</option>
-                                <option value="TAE">대구공항(대구)</option>
+                                <option value="ICN" selected>인천(ICN)</option>
+                                <option value="GMP">김포(GMP)</option>
+                                <option value="CJU">제주(CJU)</option>
+                                <option value="PUS">김해(PUS)</option>
+                                <option value="CJJ">청주(CJJ)</option>
+                                <option value="TAE">대구(TAE)</option>
                             </select>
                         </div>
                     </div>
@@ -592,12 +592,12 @@
                         <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect2">
-                                <option value="HND">하네다공항(도쿄)</option>
-                                <option value="NRT" selected>나리타공항(도쿄)</option>
-                                <option value="KIX">간사이공항(오사카)</option>
-                                <option value="ITM">이타미공항(오사카)</option>
-                                <option value="FUK">후쿠오카공항(후쿠오카)</option>
-                                <option value="CTS">신치토세공항(삿포로)</option>
+                                <option value="HND">하네다(HND)</option>
+                                <option value="NRT" selected>나리타(NRT)</option>
+                                <option value="KIX">간사이(KIX)</option>
+                                <option value="ITM">이타미(ITM)</option>
+                                <option value="FUK">후쿠오카(FUK)</option>
+                                <option value="CTS">신치토세(CTS)</option>
                             </select>
                         </div>
                     </div>
@@ -662,53 +662,51 @@
                 가장 싼 항공권입니다.
             </div>
 
-
             <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plane" style="color: blue;"></i>
-                        인천(ICN) - 시드니(SYD) 왕복권
+                        <span class="airName"></span>
+                        <span> - </span>
+                        <span class="deName"></span>
+                        <span>왕복권</span>
                     </div>
                     <div class="card-body airportTicketBox">
                         <div class="airplaneTicket">
                             <div class="goto">
                                 <div class="goto__departure">
-                                    <div class="airportCity departureCity">인천(ICN)</div>
+                                    <div class="airportCity departureCity"></div>
                                     <div class="departTime"></div>
-                                    <div>출발</div>
+                                    <div class="departCity"></div>
                                 </div>
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div>Cathay Pacific Airline</div>
                                         <div class="duration"></div>
-                                        <div>경유 1회</div>
                                     </div>
                                 </div>
                                 <div class="goto__arrival">
-                                    <div class="airportCity arrivalCity">시드니(SYD)</div>
+                                    <div class="airportCity arrivalCity"></div>
                                     <div class="arrivalTime"></div>
-                                    <div>도착</div>
+                                    <div class="arrCity"></div>
                                 </div>
                             </div>
                             <div class="from">
                                 <div class="from__departure">
-                                    <div class="airportCity departureCity">시드니(SYD)</div>
+                                    <div class="airportCity departureCity departureCity1"></div>
                                     <div class="departTime1"></div>
-                                    <div>출발</div>
+                                    <div></div>
                                 </div>
                                 <div class="from__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div>koreanAir</div>
-                                        <div class="duration1">3시간</div>
-                                        <div>경유 1회</div>
+                                        <div class="duration1"></div>
                                     </div>
                                 </div>
                                 <div class="from__arrival">
-                                    <div class="airportCity arrivalCity">인천(ICN)</div>
+                                    <div class="airportCity arrivalCity arrivalCity1"></div>
                                     <div class="arrivalTime1"></div>
-                                    <div>도착</div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>

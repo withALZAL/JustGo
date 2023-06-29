@@ -330,7 +330,7 @@
 <!-- 포스트 시작 -->
 <div class="writing--postContainer">
     <div class="writing--postTitleBox">
-        <div class="writing--postTag">[일반]</div>
+        <div class="writing--postTag">${board.tagContent}</div>
         <div class="writing--postTitle">${board.boardTitle}</div>
         <div class="writing--postInfoBox">
             <div class="writing--postProfile">
