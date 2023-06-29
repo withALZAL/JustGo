@@ -228,7 +228,6 @@ function changeAirport() {
         addOption(airportSelect, "ICN", "인천", "ICN");
         addOption(airportSelect, "GMP", "김포", "GMP");
         addOption(airportSelect, "CJU", "제주", "CJU");
-        addOption(airportSelect, "PUS", "김해", "PUS");
         addOption(airportSelect, "CJJ", "청주", "CJJ");
         addOption(airportSelect, "TAE", "대구", "TAE");
     } else if (selectedCountry === "Japan") {
@@ -251,17 +250,53 @@ function changeAirport() {
         addOption(airportSelect, "SGN", "떤선녓", "SGN");
         addOption(airportSelect, "DAD", "다낭", "DAD");
     } else if (selectedCountry === "Thai") {
-        addOption(airportSelect, "BKK", "수안나폼공항", "BKK");
-        addOption(airportSelect, "DMK", "돈므앙공항", "DMK");
-        addOption(airportSelect, "HKT", "푸켓공항", "HKT");
-        addOption(airportSelect, "CNX", "치앙마이공항", "CNX");
+        addOption(airportSelect, "BKK", "수안나폼", "BKK");
+        addOption(airportSelect, "DMK", "돈므앙", "DMK");
+        addOption(airportSelect, "HKT", "푸켓", "HKT");
+        addOption(airportSelect, "CNX", "치앙마이", "CNX");
     } else if (selectedCountry === "Australia") {
-        addOption(airportSelect, "SYD", "시드니공항", "SYD");
-        addOption(airportSelect, "CBR", "캔버라공항", "CBR");
-        addOption(airportSelect, "MEL", "멜버른공항", "MEL");
-        addOption(airportSelect, "BNE", "브리즈번공항", "BNE");
-        addOption(airportSelect, "PER", "퍼스공항", "PER");
+        addOption(airportSelect, "SYD", "시드니", "SYD");
+        addOption(airportSelect, "CBR", "캔버라", "CBR");
+        addOption(airportSelect, "MEL", "멜버른", "MEL");
+        addOption(airportSelect, "BNE", "브리즈번", "BNE");
+        addOption(airportSelect, "PER", "퍼스", "PER");
     }
+
+    var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
+    var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
+    var loadingMessage = document.getElementById("loadingMessage");
+    var noFlightMessage = document.getElementById("noFlightMessage");
+    var loadedMessage = document.getElementById("loadedMessage");
+    // 검색 중 문구 업데이트
+    loadingMessage.innerHTML = '';
+    loadingMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        가장 싼 항공권을 검색 중입니다.
+    `;
+
+    // 검색 결과 없음 문구 업데이트
+    noFlightMessage.innerHTML = '';
+    noFlightMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        죄송합니다.
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        직항 항공권이 없습니다.
+    `;
+
+    // 검색 완료 문구 업데이트
+    loadedMessage.innerHTML = '';
+    loadedMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        가장 싼 항공권입니다.
+    `;
 }
 
 /* 나라 바뀌면 공항도 바뀌는 변수 */
@@ -315,6 +350,42 @@ function changeAirport2() {
         addOption(airportSelect2, "BNE", "브리즈번", "BNE");
         addOption(airportSelect2, "PER", "퍼스", "PER");
     }
+
+    var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
+    var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
+    var loadingMessage = document.getElementById("loadingMessage");
+    var noFlightMessage = document.getElementById("noFlightMessage");
+    var loadedMessage = document.getElementById("loadedMessage");
+    // 검색 중 문구 업데이트
+    loadingMessage.innerHTML = '';
+    loadingMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        가장 싼 항공권을 검색 중입니다.
+    `;
+
+    // 검색 결과 없음 문구 업데이트
+    noFlightMessage.innerHTML = '';
+    noFlightMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        죄송합니다.
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        직항 항공권이 없습니다.
+    `;
+
+    // 검색 완료 문구 업데이트
+    loadedMessage.innerHTML = '';
+    loadedMessage.innerHTML = `
+        <br>
+        <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+        <br><br>
+        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+        가장 싼 항공권입니다.
+    `;
 }
 
 // 새로운 옵션을 select 요소에 추가하는 함수
@@ -348,6 +419,8 @@ datepicker2.value = formattedDate2;
 
 
 
+
+
 // 항공 API
 
 const searchBtn = document.getElementById("searchBtn");
@@ -375,10 +448,10 @@ searchBtn.addEventListener("click", ()=> {
         const returnDate = document.getElementById("datepicker2").value;
 
         /* 로딩 애니메이션 없애기 */
-        const waves = document.getElementsByClassName('wave');
-        while (waves.length > 0) {
-            waves[0].remove();
-        }
+        // const waves = document.getElementsByClassName('wave');
+        // while (waves.length > 0) {
+        //     waves[0].remove();
+        // }
         /* 문구 바꾸기 */
         const loading = document.getElementById('loadingMessage');
         loading.style.display = 'none';

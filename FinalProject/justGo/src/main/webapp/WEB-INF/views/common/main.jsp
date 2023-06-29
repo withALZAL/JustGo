@@ -753,5 +753,14 @@
     <script src="/resources/js/common/footer.js"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<%-- 공항 선택자 --%>
+    <script>
+        let airportSelect = document.getElementById("airportSelect");
+        let airportSelect2 = document.getElementById("airportSelect2");
+        const s1 = airportSelect.options[airportSelect.selectedIndex].innerText;
+        const s2 = airportSelect2.options[airportSelect2.selectedIndex].innerText;
+        console.log("s1:"+s1);
+        console.log("s2:"+s2);
+    </script>
 </body>
 </html>
