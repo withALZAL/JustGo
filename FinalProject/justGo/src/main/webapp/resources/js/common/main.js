@@ -432,21 +432,67 @@ searchBtn.addEventListener("click", ()=> {
                     const duration1 = currentCard.querySelector(".duration1"); // 출발지로 부터 도착지까지  시간
                     const arrivalTime1 = currentCard.querySelector(".arrivalTime1"); // 출발지에 도착하는 시간
                     
-                    totalPrice.innerText = Math.floor(jsonStrData.price.total) + "원"; // 가격
+                    totalPrice.innerText = Math.floor(jsonStrData.price.total).toLocaleString() + "원"; // 가격
                     
                     departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at; // 출발시간
-                    duration.innerText = jsonStrData.itineraries[0].segments[0].duration; // 비행시간
+
+                    // 비행시간 알파벳 한글로 바꾸기
+                    const flightDuration = jsonStrData.itineraries[0].segments[0].duration;
+                    const translateKor = {
+                    'H': '시간',
+                    'M': '분',
+                    // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
+                    };
+
+                    let translateCheck = '';
+
+                    for (let i = 0; i < flightDuration.length; i++) {
+                    const replaceEng = flightDuration.charAt(i);
+                    const translatedReplaceEng = translateKor[replaceEng] || replaceEng;
+
+                    translateCheck += translatedReplaceEng;
+                    }
+
+
+                    duration.innerText = translateCheck.substring(2); // 비행시간
+
+                    
                     arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at; // 도착시간
                     departCity.innerText = from1;
                     departCity1.innerText = to1;
                     airName.innerText = from1;
 
                     departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at; // 출발시간
-                    duration1.innerText = jsonStrData.itineraries[1].segments[0].duration; // 비행시간
+                    
+                    // 비행시간 알파벳 한글로 바꾸기
+                    const flightDuration1 = jsonStrData.itineraries[1].segments[0].duration;
+                    const translateKor1 = {
+                    'H': '시간',
+                    'M': '분',
+                    // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
+                    };
+
+                    let translateCheck1 = '';
+
+                    for (let i = 0; i < flightDuration1.length; i++) {
+                    const replaceEng1 = flightDuration1.charAt(i);
+                    const translatedReplaceEng1 = translateKor1[replaceEng1] || replaceEng1;
+
+                    translateCheck1 += translatedReplaceEng1;
+                    }
+
+                    
+                    
+                    duration1.innerText = translateCheck1.substring(2); // 비행시간
+                    
+                    
                     arrivalTime1.innerText = jsonStrData.itineraries[1].segments[0].arrival.at; // 도착시간
                     arrCity.innerText = to1;
                     arrCity1.innerText = from1;
                     deName.innerText = to1;
+                    
+                    
+
 
                 }else{
                      // jsonStr.data의 길이보다 큰 card 카드는 숨깁니다.
