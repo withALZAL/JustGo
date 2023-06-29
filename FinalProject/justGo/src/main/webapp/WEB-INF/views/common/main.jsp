@@ -741,7 +741,11 @@
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div class="duration"></div>
+                                        <div>
+                                            <span><i class="fa-solid fa-clock" style="font-size: 8px; padding-right: 3px;"></i></span>
+                                            <span><div class="duration">-</div></span>
+                                        </div>
+                                        <%-- <div class="duration"></div> --%>
                                     </div>
                                 </div>
                                 <div class="goto__arrival">
@@ -759,7 +763,11 @@
                                 <div class="from__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div class="duration1"></div>
+                                        <div>
+                                            <span><i class="fa-solid fa-clock" style="font-size: 8px; padding-right: 3px;"></i></span>
+                                            <span><div class="duration1">-</div></span>
+                                        </div>
+                                        <%-- <div class="duration1"></div> --%>
                                     </div>
                                 </div>
                                 <div class="from__arrival">

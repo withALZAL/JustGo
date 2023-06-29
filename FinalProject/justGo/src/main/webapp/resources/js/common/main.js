@@ -493,9 +493,67 @@ searchBtn.addEventListener("click", e => {
         var accessToken = result["access_token"];
         const selectAirFrom = document.getElementById("airportSelect");
         const from = selectAirFrom.options[selectAirFrom.selectedIndex].value;
+        const fromCity = selectAirFrom.options[selectAirFrom.selectedIndex].innerText; /* 상준 */
+
+        console.log(from);
+        console.log(from);
+        console.log(from);
+        console.log(from);
+        console.log(from);
+        console.log(fromCity);
+        console.log(fromCity);
+        console.log(fromCity);
+        console.log(fromCity);
+        console.log(fromCity);
     
         const selectAirTo = document.getElementById("airportSelect2");
         const to = selectAirTo.options[selectAirTo.selectedIndex].value;
+        const toCity = selectAirTo.options[selectAirTo.selectedIndex].innerText; /* 상준 */
+
+        console.log(to);
+        console.log(to);
+        console.log(to);
+        console.log(to);
+        console.log(to);
+        console.log(toCity);
+        console.log(toCity);
+        console.log(toCity);
+        console.log(toCity);
+        console.log(toCity);
+        
+        /* 상준 */
+        var loadingMessage = document.getElementById('loadingMessage');
+        var noFlightMessage = document.getElementById('noFlightMessage');
+        var loadedMessage = document.getElementById('loadedMessage');
+
+        loadingMessage.innerHTML = '';
+        loadingMessage.innerHTML = `
+            <br>
+            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <br><br>
+            ${fromCity}에서 ${toCity}까지 가는<br>
+            가장 싼 항공권을 찾고 있습니다.
+        `;
+        noFlightMessage.innerHTML = '';
+        noFlightMessage.innerHTML = `
+            <br>
+            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <br><br>
+            죄송합니다.<br>
+            ${fromCity}에서 ${toCity}까지 가는<br>
+            직항 항공권이 없는 것 같습니다.
+        `;
+        loadedMessage.innerHTML = '';
+        loadedMessage.innerHTML = `
+            <br>
+            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <br><br>
+            ${fromCity}에서 ${toCity}까지 가는<br>
+            가장 싼 항공권 리스트입니다.
+        `;
+
+        /* 상준 */
+
     
         const departDate = document.getElementById("datepicker1").value;
         const returnDate = document.getElementById("datepicker2").value;
