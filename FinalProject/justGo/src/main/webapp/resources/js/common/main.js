@@ -326,6 +326,27 @@ function addOption(selectElement, id, text, city) {
     selectElement.appendChild(option);
 }
 
+/* 오늘 날짜 설정 */
+const datepicker1 = document.getElementById('datepicker1');
+const datepicker2 = document.getElementById('datepicker2');
+
+// 오늘 날짜
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, '0');
+const day = String(today.getDate()).padStart(2, '0');
+const formattedDate = `${year}-${month}-${day}`;
+
+// 일주일 뒤 날짜
+const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+const year2 = nextWeek.getFullYear();
+const month2 = String(nextWeek.getMonth() + 1).padStart(2, '0');
+const day2 = String(nextWeek.getDate()).padStart(2, '0');
+const formattedDate2 = `${year2}-${month2}-${day2}`;
+
+datepicker1.value = formattedDate;
+datepicker2.value = formattedDate2;
+
 
 
 // 항공 API
@@ -351,9 +372,18 @@ searchBtn.addEventListener("click", ()=> {
         const to = selectAirTo.options[selectAirTo.selectedIndex].value;
     
         const departDate = document.getElementById("datepicker1").value;
-        const returnDate = document.getElementById("datepicker2").value; 
-    
-    
+        const returnDate = document.getElementById("datepicker2").value;
+
+        /* 로딩 애니메이션 없애기 */
+        const waves = document.getElementsByClassName('wave');
+        while (waves.length > 0) {
+            waves[0].remove();
+        }
+        /* 문구 바꾸기 */
+        const loading = document.getElementById('loadingMessage');
+        loading.style.display = 'none';
+        const loaded = document.getElementById('loadedMessage');
+        loaded.style.display = 'block';
     
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
         headers: {
@@ -434,4 +464,8 @@ searchBtn.addEventListener("click", ()=> {
     });
 })
 
-
+setTimeout(() => {
+    const checkIcon = document.getElementById('checkIcon');
+    checkIcon.style.animationDuration = '3s';
+    checkIcon.style.animationFillMode = 'forwards';
+}, 0);

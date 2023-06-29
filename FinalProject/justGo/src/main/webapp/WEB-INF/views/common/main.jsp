@@ -637,7 +637,7 @@
             </div>
             <div class="modal-body airportBody">
 
-            <div class="loadingMessage">
+            <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
                 <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
@@ -645,7 +645,25 @@
                 가장 싼 항공권을 검색 중입니다.
             </div>
 
-            <c:forEach begin="1" end="5" varStatus="loop">
+            <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                죄송합니다.
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                직항 항공권이 없습니다.
+            </div>
+
+            <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권입니다.
+            </div>
+
+
+            <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plane" style="color: blue;"></i>
@@ -662,14 +680,8 @@
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                      
                                         <div>Cathay Pacific Airline</div>
                                         <div class="duration"></div>
-                                        
-
-                                        
-                                        
-
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
@@ -686,12 +698,10 @@
                                     <div>출발</div>
                                 </div>
                                 <div class="from__icon">
-                                    <i class="fa-solid fa-plane-arrival"></i>
+                                    <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                       
                                         <div>koreanAir</div>
                                         <div class="duration1">3시간</div>
-
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
@@ -707,7 +717,8 @@
                 </div>
             </c:forEach>
 
-            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+<%-- 애니메이션 효과 --%>
+            <div class='wave -one'></div>
             <div class='wave -two'></div>
             <div class='wave -three'></div>
 
