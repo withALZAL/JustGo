@@ -95,3 +95,9 @@
     left: 0;
 }
 
+.note-modal-footer {
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}

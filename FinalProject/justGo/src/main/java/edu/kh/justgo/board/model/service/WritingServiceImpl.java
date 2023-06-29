@@ -4,6 +4,8 @@ package edu.kh.justgo.board.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,20 @@ public class WritingServiceImpl implements WritingService {
 	public int boardInsert(Board board) {
 		// XSS 방지 처리
 		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle() ) );
+		
+		// 이미지 태그를 추출하기 위한 정규식.
+		Pattern pattern  =  Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		
+		Matcher matcher = pattern.matcher(board.getBoardText());
+		
+		String imgTag = null;
+		
+		while(matcher.find()) {
+			imgTag = matcher.group(0); // 글 내용 중에 첫번째 이미지 태그를 뽑아옴.
+		}
+		
+		System.out.println("imgTag" + imgTag);
+		
 		
 		return dao.boardInsert(board);
 	}
@@ -74,9 +90,14 @@ public class WritingServiceImpl implements WritingService {
 	@Override
 	public String imageUpload(MultipartFile file, String webPath, String filePath) throws IllegalStateException, IOException {
 		
+		
+	
+		
 		// static 공부하기
 		// static 영역에 할당된 정적메모리는 모든 객체가 공유하는 메모리라서 util에 있는 fileRename 메소드를 쓸수 있음
+		// 파일 이름 변경
 		String rename =  Util.fileRename(file.getOriginalFilename());
+	
 		
 		file.transferTo( new File(filePath + rename));  // 서버에 파일을 저장
 	

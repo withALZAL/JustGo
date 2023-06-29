@@ -155,7 +155,9 @@
                 ["style", ["style"]],
                 ["font", ["bold", "italic", "underline", "fontname","fontsize"]],
                 ["color", ["color"]],
-                ["insert", ["link", "picture"]],
+                
+                
+                ["insert", ["link", "picture"]], 
                 ["view", ["codeview", 'help']]
                 ],
             fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
