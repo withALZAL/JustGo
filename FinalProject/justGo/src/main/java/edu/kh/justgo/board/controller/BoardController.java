@@ -131,7 +131,7 @@ public class BoardController {
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model,
 			@RequestParam Map<String, Object> paramMap) {
 
-		model.addAttribute("boardCode", 1);
+		model.addAttribute("boardCode", 1); // vs에서 boardSelector의 options의 value을 추가하기 위해서 
 		
 		
 		List<Board> tagAllList = service.tagList();

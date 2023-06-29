@@ -64,11 +64,11 @@
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
                     <c:forEach var="writing" items="${writingList}">
                         <c:choose>
-                        <c:when test="${writing.type == '1'}">
+                        <c:when test="${writing.type == '1'}"> <%-- 자유/질문 --%>
                                 <option value="${writing.boardCode}" class="b" >${writing.boardName}</option>
                         </c:when>
                         <c:otherwise>
-                                <option value="${writing.boardCode}">${writing.boardName}</option>
+                                <option value="${writing.boardCode}">${writing.boardName}</option> <%-- 여행 --%>
                         </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -83,8 +83,6 @@
             </div>
         <div class="writing--inputContentBox">
             <textarea class="writing--summernoteBox" id="summernote" name="boardText" ></textarea>
-                
-            </textarea>
         <div class="writing--ButtonBox">
                 <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
@@ -92,6 +90,8 @@
     </div>
 </div>
 </div>
+
+<input type="hidden" name="thumbnail" id="thumbnail">
 </form>
 <!-- 콘텐츠 끝 -->
 
@@ -180,16 +180,16 @@
 
 <%-- summernote 이미지 ajax 전송 처리 --%>
     <script>
-        function uploadSummernoteImageFile(file, el) {
+        function uploadSummernoteImageFile(file, el) { // file(업로드할 이미지파일 객체)과 el(summernote 에디터 객체)의 매개변수를 받아온다
 
             var data = new FormData();	//form 태그가 데이터를 제출할 때의 모양을 그대로 따르는 객체
-            data.append("file",file);
+            data.append("file",file);  // FormData 객체에 'file' 변수에 저장된 이미지 파일을 추가
 
             $.ajax({
                 url: '/writing/uploadImage',
                 type: "POST",
                 enctype: 'multipart/form-data',
-                data: data,
+                data: data, // FormData 객체
                 cache: false,
                 contentType : false,
                 processData : false,
@@ -197,7 +197,7 @@
                     console.log(result); // 저장된 이미지의 웹 접근 경로
                     $(el).summernote('editor.insertImage',result);
                 },
-                error : function(e) {
+                error : function(e) { // 함수 요청이 실패한 경우 호출,'e' 매개변수로 에러 정보를 받음
                     console.log(e);
                 }
             });

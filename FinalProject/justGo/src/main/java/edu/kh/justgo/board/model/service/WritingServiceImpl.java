@@ -74,10 +74,12 @@ public class WritingServiceImpl implements WritingService {
 	@Override
 	public String imageUpload(MultipartFile file, String webPath, String filePath) throws IllegalStateException, IOException {
 		
-		// static 공부하기 ***** 
+		// static 공부하기
+		// static 영역에 할당된 정적메모리는 모든 객체가 공유하는 메모리라서 util에 있는 fileRename 메소드를 쓸수 있음
 		String rename =  Util.fileRename(file.getOriginalFilename());
 		
-		file.transferTo( new File(filePath + rename));
+		file.transferTo( new File(filePath + rename));  // 서버에 파일을 저장
+	
 		
 		System.out.println("webPath:"+webPath);
 		System.out.println("rename:"+rename);

@@ -1,5 +1,6 @@
 package edu.kh.justgo.board.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -124,7 +125,7 @@ public class WritingController {
 	}
 	
 	
-	// 게시글 이미지 업로드
+	// 게시글 이미지 업로드 비동기
 	@ResponseBody
 	@PostMapping("/writing/uploadImage")
 	public String imageUpload(
@@ -135,6 +136,9 @@ public class WritingController {
 		String webPath = "/resources/images/memberImage/"+loginMember.getMemberNo()+"/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
+		File checkFolder = new File(filePath);
+		if (!checkFolder.exists()) checkFolder.mkdirs(); // 폴더가 없는 경우 만들기(상준 코드 확인)
+
 		
 		return service.imageUpload(file,webPath,filePath);
 	}

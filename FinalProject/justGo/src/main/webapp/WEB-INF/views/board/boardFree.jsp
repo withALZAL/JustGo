@@ -263,13 +263,12 @@
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                     </a>
                     </form>
-            <form action="#" method="post">
             <c:if test="${not empty loginMember}" >
-                <a href="/writing/writingBoard">
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
-                </a>
+                <form action="/writing/writingBoard">
+                    <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                    <input type="hidden" name="boardCode" value="${boardCode}"> <%-- value = 화면에 보이게 하기 위해서 value 값 설정 --%>
+                </form> 
             </c:if>
-            </form>
         </div>
     </div>
 </div>
