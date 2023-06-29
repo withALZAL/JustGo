@@ -215,4 +215,16 @@ public class ManagerDAO {
 		return sql.update("managerMapper.deleteMember", memberNo);
 	}
 
+	/** 회원 계정 복구
+	 * @param memberNo
+	 * @return result
+	 */
+	public int restoreMember(int memberNo) {
+		return sql.update("managerMapper.restoreMember", memberNo);
+	}
+	
+	
+	
+	
+
 }

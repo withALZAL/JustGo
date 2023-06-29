@@ -204,5 +204,10 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 	
 	
+	// 회원 계정복구
+	@Override
+	public int restoreMember(int memberNo) {
+		return dao.restoreMember(memberNo);
+	}
 	
 }

@@ -172,11 +172,7 @@
 		WHERE FEEDBACK_DEL_FL ='N'
 	</select>
 
-<!-- 	 <update id="deleteMember">
-	 	UPDATE "MEMBER"
-		SET MEMBER_CONDITION = 'N'
-		WHERE MEMBER_NO = #{memberNo}
-	 </update> -->
+
 	 
 	 <!-- 회원의 게시글 삭제 -->
 	 <update id="deletePost">
@@ -501,7 +497,13 @@
 	</update> 
 	
 	
-	
+	<!-- 관리자가 회원 계정복구 -->
+	<update id="restoreMember">
+		UPDATE "MEMBER"
+		SET MEMBER_CONDITION = 'N',
+		DELETE_DATE = DEFAULT
+		WHERE MEMBER_NO = #{memberNo}
+	</update> 
 	
 	
 

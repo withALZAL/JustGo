@@ -1,13 +1,13 @@
 
-function nobtn(boardNo){
-    fetch("/manager/nobtn?boardNo=" + boardNo)
+function deleteMemberBtn(memberNo){
+    fetch("/manager/deleteMemberBtn?memberNo=" + memberNo)
     .then(resp => resp.text())
     .then(result => {
         if(result > 0){
-            alert("게시글이 삭제되었습니다.");
+            alert("강퇴 성공!");
             location.href =  location.href ;
         }else{
-            alert("게시글 삭제 실패")
+            alert("강퇴 실패...")
         }
     })
     .catch(err => console.log(err));
@@ -15,15 +15,15 @@ function nobtn(boardNo){
 
 
 
-function rebtn(boardNo){
-    fetch("/manager/rebtn?boardNo=" + boardNo)
+function restoreMemberBtn(memberNo){
+    fetch("/manager/restoreMemberBtn?memberNo=" + memberNo)
     .then(resp => resp.text())
     .then(result => {
         if(result > 0){
-            alert(" 게시글이 복원되었습니다.");
+            alert("계정복구 성공!");
             location.href =  location.href ;
         }else{
-            alert("게시글 복원 실패")
+            alert("계정복구 실패...")
         }
     })
     .catch(err => console.log(err));

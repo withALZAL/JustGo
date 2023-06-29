@@ -102,6 +102,12 @@ public interface ManagerService {
 	 */
 	int deleteMember(int memberNo);
 
+	/** 회원계정 복구
+	 * @param memberNo
+	 * @return
+	 */
+	int restoreMember(int memberNo);
+
 
     
 
