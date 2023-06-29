@@ -158,7 +158,23 @@ public class ManagerController {
 	}
 	
 	
-
+	//회원 프로필페이지 이동
+	@GetMapping("/memberPage/{memberNo}")
+	public String memberProfile(
+				Member member
+			, @PathVariable("memberNo") int memberNo
+			, Model model
+			) {
+		
+		
+		
+		Member memberP = service.memberProfile(memberNo);
+		
+		model.addAttribute("memberP", memberP); 
+		
+		
+		return "/manager/memberPage";
+	}
 
 
  	//회원 강제탈퇴	

@@ -89,6 +89,13 @@ public interface ManagerService {
 	 */
 	int restorePost(int boardNo);
 
+	
+	/**회원 프로필페이지 이동
+	 * @param memberNo
+	 * @return 
+	 */
+	Member memberProfile(int memberNo);
+
 
     
 

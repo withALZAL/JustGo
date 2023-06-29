@@ -78,9 +78,9 @@
                 </table>
                 <div class="account--joinBtnBox">
                     <button type="submit" class="btn btn-primary btn-lg" style="border:none;">로그인</button>
-                <a href="/account/password">
+                <%-- <a href="/account/password">
                     <button type="button" class="btn btn-secondary btn-lg" style="border:none;" >비밀번호 찾기</button>
-                </a>
+                </a> --%>
                 </div>
             </div>
         </form>

@@ -206,9 +206,11 @@ function calcIcon() {
     }, 1500);
 }
 
+
 /* 항공 API ----------------------------------------------- */
 
 /* 나라 바뀌면 공항도 바뀌는 변수 */
+
 function changeAirport() {
 
     // 출발지
@@ -325,6 +327,7 @@ function addOption(selectElement, id, text, city) {
 }
 
 
+
 // 항공 API
 
 const searchBtn = document.getElementById("searchBtn");
@@ -430,4 +433,5 @@ searchBtn.addEventListener("click", ()=> {
     
     });
 })
+
 

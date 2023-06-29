@@ -96,9 +96,9 @@ public class ManagerDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int getPostMemberCount(int memberNo) {
-		return sql.selectOne("managerMapper.getPostMemberCount", memberNo);
-	}
+//	public int getPostMemberCount(int memberNo) {
+//		return sql.selectOne("managerMapper.getPostMemberCount", memberNo);
+//	}
 
 	/**
 	 * 회원별 글 목록 count
@@ -130,10 +130,8 @@ public class ManagerDAO {
 	 * @param memberNo
 	 * @return list
 	 */
-	public List<Member> selectPostMemberList(Pagination postMemberPagination, int memberNo) {
-		int offset = (postMemberPagination.getCurrentPage() - 1) * postMemberPagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, postMemberPagination.getLimit());
-		return sql.selectList("managerMapper.selectPostMemberList", memberNo, rowBounds);
+	public Member selectPostMember(int memberNo) {
+		return sql.selectOne("managerMapper.selectPostMemberList", memberNo);
 	}
 
 	/**
@@ -171,20 +169,13 @@ public class ManagerDAO {
 		return sql.selectOne("managerMapper.getMemberListCount_search", paramMap);
 	}
 
-//회원목록 검색 리스트 조회
+	//회원목록 검색 리스트 조회
 	public List<Member> selectMemberList(Pagination memberPagination, Map<String, Object> paramMap) {
 		int offset = (memberPagination.getCurrentPage() - 1) * memberPagination.getLimit();
 
 		RowBounds rowBounds = new RowBounds(offset, memberPagination.getLimit());
 		return sql.selectList("managerMapper.selectMemberList_search", paramMap, rowBounds);
 	}
-//	/** 회원별 게시글 목록에서 게시글 삭제
-//	 * @param board
-//	 * @return result
-//	 */
-//	public int deletePost(Board board) {
-//		return sql.update("managerMapper.deletePost", board);
-//	}
 
 
 	// 1:1문의 검색 목록 카운트
@@ -209,6 +200,11 @@ public class ManagerDAO {
 	//회원별 게시글 복원
 	public int restorePost(int boardNo) {
 		return sql.update("managerMapper.restorePost", boardNo);
+	}
+
+	//회원 프로필페이지 이동
+	public Member memberProfile(int memberNo) {
+		return sql.selectOne("managerMapper.memberProfile", memberNo);
 	}
 
 }

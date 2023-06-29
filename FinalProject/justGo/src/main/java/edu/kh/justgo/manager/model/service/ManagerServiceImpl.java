@@ -88,35 +88,35 @@ public class ManagerServiceImpl implements ManagerService {
 		return map;
 	}
 
+	
+	
 	// 회원별 글 목록 조회
 	@Override
 	public Map<String, Object> selectMemberPostList(int memberNo, int cp) {
 
-		int postMemberCount = dao.getPostMemberCount(memberNo);
 
 		int memberPostCount = dao.getMemberPostCount(memberNo);
 
-//      System.out.println("memberPostCount : " + memberPostCount);
-//      System.out.println("postMemberCount : " + postMemberCount);
+//		System.out.println("memberPostCount : " + memberPostCount);
 
 		Pagination memberPostPagination = new Pagination(memberPostCount, cp);
-		Pagination postMemberPagination = new Pagination(postMemberCount, cp);
 
 		List<Board> memberPostList = dao.selectMemberPostList(memberPostPagination, memberNo);
-		List<Member> postMemberList = dao.selectPostMemberList(postMemberPagination, memberNo);
+		Member postMember = dao.selectPostMember(memberNo);
 
 		// pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberPostPagination", memberPostPagination);
-		map.put("postMemberPagination", postMemberPagination);
 		map.put("memberPostList", memberPostList);
-		map.put("postMemberList", postMemberList);
+		map.put("postMember", postMember);
 
 //      System.out.println(map);
 
 		return map;
 	}
 
+	
+	
 	// 1:1문의 상세 조회(회원문의글)
 	@Override
 	public Feedback selectMemberAskList(int feedbackNo) {
@@ -186,6 +186,13 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public int restorePost(int boardNo) {
 		return dao.restorePost(boardNo);
+	}
+	
+	
+	//회원 프로필페이지 이동
+	@Override
+	public Member memberProfile(int memberNo) {
+		return dao.memberProfile(memberNo);
 	}
 
 }

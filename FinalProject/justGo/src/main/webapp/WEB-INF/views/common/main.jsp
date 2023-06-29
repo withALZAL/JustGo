@@ -25,26 +25,26 @@
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 <%-- jQuery 날짜 셀렉터 --%>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-        <script>
-        $(function() {
-            $( "#datepicker1" ).datepicker({
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-            });
-            $( "#datepicker2" ).datepicker({
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-            });
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $( "#datepicker1" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         });
-        </script>
+        $( "#datepicker2" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        });
+    });
+    </script>
 </head>
 <body class="template--body">
 
@@ -251,7 +251,7 @@
                     </c:choose>
                         <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                         <div class="common--boardListImageContainer">
-                            <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
+                            <img src="${hotList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                         </div>
                         <div class="card-body common--boardCardBottom">
                             <p class="card-text">
@@ -298,7 +298,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${foodList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -345,7 +345,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${tipBoardList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -392,7 +392,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${healBoardList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -563,6 +563,7 @@
                                 <option id="Australia">호주</option>
                             </select>
                         </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect">
                                 <option value="ICN" selected>인천공항(서울)</option>
@@ -588,6 +589,7 @@
                                 <option id="Australia">호주</option>
                             </select>
                         </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect2">
                                 <option value="HND">하네다공항(도쿄)</option>
@@ -603,13 +605,13 @@
                 <div class="common--airContent">
                     <div>가는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker1"></p>
+                        <p><input type="text" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
                 <div class="common--airContent">
                     <div>오는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker2"></p>
+                        <p><input type="text" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
             </div>
@@ -635,7 +637,15 @@
             </div>
             <div class="modal-body airportBody">
 
-            <c:forEach begin="1" end="10" varStatus="loop">
+            <div class="loadingMessage">
+                <br>
+                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권을 검색 중입니다.
+            </div>
+
+            <c:forEach begin="1" end="5" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plane" style="color: blue;"></i>
@@ -652,8 +662,14 @@
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
+                                      
+                                        <div>Cathay Pacific Airline</div>
                                         <div class="duration"></div>
                                         
+
+                                        
+                                        
+
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
@@ -672,7 +688,10 @@
                                 <div class="from__icon">
                                     <i class="fa-solid fa-plane-arrival"></i>
                                     <div class="airInfo">
+                       
+                                        <div>koreanAir</div>
                                         <div class="duration1">3시간</div>
+
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
@@ -687,6 +706,10 @@
                     </div>
                 </div>
             </c:forEach>
+
+            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
 
             </div>
             <div class="modal-footer">

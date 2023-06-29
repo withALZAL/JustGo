@@ -239,8 +239,8 @@
             <c:if test="${not empty loginMember}" >
                 <form action="/writing/writingBoard">
                     <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
-                    <input type="hidden" name="boardCode" value="1">
-                    <input type="hidden" name="countryNo" value=${countryNo}>
+                    <input type="hidden" name="boardCode" value="${boardCode}">
+                    <input type="hidden" name="countryNo" value="${countryNo}">
                 </form>
             </c:if>
         </div>

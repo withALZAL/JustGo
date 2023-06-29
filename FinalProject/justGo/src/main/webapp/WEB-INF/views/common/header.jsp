@@ -42,11 +42,6 @@
             <button class="btn btn-secondary btn-sm">관리자로그인</button>
     </form>
     <form>
-        <a href="/account/test">
-            <button type="button" class="btn btn-secondary btn-sm">실험용상준</button>
-        </a>    
-    </form>
-    <form>
         <a href="/">
             <button type="button" class="btn btn-secondary btn-sm">메인</button>
         </a>    

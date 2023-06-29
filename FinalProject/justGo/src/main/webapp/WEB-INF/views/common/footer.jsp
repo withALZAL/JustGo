@@ -59,7 +59,7 @@
         Copyright © 1998-2023 JustGo All Right Reserved<br>
     </div>
     <div class="common--footerRight">
-        <a href="/board/boardNotice">공지사항</a> <%-- 공지사항으로 이동 --%>
+        <%-- <a href="/board/boardNotice">공지사항</a> 공지사항으로 이동 --%>
     <c:if test="${!empty sessionScope.loginMember}">
         <a href="/writing/writingQuestion">1:1문의</a> <%-- 로그인 되었을 때만1:1문의로 이동 --%>
     </c:if>
