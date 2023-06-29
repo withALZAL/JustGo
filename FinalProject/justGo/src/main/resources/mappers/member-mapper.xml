@@ -47,7 +47,8 @@
 	<!-- 회원탈퇴 -->
 	<update id="deleteAccount">
 		UPDATE "MEMBER"
-		SET MEMBER_CONDITION = 'Y'
+		SET MEMBER_CONDITION = 'Y',
+		DELETE_DATE = SYSDATE
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 	
