@@ -392,7 +392,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="${healBoardList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${healList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -566,12 +566,12 @@
                         <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect">
-                                <option value="ICN" selected>인천공항(서울)</option>
-                                <option value="GMP">김포공항(서울)</option>
-                                <option value="CJU">제주공항(제주)</option>
-                                <option value="PUS">김해공항(부산)</option>
-                                <option value="CJJ">청주공항(청주)</option>
-                                <option value="TAE">대구공항(대구)</option>
+                                <option value="ICN" selected>인천(ICN)</option>
+                                <option value="GMP">김포(GMP)</option>
+                                <option value="CJU">제주(CJU)</option>
+                                <option value="PUS">김해(PUS)</option>
+                                <option value="CJJ">청주(CJJ)</option>
+                                <option value="TAE">대구(TAE)</option>
                             </select>
                         </div>
                     </div>
@@ -592,12 +592,12 @@
                         <i class="fa-solid fa-caret-up fa-rotate-90"></i>
                         <div class="airportSelectBox">
                             <select id="airportSelect2">
-                                <option value="HND">하네다공항(도쿄)</option>
-                                <option value="NRT" selected>나리타공항(도쿄)</option>
-                                <option value="KIX">간사이공항(오사카)</option>
-                                <option value="ITM">이타미공항(오사카)</option>
-                                <option value="FUK">후쿠오카공항(후쿠오카)</option>
-                                <option value="CTS">신치토세공항(삿포로)</option>
+                                <option value="HND">하네다(HND)</option>
+                                <option value="NRT" selected>나리타(NRT)</option>
+                                <option value="KIX">간사이(KIX)</option>
+                                <option value="ITM">이타미(ITM)</option>
+                                <option value="FUK">후쿠오카(FUK)</option>
+                                <option value="CTS">신치토세(CTS)</option>
                             </select>
                         </div>
                     </div>
@@ -616,7 +616,7 @@
                 </div>
             </div>
             <div class="common--airBoxBottom">
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#airportModal">
+                <button id="searchBtn" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#airportModal">
                     항공권 검색
                 </button>
             </div>
@@ -633,11 +633,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">항공권 검색결과</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body airportBody">
 
-            <div class="loadingMessage">
+            <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
                 <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
@@ -645,61 +645,78 @@
                 가장 싼 항공권을 검색 중입니다.
             </div>
 
-            <c:forEach begin="1" end="5" varStatus="loop">
+            <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                죄송합니다.
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                직항 항공권이 없습니다.
+            </div>
+
+            <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권입니다.
+            </div>
+
+            <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
                         <i class="fa-solid fa-plane" style="color: blue;"></i>
-                        인천(ICN) - 시드니(SYD) 왕복권
+                        <span class="airName"></span>
+                        <span> - </span>
+                        <span class="deName"></span>
+                        <span>왕복권</span>
                     </div>
                     <div class="card-body airportTicketBox">
                         <div class="airplaneTicket">
                             <div class="goto">
                                 <div class="goto__departure">
-                                    <div class="airportCity departureCity">인천(ICN)</div>
-                                    <div>2023-06-28 19:30:00</div>
-                                    <div>출발</div>
+                                    <div class="airportCity departureCity"></div>
+                                    <div class="departTime"></div>
+                                    <div class="departCity"></div>
                                 </div>
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div>Cathay Pacific Airline</div>
-                                        <div>13시간 30분</div>
-                                        <div>경유 1회</div>
+                                        <div class="duration"></div>
                                     </div>
                                 </div>
                                 <div class="goto__arrival">
-                                    <div class="airportCity arrivalCity">시드니(SYD)</div>
-                                    <div>2023-06-28 19:30:00</div>
-                                    <div>도착</div>
+                                    <div class="airportCity arrivalCity"></div>
+                                    <div class="arrivalTime"></div>
+                                    <div class="arrCity"></div>
                                 </div>
                             </div>
                             <div class="from">
                                 <div class="from__departure">
-                                    <div class="airportCity departureCity">시드니(SYD)</div>
-                                    <div>2023-06-28 19:30:00</div>
-                                    <div>출발</div>
+                                    <div class="airportCity departureCity departureCity1"></div>
+                                    <div class="departTime1"></div>
+                                    <div></div>
                                 </div>
                                 <div class="from__icon">
-                                    <i class="fa-solid fa-plane-arrival"></i>
+                                    <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div>koreanAir</div>
-                                        <div>3시간</div>
-                                        <div>경유 1회</div>
+                                        <div class="duration1"></div>
                                     </div>
                                 </div>
                                 <div class="from__arrival">
-                                    <div class="airportCity arrivalCity">인천(ICN)</div>
-                                    <div>2023-06-28 19:30:00</div>
-                                    <div>도착</div>
+                                    <div class="airportCity arrivalCity arrivalCity1"></div>
+                                    <div class="arrivalTime1"></div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="airPrice" id="airPrice">11,200,000원</div>
+                        <div class="airPrice" id="airPrice"></div>
                     </div>
                 </div>
             </c:forEach>
 
-            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+<%-- 애니메이션 효과 --%>
+            <div class='wave -one'></div>
             <div class='wave -two'></div>
             <div class='wave -three'></div>
 
@@ -736,5 +753,14 @@
     <script src="/resources/js/common/footer.js"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<%-- 공항 선택자 --%>
+    <script>
+        let airportSelect = document.getElementById("airportSelect");
+        let airportSelect2 = document.getElementById("airportSelect2");
+        const s1 = airportSelect.options[airportSelect.selectedIndex].innerText;
+        const s2 = airportSelect2.options[airportSelect2.selectedIndex].innerText;
+        console.log("s1:"+s1);
+        console.log("s2:"+s2);
+    </script>
 </body>
 </html>

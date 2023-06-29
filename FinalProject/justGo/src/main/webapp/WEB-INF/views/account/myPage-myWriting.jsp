@@ -113,7 +113,7 @@ ${myPostList} --%>
                             </c:when>
                             <c:otherwise>
                                 <c:forEach items="${myPostList}" var="post">
-                                    <tr>
+                                    <tr class="postLinear">
                                         <td>${post.boardNo}</td>
                                         <td>${post.tagContent}</td>
                                         <c:choose>
