@@ -107,7 +107,14 @@
                             </a>
                             <%-- <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">          --%>
                             <%-- <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button> --%>
-                            <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">강제탈퇴</button>
+                            <c:choose>
+                                <c:when test="${memberP.memberCondition == 'Y'}">
+                                    <button type="button" id="restoreAccount" class="btn btn-secondary btn-sm" style="background-color: cornflowerblue;" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo" >계정복구</button>
+                                </c:when>
+                                <c:otherwise>
+                                    <button type="button" id="deleteAccount" class="btn btn-secondary btn-sm" style="background-color: tomato;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >강제탈퇴</button>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </form>
@@ -127,19 +134,38 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">회원강제탈퇴</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/manager/delete" method="post">
-                <div class="modal-body">
-                    ${memberP.memberNickname} 님을 강퇴시키겠습니까?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                    <button type="submit" class="btn btn-danger">탈퇴</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                ${memberP.memberNickname} 님을 강퇴시키겠습니까?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="submit" class="btn btn-danger" onclick="deleteMemberBtn(${memberP.memberNo})">탈퇴</button>
+            </div>
         </div>
     </div>
 </div>
 <%-- 탈퇴 모달창 끝 --%>
+
+<%-- 계정복구 모달창 시작 --%>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">회원 계정복구</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ${memberP.memberNickname} 님의 계정을 복구시키겠습니까?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="submit" class="btn btn-danger" onclick="restoreMemberBtn(${memberP.memberNo})">복구</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%-- 계정복구 모달창 끝 --%>
+
 
 
 

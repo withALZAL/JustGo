@@ -180,38 +180,20 @@ public class ManagerController {
 
 
  	//회원 강제탈퇴	
-//    @GetMapping(value = "/deletebtn")
-//    @ResponseBody
-//	public String deleteMember(int memberNo) {
-//		return service.deleteMember(memberNo);
-//	}
+    @GetMapping(value = "/deleteMemberBtn")
+    @ResponseBody
+	public int deleteMember(int memberNo) {
+		return service.deleteMember(memberNo);
+	}
+    
+    
+    //회원 강제탈퇴	
+    @GetMapping(value = "/restoreMemberBtn")
+    @ResponseBody
+    public int restoreMember(int memberNo) {
+    	return service.restoreMember(memberNo);
+    }
 	
 	
-    @PostMapping("/manager/delete")
-	public String deleteMember(
-			@PathVariable("memberNo") int memberNo
-			, RedirectAttributes ra) {
-		
-//		System.out.println(memberNo);
-    	
-    	
-		int result = service.deleteMember(memberNo);
-		
-		System.out.println(result);
-		
-		String path = "redirect:";
-		String message = null;
-		
-		if(result > 0) {
-			message = "강퇴시켰습니다.";
-			path += "/manager/managerMember/";
-		} else {
-			message = "강퇴 실패";
-			path += "/manager/memberPage/" + memberNo;
-		}
-		ra.addFlashAttribute("message", message);
-		return path;
-
-	}	
 	
 }
