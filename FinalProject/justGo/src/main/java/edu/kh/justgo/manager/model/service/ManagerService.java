@@ -96,6 +96,12 @@ public interface ManagerService {
 	 */
 	Member memberProfile(int memberNo);
 
+	/** 회원 강제 탈퇴
+	 * @param memberNo
+	 * @return result
+	 */
+	int deleteMember(int memberNo);
+
 
     
 

@@ -195,4 +195,14 @@ public class ManagerServiceImpl implements ManagerService {
 		return dao.memberProfile(memberNo);
 	}
 
+	
+	// 회원 강제탈퇴
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int deleteMember(int memberNo) {
+		return dao.deleteMember(memberNo);
+	}
+	
+	
+	
 }

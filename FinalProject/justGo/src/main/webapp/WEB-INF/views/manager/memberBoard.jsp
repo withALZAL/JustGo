@@ -65,16 +65,18 @@ ${map.memberPostPagination} --%>
         <c:choose>
             <c:when test="${!empty profileImg}">
                 <div class="manager--profileImage">
-                    <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                    <a href="/manager/memberPage/${memberNo}">
+                        <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                    </a>
                 </div>
                 
             </c:when>
             <c:otherwise>
-                <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
+                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
             </c:otherwise>
         </c:choose>
         <c:if test="${!empty memberNickname}">
-            <a href="#">
+            <a href="/manager/memberPage/${memberNo}">
                 '${memberNickname}' 님의 게시판
             </a>
         </c:if>
@@ -110,7 +112,6 @@ ${map.memberPostPagination} --%>
                 <th>글번호</th>
                 <th>태그</th>
                 <th>글제목</th>
-                <th>글쓴이</th>
                 <th>작성일</th>
                 <th>조회수</th>
                 <th>삭제여부</th>
@@ -122,7 +123,7 @@ ${map.memberPostPagination} --%>
                 <c:choose>
                     <c:when test="${empty memberPostList}">
                         <tr>
-                            <th colspan="8">게시글이 존재하지 않습니다.</th>
+                            <th colspan="7">게시글이 존재하지 않습니다.</th>
                         </tr>
                     </c:when>
                     <c:otherwise>
@@ -131,7 +132,6 @@ ${map.memberPostPagination} --%>
                                 <td>${memberPost.boardNo}</td>
                                 <td>${memberPost.tagContent}</td>
                                 <td><form><a href="#">${memberPost.boardTitle}</a></form></td>
-                                <td><form><a href="#">${memberPost.memberNickname}</a></form></td>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
                                 <td>

@@ -207,4 +207,12 @@ public class ManagerDAO {
 		return sql.selectOne("managerMapper.memberProfile", memberNo);
 	}
 
+	/** 회원 강제 탈퇴
+	 * @param memberNo
+	 * @return result
+	 */
+	public int deleteMember(int memberNo) {
+		return sql.update("managerMapper.deleteMember", memberNo);
+	}
+
 }
