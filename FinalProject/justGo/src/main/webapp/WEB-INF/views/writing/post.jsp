@@ -359,8 +359,8 @@
             </c:if>
             --%>
             
+
     
-            
             </a> </div>
             <div class="writing--postEnrollDate" style="font-size: 0.8rem">등록일: <a>${board.createDate}</a></div>
             <c:if test="${not empty board.boardUpdate}" >
