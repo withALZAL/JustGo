@@ -59,7 +59,7 @@
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40"></div>
+                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" autocomplete="off"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
                     <c:forEach var="writing" items="${writingList}">
@@ -72,7 +72,6 @@
                         </c:otherwise>
                         </c:choose>
                     </c:forEach>
-                    
                     </select>
                     <select class="writing--tagSelector" name="tagNo" id="tagSelector" required>
                         <c:forEach items="${boardTypeList3}" var="tag">
