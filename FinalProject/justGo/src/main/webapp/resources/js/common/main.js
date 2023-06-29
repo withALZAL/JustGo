@@ -325,3 +325,113 @@ function addOption(selectElement, id, text, city) {
     option.text = text + '(' + city + ')';
     selectElement.appendChild(option);
 }
+
+
+
+// 항공 API
+
+const searchBtn = document.getElementById("searchBtn");
+
+searchBtn.addEventListener("click", ()=> {
+
+    fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
+    body: `grant_type=client_credentials&client_id=McfTZz5BGGD2CsF6urmoKwnhsGn5GIWF&client_secret=0zFKW2c287K2VK8G`,
+    headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+    },
+    method: "POST"
+    }).then(resp => resp.json())
+    .then(result => 
+    { 
+        var accessToken = result["access_token"];
+        const selectAirFrom = document.getElementById("airportSelect");
+        const from = selectAirFrom.options[selectAirFrom.selectedIndex].value;
+    
+        const selectAirTo = document.getElementById("airportSelect2");
+        const to = selectAirTo.options[selectAirTo.selectedIndex].value;
+    
+        const departDate = document.getElementById("datepicker1").value;
+        const returnDate = document.getElementById("datepicker2").value; 
+    
+    
+    
+        fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+        }).then(res => res.json())
+        .then(jsonStr => {
+            
+            console.log(jsonStr)
+            console.log(jsonStr.data[0].price);
+            console.log(jsonStr.data[0].itineraries[0].segments[0].departure);
+            
+            
+            // const card = document.querySelectorAll(".airportCard");// 카드생성 
+            
+            // const departTime = document.querySelectorAll(".departTime"); // 출발지 출발
+            // const duration = document.querySelectorAll(".duration"); // 출발지로 부터 도착지까지  시간
+            // const arrivalTime = document.querySelectorAll(".arrivalTime");// 도착지에 도착하는 시간
+            
+            // const departTime1 = document.querySelectorAll(".departTime1"); // 도착지 출발
+            // const duration1 = document.querySelectorAll(".duration1"); // 출발지로 부터 도착지까지  시간
+            // const arrivalTime1 = document.querySelectorAll(".arrivalTime1");// 출발지에 도착하는 시간
+            
+            // var totalPrice = document.querySelectorAll(".airPrice"); // 가격 태그
+            
+            // for(let i =0; i<card.length; i++){
+            //     for(let j = 0; j<jsonStr.data.length; j++){
+                    
+            //         totalPrice[i].innerText = Math.floor(jsonStr.data[j].price.total) + "원"; // 가격
+            //         // 출발
+            //         departTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].departure.at; // 출발시간
+            //         duration[i].innerText = jsonStr.data[j].itineraries[0].segments[0].duration; // 비행시간
+            //         arrivalTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].arrival.at; // 도착시간
+                    
+            //         // 도착
+            //         departTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].departure.at; // 출발시간
+            //         duration1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].duration; // 비행시간
+            //         arrivalTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].arrival.at; // 도착시간
+            
+            //     }
+
+
+            // }
+            const card = document.querySelectorAll(".airportCard"); // 카드생성 
+
+            for (let i = 0; i < card.length; i++) {
+                if (i < jsonStr.data.length) {
+
+                    const currentCard = card[i];
+                    const jsonStrData = jsonStr.data[i];
+                    
+                    const totalPrice = currentCard.querySelector(".airPrice"); // 가격 태그
+                    const departTime = currentCard.querySelector(".departTime"); // 출발지 출발
+                    const duration = currentCard.querySelector(".duration"); // 출발지로 부터 도착지까지  시간
+                    const arrivalTime = currentCard.querySelector(".arrivalTime"); // 도착지에 도착하는 시간
+                    const departTime1 = currentCard.querySelector(".departTime1"); // 도착지 출발
+                    const duration1 = currentCard.querySelector(".duration1"); // 출발지로 부터 도착지까지  시간
+                    const arrivalTime1 = currentCard.querySelector(".arrivalTime1"); // 출발지에 도착하는 시간
+                    
+                    totalPrice.innerText = Math.floor(jsonStrData.price.total) + "원"; // 가격
+                    departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at; // 출발시간
+                    duration.innerText = jsonStrData.itineraries[0].segments[0].duration; // 비행시간
+                    arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at; // 도착시간
+                    departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at; // 출발시간
+                    duration1.innerText = jsonStrData.itineraries[1].segments[0].duration; // 비행시간
+                    arrivalTime1.innerText = jsonStrData.itineraries[1].segments[0].arrival.at; // 도착시간
+                
+                }else{
+                     // jsonStr.data의 길이보다 큰 card 카드는 숨깁니다.
+                    card[i].style.display="none";
+                }
+
+            }
+
+        });
+        
+    
+    });
+})
+
+
