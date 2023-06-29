@@ -128,7 +128,7 @@ public class ManagerController {
 
 	
 	
-	/* 삭제예정
+	
 
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
@@ -141,7 +141,7 @@ public class ManagerController {
 
 		return "/manager/reportManager";
 	}
-	*/
+	
 	
 	
 	//관리자에서 게시글 삭제
