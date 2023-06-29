@@ -69,6 +69,7 @@
 		ORDER BY LIKE_COUNT DESC
 		)
       <![CDATA[WHERE ROWNUM <= 5]]>
+      AND BOARD_THUMBNAIL IS NOT NULL
 	</select>
 
 	<select id="foodBoard" resultMap="main_rm">
@@ -85,6 +86,7 @@
 		ORDER BY LIKE_COUNT DESC
 		)
 		 <![CDATA[WHERE ROWNUM <= 5]]>
+		 AND BOARD_THUMBNAIL IS NOT NULL
 	</select>
 	
 	
@@ -102,6 +104,7 @@
 		ORDER BY LIKE_COUNT DESC
 		)
 		 <![CDATA[WHERE ROWNUM <= 5]]>
+		 AND BOARD_THUMBNAIL IS NOT NULL
 	</select>
 	
 	<select id="healBoard" resultMap="main_rm">
@@ -118,6 +121,7 @@
 		ORDER BY LIKE_COUNT DESC
 		)
 		 <![CDATA[WHERE ROWNUM <= 5]]>
+		 AND BOARD_THUMBNAIL IS NOT NULL
 	</select>
 
 
