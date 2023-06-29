@@ -225,42 +225,42 @@ function changeAirport() {
     // 선택된 국가에 따라 옵션 추가
     var selectedCountry = countrySelect.options[countrySelect.selectedIndex].id;
     if (selectedCountry === "Korea") {
-        addOption(airportSelect, "ICN", "인천공항", "서울");
-        addOption(airportSelect, "GMP", "김포공항", "서울");
-        addOption(airportSelect, "CJU", "제주공항", "제주");
-        addOption(airportSelect, "PUS", "김해공항", "부산");
-        addOption(airportSelect, "CJJ", "청주공항", "청주");
-        addOption(airportSelect, "TAE", "대구공항", "대구");
+        addOption(airportSelect, "ICN", "인천", "ICN");
+        addOption(airportSelect, "GMP", "김포", "GMP");
+        addOption(airportSelect, "CJU", "제주", "CJU");
+        addOption(airportSelect, "PUS", "김해", "PUS");
+        addOption(airportSelect, "CJJ", "청주", "CJJ");
+        addOption(airportSelect, "TAE", "대구", "TAE");
     } else if (selectedCountry === "Japan") {
-        addOption(airportSelect, "HND", "하네다공항", "도쿄");
-        addOption(airportSelect, "NRT", "나리타공항", "도쿄");
-        addOption(airportSelect, "KIX", "간사이공항", "오사카");
-        addOption(airportSelect, "ITM", "이타미공항", "오사카");
-        addOption(airportSelect, "FUK", "후쿠오카공항", "후쿠오카");
-        addOption(airportSelect, "CTS", "신치토세공항", "삿포로");
+        addOption(airportSelect, "HND", "하네다", "HND");
+        addOption(airportSelect, "NRT", "나리타", "NRT");
+        addOption(airportSelect, "KIX", "간사이", "KIX");
+        addOption(airportSelect, "ITM", "이타미", "ITM");
+        addOption(airportSelect, "FUK", "후쿠오카", "FUK");
+        addOption(airportSelect, "CTS", "신치토세", "CTS");
     } else if (selectedCountry === "China") {
-        addOption(airportSelect, "PEK", "서우두공항", "베이징");
-        addOption(airportSelect, "PKX", "다싱공항", "베이징");
-        addOption(airportSelect, "PVG", "푸둥공항", "상하이");
-        addOption(airportSelect, "SHA", "훙차오공항", "상하이");
-        addOption(airportSelect, "CAN", "바이윈공항", "광저우");
-        addOption(airportSelect, "SZX", "바오안공항", "선전");
-        addOption(airportSelect, "HKG", "홍콩공항", "홍콩");
+        addOption(airportSelect, "PEK", "서우두", "PEK");
+        addOption(airportSelect, "PKX", "다싱", "PKX");
+        addOption(airportSelect, "PVG", "푸둥", "PVG");
+        addOption(airportSelect, "SHA", "훙차오", "SHA");
+        addOption(airportSelect, "CAN", "바이윈", "CAN");
+        addOption(airportSelect, "SZX", "바오안", "SZX");
+        addOption(airportSelect, "HKG", "홍콩", "HKG");
     } else if (selectedCountry === "Vietnam") {
-        addOption(airportSelect, "HAN", "노이바이공항", "하노이");
-        addOption(airportSelect, "SGN", "떤선녓공항", "호치민");
-        addOption(airportSelect, "DAD", "다낭공항", "다낭");
+        addOption(airportSelect, "HAN", "노이바이", "HAN");
+        addOption(airportSelect, "SGN", "떤선녓", "SGN");
+        addOption(airportSelect, "DAD", "다낭", "DAD");
     } else if (selectedCountry === "Thai") {
-        addOption(airportSelect, "BKK", "수안나폼공항", "방콕");
-        addOption(airportSelect, "DMK", "돈므앙공항", "방콕");
-        addOption(airportSelect, "HKT", "푸켓공항", "푸켓");
-        addOption(airportSelect, "CNX", "치앙마이공항", "치앙마이");
+        addOption(airportSelect, "BKK", "수안나폼공항", "BKK");
+        addOption(airportSelect, "DMK", "돈므앙공항", "DMK");
+        addOption(airportSelect, "HKT", "푸켓공항", "HKT");
+        addOption(airportSelect, "CNX", "치앙마이공항", "CNX");
     } else if (selectedCountry === "Australia") {
-        addOption(airportSelect, "SYD", "시드니공항", "시드니");
-        addOption(airportSelect, "CBR", "캔버라공항", "캔버라");
-        addOption(airportSelect, "MEL", "멜버른공항", "멜버른");
-        addOption(airportSelect, "BNE", "브리즈번공항", "브리즈번");
-        addOption(airportSelect, "PER", "퍼스공항", "퍼스");
+        addOption(airportSelect, "SYD", "시드니공항", "SYD");
+        addOption(airportSelect, "CBR", "캔버라공항", "CBR");
+        addOption(airportSelect, "MEL", "멜버른공항", "MEL");
+        addOption(airportSelect, "BNE", "브리즈번공항", "BNE");
+        addOption(airportSelect, "PER", "퍼스공항", "PER");
     }
 }
 
@@ -279,42 +279,41 @@ function changeAirport2() {
     // 선택된 국가에 따라 옵션 추가
     var selectedCountry = countrySelect2.options[countrySelect2.selectedIndex].id;
     if (selectedCountry === "Korea") {
-        addOption(airportSelect2, "ICN", "인천공항", "서울");
-        addOption(airportSelect2, "GMP", "김포공항", "서울");
-        addOption(airportSelect2, "CJU", "제주공항", "제주");
-        addOption(airportSelect2, "PUS", "김해공항", "부산");
-        addOption(airportSelect2, "CJJ", "청주공항", "청주");
-        addOption(airportSelect2, "TAE", "대구공항", "대구");
+        addOption(airportSelect2, "ICN", "인천", "ICN");
+        addOption(airportSelect2, "GMP", "김포", "GMP");
+        addOption(airportSelect2, "CJU", "제주", "CJU");
+        addOption(airportSelect2, "CJJ", "청주", "CJJ");
+        addOption(airportSelect2, "TAE", "대구", "TAE");
     } else if (selectedCountry === "Japan") {
-        addOption(airportSelect2, "HND", "하네다공항", "도쿄");
-        addOption(airportSelect2, "NRT", "나리타공항", "도쿄");
-        addOption(airportSelect2, "KIX", "간사이공항", "오사카");
-        addOption(airportSelect2, "ITM", "이타미공항", "오사카");
-        addOption(airportSelect2, "FUK", "후쿠오카공항", "후쿠오카");
-        addOption(airportSelect2, "CTS", "신치토세공항", "삿포로");
+        addOption(airportSelect2, "HND", "하네다", "HND");
+        addOption(airportSelect2, "NRT", "나리타", "NRT");
+        addOption(airportSelect2, "KIX", "간사이", "KIX");
+        addOption(airportSelect2, "ITM", "이타미", "ITM");
+        addOption(airportSelect2, "FUK", "후쿠오카", "FUK");
+        addOption(airportSelect2, "CTS", "신치토세", "CTS");
     } else if (selectedCountry === "China") {
-        addOption(airportSelect2, "PEK", "서우두공항", "베이징");
-        addOption(airportSelect2, "PKX", "다싱공항", "베이징");
-        addOption(airportSelect2, "PVG", "푸둥공항", "상하이");
-        addOption(airportSelect2, "SHA", "훙차오공항", "상하이");
-        addOption(airportSelect2, "CAN", "바이윈공항", "광저우");
-        addOption(airportSelect2, "SZX", "바오안공항", "선전");
-        addOption(airportSelect2, "HKG", "홍콩공항", "홍콩");
+        addOption(airportSelect2, "PEK", "서우두", "PEK");
+        addOption(airportSelect2, "PKX", "다싱", "PKX");
+        addOption(airportSelect2, "PVG", "푸둥", "PVG");
+        addOption(airportSelect2, "SHA", "훙차오", "SHA");
+        addOption(airportSelect2, "CAN", "바이윈", "CAN");
+        addOption(airportSelect2, "SZX", "바오안", "SZX");
+        addOption(airportSelect2, "HKG", "홍콩", "HKG");
     } else if (selectedCountry === "Vietnam") {
-        addOption(airportSelect2, "HAN", "노이바이공항", "하노이");
-        addOption(airportSelect2, "SGN", "떤선녓공항", "호치민");
-        addOption(airportSelect2, "DAD", "다낭공항", "다낭");
+        addOption(airportSelect2, "HAN", "노이바이", "HAN");
+        addOption(airportSelect2, "SGN", "떤선녓", "SGN");
+        addOption(airportSelect2, "DAD", "다낭", "DAD");
     } else if (selectedCountry === "Thai") {
-        addOption(airportSelect2, "BKK", "수안나폼공항", "방콕");
-        addOption(airportSelect2, "DMK", "돈므앙공항", "방콕");
-        addOption(airportSelect2, "HKT", "푸켓공항", "푸켓");
-        addOption(airportSelect2, "CNX", "치앙마이공항", "치앙마이");
+        addOption(airportSelect2, "BKK", "수안나폼", "BKK");
+        addOption(airportSelect2, "DMK", "돈므앙", "DMK");
+        addOption(airportSelect2, "HKT", "푸켓", "HKT");
+        addOption(airportSelect2, "CNX", "치앙마이", "CNX");
     } else if (selectedCountry === "Australia") {
-        addOption(airportSelect2, "SYD", "시드니공항", "시드니");
-        addOption(airportSelect2, "CBR", "캔버라공항", "캔버라");
-        addOption(airportSelect2, "MEL", "멜버른공항", "멜버른");
-        addOption(airportSelect2, "BNE", "브리즈번공항", "브리즈번");
-        addOption(airportSelect2, "PER", "퍼스공항", "퍼스");
+        addOption(airportSelect2, "SYD", "시드니", "SYD");
+        addOption(airportSelect2, "CBR", "캔버라", "CBR");
+        addOption(airportSelect2, "MEL", "멜버른", "MEL");
+        addOption(airportSelect2, "BNE", "브리즈번", "BNE");
+        addOption(airportSelect2, "PER", "퍼스", "PER");
     }
 }
 
@@ -334,6 +333,7 @@ const searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", ()=> {
 
+
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     body: `grant_type=client_credentials&client_id=McfTZz5BGGD2CsF6urmoKwnhsGn5GIWF&client_secret=0zFKW2c287K2VK8G`,
     headers: {
@@ -352,7 +352,7 @@ searchBtn.addEventListener("click", ()=> {
     
         const departDate = document.getElementById("datepicker1").value;
         const returnDate = document.getElementById("datepicker2").value; 
-    
+
     
     
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
@@ -404,7 +404,26 @@ searchBtn.addEventListener("click", ()=> {
 
                     const currentCard = card[i];
                     const jsonStrData = jsonStr.data[i];
+
+                    const selectAirFrom1 = document.getElementById("airportSelect");
+                    const from1 = selectAirFrom1.options[selectAirFrom1.selectedIndex].innerText;
+                
+                    const selectAirTo1 = document.getElementById("airportSelect2");
+                    const to1 = selectAirTo1.options[selectAirTo1.selectedIndex].innerText;
+
+                    // 출발지
+                    const departCity = currentCard.querySelector(".departureCity");
+                    const departCity1 = currentCard.querySelector(".departureCity1");
+                    const airName = currentCard.querySelector(".airName");
                     
+                    // 도착지
+                    const arrCity = currentCard.querySelector(".arrivalCity");
+                    const arrCity1 = currentCard.querySelector(".arrivalCity1");
+                    const deName = currentCard.querySelector(".deName");
+
+                    
+
+
                     const totalPrice = currentCard.querySelector(".airPrice"); // 가격 태그
                     const departTime = currentCard.querySelector(".departTime"); // 출발지 출발
                     const duration = currentCard.querySelector(".duration"); // 출발지로 부터 도착지까지  시간
@@ -414,13 +433,21 @@ searchBtn.addEventListener("click", ()=> {
                     const arrivalTime1 = currentCard.querySelector(".arrivalTime1"); // 출발지에 도착하는 시간
                     
                     totalPrice.innerText = Math.floor(jsonStrData.price.total) + "원"; // 가격
+                    
                     departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at; // 출발시간
                     duration.innerText = jsonStrData.itineraries[0].segments[0].duration; // 비행시간
                     arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at; // 도착시간
+                    departCity.innerText = from1;
+                    departCity1.innerText = to1;
+                    airName.innerText = from1;
+
                     departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at; // 출발시간
                     duration1.innerText = jsonStrData.itineraries[1].segments[0].duration; // 비행시간
                     arrivalTime1.innerText = jsonStrData.itineraries[1].segments[0].arrival.at; // 도착시간
-                
+                    arrCity.innerText = to1;
+                    arrCity1.innerText = from1;
+                    deName.innerText = to1;
+
                 }else{
                      // jsonStr.data의 길이보다 큰 card 카드는 숨깁니다.
                     card[i].style.display="none";
