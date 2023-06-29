@@ -30,20 +30,79 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-    $(function() {
-        $( "#datepicker1" ).datepicker({
-            dateFormat: 'yy-mm-dd',
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        $(function() { /* 오늘로부터 3개월 이내 날짜만 선택할 수 있도록 설정 */
+            var today = new Date(); // 현재 날짜
+            var maxDate = new Date(today.getFullYear(), today.getMonth() + 3, today.getDate()); // 오늘로부터 3개월 후의 날짜
+            var maxDateString = maxDate.toISOString().split('T')[0]; // 날짜 형식을 'yyyy-mm-dd'로 변환
+
+            $("#datepicker1").datepicker({
+                dateFormat: 'yy-mm-dd',
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                minDate: 0, // 오늘 날짜 이상만 선택
+                maxDate: maxDateString, // 오늘로부터 3개월 이내로 선택
+                onSelect: function(selectedDate) {
+                    var startDate = new Date(selectedDate);
+                    var endDate = new Date(startDate.getTime() + 90 * 24 * 60 * 60 * 1000); // 출발일로부터 3개월까지만 선택
+                    $("#datepicker2").datepicker("option", "minDate", selectedDate);
+                    $("#datepicker2").datepicker("option", "maxDate", endDate);
+                }
+            });
+            $("#datepicker2").datepicker({
+                dateFormat: 'yy-mm-dd',
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                minDate: 0, // 오늘 날짜 이상만 선택
+                maxDate: maxDateString // 오늘로부터 3개월 이내로 선택
+            });
         });
-        $( "#datepicker2" ).datepicker({
-            dateFormat: 'yy-mm-dd',
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-        });
-    });
+
+
+
+
+        
+/* 1번 시도 */
+    // $(function() {
+    //     $("#datepicker1").datepicker({
+    //         dateFormat: 'yy-mm-dd',
+    //         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    //         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         minDate: 0, // 오늘 날짜 이상만 선택
+    //     onSelect: function(selectedDate) {
+    //         var startDate = new Date(selectedDate);
+    //         var endDate = new Date(startDate.getTime() + 90 * 24 * 60 * 60 * 1000); // 출발일로부터 3개월까지만 선택
+    //         $("#datepicker2").datepicker("option", "minDate", selectedDate);
+    //         $("#datepicker2").datepicker("option", "maxDate", endDate);
+    //     }
+    // });
+    //     $("#datepicker2").datepicker({
+    //         dateFormat: 'yy-mm-dd',
+    //         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    //         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         minDate: 0, // 오늘 날짜 이상만 선택
+    //     });
+    // });
+/* 2번 시도 */
+    // $(function() {
+    //     $( "#datepicker1" ).datepicker({ /* 출발일 */
+    //         dateFormat: 'yy-mm-dd',
+    //         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    //         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         minDate: 0 /* 오늘 날짜 이상만 선택 */
+    //     });
+    //     $( "#datepicker2" ).datepicker({ /* 귀환일 */
+    //         dateFormat: 'yy-mm-dd',
+    //         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    //         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    //         minDate: 0 /* 오늘 날짜 이상만 선택 */
+    //     });
+    // });
     </script>
 </head>
 <body class="template--body">
