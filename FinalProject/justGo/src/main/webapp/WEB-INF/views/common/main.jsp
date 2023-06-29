@@ -62,7 +62,7 @@
 
 
 
-        
+
 /* 1번 시도 */
     // $(function() {
     //     $("#datepicker1").datepicker({
@@ -700,7 +700,7 @@
                 <br>
                 <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
-                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                목적지까지 가는<br>
                 가장 싼 항공권을 검색 중입니다.
             </div>
 
@@ -709,7 +709,7 @@
                 <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
                 죄송합니다.
-                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                목적지까지 가는<br>
                 직항 항공권이 없습니다.
             </div>
 
@@ -717,7 +717,7 @@
                 <br>
                 <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
-                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                목적지까지 가는<br>
                 가장 싼 항공권입니다.
             </div>
 

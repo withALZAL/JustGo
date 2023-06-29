@@ -356,36 +356,36 @@ function changeAirport2() {
     var loadingMessage = document.getElementById("loadingMessage");
     var noFlightMessage = document.getElementById("noFlightMessage");
     var loadedMessage = document.getElementById("loadedMessage");
-    // 검색 중 문구 업데이트
-    loadingMessage.innerHTML = '';
-    loadingMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        가장 싼 항공권을 검색 중입니다.
-    `;
+    // // 검색 중 문구 업데이트
+    // loadingMessage.innerHTML = '';
+    // loadingMessage.innerHTML = `
+    //     <br>
+    //     <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <br><br>
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     가장 싼 항공권을 검색 중입니다.
+    // `;
 
-    // 검색 결과 없음 문구 업데이트
-    noFlightMessage.innerHTML = '';
-    noFlightMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        죄송합니다.
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        직항 항공권이 없습니다.
-    `;
+    // // 검색 결과 없음 문구 업데이트
+    // noFlightMessage.innerHTML = '';
+    // noFlightMessage.innerHTML = `
+    //     <br>
+    //     <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <br><br>
+    //     죄송합니다.
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     직항 항공권이 없습니다.
+    // `;
 
-    // 검색 완료 문구 업데이트
-    loadedMessage.innerHTML = '';
-    loadedMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        가장 싼 항공권입니다.
-    `;
+    // // 검색 완료 문구 업데이트
+    // loadedMessage.innerHTML = '';
+    // loadedMessage.innerHTML = `
+    //     <br>
+    //     <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <br><br>
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     가장 싼 항공권입니다.
+    // `;
 }
 
 // 새로운 옵션을 select 요소에 추가하는 함수
@@ -425,7 +425,60 @@ datepicker2.value = formattedDate2;
 
 const searchBtn = document.getElementById("searchBtn");
 
-searchBtn.addEventListener("click", ()=> {
+// searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", e => {
+
+    /* 상준 보완 필요 */
+    const datepicker1 = document.getElementById('datepicker1');
+    const datepicker2 = document.getElementById('datepicker2');
+
+    if(datepicker1.value === '') {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '가는 날을 선택해주세요.' /* 메시지 담기 */
+            })
+        e.preventDefault();
+        return;
+    }
+    if(datepicker2.value === '') {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '오는 날을 선택해주세요.' /* 메시지 담기 */
+            })
+        e.preventDefault();
+        return;
+    }
+    /* 상준 보완 필요 */
+    
+
+
+
+
+
 
 
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
@@ -609,9 +662,3 @@ searchBtn.addEventListener("click", ()=> {
     
     });
 })
-
-setTimeout(() => {
-    const checkIcon = document.getElementById('checkIcon');
-    checkIcon.style.animationDuration = '3s';
-    checkIcon.style.animationFillMode = 'forwards';
-}, 0);
