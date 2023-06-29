@@ -637,12 +637,29 @@
             </div>
             <div class="modal-body airportBody">
 
-            <div class="loadingMessage">
+            <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
                 <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
                 <br><br>
                 인천(ICN)에서 시드니(SYD)까지 가는<br>
                 가장 싼 항공권을 검색 중입니다.
+            </div>
+
+            <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                죄송합니다.
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                직항 항공권이 없습니다.
+            </div>
+
+            <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
+                <br>
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권입니다.
             </div>
 
             <c:forEach begin="1" end="10" varStatus="loop">
@@ -665,11 +682,7 @@
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                    
-                                        
                                         <div class="duration"></div>
-                                        
-                                        
                                     </div>
                                 </div>
                                 <div class="goto__arrival">
@@ -685,13 +698,9 @@
                                     <div></div>
                                 </div>
                                 <div class="from__icon">
-                                    <i class="fa-solid fa-plane-arrival"></i>
+                                    <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-
-                                        
                                         <div class="duration1"></div>
-
-                                       
                                     </div>
                                 </div>
                                 <div class="from__arrival">
@@ -706,7 +715,8 @@
                 </div>
             </c:forEach>
 
-            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+<%-- 애니메이션 효과 --%>
+            <div class='wave -one'></div>
             <div class='wave -two'></div>
             <div class='wave -three'></div>
 
@@ -743,5 +753,14 @@
     <script src="/resources/js/common/footer.js"></script>
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<%-- 공항 선택자 --%>
+    <script>
+        let airportSelect = document.getElementById("airportSelect");
+        let airportSelect2 = document.getElementById("airportSelect2");
+        const s1 = airportSelect.options[airportSelect.selectedIndex].innerText;
+        const s2 = airportSelect2.options[airportSelect2.selectedIndex].innerText;
+        console.log("s1:"+s1);
+        console.log("s2:"+s2);
+    </script>
 </body>
 </html>
