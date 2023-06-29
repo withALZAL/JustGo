@@ -26,8 +26,8 @@
 <c:set var="memberAskList" value="${map.memberAskList}" />
 <c:set var="managerAnswerList" value="${map.managerAnswerList}" />
 
-<%-- ${map.memberAskList}
-${map.managerAnswerList} --%>
+<%-- ${map.memberAskList}--%>
+<%-- ${map.managerAnswerList}  --%>
 
 
 

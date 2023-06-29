@@ -76,17 +76,25 @@ public interface ManagerService {
 	Map<String, Object> selectAskList(Map<String, Object> paramMap, int cp);
 	
 	
-//	/** 회원별 게시글 목록에서 게시글 삭제
-//	 * @param board
-//	 * @return result
-//	 */
-//	int deletePost(Board board);
 
 	/** 관리자 페이지의 회원 게시글 삭제
 	 * @param boardNo
 	 * @return
 	 */
 	int deletePost(int boardNo);
+
+	/** 관리자 페이지의 회원 게시글 복원
+	 * @param boardNo
+	 * @return
+	 */
+	int restorePost(int boardNo);
+
+	
+	/**회원 프로필페이지 이동
+	 * @param memberNo
+	 * @return 
+	 */
+	Member memberProfile(int memberNo);
 
 
     

@@ -54,7 +54,10 @@ function getWeather(cityName) {
             currentTemp.innerText = Math.floor(json.main.temp);
             humidity.innerText = json.main.humidity;
             wind.innerText = json.wind.speed;
-            city.innerText = json.name;
+            // city.innerText = json.name; /* 변경 */
+            let ol = document.getElementById("citySelect");
+            let cityDisplay = ol.options[ol.selectedIndex].innerText; /* 변경 */
+            city.innerText = cityDisplay;
             weather.innerText = json.weather[0].description;
 
             // iconUrl.src = "http://openweathermap.org/img/wn/" + icon + ".png"; //iconurl로 src를 설정해줌
@@ -204,3 +207,120 @@ function calcIcon() {
 }
 
 
+/* 항공 API ----------------------------------------------- */
+
+/* 나라 바뀌면 공항도 바뀌는 변수 */
+function changeAirport() {
+
+    // 출발지
+    var countrySelect = document.getElementById("countrySelect");
+    var airportSelect = document.getElementById("airportSelect");
+
+    // 이전에 추가된 옵션 삭제
+    while (airportSelect.firstChild) {
+        airportSelect.removeChild(airportSelect.firstChild);
+    }
+
+    // 선택된 국가에 따라 옵션 추가
+    var selectedCountry = countrySelect.options[countrySelect.selectedIndex].id;
+    if (selectedCountry === "Korea") {
+        addOption(airportSelect, "ICN", "인천공항", "서울");
+        addOption(airportSelect, "GMP", "김포공항", "서울");
+        addOption(airportSelect, "CJU", "제주공항", "제주");
+        addOption(airportSelect, "PUS", "김해공항", "부산");
+        addOption(airportSelect, "CJJ", "청주공항", "청주");
+        addOption(airportSelect, "TAE", "대구공항", "대구");
+    } else if (selectedCountry === "Japan") {
+        addOption(airportSelect, "HND", "하네다공항", "도쿄");
+        addOption(airportSelect, "NRT", "나리타공항", "도쿄");
+        addOption(airportSelect, "KIX", "간사이공항", "오사카");
+        addOption(airportSelect, "ITM", "이타미공항", "오사카");
+        addOption(airportSelect, "FUK", "후쿠오카공항", "후쿠오카");
+        addOption(airportSelect, "CTS", "신치토세공항", "삿포로");
+    } else if (selectedCountry === "China") {
+        addOption(airportSelect, "PEK", "서우두공항", "베이징");
+        addOption(airportSelect, "PKX", "다싱공항", "베이징");
+        addOption(airportSelect, "PVG", "푸둥공항", "상하이");
+        addOption(airportSelect, "SHA", "훙차오공항", "상하이");
+        addOption(airportSelect, "CAN", "바이윈공항", "광저우");
+        addOption(airportSelect, "SZX", "바오안공항", "선전");
+        addOption(airportSelect, "HKG", "홍콩공항", "홍콩");
+    } else if (selectedCountry === "Vietnam") {
+        addOption(airportSelect, "HAN", "노이바이공항", "하노이");
+        addOption(airportSelect, "SGN", "떤선녓공항", "호치민");
+        addOption(airportSelect, "DAD", "다낭공항", "다낭");
+    } else if (selectedCountry === "Thai") {
+        addOption(airportSelect, "BKK", "수안나폼공항", "방콕");
+        addOption(airportSelect, "DMK", "돈므앙공항", "방콕");
+        addOption(airportSelect, "HKT", "푸켓공항", "푸켓");
+        addOption(airportSelect, "CNX", "치앙마이공항", "치앙마이");
+    } else if (selectedCountry === "Australia") {
+        addOption(airportSelect, "SYD", "시드니공항", "시드니");
+        addOption(airportSelect, "CBR", "캔버라공항", "캔버라");
+        addOption(airportSelect, "MEL", "멜버른공항", "멜버른");
+        addOption(airportSelect, "BNE", "브리즈번공항", "브리즈번");
+        addOption(airportSelect, "PER", "퍼스공항", "퍼스");
+    }
+}
+
+/* 나라 바뀌면 공항도 바뀌는 변수 */
+function changeAirport2() {
+
+    // 도착지
+    var countrySelect2 = document.getElementById("countrySelect2");
+    var airportSelect2 = document.getElementById("airportSelect2");
+
+    // 이전에 추가된 옵션 삭제
+    while (airportSelect2.firstChild) {
+        airportSelect2.removeChild(airportSelect2.firstChild);
+    }
+
+    // 선택된 국가에 따라 옵션 추가
+    var selectedCountry = countrySelect2.options[countrySelect2.selectedIndex].id;
+    if (selectedCountry === "Korea") {
+        addOption(airportSelect2, "ICN", "인천공항", "서울");
+        addOption(airportSelect2, "GMP", "김포공항", "서울");
+        addOption(airportSelect2, "CJU", "제주공항", "제주");
+        addOption(airportSelect2, "PUS", "김해공항", "부산");
+        addOption(airportSelect2, "CJJ", "청주공항", "청주");
+        addOption(airportSelect2, "TAE", "대구공항", "대구");
+    } else if (selectedCountry === "Japan") {
+        addOption(airportSelect2, "HND", "하네다공항", "도쿄");
+        addOption(airportSelect2, "NRT", "나리타공항", "도쿄");
+        addOption(airportSelect2, "KIX", "간사이공항", "오사카");
+        addOption(airportSelect2, "ITM", "이타미공항", "오사카");
+        addOption(airportSelect2, "FUK", "후쿠오카공항", "후쿠오카");
+        addOption(airportSelect2, "CTS", "신치토세공항", "삿포로");
+    } else if (selectedCountry === "China") {
+        addOption(airportSelect2, "PEK", "서우두공항", "베이징");
+        addOption(airportSelect2, "PKX", "다싱공항", "베이징");
+        addOption(airportSelect2, "PVG", "푸둥공항", "상하이");
+        addOption(airportSelect2, "SHA", "훙차오공항", "상하이");
+        addOption(airportSelect2, "CAN", "바이윈공항", "광저우");
+        addOption(airportSelect2, "SZX", "바오안공항", "선전");
+        addOption(airportSelect2, "HKG", "홍콩공항", "홍콩");
+    } else if (selectedCountry === "Vietnam") {
+        addOption(airportSelect2, "HAN", "노이바이공항", "하노이");
+        addOption(airportSelect2, "SGN", "떤선녓공항", "호치민");
+        addOption(airportSelect2, "DAD", "다낭공항", "다낭");
+    } else if (selectedCountry === "Thai") {
+        addOption(airportSelect2, "BKK", "수안나폼공항", "방콕");
+        addOption(airportSelect2, "DMK", "돈므앙공항", "방콕");
+        addOption(airportSelect2, "HKT", "푸켓공항", "푸켓");
+        addOption(airportSelect2, "CNX", "치앙마이공항", "치앙마이");
+    } else if (selectedCountry === "Australia") {
+        addOption(airportSelect2, "SYD", "시드니공항", "시드니");
+        addOption(airportSelect2, "CBR", "캔버라공항", "캔버라");
+        addOption(airportSelect2, "MEL", "멜버른공항", "멜버른");
+        addOption(airportSelect2, "BNE", "브리즈번공항", "브리즈번");
+        addOption(airportSelect2, "PER", "퍼스공항", "퍼스");
+    }
+}
+
+// 새로운 옵션을 select 요소에 추가하는 함수
+function addOption(selectElement, id, text, city) {
+    var option = document.createElement("option");
+    option.value = id;
+    option.text = text + '(' + city + ')';
+    selectElement.appendChild(option);
+}

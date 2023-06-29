@@ -27,8 +27,7 @@
 
 <c:set var="memberPostPagination" value="${map.memberPostPagination}" /> 
 <c:set var="memberPostList" value="${map.memberPostList}" /> 
-<c:set var="postMemberPagination" value="${map.postMemberPagination}" /> 
-<c:set var="postMemberList" value="${map.postMemberList}" /> 
+<c:set var="postMember" value="${map.postMember}" /> 
 
 <%-- ${map.postMemberList}
 ${map.postMemberPagination}
@@ -36,16 +35,15 @@ ${map.memberPostList}
 ${map.memberPostPagination} --%>
 
 
-<c:forEach items="${postMemberList}" var="postMember">
-    <c:if test="${postMember.memberNo == memberNo}" >
-        <c:set var="memberNickname" value="${postMember.memberNickname}"/>
-        <c:set var="profileImg" value="${postMember.profileImg}"/>
-        <c:set var="memberNo" value="${postMember.memberNo}"/>
-    </c:if>
-</c:forEach>
 
 
-<%-- ${memberNo} --%>
+<c:if test="${postMember.memberNo == memberNo}" >
+    <c:set var="memberNickname" value="${postMember.memberNickname}"/>
+    <c:set var="profileImg" value="${postMember.profileImg}"/>
+    <c:set var="memberNo" value="${postMember.memberNo}"/>
+</c:if>
+
+
 
 <!-- ----------------------------------------------- -->
 <!-- Template-header 시작 -->
@@ -136,8 +134,26 @@ ${map.memberPostPagination} --%>
                                 <td><form><a href="#">${memberPost.memberNickname}</a></form></td>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
-                                <td>${memberPost.boardDelete}</td>
-                                <td><button class="manager--deleteBtn" id="manager--delBtn" onclick="nobtn(${memberPost.boardNo})">삭제</button></td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${memberPost.boardDelete =='N'}">
+                                            유지
+                                        </c:when>
+                                        <c:otherwise>
+                                            삭제
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${memberPost.boardDelete  == 'N'}">
+                                            <button class="manager--deleteBtn" id="manager--delBtn" onclick="nobtn(${memberPost.boardNo})">삭제</button>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button class="manager--restoreBtn" id="manager--reBtn" onclick="rebtn(${memberPost.boardNo})">복원</button>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                             </tr>   
                         </c:forEach>
                     </c:otherwise>

@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <link rel="stylesheet" href="/resources/css/board/board.css">
-   
+
     <title>JustGo - ${countryName}게시판</title>
 
 <!-- bootstrap -->
@@ -151,10 +151,10 @@
             <c:choose>
             <c:when test="${empty boardList}">
                 <%-- 조회된 게시글 목록이 비어있거나 null인 경우 --%>
-               
+        
                 <!-- 게시글 목록 조회 결과가 비어있다면 -->
                 <tr>
-                    <th colspan="6">게시글이 존재하지 않습니다.</th>
+                    <th colspan="7">게시글이 존재하지 않습니다.</th>
                 </tr>
             </c:when>
 

@@ -44,7 +44,7 @@
 <div class="template--pageTitleContainer">
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_WELCOME.png" alt="환영">
-        <div class="template--overlayedTitle">회원마이페이지</div>
+        <div class="template--overlayedTitle">회원상세페이지</div>
     </div>
 </div>
 <!-- 페이지 제목 끝 -->

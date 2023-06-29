@@ -80,6 +80,10 @@ public class WritingServiceImpl implements WritingService {
 		
 		file.transferTo( new File(filePath + rename));  // 서버에 파일을 저장
 	
+		
+		System.out.println("webPath:"+webPath);
+		System.out.println("rename:"+rename);
+		
 		return webPath + rename;
 	}
 

@@ -24,8 +24,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
-<%-- jQuery --%>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<%-- jQuery 날짜 셀렉터 --%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $( "#datepicker1" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        });
+        $( "#datepicker2" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+        });
+    });
+    </script>
 </head>
 <body class="template--body">
 
@@ -467,23 +486,25 @@
                             <select id="citySelect" onchange="change();" class="common--cardWeatherSelector" style="width: 100px;">
                                 <option id="Seoul">서울</option>
                                 <option id="Tokyo">도쿄</option>
+                                <option id="Kyoto">교토</option>
                                 <option id="Osaka">오사카</option>
                                 <option id="Sapporo">삿포로</option>
                                 <option id="Okinawa">오키나와</option>
+                                <option id="Fukuoka">후쿠오카</option>
                                 <option id="Beijing">베이징</option>
                                 <option id="Shanghai">상하이</option>
-                                <option id="Hongkong">홍콩</option>
-                                <option id="Taipei">타이페이</option>
+                                <option id="Shenzhen">선전</option>
                                 <option id="Hanoi">하노이</option>
+                                <option id="Danang">다낭</option>
                                 <option id="Ho Chi Minh City">호치민</option>
                                 <option id="Bangkok">방콕</option>
                                 <option id="Phuket">푸켓</option>
-                                <option id="Singapore">싱가포르</option>
-                                <option id="Manila">마닐라</option>
+                                <option id="Chiang Mai, TH">치앙마이</option>
+                                <option id="Pattaya">파타야</option>
                                 <option id="Sydney">시드니</option>
                                 <option id="Brisbane">브리즈번</option>
+                                <option id="Melbourne, AU">멜버른</option>
                                 <option id="Perth">퍼스</option>
-                                <option id="Guam">괌</option>
                             </select>
                             
                         </div>
@@ -519,7 +540,7 @@
 
 
 
-<!-- 항공 시작-->
+<!-- 항공 검색기 시작-->
 <div class="common--oneDivide">
     <div class="card">
         <div class="card-header" style="font-weight: bold; font-size: 20px;">
@@ -531,76 +552,165 @@
             <div class="common--airContentBox">
                 <div class="common--airContent">
                     <div>출발지</div>
-                    <div class="airportSelectBox">
-                        <select id="airportSelect">
-                            <option id="Seoul">서울</option>
-                            <option id="Tokyo">도쿄</option>
-                            <option id="Osaka">오사카</option>
-                            <option id="Sapporo">삿포로</option>
-                            <option id="Okinawa">오키나와</option>
-                            <option id="Beijing">베이징</option>
-                            <option id="Shanghai">상하이</option>
-                            <option id="Hongkong">홍콩</option>
-                            <option id="Taipei">타이페이</option>
-                            <option id="Hanoi">하노이</option>
-                            <option id="Ho Chi Minh City">호치민</option>
-                            <option id="Bangkok">방콕</option>
-                            <option id="Phuket">푸켓</option>
-                            <option id="Singapore">싱가포르</option>
-                            <option id="Manila">마닐라</option>
-                            <option id="Sydney">시드니</option>
-                            <option id="Brisbane">브리즈번</option>
-                            <option id="Perth">퍼스</option>
-                            <option id="Guam">괌</option>
-                        </select>
+                    <div>
+                        <div class="countrySelectBox">
+                            <select id="countrySelect" onchange="changeAirport()">
+                                <option id="Korea" selected>한국</option>
+                                <option id="Japan">일본</option>
+                                <option id="China">중국</option>
+                                <option id="Vietnam">베트남</option>
+                                <option id="Thai">태국</option>
+                                <option id="Australia">호주</option>
+                            </select>
+                        </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
+                        <div class="airportSelectBox">
+                            <select id="airportSelect">
+                                <option value="ICN" selected>인천공항(서울)</option>
+                                <option value="GMP">김포공항(서울)</option>
+                                <option value="CJU">제주공항(제주)</option>
+                                <option value="PUS">김해공항(부산)</option>
+                                <option value="CJJ">청주공항(청주)</option>
+                                <option value="TAE">대구공항(대구)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="common--airContent">
                     <div>도착지</div>
-                    <div class="airportSelectBox">
-                        <select id="airportSelect">
-                            <option id="Seoul">서울</option>
-                            <option id="Tokyo">도쿄</option>
-                            <option id="Osaka">오사카</option>
-                            <option id="Sapporo">삿포로</option>
-                            <option id="Okinawa">오키나와</option>
-                            <option id="Beijing">베이징</option>
-                            <option id="Shanghai">상하이</option>
-                            <option id="Hongkong">홍콩</option>
-                            <option id="Taipei">타이페이</option>
-                            <option id="Hanoi">하노이</option>
-                            <option id="Ho Chi Minh City">호치민</option>
-                            <option id="Bangkok">방콕</option>
-                            <option id="Phuket">푸켓</option>
-                            <option id="Singapore">싱가포르</option>
-                            <option id="Manila">마닐라</option>
-                            <option id="Sydney">시드니</option>
-                            <option id="Brisbane">브리즈번</option>
-                            <option id="Perth">퍼스</option>
-                            <option id="Guam">괌</option>
-                        </select>
+                    <div>
+                        <div class="countrySelectBox">
+                            <select id="countrySelect2" onchange="changeAirport2()">
+                                <option id="Korea">한국</option>
+                                <option id="Japan" selected>일본</option>
+                                <option id="China">중국</option>
+                                <option id="Vietnam">베트남</option>
+                                <option id="Thai">태국</option>
+                                <option id="Australia">호주</option>
+                            </select>
+                        </div>
+                        <i class="fa-solid fa-caret-up fa-rotate-90"></i>
+                        <div class="airportSelectBox">
+                            <select id="airportSelect2">
+                                <option value="HND">하네다공항(도쿄)</option>
+                                <option value="NRT" selected>나리타공항(도쿄)</option>
+                                <option value="KIX">간사이공항(오사카)</option>
+                                <option value="ITM">이타미공항(오사카)</option>
+                                <option value="FUK">후쿠오카공항(후쿠오카)</option>
+                                <option value="CTS">신치토세공항(삿포로)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="common--airContent">
-                    <div>출발날짜</div>
+                    <div>가는 날</div>
                     <div>
-
+                        <p><input type="text" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
                 <div class="common--airContent">
-                    <div>도착날짜</div>
+                    <div>오는 날</div>
                     <div>
-
+                        <p><input type="text" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
             </div>
             <div class="common--airBoxBottom">
-                <button type="button" class="btn btn-primary btn-lg">검색</button>
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#airportModal">
+                    항공권 검색
+                </button>
             </div>
         </div>
     </div>
 </div>
-<!-- 항공 끝 -->
+<!-- 항공 검색기 끝 -->
+
+
+
+<!-- 항공 검색기 모달창 시작 -->
+<div class="modal fade modal-xl" id="airportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">항공권 검색결과</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body airportBody">
+
+            <div class="loadingMessage">
+                <br>
+                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
+                인천(ICN)에서 시드니(SYD)까지 가는<br>
+                가장 싼 항공권을 검색 중입니다.
+            </div>
+
+            <c:forEach begin="1" end="5" varStatus="loop">
+                <div class="card airportCard">
+                    <div class="card-header" style="font-weight: bold; font-size: 20px;">
+                        <i class="fa-solid fa-plane" style="color: blue;"></i>
+                        인천(ICN) - 시드니(SYD) 왕복권
+                    </div>
+                    <div class="card-body airportTicketBox">
+                        <div class="airplaneTicket">
+                            <div class="goto">
+                                <div class="goto__departure">
+                                    <div class="airportCity departureCity">인천(ICN)</div>
+                                    <div>2023-06-28 19:30:00</div>
+                                    <div>출발</div>
+                                </div>
+                                <div class="goto__icon">
+                                    <i class="fa-solid fa-plane-departure"></i>
+                                    <div class="airInfo">
+                                        <div>Cathay Pacific Airline</div>
+                                        <div>13시간 30분</div>
+                                        <div>경유 1회</div>
+                                    </div>
+                                </div>
+                                <div class="goto__arrival">
+                                    <div class="airportCity arrivalCity">시드니(SYD)</div>
+                                    <div>2023-06-28 19:30:00</div>
+                                    <div>도착</div>
+                                </div>
+                            </div>
+                            <div class="from">
+                                <div class="from__departure">
+                                    <div class="airportCity departureCity">시드니(SYD)</div>
+                                    <div>2023-06-28 19:30:00</div>
+                                    <div>출발</div>
+                                </div>
+                                <div class="from__icon">
+                                    <i class="fa-solid fa-plane-arrival"></i>
+                                    <div class="airInfo">
+                                        <div>koreanAir</div>
+                                        <div>3시간</div>
+                                        <div>경유 1회</div>
+                                    </div>
+                                </div>
+                                <div class="from__arrival">
+                                    <div class="airportCity arrivalCity">인천(ICN)</div>
+                                    <div>2023-06-28 19:30:00</div>
+                                    <div>도착</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="airPrice" id="airPrice">11,200,000원</div>
+                    </div>
+                </div>
+            </c:forEach>
+
+            <div class='wave -one'></div> <%-- 애니메이션 효과 --%>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 항공 검색기 모달창 끝 -->
 
 
 

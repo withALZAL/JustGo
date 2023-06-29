@@ -178,7 +178,7 @@
         });
     </script>
 
-
+<%-- summernote 이미지 ajax 전송 처리 --%>
     <script>
         function uploadSummernoteImageFile(file, el) { // file(업로드할 이미지파일 객체)과 el(summernote 에디터 객체)의 매개변수를 받아온다
 
@@ -204,9 +204,5 @@
         }
             
     </script>
-
-
-
-            
 </body>
 </html>

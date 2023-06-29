@@ -64,7 +64,7 @@ writeFrm.addEventListener("submit", e => {
 document.addEventListener("DOMContentLoaded", function(){
 
     const boardSelect = document.getElementById("boardSelect"); // boardSelect 의 아이디와 일치하는 요소(객체) 불러오기
-ㅋ
+
 
 
     if(countryNo == ''){ //처음 메인화면의 주소가 공백이라면 (질문, 자유)
