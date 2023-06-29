@@ -127,27 +127,27 @@
 }
 .board--contentBox__main th:nth-child(1), /* 글번호 */
 .board--contentBox__main td:nth-child(1) {
-    width: 70px;
+    width: 100px;
 }
 .board--contentBox__main th:nth-child(2), /* 태그 */
 .board--contentBox__main td:nth-child(2) {
-    width: 70px;
+    width: 100px;
 }
-.board--contentBox__main th:nth-child(4), /* 글쓴이 */
+.board--contentBox__main th:nth-child(4), /* 작성일 */
 .board--contentBox__main td:nth-child(4) {
     width: 200px;
 }
-.board--contentBox__main th:nth-child(6), /* 조회수 */
+.board--contentBox__main th:nth-child(5), /* 조회수 */
+.board--contentBox__main td:nth-child(5) {
+    width: 100px;
+}
+.board--contentBox__main th:nth-child(6), /* 삭제여부 */
 .board--contentBox__main td:nth-child(6) {
-    width: 80px;
+    width: 100px;
 }
-.board--contentBox__main th:nth-child(7), /* 삭제여부 */
+.board--contentBox__main th:nth-child(7) /* 삭제여부 */
 .board--contentBox__main td:nth-child(7) {
-    width: 90px;
-}
-.board--contentBox__main th:nth-child(8) /* 삭제여부 */
-.board--contentBox__main td:nth-child(8) {
-    width: 90px;
+    width: 100px;
 }
 .board--contentBox__main th:nth-child(3), /* 제목 */
 .board--contentBox__main td:nth-child(3) {

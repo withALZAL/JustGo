@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.justgo.board.model.dto.Board;
@@ -183,8 +185,33 @@ public class ManagerController {
 //	public String deleteMember(int memberNo) {
 //		return service.deleteMember(memberNo);
 //	}
-//	
 	
+	
+    @PostMapping("/manager/delete")
+	public String deleteMember(
+			@PathVariable("memberNo") int memberNo
+			, RedirectAttributes ra) {
 		
+//		System.out.println(memberNo);
+    	
+    	
+		int result = service.deleteMember(memberNo);
+		
+		System.out.println(result);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) {
+			message = "강퇴시켰습니다.";
+			path += "/manager/managerMember/";
+		} else {
+			message = "강퇴 실패";
+			path += "/manager/memberPage/" + memberNo;
+		}
+		ra.addFlashAttribute("message", message);
+		return path;
+
+	}	
 	
 }

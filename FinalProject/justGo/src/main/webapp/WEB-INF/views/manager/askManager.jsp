@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/manager/manager.css">
+    <link rel="stylesheet" href="/resources/css/manager/askManager.css">
 
     <title>JustGo-askManager</title>
 
@@ -25,8 +25,8 @@
 
 <c:set var="askPagination" value="${map.askPagination}" />
 <c:set var="askList" value="${map.askList}" />
-${map.pagination}
-<%-- ${map.askList} --%>
+<%-- ${map.askPagination}
+${map.askList} --%>
 
 <c:forEach items="${askList}" var="ask">
     <c:if test="${ask.feedbackNo == feedbackNo}" >
@@ -101,15 +101,14 @@ ${map.pagination}
                         <c:choose>
                             <c:when test="${empty askList}">
                                 <tr>
-                                    <th colspan="6">문의가 존재하지 않습니다.</th>
+                                    <th colspan="5">문의가 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
                             <c:otherwise>
                                 <c:forEach items="${askList}" var="ask">
-                                
                                     <tr>
                                         <td>${ask.feedbackNo}</td>
-                                        <td><form><a href="#">${ask.memberNickname}</a></form></td>
+                                        <td><form><a href="/manager/memberPage/${ask.memberNo}">${ask.memberNickname}</a></form></td>
                                         <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}</a></form></td>
                                         <td>${ask.feedbackDate}</td>
                                         <td>
