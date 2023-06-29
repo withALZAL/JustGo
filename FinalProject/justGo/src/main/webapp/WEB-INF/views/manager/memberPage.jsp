@@ -38,17 +38,6 @@
 <section class="template--Section">
 
 
-
-<!-- 페이지 제목 시작 -->
-<%-- <div class="template--pageTitleContainer">
-    <div class="template--pageTitleBox">
-        <div class="template--overlayedTitle">회원상세페이지</div>
-    </div>
-</div> --%>
-<!-- 페이지 제목 끝 -->
-
-
-
 <!-- 마이페이지 시작 -->
 <div class="ghostBox">
     <div class="account--joinContainer">
@@ -101,12 +90,6 @@
                             
                         </table>
                         <div class="account--joinBtnBox">
-                            <button type="submit" id="updateImgBtn" class="btn btn-secondary btn-sm" style="display: none; background-color: #8B89FF;">이미지 변경</button>
-                            <a href="/myPage/updateInfo">
-                                <%-- <button type="button" class="btn btn-secondary btn-sm">개인정보 수정</button> --%>
-                            </a>
-                            <%-- <input type="file" name="profileImage" id="imageUpload" accept="image/*" style="display: none;">          --%>
-                            <%-- <button type="button" class="btn btn-secondary btn-sm">게시글 조회</button> --%>
                             <c:choose>
                                 <c:when test="${memberP.memberCondition == 'Y'}">
                                     <button type="button" id="restoreAccount" class="btn btn-secondary btn-sm" style="background-color: cornflowerblue;" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo" >계정복구</button>
@@ -135,7 +118,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ${memberP.memberNickname} 님을 강퇴시키겠습니까?
+                '${memberP.memberNickname}' 님을 강퇴시키겠습니까?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -155,7 +138,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ${memberP.memberNickname} 님의 계정을 복구시키겠습니까?
+                '${memberP.memberNickname}' 님의 계정을 복구시키겠습니까?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
