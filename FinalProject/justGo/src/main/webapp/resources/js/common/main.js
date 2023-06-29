@@ -568,6 +568,8 @@ searchBtn.addEventListener("click", e => {
         loading.style.display = 'none';
         const loaded = document.getElementById('loadedMessage');
         loaded.style.display = 'block';
+        const noFlight = document.getElementById('noFlightMessage');
+        noFlight.style.display = 'none';
     
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
         headers: {
@@ -579,6 +581,19 @@ searchBtn.addEventListener("click", e => {
             console.log(jsonStr)
             console.log(jsonStr.data[0].price);
             console.log(jsonStr.data[0].itineraries[0].segments[0].departure);
+
+            /* 상준 */
+            if (jsonStr.data.length == 0 || jsonStr.meta.count == 0) {
+                const loading = document.getElementById('loadingMessage');
+                loading.style.display = 'none';
+                const loaded = document.getElementById('loadedMessage');
+                loaded.style.display = 'none';
+                const noFlight = document.getElementById('noFlightMessage');
+                noFlight.style.display = 'block'; /* 실패했을 경우 noFlightMessage 출력 */
+            } 
+            /* 상준 */
+
+
             
             
             // const card = document.querySelectorAll(".airportCard");// 카드생성 
