@@ -251,7 +251,7 @@
                     </c:choose>
                         <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                         <div class="common--boardListImageContainer">
-                            <img src="/resources/images/officialProfile/GITHUBICON.png" class="card-img-top" alt="게시글 사진 1">
+                            <img src="${hotList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                         </div>
                         <div class="card-body common--boardCardBottom">
                             <p class="card-text">
@@ -298,7 +298,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${foodList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -345,7 +345,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${tipBoardList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
@@ -392,7 +392,7 @@
                     </c:choose>
                     <%-- <a href="https://www.google.com" class="common--boardListContent"> --%>
                     <div class="common--boardListImageContainer">
-                        <img src="/resources/images/officialBanner/BANNERAUSTRALIA.png" class="card-img-top" alt="게시글 사진 1">
+                        <img src="${healBoardList.boardThumbnail}" class="card-img-top" alt="게시글 사진 1">
                     </div>
                     <div class="card-body common--boardCardBottom">
                         <p class="card-text">
