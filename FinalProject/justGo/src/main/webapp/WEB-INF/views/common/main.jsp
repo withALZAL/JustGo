@@ -614,7 +614,7 @@
                 </div>
             </div>
             <div class="common--airBoxBottom">
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#airportModal">
+                <button id="searchBtn" type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#airportModal">
                     항공권 검색
                 </button>
             </div>
@@ -631,7 +631,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">항공권 검색결과</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body airportBody">
 
@@ -646,43 +646,44 @@
                             <div class="goto">
                                 <div class="goto__departure">
                                     <div class="airportCity departureCity">인천(ICN)</div>
-                                    <div>2023-06-28 19:30:00</div>
+                                    <div class="departTime"></div>
                                     <div>출발</div>
                                 </div>
                                 <div class="goto__icon">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="airInfo">
-                                        <div>13시간 30분</div>
+                                        <div class="duration"></div>
+                                        
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
                                 <div class="goto__arrival">
                                     <div class="airportCity arrivalCity">시드니(SYD)</div>
-                                    <div>2023-06-28 19:30:00</div>
+                                    <div class="arrivalTime"></div>
                                     <div>도착</div>
                                 </div>
                             </div>
                             <div class="from">
                                 <div class="from__departure">
                                     <div class="airportCity departureCity">시드니(SYD)</div>
-                                    <div>2023-06-28 19:30:00</div>
+                                    <div class="departTime1"></div>
                                     <div>출발</div>
                                 </div>
                                 <div class="from__icon">
                                     <i class="fa-solid fa-plane-arrival"></i>
                                     <div class="airInfo">
-                                        <div>3시간</div>
+                                        <div class="duration1">3시간</div>
                                         <div>경유 1회</div>
                                     </div>
                                 </div>
                                 <div class="from__arrival">
                                     <div class="airportCity arrivalCity">인천(ICN)</div>
-                                    <div>2023-06-28 19:30:00</div>
+                                    <div class="arrivalTime1"></div>
                                     <div>도착</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="airPrice" id="airPrice">11,200,000원</div>
+                        <div class="airPrice" id="airPrice"></div>
                     </div>
                 </div>
             </c:forEach>
