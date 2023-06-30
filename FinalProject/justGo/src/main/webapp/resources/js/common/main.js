@@ -262,41 +262,47 @@ function changeAirport() {
         addOption(airportSelect, "PER", "퍼스", "PER");
     }
 
-    var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
-    var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
-    var loadingMessage = document.getElementById("loadingMessage");
-    var noFlightMessage = document.getElementById("noFlightMessage");
-    var loadedMessage = document.getElementById("loadedMessage");
-    // 검색 중 문구 업데이트
-    loadingMessage.innerHTML = '';
-    loadingMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        가장 싼 항공권을 검색 중입니다.
-    `;
+    // var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
+    // var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
+    // var loadingMessage = document.getElementById("loadingMessage");
+    // var noFlightMessage = document.getElementById("noFlightMessage");
+    // var loadedMessage = document.getElementById("loadedMessage");
+    // // 검색 중 문구 업데이트
+    // loadingMessage.innerHTML = '';
+    // loadingMessage.innerHTML = `
+    //     <br>
+    //     <div id="animationTarget1">
+    //         <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
+    //     <br><br>
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     항공권을 검색 중입니다.
+    // `;
 
-    // 검색 결과 없음 문구 업데이트
-    noFlightMessage.innerHTML = '';
-    noFlightMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        죄송합니다.
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        직항 항공권이 없습니다.
-    `;
+    // // 검색 결과 없음 문구 업데이트
+    // noFlightMessage.innerHTML = '';
+    // noFlightMessage.innerHTML = `
+    //     <br>
+    //     <div id="animationTarget2">
+    //         <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
+    //     <br><br>
+    //     죄송합니다.
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     항공권이 없습니다.
+    // `;
 
-    // 검색 완료 문구 업데이트
-    loadedMessage.innerHTML = '';
-    loadedMessage.innerHTML = `
-        <br>
-        <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
-        <br><br>
-        ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-        가장 싼 항공권입니다.
-    `;
+    // // 검색 완료 문구 업데이트
+    // loadedMessage.innerHTML = '';
+    // loadedMessage.innerHTML = `
+    //     <br>
+    //     <div id="animationTarget3">
+    //         <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
+    //     <br><br>
+    //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
+    //     항공권 리스트입니다.
+    // `;
 }
 
 /* 나라 바뀌면 공항도 바뀌는 변수 */
@@ -351,40 +357,46 @@ function changeAirport2() {
         addOption(airportSelect2, "PER", "퍼스", "PER");
     }
 
-    var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
-    var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
-    var loadingMessage = document.getElementById("loadingMessage");
-    var noFlightMessage = document.getElementById("noFlightMessage");
-    var loadedMessage = document.getElementById("loadedMessage");
+    // var departureAirport = document.getElementById("airportSelect").innerText; // 출발 공항 선택자의 값을 가져옴
+    // var arrivalAirport = document.getElementById("airportSelect2").innerText; // 도착 공항 선택자의 값을 가져옴
+    // var loadingMessage = document.getElementById("loadingMessage");
+    // var noFlightMessage = document.getElementById("noFlightMessage");
+    // var loadedMessage = document.getElementById("loadedMessage");
     // // 검색 중 문구 업데이트
     // loadingMessage.innerHTML = '';
     // loadingMessage.innerHTML = `
     //     <br>
-    //     <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <div id="animationTarget1">
+    //         <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
     //     <br><br>
     //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-    //     가장 싼 항공권을 검색 중입니다.
+    //     항공권을 검색 중입니다.
     // `;
 
     // // 검색 결과 없음 문구 업데이트
     // noFlightMessage.innerHTML = '';
     // noFlightMessage.innerHTML = `
     //     <br>
-    //     <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <div id="animationTarget2">
+    //         <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
     //     <br><br>
     //     죄송합니다.
     //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-    //     직항 항공권이 없습니다.
+    //     항공권이 없습니다.
     // `;
 
     // // 검색 완료 문구 업데이트
     // loadedMessage.innerHTML = '';
     // loadedMessage.innerHTML = `
     //     <br>
-    //     <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     <div id="animationTarget3">
+    //         <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+    //     </div>
     //     <br><br>
     //     ${departureAirport}에서 ${arrivalAirport}까지 가는<br>
-    //     가장 싼 항공권입니다.
+    //     항공권 리스트입니다.
     // `;
 }
 
@@ -417,69 +429,98 @@ const formattedDate2 = `${year2}-${month2}-${day2}`;
 datepicker1.value = formattedDate;
 datepicker2.value = formattedDate2;
 
-
-
-
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
 
 // 항공 API
-
 const searchBtn = document.getElementById("searchBtn");
-
+// $('#airportModal').on('show.bs.modal', function (e) {
+//     e.preventDefault();
+//   })
 // searchBtn.addEventListener("click", () => {
-searchBtn.addEventListener("click", e => {
+$('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상준 수정) */
 
-    /* 상준 보완 필요 */
+    /* 상준 추가 시작 */
     const datepicker1 = document.getElementById('datepicker1');
     const datepicker2 = document.getElementById('datepicker2');
+    const airportModal = document.getElementById('airportModal');
 
-    if(datepicker1.value === '') {
+    if(datepicker1.value === '') { /* 가는 날 막기 */
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end', /* 우측 상단 */
-            showConfirmButton: false, /* 컨펌버튼 없음 */
-            timer: 3000, /* 3초 간 뜨기 */
-            timerProgressBar: true, /* 진행바 */
-            showCloseButton: true, /* 취소 버튼 */
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+            if(datepicker1.value === '') {
+                Toast.fire({
+                    icon: 'warning',
+                    title: '항공권 검색을 위해 가는 날을 선택해주세요.'
+                })
+            }
+        e.preventDefault();
+        datepicker1.focus();
+        return;
+    }
+    if(datepicker2.value === '') { /* 오는 날 막기 */
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
             })
             Toast.fire({
-                icon: 'warning', /* 아이디 실패 시 ! 경고 */
-                title: '가는 날을 선택해주세요.' /* 메시지 담기 */
+                icon: 'warning',
+                title: '항공권 검색을 위해 오는 날을 선택해주세요.'
             })
         e.preventDefault();
+        datepicker2.focus();
         return;
     }
-    if(datepicker2.value === '') {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end', /* 우측 상단 */
-            showConfirmButton: false, /* 컨펌버튼 없음 */
-            timer: 3000, /* 3초 간 뜨기 */
-            timerProgressBar: true, /* 진행바 */
-            showCloseButton: true, /* 취소 버튼 */
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-            })
-            Toast.fire({
-                icon: 'warning', /* 아이디 실패 시 ! 경고 */
-                title: '오는 날을 선택해주세요.' /* 메시지 담기 */
-            })
-        e.preventDefault();
-        return;
-    }
-    /* 상준 보완 필요 */
-    
+    /* 상준 추가 끝 */
 
 
 
-
-
-
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
+/* 이 위로는 전혀 문제가 없습니다. 상준 */
 
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
     body: `grant_type=client_credentials&client_id=McfTZz5BGGD2CsF6urmoKwnhsGn5GIWF&client_secret=0zFKW2c287K2VK8G`,
@@ -494,32 +535,10 @@ searchBtn.addEventListener("click", e => {
         const selectAirFrom = document.getElementById("airportSelect");
         const from = selectAirFrom.options[selectAirFrom.selectedIndex].value;
         const fromCity = selectAirFrom.options[selectAirFrom.selectedIndex].innerText; /* 상준 */
-
-        console.log(from);
-        console.log(from);
-        console.log(from);
-        console.log(from);
-        console.log(from);
-        console.log(fromCity);
-        console.log(fromCity);
-        console.log(fromCity);
-        console.log(fromCity);
-        console.log(fromCity);
     
         const selectAirTo = document.getElementById("airportSelect2");
         const to = selectAirTo.options[selectAirTo.selectedIndex].value;
         const toCity = selectAirTo.options[selectAirTo.selectedIndex].innerText; /* 상준 */
-
-        console.log(to);
-        console.log(to);
-        console.log(to);
-        console.log(to);
-        console.log(to);
-        console.log(toCity);
-        console.log(toCity);
-        console.log(toCity);
-        console.log(toCity);
-        console.log(toCity);
         
         /* 상준 */
         var loadingMessage = document.getElementById('loadingMessage');
@@ -529,47 +548,55 @@ searchBtn.addEventListener("click", e => {
         loadingMessage.innerHTML = '';
         loadingMessage.innerHTML = `
             <br>
-            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <div id="animationTarget1">
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            </div>
             <br><br>
             ${fromCity}에서 ${toCity}까지 가는<br>
-            가장 싼 항공권을 찾고 있습니다.
+            항공권을 검색 중입니다.
         `;
         noFlightMessage.innerHTML = '';
         noFlightMessage.innerHTML = `
             <br>
-            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <div id="animationTarget2">
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            </div>  
             <br><br>
             죄송합니다.<br>
             ${fromCity}에서 ${toCity}까지 가는<br>
-            직항 항공권이 없는 것 같습니다.
+            항공권이 없습니다.
         `;
         loadedMessage.innerHTML = '';
         loadedMessage.innerHTML = `
             <br>
-            <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            <div id="animationTarget3">
+                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+            </div>
             <br><br>
             ${fromCity}에서 ${toCity}까지 가는<br>
-            가장 싼 항공권 리스트입니다.
+            항공권 리스트입니다.
         `;
-
         /* 상준 */
 
     
         const departDate = document.getElementById("datepicker1").value;
         const returnDate = document.getElementById("datepicker2").value;
 
-        /* 로딩 애니메이션 없애기 */
-        // const waves = document.getElementsByClassName('wave');
-        // while (waves.length > 0) {
-        //     waves[0].remove();
-        // }
-        /* 문구 바꾸기 */
-        const loading = document.getElementById('loadingMessage');
-        loading.style.display = 'none';
-        const loaded = document.getElementById('loadedMessage');
-        loaded.style.display = 'block';
-        const noFlight = document.getElementById('noFlightMessage');
-        noFlight.style.display = 'none';
+        // /* 애니메이션 없애기 */
+        // const wave1 = document.getElementById("wave1");
+        // const wave2 = document.getElementById("wave2");
+        // const wave3 = document.getElementById("wave3");
+        // setTimeout(() => { wave1.remove(); }, 3000);
+        // setTimeout(() => { wave2.remove(); }, 3500);
+        // setTimeout(() => { wave3.remove(); }, 4000);
+
+        // /* 문구 바꾸기 */
+        // const loading = document.getElementById('loadingMessage');
+        // loading.style.display = 'none';
+        // const loaded = document.getElementById('loadedMessage');
+        // loaded.style.display = 'block';
+        // const noFlight = document.getElementById('noFlightMessage');
+        // noFlight.style.display = 'none';
     
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
         headers: {
@@ -577,69 +604,163 @@ searchBtn.addEventListener("click", e => {
         }
         }).then(res => res.json())
         .then(jsonStr => {
-            
-            console.log(jsonStr)
-            console.log(jsonStr.data[0].price);
-            console.log(jsonStr.data[0].itineraries[0].segments[0].departure);
 
-            /* 상준 */
-            if (jsonStr.data.length == 0 || jsonStr.meta.count == 0) {
+            console.log(jsonStr);
+            // console.log(jsonStr.data[0].price); /* 상준: 이 줄 주석 빼면 경로가 없을 때 에러가 납니다!!!!!!!!!!!! */
+            // console.log(jsonStr.data[0].itineraries[0].segments[0].departure);
+            // console.log("jsonStr:"+jsonStr);
+            // console.log("jsonStr.data[0].price:"+jsonStr.data[0].price);
+            // console.log("jsonStr.data[0].itineraries[0].segments[0].departure:"+jsonStr.data[0].itineraries[0].segments[0].departure);
+            // console.log("jsonStr.data.length:"+jsonStr.data.length);
+
+
+            // if (Object.keys(jsonStr).length === 0 && jsonStr.constructor === Object) {
+            //     // jsonStr 객체가 비어있는 경우에 대한 처리
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //     console.log("a");
+            //   } else {
+            //     // jsonStr 객체에 내용이 있는 경우에 대한 처리
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //     console.log("b");
+            //   }
+
+            // if (object && object.price) {
+            //     console.log("데이터 들어옴");
+            //     console.log("데이터 들어옴");
+            //     console.log("데이터 들어옴");
+            //     console.log("데이터 들어옴");
+            //     console.log("데이터 들어옴");
+            //     console.log("데이터 들어옴");
+            //   } else {
+            //     console.log("데이터 안 들어옴");
+            //     console.log("데이터 안 들어옴");
+            //     console.log("데이터 안 들어옴");
+            //     console.log("데이터 안 들어옴");
+            //     console.log("데이터 안 들어옴");
+            //     console.log("데이터 안 들어옴");
+            //   }
+
+
+            if (jsonStr.data.length === 0 || jsonStr.data.length < 1 || 
+                jsonStr.meta.count === 0 || jsonStr.meta.count < 1) {
+                console.log("데이터 안 들어옴");
+                console.log("데이터 안 들어옴");
+                console.log("데이터 안 들어옴");
+                console.log("데이터 안 들어옴");
+                console.log("데이터 안 들어옴");
+                console.log("데이터 안 들어옴");
                 const loading = document.getElementById('loadingMessage');
                 loading.style.display = 'none';
                 const loaded = document.getElementById('loadedMessage');
                 loaded.style.display = 'none';
                 const noFlight = document.getElementById('noFlightMessage');
                 noFlight.style.display = 'block'; /* 실패했을 경우 noFlightMessage 출력 */
-            } 
-            /* 상준 */
 
 
-            
-            
-            // const card = document.querySelectorAll(".airportCard");// 카드생성 
-            
-            // const departTime = document.querySelectorAll(".departTime"); // 출발지 출발
-            // const duration = document.querySelectorAll(".duration"); // 출발지로 부터 도착지까지  시간
-            // const arrivalTime = document.querySelectorAll(".arrivalTime");// 도착지에 도착하는 시간
-            
-            // const departTime1 = document.querySelectorAll(".departTime1"); // 도착지 출발
-            // const duration1 = document.querySelectorAll(".duration1"); // 출발지로 부터 도착지까지  시간
-            // const arrivalTime1 = document.querySelectorAll(".arrivalTime1");// 출발지에 도착하는 시간
-            
-            // var totalPrice = document.querySelectorAll(".airPrice"); // 가격 태그
-            
-            // for(let i =0; i<card.length; i++){
-            //     for(let j = 0; j<jsonStr.data.length; j++){
-                    
-            //         totalPrice[i].innerText = Math.floor(jsonStr.data[j].price.total) + "원"; // 가격
-            //         // 출발
-            //         departTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].departure.at; // 출발시간
-            //         duration[i].innerText = jsonStr.data[j].itineraries[0].segments[0].duration; // 비행시간
-            //         arrivalTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].arrival.at; // 도착시간
-                    
-            //         // 도착
-            //         departTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].departure.at; // 출발시간
-            //         duration1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].duration; // 비행시간
-            //         arrivalTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].arrival.at; // 도착시간
-            
-            //     }
+                const noAirline = 0; /* 실패했을 경우 noAirline 변수에 0 저장 */
+                console.log(noAirline);
+                console.log(noAirline);
+                console.log(noAirline);
+                console.log(noAirline);
+
+                return;
+            } else { /* 데이터 들어왔을 때 */
+                console.log("데이터 들어옴");
+                console.log("데이터 들어옴");
+                console.log("데이터 들어옴");
+                console.log("데이터 들어옴");
+                console.log("데이터 들어옴");
+                console.log("데이터 들어옴");
+
+                const noAirline = 1; /* 실패했을 경우 noAirline 변수에 1 저장 */
+                console.log(noAirline);
+                console.log(noAirline);
+                console.log(noAirline);
+                console.log(noAirline);
 
 
-            // }
-            const card = document.querySelectorAll(".airportCard"); // 카드생성 
+                /* 애니메이션 없애기 */
+                const wave1 = document.getElementById("wave1");
+                const wave2 = document.getElementById("wave2");
+                const wave3 = document.getElementById("wave3");
+                setTimeout(() => { wave1.remove(); }, 3000);
+                setTimeout(() => { wave2.remove(); }, 3500);
+                setTimeout(() => { wave3.remove(); }, 4000);
+                console.log("애니메이션 없애기 시작");
+                /* 문구 바꾸기 */
+                const loading = document.getElementById('loadingMessage');
+                loading.style.display = 'none';
+                const loaded = document.getElementById('loadedMessage');
+                loaded.style.display = 'block';
+                const noFlight = document.getElementById('noFlightMessage');
+                noFlight.style.display = 'none';
+                console.log("데이터 들어온 문구 출력 시작");
 
+                /* 주의: else 문 안 끝남!! */
+                /* 주의: else 문 안 끝남!! */
+                /* 주의: else 문 안 끝남!! */
+                
+                // const card = document.querySelectorAll(".airportCard");// 카드생성 
+                
+                // const departTime = document.querySelectorAll(".departTime"); // 출발지 출발
+                // const duration = document.querySelectorAll(".duration"); // 출발지로 부터 도착지까지  시간
+                // const arrivalTime = document.querySelectorAll(".arrivalTime");// 도착지에 도착하는 시간
+                
+                // const departTime1 = document.querySelectorAll(".departTime1"); // 도착지 출발
+                // const duration1 = document.querySelectorAll(".duration1"); // 출발지로 부터 도착지까지  시간
+                // const arrivalTime1 = document.querySelectorAll(".arrivalTime1");// 출발지에 도착하는 시간
+                
+                // var totalPrice = document.querySelectorAll(".airPrice"); // 가격 태그
+                
+                // for(let i =0; i<card.length; i++){
+                    //     for(let j = 0; j<jsonStr.data.length; j++){
+                        
+                        //         totalPrice[i].innerText = Math.floor(jsonStr.data[j].price.total) + "원"; // 가격
+                        //         // 출발
+                        //         departTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].departure.at; // 출발시간
+                        //         duration[i].innerText = jsonStr.data[j].itineraries[0].segments[0].duration; // 비행시간
+                        //         arrivalTime[i].innerText = jsonStr.data[j].itineraries[0].segments[0].arrival.at; // 도착시간
+                        
+                        //         // 도착
+                        //         departTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].departure.at; // 출발시간
+                        //         duration1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].duration; // 비행시간
+                        //         arrivalTime1[i].innerText = jsonStr.data[j].itineraries[1].segments[0].arrival.at; // 도착시간
+                        
+                        //     }
+                        
+                        
+                        // }
+                        const card = document.querySelectorAll(".airportCard"); // 카드생성 
+                        
             for (let i = 0; i < card.length; i++) {
                 if (i < jsonStr.data.length) {
-
+                    
                     const currentCard = card[i];
                     const jsonStrData = jsonStr.data[i];
-
+                    
                     const selectAirFrom1 = document.getElementById("airportSelect");
                     const from1 = selectAirFrom1.options[selectAirFrom1.selectedIndex].innerText;
-                
+                    
                     const selectAirTo1 = document.getElementById("airportSelect2");
                     const to1 = selectAirTo1.options[selectAirTo1.selectedIndex].innerText;
-
+                    
                     // 출발지
                     const departCity = currentCard.querySelector(".departureCity");
                     const departCity1 = currentCard.querySelector(".departureCity1");
@@ -649,10 +770,10 @@ searchBtn.addEventListener("click", e => {
                     const arrCity = currentCard.querySelector(".arrivalCity");
                     const arrCity1 = currentCard.querySelector(".arrivalCity1");
                     const deName = currentCard.querySelector(".deName");
-
                     
-
-
+                    
+                    
+                    
                     const totalPrice = currentCard.querySelector(".airPrice"); // 가격 태그
                     const departTime = currentCard.querySelector(".departTime"); // 출발지 출발
                     const duration = currentCard.querySelector(".duration"); // 출발지로 부터 도착지까지  시간
@@ -664,52 +785,52 @@ searchBtn.addEventListener("click", e => {
                     totalPrice.innerText = Math.floor(jsonStrData.price.total).toLocaleString() + "원"; // 가격
                     
                     departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at; // 출발시간
-
+                    
                     // 비행시간 알파벳 한글로 바꾸기
                     const flightDuration = jsonStrData.itineraries[0].segments[0].duration;
                     const translateKor = {
-                    'H': '시간',
-                    'M': '분',
-                    // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
+                        'H': '시간',
+                        'M': '분',
+                        // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
                     };
-
+                    
                     let translateCheck = '';
-
+                    
                     for (let i = 0; i < flightDuration.length; i++) {
-                    const replaceEng = flightDuration.charAt(i);
-                    const translatedReplaceEng = translateKor[replaceEng] || replaceEng;
-
-                    translateCheck += translatedReplaceEng;
+                        const replaceEng = flightDuration.charAt(i);
+                        const translatedReplaceEng = translateKor[replaceEng] || replaceEng;
+                        
+                        translateCheck += translatedReplaceEng;
                     }
-
-
+                    
+                    
                     duration.innerText = translateCheck.substring(2); // 비행시간
-
+                    
                     
                     arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at; // 도착시간
                     departCity.innerText = from1;
                     departCity1.innerText = to1;
                     airName.innerText = from1;
-
+                    
                     departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at; // 출발시간
                     
                     // 비행시간 알파벳 한글로 바꾸기
                     const flightDuration1 = jsonStrData.itineraries[1].segments[0].duration;
                     const translateKor1 = {
-                    'H': '시간',
-                    'M': '분',
-                    // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
+                        'H': '시간',
+                        'M': '분',
+                        // 다른 알파벳에 대한 매핑을 추가할 수 있습니다.
                     };
-
+                    
                     let translateCheck1 = '';
-
+                    
                     for (let i = 0; i < flightDuration1.length; i++) {
-                    const replaceEng1 = flightDuration1.charAt(i);
-                    const translatedReplaceEng1 = translateKor1[replaceEng1] || replaceEng1;
-
-                    translateCheck1 += translatedReplaceEng1;
+                        const replaceEng1 = flightDuration1.charAt(i);
+                        const translatedReplaceEng1 = translateKor1[replaceEng1] || replaceEng1;
+                        
+                        translateCheck1 += translatedReplaceEng1;
                     }
-
+                    
                     
                     
                     duration1.innerText = translateCheck1.substring(2); // 비행시간
@@ -721,17 +842,21 @@ searchBtn.addEventListener("click", e => {
                     deName.innerText = to1;
                     
                     
-
-
+                    
+                    
                 }else{
-                     // jsonStr.data의 길이보다 큰 card 카드는 숨깁니다.
+                    // jsonStr.data의 길이보다 큰 card 카드는 숨깁니다.
                     card[i].style.display="none";
                 }
-
-            }
-
+                
+            } // for문 끝
+            
+            
+        } /* 상준: 데이터가 들어왔을 때, 즉 length가 1이라도 존재하는 경우에만 for문을 돌리고 있음!!! */
+            
+            
         });
         
-    
+        
     });
 })

@@ -488,12 +488,3 @@
     from {transform: rotate(0deg);}
     from {transform: rotate(360deg);}
 }
-
-/* 아이콘 사라지기 */
-@keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0; display: none;}
-}
-.fa-beat-fade {
-    animation: fadeOut 3s forwards;
-}

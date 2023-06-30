@@ -698,28 +698,44 @@
 
             <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
-                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget1">
+                    <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 목적지까지 가는<br>
-                가장 싼 항공권을 검색 중입니다.
+                항공권을 검색 중입니다.
             </div>
 
             <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
                 <br>
-                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget2">
+                    <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 죄송합니다.
                 목적지까지 가는<br>
-                직항 항공권이 없습니다.
+                항공권이 없습니다.
             </div>
 
             <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
                 <br>
-                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget3">
+                    <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 목적지까지 가는<br>
-                가장 싼 항공권입니다.
+                항공권 리스트입니다.
             </div>
+
+            <%-- 성공한 경우 --%>
+            <%-- <c:if test="${noFlight == 1}">
+                <c:forEach begin="1" end="10" varStatus="loop">
+                </c:forEach>
+            </c:if> --%>
+            <%-- 실패한 경우 --%>
+            <%-- <c:if test="${noFlight == 0}">
+                <div>다른 내용 출력</div>
+            </c:if> --%>
 
             <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
@@ -783,10 +799,9 @@
             </c:forEach>
 
 <%-- 애니메이션 효과 --%>
-            <div class='wave -one'></div>
-            <div class='wave -two'></div>
-            <div class='wave -three'></div>
-
+            <div class='wave -one' id="wave1"></div>
+            <div class='wave -two' id="wave2"></div>
+            <div class='wave -three' id="wave3"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
