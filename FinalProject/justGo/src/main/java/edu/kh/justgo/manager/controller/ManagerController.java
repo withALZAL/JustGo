@@ -132,13 +132,22 @@ public class ManagerController {
 
 	// 신고관리 관리자페이지 연결
 	@GetMapping("/reportManager")
-	public String reportManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
+	public String reportManager(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
+								, @RequestParam Map<String, Object> paramMap
+								) {
 
-		// 신고 목록 불러오기
-		Map<String, Object> map = service.selectReportList(cp);
-
-		model.addAttribute("map", map);
-
+		if(paramMap.get("boardSelect3") == null) {
+			
+			// 신고 목록 불러오기
+			Map<String, Object> map = service.selectReportList(cp);
+	
+			model.addAttribute("map", map);
+		}else {
+			Map<String, Object> map = service.selectReportList(paramMap, cp);
+			
+			model.addAttribute("map", map);
+			
+		}
 		return "/manager/reportManager";
 	}
 	
@@ -185,7 +194,7 @@ public class ManagerController {
 	}
     
     
-    //회원 강제탈퇴	
+    //탈퇴회원 복구 
     @GetMapping(value = "/restoreMemberBtn")
     @ResponseBody
     public int restoreMember(int memberNo) {

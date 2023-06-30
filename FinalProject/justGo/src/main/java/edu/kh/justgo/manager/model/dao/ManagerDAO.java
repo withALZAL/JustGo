@@ -222,6 +222,23 @@ public class ManagerDAO {
 	public int restoreMember(int memberNo) {
 		return sql.update("managerMapper.restoreMember", memberNo);
 	}
+
+	/** 신고 검색 수
+	 * @return
+	 */
+	public int getReportListCount2(Map<String, Object> paramMap) {
+		return sql.selectOne("managerMapper.getReportListCount_search", paramMap);
+	}
+
+	/** 신고 검색 리스드
+	 * @param reportPagination
+	 * @return
+	 */
+	public List<Report> selectReportList2(Pagination reportPagination, Map<String, Object> paramMap) {
+		int offset = (reportPagination.getCurrentPage() - 1) * reportPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, reportPagination.getLimit());
+		return sql.selectList("managerMapper.selectReportList_search", paramMap, rowBounds);
+	}
 	
 	
 	
