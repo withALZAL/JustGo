@@ -269,6 +269,28 @@
     font-weight: bold;
 }
 
+/* 항공 카드 타이틀 애니메이션 */
+@keyframes anime_textup { 0% { top: 0; } 20% { top: -0.2rem; } 40% { top: 0 } 60% { top: 0 } 80% { top: 0 } 100% { top: 0 } }
+.textAnimation span {
+    position: relative;
+    animation: anime_textup 1.5s infinite;
+}
+.textAnimation span:nth-of-type(1) {
+    animation-delay: .1s;
+}
+.textAnimation span:nth-of-type(2) {
+    animation-delay: .2s;
+}
+.textAnimation span:nth-of-type(3) {
+    animation-delay: .3s;
+}
+.textAnimation span:nth-of-type(4) {
+    animation-delay: .4s;
+}
+.textAnimation span:nth-of-type(5) {
+    animation-delay: .5s;
+}
+
 /* 항공 박스 조정 */
 .common--airBox {
     height: 300px;
@@ -341,7 +363,7 @@
     background-color: #8B89FF;
 }
 
-/* 상준: for문 돌리기 위한 유령 태그 추가 작성 */
+/* 상준: 항공권 for문 돌리기 위한 유령 태그 추가 작성 */
 #flightListContainer {
     width: 100%;
     display: flex;

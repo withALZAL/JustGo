@@ -607,7 +607,13 @@
             항공
         </div>
         <div class="card-body common--airBox">
-            <div>어디로 떠나시나요? JustGo가 현재 항공권의 평균 가격을 알려드립니다.</div>
+            <div class="textAnimation">
+                <span>어디로</span>
+                <span>떠나시나요?</span>
+                <span>JustGo가</span>
+                <span>저렴한 항공권을</span>
+                <span>찾아드립니다.</span>
+            </div>
             <div class="common--airContentBox">
                 <div class="common--airContent">
                     <div>출발지</div>
