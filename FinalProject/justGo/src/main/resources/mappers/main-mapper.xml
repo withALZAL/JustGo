@@ -28,8 +28,8 @@
 		<result property="thumbnail" column="THUMBNAIL" />
 
 
-		<collection property="imageList" select="selectImageList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
+<!-- 		<collection property="imageList" select="selectImageList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" /> -->
 
 		<!-- <collection property="replyList" select="selectReplyList" column="BOARD_NO" 
 			javaType="java.util.ArrayList" ofType="Reply" /> -->
@@ -131,10 +131,10 @@
 		 AND BOARD_THUMBNAIL IS NOT NULL
 	</select>
 
-
+<!-- 
 	<select id="selectImageList" resultMap="boardImage_rm">
 		SELECT * FROM "BOARD_IMG"
 		WHERE BOARD_NO=#{boardCode}
 		ORDER BY IMG_ORDER
-	</select>
+	</select> -->
 </mapper>
