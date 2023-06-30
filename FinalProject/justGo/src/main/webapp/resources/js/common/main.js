@@ -799,7 +799,15 @@ flightListContainer.style.display = "block";
                     
                     totalPrice.innerText = Math.floor(jsonStrData.price.total).toLocaleString() + "원"; // 가격
                     
-                    departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at; // 출발시간
+                    departTime.innerText = jsonStrData.itineraries[0].segments[0].departure.at.replace("T", " ").slice(0, -3); // 출발시간 /* 상준 */
+
+                    // /* 상준 */
+                    // console.log("이거 수정필요"+departTime.innerText);
+                    // let modifiedTime = departTime.innerText.replace("T", " ").slice(0, -3);
+                    // console.log("수정됨"+modifiedTime);
+                    // departTime.innerText = '';
+                    // departTime.innerText = modifiedTime;
+                    /* 상준 */
                     
                     // 비행시간 알파벳 한글로 바꾸기
                     const flightDuration = jsonStrData.itineraries[0].segments[0].duration;
@@ -821,13 +829,14 @@ flightListContainer.style.display = "block";
                     
                     duration.innerText = translateCheck.substring(2); // 비행시간
                     
-                    
-                    arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at; // 도착시간
+
+                    arrivalTime.innerText = jsonStrData.itineraries[0].segments[0].arrival.at.replace("T", " ").slice(0, -3); // 도착시간 /* 상준 */
                     departCity.innerText = from1;
                     departCity1.innerText = to1;
                     airName.innerText = from1;
                     
-                    departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at; // 출발시간
+
+                    departTime1.innerText = jsonStrData.itineraries[1].segments[0].departure.at.replace("T", " ").slice(0, -3); // 출발시간 /* 상준 */
                     
                     // 비행시간 알파벳 한글로 바꾸기
                     const flightDuration1 = jsonStrData.itineraries[1].segments[0].duration;
@@ -850,8 +859,7 @@ flightListContainer.style.display = "block";
                     
                     duration1.innerText = translateCheck1.substring(2); // 비행시간
                     
-                    
-                    arrivalTime1.innerText = jsonStrData.itineraries[1].segments[0].arrival.at; // 도착시간
+                    arrivalTime1.innerText = jsonStrData.itineraries[1].segments[0].arrival.at.replace("T", " ").slice(0, -3);; // 도착시간 /* 상준 */
                     arrCity.innerText = to1;
                     arrCity1.innerText = from1;
                     deName.innerText = to1;
