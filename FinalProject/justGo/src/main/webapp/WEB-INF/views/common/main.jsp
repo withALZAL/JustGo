@@ -293,7 +293,9 @@
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseOne">
                 <i class="fa-solid fa-fire" style="color:red; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
@@ -340,7 +342,11 @@
                 data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseTwo">
                 <i class="fa-solid fa-burger" style="color:orange; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">맛집 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>맛집</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
@@ -387,7 +393,11 @@
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseThree">
                 <i class="fa-solid fa-bolt" style="color:yellow; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">꿀팁 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>꿀팁</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
@@ -434,7 +444,11 @@
                 data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseFour">
                 <i class="fa-solid fa-seedling" style="color:green; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">힐링 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>힐링</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
@@ -607,11 +621,12 @@
             항공
         </div>
         <div class="card-body common--airBox">
-            <div class="textAnimation">
+            <div class="textWave">
                 <span>어디로</span>
                 <span>떠나시나요?</span>
                 <span>JustGo가</span>
-                <span>저렴한 항공권을</span>
+                <span>저렴한</span>
+                <span>항공권을</span>
                 <span>찾아드립니다.</span>
             </div>
             <div class="common--airContentBox">
@@ -702,7 +717,7 @@
             </div>
             <div class="modal-body airportBody">
 
-            <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
+            <div class="loadingMessage textFlick" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
                 <div id="animationTarget1">
                     <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
