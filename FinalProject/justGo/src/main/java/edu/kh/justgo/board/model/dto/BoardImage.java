@@ -9,10 +9,7 @@ import lombok.ToString;
 @ToString
 public class BoardImage {
 	private int imageNo;
-	private String imagePath;
-	private String imageReName;
+	private String imgPath;
 	private int boardNo;
-	private String imageOriginal;
-	private int imageOrder;
 	
 }

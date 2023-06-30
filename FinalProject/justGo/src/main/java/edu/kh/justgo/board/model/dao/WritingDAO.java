@@ -1,6 +1,7 @@
 package edu.kh.justgo.board.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,13 @@ public class WritingDAO {
 	 */
 	public int writingDelete2(Board board) {
 		return sqlSession.update("writingMapper.writingDelete2", board);
+	}
+
+	/** 이미지 삽입 (업로드한 이미지)
+	 * @param imgMap
+	 */
+	public void insertImage(Map<String, Object> imgMap) {
+		sqlSession.insert("writingMapper.insertImage",imgMap);
 	}
 	
 	
