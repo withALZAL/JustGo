@@ -79,3 +79,19 @@ document.getElementById("deleteBtn").addEventListener("click",()=>{
 
 });
 
+
+
+function reportBoardBtn(boardNo){
+    fetch("/manager/reportBoardBtn?boardNo=" + boardNo)
+    .then(resp => resp.text())
+    .then(result => {
+        if(result > 0){
+            alert("해당 게시글을 신고하였습니다.");
+            location.href =  location.href ;
+        }else{
+            alert("게시물 신고 실패...")
+        }
+    })
+    .catch(err => console.log(err));
+}
+

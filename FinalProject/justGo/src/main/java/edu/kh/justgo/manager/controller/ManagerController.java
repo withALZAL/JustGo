@@ -168,8 +168,6 @@ public class ManagerController {
 			, Model model
 			) {
 		
-		
-		
 		Member memberP = service.memberProfile(memberNo);
 		
 		model.addAttribute("memberP", memberP); 
