@@ -293,7 +293,9 @@
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseOne">
                 <i class="fa-solid fa-fire" style="color:red; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
@@ -340,7 +342,11 @@
                 data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseTwo">
                 <i class="fa-solid fa-burger" style="color:orange; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">맛집 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>맛집</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
@@ -387,7 +393,11 @@
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseThree">
                 <i class="fa-solid fa-bolt" style="color:yellow; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">꿀팁 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>꿀팁</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
@@ -434,7 +444,11 @@
                 data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseFour">
                 <i class="fa-solid fa-seedling" style="color:green; font-size:20px; padding-top: 4px;"></i>
-                <div class="common--boardListTitle">힐링 태그 인기게시글</div>
+                <div class="common--boardListTitle textWave">
+                    <span>힐링</span>
+                    <span>태그</span>
+                    <span>인기게시글</span>
+                </div>
             </button>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
@@ -607,7 +621,14 @@
             항공
         </div>
         <div class="card-body common--airBox">
-            <div>어디로 떠나시나요? JustGo가 현재 항공권의 평균 가격을 알려드립니다.</div>
+            <div class="textWave">
+                <span>어디로</span>
+                <span>떠나시나요?</span>
+                <span>JustGo가</span>
+                <span>저렴한</span>
+                <span>항공권을</span>
+                <span>찾아드립니다.</span>
+            </div>
             <div class="common--airContentBox">
                 <div class="common--airContent">
                     <div>출발지</div>
@@ -696,31 +717,43 @@
             </div>
             <div class="modal-body airportBody">
 
-            <div class="loadingMessage" id="loadingMessage"> <%-- 검색 중 문구 --%>
+            <div class="loadingMessage textFlick" id="loadingMessage"> <%-- 검색 중 문구 --%>
                 <br>
-                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget1">
+                    <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 목적지까지 가는<br>
-                가장 싼 항공권을 검색 중입니다.
+                항공권을 검색 중입니다.
             </div>
 
             <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
                 <br>
-                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget2">
+                    <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 죄송합니다.
                 목적지까지 가는<br>
-                직항 항공권이 없습니다.
+                항공권이 없습니다.
             </div>
 
             <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
                 <br>
-                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <div id="animationTarget3">
+                    <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                </div>
                 <br><br>
                 목적지까지 가는<br>
-                가장 싼 항공권입니다.
+                항공권 리스트입니다.
             </div>
 
+<c:choose>
+    <c:when test="${airlineExist == 0}">
+        <div id="noFlightMessage"></div>
+    </c:when>
+    <c:otherwise>
+        <div id="flightListContainer">
             <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
@@ -781,12 +814,17 @@
                     </div>
                 </div>
             </c:forEach>
+        </div>
+    </c:otherwise>
+</c:choose>
+
+
+
 
 <%-- 애니메이션 효과 --%>
-            <div class='wave -one'></div>
-            <div class='wave -two'></div>
-            <div class='wave -three'></div>
-
+            <div class='wave -one' id="wave1"></div>
+            <div class='wave -two' id="wave2"></div>
+            <div class='wave -three' id="wave3"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>

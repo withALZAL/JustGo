@@ -48,19 +48,6 @@ ${map.managerAnswerList} --%>
 
 
 
-<!-- 페이지 제목 시작 -->
-<%-- <div class="template--pageTitleContainer">
-    <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
-        <div class="template--overlayedTitle" style="color: black;">
-            <a href="#">
-                '${askList.memberNickname}' 님의 1:1문의
-            </a>
-        </div>
-    </div>
-</div> --%>
-<!-- 페이지 제목 끝 -->
-
 
 
 <!-- 콘텐츠 시작 -->
@@ -82,12 +69,11 @@ ${map.managerAnswerList} --%>
                     <div class="manager--inquiryAnswerTitle">
                         Q. ${memberAskList.feedbackTitle}
                     </div>
-                    <div>${memberAskList.memberNickname} | ${memberAskList.feedbackDate}</div>
+                    <div><a href="/manager/memberPage/${memberAskList.memberNo}">${memberAskList.memberNickname}</a> | ${memberAskList.feedbackDate}</div>
                     <div class="manager--inquiryText">
                         ${memberAskList.feedbackText}
                     </div>
                 </div>
-
             <c:choose>
                 <c:when test="${managerAnswerList.feedback_CF_FL == 'N'}">
                     <div class="manager--answerRight" id="manager--answerWrite">
@@ -121,29 +107,6 @@ ${map.managerAnswerList} --%>
                     </div>
                 </c:otherwise>
             </c:choose>
-
-                
-
-
-                
-
-
-                <%-- <div class="manager--answerRight">
-                    <div class="manager--inquiryAnswerTitle">
-                        <!-- <i class="fa-solid fa-headset" style="padding-right: 10px;"></i> -->
-                        <input type="text" placeholder="답변 제목을 입력하세요.">
-                    </div>
-                    <div class="manager--answerTextWrite">
-                        <form action="#" method="post">
-                            <textarea placeholder="답변 내용을 입력하세요."></textarea>
-                            <div>
-                                <button type="button" class="btn btn-secondary btn-sm">답변 제출</button>
-                            </div>
-                        </form>
-                    </div>
-                </div> --%>
-
-
             </div>
         </div>
     </div>
@@ -159,14 +122,12 @@ ${map.managerAnswerList} --%>
 <!-- Template-main 끝 -->
 
 
-    
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
 
-    
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -178,11 +139,6 @@ ${map.managerAnswerList} --%>
     <script src="/resources/js/manager/askManager_detail.js"></script>
     <script>
         const feedbackNo = ${feedbackNo};
-
-        // const adminNickname = ${managerAnswerList.managerNickname} 
-        // const feedbackCFDate = ${managerAnswerList.feedback_CF_Date}
-        // const adminText = ${managerAnswerList.adminText}
-        
     </script>
 </body>
 </html>

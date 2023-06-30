@@ -391,7 +391,7 @@
     </div>
     <div class="writing--postBtn">
 
-            <button type="button" id="" class="btn btn-primary btn-lg">신고</button>
+            <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
             <c:choose>
                 <c:when test="${loginMember.memberNo == board.memberNo}">
                     <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>
@@ -405,6 +405,48 @@
     </div>
 </div>
 <!-- 포스트 끝 -->
+
+
+
+
+
+<%-- 신고 모달창 --%>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">게시글 신고</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                해당 게시물을 신고 하시겠습니까?<br>
+                <br>
+                신고 사유를 선택해주세요.<br>
+                <input type="radio" id="abusive" name="report" value="욕설, 차별적표현"> <label for="abusive">욕설, 차별적표현</label><br>
+                <input type="radio" id="impersonation" name="report" value="사칭"> <label for="impersonation">사칭</label><br>
+                <input type="radio" id="advertisement" name="report" value="광고성, 도배글"> <label for="advertisement">광고성, 도배글</label><br>
+                <input type="radio" id="sensationality" name="report" value="선정성"> <label for="sensationality">선정성</label><br>
+                <input type="radio" id="personal" name="report" value="불법정보포함, 개인정보 노출"> <label for="personal">불법정보포함, 개인정보 노출</label><br>
+                <input type="radio" id="etc" name="report" > <label for="etc">기타</label> <input type="text" placeholder="신고 사유를 입력해주세요." maxlength=10> <br>
+                <br>
+                <br>
+                허위 신고 시 사이트 이용에 제한이 생길 수 있습니다.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="submit" class="btn btn-danger" onclick="reportBoardBtn(${board.boardNo})">신고</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%-- 신고 모달창 끝--%>
+
+
+
+
+
+
+
 
 
 

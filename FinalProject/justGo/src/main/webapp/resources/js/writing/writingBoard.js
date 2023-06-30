@@ -68,13 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     if (countryNo == '') { //처음 메인화면의 주소가 공백이라면 (질문, 자유)
-        const optionList = document.querySelectorAll("#boardSelect .b"); // boardSelect 들 중에 자식인 b 을 선택
-        
+
+        const optionList = document.querySelectorAll("#boardSelect .b"); // boardSelect 들 중에 자식인 b 전체을 선택
+
         for (let option of optionList) { // boardSelect의 optionList 의 요소들 중에 하나의 요소를 꺼내서
             if (option.value == boardCode) { // option의 value와 boardCode (주소) 같다면
                 option.selected = true; // option의 value 일치하는 요소에 selected 속성 추가
                 
             }
+
 
         }
         if(boardCode ==2){

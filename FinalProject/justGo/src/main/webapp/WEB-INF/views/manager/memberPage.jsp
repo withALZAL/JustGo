@@ -142,7 +142,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                <button type="submit" class="btn btn-danger" onclick="restoreMemberBtn(${memberP.memberNo})">복구</button>
+                <button type="submit" class="btn btn-primary" onclick="restoreMemberBtn(${memberP.memberNo})">복구</button>
             </div>
         </div>
     </div>
