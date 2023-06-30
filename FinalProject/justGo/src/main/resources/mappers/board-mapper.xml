@@ -36,8 +36,8 @@
 
 
 
-		<collection property="imageList" select="selectImageList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" />
+<!-- 		<collection property="imageList" select="selectImageList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage" /> -->
 
 		<collection property="replyList" select="selectReplyList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="Reply" />
@@ -141,11 +141,11 @@
 	</select>
 
 	<!-- 이미지 리스트 -->
-	<select id="selectImageList" resultMap="boardImage_rm">
+	<!-- <select id="selectImageList" resultMap="boardImage_rm">
 		SELECT * FROM "BOARD_IMG"
 		WHERE BOARD_NO=#{boardCode}
 		ORDER BY IMG_ORDER
-	</select>
+	</select> -->
 
 	<!-- 나라게시판 게시글 -->
 	<select id="countryList" resultMap="board_rm">
