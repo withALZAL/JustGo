@@ -143,7 +143,7 @@ public class ManagerServiceImpl implements ManagerService {
 		return result;
 	}
 
-	// 회원 목록조회
+	// 회원 검색 목록조회
 	@Override
 	public Map<String, Object> selectMemberList(Map<String, Object> paramMap, int cp) {
 		int listCount = dao.getMemberListCount(paramMap);
@@ -159,6 +159,7 @@ public class ManagerServiceImpl implements ManagerService {
 		return map;
 	}
 
+	// 1:1 검색 목록조회
 	@Override
 	public Map<String, Object> selectAskList(Map<String, Object> paramMap, int cp) {
 
@@ -209,5 +210,27 @@ public class ManagerServiceImpl implements ManagerService {
 	public int restoreMember(int memberNo) {
 		return dao.restoreMember(memberNo);
 	}
+	
+	
+	// 신고 검색목록
+	@Override
+	public Map<String, Object> selectReportList(Map<String, Object> paramMap, int cp) {
+		int reportListCount = dao.getReportListCount2(paramMap);
+
+
+		Pagination reportPagination = new Pagination(reportListCount, cp);
+
+		List<Report> reportList = dao.selectReportList2(reportPagination, paramMap);
+
+		// pagination, askList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<>();
+		map.put("reportPagination", reportPagination);
+		map.put("reportList", reportList);
+
+
+		return map;
+	}
+	
+	
 	
 }

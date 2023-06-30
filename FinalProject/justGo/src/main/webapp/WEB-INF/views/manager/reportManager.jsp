@@ -172,14 +172,14 @@
                     </form>
                 </div>
             </form>
-            <form class="manager--contentSearch" action="#" method="get">
+            <form class="manager--contentSearch" action="/manager/reportManager" method="get">
                 <a>
                     <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option>신고사유</option>
-                        <option>신고자</option>
-                        <option>글제목</option>
-                        <option>글작성자</option>
-                        <option>처리상태</option>
+                        <option value="r">신고사유</option>
+                        <option value="p">신고자</option>
+                        <option value="t">글제목</option>
+                        <option value="w">글작성자</option>
+                        <%-- <option>처리상태</option> --%>
                     </select>
                     <input type="text" maxlength="10" style="width: 300px;">
                     <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>

@@ -108,6 +108,13 @@ public interface ManagerService {
 	 */
 	int restoreMember(int memberNo);
 
+	/** 신고 검색 목록
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectReportList(Map<String, Object> paramMap, int cp);
+
 
     
 
