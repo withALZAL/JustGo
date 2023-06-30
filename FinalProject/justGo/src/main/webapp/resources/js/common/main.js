@@ -549,7 +549,7 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         loadingMessage.innerHTML = `
             <br>
             <div id="animationTarget1">
-                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
             </div>
             <br><br>
             ${fromCity}에서 ${toCity}까지 가는<br>
@@ -559,7 +559,7 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         noFlightMessage.innerHTML = `
             <br>
             <div id="animationTarget2">
-                <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
             </div>  
             <br><br>
             죄송합니다.<br>
@@ -674,11 +674,25 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
                 noFlight.style.display = 'block'; /* 실패했을 경우 noFlightMessage 출력 */
 
 
-                const noAirline = 0; /* 실패했을 경우 noAirline 변수에 0 저장 */
-                console.log(noAirline);
-                console.log(noAirline);
-                console.log(noAirline);
-                console.log(noAirline);
+                const airlineExist = 0; /* 실패했을 경우 airlineExist 변수에 0 저장 */
+                console.log(airlineExist);
+                console.log(airlineExist);
+                console.log(airlineExist);
+
+
+if (airlineExist === 0) {
+const noFlightMessage = document.getElementById("noFlightMessage");
+noFlightMessage.style.display = "block";
+
+const flightListContainer = document.getElementById("flightListContainer");
+flightListContainer.style.display = "none";
+} else {
+const noFlightMessage = document.getElementById("noFlightMessage");
+noFlightMessage.style.display = "none";
+
+const flightListContainer = document.getElementById("flightListContainer");
+flightListContainer.style.display = "block";
+}
 
                 return;
             } else { /* 데이터 들어왔을 때 */
@@ -689,11 +703,10 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
                 console.log("데이터 들어옴");
                 console.log("데이터 들어옴");
 
-                const noAirline = 1; /* 실패했을 경우 noAirline 변수에 1 저장 */
-                console.log(noAirline);
-                console.log(noAirline);
-                console.log(noAirline);
-                console.log(noAirline);
+                const airlineExist = 1; /* 실패했을 경우 airlineExist 변수에 1 저장 */
+                console.log(airlineExist);
+                console.log(airlineExist);
+                console.log(airlineExist);
 
 
                 /* 애니메이션 없애기 */

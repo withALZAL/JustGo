@@ -727,16 +727,12 @@
                 항공권 리스트입니다.
             </div>
 
-            <%-- 성공한 경우 --%>
-            <%-- <c:if test="${noFlight == 1}">
-                <c:forEach begin="1" end="10" varStatus="loop">
-                </c:forEach>
-            </c:if> --%>
-            <%-- 실패한 경우 --%>
-            <%-- <c:if test="${noFlight == 0}">
-                <div>다른 내용 출력</div>
-            </c:if> --%>
-
+<c:choose>
+    <c:when test="${airlineExist == 0}">
+        <div id="noFlightMessage"></div>
+    </c:when>
+    <c:otherwise>
+        <div id="flightListContainer">
             <c:forEach begin="1" end="10" varStatus="loop">
                 <div class="card airportCard">
                     <div class="card-header" style="font-weight: bold; font-size: 20px;">
@@ -797,6 +793,12 @@
                     </div>
                 </div>
             </c:forEach>
+        </div>
+    </c:otherwise>
+</c:choose>
+
+
+
 
 <%-- 애니메이션 효과 --%>
             <div class='wave -one' id="wave1"></div>
