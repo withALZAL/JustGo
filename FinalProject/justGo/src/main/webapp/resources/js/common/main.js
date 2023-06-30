@@ -582,6 +582,7 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         const departDate = document.getElementById("datepicker1").value;
         const returnDate = document.getElementById("datepicker2").value;
 
+
         // /* 애니메이션 없애기 */
         // const wave1 = document.getElementById("wave1");
         // const wave2 = document.getElementById("wave2");
@@ -598,6 +599,7 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         // const noFlight = document.getElementById('noFlightMessage');
         // noFlight.style.display = 'none';
     
+
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
         headers: {
             Authorization: `Bearer ${accessToken}`

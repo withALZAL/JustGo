@@ -688,7 +688,7 @@ function showInsertComment(parentReplyNo, btn){
         }
         if(e.keyCode == 13 && !e.shiftKey && e.target.matches(":focus")) {
             e.preventDefault();
-            e.target.nextElementSibling.firstChild.click();
+            e.target.parentElement.nextElementSibling.firstChild.click();
         }
     })
 
