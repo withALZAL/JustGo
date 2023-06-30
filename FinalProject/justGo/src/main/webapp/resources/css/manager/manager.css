@@ -17,7 +17,7 @@
 /* 콘텐츠 박스 조정 */
 .manager--contentBox {
     height: 600px;
-    width: 90%;
+    width: 100%;
     margin: 10px 30px 10px 30px;
     display: grid;
     grid-template-columns: 160px 1fr ;
@@ -194,6 +194,7 @@
     text-align: center;
 }
 
+/* 글목록 버 */
 .manager--memberPostListBTN{
     background-color: cornflowerblue;
     border-radius: 5px;
@@ -226,7 +227,7 @@
 }
 .manager--reportTable th:nth-child(1), /* 번호 컬럼 */
 .manager--reportTable td:nth-child(1) {
-    width: 70px;
+    width: 80px;
     text-align: center;
 }
 .manager--reportTable th:nth-child(2), /* 신고자 컬럼 */
@@ -236,17 +237,18 @@
 }
 .manager--reportTable th:nth-child(3), /* 신고사유 컬럼 */
 .manager--reportTable td:nth-child(3) {
-    width: 100px;
+    width: 200px;
     text-align: center;
 }
 .manager--reportTable th:nth-child(4), /* 글제목 컬럼 */
 .manager--reportTable td:nth-child(4) {
-    width: 300px;
-    max-width: 300px;
     text-align: center;
-}
-.manager--reportTable th:nth-child(4) {
-    text-align: center;
+    max-width: 200px;
+
+    white-space : nowrap; 
+    overflow : hidden;
+    text-overflow: ellipsis;
+
 }
 .manager--reportTable th:nth-child(5), /* 글작성자 컬럼 */
 .manager--reportTable td:nth-child(5) {
@@ -255,14 +257,41 @@
 }
 .manager--reportTable th:nth-child(6), /* 신고일 컬럼 */
 .manager--reportTable td:nth-child(6) {
-    width: 200px;
+    width: 120px;
     text-align: center;
 }
 .manager--reportTable th:nth-child(7), /* 처리상태 컬럼 */
 .manager--reportTable td:nth-child(7) {
-    width: 100px;
+    width: 80px;
     text-align: center;
 }
+.manager--reportTable th:nth-child(8), /* 처리 컬럼 */
+.manager--reportTable td:nth-child(8) {
+    width: 70px;
+    text-align: center;
+}
+
+
+
+
+/* 완료버튼 */
+
+.manager--confirmBtn{
+    width: 45px;
+    height: 25px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    background-color: tomato;
+    color: white;
+}
+
+.manager--confirmBtn:hover{
+    background-color: violet;
+    color: black;
+}
+
+
 
 /* 1:1문의 ----------------------------------------------- */
 

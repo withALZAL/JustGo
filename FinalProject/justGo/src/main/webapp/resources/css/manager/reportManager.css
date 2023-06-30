@@ -1,0 +1,179 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 관리자 공통 ----------------------------------------------- */
+
+/* 관리자 컨테이너 */
+.manager--contentContainer {
+    height: 700px;
+    display: grid;
+    place-items: center;
+}
+
+/* 콘텐츠 박스 조정 */
+.manager--contentBox {
+    height: 600px;
+    width: 100%;
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 160px 1fr ;
+    place-items: center;
+}
+
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
+}
+
+
+/* mainBox 조정 */
+.manager--mainBox {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+}
+
+.manager--overlayedTitle{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 0 0 50px;
+}
+
+
+/* 매니저 개별 컨텐츠 조정 */
+.manager--content {
+    height: 500px;
+    width: 1100px;
+}
+
+/* 컨텐츠 배치 조정 */
+.manager--content {
+    display: grid;
+    grid-template-rows: 450px 1fr;
+}
+
+/* 컨텐츠 페이지 조정 */
+.manager--content > form:first-child {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    place-items: center;
+}
+
+/* 컨텐츠 리스트 조정 */
+.manager--contentList {
+    background-color: grey;
+}
+
+/* 컨텐츠 검색창 조정 */
+.manager--contentSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:100px 0 20px 0 ;
+}
+
+
+
+/* 신고 ----------------------------------------------- */
+
+/* 신고 테이블 조정 */
+.manager--reportTable {
+    padding: 50px;
+    margin: 50px;
+}
+
+/* 컬럼 조정 */
+.manager--reportTable th,
+.manager--reportTable td{
+    border-bottom: 1px solid #D9D9D9;
+    padding: 5px 5px 5px;
+}
+.manager--reportTable th {
+    border-top: 1px solid #D9D9D9;
+    background-color: lightblue;
+}
+.manager--reportTable th:nth-child(1), /* 번호 컬럼 */
+.manager--reportTable td:nth-child(1) {
+    width: 80px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(2), /* 신고자 컬럼 */
+.manager--reportTable td:nth-child(2) {
+    width: 140px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(3), /* 신고사유 컬럼 */
+.manager--reportTable td:nth-child(3) {
+    text-align: center;
+    max-width: 140px;
+    width: 140px;
+    white-space : nowrap; 
+    overflow : hidden;
+    text-overflow: ellipsis;
+}
+.manager--reportTable th:nth-child(4), /* 글제목 컬럼 */
+.manager--reportTable td:nth-child(4) {
+    text-align: center;
+    max-width: 200px;
+    width: 200px;
+
+    white-space : nowrap; 
+    overflow : hidden;
+    text-overflow: ellipsis;
+
+}
+.manager--reportTable th:nth-child(5), /* 글작성자 컬럼 */
+.manager--reportTable td:nth-child(5) {
+    width: 150px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(6), /* 신고일 컬럼 */
+.manager--reportTable td:nth-child(6) {
+    width: 120px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(7), /* 삭제여부 컬럼 */
+.manager--reportTable td:nth-child(7) {
+    width: 80px;
+    text-align: center;
+}    
+.manager--reportTable th:nth-child(8), /* 처리상태 컬럼 */
+.manager--reportTable td:nth-child(8) {
+    width: 80px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(9), /* 처리 컬럼 */
+.manager--reportTable td:nth-child(9) {
+    width: 70px;
+    text-align: center;
+}
+
+
+
+
+/* 완료버튼 */
+
+.manager--confirmBtn{
+    width: 45px;
+    height: 25px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    background-color: tomato;
+    color: white;
+}
+
+.manager--confirmBtn:hover{
+    background-color: violet;
+    color: black;
+}
+

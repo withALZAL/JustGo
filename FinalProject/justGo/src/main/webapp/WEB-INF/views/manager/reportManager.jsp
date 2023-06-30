@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/resources/css/template/template.css"> <!-- 문서 기본 화면 배치/기본 폰트 등 기본 설정 -->
     <link rel="stylesheet" href="/resources/css/common/main.css">
     <link rel="stylesheet" href="/resources/css/common/footer.css">
-    <link rel="stylesheet" href="/resources/css/manager/manager.css">
+    <link rel="stylesheet" href="/resources/css/manager/reportManager.css">
 
     <title>JustGo-reportManager</title>
 
@@ -84,7 +84,9 @@
                             <th>글제목</th>
                             <th>글작성자</th>
                             <th>신고일</th>
+                            <th>삭제여부</th>
                             <th>처리상태</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,12 +100,32 @@
                                 <c:forEach items="${reportList}" var="report">
                                     <tr>
                                         <td>${report.reportNo}</td>
-                                        <td><form><a href="#">${report.memberNickname}</a></form></td>
+                                        <td>${report.memberNickname}</td>
                                         <td>${report.reportCategory}</td>
-                                        <td><form><a href="https://www.naver.com">${report.boardTitle}</a></form></td>
+                                        <td><a href="https://www.naver.com">${report.boardTitle}</a></td>
                                         <td>${report.reportedNickname}</td>
                                         <td>${report.reportDate}</td>
-                                        <td>${report.reprot_CF_FL}</td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${report.boardDelete  == 'N'}">
+                                                    유지
+                                                </c:when>
+                                                <c:otherwise>
+                                                    삭제
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${report.reprot_CF_FL == 'N'}">
+                                                    처리중
+                                                </c:when>
+                                                <c:otherwise>
+                                                    완료
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td><button class="manager--confirmBtn">완료</button></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

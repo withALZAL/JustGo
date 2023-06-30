@@ -284,7 +284,7 @@
 }
 .manager--inquiryTable th:nth-child(1), /* 번호 컬럼 */
 .manager--inquiryTable td:nth-child(1) {
-    width: 70px;
+    width: 100px;
     text-align: center;
 }
 .manager--inquiryTable th:nth-child(2), /* 닉네임 컬럼 */
@@ -294,21 +294,31 @@
 }
 .manager--inquiryTable th:nth-child(3), /* 문의제목 컬럼 */
 .manager--inquiryTable td:nth-child(3) {
-    width: 500px;
-    max-width: 500px;
+    width: 250px;
+    max-width: 300px;
     text-align: center;
-}
-.manager--inquiryTable th:nth-child(3) {
-    text-align: center;
+    overflow : hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
 }
 .manager--inquiryTable th:nth-child(4), /* 문의일 컬럼 */
 .manager--inquiryTable td:nth-child(4) {
-    width: 200px;
+    width: 150px;
     text-align: center;
 }
 .manager--inquiryTable th:nth-child(5), /* 처리상태 컬럼 */
 .manager--inquiryTable td:nth-child(5) {
     width: 100px;
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(6), /* 처리상태 컬럼 */
+.manager--inquiryTable td:nth-child(6) {
+    width: 150px;
+    text-align: center;
+}
+.manager--inquiryTable th:nth-child(7), /* 처리날짜 컬럼 */
+.manager--inquiryTable td:nth-child(7) {
+    width: 150px;
     text-align: center;
 }
 
