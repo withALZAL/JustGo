@@ -570,7 +570,7 @@ searchBtn.addEventListener("click", e => {
         loaded.style.display = 'block';
         const noFlight = document.getElementById('noFlightMessage');
         noFlight.style.display = 'none';
-    
+        
         fetch(`https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${from}&destinationLocationCode=${to}&departureDate=${departDate}&returnDate=${returnDate}&adults=1&travelClass=ECONOMY&nonStop=true&currencyCode=KRW&max=10`, {
         headers: {
             Authorization: `Bearer ${accessToken}`

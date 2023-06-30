@@ -73,11 +73,15 @@
                         </c:choose>
                     </c:forEach>
                     </select>
-                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" required style="display: none;">
+                    
+                            
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector">
                         <c:forEach items="${boardTypeList3}" var="tag">
                             <option value="${tag.tagNo}">${tag.tagContent}</option>
                         </c:forEach>
+                    
                     </select>
+            
                 </div>
             </div>
         <div class="writing--inputContentBox">
