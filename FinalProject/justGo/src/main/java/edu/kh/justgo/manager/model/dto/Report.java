@@ -27,5 +27,6 @@ public class Report {
 	private String memberNickname;
 	private String reportedNickname;
 	private String boardTitle;
+    private String boardDelete;
 	
 }

@@ -141,13 +141,18 @@
     width: 120px;
     text-align: center;
 }
-.manager--reportTable th:nth-child(7), /* 처리상태 컬럼 */
+.manager--reportTable th:nth-child(7), /* 삭제여부 컬럼 */
 .manager--reportTable td:nth-child(7) {
     width: 80px;
     text-align: center;
-}
-.manager--reportTable th:nth-child(8), /* 처리 컬럼 */
+}    
+.manager--reportTable th:nth-child(8), /* 처리상태 컬럼 */
 .manager--reportTable td:nth-child(8) {
+    width: 80px;
+    text-align: center;
+}
+.manager--reportTable th:nth-child(9), /* 처리 컬럼 */
+.manager--reportTable td:nth-child(9) {
     width: 70px;
     text-align: center;
 }

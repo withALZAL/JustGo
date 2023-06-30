@@ -84,6 +84,7 @@
                             <th>글제목</th>
                             <th>글작성자</th>
                             <th>신고일</th>
+                            <th>삭제여부</th>
                             <th>처리상태</th>
                             <th></th>
                         </tr>
@@ -103,8 +104,16 @@
                                         <td>${report.reportCategory}</td>
                                         <td><a href="https://www.naver.com">${report.boardTitle}</a></td>
                                         <td>${report.reportedNickname}</td>
+                                        <td>${report.reportDate}</td>
                                         <td>
-                                        ${report.reportDate}
+                                            <c:choose>
+                                                <c:when test="${report.boardDelete  == 'N'}">
+                                                    유지
+                                                </c:when>
+                                                <c:otherwise>
+                                                    삭제
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td>
                                             <c:choose>

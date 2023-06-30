@@ -89,7 +89,7 @@
                             <th>이메일</th>
                             <th>가입일</th>
                             <th>계정상태</th>
-                            <th>작성글</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

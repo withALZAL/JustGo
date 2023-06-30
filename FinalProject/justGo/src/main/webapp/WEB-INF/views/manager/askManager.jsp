@@ -95,6 +95,7 @@ ${map.askList} --%>
                             <th>문의제목</th>
                             <th>문의일</th>
                             <th>처리상태</th>
+                            <th>처리날짜</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,7 +110,7 @@ ${map.askList} --%>
                                     <tr>
                                         <td>${ask.feedbackNo}</td>
                                         <td><form><a href="/manager/memberPage/${ask.memberNo}">${ask.memberNickname}</a></form></td>
-                                        <td><form><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}</a></form></td>
+                                        <td><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
                                         <td>${ask.feedbackDate}</td>
                                         <td>
                                             <c:choose>
@@ -121,6 +122,7 @@ ${map.askList} --%>
                                             </c:otherwise>
                                     </c:choose>
                                         </td>
+                                        <td>${ask.feedback_CF_Date}</td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
