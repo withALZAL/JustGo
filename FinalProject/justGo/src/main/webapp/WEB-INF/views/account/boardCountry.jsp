@@ -181,7 +181,6 @@
     </div>
 <!-- 글쓰기 테이블 끝 -->
 
-   
     <div class="board--contentBox__bottom">
         <div class="board--pagenationBox" style="height: 50%; width: 100%;">
             <form action="#" method="get">
@@ -189,7 +188,6 @@
                     <ul class="pagination" id="page2">
                     <li class="page-item">
                             <a href="/board/1/${countryNo}?cp=1${sp}" class="page-link">맨처음</a>
-                           
                         </li>
                         <li class="page-item">
                             <a href="/board/1/${countryNo}?cp=${pagination.prevPage}${sp}" class="page-link">이전</a>
@@ -198,7 +196,7 @@
                         <c:forEach var="i" begin="${pagination.startPage}"
                         end="${pagination.endPage}" step="1">
 
-                            <c:choose>
+                        <c:choose>
                             <c:when test="${i == pagination.currentPage}">
                                 <!-- 현재 보고있는 페이지 -->
                             <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
@@ -221,7 +219,6 @@
                 </nav>
             </form>
         </div>
-       
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
             <form action="${countryNo}" method="get" id="boardSearch">
