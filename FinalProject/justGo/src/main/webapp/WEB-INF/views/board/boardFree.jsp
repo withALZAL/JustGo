@@ -222,18 +222,18 @@
                         end="${pagination.endPage}" step="1">
 
                             <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <!-- 현재 보고있는 페이지 -->
-                            <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
-                            
-                            </c:when>
-
-                            <c:otherwise>
-                                <!-- 현재 페이지를 제외한 나머지 -->
-                                <li class="page-item"><a class="page-link" href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                <c:when test="${i == pagination.currentPage}">
+                                    <!-- 현재 보고있는 페이지 -->
+                                <li class="page-item active" aria-current="page"><a class="page-link">${i}</a></li>
                                 
-                            </c:otherwise>
-                        </c:choose>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <!-- 현재 페이지를 제외한 나머지 -->
+                                    <li class="page-item"><a class="page-link" href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                    
+                                </c:otherwise>
+                            </c:choose>
 
                         </c:forEach>
 

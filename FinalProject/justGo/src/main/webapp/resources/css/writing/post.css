@@ -51,6 +51,18 @@
     height: 30px;
     border-radius: 100%;
 }
+.tempImageBox { /* 찌그러진 이미지 핌(상준) */
+    height: 30px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.tempImageBox > img { /* 찌그러진 이미지 핌(상준) */
+    object-fit: cover;
+    object-position: center center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
 
 /* 포스트 박스 조정 */
 .writing--postBox {
