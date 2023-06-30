@@ -153,6 +153,7 @@
 .board--contentBox__main td:nth-child(3) {
     width: 500px; /* 수정: 제목 열의 너비를 600px로 설정 */
     max-width: 600px; /* 제목 열의 최대 너비 설정 (선택 사항) */
+    overflow : hidden;
     white-space: nowrap; /* 제목이 길어도 줄바꿈하지 않고 한 줄에 표시 */
     text-overflow: ellipsis; /* 넘치는 내용을 생략 부호로 표시 (선택 사항) */
 }
