@@ -115,15 +115,16 @@ public class WritingServiceImpl implements WritingService {
 
 		// static 공부하기
 		// static 영역에 할당된 정적메모리는 모든 객체가 공유하는 메모리라서 util에 있는 fileRename 메소드를 쓸수 있음
-		// 업로드한 파일 이름 변경
-		String rename = Util.fileRename(file.getOriginalFilename());
+		// 업로드한 파일 이름 변경 
+		// 왜? => 중복된 파일명을 피하거나 보안상의 이유로 실제 파일 이름을 숨기는 등의 목적으로 사용
+		String rename = Util.fileRename(file.getOriginalFilename()); // 번경된 파일 이름을 rename 변수에 할당 한 후
 
-		file.transferTo(new File(filePath + rename)); // 서버에 파일을 저장
+		file.transferTo(new File(filePath + rename)); // 업로드된 파일을 실제 서버의 경로에 변경된 파일 이름을 저장
 
 		System.out.println("webPath:" + webPath);
 		System.out.println("rename:" + rename);
 
-		return webPath + rename; // web 에서 접근가능한 파일 저장경로 + 변경된 이름 => 인터넷에 치면 이미지가 나옴
+		return webPath + rename; // web 에서 접근가능한 파일 저장경로 + 변경된 이름 => 인터넷에  이미지의 경로을 치면 이미지가 나옴
 	}
 
 }
