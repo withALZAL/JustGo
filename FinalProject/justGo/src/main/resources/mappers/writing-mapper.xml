@@ -5,10 +5,13 @@
 	
 	<!-- 게시글 삽입 -->
 	<!-- useGeneratedKeys 속성 : DB 내부적으로 생성한 키 ([Pk]시퀸스)를 전달된 파라미터의 필드로 대입 가능 여부 
-		지정 ** 동적 SQL ** - 프로그램 수행 중 SQL의 변경하는 기능 (마이바티스의 가장 강력한 기능) <selectKey> 태그 
-		: INSERT/UPDATE 시 사용할 키(시퀸스)를 조회해서 파라미터의 지정된 필드에 대입 order 속성 : 메인 SQL이 수행되지 
-		전/후에 selectkey가 수행되도록 지정 전 : BEFORE 후 : AFTER keyProperty 속성 : selectKey 
-		조회 결과를 저장할 파라미터의 필드 -->
+		지정 ** 동적 SQL ** - 프로그램 수행 중 SQL의 변경하는 기능 (마이바티스의 가장 강력한 기능) 
+		<selectKey> 태그 
+		: INSERT/UPDATE 시 사용할 키(시퀸스)를 조회해서 파라미터의 지정된 필드에 대입 
+		order 속성 : 메인 SQL이 수행되지 전/후에 selectkey가 수행되도록 지정 
+		전 : BEFORE 
+		후 : AFTER 
+		keyProperty 속성 : selectKey 조회 결과를 저장할 파라미터의 필드 -->
 		<!-- parameterType 별칭(생략 가능 ) => mybatis-config에 별칭 지정되어있음 -->
 	<insert id="boardInsert" parameterType="Board"	useGeneratedKeys="true">
 	
@@ -63,6 +66,15 @@
 		AND COUNTRY_NO = #{countryNo}
 		AND BOARD_CODE = #{boardCode}
 	</update>
+	
+	
+	<!-- 업로드한 이미지 삽입 -->
+	<insert id="insertImage" >
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
+	</insert>
+	
+	
 	
 
 	

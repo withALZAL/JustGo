@@ -105,6 +105,9 @@
         </div>
     </div>
 </div>
+
+
+<input type="hidden" name="thumbnail" id="thumbnail">
 </form>
 <!-- 콘텐츠 끝 -->
 
