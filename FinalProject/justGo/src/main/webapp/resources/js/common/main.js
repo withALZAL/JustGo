@@ -740,7 +740,7 @@ const noFlightMessage = document.getElementById("noFlightMessage");
 noFlightMessage.style.display = "none";
 
 const flightListContainer = document.getElementById("flightListContainer");
-flightListContainer.style.display = "block";
+flightListContainer.style.display = "flex";
 }
                 return;
             } else { /* 데이터 들어왔을 때 */
@@ -766,7 +766,7 @@ if (airlineExist === 0) {
     noFlightMessage.style.display = "none";
 
     const flightListContainer = document.getElementById("flightListContainer");
-    flightListContainer.style.display = "block";
+    flightListContainer.style.display = "flex";
 }
 
 
