@@ -685,13 +685,13 @@
                 <div class="common--airContent">
                     <div>가는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
+                        <p><input type="text" class="datepicker" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
                 <div class="common--airContent">
                     <div>오는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
+                        <p><input type="text" class="datepicker" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
             </div>

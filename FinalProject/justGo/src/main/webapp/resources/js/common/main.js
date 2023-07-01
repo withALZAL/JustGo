@@ -502,9 +502,56 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         datepicker2.focus();
         return;
     }
+    
+    // 유효성 검사 정규식 패턴(7월 1일 추가)
+    var pattern = /^20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+    
+    if (!pattern.test(datepicker1.value)) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+            Toast.fire({
+                icon: 'warning',
+                title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
+            })
+            datepicker1.value = "(예: 2023-07-01)";
+            datepicker1.focus;
+            e.preventDefault();
+        return;
+    }
+    if (!pattern.test(datepicker2.value)) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'warning',
+            title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
+        })
+        datepicker2.value = "(예: 2023-07-01)";
+        datepicker2.focus;
+        e.preventDefault();
+        return;
+    }
     /* 상준 추가 끝 */
-
-
+    
 
 /* 이 위로는 전혀 문제가 없습니다. 상준 */
 /* 이 위로는 전혀 문제가 없습니다. 상준 */
