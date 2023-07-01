@@ -186,7 +186,7 @@
 
 
 <!-- nav 시작 -->
-<nav class="common--navContainer sticky-top">
+<nav class="common--navContainer">
     <ul class="nav justify-content-around" id="common--boardList">
         <c:forEach var="boardType" items="${boardTypeList}">
             <c:if test="${boardType.BOARD_CODE == 1}">
