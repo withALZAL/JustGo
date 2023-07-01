@@ -206,8 +206,6 @@ public class ManagerController {
     @ResponseBody
     public int reportConfirm(int reportNo, 
     		 @SessionAttribute("loginMember") Member loginMember) {
-    	
-    	
     	return service.reportConfirm(reportNo, loginMember);
     }
 	

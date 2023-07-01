@@ -241,6 +241,10 @@ public class ManagerDAO {
 	}
 
 
+	/** 관리자 신고 처리
+	 * @param map
+	 * @return
+	 */
 	public int reportConfirm(Map<String, Object> map) {
 		return sql.update("managerMapper.reportConfirm", map);
 	}

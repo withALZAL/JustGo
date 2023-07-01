@@ -115,6 +115,11 @@ public interface ManagerService {
 	 */
 	Map<String, Object> selectReportList(Map<String, Object> paramMap, int cp);
 
+	/** 관리자 신고 처리
+	 * @param reportNo
+	 * @param loginMember
+	 * @return
+	 */
 	int reportConfirm(int reportNo, Member loginMember);
 
 
