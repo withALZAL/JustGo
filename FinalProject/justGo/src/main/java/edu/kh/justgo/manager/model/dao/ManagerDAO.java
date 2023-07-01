@@ -248,7 +248,7 @@ public class ManagerDAO {
 	public int reportConfirm(Map<String, Object> map) {
 		return sql.update("managerMapper.reportConfirm", map);
 	}
-	
+
 	
 	
 	

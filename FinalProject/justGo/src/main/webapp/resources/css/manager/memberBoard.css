@@ -11,11 +11,19 @@
 .manager--overlayedTitle{
     font-size: 2.5rem;
     font-weight: bold;
-    margin: 100px 0 0 80px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
 }
 
 
@@ -25,7 +33,9 @@
 .board--contentContainer {
     height: 1000px;
     display: grid;
+    grid-template-columns: 160px 1fr;
     place-items: center;
+    margin-top: 75px;
 }
 
 /* 게시판 박스 */
@@ -34,7 +44,7 @@
     width: 90%;
     margin: 10px 30px 10px 30px;
     display: grid;
-    grid-template-rows: 70px 1fr 150px;
+    grid-template-rows: 150px 1fr 150px;
     place-items: center;
 }
 
@@ -105,7 +115,7 @@
     overflow: auto;
 }
 .board--contentBox__main table {
-    width: 1260px;
+    width: 1000px;
     table-layout: fixed;
 }
 .board--contentBox__main th,
@@ -145,21 +155,19 @@
 .board--contentBox__main td:nth-child(6) {
     width: 100px;
 }
-.board--contentBox__main th:nth-child(7) /* 삭제여부 */
+.board--contentBox__main th:nth-child(7) /* 삭제버튼 */
 .board--contentBox__main td:nth-child(7) {
     width: 100px;
 }
 .board--contentBox__main th:nth-child(3), /* 제목 */
 .board--contentBox__main td:nth-child(3) {
-    width: 500px; /* 수정: 제목 열의 너비를 600px로 설정 */
-    max-width: 600px; /* 제목 열의 최대 너비 설정 (선택 사항) */
+    width: 300px; /* 수정: 제목 열의 너비를 600px로 설정 */
+    max-width: 300px; /* 제목 열의 최대 너비 설정 (선택 사항) */
     overflow : hidden;
     white-space: nowrap; /* 제목이 길어도 줄바꿈하지 않고 한 줄에 표시 */
     text-overflow: ellipsis; /* 넘치는 내용을 생략 부호로 표시 (선택 사항) */
 }
-.board--contentBox__main td:nth-child(3) {
-    /*text-align: left;*/ /* 수정: 제목 열의 텍스트를 좌측 정렬로 설정 */
-}
+
 
 /* 페이지네이션 ----------------------------------------------- */
 

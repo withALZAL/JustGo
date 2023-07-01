@@ -122,6 +122,8 @@ public interface ManagerService {
 	 */
 	int reportConfirm(int reportNo, Member loginMember);
 
+	
+
 
     
 
