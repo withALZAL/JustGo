@@ -30,7 +30,7 @@
     
 
 <!-- Template-footer 시작 -->
-<footer class="template--footer">
+<footer class="template--footer bottom-fixed">
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
