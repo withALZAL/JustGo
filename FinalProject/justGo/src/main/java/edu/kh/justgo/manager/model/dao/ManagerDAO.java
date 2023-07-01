@@ -240,9 +240,9 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.selectReportList_search", paramMap, rowBounds);
 	}
 
-	public int reportConfirm(int reportNo, int memberNo) {
-		// TODO Auto-generated method stub
-		return sql.update("managerMapper.reportConfirm", reportNo, memberNo);
+
+	public int reportConfirm(Map<String, Object> map) {
+		return sql.update("managerMapper.reportConfirm", map);
 	}
 	
 	

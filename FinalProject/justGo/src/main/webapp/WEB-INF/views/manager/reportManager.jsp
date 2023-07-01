@@ -125,7 +125,17 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>
-                                        <td><button class="manager--confirmBtn" id="manager--conBtn" onclick="conbtn(${report.reportNo})">완료</button></td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${report.reprot_CF_FL == 'N'}">
+                                                    <button type="button" class="manager--confirmBtn" id="manager--conBtn" onclick="conbtn(${report.reportNo})">완료</button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <button type="button" class="manager--disabledBtn" id="manager--conBtn" onclick="conbtn(${report.reportNo})" disabled>완료</button>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            
+                                            </td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>

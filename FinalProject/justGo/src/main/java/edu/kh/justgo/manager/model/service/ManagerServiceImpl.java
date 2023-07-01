@@ -233,8 +233,16 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	
 	@Override
-	public int reportConfirm(int reportNo, int memberNo) {
-		return dao.reportConfirm(reportNo, memberNo);
+	public int reportConfirm(int reportNo,  Member loginMember) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("reportNo", reportNo);
+		map.put("memberNo", memberNo);
+
+		
+		return dao.reportConfirm(map);
 	}
 	
 	

@@ -91,12 +91,12 @@ public class ManagerController {
 			Map<String, Object> map = service.selectAskList(cp);
 
 			model.addAttribute("map", map);
-			}else {
+		}else {
 
-				Map<String, Object> map = service.selectAskList(paramMap, cp); // 오버로딩
+			Map<String, Object> map = service.selectAskList(paramMap, cp); // 오버로딩
 
-				model.addAttribute("map", map);
-			}
+			model.addAttribute("map", map);
+		}
 
 		return "/manager/askManager";
 	}
@@ -204,8 +204,11 @@ public class ManagerController {
     // 관리자 신고 처리
     @GetMapping(value = "/conbtn")
     @ResponseBody
-    public int reportConfirm(int reportNo, int memberNo) {
-    	return service.reportConfirm(reportNo, memberNo);
+    public int reportConfirm(int reportNo, 
+    		 @SessionAttribute("loginMember") Member loginMember) {
+    	
+    	
+    	return service.reportConfirm(reportNo, loginMember);
     }
 	
 	

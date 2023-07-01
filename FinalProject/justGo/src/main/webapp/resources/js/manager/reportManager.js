@@ -1,3 +1,5 @@
+const conBtn = document.getElementById("manager--conBtn");
+
 
 function conbtn(reportNo){
     fetch("/manager/conbtn?reportNo=" + reportNo)

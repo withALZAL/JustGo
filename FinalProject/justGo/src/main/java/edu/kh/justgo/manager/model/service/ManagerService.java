@@ -115,7 +115,7 @@ public interface ManagerService {
 	 */
 	Map<String, Object> selectReportList(Map<String, Object> paramMap, int cp);
 
-	int reportConfirm(int reportNo, int memberNo);
+	int reportConfirm(int reportNo, Member loginMember);
 
 
     
