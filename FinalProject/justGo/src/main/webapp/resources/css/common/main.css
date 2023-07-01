@@ -310,13 +310,9 @@
 /* 셀렉터 크기 조정 */
 .countrySelectBox select {
     width: 100px;
-    border: none;
-    background-color: #F3F3F3;
 }
 .airportSelectBox select {
     width: 180px;
-    border: none;
-    background-color: #F3F3F3;
 }
 
 /* datepicker */

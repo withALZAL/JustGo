@@ -685,13 +685,13 @@
                 <div class="common--airContent">
                     <div>가는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
+                        <p><input type="text" class="datepicker" id="datepicker1" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
                 <div class="common--airContent">
                     <div>오는 날</div>
                     <div>
-                        <p><input type="text" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
+                        <p><input type="text" class="datepicker" id="datepicker2" placeholder="날짜를 선택해주세요."></p>
                     </div>
                 </div>
             </div>
@@ -718,32 +718,32 @@
             <div class="modal-body airportBody">
 
             <div class="loadingMessage textFlick" id="loadingMessage"> <%-- 검색 중 문구 --%>
-                <br>
                 <div id="animationTarget1">
+                <br>
                     <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
-                </div>
                 <br><br>
+                </div>
                 목적지까지 가는<br>
                 항공권을 검색 중입니다.
             </div>
 
             <div class="noFlightMessage" id="noFlightMessage" style="display: none;"> <%-- 검색결과 없음 문구 --%>
-                <br>
                 <div id="animationTarget2">
+                <br>
                     <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
-                </div>
                 <br><br>
+                </div>
                 죄송합니다.
                 목적지까지 가는<br>
                 항공권이 없습니다.
             </div>
 
             <div class="loadedMessage" id="loadedMessage" style="display: none;"> <%-- 검색완료 문구 --%>
-                <br>
                 <div id="animationTarget3">
+                <br>
                     <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
-                </div>
                 <br><br>
+                </div>
                 목적지까지 가는<br>
                 항공권 리스트입니다.
             </div>

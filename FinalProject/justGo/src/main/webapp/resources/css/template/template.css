@@ -32,16 +32,29 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-/* selector 꾸미기 */
+/* 전체 selector 꾸미기 */
 select {
     border-radius: 4px;
-    outline: 0 none;
+    border: none;
+    background-color: #F3F3F3;
 }
 select option {
     background: #8B89FF;
     color: white;
     padding: 3px 0;
+    border: none;
 }
+
+/* footer 하단 배치 고정(송이씨 모니터에서 문제 발견) */
+/* .template--footer {
+    height: 260px;
+    transform : translateY(-100%);
+}
+.template--main {
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 260px;
+} */
 
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 

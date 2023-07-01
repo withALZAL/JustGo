@@ -502,9 +502,56 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
         datepicker2.focus();
         return;
     }
+    
+    // 유효성 검사 정규식 패턴(7월 1일 추가)
+    var pattern = /^20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+    
+    if (!pattern.test(datepicker1.value)) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+            Toast.fire({
+                icon: 'warning',
+                title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
+            })
+            datepicker1.value = "(예: 2023-07-01)";
+            datepicker1.focus;
+            e.preventDefault();
+        return;
+    }
+    if (!pattern.test(datepicker2.value)) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'warning',
+            title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
+        })
+        datepicker2.value = "(예: 2023-07-01)";
+        datepicker2.focus;
+        e.preventDefault();
+        return;
+    }
     /* 상준 추가 끝 */
-
-
+    
 
 /* 이 위로는 전혀 문제가 없습니다. 상준 */
 /* 이 위로는 전혀 문제가 없습니다. 상준 */
@@ -547,32 +594,32 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
 
         loadingMessage.innerHTML = '';
         loadingMessage.innerHTML = `
-            <br>
-            <div id="animationTarget1">
+        <div id="animationTarget1">
+        <br>
                 <i class="fa-solid fa-plane-departure fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
             </div>
-            <br><br>
             ${fromCity}에서 ${toCity}까지 가는<br>
             항공권을 검색 중입니다.
         `;
         noFlightMessage.innerHTML = '';
         noFlightMessage.innerHTML = `
-            <br>
-            <div id="animationTarget2">
+        <div id="animationTarget2">
+        <br>
                 <i class="fa-solid fa-circle-xmark fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
             </div>  
-            <br><br>
             죄송합니다.<br>
             ${fromCity}에서 ${toCity}까지 가는<br>
             항공권이 없습니다.
         `;
         loadedMessage.innerHTML = '';
         loadedMessage.innerHTML = `
-            <br>
-            <div id="animationTarget3">
+        <div id="animationTarget3">
+        <br>
                 <i class="fa-solid fa-circle-check fa-beat-fade" style="font-size: 4.0rem;"></i>
+                <br><br>
             </div>
-            <br><br>
             ${fromCity}에서 ${toCity}까지 가는<br>
             항공권 리스트입니다.
         `;
@@ -727,6 +774,31 @@ flightListContainer.style.display = "block";
                 const noFlight = document.getElementById('noFlightMessage');
                 noFlight.style.display = 'none';
                 console.log("데이터 들어온 문구 출력 시작");
+
+                const icon2delete = document.getElementById('animationTarget3');
+                console.log(icon2delete); // 잘 들어옴
+
+                // 3초 후에 animationTarget3 요소를 서서히 사라지게 만드는 함수
+                function fadeOutElement(elementId, duration) {
+                    var element = document.getElementById(elementId);
+                    var opacity = 1;
+                    var interval = 10; // 10밀리초마다 opacity 조정
+                    var intervalId = setInterval(function () {
+                        if (opacity <= 0) {
+                            // 요소가 완전히 사라지면 interval 종료
+                            clearInterval(intervalId);
+                            element.style.display = "none"; // 요소를 화면에서 숨김
+                        } else {
+                            opacity -= interval / duration;
+                            element.style.opacity = opacity;
+                        }
+                    }, interval);
+                }
+                // 3초 후에 animationTarget3 요소를 서서히 사라지게 함
+                setTimeout(function () {
+                    fadeOutElement("animationTarget3", 2000); // 2초 동안 서서히 사라지게 함
+                }, 3000); // 3초(3000 밀리초) 후에 실행
+
 
                 /* 주의: else 문 안 끝남!! */
                 /* 주의: else 문 안 끝남!! */
