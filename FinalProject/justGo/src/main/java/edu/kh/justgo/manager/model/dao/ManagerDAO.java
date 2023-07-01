@@ -239,6 +239,15 @@ public class ManagerDAO {
 		RowBounds rowBounds = new RowBounds(offset, reportPagination.getLimit());
 		return sql.selectList("managerMapper.selectReportList_search", paramMap, rowBounds);
 	}
+
+
+	/** 관리자 신고 처리
+	 * @param map
+	 * @return
+	 */
+	public int reportConfirm(Map<String, Object> map) {
+		return sql.update("managerMapper.reportConfirm", map);
+	}
 	
 	
 	

@@ -177,3 +177,12 @@
     color: black;
 }
 
+.manager--disabledBtn{
+    width: 45px;
+    height: 25px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+}

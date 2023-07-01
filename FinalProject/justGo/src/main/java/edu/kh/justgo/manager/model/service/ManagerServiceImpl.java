@@ -232,5 +232,18 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 	
 	
+	// 관리자 신고 처리
+	@Override
+	public int reportConfirm(int reportNo,  Member loginMember) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("reportNo", reportNo);
+		map.put("memberNo", memberNo);
+		
+		return dao.reportConfirm(map);
+	}
+	
 	
 }

@@ -68,7 +68,7 @@
     <div class="manager--mainBox">
         <%-- 타이틀 --%>
         <div class="manager--overlayedTitle">
-            <a href="/manager/memberManager">
+            <a href="/manager/reportManager">
                 신고관리
             </a>
         </div>
@@ -125,7 +125,17 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>
-                                        <td><button class="manager--confirmBtn">완료</button></td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${report.reprot_CF_FL == 'N'}">
+                                                    <button type="button" class="manager--confirmBtn" id="manager--conBtn" onclick="conbtn(${report.reportNo})">완료</button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <button type="button" class="manager--disabledBtn" id="manager--conBtn" onclick="conbtn(${report.reportNo})" disabled>완료</button>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            
+                                            </td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
@@ -174,15 +184,15 @@
             </form>
             <form class="manager--contentSearch" action="/manager/reportManager" method="get">
                 <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
+                    <select class="board--searchSelector" name="boardSelect3" id="boardSelect" onchange="changeSecondSelect()" required>
                         <option value="r">신고사유</option>
                         <option value="p">신고자</option>
                         <option value="t">글제목</option>
                         <option value="w">글작성자</option>
                         <%-- <option>처리상태</option> --%>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
-                    <button type="button" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
+                    <input type="text" name="query"  maxlength="10" style="width: 300px;">
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
                 </a>
             </form>
         </div>

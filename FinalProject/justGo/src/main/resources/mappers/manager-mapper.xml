@@ -419,23 +419,27 @@
 	<select id="getReportListCount_search" parameterType="Report"
 		resultType="_int">
 		SELECT COUNT(*) 
-		FROM REPORT
+		FROM "REPORT"
+		JOIN "MEMBER" USING(MEMBER_NO)
+		JOIN "BOARD" B USING(BOARD_NO)
 		<choose>
 			<when test='boardSelect3 == "r"'>
 				<!-- 신고사유 -->
-				AND REPORT_CATEGORY LIKE '%${query}%'
+				WHERE REPORT_CATEGORY LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="p"'>
 				<!-- 신고자 -->
-				AND MEMBER_NICKNAME LIKE '%${query}%'
+				WHERE MEMBER_NICKNAME LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="t"'>
 				<!-- 글제목 -->
-				AND BOARD_TITLE LIKE '%${query}%'
+				WHERE BOARD_TITLE LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="w"'>
 				<!-- 글작성자 -->
-				AND REPORTED_NICKNAME LIKE '%${query}%'
+				WHERE (SELECT MEMBER_NICKNAME
+		FROM "MEMBER" M
+		WHERE M.MEMBER_NO = B.MEMBER_NO) LIKE '%${query}%'
 			</when>
 		</choose>
 	</select>
@@ -465,26 +469,29 @@
 		JOIN
 		"MEMBER" USING(MEMBER_NO)
 		JOIN "BOARD" B USING(BOARD_NO)
-		ORDER BY
-		REPORT_NO DESC
+		
 		<choose>
 			<when test='boardSelect3 == "r"'>
 				<!-- 신고사유 -->
-				AND REPORT_CATEGORY LIKE '%${query}%'
+				WHERE REPORT_CATEGORY LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="p"'>
 				<!-- 신고자 -->
-				AND MEMBER_NICKNAME LIKE '%${query}%'
+				WHERE MEMBER_NICKNAME LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="t"'>
 				<!-- 글제목 -->
-				AND BOARD_TITLE LIKE '%${query}%'
+				WHERE BOARD_TITLE LIKE '%${query}%'
 			</when>
 			<when test='boardSelect3 =="w"'>
 				<!-- 글작성자 -->
-				AND REPORTED_NICKNAME LIKE '%${query}%'
+				WHERE (SELECT MEMBER_NICKNAME
+		FROM "MEMBER" M
+		WHERE M.MEMBER_NO = B.MEMBER_NO) LIKE '%${query}%'
 			</when>
 		</choose>
+		ORDER BY
+		REPORT_NO DESC
 	</select>
 
 
@@ -641,6 +648,14 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</update> 
 	
+	<!-- 관리자가 신고처리 -->
+	<update id="reportConfirm">
+		UPDATE "REPORT"
+		SET ADMIN_NO = #{memberNo},
+		CONFIRM_FL ='Y',
+		CONFIRM_DATE = SYSDATE 
+		WHERE REPORT_NO = #{reportNo}
+	</update> 
 	
 
 	

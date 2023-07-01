@@ -79,7 +79,7 @@ ${map.askList} --%>
     <div class="manager--mainBox">
         <%-- 타이틀 --%>
         <div class="manager--overlayedTitle">
-            <a href="/manager/memberManager">
+            <a href="/manager/askManager">
                 1:1문의
             </a>
         </div>
@@ -110,7 +110,7 @@ ${map.askList} --%>
                                     <tr>
                                         <td>${ask.feedbackNo}</td>
                                         <td><form><a href="/manager/memberPage/${ask.memberNo}">${ask.memberNickname}</a></form></td>
-                                        <td><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</a></td>
+                                        <td><a href="/manager/askManager_detail/${ask.feedbackNo}">${ask.feedbackTitle}</a></td>
                                         <td>${ask.feedbackDate}</td>
                                         <td>
                                             <c:choose>
