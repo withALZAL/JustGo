@@ -723,7 +723,7 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
                 noFlight.style.display = 'block'; /* 실패했을 경우 noFlightMessage 출력 */
 
 
-                const airlineExist = 0; /* 실패했을 경우 airlineExist 변수에 0 저장 */
+                let airlineExist = 0; /* 실패했을 경우 airlineExist 변수에 0 저장 */
                 console.log(airlineExist);
                 console.log(airlineExist);
                 console.log(airlineExist);
@@ -742,7 +742,6 @@ noFlightMessage.style.display = "none";
 const flightListContainer = document.getElementById("flightListContainer");
 flightListContainer.style.display = "block";
 }
-
                 return;
             } else { /* 데이터 들어왔을 때 */
                 console.log("데이터 들어옴");
@@ -752,10 +751,23 @@ flightListContainer.style.display = "block";
                 console.log("데이터 들어옴");
                 console.log("데이터 들어옴");
 
-                const airlineExist = 1; /* 실패했을 경우 airlineExist 변수에 1 저장 */
+                let airlineExist = 1; /* 실패했을 경우 airlineExist 변수에 1 저장 */
                 console.log(airlineExist);
                 console.log(airlineExist);
                 console.log(airlineExist);
+if (airlineExist === 0) {
+    const noFlightMessage = document.getElementById("noFlightMessage");
+    noFlightMessage.style.display = "block";
+
+    const flightListContainer = document.getElementById("flightListContainer");
+    flightListContainer.style.display = "none";
+} else {
+    const noFlightMessage = document.getElementById("noFlightMessage");
+    noFlightMessage.style.display = "none";
+
+    const flightListContainer = document.getElementById("flightListContainer");
+    flightListContainer.style.display = "block";
+}
 
 
                 /* 애니메이션 없애기 */
