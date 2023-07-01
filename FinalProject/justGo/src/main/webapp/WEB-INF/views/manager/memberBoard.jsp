@@ -59,7 +59,41 @@ ${map.memberPostPagination} --%>
 
 
 <!-- 페이지 제목 시작 -->
-<div class="template--pageTitleContainer">
+<%-- <div class="template--pageTitleContainer"> --%>
+    <%-- <div class="template--pageTitleBox">
+        <div class="manager--overlayedTitle">
+        <c:choose>
+            <c:when test="${!empty profileImg}">
+                <div class="manager--profileImage">
+                    <a href="/manager/memberPage/${memberNo}">
+                        <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
+                    </a>
+                </div>
+                
+            </c:when>
+            <c:otherwise>
+                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
+            </c:otherwise>
+        </c:choose>
+        <c:if test="${!empty memberNickname}">
+            <a href="/manager/memberPage/${memberNo}">
+                '${memberNickname}' 님의 게시판
+            </a>
+        </c:if>
+        </div>
+    </div> --%>
+<%-- </div> --%>
+<!-- 페이지 제목 끝 -->
+
+
+
+<!-- 콘텐츠 시작 -->
+<div class="board--contentContainer">
+    <aside class="manager--sideContainer">
+        <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
+    </aside>
+<div class="board--contentBox">
+    <div class="board--contentBox__top">
     <div class="template--pageTitleBox">
         <div class="manager--overlayedTitle">
         <c:choose>
@@ -82,15 +116,6 @@ ${map.memberPostPagination} --%>
         </c:if>
         </div>
     </div>
-</div>
-<!-- 페이지 제목 끝 -->
-
-
-
-<!-- 콘텐츠 시작 -->
-<div class="board--contentContainer">
-<div class="board--contentBox">
-    <div class="board--contentBox__top">
     <%-- 
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
         <form action="#" method="get">
@@ -131,7 +156,14 @@ ${map.memberPostPagination} --%>
                             <tr>
                                 <td>${memberPost.boardNo}</td>
                                 <td>${memberPost.tagContent}</td>
-                                <td><form><a href="#">${memberPost.boardTitle}</a></form></td>
+                                <c:choose>
+                                    <c:when test="${memberPost.countryNo == 0 || memberPost.countryNo == null}">
+                                        <td><a href="/board/${memberPost.boardCode}/${memberPost.boardNo}">${memberPost.boardTitle}</a></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td><a href="/board/${memberPost.boardCode}/${memberPost.countryNo}/${memberPost.boardNo}">${memberPost.boardTitle}</a></td>
+                                    </c:otherwise>
+                                </c:choose>
                                 <td>${memberPost.createDate}</td>
                                 <td>${memberPost.readCount}</td>
                                 <td>
