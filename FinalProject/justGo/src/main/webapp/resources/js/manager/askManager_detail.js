@@ -74,7 +74,7 @@ answerBtn.addEventListener("click",() => {
     
 
     
-    // 댓글 수정(AJAX)
+    // (AJAX)
     answerStartBTN.addEventListener("click", () => {
 
         

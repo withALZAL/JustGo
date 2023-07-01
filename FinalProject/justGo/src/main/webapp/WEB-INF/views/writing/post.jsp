@@ -423,19 +423,21 @@
                 해당 게시물을 신고 하시겠습니까?<br>
                 <br>
                 신고 사유를 선택해주세요.<br>
-                <input type="radio" id="abusive" name="report" value="욕설, 차별적표현"> <label for="abusive">욕설, 차별적표현</label><br>
-                <input type="radio" id="impersonation" name="report" value="사칭"> <label for="impersonation">사칭</label><br>
-                <input type="radio" id="advertisement" name="report" value="광고성, 도배글"> <label for="advertisement">광고성, 도배글</label><br>
-                <input type="radio" id="sensationality" name="report" value="선정성"> <label for="sensationality">선정성</label><br>
-                <input type="radio" id="personal" name="report" value="불법정보포함, 개인정보 노출"> <label for="personal">불법정보포함, 개인정보 노출</label><br>
-                <input type="radio" id="etc" name="report" > <label for="etc">기타</label> <input type="text" placeholder="신고 사유를 입력해주세요." maxlength=10> <br>
+                <input type="radio" id="abusive" name="reportCategory" value="욕설"> <label for="abusive">욕설</label><br>
+                <input type="radio" id="disparaging_expression" name="reportCategory" value="차별적표현"> <label for="disparaging_expression">차별적표현</label><br>
+                <input type="radio" id="impersonation" name="reportCategory" value="사칭"> <label for="impersonation">사칭</label><br>
+                <input type="radio" id="advertisement" name="reportCategory" value="광고성, 도배글"> <label for="advertisement">광고성, 도배글</label><br>
+                <input type="radio" id="sensationality" name="reportCategory" value="선정성"> <label for="sensationality">선정성</label><br>
+                <input type="radio" id="illegal_information" name="reportCategory" value="불법정보포함"> <label for="illegal_information">불법정보포함</label><br>
+                <input type="radio" id="personal" name="reportCategory" value="개인정보 노출"> <label for="personal">개인정보 노출</label><br>
+                <%-- <input type="radio" id="etc" name="reportCategory" > <label for="etc">기타</label> <input type="text" placeholder="신고 사유를 입력해주세요." maxlength=10> <br> --%>
                 <br>
                 <br>
                 허위 신고 시 사이트 이용에 제한이 생길 수 있습니다.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                <button type="submit" class="btn btn-danger" onclick="reportBoardBtn(${board.boardNo})">신고</button>
+                <button type="button" class="btn btn-danger" onclick="reportBoardBtn(${board.boardNo})">신고</button>
             </div>
         </div>
     </div>

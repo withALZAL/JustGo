@@ -81,10 +81,26 @@ document.getElementById("deleteBtn").addEventListener("click",()=>{
 
 
 
+
+
+
 function reportBoardBtn(boardNo){
-    fetch("/manager/reportBoardBtn?boardNo=" + boardNo)
+
+    const reportCategory = document.querySelector('input[name="reportCategory"]:checked').value;
+
+    const data = {"boardNo" : boardNo,
+            "reportCategory" : reportCategory, 
+            "memberNo" : loginMemberNo 
+    }
+
+    fetch("/board/reportBoardBtn/" + boardNo, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},    
+        body: JSON.stringify(data)
+    })
     .then(resp => resp.text())
     .then(result => {
+        console.log(result)
         if(result > 0){
             alert("해당 게시글을 신고하였습니다.");
             location.href =  location.href ;

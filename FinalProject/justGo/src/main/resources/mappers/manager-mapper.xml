@@ -660,9 +660,5 @@
 	</update> 
 	
 
-	<!-- 회원의 글목록에서 해당 글로 연결 -->
-	<select id="selectPost" parameterType="Board" resultMap="board_rm">
-		
-	</select>
 	
 </mapper>
