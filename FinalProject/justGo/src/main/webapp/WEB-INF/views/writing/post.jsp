@@ -399,7 +399,7 @@
                     <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
                 </c:when>
                 <c:when test="${loginMember.memberRole == 1}">
-                    <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
+                    <button type="button" id="deleteBtn1" class="btn btn-danger btn-lg">삭제</button>
                 </c:when>
             </c:choose>
 
@@ -430,7 +430,7 @@
                 <input type="radio" id="sensationality" name="reportCategory" value="선정성"> <label for="sensationality">선정성</label><br>
                 <input type="radio" id="illegal_information" name="reportCategory" value="불법정보포함"> <label for="illegal_information">불법정보포함</label><br>
                 <input type="radio" id="personal" name="reportCategory" value="개인정보 노출"> <label for="personal">개인정보 노출</label><br>
-                <%-- <input type="radio" id="etc" name="reportCategory" > <label for="etc">기타</label> <input type="text" placeholder="신고 사유를 입력해주세요." maxlength=10> <br> --%>
+                <input type="radio" id="etc" name="reportCategory" > <input type="text" id="reportReason"placeholder="신고 사유를 입력해주세요." maxlength=10><label for="etc">기타</label>  <br>
                 <br>
                 <br>
                 허위 신고 시 사이트 이용에 제한이 생길 수 있습니다.
