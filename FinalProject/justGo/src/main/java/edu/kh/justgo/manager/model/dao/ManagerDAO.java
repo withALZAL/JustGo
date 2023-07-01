@@ -239,6 +239,11 @@ public class ManagerDAO {
 		RowBounds rowBounds = new RowBounds(offset, reportPagination.getLimit());
 		return sql.selectList("managerMapper.selectReportList_search", paramMap, rowBounds);
 	}
+
+	public int reportConfirm(int reportNo, int memberNo) {
+		// TODO Auto-generated method stub
+		return sql.update("managerMapper.reportConfirm", reportNo, memberNo);
+	}
 	
 	
 	

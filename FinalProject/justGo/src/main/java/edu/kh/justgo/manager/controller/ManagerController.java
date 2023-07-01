@@ -200,6 +200,13 @@ public class ManagerController {
     public int restoreMember(int memberNo) {
     	return service.restoreMember(memberNo);
     }
+    
+    // 관리자 신고 처리
+    @GetMapping(value = "/conbtn")
+    @ResponseBody
+    public int reportConfirm(int reportNo, int memberNo) {
+    	return service.reportConfirm(reportNo, memberNo);
+    }
 	
 	
 	

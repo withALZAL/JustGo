@@ -232,5 +232,10 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 	
 	
+	@Override
+	public int reportConfirm(int reportNo, int memberNo) {
+		return dao.reportConfirm(reportNo, memberNo);
+	}
+	
 	
 }
