@@ -390,8 +390,9 @@
         </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-
-            <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
+            <c:if test="${loginMember.memberRole == 2}">
+                <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
+            </c:if>
             <c:choose>
                 <c:when test="${loginMember.memberNo == board.memberNo}">
                     <button type="button" id="updateBtn" class="btn btn-primary btn-lg">수정</button>
