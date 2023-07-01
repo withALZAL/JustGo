@@ -43,6 +43,18 @@ select option {
     padding: 3px 0;
 }
 
+/* footer 하단 배치 고정(송이씨 모니터에서 문제 발견) */
+.template--footer {
+    height: 260px; /* footer 높이 */
+    position : relative;
+    transform : translateY(-100%);
+}
+.template--main {
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 260px; /* footer 높이 */
+}
+
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 
 /* 화면 가로 길이 1400px 통일 */
