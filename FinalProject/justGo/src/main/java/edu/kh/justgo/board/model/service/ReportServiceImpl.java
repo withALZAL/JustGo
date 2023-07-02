@@ -23,7 +23,7 @@ public class ReportServiceImpl implements ReportService{
 		
 		int result = dao.reportBoard(report);
 		
-		System.out.println("result : " +result);
+//		System.out.println("result : " +result);
 		
 		return result;
 	}

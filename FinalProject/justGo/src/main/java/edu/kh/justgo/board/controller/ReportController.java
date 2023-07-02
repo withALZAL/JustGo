@@ -39,7 +39,7 @@ public class ReportController {
 		report.setMemberNo(loginMember.getMemberNo());
 		report.setBoardNo(report.getBoardNo());
 		
-		System.out.println(report);
+//		System.out.println(report);
 		
 		int result = service.reportBoard(report);
 		
