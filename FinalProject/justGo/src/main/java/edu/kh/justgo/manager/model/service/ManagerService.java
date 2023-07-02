@@ -122,6 +122,19 @@ public interface ManagerService {
 	 */
 	int reportConfirm(int reportNo, Member loginMember);
 
+	/** 관리자 운영관리 페이지 검색
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> managerMemberList(Map<String, Object> paramMap, int cp);
+
+	/** 관리자 운영관리 페이지
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> managerMemberList(int cp);
+
 	
 
 

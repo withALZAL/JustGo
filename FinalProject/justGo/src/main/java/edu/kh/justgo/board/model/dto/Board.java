@@ -29,6 +29,7 @@ public class Board {
     private int likeCount; // 좋아요 수 
     private String memberNickname;
     private int memberNo;
+    private int memberRole;
     private String profileImage;
     private int countryNo;
     private int tagNo;

@@ -252,5 +252,40 @@ public class ManagerDAO {
 	
 	
 	
+	/** 운영자 수
+	 * @return
+	 */
+	public int getManagerListCount() {
+		return sql.selectOne("managerMapper.getManagerListCount");
+	}
+
+	/** 관리자 운영관리
+	 * @param memberPagination
+	 * @return
+	 */
+	public List<Member> managerMemberList(Pagination managerPagination) {
+		int offset = (managerPagination.getCurrentPage() - 1) * managerPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, managerPagination.getLimit());
+		return sql.selectList("managerMapper.managerMemberList", null, rowBounds);
+	}
+
+	/** 운영자 수 검색 count
+	 * @return
+	 */
+	public int getManagerListCount_search(Map<String, Object> paramMap) {
+		return sql.selectOne("managerMapper.getManagerListCount_search", paramMap);
+	}
+
+	
+	
+	/** 관리자 운영관리 검색
+	 * @param memberPagination
+	 * @return
+	 */
+	public List<Member> managerMemberList_search(Pagination managerPagination, Map<String, Object> paramMap) {
+		int offset = (managerPagination.getCurrentPage() - 1) * managerPagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, managerPagination.getLimit());
+		return sql.selectList("managerMapper.managerMemberList_search", paramMap, rowBounds);
+	}
 
 }

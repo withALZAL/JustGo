@@ -55,16 +55,16 @@ fetch("/board/like",{
 
 });
 
-document.getElementById("deleteBtn1").addEventListener("click",()=>{
-    // http://localhost/board/2/175?cp=1
-    // http://localhost/writing/{boardCode}/{boardNo}/update
-    // 1. location.href = boardNo + "/update";
+// document.getElementById("deleteBtn1").addEventListener("click",()=>{
+//     // http://localhost/board/2/175?cp=1
+//     // http://localhost/writing/{boardCode}/{boardNo}/update
+//     // 1. location.href = boardNo + "/update";
 
-    const pathname =location.pathname.replace("board","writing")+ "/delete";
+//     const pathname =location.pathname.replace("board","writing")+ "/delete";
 
-    location.href = pathname;
+//     location.href = pathname;
 
-});
+// });
 
 
 
@@ -96,18 +96,15 @@ document.getElementById("deleteBtn").addEventListener("click",()=>{
 
 
 
-
+// 회원이 게시글 신고
 function reportBoardBtn(boardNo){
-
     
     let reportReason = document.getElementById("reportReason");
     let etc = document.getElementById("etc");
-    
-    reportReason.addEventListener("input", function() {
-        if(etc.checked){
-            reportReason.innerHTML = etc.value;
-        }
-    });
+
+    if(etc.checked){
+        etc.value = reportReason.value;
+    }
     
     const reportCategory = document.querySelector('input[name="reportCategory"]:checked').value;
 
