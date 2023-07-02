@@ -55,12 +55,39 @@ public class ManagerController {
 
 			model.addAttribute("map", map);
 		}
-
 		
 		// 콘솔에서 확인
 //		System.out.println(memberList);
 
 		return "/manager/memberManager";
+		
+	}	
+	
+	// 운영관리 관리자페이지 연결
+	@GetMapping("/manager")
+	public String managerMemberList(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			Model model,
+			@RequestParam Map<String, Object> paramMap) {
+		
+		// 회원정보 불러오기
+		
+		if (paramMap.get("boardSelect") == null) {
+			
+			Map<String, Object> map = service.managerMemberList(cp);
+			
+			model.addAttribute("map", map);
+		}else {
+			
+			Map<String, Object> map = service.managerMemberList(paramMap, cp); // 오버로딩
+			
+			model.addAttribute("map", map);
+		}
+
+	
+		// 콘솔에서 확인
+//		System.out.println(memberList);
+
+		return "/manager/manager";
 	}
 
 	// 관리자페이지 회원별 게시글 목록 연결

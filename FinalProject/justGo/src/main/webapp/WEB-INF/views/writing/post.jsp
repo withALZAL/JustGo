@@ -602,6 +602,7 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/writing/post.js"></script>
+    <script src="/resources/js/writing/post2.js"></script>
     <script src="/resources/js/writing/writing.js"></script>
     <script src="/resources/js/common/footer.js"></script>
 </body>

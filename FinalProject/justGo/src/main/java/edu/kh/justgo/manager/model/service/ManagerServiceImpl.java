@@ -247,5 +247,46 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	
 	
+	// 관리자 운영관리 검색
+	@Override
+	public Map<String, Object> managerMemberList(Map<String, Object> paramMap, int cp) {
+		int listCount = dao.getManagerListCount_search(paramMap);
+
+//		System.out.println("listCount : " +listCount);
+
+		Pagination managerPagination = new Pagination(listCount, cp);
+
+		List<Member> managerList = dao.managerMemberList_search(managerPagination, paramMap);
+
+		// pagination, memberList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("managerPagination", managerPagination);
+		map.put("managerList", managerList);
+
+//		System.out.println(map);
+
+		return map;
+	}
 	
+	
+	// 관리자 운영관리
+	@Override
+	public Map<String, Object> managerMemberList(int cp) {
+		int listCount = dao.getManagerListCount();
+
+//		System.out.println("listCount : " +listCount);
+
+		Pagination managerPagination = new Pagination(listCount, cp);
+
+		List<Member> managerList = dao.managerMemberList(managerPagination);
+
+		// pagination, memberList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("managerPagination", managerPagination);
+		map.put("managerList", managerList);
+
+//		System.out.println(map);
+
+		return map;
+	}
 }
