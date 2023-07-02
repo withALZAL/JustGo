@@ -22,6 +22,7 @@
 		<result property="likeCount" column="LIKE_COUNT" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
 		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberRole" column="MEMBER_ROLE" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="countryNo" column="COUNTRY_NO" />
 		<result property="tagNo" column="TAG_NO" />
@@ -185,7 +186,7 @@
 	<!--게시글 상세내용 -->
 	<select id="selectBoard" resultMap="board_rm">
 		SELECT
-		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_CONTENT,
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_CONTENT, MEMBER_ROLE, 
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
 		TO_CHAR(CREATE_DATE,'YYYY"년"
 		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,
@@ -207,7 +208,7 @@
 	<!-- 여행게시판 상세글 조회 -->
 	<select id="boardCountryDetail" resultMap="board_rm">
 		SELECT
-		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_CONTENT,
+		BOARD_NO,BOARD_TITLE,BOARD_TEXT ,READ_COUNT,BOARD_CODE,TAG_CONTENT, MEMBER_ROLE, 
 		MEMBER_NICKNAME,MEMBER_NO ,PROFILE_IMG,
 		TO_CHAR(CREATE_DATE,'YYYY"년"
 		MM"월" DD"일" HH24:MI:SS') CREATE_DATE,

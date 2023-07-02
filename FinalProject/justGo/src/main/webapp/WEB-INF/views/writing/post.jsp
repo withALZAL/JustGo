@@ -390,7 +390,7 @@
         </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-            <c:if test="${loginMember.memberRole == 2}">
+            <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2}">
                 <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
             </c:if>
             <c:choose>
@@ -429,7 +429,7 @@
                 <input type="radio" id="sensationality" name="reportCategory" value="선정성"> <label for="sensationality">&nbsp선정성</label><br>
                 <input type="radio" id="illegal_information" name="reportCategory" value="불법정보포함"> <label for="illegal_information">&nbsp불법정보포함</label><br>
                 <input type="radio" id="personal" name="reportCategory" value="개인정보 노출"> <label for="personal">&nbsp개인정보 노출</label><br>
-                <input type="radio" id="etc" name="reportCategory" value="기타">&nbsp기타&nbsp<input type="text" id="reportReason"placeholder="신고 사유를 입력해주세요." maxlength=10><label for="etc"></label>  <br>
+                <input type="radio" id="etc" name="reportCategory" value="기타">&nbsp기타&nbsp<input type="text" id="reportReason" placeholder="신고 사유를 입력해주세요." maxlength=10><label for="etc"></label>  <br>
                 <br>
                 <br>
                 허위 신고 시 사이트 이용에 제한이 생길 수 있습니다.

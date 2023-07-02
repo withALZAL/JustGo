@@ -96,18 +96,15 @@ document.getElementById("deleteBtn").addEventListener("click",()=>{
 
 
 
-
+// 회원이 게시글 신고
 function reportBoardBtn(boardNo){
-
     
     let reportReason = document.getElementById("reportReason");
     let etc = document.getElementById("etc");
-    
-    reportReason.addEventListener("input", function() {
-        if(etc.checked){
-            reportReason.innerHTML = etc.value;
-        }
-    });
+
+    if(etc.checked){
+        etc.value = reportReason.value;
+    }
     
     const reportCategory = document.querySelector('input[name="reportCategory"]:checked').value;
 
