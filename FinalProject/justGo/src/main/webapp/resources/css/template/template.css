@@ -49,12 +49,11 @@ select option {
 /* .template--footer {
     height: 260px;
     transform : translateY(-100%);
-}
+} */
 .template--main {
     height: auto;
     min-height: 100%;
-    padding-bottom: 260px;
-} */
+}
 
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 
