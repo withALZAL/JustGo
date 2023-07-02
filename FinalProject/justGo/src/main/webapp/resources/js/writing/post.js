@@ -98,12 +98,12 @@ document.getElementById("deleteBtn1").addEventListener("click",()=>{
 function reportBoardBtn(boardNo){
 
     
-    const reportReason = document.getElementById("reportReason");
-    const etc = document.getElementById("etc");
+    let reportReason = document.getElementById("reportReason");
+    let etc = document.getElementById("etc");
     
     reportReason.addEventListener("input", function() {
         if(etc.checked){
-            reportReason.innerText = etc.value;
+            reportReason.value = etc.value;
         }
     });
     
