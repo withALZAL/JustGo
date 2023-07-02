@@ -401,8 +401,7 @@
                 <c:when test="${loginMember.memberRole == 1}">
                     <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">삭제</button>
                 </c:when>
-            </c:choose>
-
+            </c:choose> <%-- 상준 수정 --%>
     </div>
 </div>
 <!-- 포스트 끝 -->
