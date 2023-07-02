@@ -423,14 +423,14 @@
                 해당 게시물을 신고 하시겠습니까?<br>
                 <br>
                 신고 사유를 선택해주세요.<br>
-                <input type="radio" id="abusive" name="reportCategory" value="욕설"> <label for="abusive">욕설</label><br>
-                <input type="radio" id="disparaging_expression" name="reportCategory" value="차별적표현"> <label for="disparaging_expression">차별적표현</label><br>
-                <input type="radio" id="impersonation" name="reportCategory" value="사칭"> <label for="impersonation">사칭</label><br>
-                <input type="radio" id="advertisement" name="reportCategory" value="광고성, 도배글"> <label for="advertisement">광고성, 도배글</label><br>
-                <input type="radio" id="sensationality" name="reportCategory" value="선정성"> <label for="sensationality">선정성</label><br>
-                <input type="radio" id="illegal_information" name="reportCategory" value="불법정보포함"> <label for="illegal_information">불법정보포함</label><br>
-                <input type="radio" id="personal" name="reportCategory" value="개인정보 노출"> <label for="personal">개인정보 노출</label><br>
-                <input type="radio" id="etc" name="reportCategory" > <input type="text" id="reportReason"placeholder="신고 사유를 입력해주세요." maxlength=10><label for="etc">기타</label>  <br>
+                <input type="radio" id="abusive" name="reportCategory" value="욕설"> <label for="abusive">&nbsp욕설</label><br>
+                <input type="radio" id="disparaging_expression" name="reportCategory" value="차별적표현"> <label for="disparaging_expression">&nbsp차별적표현</label><br>
+                <input type="radio" id="impersonation" name="reportCategory" value="사칭"> <label for="impersonation">&nbsp사칭</label><br>
+                <input type="radio" id="advertisement" name="reportCategory" value="광고성, 도배글"> <label for="advertisement">&nbsp광고성, 도배글</label><br>
+                <input type="radio" id="sensationality" name="reportCategory" value="선정성"> <label for="sensationality">&nbsp선정성</label><br>
+                <input type="radio" id="illegal_information" name="reportCategory" value="불법정보포함"> <label for="illegal_information">&nbsp불법정보포함</label><br>
+                <input type="radio" id="personal" name="reportCategory" value="개인정보 노출"> <label for="personal">&nbsp개인정보 노출</label><br>
+                <input type="radio" id="etc" name="reportCategory" >&nbsp기타&nbsp<input type="text" id="reportReason"placeholder="신고 사유를 입력해주세요." maxlength=10><label for="etc"></label>  <br>
                 <br>
                 <br>
                 허위 신고 시 사이트 이용에 제한이 생길 수 있습니다.
