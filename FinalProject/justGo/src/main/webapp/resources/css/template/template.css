@@ -46,9 +46,9 @@ select option {
 }
 
 /* footer 하단 배치 고정(송이씨 모니터에서 문제 발견) */
-html, body {
+/* html, body {
     height: 100%;
-}
+} */
 /* .template--main {
     margin-bottom: 260px;
     height: auto;
