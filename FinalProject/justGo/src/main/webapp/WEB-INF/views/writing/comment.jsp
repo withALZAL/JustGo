@@ -121,7 +121,7 @@
         <div class="writing--commentInput">
             <div style="font-weight: bold;">댓글 달기</div>
             <textarea id="replyContent"></textarea>
-            <button  class="btn btn-secondary btn-sm" id="addReply">등록</button>
+            <button  class="btn btn-primary btn-sm" id="addReply">등록</button>
         </div>
     <%-- </form> --%>
 </div>
