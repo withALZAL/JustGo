@@ -46,14 +46,18 @@ select option {
 }
 
 /* footer 하단 배치 고정(송이씨 모니터에서 문제 발견) */
-/* .template--footer {
-    height: 260px;
-    transform : translateY(-100%);
-} */
-.template--main {
+html, body {
+    height: 100%;
+}
+/* .template--main {
+    margin-bottom: 260px;
     height: auto;
     min-height: 100%;
 }
+.template--footer {
+    transform : translateY(-100%);
+    position: relative;
+} */
 
 /* 문서 기본 화면 배치 통일 ----------------------------------------------- */
 
