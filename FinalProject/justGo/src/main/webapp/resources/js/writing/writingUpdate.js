@@ -57,15 +57,47 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    for(let i =0; i<tagSelector.options.length; i++){
+    if(boardSelect.options[boardSelect.selectedIndex].value == 2 ){
+        tagSelector.style.display = "none";
+        tagSelector.removeAttribute("name");
 
-        if(tagSelector.options[i].value == tagNo){
-            tagSelector.options[i].selected = true;
+
+    }else {
+        tagSelector.style.display = "block";
+        tagSelector.setAttribute("name","tagNo");
+
+        for(let i =0; i<tagSelector.options.length; i++){
+    
+            if(tagSelector.options[i].value == tagNo){
+                tagSelector.options[i].selected = true;
+            }
+    
+            
         }
-
-        
     }
+    
+
     
 });
 
+const boardSelect1 = document.getElementById("boardSelect");
+const tagSelector1 = document.getElementById("tagSelector");
 
+boardSelect1.addEventListener("change",()=>{
+
+    const opt = boardSelect1.options[boardSelect1.selectedIndex];
+    const value = opt.value
+    const hasClassB = opt.classList.contains("b");
+
+    if(value == 2 && hasClassB){
+        tagSelector1.style.display ="none";
+        tagSelector1.removeAttribute("name");
+        
+    }else{
+        tagSelector1.style.display = "block";
+        tagSelector1.setAttribute("name","tagNo")
+
+    }
+
+    
+});
