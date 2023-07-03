@@ -169,7 +169,7 @@
                                     <c:forEach var="i" begin="${reportPagination.startPage}" end="${reportPagination.endPage}" step="1">
                                         <c:choose>
                                             <c:when test="${i==reportPagination.currentPage}">
-                                                <li class="page-item"><a class="page-link">${i}</a></li>
+                                                <li class="page-item active" aria-current="page"><a class="page-link" style="background:cornflowerblue;">${i}</a></li>
                                             </c:when>
                                             <c:otherwise>
                                                 <li class="page-item"><a class="page-link" href="/manager/reportManager?cp=${i}">${i}</a></li>
