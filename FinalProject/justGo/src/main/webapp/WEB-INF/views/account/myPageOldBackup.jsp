@@ -71,7 +71,7 @@
                         <th>닉네임</th>
                         <td class="myPage--updateNickname">
                             <form action="#" method="">
-                                <input type="text" value="${loginMember.memberNickname}">
+                                <input type="text" value="${loginMember.memberNickname}" autocomplete="off">
                                 <button type="button" class="btn btn-secondary btn-sm">수정</button>
                             </form>
                         </td>
