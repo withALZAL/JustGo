@@ -288,4 +288,32 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.managerMemberList_search", paramMap, rowBounds);
 	}
 
+	/** 대시보드에 나타나는 회원수
+	 * @return
+	 */
+	public int countAllMember() {
+		return sql.selectOne("managerMapper.countAllMember");
+	}
+ 
+	/** 대시보드에 나타나는 운영자수
+	 * @return
+	 */
+	public int countAllManager() {
+		return sql.selectOne("managerMapper.countAllManager");
+	}
+
+	/** 대시보드에 나타나는 탈퇴회원 수
+	 * @return
+	 */
+	public int countOutMember() {
+		return sql.selectOne("managerMapper.countOutMember");
+	}
+ 
+	/** 대시보드에 나타나는 게시글 수
+	 * @return
+	 */
+	public int countAllPost() {
+		return sql.selectOne("managerMapper.countAllPost");
+	}
+
 }

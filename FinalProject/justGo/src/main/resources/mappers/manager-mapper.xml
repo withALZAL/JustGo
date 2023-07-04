@@ -745,5 +745,39 @@
 		ORDER BY MEMBER_NO DESC
 	</select>
 
+
+	<!-- 대시보드에 나타나는 회원수 -->
+	<select id="countAllMember" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =2
+		AND MEMBER_CONDITION ='N'
+	</select>
+	
+	<!-- 대시보드에 나타나는 운영자수 -->
+	<select id="countAllManager" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =1
+		AND MEMBER_CONDITION ='N'
+	</select>
+	
+	<!-- 대시보드에 나타나는 탈퇴회원 수 -->
+	<select id="countOutMember" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =2
+		AND MEMBER_CONDITION ='Y'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 게시글 수 -->
+	<select id="countAllPost" parameterType="Board"
+		resultType="_int">
+		SELECT COUNT(*) FROM "BOARD"
+		WHERE BOARD_DELETE ='N'
+	</select>
+
+
 	
 </mapper>

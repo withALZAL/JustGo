@@ -289,4 +289,40 @@ public class ManagerServiceImpl implements ManagerService {
 
 		return map;
 	}
+	
+	
+	
+	
+	// 대시보드에 나타나는 회원수
+	@Override
+	public int countAllMember() {
+		return dao.countAllMember();
+	}
+	
+	
+	// 대시보드에 나타나는 운영자수
+	@Override
+	public int countAllManager() {
+		return dao.countAllManager();
+	}
+	
+	
+	// 대시보드에 나타나는 탈퇴회원 수
+	@Override
+	public int countOutMember() {
+		return dao.countOutMember();
+	}
+	
+	
+	// 대시보드에 나타나는 게시글 수
+	@Override
+	public int countAllPost() {
+		return dao.countAllPost();
+	}
+	
+	
+	
+	
+	
+	
 }

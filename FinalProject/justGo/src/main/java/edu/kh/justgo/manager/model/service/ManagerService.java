@@ -136,6 +136,30 @@ public interface ManagerService {
 	Map<String, Object> managerMemberList(int cp);
 
 	
+	/** 대시보드에 나타나는 회원수
+	 * @return
+	 */
+	int countAllMember();
+
+	
+	/** 대시보드에 나타나는 운영자수
+	 * @return
+	 */
+	int countAllManager();
+
+	
+	/** 대시보드에 나타나는 탈퇴회원 수
+	 * @return
+	 */
+	int countOutMember();
+
+	
+	/** 대시보드에 나타나는 게시글 수
+	 * @return
+	 */
+	int countAllPost();
+
+	
 
 
     
