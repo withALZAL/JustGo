@@ -76,7 +76,6 @@
 		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
 	</insert>
 	
-<<<<<<< HEAD
 	
 	<!-- 게시글 수정 이미지 삭제 / 자유,질문 -->
 	<delete id="writingDelete3">
@@ -104,10 +103,10 @@
 	</insert>
 	
 	<!-- 스케줄러 이미지 삭제를 위한 이미지 리스트 불러오기 -->
-	<select id="selectImageList" resultType="string">
+<!-- 	<select id="selectImageList" resultType="string">
 		SELECT IMG_PATH
 		FROM "BOARD_IMG"
-	</select>
+	</select> -->
 	
 
 	

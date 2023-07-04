@@ -67,7 +67,6 @@ public class WritingDAO {
 		sqlSession.insert("writingMapper.insertImage",imgMap);
 	}
 	
-<<<<<<< HEAD
 	/** 글쓰기 수정 시 boardNo을 조회해서 boardImg 이미지 삭제(자유/질문)
 	 * @param board
 	 * @return result
