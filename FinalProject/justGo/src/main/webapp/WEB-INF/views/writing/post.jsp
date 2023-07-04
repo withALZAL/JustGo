@@ -590,6 +590,7 @@
     // 해결방법 : EL구문을 '',""문자열로 감싸는 것 
     //          -> EL값이 null이여도 "" 빈문자열로 출력
     const loginMemberNo = "${loginMember.memberNo}";
+    const loginMemberRole = "${loginMember.memberRole}"
     console.log(boardNo);
     console.log(loginMemberNo);
 
