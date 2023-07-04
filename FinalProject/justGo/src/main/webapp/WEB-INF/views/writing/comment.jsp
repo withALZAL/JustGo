@@ -82,7 +82,10 @@
                             </c:if>
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
                             <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
+                            </c:if>
+                            <c:if test="${loginMember.memberNo == reply.memberNo || loginMember.memberRole==1}" >
                             <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
+                            <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update" style="display:none;">수정</button>
                             </c:if>
                         <%-- </a>
                     </form> --%>
