@@ -73,6 +73,16 @@
 //		
 //		
 ////	@Scheduled(cron = "0,30 * * * * *") // 매분 0초, 30초마다 실행
+//	@Scheduled(cron = "0 0 * * * * *") // 매 정시마다 실행
+//	public void deleteDummyImage() {
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+////	@Scheduled(cron = "0,30 * * * * *") // 매분 0초, 30초마다 실행
 ////	@Scheduled(cron = "0 0 * * * * *") // 매 정시마다 실행
 ////	public void deleteDummyImage() {
 ////		
