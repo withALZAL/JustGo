@@ -102,7 +102,7 @@ ${map.askList} --%>
                         <c:choose>
                             <c:when test="${empty askList}">
                                 <tr>
-                                    <th colspan="5">문의가 존재하지 않습니다.</th>
+                                    <th colspan="6">문의가 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
                             <c:otherwise>
