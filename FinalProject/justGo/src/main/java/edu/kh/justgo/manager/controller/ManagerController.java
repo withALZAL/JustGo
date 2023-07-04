@@ -239,9 +239,36 @@ public class ManagerController {
 	
     //관리자 대시보드 연결
     @GetMapping("/managerDashboard")
-    public String managerDashboard() {
+    public String managerDashboard(
+    		Model model
+    		) {
+    	
+    	// 대시보드에 나타나는 회원수
+    	int countAllMember = service.countAllMember();
+    	
+    	// 대시보드에 나타나는 운영자수
+    	int countAllManager = service.countAllManager();
+    	
+    	// 대시보드에 나타나는 탈퇴회원수
+    	int countOutMember = service.countOutMember();
+    	
+    	// 대시보드에 나타나는 게시글 수
+    	int countAllPost = service.countAllPost();
+    	
+    	model.addAttribute("countAllMember", countAllMember);
+    	model.addAttribute("countAllManager", countAllManager);
+    	model.addAttribute("countOutMember", countOutMember);
+    	model.addAttribute("countAllPost", countAllPost);
+    	
+    	System.out.println(model);
+    	
+    	
     	return "/manager/managerDashboard";
     }
+    
+    
+    
+    
     
     
     
