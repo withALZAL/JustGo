@@ -93,7 +93,7 @@
                             <c:choose>
                                 <c:when test="${empty reportList}">
                                     <tr>
-                                        <th colspan="7">신고가 존재하지 않습니다.</th>
+                                        <th colspan="9">신고가 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when>
                                 <c:otherwise>
