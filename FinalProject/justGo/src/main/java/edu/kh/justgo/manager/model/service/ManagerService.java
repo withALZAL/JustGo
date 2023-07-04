@@ -159,6 +159,46 @@ public interface ManagerService {
 	 */
 	int countAllPost();
 
+	/**
+	 * @return
+	 */
+	int countReportAbusive();
+
+	/**
+	 * @return
+	 */
+	int countReportDisparaging_expression();
+
+	/**
+	 * @return
+	 */
+	int countReportImpersonation();
+
+	/**
+	 * @return
+	 */
+	int countReportAdvertisement();
+
+	/**
+	 * @return
+	 */
+	int countReportSensationality();
+
+	/**
+	 * @return
+	 */
+	int countReportIllegal_information();
+
+	/**
+	 * @return
+	 */
+	int countReportPersonal();
+
+	/**
+	 * @return
+	 */
+	int countReportEtc();
+
 	
 
 

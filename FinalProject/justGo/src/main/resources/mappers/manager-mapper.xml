@@ -779,5 +779,88 @@
 	</select>
 
 
+
+
+	<!-- 대시보드에 나타나는 신고 카테고리 수(욕설) -->
+	<select id="countReportAbusive" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='욕설'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(차별적 표현) -->
+	<select id="countReportDisparaging_expression" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='차별적표현'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(사칭) -->
+	<select id="countReportImpersonation" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='사칭'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(광고성, 도배글) -->
+	<select id="countReportAdvertisement" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='광고성,도배글'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(선정성) -->
+	<select id="countReportSensationality" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='선정성'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(불법정보포함) -->
+	<select id="countReportIllegal_information" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='불법정보포함'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(개인정보노출) -->
+	<select id="countReportPersonal" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='개인정보노출'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(기타) -->
+	<select id="countReportEtc" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY !='욕설'
+		AND REPORT_CATEGORY !='차별적표현'
+		AND REPORT_CATEGORY !='사칭'
+		AND REPORT_CATEGORY !='광고성,도배글'
+		AND REPORT_CATEGORY !='선정성'
+		AND REPORT_CATEGORY !='불법정보포함'
+		AND REPORT_CATEGORY !='개인정보노출'
+	</select>
+	
+	
+	
+	<!-- 하루 전 회원수 -->
+	<select id="countAllMember" parameterType="Member"
+		resultType="_int">
+		<![CDATA[
+		SELECT COUNT(*) 
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION ='N'
+		AND ENROLL_DATE <= (SYSDATE - 1)
+		]]>
+	</select>
+	
+	
+	
 	
 </mapper>
