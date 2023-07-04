@@ -20,6 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/resources/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- chart.js --%>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="template--body">
 
@@ -71,6 +73,8 @@
     <div class="manager--mainBox">
         <section class="dashboard__top">
             <section class="dashboard1" style="border: 1px solid pink;">
+            <div class="dashboardTitle">제목제목</div>
+            <div class="dashboard1__content">
                 <div class="card stat1">
                     <div class="card-header">
                         회원 수
@@ -103,13 +107,32 @@
                     123445개
                     </div>
                 </div>
+            </div>
             </section>
-            <section class="dashboard2" style="border: 1px solid pink;"></section>
-            <section class="dashboard3" style="border: 1px solid pink;"></section>
+            <section class="dashboard2" style="border: 1px solid pink;">
+                <div class="dashboardTitle">제목</div>
+                <div class="dashboard2__content">
+                    <canvas id="chartDoughnut">
+                    </canvas>
+                </div>
+            </section>
+            <section class="dashboard3" style="border: 1px solid pink;">
+                <div class="dashboardTitle">제목</div>
+                <div class="dashboard3__content">2</div>
+            </section>
         </section>
         <section class="dashboard__bottom">
-            <section class="dashboard4" style="border: 1px solid pink;"></section>
-            <section class="dashboard5" style="border: 1px solid pink;"></section>
+            <section class="dashboard4" style="border: 1px solid pink;">
+                <div class="dashboardTitle">제목</div>
+                <div class="dashboard4__content">2</div>
+            </section>
+            <section class="dashboard5" style="border: 1px solid pink;">
+                <div class="dashboardTitle">제목5</div>
+                <div class="dashboard5__content">
+                    <canvas id="chartBar">
+                    </canvas>
+                </div>
+            </section>
         </section>
     </div>
 </div>
@@ -140,6 +163,8 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+    <script src="/resources/js/manager/managerDashboard.js"></script>
     <%-- <script src="/resources/js/manager/memberManager.js"></script> --%>
+
 </body>
 </html>
