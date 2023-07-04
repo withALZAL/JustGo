@@ -73,110 +73,52 @@
         
         <div class="manager--content">
 
+            
 
             <%-- statisticsBox--%>
-            <div class="manager--statisticsBox">
-            <div>
-                <div class="manager--statistics">
-                    <div><i class="fa-solid fa-user-plus"></i></div>
-                    <div>
-                        <div>가입자 수</div>
-                        <div>12000명</div>
+            <div class="manager--statisticsBox1">
+                <div class="manager--statisticsBox">
+                <div>
+                    <div class="manager--statistics">
+                        <div><i class="fa-solid fa-user-plus"></i></div>
+                        <div>
+                            <div>가입자 수</div>
+                            <div>12000명</div>
+                        </div>
+                    </div>
+                    <div class="manager--statistics">
+                        <div><i class="fa-solid fa-scroll"></i></div>
+                        <div>
+                            <div>탈퇴회원 수</div>
+                            <div>20000개</div>
+                        </div>
                     </div>
                 </div>
-                <div class="manager--statistics">
-                    <div><i class="fa-solid fa-scroll"></i></div>
-                    <div>
-                        <div>탈퇴회원 수</div>
-                        <div>20000개</div>
+                <div>
+                    <div class="manager--statistics">
+                        <div><i class="fa-solid fa-user-plus"></i></div>
+                        <div>
+                            <div>관리자 수</div>
+                            <div>12000명</div>
+                        </div>
+                    </div>
+                    <div class="manager--statistics">
+                        <div><i class="fa-solid fa-scroll"></i></div>
+                        <div>
+                            <div>게시글 수</div>
+                            <div>20000개</div>
+                        </div>
                     </div>
                 </div>
+                </div>
+                <div class="manager--statisticsBox2"></div>
+                <div class="manager--statisticsBox3"></div>
             </div>
-            <div>
-                <div class="manager--statistics">
-                    <div><i class="fa-solid fa-user-plus"></i></div>
-                    <div>
-                        <div>관리자 수</div>
-                        <div>12000명</div>
-                    </div>
-                </div>
-                <div class="manager--statistics">
-                    <div><i class="fa-solid fa-scroll"></i></div>
-                    <div>
-                        <div>게시글 수</div>
-                        <div>20000개</div>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-            
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-
-            <form action="#" method="post">
-                <table class="manager--memberTable">
-                    <thead>
-                        <tr>
-                            <th>회원번호</th>
-                            <th>닉네임</th>
-                            <th>이메일</th>
-                            <th>가입일</th>
-                            <th>계정상태</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <%-- <c:choose> --%>
-                            <%-- <c:when test="${empty memberList}"> --%>
-                                <tr>
-                                    <th colspan="6">회원이 존재하지 않습니다.</th>
-                                </tr>
-                            <%-- </c:when> --%>
-                            <%-- <c:otherwise>
-                                <c:forEach items="${memberList}" var="member">
-                                    <tr>
-                                        <td>${member.memberNo}</td>
-                                        <td><form><a href="/manager/memberPage/${member.memberNo}">${member.memberNickname}</a></form></td>
-                                        <td>${member.memberEmail}</td>
-                                        <td>${member.enrollDate}</td>
-                                        <td>
-                                            <c:choose>
-                                                <c:when test="${member.memberCondition == 'N'}">
-                                                    유지
-                                                </c:when>
-                                                <c:otherwise>
-                                                    탈퇴
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </td>
-                                        <td><a href="/manager/memberBoard/${member.memberNo}"><button type="button" class="manager--memberPostListBTN">작성글</button></a></td>
-                                    </tr>
-                                </c:forEach>
-                            </c:otherwise> --%>
-                        <%-- </c:choose> --%>
-                        
 
 
-                    </tbody>
-                </table>
-                <div class="manager--non">
-                    
-                </div>
-            </form>
-            <form class="manager--contentSearch" action="/manager/memberManager" method="get">
-                <a>
-                    <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
-                        <option value="t">닉네임</option>
-                        <option value="c">이메일</option>
-                    </select>
-                    <input type="text" name="query" maxlength="10" style="width: 300px;">
-                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
-                </a>
-            </form>
+            <div class="manager--statisticsBox4"></div>
+            <div class="manager--statisticsBox5"></div>
+
         </div>
     </div>
 </div>
