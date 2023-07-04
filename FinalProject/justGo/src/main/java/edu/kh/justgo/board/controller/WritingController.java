@@ -256,6 +256,9 @@ public class WritingController {
 			board.setBoardCode(boardCode);
 			board.setBoardNo(boardNo);
 			board.setCountryNo(countryNo);
+			String th = board.getThumbnail();
+			
+			System.out.println("th :" + th);
 			
 			
 			// 2) 게시글 수정 서비스 호출

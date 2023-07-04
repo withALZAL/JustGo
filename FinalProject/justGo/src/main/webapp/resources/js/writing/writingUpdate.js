@@ -15,7 +15,7 @@ wirteUpdateFrm.addEventListener("submit", e => {
         return;
     }
 
-    // const contentTemp = boardText.value.replaceAll("<p>","").replaceAll("</p>","").replaceAll("<br>","").replaceAll("&nbsp;","").replaceAll(" ",""); 
+    const contentTemp = boardText.value.replaceAll("<p>","").replaceAll("</p>","").replaceAll("<br>","").replaceAll("&nbsp;","").replaceAll(" ",""); 
     
     if(contentTemp === '' ){
         alert("내용을 입력해주세요.");
@@ -32,6 +32,11 @@ wirteUpdateFrm.addEventListener("submit", e => {
     if(temp != null){
         document.querySelector("#thumbnail").value = temp[1];
     }
+
+    // console.log(temp[1]);
+
+
+    // e.preventDefault();
 
 });
 

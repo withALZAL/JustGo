@@ -80,6 +80,7 @@ public class WritingServiceImpl implements WritingService {
 		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
 		
 		board.setThumbnail(board.getThumbnail());
+		
 
 		// 2) DAO 호출
 		int result = dao.writingUpdate(board);
