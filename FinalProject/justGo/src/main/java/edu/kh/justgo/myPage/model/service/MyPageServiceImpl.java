@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.board.model.dto.Pagination10;
 import edu.kh.justgo.common.utility.Util;
 import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.myPage.model.dao.MyPageDAO;
@@ -85,14 +86,14 @@ public class MyPageServiceImpl implements MyPageService{
 		
 			System.out.println("postCount:"+postCount); // 잘 담김
 		
-		Pagination pagination = new Pagination(postCount, cp);
+		Pagination10 pagination10 = new Pagination10(postCount, cp);
 		
-			System.out.println("pagination:"+pagination); // 잘 담김
+			System.out.println("pagination:"+pagination10); // 잘 담김
 		
-		List<Board> myPostList = dao.selectMyPostList(pagination, memberNo); // Board의 5개 열 정보가 담긴 List 형태로 반환
+		List<Board> myPostList = dao.selectMyPostList(pagination10, memberNo); // Board의 5개 열 정보가 담긴 List 형태로 반환
 		
 		Map<String, Object> map = new HashMap<>(); // myPostList와 myPostPagination을 Map에 담아서 반환
-		map.put("pagination", pagination);
+		map.put("pagination", pagination10);
 		map.put("myPostList", myPostList);
 		
 		System.out.println("map:      "+map);

@@ -78,11 +78,14 @@
                     <%-- <form action="#" method="get">
                         <a href="#"> --%>
                             <c:if test="${not empty loginMember}" >
-                            <button onclick="showInsertComment(${reply.replyNo},this)" class="commentBtn comment--reply">답글</button>
+                            <button onclick="showInsertComment(${reply.replyNo},this)" class="btn btn-primary btn-sm">답글</button>
                             </c:if>
                             <c:if test="${loginMember.memberNo == reply.memberNo}">
-                            <button onclick="showUpdateComment(${reply.replyNo},this)"  class="commentBtn comment--update">수정</button>
-                            <button onclick="deleteComment(${reply.replyNo},this)" class="commentBtn comment--delete">삭제</button>
+                            <button onclick="showUpdateComment(${reply.replyNo},this)"  class="btn btn-primary btn-sm">수정</button>
+                            </c:if>
+                            <c:if test="${loginMember.memberNo == reply.memberNo || loginMember.memberRole==1}" >
+                            <button onclick="deleteComment(${reply.replyNo},this)" class="btn btn-danger btn-sm">삭제</button>
+                            <button onclick="showUpdateComment(${reply.replyNo},this)"  class="btn btn-primary btn-sm" style="display:none;">수정</button>
                             </c:if>
                         <%-- </a>
                     </form> --%>

@@ -237,5 +237,14 @@ public class ManagerController {
     }
 	
 	
+    //관리자 대시보드 연결
+    @GetMapping("/managerDashboard")
+    public String managerDashboard() {
+    	return "/manager/managerDashboard";
+    }
+    
+    
+    
+    
     
 }

@@ -1,12 +1,12 @@
 package edu.kh.justgo.board.model.dto;
 
 // 페이징 처리에 필요한 모든 값들을 저장 하고있는 객체
-public class Pagination {
+public class Pagination10 {
 	
 	private int currentPage;		// 현재 페이지 번호
 	private int listCount;			// 전체 게시글 수
 	
-	private int limit = 15;			// 한 페이지 목록에 보여지는 게시글 수
+	private int limit = 10;			// 한 페이지 목록에 보여지는 게시글 수
 	private int pageSize = 10;		// 보여질 페이지 번호 개수
 	
 	private int maxPage;			// 마지막 페이지 번호
@@ -17,7 +17,7 @@ public class Pagination {
 	private int nextPage;			// 다음 페이지의 페이지 번호 맨 앞
 	
 	
-	public Pagination(int listCount, int currentPage) {
+	public Pagination10(int listCount, int currentPage) {
 		this.listCount = listCount;
 		this.currentPage = currentPage;
 		
@@ -26,7 +26,7 @@ public class Pagination {
 		makePagination();
 	}
 	
-	public Pagination(int listCount, int currentPage, int limit, int pageSize) {
+	public Pagination10(int listCount, int currentPage, int limit, int pageSize) {
 		this.listCount = listCount;
 		this.currentPage = currentPage;
 		this.limit = limit;
