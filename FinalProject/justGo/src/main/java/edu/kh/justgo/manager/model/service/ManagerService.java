@@ -135,6 +135,50 @@ public interface ManagerService {
 	 */
 	Map<String, Object> managerMemberList(int cp);
 
+	/**
+	 * 대시보드1
+	 * @return
+	 */
+	int countAllMember();
+	int countAllManager();
+	int countOutMember();
+	int countAllPost();
+	
+	/**
+	 * 대시보드2
+	 * @return
+	 */
+	int countFree();
+	int countQuestion();
+	int countChina();
+	int countJapan();
+	int countVietnam();
+	int countThai();
+	int countAustralia();
+
+	/**
+	 * 대시보드3
+	 * @return
+	 */
+	int countTag1();
+	int countTag2();
+	int countTag3();
+	int countTag4();
+
+	/**
+	 * 대시보드5
+	 * @return
+	 */
+	int report1();
+	int report2();
+	int report3();
+	int report4();
+	int report5();
+	int report6();
+	int report7();
+	int report8();
+
+
 	
 
 
