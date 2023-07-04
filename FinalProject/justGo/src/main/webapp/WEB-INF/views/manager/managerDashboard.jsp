@@ -118,13 +118,19 @@
             </section>
             <section class="dashboard3" style="border: 1px solid pink;">
                 <div class="dashboardTitle">제목</div>
-                <div class="dashboard3__content">2</div>
+                <div class="dashboard3__content">
+                    <canvas id="chartTag">
+                    </canvas>
+                </div>
             </section>
         </section>
         <section class="dashboard__bottom">
             <section class="dashboard4" style="border: 1px solid pink;">
                 <div class="dashboardTitle">제목</div>
-                <div class="dashboard4__content">2</div>
+                <div class="dashboard4__content">
+                    <canvas id="chartLine">
+                    </canvas>
+                </div>
             </section>
             <section class="dashboard5" style="border: 1px solid pink;">
                 <div class="dashboardTitle">제목5</div>
