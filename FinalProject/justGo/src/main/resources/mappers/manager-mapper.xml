@@ -849,7 +849,7 @@
 	
 	
 	<!-- 하루 전 회원수 -->
-	<select id="countAllMember" parameterType="Member"
+	<select id="count" parameterType="Member"
 		resultType="_int">
 		<![CDATA[
 		SELECT COUNT(*) 
