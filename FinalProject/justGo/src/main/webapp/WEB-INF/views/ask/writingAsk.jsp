@@ -54,7 +54,7 @@
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="feedbackTitle" placeholder="제목을 입력해주세요." maxlength="15"></div>
+                <div><input type="text" name="feedbackTitle" placeholder="제목을 입력해주세요." maxlength="15" autocomplete="off"></div>
                 <div class="writing--selectorBox"></div>
             </div>
         <div class="writing--inputContentBox">

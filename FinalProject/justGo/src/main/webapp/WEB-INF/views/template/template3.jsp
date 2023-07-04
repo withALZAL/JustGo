@@ -73,7 +73,7 @@
     </a>
     <div class="common--header__searchContainer">
         <form action="https://www.naver.com" method="get">
-            <input type="text" placeholder="검색어를 입력해주세요." maxlength="30">
+            <input type="text" placeholder="검색어를 입력해주세요." maxlength="30" autocomplete="off">
             <button type="button" class="btn btn-secondary">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>

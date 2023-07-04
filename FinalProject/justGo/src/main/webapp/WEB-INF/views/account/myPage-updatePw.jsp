@@ -81,21 +81,21 @@
                         <tr>
                             <th>현재 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="현재 비밀번호를 입력해주세요." name="currentPw" id="currentPw">
+                                <input type="password" maxlength="15" placeholder="현재 비밀번호를 입력해주세요." name="currentPw" id="currentPw" autocomplete="off">
                                 <div style="height: 0.1px; font-size: 0.2rem;" id="capslockCheck"></div>
                             </td>
                         </tr>
                         <tr>
                             <th>새 비밀번호</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPw" id="newPw">
+                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPw" id="newPw" autocomplete="off">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwMessage"></div>
                             </td>
                         </tr>
                         <tr>
                             <th>새 비밀번호 확인</th>
                             <td>
-                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm">
+                                <input type="password" maxlength="15" placeholder="새 비밀번호를 입력해주세요." name="newPwConfirm" id="newPwConfirm" autocomplete="off">
                                 <div style="height: 0.1px; font-size: 0.2rem;" class="newPw-message" id="newPwConfirmMessage"></div>
                             </td>
                         </tr>
