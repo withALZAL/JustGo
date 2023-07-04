@@ -46,38 +46,3 @@
 }
 
 
-/* -------------------- statisticsBox ------------------------- */
-
-/* 통계박스 조정 */
-
-/* 통계 컨텐츠 조정 */
-.manager--statistics {
-    height: 80px;
-    width: 150px;
-    border-radius: 10px;
-    border: none;
-    background-color: lightblue;
-    color: black;
-    display: grid;
-    grid-template-columns: 60px 100px;
-    margin-bottom: 10px;
-}
-
-/* 통계 아이콘 조정 */
-.manager--statistics > div:nth-child(1) {
-    display: grid;
-    place-items: center;
-    font-size: 1.2rem;
-}
-
-/* 통계 텍스트 조정 */
-.manager--statistics > div:nth-child(2) {
-    display: grid;
-    grid-template-rows: 40px 5px;
-    align-items: center;
-    padding: 5px 0 5px;
-}
-.manager--statistics > div:nth-child(2) > div:nth-child(2) {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
