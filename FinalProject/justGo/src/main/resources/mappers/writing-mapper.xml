@@ -70,8 +70,35 @@
 	</update>
 	
 	
-	<!-- 업로드한 이미지 삽입 -->
+	<!-- 글 삽입 시 업로드한 이미지 삽입 -->
 	<insert id="insertImage" >
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
+	</insert>
+	
+<<<<<<< HEAD
+	
+	<!-- 게시글 수정 이미지 삭제 / 자유,질문 -->
+	<delete id="writingDelete3">
+		DELETE FROM "BOARD_IMG"
+		WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<!-- 글 수정 시 업로드한 이미지 삽입 (자유/질문) -->
+	<insert id="insertImage2" >
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
+	</insert>
+	
+	
+	<!-- 게시글 수정 이미지 삭제 / 여행 -->
+	<delete id="writingDelete4">
+		DELETE FROM "BOARD_IMG"
+		WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<!-- 글 수정 시 업로드한 이미지 삽입 (여행) -->
+	<insert id="insertImage3" >
 		INSERT INTO BOARD_IMG
 		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
 	</insert>
