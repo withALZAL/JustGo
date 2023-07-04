@@ -189,10 +189,6 @@ tr img {
     width: 850px;
 }
 
-/* 댓글 상호작용 */
-.writing--commentInput textarea:focus {
-    background-color: #D9D9D9;
-}
 
 /* 대댓글 ----------------------------------------------- */
 

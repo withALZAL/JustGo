@@ -78,6 +78,9 @@ public class WritingServiceImpl implements WritingService {
 		// 1. 게시글 제목/내용만 수정
 		// 1) XSS 방지 처리
 		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		
+		board.setThumbnail(board.getThumbnail());
+		
 
 		// 2) DAO 호출
 		int result = dao.writingUpdate(board);
@@ -90,6 +93,7 @@ public class WritingServiceImpl implements WritingService {
 	public int writingUpdate2(Board board) {
 
 		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		board.setThumbnail(board.getThumbnail());
 
 		int result = dao.writingUpdate2(board);
 
