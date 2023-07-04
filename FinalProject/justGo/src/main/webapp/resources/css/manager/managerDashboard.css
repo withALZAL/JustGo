@@ -9,14 +9,14 @@
 
 /* 관리자 컨테이너 */
 .manager--contentContainer {
-    height: 700px;
+    height: 1000px;
     display: grid;
     place-items: center;
 }
 
 /* 콘텐츠 박스 조정 */
 .manager--contentBox {
-    height: 600px;
+    height: 900px;
     width: 100%;
     margin: 10px 30px 10px 30px;
     display: grid;
@@ -38,6 +38,7 @@
 
 /* mainBox 조정 */
 .manager--mainBox {
+    height: 800px;
     display: grid;
     grid-template-rows: 1fr 1fr;
 }
@@ -45,19 +46,28 @@
 /* dashboard */
 .dashboard__top {
     width: 1200px;
-    height: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 .dashboard__bottom {
     width: 1200px;
-    height: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
+/* dashboard 제목 */
+.dashboard__top section {
+    display: grid;
+    grid-template-rows: 30px 1fr;
+}
+.dashboardTitle {
+    padding: 0 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
 /* dashboard1 */
-.dashboard1 {
+.dashboard1__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -75,6 +85,20 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+
+/* dashboard2 */
+/* .dashboard2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#chartDoughnut {
+    border: 1px solid pink;
+    width: 300px;
+    height: 300px;
+} */
 
 
 /* statisticsBox 조정 */
