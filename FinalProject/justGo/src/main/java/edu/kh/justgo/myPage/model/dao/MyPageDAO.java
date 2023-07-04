@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.board.model.dto.Pagination;
+import edu.kh.justgo.board.model.dto.Pagination10;
 import edu.kh.justgo.member.model.dto.Member;
 
 @Repository
@@ -46,13 +47,13 @@ public class MyPageDAO {
 		return sqlSession.selectOne("myPageMapper.postCount", memberNo);
 	}
 	// 내가 쓴 글 조회(상준)
-	public List<Board> selectMyPostList(Pagination myPostPagination, int memberNo) {
-		int offset = (myPostPagination.getCurrentPage()-1) * myPostPagination.getLimit(); // offset만큼 건너 뜀
+	public List<Board> selectMyPostList(Pagination10 myPostPagination10, int memberNo) {
+		int offset = (myPostPagination10.getCurrentPage()-1) * myPostPagination10.getLimit(); // offset만큼 건너 뜀
 		
-		System.out.println("myPostPagination.getCurrentPage():" + myPostPagination.getCurrentPage()); // 잘 담김
-		System.out.println("myPostPagination.getLimit():" + myPostPagination.getLimit()); // 잘 담김
+		System.out.println("myPostPagination.getCurrentPage():" + myPostPagination10.getCurrentPage()); // 잘 담김
+		System.out.println("myPostPagination.getLimit():" + myPostPagination10.getLimit()); // 잘 담김
 		
-		RowBounds rowBounds = new RowBounds(offset, myPostPagination.getLimit()); // offset으로 RowBound 객체 생성
+		RowBounds rowBounds = new RowBounds(offset, myPostPagination10.getLimit()); // offset으로 RowBound 객체 생성
 		
 		return sqlSession.selectList("myPageMapper.selectMyPostList", memberNo, rowBounds);
 		
