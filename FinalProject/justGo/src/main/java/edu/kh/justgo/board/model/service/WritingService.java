@@ -20,7 +20,7 @@ public interface WritingService {
 	 * @param board
 	 * @return result 
 	 */
-	int writingUpdate(Board board) throws Exception;
+	int writingUpdate(Board board);
 
 	/** 게시글 수정(여행)
 	 * @param board
