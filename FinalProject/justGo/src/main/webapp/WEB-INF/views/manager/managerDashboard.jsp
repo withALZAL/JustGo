@@ -69,57 +69,48 @@
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
     <div class="manager--mainBox">
-        
-        
-        <div class="manager--content">
-
-            
-
-            <%-- statisticsBox--%>
-            <div class="manager--statisticsBox1">
-                <div class="manager--statisticsBox">
-                <div>
-                    <div class="manager--statistics">
-                        <div><i class="fa-solid fa-user-plus"></i></div>
-                        <div>
-                            <div>가입자 수</div>
-                            <div>12000명</div>
-                        </div>
+        <section class="dashboard__top">
+            <section class="dashboard1" style="border: 1px solid pink;">
+                <div class="card stat1">
+                    <div class="card-header">
+                        회원 수
                     </div>
-                    <div class="manager--statistics">
-                        <div><i class="fa-solid fa-scroll"></i></div>
-                        <div>
-                            <div>탈퇴회원 수</div>
-                            <div>20000개</div>
-                        </div>
+                    <div class="card-body numberResult">
+                    123445명
                     </div>
                 </div>
-                <div>
-                    <div class="manager--statistics">
-                        <div><i class="fa-solid fa-user-plus"></i></div>
-                        <div>
-                            <div>관리자 수</div>
-                            <div>12000명</div>
-                        </div>
+                <div class="card stat2">
+                    <div class="card-header">
+                        관리자 수
                     </div>
-                    <div class="manager--statistics">
-                        <div><i class="fa-solid fa-scroll"></i></div>
-                        <div>
-                            <div>게시글 수</div>
-                            <div>20000개</div>
-                        </div>
+                    <div class="card-body numberResult">
+                    123445명
                     </div>
                 </div>
+                <div class="card stat3">
+                    <div class="card-header">
+                        탈퇴회원 수
+                    </div>
+                    <div class="card-body numberResult">
+                    123445명
+                    </div>
                 </div>
-                <div class="manager--statisticsBox2"></div>
-                <div class="manager--statisticsBox3"></div>
-            </div>
-
-
-            <div class="manager--statisticsBox4"></div>
-            <div class="manager--statisticsBox5"></div>
-
-        </div>
+                <div class="card stat4">
+                    <div class="card-header">
+                        게시글 수
+                    </div>
+                    <div class="card-body numberResult">
+                    123445개
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard2" style="border: 1px solid pink;"></section>
+            <section class="dashboard3" style="border: 1px solid pink;"></section>
+        </section>
+        <section class="dashboard__bottom">
+            <section class="dashboard4" style="border: 1px solid pink;"></section>
+            <section class="dashboard5" style="border: 1px solid pink;"></section>
+        </section>
     </div>
 </div>
 </div>
