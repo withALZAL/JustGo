@@ -63,7 +63,13 @@ public class WritingDAO {
 		sqlSession.insert("writingMapper.insertImage",imgMap);
 	}
 	
-	
+	/**
+	 * 이미지 조회(삭제를 위한)
+	 * @return
+	 */
+	public List<String> selectImageList() {
+		return sqlSession.selectList("writingMapper.selectImageList");
+	}
 
 	
 
