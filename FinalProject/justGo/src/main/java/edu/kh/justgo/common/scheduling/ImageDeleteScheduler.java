@@ -18,61 +18,76 @@ import edu.kh.justgo.board.model.service.WritingService;
 // DB와 서버 불일치 이미지 삭제를 위한 스케줄러
 @Component
 public class ImageDeleteScheduler {
-//	
-//	@Autowired
-//	private ServletContext servletContext;
-//	
-//	@Autowired
-//	private WritingService service;
-//	
-////	@Scheduled(cron = "0 0 * * * * *")
-////	@Scheduled(cron = "0,30 * * * * *")
-//	@Scheduled(fixedDelay = 10000)
-//	public void deleteDummyImage() {
-//		System.out.println("-----게시판 DB와 서버 불일치 파일 제거-----");
-//		
-//		
-//		// 서버에 저장된 memberImage 아래 모든 파일 목록 조회(for문 돌리기)
-//		String filePath = servletContext.getRealPath("/resources/images/memberImage");
-//		System.out.println("filePath:"+ filePath);
-//		File path = new File(filePath);
-//		System.out.println("path:"+path);
-//		File[] imageArr = path.listFiles();
-//		List<File> serverImageList = Arrays.asList(imageArr); // imageArr: 배열
-//		System.out.println("중간 테스트: "+serverImageList); // 배열?
-//		
-//		int[] memberNos = new int[serverImageList.size()];
-//
-////		for(int i=0; i < imageArr.length; i++) {
-////			System.out.println("너 배열 맞잖아?"+imageArr[i]);
-////		}
-		
-//		for (int i=0; i < imageArr.length; i++) {
-//		    String filePath = imageArr[i];
-//		    // 파일 경로에서 숫자 부분 추출
-//		    String numberString = filePath.substring(filePath.lastIndexOf("/"));
-//		    // 숫자 부분을 정수로 변환하여 배열에 저장
-//		    memberNumbers[i] = Integer.parseInt(numberString);
-//		}
-//
-//		// 결과 출력
-//		for (int number : memberNumbers) {
-//		    System.out.println(number);
-//		}
-		
-//	}
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//	@Scheduled(cron = "0,30 * * * * *") // 매분 0초, 30초마다 실행
+	@Autowired
+	private ServletContext servletContext;
+	
+	@Autowired
+	private WritingService service;
+	
+	@Scheduled(fixedDelay = 10000)
+	public void test() {
+		System.out.println("10초마다 출력됩니다.");
+	}
+	
+	@Scheduled(cron = "0,30 * * * * *")
+	public void test2() {
+		System.out.println("0초, 30초마다 출력됩니다.");
+	}
+	
+	@Scheduled(cron = "0 0 * * * * *")
+	public void test3 () {
+		System.out.println("정시마다 출력됩니다.");
+	}
+	
+//////	@Scheduled(cron = "0 0 * * * * *")
+//////	@Scheduled(cron = "0,30 * * * * *")
+////	@Scheduled(fixedDelay = 10000)
+////	public void deleteDummyImage() {
+////		System.out.println("-----게시판 DB와 서버 불일치 파일 제거-----");
+////		
+////		
+////		// 서버에 저장된 memberImage 아래 모든 파일 목록 조회(for문 돌리기)
+////		String filePath = servletContext.getRealPath("/resources/images/memberImage");
+////		System.out.println("filePath:"+ filePath);
+////		File path = new File(filePath);
+////		System.out.println("path:"+path);
+////		File[] imageArr = path.listFiles();
+////		List<File> serverImageList = Arrays.asList(imageArr); // imageArr: 배열
+////		System.out.println("중간 테스트: "+serverImageList); // 배열?
+////		
+////		int[] memberNos = new int[serverImageList.size()];
+////
+//////		for(int i=0; i < imageArr.length; i++) {
+//////			System.out.println("너 배열 맞잖아?"+imageArr[i]);
+//////		}
+//		
+////		for (int i=0; i < imageArr.length; i++) {
+////		    String filePath = imageArr[i];
+////		    // 파일 경로에서 숫자 부분 추출
+////		    String numberString = filePath.substring(filePath.lastIndexOf("/"));
+////		    // 숫자 부분을 정수로 변환하여 배열에 저장
+////		    memberNumbers[i] = Integer.parseInt(numberString);
+////		}
+////
+////		// 결과 출력
+////		for (int number : memberNumbers) {
+////		    System.out.println(number);
+////		}
+//		
+////	}
+//	
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+////	@Scheduled(cron = "0,30 * * * * *") // 매분 0초, 30초마다 실행
 //	@Scheduled(cron = "0 0 * * * * *") // 매 정시마다 실행
 //	public void deleteDummyImage() {
 //		
