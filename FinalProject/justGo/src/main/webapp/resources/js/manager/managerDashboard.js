@@ -20,7 +20,7 @@ new Chart(chartDoughnut, {
         },
         maintainAspectRatio: false, // 가로 세로 비율 유지하지 않음
         responsive: true ,// 부모 요소에 맞게 자동으로 크기 조절
-    }
+
 });
 
 /* 태그 차트(3번) */
@@ -48,24 +48,23 @@ var chartLine = document.getElementById('chartLine');
 new Chart(chartLine, {
     type: 'line',
     data: {
-        labels: ['1년 전', '6달 전', '3달 전', '2달 전', '1달 전', '1주일 전', '현재'],
+        labels: ['3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
         datasets: [{
-            data: [0, 0, 0, 0, 0, 86, 114, 106], /* 데이터 입력 */
             label: "일반회원 수",
             borderColor: "red",
             fill: false
         }, {
-            data: [0, 0, 0, 0, 0, 282, 350, 411], /* 데이터 입력 */
+            data: [0, 0, 0, 282, 350, 411], /* 데이터 입력 */
             label: "게시글 수",
             borderColor: "orange",
             fill: false
         }, {
-            data: [0, 0, 0, 0, 0, 168, 170, 178], /* 데이터 입력 */
+            data: [0, 0, 0, 168, 170, 178], /* 데이터 입력 */
             label: "관리자 수",
             borderColor: "grey",
             fill: false
         }, {
-            data: [0, 0, 0, 0, 0, 40, 20, 10], /* 데이터 입력 */
+            data: [0, 0, 0, 40, 20, 10], /* 데이터 입력 */
             label: "신고 수",
             borderColor: "black",
             data: [86, 114, 106, 106, 107, 111, 133, 221, 783, countAllMember],
@@ -127,7 +126,7 @@ new Chart(chartBar, {
         datasets: [
             {
                 backgroundColor: ["yellow", "yellow", "orange", "orange", "red", "red", "blue", "grey"],
-                data: [report1, report2, report3, report4, report5, report6, report7, report8], /* 여기에 데이터를 넣습니다. */
+                data: [report1, report2, report3, report4, report5, report6, report7, report8] /* 여기에 데이터를 넣습니다. */
                 label: "신고 수",
                 backgroundColor: ["#5CD1E5", "#4ABFD3", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"],
                 data: [reportAbusive, reportDisparaging, reportImpersonation, reportAdvertisement, reportSensationality, reportIllegal, reportPersonal, reportEtc] /* 여기에 데이터를 넣습니다. */
@@ -138,5 +137,9 @@ new Chart(chartBar, {
         indexAxis: 'y',
         legend: { display: false },
         title: { display: false }
+        title: {
+            display: true,
+            // text: 'Predicted world population (millions) in 2050'
+        }
     }
 });
