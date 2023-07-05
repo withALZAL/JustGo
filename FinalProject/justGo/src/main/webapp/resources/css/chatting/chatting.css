@@ -1,0 +1,162 @@
+/* 채팅방 */
+.chatting--container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatting--box {
+    height: 750px;
+    width: 800px;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 150px;
+}
+.chatting--top {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+}
+
+/* chatBox */
+.chatting--chatBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+.chattingList {
+    max-height: 520px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.chattingCard {
+    height: 100px;
+    display: grid;
+    grid-template-rows: 20px 1fr 10px;
+    padding: 5px 10px;
+}
+.myChattingCard {
+    height: 100px;
+    display: grid;
+    grid-template-rows: 1fr 10px;
+    padding: 5px 10px;
+}
+.other > .chatProfile {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.chatProflieImageBox {
+    height: 20px;
+    width: 20px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.memberProfileImageBox img {
+    object-fit: cover;
+    object-position: center center;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+.me > .chatProfile {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+.me div {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.timeLog {
+    font-weight: bold;
+    font-size: 0.5rem;
+}
+.nick {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.chattingContent {
+    border: 1px solid red;
+}
+
+/* memberBox */
+.chatting--memberBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+.memberList {
+    max-height: 520px;
+    overflow-y: auto;
+}
+.memberCard {
+    height: 50px;
+    background-color: pink;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.memberProflieImageBox {
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.memberProfileImageBox img {
+    object-fit: cover;
+    object-position: center center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.memberNickname {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* inputBox */
+.chatting--inputBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+.inputBox--temp {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 80px;
+    gap: 10px;
+}
+.btnBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.inputMessage {
+    padding: 10px;
+    height: 80px;
+    width: 650px;
+    resize: none;
+}
