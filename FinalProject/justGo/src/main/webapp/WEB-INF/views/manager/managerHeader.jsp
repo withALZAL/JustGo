@@ -54,7 +54,7 @@
         <label for="alarmToggle">
             <i class="fa-solid fa-envelope fa-xl"></i>
         </label>
-        <input type="checkbox" id="alarmToggle">
+        <input type="checkbox" id="alarmToggle" hidden>
         <div class="alarm-menu">
             알람받는 공간
             <ul id="alarmBox">
