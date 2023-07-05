@@ -24,6 +24,7 @@ public class Member {
 	private String memberCondition;
 	private String setAlarmReply;
 	private String setAlarmLike;
+	private int chattingNo;
 	
 	private Map<String, Object> memberPostList; // 상준이 사용
 }
