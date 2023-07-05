@@ -14,6 +14,10 @@ import edu.kh.justgo.manager.model.dto.Pagination;
 import edu.kh.justgo.manager.model.dto.Report;
 import edu.kh.justgo.member.model.dto.Member;
 
+/**
+ * @author gram
+ *
+ */
 @Repository
 public class ManagerDAO {
 
@@ -329,5 +333,93 @@ public class ManagerDAO {
 	public int report6() {return sql.selectOne("managerMapper.report6");}
 	public int report7() {return sql.selectOne("managerMapper.report7");}
 	public int report8() {return sql.selectOne("managerMapper.report8");}
+	/** 대시보드에 나타나는 회원수
+	 * @return
+	 */
+	public int countAllMember() {
+		return sql.selectOne("managerMapper.countAllMember");
+	}
+ 
+	/** 대시보드에 나타나는 운영자수
+	 * @return
+	 */
+	public int countAllManager() {
+		return sql.selectOne("managerMapper.countAllManager");
+	}
+
+	/** 대시보드에 나타나는 탈퇴회원 수
+	 * @return
+	 */
+	public int countOutMember() {
+		return sql.selectOne("managerMapper.countOutMember");
+	}
+ 
+	/** 대시보드에 나타나는 게시글 수
+	 * @return
+	 */
+	public int countAllPost() {
+		return sql.selectOne("managerMapper.countAllPost");
+	}
+	
+	
+	
+	
+
+	/**대시보드에 나타나는 신고 카테고리 수(욕설)
+	 * @return
+	 */
+	public int countReportAbusive() {
+		return sql.selectOne("managerMapper.countReportAbusive");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(차별적 표현)
+	 * @return
+	 */
+	public int countReportDisparaging_expression() {
+		return sql.selectOne("managerMapper.countReportDisparaging_expression");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(사칭)
+	 * @return
+	 */
+	public int countReportImpersonation() {
+		return sql.selectOne("managerMapper.countReportImpersonation");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
+	 * @return
+	 */
+	public int countReportAdvertisement() {
+		return sql.selectOne("managerMapper.countReportAdvertisement");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(선정성)
+	 * @return
+	 */
+	public int countReportSensationality() {
+		return sql.selectOne("managerMapper.countReportSensationality");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(불법정보포함)
+	 * @return
+	 */
+	public int countReportIllegal_information() {
+		return sql.selectOne("managerMapper.countReportIllegal_information");
+	}
+
+	/**대시보드에 나타나는 신고 카테고리 수(개인정보노출)
+	 * @return
+	 */
+	public int countReportPersonal() {
+		return sql.selectOne("managerMapper.countReportPersonal");
+	}
+	
+	
+	/**대시보드에 나타나는 신고 카테고리 수(기타)
+	 * @return
+	 */
+	public int countReportEtc() {
+		return sql.selectOne("managerMapper.countReportEtc");
+	}
 
 }

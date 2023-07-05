@@ -2,6 +2,7 @@ package edu.kh.justgo.manager.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -242,6 +243,7 @@ public class ManagerController {
     public String managerDashboard(
     		Model model
     		) {
+
     	// 대시보드1
     	int countAllMember = service.countAllMember();
     	int countAllManager = service.countAllManager();
@@ -295,9 +297,88 @@ public class ManagerController {
         model.addAttribute("report6", report6);
         model.addAttribute("report7", report7);
         model.addAttribute("report8", report8);
+
+    	
+    	// 대시보드에 나타나는 회원수
+    	int countAllMember = service.countAllMember();
+    	
+    	// 대시보드에 나타나는 운영자수
+    	int countAllManager = service.countAllManager();
+    	
+    	// 대시보드에 나타나는 탈퇴회원수
+    	int countOutMember = service.countOutMember();
+    	
+    	// 대시보드에 나타나는 게시글 수
+    	int countAllPost = service.countAllPost();
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(욕설)
+    	int countReportAbusive = service.countReportAbusive();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(차별적 표현)
+    	int countReportDisparaging_expression = service.countReportDisparaging_expression();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(사칭)
+    	int countReportImpersonation = service.countReportImpersonation();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
+    	int countReportAdvertisement = service.countReportAdvertisement();
+    	
+    	// 대시보드에 나타나는 신고 카테고리 수(선정성)
+    	int countReportSensationality = service.countReportSensationality();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(불법정보포함)
+    	int countReportIllegal_information = service.countReportIllegal_information();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(개인정보노출)
+    	int countReportPersonal = service.countReportPersonal();
+    	
+    	//대시보드에 나타나는 신고 카테고리 수(기타)
+    	int countReportEtc = service.countReportEtc();
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	// 회원 통계
+    	model.addAttribute("countAllMember", countAllMember);
+    	model.addAttribute("countAllManager", countAllManager);
+    	model.addAttribute("countOutMember", countOutMember);
+    	model.addAttribute("countAllPost", countAllPost);
+    	
+    	// 신고 카테고리 통계
+    	model.addAttribute("countReportAbusive", countReportAbusive);
+    	model.addAttribute("countReportDisparaging_expression", countReportDisparaging_expression);
+    	model.addAttribute("countReportImpersonation", countReportImpersonation);
+    	model.addAttribute("countReportAdvertisement", countReportAdvertisement);
+    	model.addAttribute("countReportSensationality", countReportSensationality);
+    	model.addAttribute("countReportIllegal_information", countReportIllegal_information);
+    	model.addAttribute("countReportPersonal", countReportPersonal);
+    	model.addAttribute("countReportEtc", countReportEtc);
+    	
+    	
+    	
+    	System.out.println(model);
+    	
+
     	
     	return "/manager/managerDashboard";
     }
+    
+    
+    
+    
     
     
     

@@ -350,6 +350,92 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	
 	
+	// 대시보드에 나타나는 회원수
+	@Override
+	public int countAllMember() {
+		return dao.countAllMember();
+	}
+	
+	
+	// 대시보드에 나타나는 운영자수
+	@Override
+	public int countAllManager() {
+		return dao.countAllManager();
+	}
+	
+	
+	// 대시보드에 나타나는 탈퇴회원 수
+	@Override
+	public int countOutMember() {
+		return dao.countOutMember();
+	}
+	
+	
+	// 대시보드에 나타나는 게시글 수
+	@Override
+	public int countAllPost() {
+		return dao.countAllPost();
+	}
+	
+	
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(욕설)
+	@Override
+	public int countReportAbusive() {
+		return dao.countReportAbusive();
+	}
+	
+	// 대시보드에 나타나는 신고 카테고리 수(차별적 표현)
+	@Override
+	public int countReportDisparaging_expression() {
+		return dao.countReportDisparaging_expression();
+	}
+	
+	//대시보드에 나타나는 신고 카테고리 수(사칭)
+	@Override
+	public int countReportImpersonation() {
+		return dao.countReportImpersonation();
+	}
+	
+	//대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
+	@Override
+	public int countReportAdvertisement() {
+		return dao.countReportAdvertisement();
+	}
+		
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(선정성)
+	@Override
+	public int countReportSensationality() {
+		return dao.countReportSensationality();
+	}
+	
+	
+	//  대시보드에 나타나는 신고 카테고리 수(불법정보포함)
+	@Override
+	public int countReportIllegal_information() {
+		return dao.countReportIllegal_information();
+	}
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(개인정보노출)
+	@Override
+	public int countReportPersonal() {
+		return dao.countReportPersonal();
+	}
+	
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(기타)
+	@Override
+	public int countReportEtc() {
+		return dao.countReportEtc();
+	}
+	
+	
+	
 	
 	
 }
