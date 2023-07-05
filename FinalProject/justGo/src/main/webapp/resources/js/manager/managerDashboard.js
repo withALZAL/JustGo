@@ -8,7 +8,7 @@ new Chart(chartDoughnut, {
             label: '게시글 수',
             data: [countFree, countQuestion, countChina, countJapan, countVietnam, countThai, countAustralia],
             borderWidth: 1,
-            backgroundColor: ['grey', 'lightgrey', 'red', 'pink', 'yellow', 'blue', 'green']
+            backgroundColor: ["#5CD1E5", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"]
         }]
     },
     options: {
@@ -33,7 +33,7 @@ new Chart(chartTag, {
             label: '게시글 수',
             data: [countTag1, countTag2, countTag3, countTag4],
             borderWidth: 1,
-            backgroundColor: ['red', 'orange', 'yellow', 'green']
+            backgroundColor: ["#5CD1E5", "#36B8CF", "#1294AB", "#004C63"]
         }]
     },
     options: {
@@ -87,7 +87,6 @@ new Chart(chartBar, {
         labels: ["욕설", "차별적 표현", "사칭", "광고성, 도배글", "선정성", "불법정보포함", "개인정보노출", "기타"],
         datasets: [
             {
-                backgroundColor: ["yellow", "yellow", "orange", "orange", "red", "red", "blue", "grey"],
                 data: [report1, report2, report3, report4, report5, report6, report7, report8], /* 여기에 데이터를 넣습니다. */
                 label: "신고 수",
                 backgroundColor: ["#5CD1E5", "#4ABFD3", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"],
