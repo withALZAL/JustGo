@@ -73,6 +73,7 @@
     <div class="manager--mainBox">
         <section class="dashboard__top">
             <section class="dashboard1" style="border: 1px solid pink;">
+            <div class="dashboardTitle">사용자 통계</div>
             <div class="dashboardTitle">회원통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
@@ -110,14 +111,14 @@
             </div>
             </section>
             <section class="dashboard2" style="border: 1px solid pink;">
-                <div class="dashboardTitle">제목</div>
+                <div class="dashboardTitle">게시판별 게시글 통계</div>
                 <div class="dashboard2__content">
                     <canvas id="chartDoughnut">
                     </canvas>
                 </div>
             </section>
             <section class="dashboard3" style="border: 1px solid pink;">
-                <div class="dashboardTitle">제목</div>
+                <div class="dashboardTitle">태그별 게시글 통계</div>
                 <div class="dashboard3__content">
                     <canvas id="chartTag">
                     </canvas>
@@ -126,6 +127,7 @@
         </section>
         <section class="dashboard__bottom">
             <section class="dashboard4" style="border: 1px solid pink;">
+                <div class="dashboardTitle">사용자 수 변화 통계</div>
                 <div class="dashboardTitle">회원 통계 그래프</div>
                 <div class="dashboard4__content">
                     <canvas id="chartLine">
@@ -133,6 +135,7 @@
                 </div>
             </section>
             <section class="dashboard5" style="border: 1px solid pink;">
+                <div class="dashboardTitle">신고 통계</div>
                 <div class="dashboardTitle">신고 사유 통계</div>
                 <div class="dashboard5__content">
                     <canvas id="chartBar">
@@ -169,6 +172,36 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+    <%-- <script src="/resources/js/manager/memberManager.js"></script> --%>
+<%-- managerDashboard로 변수 전달 --%>
+    <script>
+        /* 도넛 차트 */
+        var countFree = ${countFree};
+        var countQuestion = ${countQuestion};
+        var countChina = ${countChina};
+        var countJapan = ${countJapan};
+        var countVietnam = ${countVietnam};
+        var countThai = ${countThai};
+        var countAustralia = ${countAustralia};
+
+        /* 태그 차트 */
+        var countTag1 = ${countTag1};
+        var countTag2 = ${countTag2};
+        var countTag3 = ${countTag3};
+        var countTag4 = ${countTag4};
+
+        /* 바 차트 */
+        var report1 = ${report1};
+        var report2 = ${report2};
+        var report3 = ${report3};
+        var report4 = ${report4};
+        var report5 = ${report5};
+        var report6 = ${report6};
+        var report7 = ${report7};
+        var report8 = ${report8};
+        
+    </script>
+    <script src="/resources/js/manager/managerDashboard.js"></script>
     <script src="/resources/js/manager/managerDashboard.js"></script>
     <script>
 

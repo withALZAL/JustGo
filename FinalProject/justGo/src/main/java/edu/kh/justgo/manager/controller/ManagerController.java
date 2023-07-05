@@ -243,6 +243,61 @@ public class ManagerController {
     public String managerDashboard(
     		Model model
     		) {
+
+    	// 대시보드1
+    	int countAllMember = service.countAllMember();
+    	int countAllManager = service.countAllManager();
+    	int countOutMember = service.countOutMember();
+    	int countAllPost = service.countAllPost();
+        model.addAttribute("countAllMember", countAllMember);
+        model.addAttribute("countAllManager", countAllManager);
+        model.addAttribute("countOutMember", countOutMember);
+        model.addAttribute("countAllPost", countAllPost);
+        
+        // 대시보드2
+        int countFree = service.countFree();
+        int countQuestion = service.countQuestion();
+        int countChina = service.countChina();
+        int countJapan = service.countJapan();
+        int countVietnam = service.countVietnam();
+        int countThai = service.countThai();
+        int countAustralia = service.countAustralia();
+        model.addAttribute("countFree", countFree);
+        model.addAttribute("countQuestion", countQuestion);
+        model.addAttribute("countChina", countChina);
+        model.addAttribute("countJapan", countJapan);
+        model.addAttribute("countVietnam", countVietnam);
+        model.addAttribute("countThai", countThai);
+        model.addAttribute("countAustralia", countAustralia);
+    	
+    	// 대시보드3
+        int countTag1 = service.countTag1();
+        int countTag2 = service.countTag2();
+        int countTag3 = service.countTag3();
+        int countTag4 = service.countTag4();
+        model.addAttribute("countTag1", countTag1);
+        model.addAttribute("countTag2", countTag2);
+        model.addAttribute("countTag3", countTag3);
+        model.addAttribute("countTag4", countTag4);
+        
+        // 대시보드5
+        int report1 = service.report1(); // 욕설
+        int report2 = service.report2(); // 차별적표헌
+        int report3 = service.report3(); // 사칭
+        int report4 = service.report4(); // 광고성, 도배글
+        int report5 = service.report5(); // 선정성
+        int report6 = service.report6(); // 불법정보포함
+        int report7 = service.report7(); // 개인정보 노출
+        int report8 = service.report8(); // 기타
+        model.addAttribute("report1", report1);
+        model.addAttribute("report2", report2);
+        model.addAttribute("report3", report3);
+        model.addAttribute("report4", report4);
+        model.addAttribute("report5", report5);
+        model.addAttribute("report6", report6);
+        model.addAttribute("report7", report7);
+        model.addAttribute("report8", report8);
+
     	
     	// 대시보드에 나타나는 회원수
     	int countAllMember = service.countAllMember();
@@ -316,6 +371,7 @@ public class ManagerController {
     	
     	System.out.println(model);
     	
+
     	
     	return "/manager/managerDashboard";
     }

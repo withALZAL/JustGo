@@ -292,6 +292,47 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.managerMemberList_search", paramMap, rowBounds);
 	}
 
+	/**
+	 * 대시보드1
+	 * @return
+	 */
+	public int countAllMember() {	return sql.selectOne("managerMapper.countAllMember");}
+	public int countAllManager() {	return sql.selectOne("managerMapper.countAllManager");}
+	public int countOutMember() {	return sql.selectOne("managerMapper.countOutMember");}
+	public int countAllPost() {	return sql.selectOne("managerMapper.countAllPost");}
+
+	/**
+	 * 대시보드3
+	 * @return
+	 */
+	public int countTag1() {	return sql.selectOne("managerMapper.countTag1");}
+	public int countTag2() {	return sql.selectOne("managerMapper.countTag2");}
+	public int countTag3() {	return sql.selectOne("managerMapper.countTag3");}
+	public int countTag4() {	return sql.selectOne("managerMapper.countTag4");}
+
+	/** 대시보드2
+	 * @return
+	 */
+	public int countFree() {	return sql.selectOne("managerMapper.countFree");}
+	public int countQuestion() {return sql.selectOne("managerMapper.countQuestion");}
+	public int countChina() {	return sql.selectOne("managerMapper.countChina");}
+	public int countJapan() {	return sql.selectOne("managerMapper.countJapan");}
+	public int countVietnam() {	return sql.selectOne("managerMapper.countVietnam");}
+	public int countThai() {	return sql.selectOne("managerMapper.countThai");}
+	public int countAustralia(){return sql.selectOne("managerMapper.countAustralia");}
+
+	/**
+	 * 대시보드5
+	 * @return
+	 */
+	public int report1() {return sql.selectOne("managerMapper.report1");}
+	public int report2() {return sql.selectOne("managerMapper.report2");}
+	public int report3() {return sql.selectOne("managerMapper.report3");}
+	public int report4() {return sql.selectOne("managerMapper.report4");}
+	public int report5() {return sql.selectOne("managerMapper.report5");}
+	public int report6() {return sql.selectOne("managerMapper.report6");}
+	public int report7() {return sql.selectOne("managerMapper.report7");}
+	public int report8() {return sql.selectOne("managerMapper.report8");}
 	/** 대시보드에 나타나는 회원수
 	 * @return
 	 */
