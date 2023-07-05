@@ -26,10 +26,12 @@ window.addEventListener('load', () => {
 /* 이스터에그 */
 const input = document.getElementById('query');
 const asuka = document.getElementById('asuka');
+let intervalId = null;
 input.addEventListener("input", e => {
     var query = e.target.value;
     if (query === "아스카") {
         asuka.style.display = "inline";
+        startGrowing();
         alert(`
         ⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀메롱⠀⠀⢀⠀⠐⢤⠐⠈⠀⠀⠈⠀⠀⠀⠀⠀⠀
@@ -46,10 +48,38 @@ input.addEventListener("input", e => {
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⡀⠀⠀⠀⠀
         `);
     } else {
+        stopGrowing();
         asuka.style.display = "none";
     }
 });
-
+function startGrowing() {
+    intervalId = setInterval(function() {
+        let width = asuka.clientWidth;
+        let height = asuka.clientHeight;
+        asuka.style.width = `${width + 10}px`;
+        asuka.style.height = `${height + 10}px`;
+        asuka.style.transform = `rotate(${width + height}deg)`;
+    }, 100);
+}
+function stopGrowing() {
+    clearInterval(intervalId);
+}
 function deleteAsuka() {
+    stopGrowing();
     asuka.style.display = "none";
+    alert(`
+    ⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀속았징?  ⢀⠀⠐⢤⠐⠈⠀⠀⠈⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⡐⠀⠀⠐⠉⠀⠀⠀⠉⠂⢧⠀⠀⠒⠂⠀⠠⠀⠀⠀⠀
+    ⠀⠀⠀⡐⠀⠀⠀⠀⢠⡆⡞⠦⠙⠛⠁⠿⣤⡐⠶⠤⠀⢀⠶⢄⠀
+    ⠀⡀⠀⠃⠀⠀⠰⠯⠧⠤⠀⢂⣘⡷⢤⠀⠈⠀⠁⢠⣈⠿⡄⠀⠀
+    ⡐⠀⠀⠀⠀⠀⠀⠀⠀⠄⣢⠸⠯⢓⣞⣣⠗⠀⠒⠚⠚⠛⠋⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠰⠘⠈⠀⠀⠀⠶⠶⠀⠃⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢁⠀⠀
+    ⠀⠀⠀⠀⠀⠀⡔⠈⠉⣉⡉⢐⡒⠀⠴⠄⠀⠀⠀⠀⠴⠀⠊⠂⠀
+    ⡀⠀⠀⠀⠀⠀⡁⠶⠖⠶⠖⠨⡥⠀⠘⣛⣛⣙⣛⠛⠛⣀⠀⠀⠀
+    ⠘⠒⠤⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠂⠀⠀⠀⠀⠀
+    ⠀⠀⠈⠀⠂⠹⠀⠀⢾⡿⠻⠶⣿⣿⠟⠖⠂⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⡀⠀⠀⠀⠀
+    `);
 }
