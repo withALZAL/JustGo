@@ -346,6 +346,64 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public int report8() {return dao.report8();}
 
+	// 대시보드4
+//	@Override
+//	public int countMember6monthsAgo() {return dao.countMember6monthsAgo();}
+//	@Override
+//	public int countMember3monthsAgo() {return dao.countMember3monthsAgo();}
+//	@Override
+//	public int countMember2monthsAgo() {return dao.countMember2monthsAgo();}
+//	@Override
+//	public int countMember1monthsAgo() {return dao.countMember1monthsAgo();}
+//	@Override
+//	public int countMember2weeksAgo() {return dao.countMember2weeksAgo();}
+//	@Override
+//	public int countMember1weeksAgo() {return dao.countMember1weeksAgo();}
+//	@Override
+//	public int countMemberToday() {return dao.countMemberToday();}
+//	@Override
+//	public int countPost6monthsAgo() {return dao.countPost6monthsAgo();}
+//	@Override
+//	public int countPost3monthsAgo() {return dao.countPost3monthsAgo();}
+//	@Override
+//	public int countPost2monthsAgo() {return dao.countPost2monthsAgo();}
+//	@Override
+//	public int countPost1monthsAgo() {return dao.countPost1monthsAgo();}
+//	@Override
+//	public int countPost2weeksAgo() {return dao.countPost2weeksAgo();}
+//	@Override
+//	public int countPost1weeksAgo() {return dao.countPost1weeksAgo();}
+//	@Override
+//	public int countPostToday() {return dao.countPostToday();}
+//	@Override
+//	public int countOut6monthsAgo() {return dao.countOut6monthsAgo();}
+//	@Override
+//	public int countOut3monthsAgo() {return dao.countOut3monthsAgo();}
+//	@Override
+//	public int countOut2monthsAgo() {return dao.countOut2monthsAgo();}
+//	@Override
+//	public int countOut1monthsAgo() {return dao.countOut1monthsAgo();}
+//	@Override
+//	public int countOut2weeksAgo() {return dao.countOut2weeksAgo();}
+//	@Override
+//	public int countOut1weeksAgo() {return dao.countOut1weeksAgo();}
+//	@Override
+//	public int countOutToday() {return dao.countOutToday();}
+//	@Override
+//	public int countReport6monthsAgo() {return dao.countReport6monthsAgo();}
+//	@Override
+//	public int countReport3monthsAgo() {return dao.countReport3monthsAgo();}
+//	@Override
+//	public int countReport2monthsAgo() {return dao.countReport2monthsAgo();}
+//	@Override
+//	public int countReport1monthsAgo() {return dao.countReport1monthsAgo();}
+//	@Override
+//	public int countReport2weeksAgo() {return dao.countReport2weeksAgo();}
+//	@Override
+//	public int countReport1weeksAgo() {return dao.countReport1weeksAgo();}
+//	@Override
+//	public int countReportToday() {return dao.countReportToday();}
+
 	
 	
 	
