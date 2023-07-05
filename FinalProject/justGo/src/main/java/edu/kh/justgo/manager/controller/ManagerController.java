@@ -278,6 +278,8 @@ public class ManagerController {
         model.addAttribute("countTag3", countTag3);
         model.addAttribute("countTag4", countTag4);
         
+        
+        
         // 대시보드5
         int report1 = service.report1(); // 욕설
         int report2 = service.report2(); // 차별적표헌

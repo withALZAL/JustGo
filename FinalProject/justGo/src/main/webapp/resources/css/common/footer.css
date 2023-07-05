@@ -59,4 +59,11 @@
     margin: 100px;
 }
 
+/* 채팅 모달창 ----------------------------------------------- */
 
+/* 채팅 모달창 구조 조정 */
+.chattingBox {
+    height: 700px;
+    max-height: 700px;
+    background-color: pink;
+}
