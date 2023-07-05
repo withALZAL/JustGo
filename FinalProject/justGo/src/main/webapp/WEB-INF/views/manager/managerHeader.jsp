@@ -60,13 +60,13 @@
             </c:when>
             <c:otherwise> <%-- 로그인했을 때 --%>
                 <form>
-                    <a href="/account/logout" id="logoutBtn">
-                        <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
+                    <a href="/myPage/info">
+                        <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
                     </a>
                 </form>
                 <form>
-                    <a href="/myPage/info">
-                        <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
+                    <a href="/account/logout" id="logoutBtn">
+                        <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
                     </a>
                 </form>
                 <%-- 로그인했는데 관리자였을 때 --%>
@@ -92,7 +92,7 @@
                 <c:if test="${!empty sessionScope.loginMember}" >
                 <div class="manager--header__profileContainer">
                     <div class="manager--header__profileBox">
-                        <a href="/myPage/info"> <%-- 마이페이지로 이동 --%>
+                        <a href="/myPage/info"> <%-- 마이페이지로 이동인데 알람으로 쓸예정 --%>
                         <c:choose>
                             <c:when test="${!empty sessionScope.loginMember.profileImg}"> <%-- 프로필 이미지 있을 때 --%>
                                 <div class="manager--header__profileImageBox">
@@ -186,8 +186,11 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<%-- SockJS --%>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>    
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/manager/managerHeader.js"></script>
     <%-- <script src="/resources/js/manager/header.js"></script> --%>
     <script>const loginMemberNo = "${loginMember.memberNo}";</script>
 </body>
