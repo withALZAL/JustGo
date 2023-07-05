@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="chattingMapper">
+
+
+	<resultMap type="Message" id="message_rm">
+		<id property="chattingNo" column="CHATTING_NO" />
+		<result property="msgNo" column="MSG_NO" />
+		<result property="msgContent" column="MSG_CONTENT" />
+		<result property="sendTime" column="SEND_TIME" />
+		<result property="senderNo" column="SENDER_NO" />
+		<result property="receiverNo" column="RECEIVER_NO" />
+
+		
+	</resultMap>
+
+	
+	<resultMap type="Member" id="member_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberNickname" column="MEMBER_NICKNAME"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+	</resultMap>	
+
+
+	<!--=========================================================================================-->
+	<!-- 채팅 메세지 삽입 -->
+	<insert id="insertMessage">
+		INSERT INTO "MESSAGE"
+		VALUES(1,SEQ_MSG_NO.NEXTVAL, #{magContent},DEFAULT, #{senderNo}, #{receiver})
+	</insert>
+	
+
+</mapper>
+
