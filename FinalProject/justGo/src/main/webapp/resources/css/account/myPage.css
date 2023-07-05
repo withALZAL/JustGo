@@ -230,6 +230,17 @@
     padding-top: 20px;
 }
 
+/* 글 검색 */
+.searchBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#searchInput {
+    width: 300px;
+}
+
 /* 마이페이지 비밀번호 변경 ----------------------------------------------- */
 
 /* 테이블 박스 조정 */

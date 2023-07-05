@@ -23,6 +23,33 @@ window.addEventListener('load', () => {
     greetingElement.innerText = greetingWord[randomIndex];
 });
 
+/* 이스터에그 */
+const input = document.getElementById('query');
+const asuka = document.getElementById('asuka');
+input.addEventListener("input", e => {
+    var query = e.target.value;
+    if (query === "아스카") {
+        asuka.style.display = "inline";
+        alert(`
+        ⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀메롱⠀⠀⢀⠀⠐⢤⠐⠈⠀⠀⠈⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⡐⠀⠀⠐⠉⠀⠀⠀⠉⠂⢧⠀⠀⠒⠂⠀⠠⠀⠀⠀⠀
+        ⠀⠀⠀⡐⠀⠀⠀⠀⢠⡆⡞⠦⠙⠛⠁⠿⣤⡐⠶⠤⠀⢀⠶⢄⠀
+        ⠀⡀⠀⠃⠀⠀⠰⠯⠧⠤⠀⢂⣘⡷⢤⠀⠈⠀⠁⢠⣈⠿⡄⠀⠀
+        ⡐⠀⠀⠀⠀⠀⠀⠀⠀⠄⣢⠸⠯⢓⣞⣣⠗⠀⠒⠚⠚⠛⠋⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠰⠘⠈⠀⠀⠀⠶⠶⠀⠃⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢁⠀⠀
+        ⠀⠀⠀⠀⠀⠀⡔⠈⠉⣉⡉⢐⡒⠀⠴⠄⠀⠀⠀⠀⠴⠀⠊⠂⠀
+        ⡀⠀⠀⠀⠀⠀⡁⠶⠖⠶⠖⠨⡥⠀⠘⣛⣛⣙⣛⠛⠛⣀⠀⠀⠀
+        ⠘⠒⠤⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠂⠀⠀⠀⠀⠀
+        ⠀⠀⠈⠀⠂⠹⠀⠀⢾⡿⠻⠶⣿⣿⠟⠖⠂⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣦⡀⠀⠀⠀⠀
+        `);
+    } else {
+        asuka.style.display = "none";
+    }
+});
 
-
-
+function deleteAsuka() {
+    asuka.style.display = "none";
+}

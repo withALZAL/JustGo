@@ -29,7 +29,11 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside"></aside>
+<aside class="template--leftAside">
+    <div class="template--easterEgg">
+        <img id="asuka" src="/resources/images/officialImages/EASTEREGG.gif" alt="아스카" style="display: none;" onclick="deleteAsuka()">
+    </div>
+</aside>
 <section class="template--Section">
 
 

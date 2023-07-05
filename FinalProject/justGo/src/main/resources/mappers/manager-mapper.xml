@@ -849,7 +849,7 @@
 	
 	<!-- 대시보드4 -->
 	<!-- 일반회원 수 변화 -->
-	<!-- <select id="countMember6monthsAgo" resultType="_int"> 
+<!-- 	<select id="countMember6monthsAgo" resultType="_int"> 
 		SELECT COUNT(*)
 		FROM "MEMBER"
 		WHERE MEMBER_ROLE = 2

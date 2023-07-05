@@ -99,6 +99,9 @@
 		JOIN "TAG" USING (TAG_NO)
 		WHERE MEMBER_NO = #{memberNo}
 		AND BOARD_DELETE = 'N'
+<!-- 		<if test=''>
+			AND BOARD_TITLE LIKE '%${query}%' 제목 검색
+		</if> -->
 		ORDER BY BOARD_NO DESC
 	</select>
 	
