@@ -213,7 +213,7 @@ public class WritingController {
 			,@PathVariable("boardNo") int boardNo
 			,HttpSession session 
 			,RedirectAttributes ra
-			) throws IllegalStateException, IOException {
+			) {
 		
 		// 1) boardCode, boardNo를 board에 세팅
 		board.setBoardCode(boardCode);

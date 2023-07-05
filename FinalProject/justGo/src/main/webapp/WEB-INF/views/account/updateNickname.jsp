@@ -70,7 +70,7 @@
                     <tr>
                         <th>현재 비밀번호</th>
                         <td>
-                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" >
+                            <input type="password" maxlength="15" placeholder="비밀번호를 입력해주세요." name="currentPw" id="currentPw" autocomplete="off" >
                             <div style="height: 0.1px; font-size: 0.2rem;" class="currentPw-message" id="currentPwMessage"></div>
                         </td>
                         <td></td>
@@ -79,7 +79,7 @@
                     <tr>
                         <th>변경할 닉네임</th>
                         <td>
-                            <input type="text" maxlength="8" placeholder="닉네임을 입력해주세요." id="memberNickname" name="memberNickname">
+                            <input type="text" maxlength="8" placeholder="닉네임을 입력해주세요." id="memberNickname" name="memberNickname" autocomplete="off">
                             <div style="height: 0.1px; font-size: 0.2rem;" class="signUp-message" id="nickMessage"></div>
                         </td>
                     </tr>

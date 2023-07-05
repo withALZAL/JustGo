@@ -1,0 +1,214 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 관리자 공통 ----------------------------------------------- */
+
+/* 관리자 컨테이너 */
+.manager--contentContainer {
+    height: 1000px;
+    display: grid;
+    place-items: center;
+}
+
+/* 콘텐츠 박스 조정 */
+.manager--contentBox {
+    height: 900px;
+    width: 100%;
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 160px 1fr ;
+    place-items: center;
+}
+
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
+}
+
+
+/* mainBox 조정 */
+.manager--mainBox {
+    height: 800px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* dashboard */
+.dashboard__top {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.dashboard__bottom {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* dashboard 제목 */
+.dashboard__top section {
+    display: grid;
+    grid-template-rows: 30px 1fr;
+}
+.dashboardTitle {
+    padding: 0 15px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: #D9D9D9;
+}
+
+/* dashboard1 */
+.dashboard1__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.stat1, .stat2, .stat3, .stat4 {
+    height: 120px;
+    width: 150px;
+}
+.numberResult {
+    height: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* dashboard2 */
+.dashboard2__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* dashboard3 */
+.dashboard3__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* dashboard4 */
+.dashboard4__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* dashboard5 */
+.dashboard5__content {
+}
+
+/* statisticsBox 조정 */
+.manager--statisticsBox1{
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+}
+
+
+/* -------------------- statisticsBox ------------------------- */
+
+/* 통계박스 조정 */
+
+/* 통계 컨텐츠 조정 */
+.manager--statistics {
+    height: 80px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    background-color: lightblue;
+    color: black;
+    display: grid;
+    grid-template-columns: 60px 100px;
+    margin: 10px 5px 10px 5px;
+}
+
+/* 통계 아이콘 조정 */
+.manager--statistics > div:nth-child(1) {
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+}
+
+/* 통계 텍스트 조정 */
+.manager--statistics > div:nth-child(2) {
+    display: grid;
+    grid-template-rows: 40px 5px;
+    align-items: center;
+    padding: 5px 0 5px;
+}
+.manager--statistics > div:nth-child(2) > div:nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* -------------------- statisticsBox 끝------------------------- */
+
+
+
+
+/* 매니저 개별 컨텐츠 조정 */
+.manager--content {
+    height: 500px;
+    width: 1100px;
+    
+}
+
+/* 컨텐츠 배치 조정 */
+.manager--content {
+    display: grid;
+    grid-template-rows: 450px 1fr;
+}
+
+/* 컨텐츠 페이지 조정 */
+.manager--content > form:first-child {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    place-items: center;
+}
+
+
+
+/* 회원관리 ----------------------------------------------- */
+
+
+
+
+
+.manager--statisticsBox{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+.manager--statisticsBox1{
+    background-color: blue;
+}
+.manager--statisticsBox2{
+    background-color: red;
+}
+.manager--statisticsBox3{
+    background-color: green;
+}
+.manager--statisticsBox4{
+    background-color: yellow;
+}
+.manager--statisticsBox5{
+    background-color: violet;
+}

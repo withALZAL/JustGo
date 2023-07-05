@@ -204,7 +204,7 @@
                     <option value="c">내용</option>
                     <option value="w">글쓴이</option>
                     </select>
-                    <input type="text"  name="query" maxlength="10" style="width: 300px;">
+                    <input type="text"  name="query" maxlength="10" style="width: 300px;" autocomplete="off">
                     <button type="submit" class="btn btn-secondary btn-sm">검색</button>
                     </a>
                     </form>

@@ -745,5 +745,265 @@
 		ORDER BY MEMBER_NO DESC
 	</select>
 
+
+	<!-- 대시보드에 나타나는 회원수 -->
+	<select id="countAllMember" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =2
+		AND MEMBER_CONDITION ='N'
+	</select>
 	
+	<!-- 대시보드에 나타나는 운영자수 -->
+	<select id="countAllManager" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =1
+		AND MEMBER_CONDITION ='N'
+	</select>
+	
+	<!-- 대시보드에 나타나는 탈퇴회원 수 -->
+	<select id="countOutMember" parameterType="Member"
+		resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE MEMBER_ROLE =2
+		AND MEMBER_CONDITION ='Y'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 게시글 수 -->
+	<select id="countAllPost" parameterType="Board"
+		resultType="_int">
+		SELECT COUNT(*) FROM "BOARD"
+		WHERE BOARD_DELETE ='N'
+	</select>
+
+
+
+
+	<!-- 대시보드에 나타나는 신고 카테고리 수(욕설) -->
+	<select id="countReportAbusive" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='욕설'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(차별적 표현) -->
+	<select id="countReportDisparaging_expression" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='차별적표현'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(사칭) -->
+	<select id="countReportImpersonation" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='사칭'
+	</select>
+	
+	
+	<!-- 대시보드에 나타나는 신고 카테고리 수(광고성, 도배글) -->
+	<select id="countReportAdvertisement" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='광고성,도배글'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(선정성) -->
+	<select id="countReportSensationality" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='선정성'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(불법정보포함) -->
+	<select id="countReportIllegal_information" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='불법정보포함'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(개인정보노출) -->
+	<select id="countReportPersonal" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY ='개인정보노출'
+	</select>
+	
+		<!-- 대시보드에 나타나는 신고 카테고리 수(기타) -->
+	<select id="countReportEtc" parameterType="REPORT"
+		resultType="_int">
+		SELECT COUNT(*) FROM "REPORT"
+		WHERE REPORT_CATEGORY !='욕설'
+		AND REPORT_CATEGORY !='차별적표현'
+		AND REPORT_CATEGORY !='사칭'
+		AND REPORT_CATEGORY !='광고성,도배글'
+		AND REPORT_CATEGORY !='선정성'
+		AND REPORT_CATEGORY !='불법정보포함'
+		AND REPORT_CATEGORY !='개인정보노출'
+	</select>
+	
+	
+	
+	<!-- 하루 전 회원수 -->
+	<select id="count" parameterType="Member"
+		resultType="_int">
+		<![CDATA[
+		SELECT COUNT(*) 
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION ='N'
+		AND ENROLL_DATE <= (SYSDATE - 1)
+		]]>
+	</select>
+	
+	
+	
+	
+	<!-- 대시보드1 -->
+	<select id="countAllMember" resultType="_int"> <!-- 일반회원 수 -->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+	</select>
+	<select id="countAllManager" resultType="_int"> <!-- 관리자 수 -->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 1
+		AND MEMBER_CONDITION = 'N'
+	</select>
+	<select id="countOutMember" resultType="_int"> <!-- 탈퇴회원 수-->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'Y'
+	</select>
+	<select id="countAllPost" resultType="_int"> <!-- 전체 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+	</select>
+	
+	<!-- 대시보드2 -->
+	<select id="countFree" resultType="_int"> <!-- 자유게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 2
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countQuestion" resultType="_int"> <!-- 질문게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 3
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countChina" resultType="_int"> <!-- 중국게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 1
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countJapan" resultType="_int"> <!-- 일본게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 2
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countVietnam" resultType="_int"> <!-- 베트남게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 3
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countThai" resultType="_int"> <!-- 태국게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 4
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countAustralia" resultType="_int"> <!-- 호주게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 5
+		AND BOARD_DELETE = 'N'
+	</select> 
+	
+	
+	<!-- 대시보드3 -->
+	<select id="countTag1" resultType="_int"> <!-- 태그 1 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 1
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag2" resultType="_int"> <!-- 태그 2 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 2
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag3" resultType="_int"> <!-- 태그 3 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 3
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag4" resultType="_int"> <!-- 태그 4 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 4
+		AND BOARD_DELETE = 'N'
+	</select>
+	
+	<!-- 대시보드5 -->
+	<select id="report1" resultType="_int"><!-- 욕설 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '욕설'
+	</select>
+	<select id="report2" resultType="_int"><!-- 차별적표현 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '차별적표현'
+	</select>
+	<select id="report3" resultType="_int"><!-- 사칭 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '사칭'
+	</select>
+	<select id="report4" resultType="_int"><!-- 광고성, 도배글 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '광고성, 도배글'	
+	</select>
+	<select id="report5" resultType="_int"><!-- 선정성 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '선정성'
+	</select>
+	<select id="report6" resultType="_int"><!-- 불법정보포함 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '불법정보포함'
+	</select>
+	<select id="report7" resultType="_int"><!-- 개인정보 노출 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '개인정보 노출'
+	</select>
+	<select id="report8" resultType="_int"><!-- 기타 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY NOT IN ('욕설', '차별적표현', '사칭', '광고성, 도배글', '선정성', '불법정보포함', '개인정보 노출')
+	</select>
+
 </mapper>

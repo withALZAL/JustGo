@@ -289,4 +289,153 @@ public class ManagerServiceImpl implements ManagerService {
 
 		return map;
 	}
+
+	// 대시보드1
+	@Override
+	public int countAllMember() {return dao.countAllMember();}
+	@Override
+	public int countAllManager() {return dao.countAllManager();}
+	@Override
+	public int countOutMember() {return dao.countOutMember();}
+	@Override
+	public int countAllPost() {return dao.countAllPost();}
+	
+	// 대시보드2
+	@Override
+	public int countFree() {return dao.countFree();}
+	@Override
+	public int countQuestion() {return dao.countQuestion();}
+	@Override
+	public int countChina() {return dao.countChina();}
+	@Override
+	public int countJapan() {return dao.countJapan();}
+	@Override
+	public int countVietnam() {return dao.countVietnam();}
+	@Override
+	public int countThai() {return dao.countThai();}
+	@Override
+	public int countAustralia() {return dao.countAustralia();}
+	
+	
+
+	// 대시보드3
+	@Override
+	public int countTag1() {return dao.countTag1();}
+	@Override
+	public int countTag2() {return dao.countTag2();}
+	@Override
+	public int countTag3() {return dao.countTag3();}
+	@Override
+	public int countTag4() {return dao.countTag4();}
+
+	// 대시보드5
+	@Override
+	public int report1() {return dao.report1();}
+	@Override
+	public int report2() {return dao.report2();}
+	@Override
+	public int report3() {return dao.report3();}
+	@Override
+	public int report4() {return dao.report4();}
+	@Override
+	public int report5() {return dao.report5();}
+	@Override
+	public int report6() {return dao.report6();}
+	@Override
+	public int report7() {return dao.report7();}
+	@Override
+	public int report8() {return dao.report8();}
+
+	
+	
+	
+	
+	// 대시보드에 나타나는 회원수
+	@Override
+	public int countAllMember() {
+		return dao.countAllMember();
+	}
+	
+	
+	// 대시보드에 나타나는 운영자수
+	@Override
+	public int countAllManager() {
+		return dao.countAllManager();
+	}
+	
+	
+	// 대시보드에 나타나는 탈퇴회원 수
+	@Override
+	public int countOutMember() {
+		return dao.countOutMember();
+	}
+	
+	
+	// 대시보드에 나타나는 게시글 수
+	@Override
+	public int countAllPost() {
+		return dao.countAllPost();
+	}
+	
+	
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(욕설)
+	@Override
+	public int countReportAbusive() {
+		return dao.countReportAbusive();
+	}
+	
+	// 대시보드에 나타나는 신고 카테고리 수(차별적 표현)
+	@Override
+	public int countReportDisparaging_expression() {
+		return dao.countReportDisparaging_expression();
+	}
+	
+	//대시보드에 나타나는 신고 카테고리 수(사칭)
+	@Override
+	public int countReportImpersonation() {
+		return dao.countReportImpersonation();
+	}
+	
+	//대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
+	@Override
+	public int countReportAdvertisement() {
+		return dao.countReportAdvertisement();
+	}
+		
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(선정성)
+	@Override
+	public int countReportSensationality() {
+		return dao.countReportSensationality();
+	}
+	
+	
+	//  대시보드에 나타나는 신고 카테고리 수(불법정보포함)
+	@Override
+	public int countReportIllegal_information() {
+		return dao.countReportIllegal_information();
+	}
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(개인정보노출)
+	@Override
+	public int countReportPersonal() {
+		return dao.countReportPersonal();
+	}
+	
+	
+	
+	// 대시보드에 나타나는 신고 카테고리 수(기타)
+	@Override
+	public int countReportEtc() {
+		return dao.countReportEtc();
+	}
+	
+	
+	
+	
+	
 }

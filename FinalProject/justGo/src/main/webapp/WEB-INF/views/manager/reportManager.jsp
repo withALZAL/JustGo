@@ -93,7 +93,7 @@
                             <c:choose>
                                 <c:when test="${empty reportList}">
                                     <tr>
-                                        <th colspan="7">신고가 존재하지 않습니다.</th>
+                                        <th colspan="9">신고가 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when>
                                 <c:otherwise>
@@ -200,7 +200,7 @@
                             <option value="w">글작성자</option>
                             <%-- <option>처리상태</option> --%>
                         </select>
-                        <input type="text" name="query"  maxlength="10" style="width: 300px;">
+                        <input type="text" name="query"  maxlength="10" style="width: 300px;" autocomplete="off">
                         <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 8px;">검색</button>
                     </a>
                 </form>

@@ -266,7 +266,7 @@
                         <option>내용</option>
                         <option>글쓴이</option>
                     </select>
-                    <input type="text" maxlength="10" style="width: 300px;">
+                    <input type="text" maxlength="10" style="width: 300px;" autocomplete="off">
                     <button type="button" class="btn btn-secondary btn-sm">검색</button>
                 </a>
             </form>

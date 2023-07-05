@@ -63,6 +63,8 @@
 		<websocket:sockjs/>
 	</websocket:handlers> 
 	
+	<!-- 스프링 스케줄러 어노테이션 인식 -->
+	<task:annotation-driven/>
 	
 	
 </beans:beans>
