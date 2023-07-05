@@ -14,7 +14,7 @@ new Chart(chartDoughnut, {
     options: {
         legend: {display: false},
         maintainAspectRatio: true, // 가로 세로 비율 유지
-        responsive: false // 부모 요소에 맞게 자동으로 크기 조절 안함
+        responsive: false, // 부모 요소에 맞게 자동으로 크기 조절 안함
         legend: {
             display: false,
         },
