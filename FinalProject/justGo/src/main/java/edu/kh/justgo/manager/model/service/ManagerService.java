@@ -178,6 +178,39 @@ public interface ManagerService {
 	int report7();
 	int report8();
 
+	/**
+	 * 대시보드4
+	 * @return
+	 */
+//	int countMember6monthsAgo();
+//	int countMember3monthsAgo();
+//	int countMember2monthsAgo();
+//	int countMember1monthsAgo();
+//	int countMember2weeksAgo();
+//	int countMember1weeksAgo();
+//	int countMemberToday();
+//	int countPost6monthsAgo();
+//	int countPost3monthsAgo();
+//	int countPost2monthsAgo();
+//	int countPost1monthsAgo();
+//	int countPost2weeksAgo();
+//	int countPost1weeksAgo();
+//	int countPostToday();
+//	int countOut6monthsAgo();
+//	int countOut3monthsAgo();
+//	int countOut2monthsAgo();
+//	int countOut1monthsAgo();
+//	int countOut2weeksAgo();
+//	int countOut1weeksAgo();
+//	int countOutToday();
+//	int countReport6monthsAgo();
+//	int countReport3monthsAgo();
+//	int countReport2monthsAgo();
+//	int countReport1monthsAgo();
+//	int countReport2weeksAgo();
+//	int countReport1weeksAgo();
+//	int countReportToday();
+
 
 	
 //	/** 대시보드에 나타나는 회원수

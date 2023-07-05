@@ -57,7 +57,7 @@
                 관리자_회원관리
             </a>
         </div>
-    </div> 
+    </div>
 </div>
 --%>
 <!-- 페이지 제목 끝 -->
@@ -186,6 +186,36 @@
         var countTag2 = ${countTag2};
         var countTag3 = ${countTag3};
         var countTag4 = ${countTag4};
+
+        /* 라인 차트 */
+        // var g1m0 = ${g1m0}; /* 회원 수 */
+        // var g1m1 = ${g1m1};
+        // var g1m2 = ${g1m2};
+        // var g1m3 = ${g1m3};
+        // var g1m4 = ${g1m4};
+        // var g1m5 = ${g1m5};
+        // var g1m6 = ${g1m6};
+        // var g2m0 = ${g2m0}; /* 게시글 수 */
+        // var g2m1 = ${g2m1};
+        // var g2m2 = ${g2m2};
+        // var g2m3 = ${g2m3};
+        // var g2m4 = ${g2m4};
+        // var g2m5 = ${g2m5};
+        // var g2m6 = ${g2m6};
+        // var g3m0 = ${g3m0}; /* 탈퇴회원 수 */
+        // var g3m1 = ${g3m1};
+        // var g3m2 = ${g3m2};
+        // var g3m3 = ${g3m3};
+        // var g3m4 = ${g3m4};
+        // var g3m5 = ${g3m5};
+        // var g3m6 = ${g3m6};
+        // var g4m0 = ${g4m0}; /* 신고 수 */
+        // var g4m1 = ${g4m1};
+        // var g4m2 = ${g4m2};
+        // var g4m3 = ${g4m3};
+        // var g4m4 = ${g4m4};
+        // var g4m5 = ${g4m5};
+        // var g4m6 = ${g4m6};
 
         /* 바 차트 */
         var report1 = ${report1};
