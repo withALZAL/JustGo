@@ -26,8 +26,30 @@
                 <section class="chatting--chatBox">
                     <div class="chattingTitle">채팅</div>
                     <div class="chattingList">
-                        <div class="chattingCard other" style="border: 1px solid black;">니가 대화합니다</div>
-                        <div class="chattingCard me" style="border: 1px solid black;">내가 대화힙니다</div>
+                        <div class="chattingCard other" style="border: 1px solid black;">
+                            <div class="chatProfile">
+                                <div class="chatProflieImageBox">
+                                    <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
+                                </div>
+                                <span class="nick">닉네임입니다만1</span>
+                            </div>
+                            <div class="chattingContent">채팅 내용</div>
+                            <div class="timeLog">15시 30분 30초</div>
+                        </div>
+                        <div class="myChattingCard me" style="border: 1px solid black;">
+                            <div class="chattingContent">채팅 내용</div>
+                            <div class="timeLog">15시 30분 30초</div>
+                        </div>
+                        <div class="chattingCard other" style="border: 1px solid black;">
+                            <div class="chatProfile">
+                                <div class="chatProflieImageBox">
+                                    <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
+                                </div>
+                                <span class="nick">닉네임입니다만1</span>
+                            </div>
+                            <div class="chattingContent">채팅 내용</div>
+                            <div class="timeLog">15시 30분 30초</div>
+                        </div>
                     </div>
                 </section>
             <%-- 채팅 박스 끝 --%>

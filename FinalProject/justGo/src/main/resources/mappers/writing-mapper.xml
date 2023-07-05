@@ -103,10 +103,10 @@
 	</insert>
 	
 	<!-- 스케줄러 이미지 삭제를 위한 이미지 리스트 불러오기 -->
-<!-- 	<select id="selectImageList" resultType="string">
+	<select id="selectImageList" resultType="string">
 		SELECT IMG_PATH
 		FROM "BOARD_IMG"
-	</select> -->
+	</select>
 	
 
 	
