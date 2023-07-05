@@ -43,24 +43,24 @@ var chartLine = document.getElementById('chartLine');
 new Chart(chartLine, {
     type: 'line',
     data: {
-        labels: ['2주일 이내', '1주일 이내', '현재'],
+        labels: ['3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
         datasets: [{
-            data: [86, 114, 106], /* 데이터 입력 */
+            data: [0, 0, 0, 86, 114, 106], /* 데이터 입력 */
             label: "일반회원 수",
             borderColor: "red",
             fill: false
         }, {
-            data: [282, 350, 411], /* 데이터 입력 */
+            data: [0, 0, 0, 282, 350, 411], /* 데이터 입력 */
             label: "게시글 수",
             borderColor: "orange",
             fill: false
         }, {
-            data: [168, 170, 178], /* 데이터 입력 */
+            data: [0, 0, 0, 168, 170, 178], /* 데이터 입력 */
             label: "관리자 수",
             borderColor: "grey",
             fill: false
         }, {
-            data: [40, 20, 10], /* 데이터 입력 */
+            data: [0, 0, 0, 40, 20, 10], /* 데이터 입력 */
             label: "신고 수",
             borderColor: "black",
             fill: false
