@@ -1,0 +1,67 @@
+/* 채팅방 */
+.chatting--container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatting--box {
+    height: 750px;
+    width: 800px;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 150px;
+}
+.chatting--top {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+}
+
+/* chatBox */
+.chatting--chatBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* memberBox */
+.chatting--memberBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* inputBox */
+.chatting--inputBox {
+    padding: 10px;
+    border: none;
+    background-color: pink;
+    border-radius: 10px;
+    margin: 10px;
+}
+.inputBox--temp {
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    gap: 10px;
+}
+.btnBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.inputMessage {
+    padding: 10px;
+    height: 80px;
+    resize: none;
+}
