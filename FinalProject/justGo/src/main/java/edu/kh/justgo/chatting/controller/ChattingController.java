@@ -15,7 +15,7 @@ public class ChattingController {
 	@Autowired
 	private ChattingService service;
 	
-	@GetMapping("/")
+	@GetMapping("/chatting")
 	public String chatting() {
 		
 		return "chatting/chatting";

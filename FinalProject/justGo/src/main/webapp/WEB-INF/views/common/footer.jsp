@@ -78,7 +78,14 @@
             <input type="hidden" name="boardCode" value="${boardCode}" >  <%-- value ="3"은 boardCode --%>
             <input type="hidden" name="countryNo" value="${countryNo}">
         </form>
-
+        <a onclick="popup()" target = "_blank">
+            <%-- <button type="button" id="chattingBtn" data-bs-toggle="modal" data-bs-target="#chattingModal">
+                <i class="fa-solid fa-comment"></i>
+            </button> --%>
+            <button type="button" id="chattingBtn">
+                <i class="fa-solid fa-comment"></i>
+            </button>
+        </a>
     </c:if>
         <a href="#" onclick="scrollToTop()"> <%-- 위로가기버튼 --%>
             <button>
@@ -95,6 +102,27 @@
 <aside class="template--rightAside"></aside>
 </footer>
 <!-- Template-footer 끝 -->
+
+
+
+<!-- 채팅 모달창 시작 -->
+<%-- <div class="modal fade" id="chattingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">채팅방</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body chattingBox">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">나가기</button>
+        </div>
+        </div>
+    </div>
+</div> --%>
+<!-- 채팅 모달창 끝 -->
 
 
     

@@ -74,7 +74,6 @@
         <section class="dashboard__top">
             <section class="dashboard1" style="border: 1px solid pink;">
             <div class="dashboardTitle">사용자 통계</div>
-            <div class="dashboardTitle">회원통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
                     <div class="card-header">
@@ -128,7 +127,6 @@
         <section class="dashboard__bottom">
             <section class="dashboard4" style="border: 1px solid pink;">
                 <div class="dashboardTitle">사용자 수 변화 통계</div>
-                <div class="dashboardTitle">회원 통계 그래프</div>
                 <div class="dashboard4__content">
                     <canvas id="chartLine">
                     </canvas>
@@ -136,7 +134,6 @@
             </section>
             <section class="dashboard5" style="border: 1px solid pink;">
                 <div class="dashboardTitle">신고 통계</div>
-                <div class="dashboardTitle">신고 사유 통계</div>
                 <div class="dashboard5__content">
                     <canvas id="chartBar">
                     </canvas>
@@ -202,88 +199,5 @@
         
     </script>
     <script src="/resources/js/manager/managerDashboard.js"></script>
-    <script src="/resources/js/manager/managerDashboard.js"></script>
-    <script>
-
-        const countAllMember = ${countAllMember};
-        const countAllManager = ${countAllManager};
-        const countOutMember = ${countOutMember};
-        const countAllPost = ${countAllPost};
-
-        /* 라인 차트(4번) */
-        var chartLine = document.getElementById('chartLine');
-        new Chart(chartLine, {
-            type: 'line',
-            data: {
-                labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
-                datasets: [{
-                    data: [86, 114, 106, 106, 107, 111, 133, 221, 783, countAllMember],
-                    label: "회원 수",
-                    borderColor: "#4ABFD3",
-                    fill: false
-                },{
-                    data: [168, 170, 178, 190, 203, 276, 408, 547, 675, countAllManager],
-                    label: "관리자 수",
-                    borderColor: "#24A6BD",
-                    fill: false
-                }, {
-                    data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, countOutMember],
-                    label: "퇄퇴회원 수",
-                    borderColor: "#008299",
-                    fill: false
-                }, {
-                    data: [40, 20, 10, 16, 24, 38, 74, 167, 508, countAllPost],
-                    label: "게시글 수",
-                    borderColor: "#004C63",
-                    fill: false
-                }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'World population per region (in millions)'
-                }
-            }
-        });
-
-
-
-        const reportAbusive = ${countReportAbusive};
-        const reportDisparaging = ${countReportDisparaging_expression};
-        const reportImpersonation = ${countReportImpersonation};
-        const reportAdvertisement = ${countReportAdvertisement};
-        const reportSensationality = ${countReportSensationality};
-        const reportIllegal = ${countReportIllegal_information};
-        const reportPersonal = ${countReportPersonal};
-        const reportEtc = ${countReportEtc};
-
-        /* 바 차트(5번)*/
-        var chartBar = document.getElementById('chartBar').getContext('2d');
-        new Chart(chartBar, {
-            type: 'bar',
-            data: {
-                
-                labels: ["욕설", "차별적 표현", "사칭", "광고성, 도배글", "선정성", "불법정보포함", "개인정보노출", "기타"],
-                datasets: [
-                    {
-                        label: "신고 수",
-                        backgroundColor: ["#5CD1E5", "#4ABFD3", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"],
-                        data: [reportAbusive, reportDisparaging, reportImpersonation, reportAdvertisement, reportSensationality, reportIllegal, reportPersonal, reportEtc] /* 여기에 데이터를 넣습니다. */
-                    }
-                ]
-            },
-            options: {
-                indexAxis: 'y',
-                legend: { display: false },
-                title: {
-                    display: true,
-                    // text: 'Predicted world population (millions) in 2050'
-                }
-            }
-        });
-
-    </script>
-
 </body>
 </html>

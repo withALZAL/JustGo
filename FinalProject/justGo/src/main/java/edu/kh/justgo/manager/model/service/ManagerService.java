@@ -180,68 +180,68 @@ public interface ManagerService {
 
 
 	
-	/** 대시보드에 나타나는 회원수
-	 * @return
-	 */
-	int countAllMember();
-
-	
-	/** 대시보드에 나타나는 운영자수
-	 * @return
-	 */
-	int countAllManager();
-
-	
-	/** 대시보드에 나타나는 탈퇴회원 수
-	 * @return
-	 */
-	int countOutMember();
-
-	
-	/** 대시보드에 나타나는 게시글 수
-	 * @return
-	 */
-	int countAllPost();
-
-	/**
-	 * @return
-	 */
-	int countReportAbusive();
-
-	/**
-	 * @return
-	 */
-	int countReportDisparaging_expression();
-
-	/**
-	 * @return
-	 */
-	int countReportImpersonation();
-
-	/**
-	 * @return
-	 */
-	int countReportAdvertisement();
-
-	/**
-	 * @return
-	 */
-	int countReportSensationality();
-
-	/**
-	 * @return
-	 */
-	int countReportIllegal_information();
-
-	/**
-	 * @return
-	 */
-	int countReportPersonal();
-
-	/**
-	 * @return
-	 */
-	int countReportEtc();
+//	/** 대시보드에 나타나는 회원수
+//	 * @return
+//	 */
+//	int countAllMember();
+//
+//	
+//	/** 대시보드에 나타나는 운영자수
+//	 * @return
+//	 */
+//	int countAllManager();
+//
+//	
+//	/** 대시보드에 나타나는 탈퇴회원 수
+//	 * @return
+//	 */
+//	int countOutMember();
+//
+//	
+//	/** 대시보드에 나타나는 게시글 수
+//	 * @return
+//	 */
+//	int countAllPost();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportAbusive();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportDisparaging_expression();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportImpersonation();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportAdvertisement();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportSensationality();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportIllegal_information();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportPersonal();
+//
+//	/**
+//	 * @return
+//	 */
+//	int countReportEtc();
 
 	
 

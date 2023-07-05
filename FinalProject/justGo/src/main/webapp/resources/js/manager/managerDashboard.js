@@ -8,7 +8,7 @@ new Chart(chartDoughnut, {
             label: '게시글 수',
             data: [countFree, countQuestion, countChina, countJapan, countVietnam, countThai, countAustralia],
             borderWidth: 1,
-            backgroundColor: ['grey', 'lightgrey', 'red', 'pink', 'yellow', 'blue', 'green']
+            backgroundColor: ["#5CD1E5", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"]
         }]
     },
     options: {
@@ -20,7 +20,7 @@ new Chart(chartDoughnut, {
         },
         maintainAspectRatio: false, // 가로 세로 비율 유지하지 않음
         responsive: true ,// 부모 요소에 맞게 자동으로 크기 조절
-
+    }
 });
 
 /* 태그 차트(3번) */
@@ -33,7 +33,7 @@ new Chart(chartTag, {
             label: '게시글 수',
             data: [countTag1, countTag2, countTag3, countTag4],
             borderWidth: 1,
-            backgroundColor: ['red', 'orange', 'yellow', 'green']
+            backgroundColor: ["#5CD1E5", "#36B8CF", "#1294AB", "#004C63"]
         }]
     },
     options: {
@@ -67,24 +67,6 @@ new Chart(chartLine, {
             data: [0, 0, 0, 40, 20, 10], /* 데이터 입력 */
             label: "신고 수",
             borderColor: "black",
-            data: [86, 114, 106, 106, 107, 111, 133, 221, 783, countAllMember],
-            label: "회원 수",
-            borderColor: "#4ABFD3",
-            fill: false
-        },{
-            data: [168, 170, 178, 190, 203, 276, 408, 547, 675, countAllManager],
-            label: "관리자 수",
-            borderColor: "#24A6BD",
-            fill: false
-        }, {
-            data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, countOutMember],
-            label: "퇄퇴회원 수",
-            borderColor: "#008299",
-            fill: false
-        }, {
-            data: [40, 20, 10, 16, 24, 38, 74, 167, 508, countAllPost],
-            label: "게시글 수",
-            borderColor: "#004C63",
             fill: false
         }
         ]
@@ -96,26 +78,6 @@ new Chart(chartLine, {
     }
 });
 
-
-
-
-console.log(countAllMember);
-console.log(countAllManager);
-console.log(countOutMember);
-console.log(countAllPost);
-
-
-console.log(reportAbusive);
-console.log(reportDisparaging);
-console.log(reportImpersonation);
-console.log(reportAdvertisement);
-console.log(reportSensationality);
-console.log(reportIllegal);
-console.log(reportPersonal);
-console.log(reportEtc);
-
-
-
 /* 바 차트(5번)*/
 var chartBar = document.getElementById('chartBar').getContext('2d');
 new Chart(chartBar, {
@@ -125,11 +87,9 @@ new Chart(chartBar, {
         labels: ["욕설", "차별적 표현", "사칭", "광고성, 도배글", "선정성", "불법정보포함", "개인정보노출", "기타"],
         datasets: [
             {
-                backgroundColor: ["yellow", "yellow", "orange", "orange", "red", "red", "blue", "grey"],
-                data: [report1, report2, report3, report4, report5, report6, report7, report8] /* 여기에 데이터를 넣습니다. */
+                data: [report1, report2, report3, report4, report5, report6, report7, report8], /* 여기에 데이터를 넣습니다. */
                 label: "신고 수",
                 backgroundColor: ["#5CD1E5", "#4ABFD3", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"],
-                data: [reportAbusive, reportDisparaging, reportImpersonation, reportAdvertisement, reportSensationality, reportIllegal, reportPersonal, reportEtc] /* 여기에 데이터를 넣습니다. */
             }
         ]
     },
@@ -137,9 +97,5 @@ new Chart(chartBar, {
         indexAxis: 'y',
         legend: { display: false },
         title: { display: false }
-        title: {
-            display: true,
-            // text: 'Predicted world population (millions) in 2050'
-        }
     }
 });
