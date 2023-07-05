@@ -22,9 +22,32 @@
     <section class="chatting--container">
         <div class="chatting--box">
             <section class="chatting--top">
-                <section class="chatting--chatBox">1</section>
-                <section class="chatting--memberBox">2</section>
+            <%-- 채팅 박스 시작 --%>
+                <section class="chatting--chatBox">
+                    <div class="chattingTitle">채팅</div>
+                    <div class="chattingList">
+                        <div class="chattingCard other" style="border: 1px solid black;">니가 대화합니다</div>
+                        <div class="chattingCard me" style="border: 1px solid black;">내가 대화힙니다</div>
+                    </div>
+                </section>
+            <%-- 채팅 박스 끝 --%>
+            <%-- 참여자 박스 시작 --%>
+                <section class="chatting--memberBox">
+                    <div class="memberListTitle">채팅 참여자 목록(000명)</div>
+                    <div class="memberList">
+                        <div class="memberCard">
+                            <div class="memberProflieImageBox">
+                                <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
+                            </div>
+                            <div class="memberNickname">
+                                바른말고운말임다
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <%-- 참여자 박스 끝 --%>
             </section>
+            <%-- 채팅 인풋 박스 시작 --%>
             <section class="chatting--inputBox">
                 <div class="inputBox--temp">
                     <textarea class="inputMessage" max="500" placeholder="채팅 내용을 입력해주세요.(최대 500자)"></textarea>
@@ -34,6 +57,7 @@
                     </div>
                 </div>
             </section>
+            <%-- 채팅 인풋 박스 끝 --%>
         </div>
     </section>
 

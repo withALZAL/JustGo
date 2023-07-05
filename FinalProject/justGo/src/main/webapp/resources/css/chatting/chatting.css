@@ -17,7 +17,7 @@
 }
 .chatting--top {
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr 250px;
 }
 
 /* chatBox */
@@ -28,6 +28,18 @@
     border-radius: 10px;
     margin: 10px;
 }
+.chattingList {
+    max-height: 520px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.chattingCard {
+    height: 100px;
+}
 
 /* memberBox */
 .chatting--memberBox {
@@ -36,6 +48,40 @@
     background-color: pink;
     border-radius: 10px;
     margin: 10px;
+}
+.memberList {
+    max-height: 520px;
+    overflow-y: auto;
+}
+.memberCard {
+    height: 50px;
+    background-color: pink;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.memberProflieImageBox {
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.memberProfileImageBox img {
+    object-fit: cover;
+    object-position: center center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.memberNickname {
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 /* inputBox */
@@ -48,6 +94,7 @@
 }
 .inputBox--temp {
     display: grid;
+    place-items: center;
     grid-template-columns: 1fr 80px;
     gap: 10px;
 }
@@ -63,5 +110,6 @@
 .inputMessage {
     padding: 10px;
     height: 80px;
+    width: 650px;
     resize: none;
 }
