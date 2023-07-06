@@ -45,40 +45,21 @@
 
 
     <div class="manager--loginSession"> 
-        <c:choose>
-            <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
-                <form>
-                    <a href="/account/login">
-                        <button type="button" class="btn btn-secondary btn-sm">로그인</button>
-                    </a>
-                </form>
-                <form>
-                    <a href="/account/join">
-                        <button type="button" class="btn btn-secondary btn-sm">회원가입</button>
-                    </a>
-                </form>
-            </c:when>
-            <c:otherwise> <%-- 로그인했을 때 --%>
-                <form>
-                    <a href="/account/logout" id="logoutBtn">
-                        <button type="button" class="btn btn-secondary btn-sm">로그아웃</button>
-                    </a>
-                </form>
-                <form>
-                    <a href="/myPage/info">
-                        <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-                    </a>
-                </form>
-                <%-- 로그인했는데 관리자였을 때 --%>
-                <%-- <c:if test="${loginMember.memberRole == 1}">
-                    <form>
-                        <a href="/manager/memberManager">
-                            <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
-                        </a>    
-                    </form>
-                </c:if>  --%>
-            </c:otherwise>
-        </c:choose>
+        <form>
+            <a href="/myPage/info">
+                <i class="fa-solid fa-circle-user fa-xl"></i>
+                <%-- <button type="button" class="btn btn-secondary btn-sm">마이페이지</button> --%>
+            </a>
+        </form>
+        <label for="alarmToggle">
+            <i class="fa-solid fa-envelope fa-xl"></i>
+        </label>
+        <input type="checkbox" id="alarmToggle" hidden>
+        <div class="alarm-menu">
+            알람받는 공간
+            <ul id="alarmBox">
+            </ul>
+        </div>
     </div>
 </nav>
 <!-- loginNav 끝 -->
@@ -186,8 +167,11 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<%-- SockJS --%>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>    
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
+    <script src="/resources/js/manager/managerHeader.js"></script>
     <%-- <script src="/resources/js/manager/header.js"></script> --%>
     <script>const loginMemberNo = "${loginMember.memberNo}";</script>
 </body>

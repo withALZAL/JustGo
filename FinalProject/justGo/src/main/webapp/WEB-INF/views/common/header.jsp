@@ -29,7 +29,11 @@
 
 <!-- Template-header 시작 -->
 <header class="template--header">
-<aside class="template--leftAside"></aside>
+<aside class="template--leftAside">
+    <div class="template--easterEgg">
+        <img id="asuka" src="/resources/images/officialImages/EASTEREGG.gif" alt="아스카" style="display: none;" onclick="deleteAsuka()" class="fixed-top">
+    </div>
+</aside>
 <section class="template--Section">
 
 
@@ -121,7 +125,8 @@
             <c:if test="${loginMember.memberRole == 1}"> <%-- 로그인했는데 관리자였을 때 --%>
                 <form>
                     <a href="/manager/memberManager">
-                        <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button>
+                        <i class="fa-brands fa-fort-awesome-alt fa-2xl"></i>
+                        <%-- <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button> --%>
                     </a>    
                 </form>
             </c:if>

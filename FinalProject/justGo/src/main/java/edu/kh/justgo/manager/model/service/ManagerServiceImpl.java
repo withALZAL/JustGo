@@ -315,8 +315,6 @@ public class ManagerServiceImpl implements ManagerService {
 	public int countThai() {return dao.countThai();}
 	@Override
 	public int countAustralia() {return dao.countAustralia();}
-	
-	
 
 	// 대시보드3
 	@Override
@@ -346,94 +344,64 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public int report8() {return dao.report8();}
 
-	
-	
-	
-	
-//	// 대시보드에 나타나는 회원수
+	// 대시보드4
 //	@Override
-//	public int countAllMember() {
-//		return dao.countAllMember();
-//	}
-//	
-//	
-//	// 대시보드에 나타나는 운영자수
+//	public int countMember6monthsAgo() {return dao.countMember6monthsAgo();}
 //	@Override
-//	public int countAllManager() {
-//		return dao.countAllManager();
-//	}
-//	
-//	
-//	// 대시보드에 나타나는 탈퇴회원 수
+//	public int countMember3monthsAgo() {return dao.countMember3monthsAgo();}
 //	@Override
-//	public int countOutMember() {
-//		return dao.countOutMember();
-//	}
-//	
-//	
-//	// 대시보드에 나타나는 게시글 수
+//	public int countMember2monthsAgo() {return dao.countMember2monthsAgo();}
 //	@Override
-//	public int countAllPost() {
-//		return dao.countAllPost();
-//	}
-//	
-//	
-//	
-//	
-//	// 대시보드에 나타나는 신고 카테고리 수(욕설)
+//	public int countMember1monthsAgo() {return dao.countMember1monthsAgo();}
 //	@Override
-//	public int countReportAbusive() {
-//		return dao.countReportAbusive();
-//	}
-//	
-//	// 대시보드에 나타나는 신고 카테고리 수(차별적 표현)
+//	public int countMember2weeksAgo() {return dao.countMember2weeksAgo();}
 //	@Override
-//	public int countReportDisparaging_expression() {
-//		return dao.countReportDisparaging_expression();
-//	}
-//	
-//	//대시보드에 나타나는 신고 카테고리 수(사칭)
+//	public int countMember1weeksAgo() {return dao.countMember1weeksAgo();}
 //	@Override
-//	public int countReportImpersonation() {
-//		return dao.countReportImpersonation();
-//	}
-//	
-//	//대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
+//	public int countMemberToday() {return dao.countMemberToday();}
 //	@Override
-//	public int countReportAdvertisement() {
-//		return dao.countReportAdvertisement();
-//	}
-//		
-//	
-//	
-//	// 대시보드에 나타나는 신고 카테고리 수(선정성)
+//	public int countPost6monthsAgo() {return dao.countPost6monthsAgo();}
 //	@Override
-//	public int countReportSensationality() {
-//		return dao.countReportSensationality();
-//	}
-//	
-//	
-//	//  대시보드에 나타나는 신고 카테고리 수(불법정보포함)
+//	public int countPost3monthsAgo() {return dao.countPost3monthsAgo();}
 //	@Override
-//	public int countReportIllegal_information() {
-//		return dao.countReportIllegal_information();
-//	}
-//	
-//	
-//	// 대시보드에 나타나는 신고 카테고리 수(개인정보노출)
+//	public int countPost2monthsAgo() {return dao.countPost2monthsAgo();}
 //	@Override
-//	public int countReportPersonal() {
-//		return dao.countReportPersonal();
-//	}
-//	
-//	
-//	
-//	// 대시보드에 나타나는 신고 카테고리 수(기타)
+//	public int countPost1monthsAgo() {return dao.countPost1monthsAgo();}
 //	@Override
-//	public int countReportEtc() {
-//		return dao.countReportEtc();
-//	}
-//	
+//	public int countPost2weeksAgo() {return dao.countPost2weeksAgo();}
+//	@Override
+//	public int countPost1weeksAgo() {return dao.countPost1weeksAgo();}
+//	@Override
+//	public int countPostToday() {return dao.countPostToday();}
+//	@Override
+//	public int countOut6monthsAgo() {return dao.countOut6monthsAgo();}
+//	@Override
+//	public int countOut3monthsAgo() {return dao.countOut3monthsAgo();}
+//	@Override
+//	public int countOut2monthsAgo() {return dao.countOut2monthsAgo();}
+//	@Override
+//	public int countOut1monthsAgo() {return dao.countOut1monthsAgo();}
+//	@Override
+//	public int countOut2weeksAgo() {return dao.countOut2weeksAgo();}
+//	@Override
+//	public int countOut1weeksAgo() {return dao.countOut1weeksAgo();}
+//	@Override
+//	public int countOutToday() {return dao.countOutToday();}
+//	@Override
+//	public int countReport6monthsAgo() {return dao.countReport6monthsAgo();}
+//	@Override
+//	public int countReport3monthsAgo() {return dao.countReport3monthsAgo();}
+//	@Override
+//	public int countReport2monthsAgo() {return dao.countReport2monthsAgo();}
+//	@Override
+//	public int countReport1monthsAgo() {return dao.countReport1monthsAgo();}
+//	@Override
+//	public int countReport2weeksAgo() {return dao.countReport2weeksAgo();}
+//	@Override
+//	public int countReport1weeksAgo() {return dao.countReport1weeksAgo();}
+//	@Override
+//	public int countReportToday() {return dao.countReportToday();}
+
 	
 	
 	

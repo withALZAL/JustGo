@@ -51,17 +51,25 @@
 	</interceptors>
 	
 				<beans:bean id="chatHandler" class="edu.kh.justgo.chatting.model.websocket.ChattingWebsocketHandler"/>
+				<beans:bean id="alarmHandler" class="edu.kh.justgo.manager.websocket.AlarmWebsocketHandler"/>
+	<!-- 어떤 주소로 웹소켓 요청이 오면 세션을 가로챌지 지정 -->			
 	<websocket:handlers>
 		<!-- websocket 매핑 주소 -->
 		<websocket:mapping handler="chatHandler" path="/chattingSock"/>
+		<websocket:mapping handler="alarmHandler" path="/alarmSock"/>
+		
 		<websocket:handshake-interceptors> 
 			<!-- interceptor : http통신에서 request, response를 가로채는 역할
 			handshake-interceptors :Httpsession에 있는 값을 가로채서 WebSocketSession 넣어주는 역할  -->
 			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
 		</websocket:handshake-interceptors>
 		
+		<!-- SockJS를 이용한 웹소켓 연결 요청임을 명시 -->
 		<websocket:sockjs/>
 	</websocket:handlers> 
+	
+	
+
 	
 	<!-- 스프링 스케줄러 어노테이션 인식 -->
 	<task:annotation-driven/>

@@ -45,6 +45,17 @@ select option {
     border: none;
 }
 
+/* 이스터에그 */
+.template--easterEgg {
+    height: 100px;
+    width: 100px;
+}
+#asuka {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
 /* footer 하단 배치 고정(송이씨 모니터에서 문제 발견) */
 /* html, body {
     height: 100%;

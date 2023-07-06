@@ -269,7 +269,7 @@ public class ManagerController {
         model.addAttribute("countVietnam", countVietnam);
         model.addAttribute("countThai", countThai);
         model.addAttribute("countAustralia", countAustralia);
-    	
+        
     	// 대시보드3
         int countTag1 = service.countTag1();
         int countTag2 = service.countTag2();
@@ -280,6 +280,63 @@ public class ManagerController {
         model.addAttribute("countTag3", countTag3);
         model.addAttribute("countTag4", countTag4);
         
+        // 대시보드4
+//        int countMember6monthsAgo = service.countMember6monthsAgo(); // x개월 전 회원 수
+//        int countMember3monthsAgo = service.countMember3monthsAgo();
+//        int countMember2monthsAgo = service.countMember2monthsAgo();
+//        int countMember1monthsAgo = service.countMember1monthsAgo();
+//        int countMember2weeksAgo = service.countMember2weeksAgo();
+//        int countMember1weeksAgo = service.countMember1weeksAgo();
+//        int countMemberToday = service.countMemberToday();
+//        int countPost6monthsAgo = service.countPost6monthsAgo(); // x개월 전 게시글 수
+//        int countPost3monthsAgo = service.countPost3monthsAgo();
+//        int countPost2monthsAgo = service.countPost2monthsAgo();
+//        int countPost1monthsAgo = service.countPost1monthsAgo();
+//        int countPost2weeksAgo = service.countPost2weeksAgo();
+//        int countPost1weeksAgo = service.countPost1weeksAgo();
+//        int countPostToday = service.countPostToday();
+//        int countOut6monthsAgo = service.countOut6monthsAgo(); // x개월 전 탈퇴회원 수
+//        int countOut3monthsAgo = service.countOut3monthsAgo();
+//        int countOut2monthsAgo = service.countOut2monthsAgo();
+//        int countOut1monthsAgo = service.countOut1monthsAgo();
+//        int countOut2weeksAgo = service.countOut2weeksAgo();
+//        int countOut1weeksAgo = service.countOut1weeksAgo();
+//        int countOutToday = service.countOutToday();
+//        int countReport6monthsAgo = service.countReport6monthsAgo(); // x개월 전 신고 수
+//        int countReport3monthsAgo = service.countReport3monthsAgo();
+//        int countReport2monthsAgo = service.countReport2monthsAgo();
+//        int countReport1monthsAgo = service.countReport1monthsAgo();
+//        int countReport2weeksAgo = service.countReport2weeksAgo();
+//        int countReport1weeksAgo = service.countReport1weeksAgo();
+//        int countReportToday = service.countReportToday();
+//        model.addAttribute("g1m0", countMemberToday); // x개월 전 회원 수
+//        model.addAttribute("g1m1", countMember1weeksAgo);
+//        model.addAttribute("g1m2", countMember2weeksAgo);
+//        model.addAttribute("g1m3", countMember1monthsAgo);
+//        model.addAttribute("g1m4", countMember2monthsAgo);
+//        model.addAttribute("g1m5", countMember3monthsAgo);
+//        model.addAttribute("g1m6", countMember6monthsAgo);
+//        model.addAttribute("g2m0", countPostToday); // x개월 전 게시글 수
+//        model.addAttribute("g2m1", countPost1weeksAgo);
+//        model.addAttribute("g2m2", countPost2weeksAgo);
+//        model.addAttribute("g2m3", countPost1monthsAgo);
+//        model.addAttribute("g2m4", countPost2monthsAgo);
+//        model.addAttribute("g2m5", countPost3monthsAgo);
+//        model.addAttribute("g2m6", countPost6monthsAgo);
+//        model.addAttribute("g3m0", countOutToday); // x개월 전 탈퇴회원 수
+//        model.addAttribute("g3m1", countOut1weeksAgo);
+//        model.addAttribute("g3m2", countOut2weeksAgo);
+//        model.addAttribute("g3m3", countOut1monthsAgo);
+//        model.addAttribute("g3m4", countOut2monthsAgo);
+//        model.addAttribute("g3m5", countOut3monthsAgo);
+//        model.addAttribute("g3m6", countOut6monthsAgo);
+//        model.addAttribute("g4m0", countReportToday); // x개월 전 신고 수
+//        model.addAttribute("g4m1", countReport1weeksAgo);
+//        model.addAttribute("g4m2", countReport2weeksAgo);
+//        model.addAttribute("g4m3", countReport1monthsAgo);
+//        model.addAttribute("g4m4", countReport2monthsAgo);
+//        model.addAttribute("g4m5", countReport3monthsAgo);
+//        model.addAttribute("g4m6", countReport6monthsAgo);
         
         
         // 대시보드5
@@ -299,91 +356,7 @@ public class ManagerController {
         model.addAttribute("report6", report6);
         model.addAttribute("report7", report7);
         model.addAttribute("report8", report8);
-
-    	
-//    	// 대시보드에 나타나는 회원수
-//    	int countAllMember = service.countAllMember();
-//    	
-//    	// 대시보드에 나타나는 운영자수
-//    	int countAllManager = service.countAllManager();
-//    	
-//    	// 대시보드에 나타나는 탈퇴회원수
-//    	int countOutMember = service.countOutMember();
-//    	
-//    	// 대시보드에 나타나는 게시글 수
-//    	int countAllPost = service.countAllPost();
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(욕설)
-//    	int countReportAbusive = service.countReportAbusive();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(차별적 표현)
-//    	int countReportDisparaging_expression = service.countReportDisparaging_expression();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(사칭)
-//    	int countReportImpersonation = service.countReportImpersonation();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(광고성, 도배글)
-//    	int countReportAdvertisement = service.countReportAdvertisement();
-//    	
-//    	// 대시보드에 나타나는 신고 카테고리 수(선정성)
-//    	int countReportSensationality = service.countReportSensationality();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(불법정보포함)
-//    	int countReportIllegal_information = service.countReportIllegal_information();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(개인정보노출)
-//    	int countReportPersonal = service.countReportPersonal();
-//    	
-//    	//대시보드에 나타나는 신고 카테고리 수(기타)
-//    	int countReportEtc = service.countReportEtc();
-//    	
-//    	
-//    	
-//    	
-//    	
-//    	
-//    	
-//    	
-//    	// 회원 통계
-//    	model.addAttribute("countAllMember", countAllMember);
-//    	model.addAttribute("countAllManager", countAllManager);
-//    	model.addAttribute("countOutMember", countOutMember);
-//    	model.addAttribute("countAllPost", countAllPost);
-//    	
-//    	// 신고 카테고리 통계
-//    	model.addAttribute("countReportAbusive", countReportAbusive);
-//    	model.addAttribute("countReportDisparaging_expression", countReportDisparaging_expression);
-//    	model.addAttribute("countReportImpersonation", countReportImpersonation);
-//    	model.addAttribute("countReportAdvertisement", countReportAdvertisement);
-//    	model.addAttribute("countReportSensationality", countReportSensationality);
-//    	model.addAttribute("countReportIllegal_information", countReportIllegal_information);
-//    	model.addAttribute("countReportPersonal", countReportPersonal);
-//    	model.addAttribute("countReportEtc", countReportEtc);
-//    	
-//    	
-    	
-    	System.out.println(model);
-    	
-
     	
     	return "/manager/managerDashboard";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

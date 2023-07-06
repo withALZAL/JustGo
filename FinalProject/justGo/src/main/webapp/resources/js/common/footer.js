@@ -1,3 +1,4 @@
+/* 채팅방 팝업 */
 function popup(){
     var url = "/chatting";
     var name = "채팅방";

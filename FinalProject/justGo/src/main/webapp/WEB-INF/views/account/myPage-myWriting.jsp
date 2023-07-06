@@ -175,10 +175,15 @@ ${myPostList} --%>
                     </nav>
                 </form>
             </div>
+            <form class="searchBox" action="/myPage/myWriting" method="get">
+                <input id="searchInput" name="query" type="text" placeholder="글 제목을 입력하세요." maxlength='30' autocomplete="off">
+                <button id="searchBtn" type="button" class="btn btn-primary btn-sm">검색</button>
+            </form>
             </c:if>
         </form>
     </div>
     <%-- 내가 쓴 글 끝 --%>
+
 
 
     </div>
