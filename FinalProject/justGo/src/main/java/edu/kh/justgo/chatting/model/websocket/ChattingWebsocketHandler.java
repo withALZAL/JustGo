@@ -13,6 +13,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import edu.kh.justgo.chatting.model.dto.Message;
 import edu.kh.justgo.chatting.model.service.ChattingService;
@@ -49,6 +50,11 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
         	
         	for(WebSocketSession s : sessions) {
         		int chattingRoomNo = ((Member)s.getAttributes().get("loginMember")).getChattingNo();
+        		
+        		if(chattingRoomNo == 1){
+        			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+        			
+        		}
         	}
         	
         	
