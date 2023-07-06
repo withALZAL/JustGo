@@ -71,13 +71,14 @@
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
     <div class="manager--mainBox">
+
         <section class="dashboard__top">
             <section class="dashboard1">
             <div class="dashboardTitle">사용자 통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
                     <div class="card-header">
-                        회원 수
+                        일반회원 수
                     </div>
                     <div class="card-body numberResult">
                     ${dashboard1[0]}명
@@ -124,7 +125,7 @@
                 </div>
             </section>
         </section>
-        <section class="dashboard__bottom">
+        <section class="dashboard__middle">
             <section class="dashboard4">
                 <div class="dashboardTitle">사용자 수 변화 통계</div>
                 <div class="dashboard4__content">
@@ -140,6 +141,7 @@
                 </div>
             </section>
         </section>
+        <button id="chartDetailBtn" onclick="chartDetail()">게시판별/태그별 게시글 통계 자세히보기</button>
     </div>
 </div>
 </div>
@@ -188,42 +190,42 @@
         var countTag4 = ${dashboard3[3]};
 
         /* 라인 차트 */
-        var timelineMember = [
-            ${dashboard4[0][0]},
-            ${dashboard4[0][1]},
-            ${dashboard4[0][2]},
-            ${dashboard4[0][3]},
-            ${dashboard4[0][4]},
-            ${dashboard4[0][5]},
-            ${dashboard4[0][6]}
-        ];
-        var timelinePost = [
-            ${dashboard4[1][0]},
-            ${dashboard4[1][1]},
-            ${dashboard4[1][2]},
-            ${dashboard4[1][3]},
-            ${dashboard4[1][4]},
-            ${dashboard4[1][5]},
-            ${dashboard4[1][6]}
-        ];
-        var timelineOut = [
-            ${dashboard4[2][0]},
-            ${dashboard4[2][1]},
-            ${dashboard4[2][2]},
-            ${dashboard4[2][3]},
-            ${dashboard4[2][4]},
-            ${dashboard4[2][5]},
-            ${dashboard4[2][6]}
-        ];
-        var timelineReport = [
-            ${dashboard4[3][0]},
-            ${dashboard4[3][1]},
-            ${dashboard4[3][2]},
-            ${dashboard4[3][3]},
-            ${dashboard4[3][4]},
-            ${dashboard4[3][5]},
-            ${dashboard4[3][6]}
-        ];
+        // var timelineMember = [
+        //     ${dashboard4[0][0]},
+        //     ${dashboard4[0][1]},
+        //     ${dashboard4[0][2]},
+        //     ${dashboard4[0][3]},
+        //     ${dashboard4[0][4]},
+        //     ${dashboard4[0][5]},
+        //     ${dashboard4[0][6]}
+        // ];
+        // var timelinePost = [
+        //     ${dashboard4[1][0]},
+        //     ${dashboard4[1][1]},
+        //     ${dashboard4[1][2]},
+        //     ${dashboard4[1][3]},
+        //     ${dashboard4[1][4]},
+        //     ${dashboard4[1][5]},
+        //     ${dashboard4[1][6]}
+        // ];
+        // var timelineOut = [
+        //     ${dashboard4[2][0]},
+        //     ${dashboard4[2][1]},
+        //     ${dashboard4[2][2]},
+        //     ${dashboard4[2][3]},
+        //     ${dashboard4[2][4]},
+        //     ${dashboard4[2][5]},
+        //     ${dashboard4[2][6]}
+        // ];
+        // var timelineReport = [
+        //     ${dashboard4[3][0]},
+        //     ${dashboard4[3][1]},
+        //     ${dashboard4[3][2]},
+        //     ${dashboard4[3][3]},
+        //     ${dashboard4[3][4]},
+        //     ${dashboard4[3][5]},
+        //     ${dashboard4[3][6]}
+        // ];
 
 
         /* 라인 차트 */

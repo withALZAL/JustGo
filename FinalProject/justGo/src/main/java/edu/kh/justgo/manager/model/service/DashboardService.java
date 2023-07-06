@@ -36,10 +36,10 @@ public interface DashboardService {
 	 * 대시보드4
 	 * @return int[]
 	 */
-	int[] dashboard4a(); 
-	int[] dashboard4b(); 
-	int[] dashboard4c(); 
-	int[] dashboard4d(); 
+//	int[] dashboard4a(); 
+//	int[] dashboard4b(); 
+//	int[] dashboard4c(); 
+//	int[] dashboard4d(); 
 	
 	/**
 	 * 대시보드5

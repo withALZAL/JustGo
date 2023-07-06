@@ -49,11 +49,14 @@ public class DashboardServiceImpl implements DashboardService{
 
 
 	// 대시보드4
-	@Override
-	public int[] dashboard4a() {return dao.dashboard4a();}
-	public int[] dashboard4b() {return dao.dashboard4b();}
-	public int[] dashboard4c() {return dao.dashboard4c();}
-	public int[] dashboard4d() {return dao.dashboard4d();}
+//	@Override
+//	public int[] dashboard4a() {return dao.dashboard4a();}
+//	@Override
+//	public int[] dashboard4b() {return dao.dashboard4b();}
+//	@Override
+//	public int[] dashboard4c() {return dao.dashboard4c();}
+//	@Override
+//	public int[] dashboard4d() {return dao.dashboard4d();}
 	
 	
 	// 대시보드5

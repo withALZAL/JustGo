@@ -9,14 +9,14 @@
 
 /* 관리자 컨테이너 */
 .manager--contentContainer {
-    height: 1000px;
+    height: 900px;
     display: grid;
     place-items: center;
 }
 
 /* 콘텐츠 박스 조정 */
 .manager--contentBox {
-    height: 900px;
+    height: 700px;
     width: 100%;
     margin: 10px 30px 10px 30px;
     display: grid;
@@ -43,13 +43,15 @@
     grid-template-rows: 1fr 1fr;
 }
 
+/* dashboard ----------------------------------------------- */
+
 /* dashboard */
 .dashboard__top {
     width: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.dashboard__bottom {
+.dashboard__middle {
     width: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -113,77 +115,20 @@
 .dashboard5__content {
 }
 
-/* statisticsBox 조정 */
-.manager--statisticsBox1{
-    display: grid;
-    grid-template-columns: 350px 350px 350px;
-}
+/* dashboard 팝업창 ----------------------------------------------- */
 
-
-/* -------------------- statisticsBox ------------------------- */
-
-/* 통계박스 조정 */
-
-/* 통계 컨텐츠 조정 */
-.manager--statistics {
-    height: 80px;
-    width: 150px;
-    border-radius: 10px;
-    border: none;
-    background-color: lightblue;
-    color: black;
-    display: grid;
-    grid-template-columns: 60px 100px;
-    margin: 10px 5px 10px 5px;
-}
-
-/* 통계 아이콘 조정 */
-.manager--statistics > div:nth-child(1) {
+/* dashboard6 팝업창 */
+.manager--chartPopup {
     display: grid;
     place-items: center;
-    font-size: 1.2rem;
 }
-
-/* 통계 텍스트 조정 */
-.manager--statistics > div:nth-child(2) {
-    display: grid;
-    grid-template-rows: 40px 5px;
+.dashboard6 {
+    height: 700px;
+    width: 700px;
+    border: 1px solid pink;
+    display: flex;
     align-items: center;
-    padding: 5px 0 5px;
+    justify-content: center;
 }
-.manager--statistics > div:nth-child(2) > div:nth-child(2) {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* -------------------- statisticsBox 끝------------------------- */
-
-
-
-
-/* 매니저 개별 컨텐츠 조정 */
-.manager--content {
-    height: 500px;
-    width: 1100px;
-    
-}
-
-/* 컨텐츠 배치 조정 */
-.manager--content {
-    display: grid;
-    grid-template-rows: 450px 1fr;
-}
-
-/* 컨텐츠 페이지 조정 */
-.manager--content > form:first-child {
-    display: grid;
-    grid-template-rows: 1fr 50px;
-    place-items: center;
-}
-
-
-
-/* 회원관리 ----------------------------------------------- */
-
 
 

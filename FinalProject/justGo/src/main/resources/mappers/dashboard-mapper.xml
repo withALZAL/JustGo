@@ -237,7 +237,7 @@
 	</select>
 	
 	<!-- 대시보드4 -->
-	<select id="dashboard4a" resultType="int[]"> <!-- 회원 수 변화 -->
+	<!-- <select id="dashboard4a" resultType="int[]">
 		SELECT
 		    (
 		        SELECT COUNT(*)
@@ -293,7 +293,7 @@
 		    ) AS "현재 회원 수"
 		FROM DUAL	
 	</select>
-	<select id="dashboard4b" resultType="int[]"> <!-- 게시글 수 변화 -->
+	<select id="dashboard4b" resultType="int[]">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -344,7 +344,7 @@
 			) AS "현재 게시글 수"
 		FROM DUAL
 	</select>
-	<select id="dashboard4c" resultType="int[]"> <!-- 탈퇴회원 수 변화 -->
+	<select id="dashboard4c" resultType="int[]">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -395,7 +395,7 @@
 			) AS "현재 탈퇴회원 수"
 		FROM DUAL
 	</select>
-	<select id="dashboard4d" resultType="int[]"> <!-- 신고 수 변화 -->
+	<select id="dashboard4d" resultType="int[]">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -438,7 +438,7 @@
 				FROM "REPORT"
 			) AS "현재 신고 수"
 		FROM DUAL
-	</select>
+	</select> -->
 	
 	<!-- 대시보드5 -->
 	<select id="report1" resultType="_int"><!-- 욕설 -->
@@ -481,6 +481,168 @@
 		FROM "REPORT"
 		WHERE REPORT_CATEGORY NOT IN ('욕설', '차별적표현', '사칭', '광고성, 도배글', '선정성', '불법정보포함', '개인정보 노출')
 	</select>
+	
+	<!-- 대시보드6 팝업창 -->
+<!-- 	<select id="dashboard6China" resultType="int[]">
+		SELECT
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 1
+				AND TAG_NO = 1
+			) AS "중국-일반",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 1
+				AND TAG_NO = 2
+			) AS "중국-맛집",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 1
+				AND TAG_NO = 3
+			) AS "중국-꿀팁",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 1
+				AND TAG_NO = 4
+			) AS "중국-힐링"
+		FROM DUAL
+	</select>
+	<select id="dashboard6Japan" resultType="int[]">
+		SELECT
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 2
+				AND TAG_NO = 1
+			) AS "일본-일반",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 2
+				AND TAG_NO = 2
+			) AS "일본-맛집",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 2
+				AND TAG_NO = 3
+			) AS "일본-꿀팁",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 2
+				AND TAG_NO = 4
+			) AS "일본-힐링"
+		FROM DUAL
+	</select>
+	<select id="dashboard6Vietnam" resultType="int[]">
+		SELECT
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 3
+				AND TAG_NO = 1
+			) AS "베트남-일반",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 3
+				AND TAG_NO = 2
+			) AS "베트남-맛집",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 3
+				AND TAG_NO = 3
+			) AS "베트남-꿀팁",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 3
+				AND TAG_NO = 4
+			) AS "베트남-힐링"
+		FROM DUAL
+	</select>
+	<select id="dashboard6Thai" resultType="int[]">
+		SELECT
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 4
+				AND TAG_NO = 1
+			) AS "태국-일반",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 4
+				AND TAG_NO = 2
+			) AS "태국-맛집",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 4
+				AND TAG_NO = 3
+			) AS "태국-꿀팁",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 4
+				AND TAG_NO = 4
+			) AS "태국-힐링"
+		FROM DUAL
+	</select>
+	<select id="dashboard6Australia" resultType="int[]">
+		SELECT
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 5
+				AND TAG_NO = 1
+			) AS "호주-일반",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 5
+				AND TAG_NO = 2
+			) AS "호주-맛집",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 5
+				AND TAG_NO = 3
+			) AS "호주-꿀팁",
+			(
+				SELECT COUNT(*)
+				FROM "BOARD"
+				WHERE BOARD_DELETE = 'N'
+				AND COUNTRY_NO = 5
+				AND TAG_NO = 4
+			) AS "호주-힐링"
+		FROM DUAL
+	</select> -->
 	
 
 </mapper>

@@ -57,13 +57,13 @@ public class DashboardController {
 		model.addAttribute("dashboard3", dashboard3);
 		
 		// 대시보드4
-		int[] dashboard4a = service.dashboard4a();
-		int[] dashboard4b = service.dashboard4b();
-		int[] dashboard4c = service.dashboard4c();
-		int[] dashboard4d = service.dashboard4d();
-		
-		int[][] dashboard4 = {dashboard4a, dashboard4b, dashboard4c, dashboard4d};
-		model.addAttribute("dashboard4", dashboard4);
+//		int[] dashboard4a = service.dashboard4a();
+//		int[] dashboard4b = service.dashboard4b();
+//		int[] dashboard4c = service.dashboard4c();
+//		int[] dashboard4d = service.dashboard4d();
+//		
+//		int[][] dashboard4 = {dashboard4a, dashboard4b, dashboard4c, dashboard4d};
+//		model.addAttribute("dashboard4", dashboard4);
         
         // 대시보드5
         int report1 = service.report1(); // 욕설
@@ -79,6 +79,24 @@ public class DashboardController {
 		model.addAttribute("dashboard5", dashboard5);
 		
     	return "/manager/managerDashboard";
+    }
+    
+    // 대시보드6 팝업창
+    @GetMapping("/chartDetail")
+    public String chartDetail(
+    		Model model
+    		) {
+    	
+//    	int[] dashboard6China = service.dashboard6China();
+//    	int[] dashboard6Japan = service.dashboard6Japan();
+//    	int[] dashboard6Vietnam = service.dashboard6Vietnam();
+//    	int[] dashboard6Thai = service.dashboard6Thai();
+//    	int[] dashboard6Australia = service.dashboard6Australia();
+//    	
+//		int[][] dashboard6 = {dashboard6China, dashboard6Japan, dashboard6Vietnam, dashboard6Thai, dashboard6Australia};
+//		model.addAttribute("dashboard6", dashboard6);
+    	
+    	return "manager/managerChartDetail";
     }
 	
 }

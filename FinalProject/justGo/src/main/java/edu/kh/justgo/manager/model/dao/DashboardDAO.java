@@ -43,10 +43,10 @@ public class DashboardDAO {
 	 * 대시보드4
 	 * @return
 	 */
-	public int[] dashboard4a() {return sql.selectOne("dashboardMapper.dashboard4a");}
-	public int[] dashboard4b() {return sql.selectOne("dashboardMapper.dashboard4b");}
-	public int[] dashboard4c() {return sql.selectOne("dashboardMapper.dashboard4c");}
-	public int[] dashboard4d() {return sql.selectOne("dashboardMapper.dashboard4d");}
+//	public int[] dashboard4a() {return sql.selectOne("dashboardMapper.dashboard4a");}
+//	public int[] dashboard4b() {return sql.selectOne("dashboardMapper.dashboard4b");}
+//	public int[] dashboard4c() {return sql.selectOne("dashboardMapper.dashboard4c");}
+//	public int[] dashboard4d() {return sql.selectOne("dashboardMapper.dashboard4d");}
 
 	/**
 	 * 대시보드5

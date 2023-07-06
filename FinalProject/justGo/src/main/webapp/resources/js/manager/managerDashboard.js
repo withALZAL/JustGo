@@ -26,7 +26,7 @@ new Chart(chartDoughnut, {
 /* 태그 차트(3번) */
 var chartTag = document.getElementById('chartTag');
 new Chart(chartTag, {
-    type: 'doughnut',
+    type: 'pie',
     data: {
         labels: ['일반', '맛집', '꿀팁', '힐링'],
         datasets: [{
@@ -45,40 +45,40 @@ new Chart(chartTag, {
 
 
 /* 라인 차트(4번) */
-var chartLine = document.getElementById('chartLine');
-new Chart(chartLine, {
-    type: 'line',
-    data: {
-        labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
-        datasets: [{
-            data: [timelineMember[0], timelineMember[1], timelineMember[2], timelineMember[3], timelineMember[4], timelineMember[5], timelineMember[6]],
-            label: "일반회원 수",
-            borderColor: "red",
-            fill: false
-        }, {
-            data: [timelinePost[0], timelinePost[1], timelinePost[2], timelinePost[3], timelinePost[4], timelinePost[5], timelinePost[6]],
-            label: "게시글 수",
-            borderColor: "orange",
-            fill: false
-        }, {
-            data: [timelineOut[0], timelineOut[1], timelineOut[2], timelineOut[3], timelineOut[4], timelineOut[5], timelineOut[6]],
-            label: "탈퇴회원 수",
-            borderColor: "grey",
-            fill: false
-        }, {
-            data: [timelineReport[0], timelineReport[1], timelineReport[2], timelineReport[3], timelineReport[4], timelineReport[5], timelineReport[6]],
-            label: "신고 수",
-            borderColor: "black",
-            fill: false
-        }
-        ]
-    },
-    options: {
-        title: {
-            display: true
-        }
-    }
-});
+// var chartLine = document.getElementById('chartLine');
+// new Chart(chartLine, {
+//     type: 'line',
+//     data: {
+//         labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
+//         datasets: [{
+//             data: [timelineMember[0], timelineMember[1], timelineMember[2], timelineMember[3], timelineMember[4], timelineMember[5], timelineMember[6]],
+//             label: "일반회원 수",
+//             borderColor: "red",
+//             fill: false
+//         }, {
+//             data: [timelinePost[0], timelinePost[1], timelinePost[2], timelinePost[3], timelinePost[4], timelinePost[5], timelinePost[6]],
+//             label: "게시글 수",
+//             borderColor: "orange",
+//             fill: false
+//         }, {
+//             data: [timelineOut[0], timelineOut[1], timelineOut[2], timelineOut[3], timelineOut[4], timelineOut[5], timelineOut[6]],
+//             label: "탈퇴회원 수",
+//             borderColor: "grey",
+//             fill: false
+//         }, {
+//             data: [timelineReport[0], timelineReport[1], timelineReport[2], timelineReport[3], timelineReport[4], timelineReport[5], timelineReport[6]],
+//             label: "신고 수",
+//             borderColor: "black",
+//             fill: false
+//         }
+//         ]
+//     },
+//     options: {
+//         title: {
+//             display: true
+//         }
+//     }
+// });
 
 /* 바 차트(5번)*/
 var chartBar = document.getElementById('chartBar').getContext('2d');
@@ -101,3 +101,70 @@ new Chart(chartBar, {
         title: { display: false }
     }
 });
+
+/* 디테일 차트(6번) */
+function chartDetail() {
+    var url = "/manager/chartDetail";
+    var name = "디테일 차트";
+    var option = "width = 720, height = 720, top = 100, left = 200, location = no"
+    window.open(url, name, option);
+}
+
+// /* 디테일 차트(6번) */
+// var chartDetail = document.getElementById('chartDetail').getContext('2d');
+// new Chart(chartDetail, {
+//     type: 'radar',
+//     data: {
+//         labels: ['일반', '맛집', '꿀팁', '힐링'],
+//         datasets: [
+//             {
+//                 label: '중국게시판',
+//                 data: [10, 22, 33, 42],
+//                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+//                 borderColor: 'rgba(255, 99, 132, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '일본게시판',
+//                 data: [10, 32, 20, 18],
+//                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
+//                 borderColor: 'rgba(54, 162, 235, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '베트남게시판',
+//                 data: [33, 20, 20, 48],
+//                 backgroundColor: 'rgba(255, 205, 86, 0.5)',
+//                 borderColor: 'rgba(255, 205, 86, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '태국게시판',
+//                 data: [39, 66, 30, 41],
+//                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
+//                 borderColor: 'rgba(75, 192, 192, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '호주게시판',
+//                 data: [33, 45, 22, 11],
+//                 backgroundColor: 'rgba(153, 102, 255, 0.5)',
+//                 borderColor: 'rgba(153, 102, 255, 1)',
+//                 borderWidth: 1,
+//             },
+//         ],
+//     },
+//     options: {
+//         responsive: false, // 반응형 크기 조정 비활성화
+//         maintainAspectRatio: false, // 종횡비 유지 비활성화
+//         width: 400, // 가로 크기 (픽셀)
+//         height: 300, // 세로 크기 (픽셀)
+//         scale: {
+//             ticks: {
+//                 beginAtZero: true,
+//                 max: 100,
+//                 stepSize: 20,
+//             },
+//         },
+//     },
+// });
