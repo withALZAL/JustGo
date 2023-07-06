@@ -50,9 +50,15 @@ public interface WritingService {
 	String imageUpload(MultipartFile file, String webPath, String filePath) throws IllegalStateException, IOException;
 	
 	/**
-	 * DB 이미지 불러오기(삭제를 위한)
+	 * DB 이미지 불러오기(게시글 이미지 삭제)
 	 * @return
 	 */
 	List<String> selectImageList();
+	
+	/**
+	 * DB 이미지 불러오기 (프로필 이미지 삭제 )
+	 * @return
+	 */
+	List<String> selectImageList2();
 	
 }
