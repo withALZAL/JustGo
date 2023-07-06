@@ -25,6 +25,7 @@
 	<typeAlias type="edu.kh.justgo.board.model.dto.Reply" alias="Reply"/>	
 	
 	<typeAlias type="edu.kh.justgo.board.model.dto.BoardImage" alias="BoardImage"/>	
+	<typeAlias type="edu.kh.justgo.chatting.model.dto.Message" alias="Message"/>	
 
 		
 	</typeAliases>
@@ -43,6 +44,7 @@
 	<mapper resource="/mappers/myPage-mapper.xml"/>
 	<mapper resource="/mappers/main-mapper.xml"/>
 	<mapper resource="/mappers/writing-mapper.xml"/>
+	<mapper resource="/mappers/chatting-mapper.xml"/>
 
 	
 	</mappers>
