@@ -26,30 +26,28 @@
                 <section class="chatting--chatBox">
                     <div class="chattingTitle">채팅</div>
                     <div class="chattingList">
-                        <div class="chattingCard other" style="border: 1px solid black;">
+                    <c:forEach var="i" begin="1" end="10">
+                        <div class="yourChattingCard">
                             <div class="chatProfile">
                                 <div class="chatProflieImageBox">
                                     <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
                                 </div>
                                 <span class="nick">닉네임입니다만1</span>
                             </div>
-                            <div class="chattingContent">채팅 내용</div>
-                            <div class="timeLog">15시 30분 30초</div>
-                        </div>
-                        <div class="myChattingCard me" style="border: 1px solid black;">
-                            <div class="chattingContent">채팅 내용</div>
-                            <div class="timeLog">15시 30분 30초</div>
-                        </div>
-                        <div class="chattingCard other" style="border: 1px solid black;">
-                            <div class="chatProfile">
-                                <div class="chatProflieImageBox">
-                                    <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
-                                </div>
-                                <span class="nick">닉네임입니다만1</span>
+                            <div class="yourChattingContent">
+                            채팅 내용
                             </div>
-                            <div class="chattingContent">채팅 내용</div>
                             <div class="timeLog">15시 30분 30초</div>
                         </div>
+                        <div class="myChattingCard">
+                            <div class="myChattingContent_temp">
+                                <div class="myChattingContent">
+                                채팅 내용채팅 내용채팅 내용
+                                </div>
+                            </div>
+                            <div class="timeLog">15시 30분 30초</div>
+                        </div>
+                    </c:forEach>
                     </div>
                 </section>
             <%-- 채팅 박스 끝 --%>
@@ -57,14 +55,16 @@
                 <section class="chatting--memberBox">
                     <div class="memberListTitle">채팅 참여자 목록(000명)</div>
                     <div class="memberList">
+                    <c:forEach var="i" begin="1" end="10">
                         <div class="memberCard">
                             <div class="memberProflieImageBox">
-                                <img src="/resources/images/memberImage/1/profile/20230617172703_78762.jpg" alt="프로필 이미지">
+                                <img src="/resources/images/memberImage/${i}/profile/20230617172703_78762.jpg" alt="프로필 이미지">
                             </div>
                             <div class="memberNickname">
                                 바른말고운말임다
                             </div>
                         </div>
+                    </c:forEach>
                     </div>
                 </section>
             <%-- 참여자 박스 끝 --%>
