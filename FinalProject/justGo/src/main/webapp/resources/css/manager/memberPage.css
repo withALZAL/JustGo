@@ -23,32 +23,22 @@
 }
 
 
-
-
-/* 회원가입 버튼 상호작용 */
-/* .account--joinContainer button {
-    border: none;
-    font-size: 1.2rem;
-} */
-/* .account--joinContainer button:hover {
-    color: white;
-    background-color: #8B89FF;
-} */
-
 /* 회원가입 박스 조정 */
 .account--joinBox {
     display: grid;
     grid-template-columns: 150px 1fr;
 }
 
-/* 메세지 색상 지정 */
-/* .confirm{ color : green; }
-.error{ color : red; } */
-
-/* .memberPage--left,
-.memberPage--right {
-    border: 3px solid pink;
-} */
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
+}
 
 .memberPage--left{
     border-right: 1px solid #D9D9D9;
