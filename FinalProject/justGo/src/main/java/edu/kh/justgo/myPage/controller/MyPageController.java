@@ -2,6 +2,7 @@ package edu.kh.justgo.myPage.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import edu.kh.justgo.board.model.dto.Board;
 import edu.kh.justgo.member.model.dto.Member;
 import edu.kh.justgo.myPage.model.service.MyPageService;
 
@@ -127,19 +131,35 @@ public class MyPageController {
 	public String myPost(
 			@SessionAttribute(value="loginMember", required=false) Member loginMember,
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
+			@RequestParam Map<String, Object> paramMap,
 			Model model
 			) {
 		
 		int memberNo = loginMember.getMemberNo();
 		
-		Map<String, Object> map = service.myPost(memberNo, cp);
+		System.out.println(paramMap.get("key5"));
+		System.out.println(paramMap.get("key5"));
+		System.out.println(paramMap.get("key5"));
+		System.out.println(paramMap.get("key5"));
+		System.out.println(paramMap.get("key5"));
+		System.out.println(paramMap.get("key5"));
 		
-		model.addAttribute("map", map);
+		
+		if (paramMap.get("key5") == null) { // 검색어 없을 때
+			Map<String, Object> map = service.myPost(memberNo, cp);
+			
+			model.addAttribute("map", map);
+		} else { // 검색어 있을 때
+			
+			paramMap.put("memberNo", memberNo);
+			
+			Map<String, Object> map = service.myPost(paramMap, cp); // 오버로딩
+			
+			model.addAttribute("map", map);
+		}
 		
 		return "/account/myPage-myWriting";
 	}
-	
-	
 	
 }
 

@@ -78,7 +78,7 @@ public class MyPageServiceImpl implements MyPageService{
 	}
 
 
-	// 내가 쓴 글(상준 수정 중)
+	// 내가 쓴 글
 	@Override
 	public Map<String, Object> myPost(int memberNo, int cp) {
 		
@@ -100,6 +100,29 @@ public class MyPageServiceImpl implements MyPageService{
 		
 		return map;
 	}
+	// 내가 쓴 글(검색)
+	@Override
+	public Map<String, Object> myPost(Map<String, Object> paramMap, int cp) {
+
+		int postCount = dao.postCount2(paramMap);
+
+			System.out.println("postCount:" + postCount); // 잘 담김
+
+		Pagination10 pagination10 = new Pagination10(postCount, cp);
+
+			System.out.println("pagination:" + pagination10); // 잘 담김
+
+		List<Board> myPostList = dao.selectMyPostList2(pagination10, paramMap); // Board의 5개 열 정보가 담긴 List 형태로 반환
+
+		Map<String, Object> map = new HashMap<>(); // myPostList와 myPostPagination을 Map에 담아서 반환
+		map.put("pagination", pagination10);
+		map.put("myPostList", myPostList);
+
+		System.out.println("map:      " + map);
+
+		return map;
+	}
+	
 
 	
 

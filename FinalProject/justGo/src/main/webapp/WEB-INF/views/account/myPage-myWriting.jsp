@@ -52,6 +52,10 @@ ${myPostList} --%>
 
 <!-- Template-main 시작 -->
 <main class="template--main">
+
+<c:if test="${not empty param.key5}" >
+    <c:set var="sp" value="&key5=${param.key5}&query=${param.query}"/>
+</c:if>
 <aside class="template--leftAside"></aside>
 <section class="template--Section">
 
@@ -142,12 +146,12 @@ ${myPostList} --%>
                         <ul class="pagination">
                             <%-- 맨 처음 페이지로 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=1">처음</a>
+                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=1${sp}">처음</a>
                             </li>
 
                             <%-- 이전 목록 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=${pagination.prevPage}">이전</a>
+                                <a class="page-link" id="prev" href="/myPage/myWriting?cp=${pagination.prevPage}${sp}">이전</a>
                             </li>
 
                             <%-- 특정 번호 목록 페이지 이동 --%>
@@ -157,30 +161,33 @@ ${myPostList} --%>
                                         <li class="page-item"><a class="page-link active">${i}</a></li> <%-- 현재 보고 있는 페이지 --%>
                                     </c:when>
                                     <c:otherwise>
-                                        <li class="page-item"><a class="page-link" href="/myPage/myWriting?cp=${i}">${i}</a></li>
+                                        <li class="page-item"><a class="page-link" href="/myPage/myWriting?cp=${i}${sp}">${i}</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
 
                             <%-- 다음 목록 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.nextPage}">다음</a>
+                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.nextPage}${sp}">다음</a>
                             </li>
 
                             <%-- 맨 끝 페이지 이동 --%>
                             <li class="page-item">
-                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.maxPage}">끝</a>
+                                <a class="page-link" id="next" href="/myPage/myWriting?cp=${pagination.maxPage}${sp}">끝</a>
                             </li>
                         </ul>
                     </nav>
                 </form>
             </div>
-            <form class="searchBox" action="/myPage/myWriting" method="get">
-                <input id="searchInput" name="query" type="text" placeholder="글 제목을 입력하세요." maxlength='30' autocomplete="off">
-                <button id="searchBtn" type="button" class="btn btn-primary btn-sm">검색</button>
-            </form>
             </c:if>
         </form>
+        <c:if test="${!empty myPostList}"> <%-- 페이지 없으면 검색창도 없음 --%>
+        <form class="searchBox" action="/myPage/myWriting" method="get">
+            <input type="hidden" name="key5" value="p">
+            <input id="searchInput" name="query" type="search" placeholder="글 제목을 입력하세요." value="${param.query}" maxlength='30' autocomplete="off">
+            <button id="searchBtn" type="submit" class="btn btn-primary btn-sm">검색</button>
+        </form>
+        </c:if>
     </div>
     <%-- 내가 쓴 글 끝 --%>
 

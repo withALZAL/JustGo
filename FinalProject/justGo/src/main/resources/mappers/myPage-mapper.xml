@@ -99,9 +99,34 @@
 		JOIN "TAG" USING (TAG_NO)
 		WHERE MEMBER_NO = #{memberNo}
 		AND BOARD_DELETE = 'N'
-<!-- 		<if test=''>
-			AND BOARD_TITLE LIKE '%${query}%' 제목 검색
-		</if> -->
+		ORDER BY BOARD_NO DESC
+	</select>
+	<!-- 내가 쓴 글 카운트 -->
+	<select id="postCount2" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOARD_DELETE = 'N'
+		<if test='key5 == "p"'>
+			AND BOARD_TITLE LIKE '%${query}%'
+		</if>
+	</select>
+	<!-- 내가 쓴 글 목록 조회 -->
+	<select id="selectMyPostList2" resultMap="board_rm">
+		SELECT BOARD_NO,
+			TAG_CONTENT,
+			BOARD_TITLE,
+			TO_CHAR(CREATE_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') CREATE_DATE,
+			READ_COUNT,
+			BOARD_CODE,
+			COUNTRY_NO
+		FROM "BOARD"
+		JOIN "TAG" USING (TAG_NO)
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOARD_DELETE = 'N'
+		<if test='key5 == "p"'>
+			AND BOARD_TITLE LIKE '%${query}%'
+		</if>
 		ORDER BY BOARD_NO DESC
 	</select>
 	
