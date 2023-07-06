@@ -51,22 +51,22 @@ new Chart(chartLine, {
     data: {
         labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
         datasets: [{
-            data: [0, 100, 120, 300, 200, 100, 300],
+            data: [timelineMember[0], timelineMember[1], timelineMember[2], timelineMember[3], timelineMember[4], timelineMember[5], timelineMember[6]],
             label: "일반회원 수",
             borderColor: "red",
             fill: false
         }, {
-            data: [0, 100, 120, 20, 200, 100, 300],
+            data: [timelinePost[0], timelinePost[1], timelinePost[2], timelinePost[3], timelinePost[4], timelinePost[5], timelinePost[6]],
             label: "게시글 수",
             borderColor: "orange",
             fill: false
         }, {
-            data: [0, 100, 120, 10, 200, 100, 300],
+            data: [timelineOut[0], timelineOut[1], timelineOut[2], timelineOut[3], timelineOut[4], timelineOut[5], timelineOut[6]],
             label: "탈퇴회원 수",
             borderColor: "grey",
             fill: false
         }, {
-            data: [0, 100, 120, 0, 10, 90, 200],
+            data: [timelineReport[0], timelineReport[1], timelineReport[2], timelineReport[3], timelineReport[4], timelineReport[5], timelineReport[6]],
             label: "신고 수",
             borderColor: "black",
             fill: false

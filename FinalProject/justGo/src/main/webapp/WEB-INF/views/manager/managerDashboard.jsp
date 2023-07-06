@@ -80,7 +80,7 @@
                         회원 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllMember}명
+                    ${dashboard1[0]}명
                     </div>
                 </div>
                 <div class="card stat2">
@@ -88,7 +88,7 @@
                         관리자 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllManager}명
+                    ${dashboard1[1]}명
                     </div>
                 </div>
                 <div class="card stat3">
@@ -96,7 +96,7 @@
                         탈퇴회원 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countOutMember}명
+                    ${dashboard1[2]}명
                     </div>
                 </div>
                 <div class="card stat4">
@@ -104,7 +104,7 @@
                         게시글 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllPost}개
+                    ${dashboard1[3]}개
                     </div>
                 </div>
             </div>
@@ -173,19 +173,58 @@
 <%-- managerDashboard로 변수 전달 --%>
     <script>
         /* 도넛 차트 */
-        var countFree = ${countFree};
-        var countQuestion = ${countQuestion};
-        var countChina = ${countChina};
-        var countJapan = ${countJapan};
-        var countVietnam = ${countVietnam};
-        var countThai = ${countThai};
-        var countAustralia = ${countAustralia};
+        var countFree = ${dashboard2[0]};
+        var countQuestion = ${dashboard2[1]};
+        var countChina = ${dashboard2[2]};
+        var countJapan = ${dashboard2[3]};
+        var countVietnam = ${dashboard2[4]};
+        var countThai = ${dashboard2[5]};
+        var countAustralia = ${dashboard2[6]};
 
         /* 태그 차트 */
-        var countTag1 = ${countTag1};
-        var countTag2 = ${countTag2};
-        var countTag3 = ${countTag3};
-        var countTag4 = ${countTag4};
+        var countTag1 = ${dashboard3[0]};
+        var countTag2 = ${dashboard3[1]};
+        var countTag3 = ${dashboard3[2]};
+        var countTag4 = ${dashboard3[3]};
+
+        /* 라인 차트 */
+        var timelineMember = [
+            ${dashboard4[0][0]},
+            ${dashboard4[0][1]},
+            ${dashboard4[0][2]},
+            ${dashboard4[0][3]},
+            ${dashboard4[0][4]},
+            ${dashboard4[0][5]},
+            ${dashboard4[0][6]}
+        ];
+        var timelinePost = [
+            ${dashboard4[1][0]},
+            ${dashboard4[1][1]},
+            ${dashboard4[1][2]},
+            ${dashboard4[1][3]},
+            ${dashboard4[1][4]},
+            ${dashboard4[1][5]},
+            ${dashboard4[1][6]}
+        ];
+        var timelineOut = [
+            ${dashboard4[2][0]},
+            ${dashboard4[2][1]},
+            ${dashboard4[2][2]},
+            ${dashboard4[2][3]},
+            ${dashboard4[2][4]},
+            ${dashboard4[2][5]},
+            ${dashboard4[2][6]}
+        ];
+        var timelineReport = [
+            ${dashboard4[3][0]},
+            ${dashboard4[3][1]},
+            ${dashboard4[3][2]},
+            ${dashboard4[3][3]},
+            ${dashboard4[3][4]},
+            ${dashboard4[3][5]},
+            ${dashboard4[3][6]}
+        ];
+
 
         /* 라인 차트 */
         // var g1m0 = ${g1m0}; /* 회원 수 */
@@ -218,14 +257,14 @@
         // var g4m6 = ${g4m6};
 
         /* 바 차트 */
-        var report1 = ${report1};
-        var report2 = ${report2};
-        var report3 = ${report3};
-        var report4 = ${report4};
-        var report5 = ${report5};
-        var report6 = ${report6};
-        var report7 = ${report7};
-        var report8 = ${report8};
+        var report1 = ${dashboard5[0]};
+        var report2 = ${dashboard5[1]};
+        var report3 = ${dashboard5[2]};
+        var report4 = ${dashboard5[3]};
+        var report5 = ${dashboard5[4]};
+        var report6 = ${dashboard5[5]};
+        var report7 = ${dashboard5[6]};
+        var report8 = ${dashboard5[7]};
         
     </script>
     <script src="/resources/js/manager/managerDashboard.js"></script>

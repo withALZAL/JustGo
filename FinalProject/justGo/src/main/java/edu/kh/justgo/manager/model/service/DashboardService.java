@@ -4,7 +4,7 @@ public interface DashboardService {
 	
 	/**
 	 * 대시보드1
-	 * @return
+	 * @return int
 	 */
 	int countAllMember();
 	int countAllManager();
@@ -13,7 +13,7 @@ public interface DashboardService {
 	
 	/**
 	 * 대시보드2
-	 * @return
+	 * @return int
 	 */
 	int countFree();
 	int countQuestion();
@@ -25,7 +25,7 @@ public interface DashboardService {
 
 	/**
 	 * 대시보드3
-	 * @return
+	 * @return int
 	 */
 	int countTag1();
 	int countTag2();
@@ -33,8 +33,17 @@ public interface DashboardService {
 	int countTag4();
 
 	/**
+	 * 대시보드4
+	 * @return int[]
+	 */
+	int[] dashboard4a(); 
+	int[] dashboard4b(); 
+	int[] dashboard4c(); 
+	int[] dashboard4d(); 
+	
+	/**
 	 * 대시보드5
-	 * @return
+	 * @return int
 	 */
 	int report1();
 	int report2();
@@ -47,7 +56,7 @@ public interface DashboardService {
 
 	/**
 	 * 대시보드4
-	 * @return
+	 * @return int
 	 */
 //	int countMember6monthsAgo();
 //	int countMember3monthsAgo();

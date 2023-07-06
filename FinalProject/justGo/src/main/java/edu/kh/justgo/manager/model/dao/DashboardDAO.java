@@ -43,37 +43,10 @@ public class DashboardDAO {
 	 * 대시보드4
 	 * @return
 	 */
-//	public int countMember6monthsAgo() {return sql.selectOne("dashboardMapper.countMember6monthsAgo");}
-//	public int countMember3monthsAgo() {return sql.selectOne("dashboardMapper.countMember3monthsAgo");}
-//	public int countMember2monthsAgo() {return sql.selectOne("dashboardMapper.countMember2monthsAgo");}
-//	public int countMember1monthsAgo() {return sql.selectOne("dashboardMapper.countMember1monthsAgo");}
-//	public int countMember2weeksAgo() {return sql.selectOne("dashboardMapper.countMember2weeksAgo");}
-//	public int countMember1weeksAgo() {return sql.selectOne("dashboardMapper.countMember1weeksAgo");}
-//	public int countMemberToday() {return sql.selectOne("dashboardMapper.countMemberToday");}
-//	
-//	public int countPost6monthsAgo() {return sql.selectOne("dashboardMapper.countPost6monthsAgo");}
-//	public int countPost3monthsAgo() {return sql.selectOne("dashboardMapper.countPost3monthsAgo");}
-//	public int countPost2monthsAgo() {return sql.selectOne("dashboardMapper.countPost2monthsAgo");}
-//	public int countPost1monthsAgo() {return sql.selectOne("dashboardMapper.countPost1monthsAgo");}
-//	public int countPost2weeksAgo() {return sql.selectOne("dashboardMapper.countPost2weeksAgo");}
-//	public int countPost1weeksAgo() {return sql.selectOne("dashboardMapper.countPost1weeksAgo");}
-//	public int countPostToday() {return sql.selectOne("dashboardMapper.countPostToday");}
-//	
-//	public int countOut6monthsAgo() {return sql.selectOne("dashboardMapper.countOut6monthsAgo");}
-//	public int countOut3monthsAgo() {return sql.selectOne("dashboardMapper.countOut3monthsAgo");}
-//	public int countOut2monthsAgo() {return sql.selectOne("dashboardMapper.countOut2monthsAgo");}
-//	public int countOut1monthsAgo() {return sql.selectOne("dashboardMapper.countOut1monthsAgo");}
-//	public int countOut2weeksAgo() {return sql.selectOne("dashboardMapper.countOut2weeksAgo");}
-//	public int countOut1weeksAgo() {return sql.selectOne("dashboardMapper.countOut1weeksAgo");}
-//	public int countOutToday() {return sql.selectOne("dashboardMapper.countOutToday");}
-//	
-//	public int countReport6monthsAgo() {return sql.selectOne("dashboardMapper.countReport6monthsAgo");}
-//	public int countReport3monthsAgo() {return sql.selectOne("dashboardMapper.countReport3monthsAgo");}
-//	public int countReport2monthsAgo() {return sql.selectOne("dashboardMapper.countReport2monthsAgo");}
-//	public int countReport1monthsAgo() {return sql.selectOne("dashboardMapper.countReport1monthsAgo");}
-//	public int countReport2weeksAgo() {return sql.selectOne("dashboardMapper.countReport2weeksAgo");}
-//	public int countReport1weeksAgo() {return sql.selectOne("dashboardMapper.countReport1weeksAgo");}
-//	public int countReportToday() {return sql.selectOne("dashboardMapper.countReportToday");}
+	public int[] dashboard4a() {return sql.selectOne("dashboardMapper.dashboard4a");}
+	public int[] dashboard4b() {return sql.selectOne("dashboardMapper.dashboard4b");}
+	public int[] dashboard4c() {return sql.selectOne("dashboardMapper.dashboard4c");}
+	public int[] dashboard4d() {return sql.selectOne("dashboardMapper.dashboard4d");}
 
 	/**
 	 * 대시보드5
