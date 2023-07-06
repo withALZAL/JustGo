@@ -37,13 +37,10 @@
 <!-- loginNav 시작 -->
 <nav class="manager--loginNav__container"> <%-- 각종 버튼(임시용) --%>
     <form>
-        <a href="/"> <%-- 메인페이지로 이동 --%>
+        <a href="/"> 
             <img src="/resources/images/officialImages/JUSTGO_OFFICIAL_LOGO.png" alt="JustGo 로고">
         </a>
     </form> 
-
-
-
     <div class="manager--loginSession"> 
         <form>
             <a href="/myPage/info">
@@ -154,6 +151,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 <aside class="template--rightAside"></aside>
 </header>
@@ -167,12 +182,13 @@
 
 <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<%-- SockJS --%>
-    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>    
+    
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
-    <script src="/resources/js/manager/managerHeader.js"></script>
+    
     <%-- <script src="/resources/js/manager/header.js"></script> --%>
-    <script>const loginMemberNo = "${loginMember.memberNo}";</script>
+    <script>
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
 </body>
 </html>

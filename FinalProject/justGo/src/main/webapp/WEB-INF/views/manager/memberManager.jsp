@@ -93,7 +93,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <c:choose>
                             <c:when test="${empty memberList}">
                                 <tr>
@@ -123,9 +122,6 @@
                                 </c:forEach>
                             </c:otherwise>
                         </c:choose>
-                        
-
-
                     </tbody>
                 </table>
                 <div class="manager--contentPagenation">
@@ -153,12 +149,10 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
-
                                 <%-- 다음 목록 페이지 이동 --%>
                                 <li class="page-item">
                                     <a class="page-link" id="next" href="/manager/memberManager?cp=${memberPagination.nextPage}${sp}">다음</a>
                                 </li>
-
                                 <%-- 맨 끝 페이지 이동 --%>
                                 <li class="page-item">
                                     <a class="page-link" id="next" href="/manager/memberManager?cp=${memberPagination.endPage}${sp}">맨 끝</a>

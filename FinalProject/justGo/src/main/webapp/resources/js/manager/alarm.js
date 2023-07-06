@@ -10,11 +10,11 @@ function sendMessage(CP, memberNo, reportNo){
     // 매개변수를 JS객체에 저장
     let obj={}; // 비어있는 객체
 
-    obj.memberNo = memberNo; // 객체에 일치하는 key가 없다면 자동으로 추가
-    obj.reportNo = reportNo;
+    obj.reportNo = reportNo; // 객체에 일치하는 key가 없다면 자동으로 추가
+    obj.memberNo = memberNo;
     obj.CP = CP;
 
-    // console.log(obj);
+    console.log(obj);
 
      // 웹소켓 연결된 곳으로 메시지를 보냄
     testSock.send(JSON.stringify(obj));
@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", function() {
         // e.data : 전달받은 메시지(JSON)
 
         let obj= JSON.parse(e.data); // JSON -> js객체
-        console.log(`보낸 사람 : ${obj.CP}/${obj.name}/ ${obj.str}`);
+        // console.log(`보낸 사람 : ${obj.CP} / ${obj.reportNo} / ${obj.memberNo}`);
 
         const alarmList = document.createElement("li");
         
         const div1 = document.createElement("div");
-        div1.innerText = msg.petitionNo.substr(0,10) + "... 게시글에";
+        div1.innerText = obj.reportNo.substr(0,10) + "... 게시글을";
         
         const div2 = document.createElement("div");
-        div2.innerText = msg.userNo + "님 께서 댓글을 작성하였습니다.";
+        div2.innerText = obj.memberNo + "님 께서 신고하였습니다.";
 
 
         alarmList.append(div1, div2);

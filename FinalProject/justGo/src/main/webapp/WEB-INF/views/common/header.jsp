@@ -86,7 +86,7 @@
         </a>
     </form>
     <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="user@kh.or.kr">
+            <input type="hidden" name="memberEmail" value="user05@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
             <button class="btn btn-secondary btn-sm">빠른로그인</button>
     </form>
