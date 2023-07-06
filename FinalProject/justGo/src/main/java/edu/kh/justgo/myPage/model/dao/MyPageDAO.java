@@ -1,6 +1,8 @@
 package edu.kh.justgo.myPage.model.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,9 @@ public class MyPageDAO {
 	public int postCount(int memberNo) {
 		return sqlSession.selectOne("myPageMapper.postCount", memberNo);
 	}
+	public int postCount2(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("myPageMapper.postCount2", paramMap);
+	}
 	// 내가 쓴 글 조회(상준)
 	public List<Board> selectMyPostList(Pagination10 myPostPagination10, int memberNo) {
 		int offset = (myPostPagination10.getCurrentPage()-1) * myPostPagination10.getLimit(); // offset만큼 건너 뜀
@@ -58,6 +63,16 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectMyPostList", memberNo, rowBounds);
 		
 	}
-
+	public List<Board> selectMyPostList2(Pagination10 myPostPagination10, Map<String, Object> paramMap) {
+		int offset = (myPostPagination10.getCurrentPage()-1) * myPostPagination10.getLimit(); // offset만큼 건너 뜀
+		
+		System.out.println("myPostPagination.getCurrentPage()22222:" + myPostPagination10.getCurrentPage()); // 잘 담김
+		System.out.println("myPostPagination.getLimit()222222:" + myPostPagination10.getLimit()); // 잘 담김
+		
+		RowBounds rowBounds = new RowBounds(offset, myPostPagination10.getLimit()); // offset으로 RowBound 객체 생성
+		
+		return sqlSession.selectList("myPageMapper.selectMyPostList2", paramMap, rowBounds);
+		
+	}
 
 }

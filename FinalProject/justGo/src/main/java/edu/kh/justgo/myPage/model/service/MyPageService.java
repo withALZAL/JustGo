@@ -34,6 +34,7 @@ public interface MyPageService {
 	 * @return
 	 */
 	Map<String, Object> myPost(int memberNo, int cp);
+	Map<String, Object> myPost(Map<String, Object> paramMap, int cp); 
 
 
 
