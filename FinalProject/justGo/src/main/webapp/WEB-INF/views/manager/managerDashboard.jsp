@@ -72,7 +72,7 @@
     </aside>
     <div class="manager--mainBox">
         <section class="dashboard__top">
-            <section class="dashboard1" style="border: 1px solid pink;">
+            <section class="dashboard1">
             <div class="dashboardTitle">사용자 통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
@@ -109,14 +109,14 @@
                 </div>
             </div>
             </section>
-            <section class="dashboard2" style="border: 1px solid pink;">
+            <section class="dashboard2">
                 <div class="dashboardTitle">게시판별 게시글 통계</div>
                 <div class="dashboard2__content">
                     <canvas id="chartDoughnut">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard3" style="border: 1px solid pink;">
+            <section class="dashboard3">
                 <div class="dashboardTitle">태그별 게시글 통계</div>
                 <div class="dashboard3__content">
                     <canvas id="chartTag">
@@ -125,14 +125,14 @@
             </section>
         </section>
         <section class="dashboard__bottom">
-            <section class="dashboard4" style="border: 1px solid pink;">
+            <section class="dashboard4">
                 <div class="dashboardTitle">사용자 수 변화 통계</div>
                 <div class="dashboard4__content">
                     <canvas id="chartLine">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard5" style="border: 1px solid pink;">
+            <section class="dashboard5">
                 <div class="dashboardTitle">신고 통계</div>
                 <div class="dashboard5__content">
                     <canvas id="chartBar">

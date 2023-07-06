@@ -135,7 +135,345 @@
 		않음 사용 예시 ) test1 = "user01" test2 = MEMBER_EMAIL - MEMBER_EMAIL이 'user 01' 
 		인 회원 조회 SELECT * FROM MEMBER WHERE MEMBER_EMAIL = #{test1} -->
 
-
+	<!-- 대시보드1 -->
+	<select id="countAllMember" resultType="_int"> <!-- 일반회원 수 -->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+	</select>
+	<select id="countAllManager" resultType="_int"> <!-- 관리자 수 -->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 1
+		AND MEMBER_CONDITION = 'N'
+	</select>
+	<select id="countOutMember" resultType="_int"> <!-- 탈퇴회원 수-->
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'Y'
+	</select>
+	<select id="countAllPost" resultType="_int"> <!-- 전체 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+	</select>
+	
+	<!-- 대시보드2 -->
+	<select id="countFree" resultType="_int"> <!-- 자유게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 2
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countQuestion" resultType="_int"> <!-- 질문게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 3
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countChina" resultType="_int"> <!-- 중국게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 1
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countJapan" resultType="_int"> <!-- 일본게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 2
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countVietnam" resultType="_int"> <!-- 베트남게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 3
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countThai" resultType="_int"> <!-- 태국게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 4
+		AND BOARD_DELETE = 'N'
+	</select> 
+	<select id="countAustralia" resultType="_int"> <!-- 호주게시판 게시글 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_CODE = 1
+		AND COUNTRY_NO = 5
+		AND BOARD_DELETE = 'N'
+	</select> 
+	
+	
+	<!-- 대시보드3 -->
+	<select id="countTag1" resultType="_int"> <!-- 태그 1 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 1
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag2" resultType="_int"> <!-- 태그 2 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 2
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag3" resultType="_int"> <!-- 태그 3 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 3
+		AND BOARD_DELETE = 'N'
+	</select>
+	<select id="countTag4" resultType="_int"> <!-- 태그 4 수 -->
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE TAG_NO = 4
+		AND BOARD_DELETE = 'N'
+	</select>
+	
+	<!-- 대시보드4 -->
+	<!-- 일반회원 수 변화 -->
+<!-- 	<select id="countMember6monthsAgo" resultType="_int"> 
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "여섯달 전" FROM DUAL)
+	</select>
+	<select id="countMember3monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "세달 전" FROM DUAL)
+	</select>
+	<select id="countMember2monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "두달 전" FROM DUAL)
+	</select>
+	<select id="countMember1monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "한달 전" FROM DUAL)
+	</select>
+	<select id="countMember2weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT SYSDATE - 14 AS "2주일 전" FROM DUAL)
+	</select>
+	<select id="countMember1weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+		AND ENROLL_DATE <
+		(SELECT SYSDATE - 7 AS "1주일 전" FROM DUAL)
+	</select>
+	<select id="countMemberToday" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_ROLE = 2
+		AND MEMBER_CONDITION = 'N'
+	</select> -->
+	
+	<!-- 게시글 변화 -->
+	<!-- <select id="countPost6monthsAgo" resultType="_int"> 
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "여섯달 전" FROM DUAL)
+	</select>
+	<select id="countPost3monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "세달 전" FROM DUAL)
+	</select>
+	<select id="countPost2monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "두달 전" FROM DUAL)
+	</select>
+	<select id="countPost1monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "한달 전" FROM DUAL)
+	</select>
+	<select id="countPost2weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT SYSDATE - 14 AS "2주일 전" FROM DUAL)
+	</select>
+	<select id="countPost1weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+		AND CREATE_DATE <
+		(SELECT SYSDATE - 7 AS "1주일 전" FROM DUAL)
+	</select>
+	<select id="countPostToday" resultType="_int">
+		SELECT COUNT(*)
+		FROM "BOARD"
+		WHERE BOARD_DELETE = 'N'
+	</select> -->
+	
+	<!-- 탈퇴 회원 수 변화 -->
+	<!-- <select id="countOut6monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "여섯달 전" FROM DUAL)
+	</select>
+	<select id="countOut3monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "세달 전" FROM DUAL)
+	</select>
+	<select id="countOut2monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "두달 전" FROM DUAL)
+	</select>
+	<select id="countOut1monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "한달 전" FROM DUAL)
+	</select>
+	<select id="countOut2weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT SYSDATE - 14 AS "2주일 전" FROM DUAL)
+	</select>
+	<select id="countOut1weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_CONDITION = 'Y'
+		AND DELETE_DATE <
+		(SELECT SYSDATE - 7 AS "1주일 전" FROM DUAL)
+	</select>
+	<select id="countOutToday" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		AND MEMBER_CONDITION = 'Y'
+	</select> -->
+	
+	<!-- 신고 수 변화 -->
+	<!-- <select id="countReport6monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "여섯달 전" FROM DUAL)
+	</select>
+	<select id="countReport3monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "세달 전" FROM DUAL)
+	</select>
+	<select id="countReport2monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "두달 전" FROM DUAL)
+	</select>
+	<select id="countReport1monthsAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "한달 전" FROM DUAL)
+	</select>
+	<select id="countReport2weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT SYSDATE - 14 AS "2주일 전" FROM DUAL)
+	</select>
+	<select id="countReport1weeksAgo" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_DATE <
+		(SELECT SYSDATE - 7 AS "1주일 전" FROM DUAL)
+	</select>
+	<select id="countReportToday" resultType="_int">
+		SELECT COUNT(*)
+		FROM "REPORT"
+	</select> -->
+	
+	<!-- 대시보드5 -->
+	<select id="report1" resultType="_int"><!-- 욕설 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '욕설'
+	</select>
+	<select id="report2" resultType="_int"><!-- 차별적표현 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '차별적표현'
+	</select>
+	<select id="report3" resultType="_int"><!-- 사칭 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '사칭'
+	</select>
+	<select id="report4" resultType="_int"><!-- 광고성, 도배글 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '광고성, 도배글'	
+	</select>
+	<select id="report5" resultType="_int"><!-- 선정성 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '선정성'
+	</select>
+	<select id="report6" resultType="_int"><!-- 불법정보포함 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '불법정보포함'
+	</select>
+	<select id="report7" resultType="_int"><!-- 개인정보 노출 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY = '개인정보 노출'
+	</select>
+	<select id="report8" resultType="_int"><!-- 기타 -->
+		SELECT COUNT(*)
+		FROM "REPORT"
+		WHERE REPORT_CATEGORY NOT IN ('욕설', '차별적표현', '사칭', '광고성, 도배글', '선정성', '불법정보포함', '개인정보 노출')
+	</select>
 	
 
 </mapper>

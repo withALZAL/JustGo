@@ -187,28 +187,3 @@
 
 
 
-
-
-.manager--statisticsBox{
-    display: flex;
-    flex-direction: row;
-
-}
-
-
-
-.manager--statisticsBox1{
-    background-color: blue;
-}
-.manager--statisticsBox2{
-    background-color: red;
-}
-.manager--statisticsBox3{
-    background-color: green;
-}
-.manager--statisticsBox4{
-    background-color: yellow;
-}
-.manager--statisticsBox5{
-    background-color: violet;
-}
