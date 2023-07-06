@@ -24,7 +24,7 @@
 .chatting--chatBox {
     padding: 10px;
     border: none;
-    background-color: pink;
+    background-color: #D9D9D9;
     border-radius: 10px;
     margin: 10px;
 }
@@ -37,19 +37,17 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.chattingCard {
-    height: 100px;
+.yourChattingCard {
     display: grid;
     grid-template-rows: 20px 1fr 10px;
     padding: 5px 10px;
 }
 .myChattingCard {
-    height: 100px;
     display: grid;
     grid-template-rows: 1fr 10px;
     padding: 5px 10px;
 }
-.other > .chatProfile {
+.yourChattingCard > .chatProfile {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -60,19 +58,7 @@
     overflow: hidden;
     border-radius: 100%;
 }
-.memberProfileImageBox img {
-    object-fit: cover;
-    object-position: center center;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-}
-.me > .chatProfile {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 5px;
-}
-.me div {
+.myChattingCard div {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -84,15 +70,35 @@
     font-weight: bold;
     font-size: 0.8rem;
 }
-.chattingContent {
-    border: 1px solid red;
+.yourChattingContent {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    width: fit-content;
+    height: fit-content;
 }
+.myChattingContent_temp {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.myChattingContent {
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    background-color: yellow;
+    flex-direction: row-reverse;
+}
+.memberListTitle,
+.chattingTitle {
+    font-weight: bold;
+}
+
 
 /* memberBox */
 .chatting--memberBox {
     padding: 10px;
     border: none;
-    background-color: pink;
+    background-color: #D9D9D9;
     border-radius: 10px;
     margin: 10px;
 }
@@ -102,7 +108,7 @@
 }
 .memberCard {
     height: 50px;
-    background-color: pink;
+    background-color: white;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -122,8 +128,8 @@
 .memberProfileImageBox img {
     object-fit: cover;
     object-position: center center;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
 }
 .memberNickname {
@@ -135,7 +141,7 @@
 .chatting--inputBox {
     padding: 10px;
     border: none;
-    background-color: pink;
+    background-color: #D9D9D9;
     border-radius: 10px;
     margin: 10px;
 }
