@@ -206,10 +206,16 @@ public class WritingServiceImpl implements WritingService {
 		return webPath + rename; // web 에서 접근가능한 파일 저장경로 + 변경된 이름 => 인터넷에 이미지의 경로을 치면 이미지가 나옴
 	}
 
-	// db 이미지 리스트 조회
+	// db 게시글 이미지 리스트 조회
 	@Override
 	public List<String> selectImageList() {
 		return dao.selectImageList();
+	}
+	
+	// db 프로필 이미지 리스트 조회 
+	@Override
+	public List<String> selectImageList2() {
+		return dao.selectImageList2();
 	}
 	
 	

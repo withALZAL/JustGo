@@ -102,11 +102,20 @@
 		VALUES(SEQ_IMG_NO.NEXTVAL, #{imgPath}, #{boardNo})
 	</insert>
 	
-	<!-- 스케줄러 이미지 삭제를 위한 이미지 리스트 불러오기 -->
-<!-- 	<select id="selectImageList" resultType="string">
+	<!-- 스케줄러 게시글 이미지 삭제를 위한 이미지 리스트 불러오기 -->
+ 	<select id="selectImageList" resultType="string">
 		SELECT IMG_PATH
 		FROM "BOARD_IMG"
-	</select> -->
+	</select> 
+	<!-- resultMap 은 안쓰는 이유는 하나만 조회하기 때문에 (int,string 은 상관없음) -->
+	
+	<!-- 스케줄러 프로필 이미지 삭제를 위한 이미지 리스트 불러오기 -->
+	<select id="selectImageList2" resultType="string">
+		SELECT PROFILE_IMG
+		FROM "MEMBER"
+		WHERE PROFILE_IMG IS NOT NULL
+	</select>
+	
 	
 
 	

@@ -99,11 +99,19 @@ public class WritingDAO {
 	
 	
 	/**
-	 * 이미지 조회(삭제를 위한)
+	 * 게시글 이미지 조회(삭제를 위한)
 	 * @return
 	 */
 	public List<String> selectImageList() {
 		return sqlSession.selectList("writingMapper.selectImageList");
+	}
+
+	/**
+	 * 프로필 이미지 조회(삭제를 위한)
+	 * @return
+	 */
+	public List<String> selectImageList2() {
+		return sqlSession.selectList("writingMapper.selectImageList2");
 	}
 
 	
