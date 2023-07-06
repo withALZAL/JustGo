@@ -18,9 +18,12 @@
     height: 600px;
     width: 90%;
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-columns: 100px 1fr;
     margin: 50px 0 0 20px;
 }
+
+
+
 
 /* 회원가입 버튼 상호작용 */
 /* .account--joinContainer button {
@@ -39,8 +42,8 @@
 }
 
 /* 메세지 색상 지정 */
-.confirm{ color : green; }
-.error{ color : red; }
+/* .confirm{ color : green; }
+.error{ color : red; } */
 
 /* .memberPage--left,
 .memberPage--right {
@@ -107,14 +110,7 @@ table {
 
 /* 기타 ----------------------------------------------- */
 
-/* 이미지 업로드 커서 */
-/* #previewImage > img {
-    cursor: pointer;
-    border: 3px solid black;
-}
-#previewImage > img:hover {
-    border: 3px solid red;
-} */
+
 
 /* 이미지 업로드 크기 조정 */
 #previewImage { /* 마이페이지 */
@@ -127,10 +123,6 @@ table {
     width: 180px;
     height: 180px;
 }
-.account--inputProfileBox { /* 마이페이지 수정 */
-    height: 200px;
-    overflow: hidden;
-}
 .account--inputProfileBox img {
     object-fit: cover;
     object-position: center center;
@@ -138,17 +130,3 @@ table {
     height: 180px;
 }
 
-/* 비밀번호 유효성 문자 개행 */
-#emailMessage,
-#pwMessage,
-#authKeyMessage,
-#pwConfirmMessage,
-#nickMessage,
-#currentPwMessage,
-#newPwMessage,
-#newPwConfirmMessage,
-#nickMessage {
-    max-width: 300px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-}

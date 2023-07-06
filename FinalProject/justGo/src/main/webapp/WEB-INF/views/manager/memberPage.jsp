@@ -175,12 +175,5 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/manager/memberPage.js"></script>
-<%-- 파일 업로드 --%>
-    <script>
-        function triggerFileInput() {
-            var fileInput = document.getElementById("imageUpload");
-            fileInput.click();
-        }
-    </script>
 </body>
 </html>
