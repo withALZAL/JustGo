@@ -581,7 +581,8 @@
     // JSP 해석 우선순위 : Java/EL/JSTL > HTML,CSS,JS
     
     // 게시글 번호 전역 변수로 선언
-    const boardNo = ${board.boardNo};
+    const boardNo = "${board.boardNo}";
+    const boardTitle = "${board.boardTitle}";
 
 
     // 로그인한 회원 번호를 전역 변수로 선언
@@ -591,6 +592,7 @@
     //          -> EL값이 null이여도 "" 빈문자열로 출력
     const loginMemberNo = "${loginMember.memberNo}";
     const loginMemberRole = "${loginMember.memberRole}"
+    const memberNickname = "${loginMember.memberNickname}"
     console.log(boardNo);
     console.log(loginMemberNo);
 
@@ -606,5 +608,7 @@
     <script src="/resources/js/writing/post2.js"></script>
     <script src="/resources/js/writing/writing.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+    <%-- 알람 --%>
+    <script src="/resources/js/manager/alarm.js"></script>
 </body>
 </html>

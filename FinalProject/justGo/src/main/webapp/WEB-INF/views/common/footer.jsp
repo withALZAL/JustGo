@@ -183,4 +183,8 @@
     </script>
 </c:if>
 </body>
+    <%-- SockJS --%>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <%-- 알람 --%>
+    <script src="/resources/js/manager/alarm.js"></script>
 </html>

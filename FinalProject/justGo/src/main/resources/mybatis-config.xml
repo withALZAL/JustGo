@@ -21,6 +21,7 @@
 
 	<typeAlias type="edu.kh.justgo.manager.model.dto.Feedback" alias="Feedback"/>	
 	<typeAlias type="edu.kh.justgo.manager.model.dto.Report" alias="Report"/>	
+	<typeAlias type="edu.kh.justgo.alarm.model.dto.Alarm" alias="Alarm"/>	
 
 	<typeAlias type="edu.kh.justgo.board.model.dto.Reply" alias="Reply"/>	
 	
@@ -37,6 +38,7 @@
 	<mapper resource="/mappers/ask-mapper.xml"/>
 	<mapper resource="/mappers/report-mapper.xml"/>
 	<mapper resource="/mappers/manager-mapper.xml"/>
+	<mapper resource="/mappers/alarm-mapper.xml"/>
 	<mapper resource="/mappers/dashboard-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
 	<mapper resource="/mappers/ajax-mapper.xml"/>
