@@ -22,6 +22,8 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 <%-- chart.js --%>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
