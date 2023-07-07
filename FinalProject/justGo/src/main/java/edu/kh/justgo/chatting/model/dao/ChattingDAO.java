@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.justgo.chatting.model.dto.Message;
+import edu.kh.justgo.member.model.dto.Member;
 
 @Repository
 public class ChattingDAO {
@@ -27,6 +28,11 @@ public class ChattingDAO {
 	public List<Message> selectMessage(int chattingNo) {
 		
 		return sqlSession.selectList("chattingMapper.selectMessageList", chattingNo);
+	}
+
+	public List<Member> loginMemberList() {
+		
+		return sqlSession.selectList("chattingMapper.loginMemberList");
 	}
 
 }

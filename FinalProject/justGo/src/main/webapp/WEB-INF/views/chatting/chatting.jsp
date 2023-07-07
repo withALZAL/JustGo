@@ -55,14 +55,17 @@
                 <section class="chatting--memberBox">
                     <div class="memberListTitle">채팅 참여자 목록(000명)</div>
                     <div class="memberList">
-                    <c:forEach var="i" begin="1" end="10">
+                    <c:forEach items="${memberList}" var="member">
                         <div class="memberCard">
                             <div class="memberProflieImageBox">
-                                <img src="/resources/images/memberImage/${i}/profile/20230617172703_78762.jpg" alt="프로필 이미지">
+                                <c:if test="${empty member.profileImg}" >
+                                    <img src="/resources/images/officialProfile/COMMONPROFILE.png"  alt="프로필 이미지">
+                                </c:if>
+                                <c:if test="${!empty member.profileImg}" >
+                                    <img src="${member.profileImg}">
+                                </c:if>
                             </div>
-                            <div class="memberNickname">
-                                바른말고운말임다
-                            </div>
+                            <div class="memberNickname">${member.memberNickname}</div>
                         </div>
                     </c:forEach>
                     </div>
@@ -72,7 +75,7 @@
             <%-- 채팅 인풋 박스 시작 --%>
             <section class="chatting--inputBox">
                 <div class="inputBox--temp">
-                    <textarea class="inputMessage" max="500" id="inputChatting"></textarea>
+                    <textarea class="inputMessage" max="500" id="inputChatting">${paramMap}</textarea>
                     <div class="btnBox">
                         <button  id ="send" class="btn btn-primary btn-sm">전송</button>
                         <button type="button" class="btn btn-primary btn-sm">취소</button>
@@ -89,8 +92,10 @@
     <script>
         const chattingRoomNo = "${map.chattingNo}";
         const loginMemberNo = "${loginMember.memberNo}";
-        const senderNo = "${map.senderNp}";
+        const senderNo = "${map.senderNo}";
         const receiverNo = "${map.receiverNo}";
+        const profileImage = "${loginMember.profileImg}";
+        const nickName = "${loginMember.memberNickname}";
     </script>
 
     <script src="/resources/js/chatting/chatting.js"></script>
