@@ -237,7 +237,8 @@
 	</select>
 	
 	<!-- 대시보드4 -->
-	<!-- <select id="dashboard4a" resultType="int[]">
+	<select id="dashboard4a" resultType="map">
+	<![CDATA[
 		SELECT
 		    (
 		        SELECT COUNT(*)
@@ -246,7 +247,7 @@
 		            (SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "6개월 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "6개월 전",
+		    ) AS "member6m",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
@@ -254,7 +255,7 @@
 		            (SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "3개월 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "3개월 전",
+		    ) AS "member3m",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
@@ -262,7 +263,7 @@
 		            (SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "2개월 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "2개월 전",
+		    ) AS "member2m",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
@@ -270,30 +271,32 @@
 		            (SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "1개월 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "1개월 전",
+		    ) AS "member1m",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
 		        WHERE ENROLL_DATE < (SELECT SYSDATE - 14 AS "2주일 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "2주일 전",
+		    ) AS "member2w",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
 		        WHERE ENROLL_DATE < (SELECT SYSDATE - 7 AS "1주일 전 시간" FROM DUAL)
 		            AND MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "1주일 전",
+		    ) AS "member1w",
 		    (
 		        SELECT COUNT(*)
 		        FROM MEMBER
 		        WHERE MEMBER_ROLE = 2
 		            AND MEMBER_CONDITION = 'N'
-		    ) AS "현재 회원 수"
-		FROM DUAL	
+		    ) AS "memberNow"
+		FROM DUAL
+	]]>
 	</select>
-	<select id="dashboard4b" resultType="int[]">
+	<select id="dashboard4b" resultType="map">
+	<![CDATA[
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -301,50 +304,52 @@
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "6개월 전 시간" FROM DUAL)
-			) AS "6개월 전",
+			) AS "post6m",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "3개월 전 시간" FROM DUAL)
-			) AS "3개월 전",
+			) AS "post3m",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "2개월 전 시간" FROM DUAL)
-			) AS "2개월 전",
+			) AS "post2m",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "1개월 전 시간" FROM DUAL)
-			) AS "1개월 전",
+			) AS "post1m",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT SYSDATE - 14 AS "2주일 전 시간" FROM DUAL)
-			) AS "2주일 전",
+			) AS "post2w",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE ='N'
 				AND CREATE_DATE <
 				(SELECT SYSDATE - 7 AS "1주일 전 시간" FROM DUAL)
-			) AS "1주일 전",
+			) AS "post1w",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
-			) AS "현재 게시글 수"
+			) AS "postNow"
 		FROM DUAL
+	]]>
 	</select>
-	<select id="dashboard4c" resultType="int[]">
+	<select id="dashboard4c" resultType="map">
+	<![CDATA[
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -352,93 +357,96 @@
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "6개월 전 시간" FROM DUAL)
-			) AS "6개월 전",
+			) AS "out6m",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "3개월 전 시간" FROM DUAL)
-			) AS "3개월 전",
+			) AS "out3m",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "2개월 전 시간" FROM DUAL)
-			) AS "2개월 전",
+			) AS "out2m",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "1개월 전 시간" FROM DUAL)
-			) AS "1개월 전",
+			) AS "out1m",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT SYSDATE - 14 AS "2주일 전 시간" FROM DUAL)
-			) AS "2주일 전",
+			) AS "out2w",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
 				AND DELETE_DATE <
 				(SELECT SYSDATE - 7 AS "1주일 전 시간" FROM DUAL)
-			) AS "1주일 전",
+			) AS "out1w",
 			(
 				SELECT COUNT(*)
 				FROM "MEMBER"
 				WHERE MEMBER_CONDITION = 'Y'
-			) AS "현재 탈퇴회원 수"
+			) AS "outNow"
 		FROM DUAL
+	]]>
 	</select>
-	<select id="dashboard4d" resultType="int[]">
+	<select id="dashboard4d" resultType="map">
+	<![CDATA[
 		SELECT
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '6' MONTH AS "6개월 전 시간" FROM DUAL)
-			) AS "6개월 전",
+			) AS "report6m",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '3' MONTH AS "3개월 전 시간" FROM DUAL)
-			) AS "3개월 전",
+			) AS "report3m",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '2' MONTH AS "2개월 전 시간" FROM DUAL)
-			) AS "2개월 전",
+			) AS "report2m",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT TRUNC(SYSDATE) - INTERVAL '1' MONTH AS "1개월 전 시간" FROM DUAL)
-			) AS "1개월 전",
+			) AS "report1m",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT SYSDATE - 14 AS "2주일 전 시간" FROM DUAL)
-			) AS "2주일 전",
+			) AS "report2w",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
 				WHERE REPORT_DATE <
 				(SELECT SYSDATE - 7 AS "1주일 전 시간" FROM DUAL)
-			) AS "1주일 전",
+			) AS "report1w",
 			(
 				SELECT COUNT(*)
 				FROM "REPORT"
-			) AS "현재 신고 수"
+			) AS "reportNow"
 		FROM DUAL
-	</select> -->
+	]]>
+	</select>
 	
 	<!-- 대시보드5 -->
 	<select id="report1" resultType="_int"><!-- 욕설 -->
@@ -483,7 +491,7 @@
 	</select>
 	
 	<!-- 대시보드6 팝업창 -->
-<!-- 	<select id="dashboard6China" resultType="int[]">
+	<select id="dashboard6China" resultType="map">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -491,31 +499,31 @@
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 1
 				AND TAG_NO = 1
-			) AS "중국-일반",
+			) AS "chinaCommon",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 1
 				AND TAG_NO = 2
-			) AS "중국-맛집",
+			) AS "chinaFood",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 1
 				AND TAG_NO = 3
-			) AS "중국-꿀팁",
+			) AS "chinaTip",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 1
 				AND TAG_NO = 4
-			) AS "중국-힐링"
+			) AS "chinaTip"
 		FROM DUAL
 	</select>
-	<select id="dashboard6Japan" resultType="int[]">
+	<select id="dashboard6Japan" resultType="map">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -523,31 +531,31 @@
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 2
 				AND TAG_NO = 1
-			) AS "일본-일반",
+			) AS "japanCommon",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 2
 				AND TAG_NO = 2
-			) AS "일본-맛집",
+			) AS "japanFood",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 2
 				AND TAG_NO = 3
-			) AS "일본-꿀팁",
+			) AS "japanTip",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 2
 				AND TAG_NO = 4
-			) AS "일본-힐링"
+			) AS "japanHealing"
 		FROM DUAL
 	</select>
-	<select id="dashboard6Vietnam" resultType="int[]">
+	<select id="dashboard6Vietnam" resultType="map">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -555,31 +563,31 @@
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 3
 				AND TAG_NO = 1
-			) AS "베트남-일반",
+			) AS "vietnamCommon",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 3
 				AND TAG_NO = 2
-			) AS "베트남-맛집",
+			) AS "vietnamFood",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 3
 				AND TAG_NO = 3
-			) AS "베트남-꿀팁",
+			) AS "vietnamTip",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 3
 				AND TAG_NO = 4
-			) AS "베트남-힐링"
+			) AS "vietnamHealing"
 		FROM DUAL
 	</select>
-	<select id="dashboard6Thai" resultType="int[]">
+	<select id="dashboard6Thai" resultType="map">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -587,31 +595,31 @@
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 4
 				AND TAG_NO = 1
-			) AS "태국-일반",
+			) AS "thaiCommon",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 4
 				AND TAG_NO = 2
-			) AS "태국-맛집",
+			) AS "thaiFood",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 4
 				AND TAG_NO = 3
-			) AS "태국-꿀팁",
+			) AS "thaiTip",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 4
 				AND TAG_NO = 4
-			) AS "태국-힐링"
+			) AS "thaiHealing"
 		FROM DUAL
 	</select>
-	<select id="dashboard6Australia" resultType="int[]">
+	<select id="dashboard6Australia" resultType="map">
 		SELECT
 			(
 				SELECT COUNT(*)
@@ -619,30 +627,30 @@
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 5
 				AND TAG_NO = 1
-			) AS "호주-일반",
+			) AS "australiaCommon",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 5
 				AND TAG_NO = 2
-			) AS "호주-맛집",
+			) AS "australiaFood",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 5
 				AND TAG_NO = 3
-			) AS "호주-꿀팁",
+			) AS "australiaTip",
 			(
 				SELECT COUNT(*)
 				FROM "BOARD"
 				WHERE BOARD_DELETE = 'N'
 				AND COUNTRY_NO = 5
 				AND TAG_NO = 4
-			) AS "호주-힐링"
+			) AS "australiaHealing"
 		FROM DUAL
-	</select> -->
+	</select>
 	
 
 </mapper>

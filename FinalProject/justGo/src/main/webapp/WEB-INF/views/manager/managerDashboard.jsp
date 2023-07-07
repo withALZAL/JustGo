@@ -141,7 +141,7 @@
                 </div>
             </section>
         </section>
-        <button id="chartDetailBtn" onclick="chartDetail()">게시판별/태그별 게시글 통계 자세히보기</button>
+        <button id="chartDetailBtn" onclick="chartDetail()">게시판별/태그별 게시글 종합 통계 자세히보기</button>
     </div>
 </div>
 </div>
@@ -190,73 +190,34 @@
         var countTag4 = ${dashboard3[3]};
 
         /* 라인 차트 */
-        // var timelineMember = [
-        //     ${dashboard4[0][0]},
-        //     ${dashboard4[0][1]},
-        //     ${dashboard4[0][2]},
-        //     ${dashboard4[0][3]},
-        //     ${dashboard4[0][4]},
-        //     ${dashboard4[0][5]},
-        //     ${dashboard4[0][6]}
-        // ];
-        // var timelinePost = [
-        //     ${dashboard4[1][0]},
-        //     ${dashboard4[1][1]},
-        //     ${dashboard4[1][2]},
-        //     ${dashboard4[1][3]},
-        //     ${dashboard4[1][4]},
-        //     ${dashboard4[1][5]},
-        //     ${dashboard4[1][6]}
-        // ];
-        // var timelineOut = [
-        //     ${dashboard4[2][0]},
-        //     ${dashboard4[2][1]},
-        //     ${dashboard4[2][2]},
-        //     ${dashboard4[2][3]},
-        //     ${dashboard4[2][4]},
-        //     ${dashboard4[2][5]},
-        //     ${dashboard4[2][6]}
-        // ];
-        // var timelineReport = [
-        //     ${dashboard4[3][0]},
-        //     ${dashboard4[3][1]},
-        //     ${dashboard4[3][2]},
-        //     ${dashboard4[3][3]},
-        //     ${dashboard4[3][4]},
-        //     ${dashboard4[3][5]},
-        //     ${dashboard4[3][6]}
-        // ];
-
-
-        /* 라인 차트 */
-        // var g1m0 = ${g1m0}; /* 회원 수 */
-        // var g1m1 = ${g1m1};
-        // var g1m2 = ${g1m2};
-        // var g1m3 = ${g1m3};
-        // var g1m4 = ${g1m4};
-        // var g1m5 = ${g1m5};
-        // var g1m6 = ${g1m6};
-        // var g2m0 = ${g2m0}; /* 게시글 수 */
-        // var g2m1 = ${g2m1};
-        // var g2m2 = ${g2m2};
-        // var g2m3 = ${g2m3};
-        // var g2m4 = ${g2m4};
-        // var g2m5 = ${g2m5};
-        // var g2m6 = ${g2m6};
-        // var g3m0 = ${g3m0}; /* 탈퇴회원 수 */
-        // var g3m1 = ${g3m1};
-        // var g3m2 = ${g3m2};
-        // var g3m3 = ${g3m3};
-        // var g3m4 = ${g3m4};
-        // var g3m5 = ${g3m5};
-        // var g3m6 = ${g3m6};
-        // var g4m0 = ${g4m0}; /* 신고 수 */
-        // var g4m1 = ${g4m1};
-        // var g4m2 = ${g4m2};
-        // var g4m3 = ${g4m3};
-        // var g4m4 = ${g4m4};
-        // var g4m5 = ${g4m5};
-        // var g4m6 = ${g4m6};
+        var member6m = ${dashboard4.member6m};
+        var member3m = ${dashboard4.member3m};
+        var member2m = ${dashboard4.member2m};
+        var member1m = ${dashboard4.member1m};
+        var member2w = ${dashboard4.member2w};
+        var member1w = ${dashboard4.member1w};
+        var memberNow = ${dashboard4.memberNow};
+        var post6m = ${dashboard4.post6m};
+        var post3m = ${dashboard4.post3m};
+        var post2m = ${dashboard4.post2m};
+        var post1m = ${dashboard4.post1m};
+        var post2w = ${dashboard4.post2w};
+        var post1w = ${dashboard4.post1w};
+        var postNow = ${dashboard4.postNow};
+        var out6m = ${dashboard4.out6m};
+        var out3m = ${dashboard4.out3m};
+        var out2m = ${dashboard4.out2m};
+        var out1m = ${dashboard4.out1m};
+        var out2w = ${dashboard4.out2w};
+        var out1w = ${dashboard4.out1w};
+        var outNow = ${dashboard4.outNow};
+        var report6m = ${dashboard4.report6m};
+        var report3m = ${dashboard4.report3m};
+        var report2m = ${dashboard4.report2m};
+        var report1m = ${dashboard4.report1m};
+        var report2w = ${dashboard4.report2w};
+        var report1w = ${dashboard4.report1w};
+        var reportNow = ${dashboard4.reportNow};
 
         /* 바 차트 */
         var report1 = ${dashboard5[0]};

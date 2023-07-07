@@ -1,5 +1,7 @@
 package edu.kh.justgo.manager.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,10 +45,10 @@ public class DashboardDAO {
 	 * 대시보드4
 	 * @return
 	 */
-//	public int[] dashboard4a() {return sql.selectOne("dashboardMapper.dashboard4a");}
-//	public int[] dashboard4b() {return sql.selectOne("dashboardMapper.dashboard4b");}
-//	public int[] dashboard4c() {return sql.selectOne("dashboardMapper.dashboard4c");}
-//	public int[] dashboard4d() {return sql.selectOne("dashboardMapper.dashboard4d");}
+	public Map<String, Integer> dashboard4a() {return sql.selectOne("dashboardMapper.dashboard4a");}
+	public Map<String, Integer> dashboard4b() {return sql.selectOne("dashboardMapper.dashboard4b");}
+	public Map<String, Integer> dashboard4c() {return sql.selectOne("dashboardMapper.dashboard4c");}
+	public Map<String, Integer> dashboard4d() {return sql.selectOne("dashboardMapper.dashboard4d");}
 
 	/**
 	 * 대시보드5
@@ -60,5 +62,14 @@ public class DashboardDAO {
 	public int report6() {return sql.selectOne("dashboardMapper.report6");}
 	public int report7() {return sql.selectOne("dashboardMapper.report7");}
 	public int report8() {return sql.selectOne("dashboardMapper.report8");}
+	
+	/**
+	 * 대시보드6
+	 */
+	public Map<String, Integer> dashboard6China() {return sql.selectOne("dashboardMapper.dashboard6China");}
+	public Map<String, Integer> dashboard6Japan() {return sql.selectOne("dashboardMapper.dashboard6Japan");}
+	public Map<String, Integer> dashboard6Vietnam() {return sql.selectOne("dashboardMapper.dashboard6Vietnam");}
+	public Map<String, Integer> dashboard6Thai() {return sql.selectOne("dashboardMapper.dashboard6Thai");}
+	public Map<String, Integer> dashboard6Australia() {return sql.selectOne("dashboardMapper.dashboard6Australia");}
 
 }

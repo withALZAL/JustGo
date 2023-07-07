@@ -45,40 +45,40 @@ new Chart(chartTag, {
 
 
 /* 라인 차트(4번) */
-// var chartLine = document.getElementById('chartLine');
-// new Chart(chartLine, {
-//     type: 'line',
-//     data: {
-//         labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
-//         datasets: [{
-//             data: [timelineMember[0], timelineMember[1], timelineMember[2], timelineMember[3], timelineMember[4], timelineMember[5], timelineMember[6]],
-//             label: "일반회원 수",
-//             borderColor: "red",
-//             fill: false
-//         }, {
-//             data: [timelinePost[0], timelinePost[1], timelinePost[2], timelinePost[3], timelinePost[4], timelinePost[5], timelinePost[6]],
-//             label: "게시글 수",
-//             borderColor: "orange",
-//             fill: false
-//         }, {
-//             data: [timelineOut[0], timelineOut[1], timelineOut[2], timelineOut[3], timelineOut[4], timelineOut[5], timelineOut[6]],
-//             label: "탈퇴회원 수",
-//             borderColor: "grey",
-//             fill: false
-//         }, {
-//             data: [timelineReport[0], timelineReport[1], timelineReport[2], timelineReport[3], timelineReport[4], timelineReport[5], timelineReport[6]],
-//             label: "신고 수",
-//             borderColor: "black",
-//             fill: false
-//         }
-//         ]
-//     },
-//     options: {
-//         title: {
-//             display: true
-//         }
-//     }
-// });
+var chartLine = document.getElementById('chartLine');
+new Chart(chartLine, {
+    type: 'line',
+    data: {
+        labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
+        datasets: [{
+            data: [member6m, member3m, member2m, member1m, member2w, member1w, memberNow],
+            label: "일반회원 수",
+            borderColor: "red",
+            fill: false
+        }, {
+            data: [post6m, post3m, post2m, post1m, post2w, post1w, postNow],
+            label: "게시글 수",
+            borderColor: "orange",
+            fill: false
+        }, {
+            data: [out6m, out3m, out2m, out1m, out2w, out1w, outNow],
+            label: "탈퇴회원 수",
+            borderColor: "grey",
+            fill: false
+        }, {
+            data: [report6m, report3m, report2m, report1m, report2w, report1w, reportNow],
+            label: "신고 수",
+            borderColor: "black",
+            fill: false
+        }
+        ]
+    },
+    options: {
+        title: {
+            display: true
+        }
+    }
+});
 
 /* 바 차트(5번)*/
 var chartBar = document.getElementById('chartBar').getContext('2d');

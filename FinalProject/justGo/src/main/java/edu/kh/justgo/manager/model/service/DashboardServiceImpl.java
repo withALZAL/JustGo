@@ -1,5 +1,7 @@
 package edu.kh.justgo.manager.model.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,14 +51,14 @@ public class DashboardServiceImpl implements DashboardService{
 
 
 	// 대시보드4
-//	@Override
-//	public int[] dashboard4a() {return dao.dashboard4a();}
-//	@Override
-//	public int[] dashboard4b() {return dao.dashboard4b();}
-//	@Override
-//	public int[] dashboard4c() {return dao.dashboard4c();}
-//	@Override
-//	public int[] dashboard4d() {return dao.dashboard4d();}
+	@Override
+	public Map<String, Integer> dashboard4a() {return dao.dashboard4a();}
+	@Override
+	public Map<String, Integer> dashboard4b() {return dao.dashboard4b();}
+	@Override
+	public Map<String, Integer> dashboard4c() {return dao.dashboard4c();}
+	@Override
+	public Map<String, Integer> dashboard4d() {return dao.dashboard4d();}
 	
 	
 	// 대시보드5
@@ -76,4 +78,18 @@ public class DashboardServiceImpl implements DashboardService{
 	public int report7() {return dao.report7();}
 	@Override
 	public int report8() {return dao.report8();}
+	
+	// 대시보드6
+	@Override
+	public Map<String, Integer> dashboard6China() {return dao.dashboard6China();}
+	@Override
+	public Map<String, Integer> dashboard6Japan() {return dao.dashboard6Japan();}
+	@Override
+	public Map<String, Integer> dashboard6Vietnam() {return dao.dashboard6Vietnam();}
+	@Override
+	public Map<String, Integer> dashboard6Thai() {return dao.dashboard6Thai();}
+	@Override
+	public Map<String, Integer> dashboard6Australia() {return dao.dashboard6Australia();}
+	
+	
 }

@@ -1,7 +1,9 @@
 package edu.kh.justgo.manager.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,13 +59,18 @@ public class DashboardController {
 		model.addAttribute("dashboard3", dashboard3);
 		
 		// 대시보드4
-//		int[] dashboard4a = service.dashboard4a();
-//		int[] dashboard4b = service.dashboard4b();
-//		int[] dashboard4c = service.dashboard4c();
-//		int[] dashboard4d = service.dashboard4d();
-//		
-//		int[][] dashboard4 = {dashboard4a, dashboard4b, dashboard4c, dashboard4d};
-//		model.addAttribute("dashboard4", dashboard4);
+		Map<String, Integer> dashboard4a = service.dashboard4a();
+		Map<String, Integer> dashboard4b = service.dashboard4b();
+		Map<String, Integer> dashboard4c = service.dashboard4c();
+		Map<String, Integer> dashboard4d = service.dashboard4d();
+		
+		Map<String, Integer> dashboard4 = new HashMap<>();
+		dashboard4.putAll(dashboard4a);
+		dashboard4.putAll(dashboard4b);
+		dashboard4.putAll(dashboard4c);
+		dashboard4.putAll(dashboard4d);
+		
+		model.addAttribute("dashboard4", dashboard4);
         
         // 대시보드5
         int report1 = service.report1(); // 욕설
@@ -87,14 +94,22 @@ public class DashboardController {
     		Model model
     		) {
     	
-//    	int[] dashboard6China = service.dashboard6China();
-//    	int[] dashboard6Japan = service.dashboard6Japan();
-//    	int[] dashboard6Vietnam = service.dashboard6Vietnam();
-//    	int[] dashboard6Thai = service.dashboard6Thai();
-//    	int[] dashboard6Australia = service.dashboard6Australia();
-//    	
-//		int[][] dashboard6 = {dashboard6China, dashboard6Japan, dashboard6Vietnam, dashboard6Thai, dashboard6Australia};
-//		model.addAttribute("dashboard6", dashboard6);
+    	Map<String, Integer> dashboard6China = service.dashboard6China();
+    	Map<String, Integer> dashboard6Japan = service.dashboard6Japan();
+    	Map<String, Integer> dashboard6Vietnam = service.dashboard6Vietnam();
+    	Map<String, Integer> dashboard6Thai = service.dashboard6Thai();
+    	Map<String, Integer> dashboard6Australia = service.dashboard6Australia();
+    	
+		Map<String, Integer> dashboard6 = new HashMap<>();
+		dashboard6.putAll(dashboard6China);
+		dashboard6.putAll(dashboard6Japan);
+		dashboard6.putAll(dashboard6Vietnam);
+		dashboard6.putAll(dashboard6Thai);
+		dashboard6.putAll(dashboard6Australia);
+    	
+		model.addAttribute("dashboard6", dashboard6);
+		
+		System.out.println(dashboard6);
     	
     	return "manager/managerChartDetail";
     }
