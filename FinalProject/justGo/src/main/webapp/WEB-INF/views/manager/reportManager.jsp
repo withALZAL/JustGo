@@ -27,6 +27,14 @@
 <c:set var="reportPagination" value="${map.reportPagination}" />
 <c:set var="reportList" value="${map.reportList}" />
 
+<c:forEach items="${reportList}" var="report">
+    <c:if test="${report.reportNo == reportNo}" >
+        <c:set var="reportNo" value="${report.reportNo}"/>
+        <c:set var="reportNickname" value="${report.memberNickname}"/>
+        <c:set var="reportedBoardTitle" value="${report.boardTitle}"/>
+    </c:if>
+</c:forEach>
+
 <%-- ${map.reportList} --%>
 
 <!-- ----------------------------------------------- -->
@@ -235,5 +243,9 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/manager/reportManager.js"></script>
+    <script>
+        const reportedBoardTitle = ${reportedBoardTitle}
+        const reportNickname = ${reportNickname}
+    </script>
 </body>
 </html>

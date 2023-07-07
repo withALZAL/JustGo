@@ -1,5 +1,8 @@
 package edu.kh.justgo.chatting.model.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,16 @@ public class ChattingServiceImpl implements ChattingService {
 		msg.setMsgContent(Util.XSSHandling(msg.getMsgContent()));
 		
 		return dao.insertMessage(msg);
+	}
+
+	
+	// 메세지 리스트
+	@Override
+	public List<Message> selectMessage(Map<String, Object> paramMap) {
+		
+		List<Message> msgList = dao.selectMessage(Integer.parseInt(String.valueOf(paramMap.get("chattingNo")))) ;
+		
+		return msgList;
 	}
 	
 	

@@ -72,9 +72,9 @@
             <%-- 채팅 인풋 박스 시작 --%>
             <section class="chatting--inputBox">
                 <div class="inputBox--temp">
-                    <textarea class="inputMessage" max="500" placeholder="채팅 내용을 입력해주세요.(최대 500자)"></textarea>
+                    <textarea class="inputMessage" max="500" id="inputChatting"></textarea>
                     <div class="btnBox">
-                        <button type="button" class="btn btn-primary btn-sm">전송</button>
+                        <button  id ="send" class="btn btn-primary btn-sm">전송</button>
                         <button type="button" class="btn btn-primary btn-sm">취소</button>
                     </div>
                 </div>
@@ -84,11 +84,16 @@
     </section>
 
 <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script>
-        const chattingRoomNo = ${map.chattingNo};
+        const chattingRoomNo = "${map.chattingNo}";
+        const loginMemberNo = "${loginMember.memberNo}";
+        const senderNo = "${map.senderNp}";
+        const receiverNo = "${map.receiverNo}";
     </script>
 
+    <script src="/resources/js/chatting/chatting.js"></script>
 
 </body>
 </html>

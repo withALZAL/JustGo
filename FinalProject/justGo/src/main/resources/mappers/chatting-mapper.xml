@@ -26,9 +26,20 @@
 	<!--=========================================================================================-->
 	<!-- 채팅 메세지 삽입 -->
 	<insert id="insertMessage">
-		INSERT INTO "MESSAGE"
-		VALUES(1,SEQ_MSG_NO.NEXTVAL, #{magContent},DEFAULT, #{senderNo}, #{receiver})
+		INSERT INTO "CHATTING"
+		VALUES(SEQ_MSG_NO.NEXTVAL, #{msgContent},DEFAULT, #{senderNo})
 	</insert>
+	
+		<!-- 채팅방 메세지 조회 -->
+	<select id="selectMessageList" resultMap="message_rm">
+		SELECT MSG_NO, MSG_CONTENT,SENDER_NO,
+		TO_CHAR(SEND_TIME, 'YYYY.MM.DD HH24:MI') SEND_TIME,
+		MEMBER_NO ,MEMBER_NICKNAME, PROFILE_IMG
+		FROM CHATTING
+		JOIN "MEMBER" ON(MEMBER_NO = SENDER_NO)
+		ORDER BY MSG_NO
+	</select>
+	
 	
 
 </mapper>
