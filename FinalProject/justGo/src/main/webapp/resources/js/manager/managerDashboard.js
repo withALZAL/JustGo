@@ -8,7 +8,7 @@ new Chart(chartDoughnut, {
             label: '게시글 수',
             data: [countFree, countQuestion, countChina, countJapan, countVietnam, countThai, countAustralia],
             borderWidth: 1,
-            backgroundColor: ["#5CD1E5", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"]
+            backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
         }]
     },
     options: {
@@ -26,14 +26,14 @@ new Chart(chartDoughnut, {
 /* 태그 차트(3번) */
 var chartTag = document.getElementById('chartTag');
 new Chart(chartTag, {
-    type: 'doughnut',
+    type: 'pie',
     data: {
         labels: ['일반', '맛집', '꿀팁', '힐링'],
         datasets: [{
             label: '게시글 수',
             data: [countTag1, countTag2, countTag3, countTag4],
             borderWidth: 1,
-            backgroundColor: ["#5CD1E5", "#36B8CF", "#1294AB", "#004C63"]
+            backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
         }]
     },
     options: {
@@ -45,40 +45,40 @@ new Chart(chartTag, {
 
 
 /* 라인 차트(4번) */
-// var chartLine = document.getElementById('chartLine');
-// new Chart(chartLine, {
-//     type: 'line',
-//     data: {
-//         labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
-//         datasets: [{
-//             data: [g1m0, g1m1, g1m2, g1m3, g1m4, g1m5, g1m6],
-//             label: "일반회원 수",
-//             borderColor: "red",
-//             fill: false
-//         }, {
-//             data: [g2m0, g2m1, g2m2, g2m3, g2m4, g2m5, g2m6],
-//             label: "게시글 수",
-//             borderColor: "orange",
-//             fill: false
-//         }, {
-//             data: [g2m0, g2m1, g2m2, g2m3, g2m4, g2m5, g2m6],
-//             label: "탈퇴회원 수",
-//             borderColor: "grey",
-//             fill: false
-//         }, {
-//             data: [g3m0, g3m1, g3m2, g3m3, g3m4, g3m5, g3m6],
-//             label: "신고 수",
-//             borderColor: "black",
-//             fill: false
-//         }
-//         ]
-//     },
-//     options: {
-//         title: {
-//             display: true
-//         }
-//     }
-// });
+var chartLine = document.getElementById('chartLine');
+new Chart(chartLine, {
+    type: 'line',
+    data: {
+        labels: ['6달 전', '3달 전', '2달 전', '1달 전', '2주일 전', '1주일 전', '현재'],
+        datasets: [{
+            data: [member6m, member3m, member2m, member1m, member2w, member1w, memberNow],
+            label: "일반회원 수",
+            borderColor: "red",
+            fill: false
+        }, {
+            data: [post6m, post3m, post2m, post1m, post2w, post1w, postNow],
+            label: "게시글 수",
+            borderColor: "orange",
+            fill: false
+        }, {
+            data: [out6m, out3m, out2m, out1m, out2w, out1w, outNow],
+            label: "탈퇴회원 수",
+            borderColor: "grey",
+            fill: false
+        }, {
+            data: [report6m, report3m, report2m, report1m, report2w, report1w, reportNow],
+            label: "신고 수",
+            borderColor: "black",
+            fill: false
+        }
+        ]
+    },
+    options: {
+        title: {
+            display: true
+        }
+    }
+});
 
 /* 바 차트(5번)*/
 var chartBar = document.getElementById('chartBar').getContext('2d');
@@ -91,7 +91,7 @@ new Chart(chartBar, {
             {
                 data: [report1, report2, report3, report4, report5, report6, report7, report8], /* 여기에 데이터를 넣습니다. */
                 label: "신고 수",
-                backgroundColor: ["#5CD1E5", "#4ABFD3", "#36B8CF", "#24A6BD", "#1294AB", "#008299", "#007087", "#004C63"],
+                backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"],
             }
         ]
     },
@@ -101,3 +101,70 @@ new Chart(chartBar, {
         title: { display: false }
     }
 });
+
+/* 디테일 차트(6번) */
+function chartDetail() {
+    var url = "/manager/chartDetail";
+    var name = "디테일 차트";
+    var option = "width = 720, height = 720, top = 100, left = 200, location = no"
+    window.open(url, name, option);
+}
+
+// /* 디테일 차트(6번) */
+// var chartDetail = document.getElementById('chartDetail').getContext('2d');
+// new Chart(chartDetail, {
+//     type: 'radar',
+//     data: {
+//         labels: ['일반', '맛집', '꿀팁', '힐링'],
+//         datasets: [
+//             {
+//                 label: '중국게시판',
+//                 data: [10, 22, 33, 42],
+//                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+//                 borderColor: 'rgba(255, 99, 132, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '일본게시판',
+//                 data: [10, 32, 20, 18],
+//                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
+//                 borderColor: 'rgba(54, 162, 235, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '베트남게시판',
+//                 data: [33, 20, 20, 48],
+//                 backgroundColor: 'rgba(255, 205, 86, 0.5)',
+//                 borderColor: 'rgba(255, 205, 86, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '태국게시판',
+//                 data: [39, 66, 30, 41],
+//                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
+//                 borderColor: 'rgba(75, 192, 192, 1)',
+//                 borderWidth: 1,
+//             },
+//             {
+//                 label: '호주게시판',
+//                 data: [33, 45, 22, 11],
+//                 backgroundColor: 'rgba(153, 102, 255, 0.5)',
+//                 borderColor: 'rgba(153, 102, 255, 1)',
+//                 borderWidth: 1,
+//             },
+//         ],
+//     },
+//     options: {
+//         responsive: false, // 반응형 크기 조정 비활성화
+//         maintainAspectRatio: false, // 종횡비 유지 비활성화
+//         width: 400, // 가로 크기 (픽셀)
+//         height: 300, // 세로 크기 (픽셀)
+//         scale: {
+//             ticks: {
+//                 beginAtZero: true,
+//                 max: 100,
+//                 stepSize: 20,
+//             },
+//         },
+//     },
+// });

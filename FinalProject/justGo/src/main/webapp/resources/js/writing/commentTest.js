@@ -249,14 +249,47 @@ addReply.addEventListener("click",e =>{
 
     // 로그인 여부 전역변수 사용
     if(loginMemberNo == ""){
-        alert("로그인 후 이용해주세요!!!");
+        // alert("로그인 후 이용해주세요!!!");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+    
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '로그인 후 이용해주세요.' /* 메시지 담기 */
+            })
         return;
     }
 
     // 2) 댓글 작성이 되어있나?
     if(replyContent.value.trim().length == 0){
-        alert("댓글을 입력해주세요!!!");
-
+        // alert("댓글을 입력해주세요!!!");
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+    
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '댓글을 입력해주세요.' /* 메시지 담기 */
+        })
         replyContent.value = "";
         replyContent.focus();
         return;
@@ -276,13 +309,50 @@ addReply.addEventListener("click",e =>{
     .then(resp => resp.text())
     .then(result => {
         if(result > 0){ // 댓글 등록
-            alert("댓글이 등록되었습니다!!!");
+            // alert("댓글이 등록되었습니다!!!");
+            
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success', /* 아이디 실패 시 ! 경고 */
+                title: '댓글이 등록되었습니다.' /* 메시지 담기 */
+            })
+            
 
             replyContent.value = "";
             selectReplyList();
 
         } else { // 실패
-            alert("댓글 등록에 실패했습니다...왜죠...?");
+            // alert("댓글 등록에 실패했습니다...왜죠...?");
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '댓글 등록에 실패했습니다.' /* 메시지 담기 */
+            })
 
         }
     })
@@ -306,10 +376,46 @@ function deleteComment(replyNo){
         .then(resp => resp.text())
         .then(result => {
             if(result > 0 ){
-                alert("삭제되었습니다!!");
+                // alert("삭제되었습니다!!");
+                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end', /* 우측 상단 */
+                    showConfirmButton: false, /* 컨펌버튼 없음 */
+                    timer: 3000, /* 3초 간 뜨기 */
+                    timerProgressBar: true, /* 진행바 */
+                    showCloseButton: true, /* 취소 버튼 */
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success', /* 아이디 실패 시 ! 경고 */
+                    title: '댓글이 삭제되었습니다.' /* 메시지 담기 */
+                })
                 selectReplyList();
             }else{
-                alert("삭제 실패인데요..?")
+                // alert("삭제 실패인데요..?")
+                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end', /* 우측 상단 */
+                    showConfirmButton: false, /* 컨펌버튼 없음 */
+                    timer: 3000, /* 3초 간 뜨기 */
+                    timerProgressBar: true, /* 진행바 */
+                    showCloseButton: true, /* 취소 버튼 */
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                    title: '댓글 삭제에 실패했습니다.' /* 메시지 담기 */
+                })
             }
 
         })
@@ -461,10 +567,46 @@ function updateComment(replyNo, btn){
     .then(resp=>resp.text())
     .then(result => {
         if(result > 0){
-            alert("댓글이 수정되었습니다.");
+            // alert("댓글이 수정되었습니다.");
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success', /* 아이디 실패 시 ! 경고 */
+                title: '댓글이 수정되었습니다.' /* 메시지 담기 */
+            })
             selectReplyList();
         }else{
-            alert("댓글 수정 실패");
+            // alert("댓글 수정 실패");
+            
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                title: '댓글 수정에 실패했습니다.' /* 메시지 담기 */
+            })
         }
     })
     .catch(err => console.log(err));
@@ -546,7 +688,25 @@ function insertChildComment(parentReplyNo, btn){
 
     // 답글 내용이 작성되지 않은 경우
     if(replyContent.trim().length == 0){
-    alert("답글 작성 후 등록 버튼을 클릭해주세요.");
+    // alert("답글 작성 후 등록 버튼을 클릭해주세요.");
+    
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 3000, /* 3초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '답글 작성 후 등록 버튼을 클릭해주세요.' /* 메시지 담기 */
+    })
     btn.parentElement.previousElementSibling.value = "";
     btn.parentElement.previousElementSibling.focus();
     return;
@@ -565,11 +725,45 @@ function insertChildComment(parentReplyNo, btn){
     .then(resp=>resp.text())
     .then(result => {
     if(result > 0){ // 등록 성공
-    alert("답글이 등록되었습니다.");
+    // alert("답글이 등록되었습니다.");
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 3000, /* 3초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+            icon: 'success', /* 아이디 실패 시 ! 경고 */
+            title: '답글이 등록되었습니다.' /* 메시지 담기 */
+    })
     selectReplyList(); // 비동기 댓글 목록 조회 함수 호출
 
     } else { // 실패
-    alert("답글 등록에 실패했습니다...");
+    // alert("답글 등록에 실패했습니다...");
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 3000, /* 3초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '답글 등록에 실패했습니다.' /* 메시지 담기 */
+    })
     }
     })
     .catch(err => console.log(err));

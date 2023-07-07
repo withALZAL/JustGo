@@ -71,7 +71,7 @@ const passwordFrm = document.getElementById("passwordFrm");
 
 passwordFrm.addEventListener("submit", e => {
     // 비밀번호 유효성 검사
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
+    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
     if(!regEx.test(newPw.value)){
         alert("비밀번호가 유효하지 않습니다");
         e.preventDefault();

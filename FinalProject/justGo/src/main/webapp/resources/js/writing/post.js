@@ -4,7 +4,24 @@ const boardLike = document.getElementById("boardLike");
 boardLike.addEventListener("click",e=>{
 
 if(loginMemberNo==""){
-    alert("로그인 후 이용해주세요!")
+    // alert("로그인 후 이용해주세요!")
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end', /* 우측 상단 */
+        showConfirmButton: false, /* 컨펌버튼 없음 */
+        timer: 3000, /* 3초 간 뜨기 */
+        timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+        Toast.fire({
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '로그인 후 이용해주세요.' /* 메시지 담기 */
+        })
     return;
 }
 
@@ -123,11 +140,45 @@ function reportBoardBtn(boardNo){
         console.log(result)
         if(result > 0){
             sendMessage(1, memberNickname, boardTitle);
-            alert("해당 게시글을 신고하였습니다.");
+            // alert("해당 게시글을 신고하였습니다.");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+        
+                Toast.fire({
+                    icon: 'success', /* 아이디 실패 시 ! 경고 */
+                    title: '해당 게시물을 신고하였습니다.' /* 메시지 담기 */
+                })
             location.href =  location.href ;
             // sendMessage(1, memberNickname, boardTitle.replace(/"가 &quot;/g, ''));
         }else{
-            alert("게시물 신고 실패...")
+            // alert("게시물 신고 실패...")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end', /* 우측 상단 */
+                showConfirmButton: false, /* 컨펌버튼 없음 */
+                timer: 3000, /* 3초 간 뜨기 */
+                timerProgressBar: true, /* 진행바 */
+                showCloseButton: true, /* 취소 버튼 */
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+        
+                Toast.fire({
+                    icon: 'warning', /* 아이디 실패 시 ! 경고 */
+                    title: '게시물 신고에 실패했습니다.' /* 메시지 담기 */
+                })
         }
     })
     .catch(err => console.log(err));

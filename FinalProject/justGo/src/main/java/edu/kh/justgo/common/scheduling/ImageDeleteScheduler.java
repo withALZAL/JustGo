@@ -43,11 +43,11 @@ public class ImageDeleteScheduler {
 		// application 객체를 이용해서
 		// /resources/images/memberImage의 실제 서버 경로를 얻어옴
 		String filePath = servletContext.getRealPath("/resources/images/memberImage");
-		System.out.println("filePath:" + filePath);
+//		System.out.println("filePath:" + filePath);
 
 		// 2. filePath에 저장된 모든 파일 목록 읽어오기
 		File path = new File(filePath);
-		System.out.println("path : " + path);
+//		System.out.println("path : " + path);
 		File[] folderArr = path.listFiles();
 
 		// 배열 -> List로 변환
@@ -66,7 +66,7 @@ public class ImageDeleteScheduler {
 			String filePath2 = folderArr[i].getPath();
 			// 파일 경로에서 숫자 부분 추출
 			String numberString = filePath2.substring(filePath2.lastIndexOf("\\") + 1);
-			System.out.println("numberString : " + numberString);
+//			System.out.println("numberString : " + numberString);
 			if (!numberString.isEmpty()) { // 빈 문자열인 경우에 예외처리를 추가
 				memberNos[i] = Integer.parseInt(numberString); // parseInt는 "1,2,3" 숫자 밖에 있는 쌍따옴표을 없애고 int 형식으로 바꾸겠다
 			}
@@ -107,7 +107,7 @@ public class ImageDeleteScheduler {
 
 				// DB 파일 목록에 server 해당 이미지가 있지 않은 경우
 				if (!dbImageList.contains(server)) {
-					System.out.println(server + " 삭제!!");
+//					System.out.println(server + " 삭제!!");
 
 					// 파일 삭제 로직
 					

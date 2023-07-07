@@ -22,6 +22,8 @@
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
 <%-- chart.js --%>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
@@ -71,16 +73,17 @@
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
     <div class="manager--mainBox">
+
         <section class="dashboard__top">
-            <section class="dashboard1" style="border: 1px solid pink;">
+            <section class="dashboard1">
             <div class="dashboardTitle">사용자 통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
                     <div class="card-header">
-                        회원 수
+                        일반회원 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllMember}명
+                    ${dashboard1[0]}명
                     </div>
                 </div>
                 <div class="card stat2">
@@ -88,7 +91,7 @@
                         관리자 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllManager}명
+                    ${dashboard1[1]}명
                     </div>
                 </div>
                 <div class="card stat3">
@@ -96,7 +99,7 @@
                         탈퇴회원 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countOutMember}명
+                    ${dashboard1[2]}명
                     </div>
                 </div>
                 <div class="card stat4">
@@ -104,19 +107,19 @@
                         게시글 수
                     </div>
                     <div class="card-body numberResult">
-                    ${countAllPost}개
+                    ${dashboard1[3]}개
                     </div>
                 </div>
             </div>
             </section>
-            <section class="dashboard2" style="border: 1px solid pink;">
+            <section class="dashboard2">
                 <div class="dashboardTitle">게시판별 게시글 통계</div>
                 <div class="dashboard2__content">
                     <canvas id="chartDoughnut">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard3" style="border: 1px solid pink;">
+            <section class="dashboard3">
                 <div class="dashboardTitle">태그별 게시글 통계</div>
                 <div class="dashboard3__content">
                     <canvas id="chartTag">
@@ -124,15 +127,15 @@
                 </div>
             </section>
         </section>
-        <section class="dashboard__bottom">
-            <section class="dashboard4" style="border: 1px solid pink;">
+        <section class="dashboard__middle">
+            <section class="dashboard4">
                 <div class="dashboardTitle">사용자 수 변화 통계</div>
                 <div class="dashboard4__content">
                     <canvas id="chartLine">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard5" style="border: 1px solid pink;">
+            <section class="dashboard5">
                 <div class="dashboardTitle">신고 통계</div>
                 <div class="dashboard5__content">
                     <canvas id="chartBar">
@@ -140,6 +143,7 @@
                 </div>
             </section>
         </section>
+        <button id="chartDetailBtn" onclick="chartDetail()">게시판별/태그별 게시글 종합 통계 자세히보기</button>
     </div>
 </div>
 </div>
@@ -173,59 +177,59 @@
 <%-- managerDashboard로 변수 전달 --%>
     <script>
         /* 도넛 차트 */
-        var countFree = ${countFree};
-        var countQuestion = ${countQuestion};
-        var countChina = ${countChina};
-        var countJapan = ${countJapan};
-        var countVietnam = ${countVietnam};
-        var countThai = ${countThai};
-        var countAustralia = ${countAustralia};
+        var countFree = ${dashboard2[0]};
+        var countQuestion = ${dashboard2[1]};
+        var countChina = ${dashboard2[2]};
+        var countJapan = ${dashboard2[3]};
+        var countVietnam = ${dashboard2[4]};
+        var countThai = ${dashboard2[5]};
+        var countAustralia = ${dashboard2[6]};
 
         /* 태그 차트 */
-        var countTag1 = ${countTag1};
-        var countTag2 = ${countTag2};
-        var countTag3 = ${countTag3};
-        var countTag4 = ${countTag4};
+        var countTag1 = ${dashboard3[0]};
+        var countTag2 = ${dashboard3[1]};
+        var countTag3 = ${dashboard3[2]};
+        var countTag4 = ${dashboard3[3]};
 
         /* 라인 차트 */
-        // var g1m0 = ${g1m0}; /* 회원 수 */
-        // var g1m1 = ${g1m1};
-        // var g1m2 = ${g1m2};
-        // var g1m3 = ${g1m3};
-        // var g1m4 = ${g1m4};
-        // var g1m5 = ${g1m5};
-        // var g1m6 = ${g1m6};
-        // var g2m0 = ${g2m0}; /* 게시글 수 */
-        // var g2m1 = ${g2m1};
-        // var g2m2 = ${g2m2};
-        // var g2m3 = ${g2m3};
-        // var g2m4 = ${g2m4};
-        // var g2m5 = ${g2m5};
-        // var g2m6 = ${g2m6};
-        // var g3m0 = ${g3m0}; /* 탈퇴회원 수 */
-        // var g3m1 = ${g3m1};
-        // var g3m2 = ${g3m2};
-        // var g3m3 = ${g3m3};
-        // var g3m4 = ${g3m4};
-        // var g3m5 = ${g3m5};
-        // var g3m6 = ${g3m6};
-        // var g4m0 = ${g4m0}; /* 신고 수 */
-        // var g4m1 = ${g4m1};
-        // var g4m2 = ${g4m2};
-        // var g4m3 = ${g4m3};
-        // var g4m4 = ${g4m4};
-        // var g4m5 = ${g4m5};
-        // var g4m6 = ${g4m6};
+        var member6m = ${dashboard4.member6m};
+        var member3m = ${dashboard4.member3m};
+        var member2m = ${dashboard4.member2m};
+        var member1m = ${dashboard4.member1m};
+        var member2w = ${dashboard4.member2w};
+        var member1w = ${dashboard4.member1w};
+        var memberNow = ${dashboard4.memberNow};
+        var post6m = ${dashboard4.post6m};
+        var post3m = ${dashboard4.post3m};
+        var post2m = ${dashboard4.post2m};
+        var post1m = ${dashboard4.post1m};
+        var post2w = ${dashboard4.post2w};
+        var post1w = ${dashboard4.post1w};
+        var postNow = ${dashboard4.postNow};
+        var out6m = ${dashboard4.out6m};
+        var out3m = ${dashboard4.out3m};
+        var out2m = ${dashboard4.out2m};
+        var out1m = ${dashboard4.out1m};
+        var out2w = ${dashboard4.out2w};
+        var out1w = ${dashboard4.out1w};
+        var outNow = ${dashboard4.outNow};
+        var report6m = ${dashboard4.report6m};
+        var report3m = ${dashboard4.report3m};
+        var report2m = ${dashboard4.report2m};
+        var report1m = ${dashboard4.report1m};
+        var report2w = ${dashboard4.report2w};
+        var report1w = ${dashboard4.report1w};
+        var reportNow = ${dashboard4.reportNow};
 
         /* 바 차트 */
-        var report1 = ${report1};
-        var report2 = ${report2};
-        var report3 = ${report3};
-        var report4 = ${report4};
-        var report5 = ${report5};
-        var report6 = ${report6};
-        var report7 = ${report7};
-        var report8 = ${report8};
+        var report1 = ${dashboard5[0]};
+        var report2 = ${dashboard5[1]};
+        var report3 = ${dashboard5[2]};
+        var report4 = ${dashboard5[3]};
+        var report5 = ${dashboard5[4]};
+        var report6 = ${dashboard5[5]};
+        var report7 = ${dashboard5[6]};
+        var report8 = ${dashboard5[7]};
         
     </script>
     <script src="/resources/js/manager/managerDashboard.js"></script>
