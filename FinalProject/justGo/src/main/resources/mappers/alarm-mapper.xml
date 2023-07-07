@@ -189,8 +189,24 @@
 	
 	
 	
+	<!-- 신고 알람 등록 -->
+	<!-- 로그인한 회원의 1:1문의 작성 -->
+      <insert id="insertAlarm" parameterType="Alarm" useGeneratedKeys="true">
+      	
+      	<selectKey order="BEFORE" resultType="_int" keyProperty="alarmNo">
+      		SELECT SEQ_ALARM_NO.NEXTVAL FROM DUAL
+      	</selectKey>
+      
+      	INSERT INTO "ALARM"
+		VALUES(#{alarmNo}, NULL, #{alarmContent}, DEFAULT, DEFAULT);
+      </insert>
 	
-	
+	<!-- 신고알람 확인-->
+	<update id="reportAlarmConfirm">
+	 	UPDATE "ALARM" SET
+		ALARM_CHECK ='Y'
+		WHERE ALARM_NO = #{alarmNo}
+	 </update> 
 	
 
 </mapper>

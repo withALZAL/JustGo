@@ -1,5 +1,12 @@
 package edu.kh.justgo.alarm.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class Alarm {
 	
 	
@@ -11,6 +18,8 @@ public class Alarm {
 	
 	
 	private int memberNo;
+	private String memberNickname;
+	private String managerNickname;
 	
 	
 
