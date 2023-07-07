@@ -139,6 +139,7 @@ function reportBoardBtn(boardNo){
     .then(result => {
         console.log(result)
         if(result > 0){
+            sendMessage(1, memberNickname, boardTitle);
             // alert("해당 게시글을 신고하였습니다.");
             const Toast = Swal.mixin({
                 toast: true,
@@ -158,7 +159,7 @@ function reportBoardBtn(boardNo){
                     title: '해당 게시물을 신고하였습니다.' /* 메시지 담기 */
                 })
             location.href =  location.href ;
-            sendMessage(1, loginUserNickname, boardTitle.replace(/"가 &quot;/g, ''));
+            // sendMessage(1, memberNickname, boardTitle.replace(/"가 &quot;/g, ''));
         }else{
             // alert("게시물 신고 실패...")
             const Toast = Swal.mixin({

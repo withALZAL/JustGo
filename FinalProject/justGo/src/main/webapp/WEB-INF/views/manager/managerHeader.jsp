@@ -50,15 +50,27 @@
                 <%-- <button type="button" class="btn btn-secondary btn-sm">마이페이지</button> --%>
             </a>
         </form>
-        <label for="alarmToggle">
+        <!-- Default dropend button -->
+        <div class="btn-group dropend">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="alarmBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-envelope fa-xl"></i>
+        </button>
+        <ul class="dropdown-menu" id="alarmBox">
+            <!-- 알람내용 받는 공간 -->
+            알람내용
+        </ul>
+        </div>
+
+        <%-- <label for="alarmToggle">
             <i class="fa-solid fa-envelope fa-xl"></i>
         </label>
         <input type="checkbox" id="alarmToggle" hidden>
+
         <div class="alarm-menu">
             알람받는 공간
             <ul id="alarmBox">
             </ul>
-        </div>
+        </div> --%>
     </div>
 </nav>
 <!-- loginNav 끝 -->
