@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         alarmList.append(div1, div2);
 
+
+        // 편지 이모지 움직이게
         alarmBox.append(alarmList);
         alarmBtn.classList.add("shake");
 
@@ -59,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 400);
 
 
+        // 편지 이모지 옆에 숫자 뜨게
         const alarmNum = document.createElement("span");
         alarmNum.classList.add("increaseNum");
         alarmNum.innerHTML = 0;
