@@ -10,8 +10,8 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import edu.kh.justgo.alarm.model.dto.Alarm;
 import edu.kh.justgo.alarm.model.service.AlarmService;
-import edu.kh.justgo.manager.model.service.ManagerService;
 
 public class AlarmWebsocketHandler extends TextWebSocketHandler{
 	
@@ -38,6 +38,15 @@ public class AlarmWebsocketHandler extends TextWebSocketHandler{
 		// Payload : 통신 시 탑재된 데이터(메시지)
 		
 		System.out.println("전달 받은 내용 : " + message.getPayload());
+		
+		// Alarm 객체 생성 및 알람 내용 설정
+		Alarm alarm = new Alarm();
+        alarm.setAlarmContent(message.getPayload());
+        
+        // 알람 추가
+        service.insertAlarm(alarm);
+		
+		
 		
 		// testSock으로 연결된 객체를 만든 클라이언트들(sessions)에게 전달받은 내용을 보냄
 		for(WebSocketSession s : sessions) {

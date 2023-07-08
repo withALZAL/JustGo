@@ -4,9 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.kh.justgo.manager.model.dto.Feedback;
-import edu.kh.justgo.manager.model.dto.Report;
-import edu.kh.justgo.member.model.dto.Member;
+import edu.kh.justgo.alarm.model.dto.Alarm;
 
 @Repository
 public class AlarmDAO {
@@ -14,16 +12,11 @@ public class AlarmDAO {
 	@Autowired
 	public SqlSessionTemplate sql;
 
-	public Member sendMember(String memberNo) {
-		return sql.selectOne("alarmMapper.sendMember", memberNo);
+	public int insertAlarm(Alarm alarm) {
+		return sql.insert("alarmMapper.insertAlarm", alarm);
 	}
 
-	public Report sendReport(String boardNo) {
-		return sql.selectOne("alarmMapper.sendReport", boardNo);
-	}
 
-	public Feedback sendFeedback(String feedbackNo) {
-		return sql.selectOne("alarmMapper.sendFeedback", feedbackNo);
-	}
 	
+
 }

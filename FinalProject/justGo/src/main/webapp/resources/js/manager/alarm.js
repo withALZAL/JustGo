@@ -14,7 +14,7 @@ function sendMessage(alarmNo, memberNickname, boardTitle){
     obj.memberNickname = memberNickname;
     obj.alarmNo = alarmNo;
 
-    // console.log(obj);
+    console.log(obj);
 
      // 웹소켓 연결된 곳으로 메시지를 보냄
     testSock.send(JSON.stringify(obj));
@@ -23,6 +23,7 @@ function sendMessage(alarmNo, memberNickname, boardTitle){
 
 
 const alarmBox = document.getElementById("alarmBox");
+const alarmBtn = document.getElementById("alarmBtn");
 
 // 웹소켓 객체(testSock)가 서버로 부터 전달 받은 메시지가 있을경우
 document.addEventListener("DOMContentLoaded", function() {
@@ -48,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
         alarmList.append(div1, div2);
 
         alarmBox.append(alarmList);
+        alarmBtn.classList.add("shake");
+
+        setTimeout(function() {
+            alarmBtn.classList.remove("shake");
+        }, 400);
 
     };
 
