@@ -55,9 +55,10 @@
         <button type="button" class="btn btn-secondary dropdown-toggle" id="alarmBtn" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-envelope fa-xl"></i>
         </button>
+        <div id="alarm_num"></div>
         <ul class="dropdown-menu" id="alarmBox">
             <!-- 알람내용 받는 공간 -->
-            알람내용
+            
         </ul>
         </div>
 

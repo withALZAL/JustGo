@@ -139,7 +139,10 @@ function reportBoardBtn(boardNo){
     .then(result => {
         console.log(result)
         if(result > 0){
-            sendMessage(1, memberNickname, boardTitle);
+
+            // const alarmContent = memberNickname+"님께서 " + boardTitle +" 게시글을 신고하셨습니다.";
+
+            sendMessage(loginMemberNo, memberNickname, boardNo, boardTitle);
             // alert("해당 게시글을 신고하였습니다.");
             const Toast = Swal.mixin({
                 toast: true,

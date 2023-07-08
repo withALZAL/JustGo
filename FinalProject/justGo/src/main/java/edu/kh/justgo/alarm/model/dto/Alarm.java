@@ -18,8 +18,12 @@ public class Alarm {
 	
 	
 	private int memberNo;
+	private int boardNo;
+	private int reportNo;
+	private int targetNo;
 	private String memberNickname;
 	private String managerNickname;
+	private String boardTitle;
 	
 	
 

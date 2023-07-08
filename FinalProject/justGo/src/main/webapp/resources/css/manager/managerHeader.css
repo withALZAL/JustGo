@@ -173,9 +173,23 @@ label[for='alarmToggle'] {
 
 @keyframes shake {
     from {
-      transform: rotate(10deg);
+        transform: rotate(10deg);
     }
     to {
-      transform: rotate(-10deg);
+        transform: rotate(-10deg);
     }
-  }
+}
+
+.increaseNum{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: red;
+    border-radius: 15px;
+    display: inline-block;
+}

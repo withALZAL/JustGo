@@ -5,14 +5,15 @@
 // 2. SockJS를 이용해서 클라이언트용 웹소켓 객체 생성
 let testSock = new SockJS("/alarmSock");
 
-function sendMessage(alarmNo, memberNickname, boardTitle){
+function sendMessage(memberNo, memberNickname, boardNo, boardTitle){
     
     // 매개변수를 JS객체에 저장
     let obj={}; // 비어있는 객체
 
-    obj.boardTitle = boardTitle; // 객체에 일치하는 key가 없다면 자동으로 추가
+    obj.boardNo = boardNo; // 객체에 일치하는 key가 없다면 자동으로 추가
+    obj.memberNo = memberNo;
     obj.memberNickname = memberNickname;
-    obj.alarmNo = alarmNo;
+    obj.boardTitle = boardTitle;
 
     console.log(obj);
 
@@ -24,6 +25,7 @@ function sendMessage(alarmNo, memberNickname, boardTitle){
 
 const alarmBox = document.getElementById("alarmBox");
 const alarmBtn = document.getElementById("alarmBtn");
+const alarm_num = document.getElementById("alarm_num");
 
 // 웹소켓 객체(testSock)가 서버로 부터 전달 받은 메시지가 있을경우
 document.addEventListener("DOMContentLoaded", function() {
@@ -37,10 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(obj);
         // console.log(`보낸 사람 : ${obj.CP} / ${obj.reportNo} / ${obj.memberNo}`);
 
+        
         const alarmList = document.createElement("li");
         
         const div1 = document.createElement("div");
-        div1.innerText = obj.boardTitle.substr(0,10) + "... 게시글을";
+        div1.innerText = obj.boardTitle + "... 게시글을";
         
         const div2 = document.createElement("div");
         div2.innerText = obj.memberNickname + "님 께서 신고하였습니다.";
@@ -54,6 +57,20 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             alarmBtn.classList.remove("shake");
         }, 400);
+
+
+        const alarmNum = document.createElement("span");
+        alarmNum.classList.add("increaseNum");
+        alarmNum.innerHTML = 0;
+        alarm_num.append(alarmNum);
+
+        alarmNum.innerHTML = ++alarmNum.innerHTML; 
+        // function alarmCount() {
+            
+        //     alarmNum.innerHTML = ++alarmNum.innerHTML;
+        // }
+
+    
 
     };
 

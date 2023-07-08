@@ -200,14 +200,9 @@
 	<!-- ============================================================================================================= -->
 	
 	<!-- 회원이 신고했을 때 알람 등록 -->
-      <insert id="insertAlarm" parameterType="Alarm" useGeneratedKeys="true">
-      	
-      	<selectKey order="BEFORE" resultType="_int" keyProperty="alarmNo">
-      		SELECT SEQ_ALARM_NO.NEXTVAL FROM DUAL
-      	</selectKey>
-      
+      <insert id="insertAlarm">
       	INSERT INTO "ALARM"
-		VALUES(SEQ_ALARM_NO.NEXTVA, NULL, #{alarmContent}, DEFAULT, DEFAULT);
+		VALUES(SEQ_ALARM_NO.NEXTVAL, NULL, #{baordNo}, #{reportNo}, #{alarmContent}, DEFAULT, DEFAULT, #{MemberNo});
       </insert>
 	
 	<!-- 신고알람 확인-->
