@@ -121,7 +121,17 @@
 	</resultMap>
 
 
+	<!--알람 -->
+	<resultMap type="Alarm" id="alarm_rm">
+		<id property="alarmNo" column="ALARM_NO" />
+		<result property="alarmContent" column="ALARM_CONTENT" />
+		<result property="alarmDate" column="ALARM_DATE" />
+		<result property="alarmCheck" column="ALARM_CHECK" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
 
+
+	</resultMap>
 
 
 	<!-- SQL 관련 태그의 속성 - parameterType : 전달받은 값의 자료형 기본 : 패키지명 + 클래스명 별칭 : Mybatis 
@@ -187,10 +197,9 @@
 		ORDER BY FEEDBACK_NO DESC
 	</select>
 	
+	<!-- ============================================================================================================= -->
 	
-	
-	<!-- 신고 알람 등록 -->
-	<!-- 로그인한 회원의 1:1문의 작성 -->
+	<!-- 회원이 신고했을 때 알람 등록 -->
       <insert id="insertAlarm" parameterType="Alarm" useGeneratedKeys="true">
       	
       	<selectKey order="BEFORE" resultType="_int" keyProperty="alarmNo">
@@ -198,7 +207,7 @@
       	</selectKey>
       
       	INSERT INTO "ALARM"
-		VALUES(#{alarmNo}, NULL, #{alarmContent}, DEFAULT, DEFAULT);
+		VALUES(SEQ_ALARM_NO.NEXTVA, NULL, #{alarmContent}, DEFAULT, DEFAULT);
       </insert>
 	
 	<!-- 신고알람 확인-->
