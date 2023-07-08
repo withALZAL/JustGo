@@ -167,3 +167,15 @@ label[for='alarmToggle'] {
     padding: 0 0;
 }
 
+.shake{
+    animation: shake 5s infinite;
+}
+
+@keyframes shake {
+    from {
+      transform: rotate(10deg);
+    }
+    to {
+      transform: rotate(-10deg);
+    }
+  }

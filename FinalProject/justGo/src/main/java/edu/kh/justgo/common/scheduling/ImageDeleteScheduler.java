@@ -35,7 +35,7 @@ public class ImageDeleteScheduler {
 //		System.out.println("0초, 30초마다 출력됩니다.");
 //	}
 
-	@Scheduled(cron = "0,30 * * * * * ") // 1시간마다 //cron 방식은 6개의 필드로 구성하기 때문에 7개 작성 X
+	@Scheduled(cron = "0 0  * * * * ") // 1시간마다 //cron 방식은 6개의 필드로 구성하기 때문에 7개 작성 X
 	public void deleteDummyImage() {
 		System.out.println("-----게시판 DB와 서버 불일치 파일 제거-----");
                  
