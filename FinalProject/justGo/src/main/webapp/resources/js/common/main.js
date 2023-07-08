@@ -74,25 +74,25 @@ getWeather("Seoul"); // 초기값 서울
 /* 환율 API ----------------------------------------------- */
 
 /* 고정 1달러 환율(왼쪽) */
-// let miniUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/USD";
-// fetch(miniUrl)
-// .then(response => response.json())
-// .then(resultMini => {
-//     let calc1 = resultMini.conversion_rates.KRW; // 1296.8883
-//     let calc2 = calc1.toFixed(2); // 1296.88
-//     document.getElementById("afterMoney").value = calc2;
-//     let formattedNumber = calc2.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 1,296.88
+let miniUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/USD";
+fetch(miniUrl)
+.then(response => response.json())
+.then(resultMini => {
+    let calc1 = resultMini.conversion_rates.KRW; // 1296.8883
+    let calc2 = calc1.toFixed(2); // 1296.88
+    document.getElementById("afterMoney").value = calc2;
+    let formattedNumber = calc2.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 1,296.88
 
-//     after1usd2krw.innerText = formattedNumber;
-// });
+    after1usd2krw.innerText = formattedNumber;
+});
 
 /* 페이지 첫 로드 */
-// $(document).ready(() => {
-//     calcRate('USD', 'KRW');
-//     calcRateX('KRW', 'USD');
+$(document).ready(() => {
+    calcRate('USD', 'KRW');
+    calcRateX('KRW', 'USD');
 
-//     calcIcon();
-// });
+    calcIcon();
+});
 
 /* before 통화 셀렉터하면 기본 단위 바뀌는 함수 */
 function beforeMoneyChange() {
@@ -540,14 +540,14 @@ $('#airportModal').on('show.bs.modal', function (e) {/* 버튼 제출 막기(상
                 toast.addEventListener('mouseenter', Swal.stopTimer)
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
-        })
-        Toast.fire({
-            icon: 'warning',
-            title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
-        })
-        datepicker2.value = "(예: 2023-07-01)";
-        datepicker2.focus;
-        e.preventDefault();
+            })
+            Toast.fire({
+                icon: 'warning',
+                title: '올바른 날짜 형식을 입력해주세요. (예: 2023-07-01)'
+            })
+            datepicker2.value = "(예: 2023-07-01)";
+            datepicker2.focus;
+            e.preventDefault();
         return;
     }
     /* 상준 추가 끝 */
