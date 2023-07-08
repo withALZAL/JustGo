@@ -97,7 +97,9 @@ new Chart(chartBar, {
     },
     options: {
         indexAxis: 'y',
+        plugins: {
         legend: { display: false },
+        },
         title: { display: false }
     }
 });
