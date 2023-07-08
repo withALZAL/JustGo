@@ -26,6 +26,14 @@
 
 /* 게시글 ----------------------------------------------- */
 
+/* 아코디언 긴급 조치 */
+.tempCardHeader {
+    height: 60px;
+    display: flex;
+    background-color: #CFE2FF;
+    align-items: center;
+}
+
 /* 게시글 컨테이너 조정 */
 .common--boardListContainer {
     margin: 10px 30px 10px 30px;
