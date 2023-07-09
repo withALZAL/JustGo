@@ -53,7 +53,7 @@
         </a>    
     </form>
     <form>
-        <a href="/manager/memberManager">
+        <a href="/manager/managerMain">
             <button type="button" class="btn btn-secondary btn-sm">관리자</button>
         </a>    
     </form>
@@ -126,7 +126,7 @@
             </form>
             <c:if test="${loginMember.memberRole == 1}"> <%-- 로그인했는데 관리자였을 때 --%>
                 <form>
-                    <a href="/manager/memberManager">
+                    <a href="/manager/managerMain">
                         <i class="fa-brands fa-fort-awesome-alt fa-2xl"></i>
                         <%-- <button type="button" class="btn btn-secondary btn-sm">관리자페이지</button> --%>
                     </a>    

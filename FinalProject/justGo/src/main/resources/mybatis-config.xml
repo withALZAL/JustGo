@@ -40,6 +40,7 @@
 	<mapper resource="/mappers/manager-mapper.xml"/>
 	<mapper resource="/mappers/alarm-mapper.xml"/>
 	<mapper resource="/mappers/dashboard-mapper.xml"/>
+	<mapper resource="/mappers/managerMain-mapper.xml"/>
 	<mapper resource="/mappers/email-mapper.xml"/>
 	<mapper resource="/mappers/ajax-mapper.xml"/>
 	<mapper resource="/mappers/reply-mapper.xml"/>

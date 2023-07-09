@@ -44,6 +44,9 @@
         </a>
     </form> 
     <div class="manager--loginSession"> 
+        <a href="/manager/managerMain">
+            <i class="fa-solid fa-house fa-xl"></i>
+        </a>
         <form>
             <a href="/myPage/info">
                 <i class="fa-solid fa-circle-user fa-xl"></i>
