@@ -49,22 +49,6 @@
 
 
 
-<!-- 페이지 제목 시작 -->
-<%--
-<div class="template--pageTitleContainer">
-    <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
-        <div class="template--overlayedTitle" style="color: black;">
-            <a href="/manager/memberManager">
-                관리자_회원관리
-            </a>
-        </div>
-    </div>
-</div>
---%>
-<!-- 페이지 제목 끝 -->
-
-
 
 <!-- 콘텐츠 시작 -->
 <div class="manager--contentContainer">
@@ -77,7 +61,7 @@
             <div class="manager_main1">
                 <div class="manager_main_title">
                     <div class="today">Today's</div>
-                    <div class="date" id="clock"> </div>
+                    <span class="date" id="clock"> <time datetime="now"></time></span>
                 </div>
                 <div class="todaysContnent">
                     <div class="countBox" id="newMember">
@@ -168,14 +152,17 @@
             <div class="manager_main4">
                 <div class="manager_main_title">1:1문의 현황</div>
                 <div class="feedbackCount">
-                    <div class="countBox">
+                    <div class="countBox2">
                         <div>미답변</div>
-                        <div><a href="/manager/askManager"><span class="count">${feedbackCount.UNCONFIRMED_COUNT}</span></a></div>
+                        <div class="askCount"><a href="/manager/askManager"><span class="count">${feedbackCount.UNCONFIRMED_COUNT}</span></a></div>
                     </div>
-                    <div class="countBox">
+                    <div class="countBox2">
                         <div>총 문의 수</div>
                         <div ><span class="count">${feedbackCount.TOTAL_COUNT}</span></div>
                     </div>
+                </div>
+                <div class="more">
+                    <a href="/manager/askManager"><button class="todayBtn">1:1문의</button></a>
                 </div>
             </div>
             <div class="manager_main5">
@@ -247,7 +234,6 @@
     <script src="/resources/js/common/header.js"></script>
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
-<%-- managerDashboard로 변수 전달 --%>
     <script>
         let clock = document.getElementById("clock").innnerHtml = new Date();
         // var Target = document.getElementById("clock");

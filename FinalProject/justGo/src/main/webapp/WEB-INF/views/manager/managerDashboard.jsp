@@ -49,23 +49,6 @@
 
 
 
-<!-- 페이지 제목 시작 -->
-<%--
-<div class="template--pageTitleContainer">
-    <div class="template--pageTitleBox">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
-        <div class="template--overlayedTitle" style="color: black;">
-            <a href="/manager/memberManager">
-                관리자_회원관리
-            </a>
-        </div>
-    </div>
-</div>
---%>
-<!-- 페이지 제목 끝 -->
-
-
-
 <!-- 콘텐츠 시작 -->
 <div class="manager--contentContainer">
 <div class="manager--contentBox">

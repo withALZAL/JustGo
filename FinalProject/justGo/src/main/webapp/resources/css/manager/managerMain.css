@@ -121,7 +121,7 @@
 }
 
 #newMember{
-    background-color: #CEF279;
+    background-color: #C5E47E;
 }
 
 #newBoard{
@@ -274,6 +274,27 @@
     
 }
 
+.countBox2{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px salmon; */
+    padding: 10px;
+    
+}
+
+.askCount{
+    color:red;
+}    
+.askCount:hover{
+    text-decoration: underline;
+}
+
+
+
 .feedbackCount{
     display: flex;
     flex-direction: row;
@@ -294,12 +315,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin: 25px 0 15px 0;
 }
 
 .feedbackList *{
-
     list-style: none;
-    
 }
 
 .newFeedbackBox{
