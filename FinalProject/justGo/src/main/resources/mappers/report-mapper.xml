@@ -136,6 +136,15 @@
 		인 회원 조회 SELECT * FROM MEMBER WHERE MEMBER_EMAIL = #{test1} -->
 
 
+	<!-- 로그인한 회원이 이미 신고한 게시물인지 확인 -->
+	<select id="reportSelect" resultType="_int">
+		SELECT COUNT(*)
+		FROM REPORT 
+		WHERE BOARD_NO = #{boardNo}
+		AND MEMBER_NO = #{memberNo}
+	</select>
+
+
 	<insert id="reportBoard" parameterType="Report" useGeneratedKeys="true">
 		<selectKey order="BEFORE" resultType="_int" keyProperty="reportNo">
       		SELECT SEQ_REPORT_NO.NEXTVAL FROM DUAL
@@ -144,6 +153,9 @@
 		INSERT INTO "REPORT"
 		VALUES(#{reportNo}, #{memberNo}, #{reportCategory}, DEFAULT, NULL ,DEFAULT, NULL, #{boardNo})
 	</insert>
+	
+	
+	
 	
 	
 </mapper>

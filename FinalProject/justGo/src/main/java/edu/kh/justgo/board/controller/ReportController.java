@@ -43,8 +43,13 @@ public class ReportController {
 		
 //		System.out.println(report);
 		
-		int result = service.reportBoard(report);
+		int result = service.reportSelect(report);
 		
+		if(result>0) {
+			result = 0;
+		}else {
+			result = service.reportBoard(report);
+		}
 		
 		
     	return result;

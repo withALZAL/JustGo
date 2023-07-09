@@ -69,9 +69,9 @@
 <!-- 콘텐츠 시작 -->
 <div class="manager--contentContainer">
 <div class="manager--contentBox">
-    <%-- <aside class="manager--sideContainer">
+    <aside class="manager--sideContainer">
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
-    </aside> --%>
+    </aside>
     <div class="manager--mainBox">
         <section class="manager__top">
             <div class="manager_main1">
@@ -110,7 +110,7 @@
                     <div class="newPostBox" id="newPostBox1">
                         <div class="boxTitle" >글제목</div>
                         
-                        <c:forEach begin="0" end="11" items="${newPost}" var="post">
+                        <c:forEach begin="0" end="8" items="${newPost}" var="post">
                             <c:choose>
                                     <c:when test="${post.COUNTRY_NO == 0 || post.COUNTRY_NO == null}">
                                         <div class="boxContent1"><a href="/board/${post.BOARD_CODE}/${post.BOARD_NO}">${post.BOARD_TITLE}</a></div>
@@ -133,7 +133,7 @@
                     </div> --%>
                     <div class="newPostBox">
                         <div class="boxTitle">작성일</div>
-                        <c:forEach begin="0" end="11" items="${newPost}" var="post">
+                        <c:forEach begin="0" end="8" items="${newPost}" var="post">
                         <div class="boxContent2">${post.CREATE_DATE}</div>
                         </c:forEach>
                     </div>
@@ -195,7 +195,7 @@
                     <div class="newFeedbackBox">
                         <div class="boxTitle">문의제목</div>
                             <c:forEach begin="0" end="4" items="${newFeedback}" var="feedback">
-                            <div class="boxContent1">${feedback.FEEDBACK_TITLE}</div>
+                            <a href="/manager/askManager_detail/${feedback.FEEDBACK_NO}"><div class="boxContent1">${feedback.FEEDBACK_TITLE}</div></a>
                             </c:forEach>
                     </div>
                     <div class="newFeedbackBox">
