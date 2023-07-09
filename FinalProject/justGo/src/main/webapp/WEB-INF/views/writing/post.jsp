@@ -392,7 +392,7 @@
         </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-            <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2}">
+            <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2 && loginMember.memberNo != board.memberNo}">
                 <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
             </c:if>
             <c:choose>

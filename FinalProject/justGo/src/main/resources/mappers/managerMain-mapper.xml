@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="reportMapper">
+<mapper namespace="managerMainMapper">
 	<!-- namespace : 공간(영역,지역,태그)의 이름 -->
 
 	<!--mapper 파일 생성 시 아래 태그 반드시 삭제! -->
@@ -136,26 +136,88 @@
 		인 회원 조회 SELECT * FROM MEMBER WHERE MEMBER_EMAIL = #{test1} -->
 
 
-	<!-- 로그인한 회원이 이미 신고한 게시물인지 확인 -->
-	<select id="reportSelect" resultType="_int">
-		SELECT COUNT(*)
-		FROM REPORT 
-		WHERE BOARD_NO = #{boardNo}
-		AND MEMBER_NO = #{memberNo}
+	<!-- 오늘 가입자수, 신규글 수, 댓글 수 -->
+	<select id="todaysCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM "MEMBER" WHERE ENROLL_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS MEMBER_COUNT,
+	    (SELECT COUNT(*) FROM "BOARD" WHERE CREATE_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS BOARD_COUNT,
+	    (SELECT COUNT(*) FROM "REPLY" WHERE REPLY_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS REPLY_COUNT
+	   	FROM DUAL
+	]]>
 	</select>
+	
+	
+	<!-- 1:1문의 Count -->
+	<select id="feedbackCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM FEEDBACK) AS TOTAL_COUNT,
+	    (SELECT COUNT(*) FROM FEEDBACK WHERE CONFIRM_FL = 'N') AS UNCONFIRMED_COUNT
+	    FROM DUAL
+	]]>
+	</select>
+	
+	<!-- 신고 Count -->
+	<select id="reportCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM REPORT WHERE CONFIRM_FL = 'N') AS UNCONFIRMED_COUNT,
+	    (SELECT COUNT(*) FROM REPORT WHERE CONFIRM_FL = 'Y') AS CONFIRMED_COUNT,
+	    (SELECT COUNT(*) FROM REPORT) AS TOTAL_COUNT
+	    FROM DUAL
+	]]>
+	</select>
+	
+	
+	<!-- 최신글 List -->
+	<select id="newPost" resultType="map">
+	<![CDATA[
+		SELECT BOARD_NO, BOARD_CODE, COUNTRY_NO, BOARD_TITLE, MEMBER_NICKNAME, 
+			
+			CASE  
+		       WHEN SYSDATE - CREATE_DATE < 1/24/60
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		       WHEN SYSDATE - CREATE_DATE < 1/24
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		       WHEN SYSDATE - CREATE_DATE < 1
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		       ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+		    END CREATE_DATE
+		
+		FROM "BOARD"
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE CREATE_DATE > 
+		(SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)
+		ORDER BY BOARD_NO DESC
+	]]>
+	</select>
+	
+	
+	<!-- 신규문의 List -->
+	<select id="newFeedback" resultType="map">
+	<![CDATA[
+		SELECT FEEDBACK_NO, FEEDBACK_TITLE, MEMBER_NICKNAME, 
+			CASE  
+		       WHEN SYSDATE - FEEDBACK_DATE < 1/24/60
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60 * 60 ) || '초 전'
+		       WHEN SYSDATE - FEEDBACK_DATE < 1/24
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60) || '분 전'
+		       WHEN SYSDATE - FEEDBACK_DATE < 1
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24) || '시간 전'
+		       ELSE TO_CHAR(FEEDBACK_DATE, 'YYYY-MM-DD')
+		    END FEEDBACK_DATE
+		FROM FEEDBACK 
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE FEEDBACK_DATE > 
+		(SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)
+		ORDER BY FEEDBACK_NO DESC
+		]]>
+	</select>
+	
+	
+	
+	
+	
 
-
-	<insert id="reportBoard" parameterType="Report" useGeneratedKeys="true">
-		<selectKey order="BEFORE" resultType="_int" keyProperty="reportNo">
-      		SELECT SEQ_REPORT_NO.NEXTVAL FROM DUAL
-      	</selectKey>
-      	
-		INSERT INTO "REPORT"
-		VALUES(#{reportNo}, #{memberNo}, #{reportCategory}, DEFAULT, NULL ,DEFAULT, NULL, #{boardNo})
-	</insert>
-	
-	
-	
-	
-	
 </mapper>
