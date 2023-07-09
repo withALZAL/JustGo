@@ -16,7 +16,7 @@
         <div class="manager--menu">
             <a href="/manager/managerDashboard"><i class="fa-solid fa-paper-plane"></i>대시보드</a>
             <a href="/manager/memberManager"><i class="fa-solid fa-address-book"></i>회원관리</a>
-            <a href="/manager/manager"><i class="fa-solid fa-crown"></i></i>운영관리</a>
+            <a href="/manager/manager"><i class="fa-solid fa-user-gear"></i>운영관리</a>
             <a href="/manager/askManager"><i class="fa-solid fa-comments"></i>1:1문의</a>
             <a href="/manager/reportManager"><i class="fa-solid fa-clipboard"></i>신고관리</a>
         </div>
