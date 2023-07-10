@@ -95,7 +95,6 @@ ${map.memberPostPagination} --%>
             <thead>
                 <tr>
                 <th>글번호</th>
-                <th>태그</th>
                 <th>글제목</th>
                 <th>작성일</th>
                 <th>조회수</th>
@@ -108,14 +107,13 @@ ${map.memberPostPagination} --%>
                 <c:choose>
                     <c:when test="${empty memberPostList}">
                         <tr>
-                            <th colspan="7">게시글이 존재하지 않습니다.</th>
+                            <th colspan="6">게시글이 존재하지 않습니다.</th>
                         </tr>
                     </c:when>
                     <c:otherwise>
                         <c:forEach items="${memberPostList}" var="memberPost">
                             <tr>
                                 <td>${memberPost.boardNo}</td>
-                                <td>${memberPost.tagContent}</td>
                                 <c:choose>
                                     <c:when test="${memberPost.countryNo == 0 || memberPost.countryNo == null}">
                                         <td><a href="/board/${memberPost.boardCode}/${memberPost.boardNo}">${memberPost.boardTitle}</a></td>
