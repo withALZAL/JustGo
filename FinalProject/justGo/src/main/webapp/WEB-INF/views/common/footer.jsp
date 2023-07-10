@@ -22,6 +22,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
     
@@ -60,8 +62,8 @@
     </div>
     <div class="common--footerRight">
         <%-- <a href="/board/boardNotice">공지사항</a> 공지사항으로 이동 --%>
-    <c:if test="${!empty sessionScope.loginMember}">
-        <a href="/ask/writingAsk">1:1문의</a> <%-- 로그인 되었을 때만1:1문의로 이동 --%>
+    <c:if test="${!empty sessionScope.loginMember && sessionScope.loginMemberRole == 2}">
+        <a href="/ask/writingAsk">1:1문의</a> <%-- 로그인 되었을 때만 1:1문의로 이동 --%>
     </c:if>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
@@ -71,6 +73,7 @@
         <input type="hidden" name="boardCode" value="1">    
         <input type="hidden" name="countryNo" value="${countryNo}">    
     </form> --%>
+        <c:if test="${sessionScope.loginMember.memberRole != 1}">
         <form action="/writing/writingBoard" method="get"> <%-- 글쓰기 버튼 --%>
             <button type="submit">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -78,6 +81,7 @@
             <input type="hidden" name="boardCode" value="${boardCode}" >  <%-- value ="3"은 boardCode --%>
             <input type="hidden" name="countryNo" value="${countryNo}">
         </form>
+        </c:if>
         <a onclick="popup()" target = "_blank">
             <%-- <button type="button" id="chattingBtn" data-bs-toggle="modal" data-bs-target="#chattingModal">
                 <i class="fa-solid fa-comment"></i>
@@ -146,6 +150,7 @@
         showConfirmButton: false, /* 컨펌버튼 없음 */
         timer: 3000, /* 3초 간 뜨기 */
         timerProgressBar: true, /* 진행바 */
+        showCloseButton: true, /* 취소 버튼 */
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -183,4 +188,8 @@
     </script>
 </c:if>
 </body>
+    <%-- SockJS --%>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <%-- 알람 --%>
+    <script src="/resources/js/manager/alarm.js"></script>
 </html>

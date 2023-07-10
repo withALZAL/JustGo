@@ -51,12 +51,15 @@
 	</interceptors>
 	
 				<beans:bean id="chatHandler" class="edu.kh.justgo.chatting.model.websocket.ChattingWebsocketHandler"/>
+				<beans:bean id="memberListHandler" class="edu.kh.justgo.chatting.model.websocket.MemberListWebsocketHandler"/>
 				<beans:bean id="alarmHandler" class="edu.kh.justgo.manager.websocket.AlarmWebsocketHandler"/>
+				
 	<!-- 어떤 주소로 웹소켓 요청이 오면 세션을 가로챌지 지정 -->			
 	<websocket:handlers>
 		<!-- websocket 매핑 주소 -->
 		<websocket:mapping handler="chatHandler" path="/chattingSock"/>
 		<websocket:mapping handler="alarmHandler" path="/alarmSock"/>
+		<websocket:mapping handler="memberListHandler" path="/memberListSock"/>
 		
 		<websocket:handshake-interceptors> 
 			<!-- interceptor : http통신에서 request, response를 가로채는 역할

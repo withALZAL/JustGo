@@ -20,16 +20,35 @@
 		<result property="memberEmail" column="MEMBER_EMAIL"/>
 		<result property="memberNickname" column="MEMBER_NICKNAME"/>
 		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberCondition" column="MEMBER_CONDITION" />
 	</resultMap>	
 
 
 	<!--=========================================================================================-->
 	<!-- 채팅 메세지 삽입 -->
 	<insert id="insertMessage">
-		INSERT INTO "MESSAGE"
-		VALUES(1,SEQ_MSG_NO.NEXTVAL, #{magContent},DEFAULT, #{senderNo}, #{receiver})
+		INSERT INTO "CHATTING"
+		VALUES(SEQ_MSG_NO.NEXTVAL, #{msgContent},DEFAULT, #{senderNo})
 	</insert>
 	
+		<!-- 채팅방 메세지 조회 -->
+	<select id="selectMessageList" resultMap="message_rm">
+		SELECT MSG_NO, MSG_CONTENT,SENDER_NO,
+		TO_CHAR(SEND_TIME, 'YYYY.MM.DD HH24:MI') SEND_TIME,
+		MEMBER_NO ,MEMBER_NICKNAME, PROFILE_IMG
+		FROM CHATTING
+		JOIN "MEMBER" ON(MEMBER_NO = SENDER_NO)
+		ORDER BY MSG_NO
+	</select>
+	
+	
+	<!-- 로그인한 모든 회원 -->
+	<select id="loginMemberList" resultMap ="member_rm">
+	SELECT MEMBER_NO , MEMBER_NICKNAME,PROFILE_IMG
+	FROM MEMBER
+	WHERE MEMBER_CONDITION = 'N'
+	
+	</select>	
 
 </mapper>
 

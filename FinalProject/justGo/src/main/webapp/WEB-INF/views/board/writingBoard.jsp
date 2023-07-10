@@ -25,6 +25,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
@@ -59,7 +61,7 @@
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" autocomplete="off"></div>
+                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="30" autocomplete="off"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
                     <c:forEach var="writing" items="${writingList}">
@@ -68,7 +70,7 @@
                                 <option value="${writing.boardCode}" class="b">${writing.boardName}</option>
                         </c:when>
                         <c:otherwise>
-                                <option value="${writing.boardCode}">${writing.boardName}</option> <%-- 여행 --%>
+                                <option value="${writing.boardCode}">${writing.boardName}게시판</option> <%-- 여행 --%>
                         </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -87,8 +89,8 @@
         <div class="writing--inputContentBox">
             <textarea class="writing--summernoteBox" id="summernote" name="boardText" ></textarea>
         <div class="writing--ButtonBox">
-                <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                <button type="submit" class="btn btn-primary btn-lg" style="border:none;">게시</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="border: none;" onclick="history.back()">취소</button>
         </div>
     </div>
 </div>

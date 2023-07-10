@@ -28,13 +28,14 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		
+		System.out.println("접속 : " + session.getId());
 		sessions.add(session);
 	}
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 
+		System.out.println(message.getPayload());
 		// Jackson에서 제공하는 객체
         // JSON String -> VO Object
         ObjectMapper objectMapper = new ObjectMapper();
@@ -51,10 +52,8 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
         	for(WebSocketSession s : sessions) {
         		int chattingRoomNo = ((Member)s.getAttributes().get("loginMember")).getChattingNo();
         		
-        		if(chattingRoomNo == 1){
-        			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+    			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
         			
-        		}
         	}
         	
         	
@@ -66,6 +65,19 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		
 		sessions.remove(session);
+		
+		String memberNickname = ((Member)session.getAttributes().get("loginMember")).getMemberNickname();
+		
+		Message msg  = new Message();
+		msg.setSenderNo(-2);
+		msg.setMsgContent(memberNickname + "나감");
+		
+		for(WebSocketSession s : sessions) {
+			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+    			
+    	}
+		
+		
 	}
 	
 	

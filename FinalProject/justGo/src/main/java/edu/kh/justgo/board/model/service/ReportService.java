@@ -12,6 +12,12 @@ public interface ReportService {
 	 */
 	int reportBoard(Report report);
 
+	/** 로그인한 회원이 이미 신고한 게시물인지 확인
+	 * @param report
+	 * @return
+	 */
+	int reportSelect(Report report);
+
 
 	
 	

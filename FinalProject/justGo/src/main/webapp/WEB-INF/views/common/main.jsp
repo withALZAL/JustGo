@@ -24,6 +24,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%-- jQuery 날짜 셀렉터 --%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
@@ -286,20 +288,22 @@
 
 
 <!-- 인기게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne">
+                aria-controls="panelsStayOpen-collapseOne"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-fire" style="color:red; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${hotBoardList}" var="hotList">
                     <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -335,22 +339,24 @@
 
 
 <!-- 맛집게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseTwo">
+                aria-controls="panelsStayOpen-collapseTwo"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-burger" style="color:orange; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>맛집</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${foodBoardList}" var="foodList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -386,22 +392,27 @@
 
 
 <!-- 꿀팁게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<%-- <div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample"> --%>
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        <%-- <h2 class="accordion-header"> --%>
+            <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseThree">
+                aria-controls="panelsStayOpen-collapseThree"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-bolt" style="color:yellow; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>꿀팁</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <%-- <div class="accordion-body common--boardCards"> --%>
+            <div class="card-body common--boardCards">
             <c:forEach items="${tipBoardList}" var="tipBoardList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -437,22 +448,24 @@
 
 
 <!-- 힐링게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseFour">
+                aria-controls="panelsStayOpen-collapseFour"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-seedling" style="color:green; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>힐링</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${healBoardList}" var="healList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -506,7 +519,7 @@
             <span id="resultRateX" style="display: none;"></span> <%-- 역교환비 숨김 처리 --%>
             <div class="common--moneyRightBox">
                 <div class="topMoneyBox">
-                    <input id="beforeMoney" type="number" value="1.00">
+                    <input id="beforeMoney" type="number" value="1.00" min="0" max="999999999">
                     <select id="beforeCurrSelect" onchange="beforeMoneyChange();" class="common--cardExchangeSelector">
                         <option id="USD" selected>달러 | USD</option>
                         <option id="KRW">원 | KRW</option>
@@ -522,7 +535,7 @@
                     <i class="fa-solid fa-calculator fa-flip"></i>
                 </div>
                 <div class="bottomMoneyBox">
-                    <input id="afterMoney" type="number">
+                    <input id="afterMoney" type="number" min="0" max="999999999">
                     <select id="afterCurrSelect" onchange="resultCurrChange();" class="common--cardExchangeSelector">
                         <option id="USD">달러 | USD</option>
                         <option id="KRW" selected>원 | KRW</option>
@@ -624,9 +637,10 @@
             <div class="textWave">
                 <span>어디로</span>
                 <span>떠나시나요?</span>
-                <span>JustGo가</span>
-                <span>저렴한</span>
+                <span>목적지로</span>
+                <span>떠나는</span>
                 <span>항공권을</span>
+                <span>JustGo가</span>
                 <span>찾아드립니다.</span>
             </div>
             <div class="common--airContentBox">

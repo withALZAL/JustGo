@@ -29,5 +29,11 @@ public class ReportServiceImpl implements ReportService{
 	}
 	
 	
+	// 로그인한 회원이 이미 신고한 게시물인지 확인
+	@Override
+	public int reportSelect(Report report) {
+		return dao.reportSelect(report);
+	}
+	
 	
 }

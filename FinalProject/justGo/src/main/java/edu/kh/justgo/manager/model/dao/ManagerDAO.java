@@ -292,83 +292,83 @@ public class ManagerDAO {
 		return sql.selectList("managerMapper.managerMemberList_search", paramMap, rowBounds);
 	}
 
-	/**
-	 * 대시보드1
-	 * @return
-	 */
-	public int countAllMember() {	return sql.selectOne("managerMapper.countAllMember");}
-	public int countAllManager() {	return sql.selectOne("managerMapper.countAllManager");}
-	public int countOutMember() {	return sql.selectOne("managerMapper.countOutMember");}
-	public int countAllPost() {	return sql.selectOne("managerMapper.countAllPost");}
-
-	/**
-	 * 대시보드3
-	 * @return
-	 */
-	public int countTag1() {	return sql.selectOne("managerMapper.countTag1");}
-	public int countTag2() {	return sql.selectOne("managerMapper.countTag2");}
-	public int countTag3() {	return sql.selectOne("managerMapper.countTag3");}
-	public int countTag4() {	return sql.selectOne("managerMapper.countTag4");}
-
-	/** 대시보드2
-	 * @return
-	 */
-	public int countFree() {	return sql.selectOne("managerMapper.countFree");}
-	public int countQuestion() {return sql.selectOne("managerMapper.countQuestion");}
-	public int countChina() {	return sql.selectOne("managerMapper.countChina");}
-	public int countJapan() {	return sql.selectOne("managerMapper.countJapan");}
-	public int countVietnam() {	return sql.selectOne("managerMapper.countVietnam");}
-	public int countThai() {	return sql.selectOne("managerMapper.countThai");}
-	public int countAustralia(){return sql.selectOne("managerMapper.countAustralia");}
-	
-	/**
-	 * 대시보드4
-	 * @return
-	 */
-//	public int countMember6monthsAgo() {return sql.selectOne("managerMapper.countMember6monthsAgo");}
-//	public int countMember3monthsAgo() {return sql.selectOne("managerMapper.countMember3monthsAgo");}
-//	public int countMember2monthsAgo() {return sql.selectOne("managerMapper.countMember2monthsAgo");}
-//	public int countMember1monthsAgo() {return sql.selectOne("managerMapper.countMember1monthsAgo");}
-//	public int countMember2weeksAgo() {return sql.selectOne("managerMapper.countMember2weeksAgo");}
-//	public int countMember1weeksAgo() {return sql.selectOne("managerMapper.countMember1weeksAgo");}
-//	public int countMemberToday() {return sql.selectOne("managerMapper.countMemberToday");}
+//	/**
+//	 * 대시보드1
+//	 * @return
+//	 */
+//	public int countAllMember() {	return sql.selectOne("managerMapper.countAllMember");}
+//	public int countAllManager() {	return sql.selectOne("managerMapper.countAllManager");}
+//	public int countOutMember() {	return sql.selectOne("managerMapper.countOutMember");}
+//	public int countAllPost() {	return sql.selectOne("managerMapper.countAllPost");}
+//
+//	/**
+//	 * 대시보드3
+//	 * @return
+//	 */
+//	public int countTag1() {	return sql.selectOne("managerMapper.countTag1");}
+//	public int countTag2() {	return sql.selectOne("managerMapper.countTag2");}
+//	public int countTag3() {	return sql.selectOne("managerMapper.countTag3");}
+//	public int countTag4() {	return sql.selectOne("managerMapper.countTag4");}
+//
+//	/** 대시보드2
+//	 * @return
+//	 */
+//	public int countFree() {	return sql.selectOne("managerMapper.countFree");}
+//	public int countQuestion() {return sql.selectOne("managerMapper.countQuestion");}
+//	public int countChina() {	return sql.selectOne("managerMapper.countChina");}
+//	public int countJapan() {	return sql.selectOne("managerMapper.countJapan");}
+//	public int countVietnam() {	return sql.selectOne("managerMapper.countVietnam");}
+//	public int countThai() {	return sql.selectOne("managerMapper.countThai");}
+//	public int countAustralia(){return sql.selectOne("managerMapper.countAustralia");}
 //	
-//	public int countPost6monthsAgo() {return sql.selectOne("managerMapper.countPost6monthsAgo");}
-//	public int countPost3monthsAgo() {return sql.selectOne("managerMapper.countPost3monthsAgo");}
-//	public int countPost2monthsAgo() {return sql.selectOne("managerMapper.countPost2monthsAgo");}
-//	public int countPost1monthsAgo() {return sql.selectOne("managerMapper.countPost1monthsAgo");}
-//	public int countPost2weeksAgo() {return sql.selectOne("managerMapper.countPost2weeksAgo");}
-//	public int countPost1weeksAgo() {return sql.selectOne("managerMapper.countPost1weeksAgo");}
-//	public int countPostToday() {return sql.selectOne("managerMapper.countPostToday");}
-//	
-//	public int countOut6monthsAgo() {return sql.selectOne("managerMapper.countOut6monthsAgo");}
-//	public int countOut3monthsAgo() {return sql.selectOne("managerMapper.countOut3monthsAgo");}
-//	public int countOut2monthsAgo() {return sql.selectOne("managerMapper.countOut2monthsAgo");}
-//	public int countOut1monthsAgo() {return sql.selectOne("managerMapper.countOut1monthsAgo");}
-//	public int countOut2weeksAgo() {return sql.selectOne("managerMapper.countOut2weeksAgo");}
-//	public int countOut1weeksAgo() {return sql.selectOne("managerMapper.countOut1weeksAgo");}
-//	public int countOutToday() {return sql.selectOne("managerMapper.countOutToday");}
-//	
-//	public int countReport6monthsAgo() {return sql.selectOne("managerMapper.countReport6monthsAgo");}
-//	public int countReport3monthsAgo() {return sql.selectOne("managerMapper.countReport3monthsAgo");}
-//	public int countReport2monthsAgo() {return sql.selectOne("managerMapper.countReport2monthsAgo");}
-//	public int countReport1monthsAgo() {return sql.selectOne("managerMapper.countReport1monthsAgo");}
-//	public int countReport2weeksAgo() {return sql.selectOne("managerMapper.countReport2weeksAgo");}
-//	public int countReport1weeksAgo() {return sql.selectOne("managerMapper.countReport1weeksAgo");}
-//	public int countReportToday() {return sql.selectOne("managerMapper.countReportToday");}
-
-	/**
-	 * 대시보드5
-	 * @return
-	 */
-	public int report1() {return sql.selectOne("managerMapper.report1");}
-	public int report2() {return sql.selectOne("managerMapper.report2");}
-	public int report3() {return sql.selectOne("managerMapper.report3");}
-	public int report4() {return sql.selectOne("managerMapper.report4");}
-	public int report5() {return sql.selectOne("managerMapper.report5");}
-	public int report6() {return sql.selectOne("managerMapper.report6");}
-	public int report7() {return sql.selectOne("managerMapper.report7");}
-	public int report8() {return sql.selectOne("managerMapper.report8");}
+//	/**
+//	 * 대시보드4
+//	 * @return
+//	 */
+////	public int countMember6monthsAgo() {return sql.selectOne("managerMapper.countMember6monthsAgo");}
+////	public int countMember3monthsAgo() {return sql.selectOne("managerMapper.countMember3monthsAgo");}
+////	public int countMember2monthsAgo() {return sql.selectOne("managerMapper.countMember2monthsAgo");}
+////	public int countMember1monthsAgo() {return sql.selectOne("managerMapper.countMember1monthsAgo");}
+////	public int countMember2weeksAgo() {return sql.selectOne("managerMapper.countMember2weeksAgo");}
+////	public int countMember1weeksAgo() {return sql.selectOne("managerMapper.countMember1weeksAgo");}
+////	public int countMemberToday() {return sql.selectOne("managerMapper.countMemberToday");}
+////	
+////	public int countPost6monthsAgo() {return sql.selectOne("managerMapper.countPost6monthsAgo");}
+////	public int countPost3monthsAgo() {return sql.selectOne("managerMapper.countPost3monthsAgo");}
+////	public int countPost2monthsAgo() {return sql.selectOne("managerMapper.countPost2monthsAgo");}
+////	public int countPost1monthsAgo() {return sql.selectOne("managerMapper.countPost1monthsAgo");}
+////	public int countPost2weeksAgo() {return sql.selectOne("managerMapper.countPost2weeksAgo");}
+////	public int countPost1weeksAgo() {return sql.selectOne("managerMapper.countPost1weeksAgo");}
+////	public int countPostToday() {return sql.selectOne("managerMapper.countPostToday");}
+////	
+////	public int countOut6monthsAgo() {return sql.selectOne("managerMapper.countOut6monthsAgo");}
+////	public int countOut3monthsAgo() {return sql.selectOne("managerMapper.countOut3monthsAgo");}
+////	public int countOut2monthsAgo() {return sql.selectOne("managerMapper.countOut2monthsAgo");}
+////	public int countOut1monthsAgo() {return sql.selectOne("managerMapper.countOut1monthsAgo");}
+////	public int countOut2weeksAgo() {return sql.selectOne("managerMapper.countOut2weeksAgo");}
+////	public int countOut1weeksAgo() {return sql.selectOne("managerMapper.countOut1weeksAgo");}
+////	public int countOutToday() {return sql.selectOne("managerMapper.countOutToday");}
+////	
+////	public int countReport6monthsAgo() {return sql.selectOne("managerMapper.countReport6monthsAgo");}
+////	public int countReport3monthsAgo() {return sql.selectOne("managerMapper.countReport3monthsAgo");}
+////	public int countReport2monthsAgo() {return sql.selectOne("managerMapper.countReport2monthsAgo");}
+////	public int countReport1monthsAgo() {return sql.selectOne("managerMapper.countReport1monthsAgo");}
+////	public int countReport2weeksAgo() {return sql.selectOne("managerMapper.countReport2weeksAgo");}
+////	public int countReport1weeksAgo() {return sql.selectOne("managerMapper.countReport1weeksAgo");}
+////	public int countReportToday() {return sql.selectOne("managerMapper.countReportToday");}
+//
+//	/**
+//	 * 대시보드5
+//	 * @return
+//	 */
+//	public int report1() {return sql.selectOne("managerMapper.report1");}
+//	public int report2() {return sql.selectOne("managerMapper.report2");}
+//	public int report3() {return sql.selectOne("managerMapper.report3");}
+//	public int report4() {return sql.selectOne("managerMapper.report4");}
+//	public int report5() {return sql.selectOne("managerMapper.report5");}
+//	public int report6() {return sql.selectOne("managerMapper.report6");}
+//	public int report7() {return sql.selectOne("managerMapper.report7");}
+//	public int report8() {return sql.selectOne("managerMapper.report8");}
 
 	
 }

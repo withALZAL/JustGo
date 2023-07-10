@@ -20,12 +20,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
 
 <c:set var="reportPagination" value="${map.reportPagination}" />
 <c:set var="reportList" value="${map.reportList}" />
+
+<c:forEach items="${reportList}" var="report">
+    <c:if test="${report.reportNo == reportNo}" >
+        <c:set var="reportNo" value="${report.reportNo}"/>
+        <c:set var="reportNickname" value="${report.memberNickname}"/>
+        <c:set var="reportedBoardTitle" value="${report.boardTitle}"/>
+    </c:if>
+</c:forEach>
 
 <%-- ${map.reportList} --%>
 
@@ -39,22 +49,6 @@
     <main class="template--main">
     <aside class="template--leftAside"></aside>
     <section class="template--Section">
-
-
-
-    <!-- 페이지 제목 시작 -->
-    <%-- <div class="template--pageTitleContainer">
-        <div class="template--pageTitleBox">
-            <img src="/resources/images/officialPageTitle/PAGETITLE_MANAGER.png" alt="관리자">
-            <div class="template--overlayedTitle" style="color: black;">
-                <a href="/manager/reportManager">
-                    관리자_신고
-                </a>
-            </div>
-        </div>
-    </div> --%>
-    <!-- 페이지 제목 끝 -->
-
 
 
     <!-- 콘텐츠 시작 -->
@@ -110,9 +104,6 @@
                                                     <td><a href="/board/${report.boardCode}/${report.countryNo}/${report.boardNo}">${report.boardTitle}</a></td>
                                                 </c:otherwise>
                                             </c:choose>
-
-
-                                            <%-- <td><a href="https://www.naver.com">${report.boardTitle}</a></td> --%>
                                             <td>${report.reportedNickname}</td>
                                             <td>${report.reportDate}</td>
                                             <td>
@@ -235,5 +226,9 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/manager/reportManager.js"></script>
+    <script>
+        const reportedBoardTitle = ${reportedBoardTitle}
+        const reportNickname = ${reportNickname}
+    </script>
 </body>
 </html>

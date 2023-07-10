@@ -33,6 +33,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/ae1a88d4e2.js" crossorigin="anonymous"></script>
+<%-- sweetAlert2 --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="template--body">
 
@@ -56,62 +58,6 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
-    <form>
-        <a href="/account/test">
-            <button type="button" class="btn btn-secondary btn-sm">실험용상준</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/">
-            <button type="button" class="btn btn-secondary btn-sm">메인</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/manager/memberManager">
-            <button type="button" class="btn btn-secondary btn-sm">관리자</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/board/boardNotice">
-            <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/writingBoard">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/post">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form>
-        <a href="/board/boardAsk/{memberNo}">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/info">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/updateInfo">
-            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
-        </a>
-    </form>
-    <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="user@kh.or.kr">
-            <input type="hidden" name="memberPw" value="pass01!">
-            <button class="btn btn-secondary btn-sm">빠른로그인</button>
-    </form>
-
-    <form action="#">
-        <a href="#">
-            ---임시용|||실사용---
-        </a>    
-    </form>
 
     <c:choose>
         <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
@@ -390,7 +336,7 @@
         </a> <span>${board.likeCount}</span>
     </div>
     <div class="writing--postBtn">
-            <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2}">
+            <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2 && loginMember.memberNo != board.memberNo}">
                 <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
             </c:if>
             <c:choose>
@@ -581,7 +527,8 @@
     // JSP 해석 우선순위 : Java/EL/JSTL > HTML,CSS,JS
     
     // 게시글 번호 전역 변수로 선언
-    const boardNo = ${board.boardNo};
+    const boardNo = "${board.boardNo}";
+    const boardTitle = "${board.boardTitle}";
 
 
     // 로그인한 회원 번호를 전역 변수로 선언
@@ -591,6 +538,7 @@
     //          -> EL값이 null이여도 "" 빈문자열로 출력
     const loginMemberNo = "${loginMember.memberNo}";
     const loginMemberRole = "${loginMember.memberRole}"
+    const memberNickname = "${loginMember.memberNickname}"
     console.log(boardNo);
     console.log(loginMemberNo);
 
@@ -606,5 +554,7 @@
     <script src="/resources/js/writing/post2.js"></script>
     <script src="/resources/js/writing/writing.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+    <%-- 알람 --%>
+    <script src="/resources/js/manager/alarm.js"></script>
 </body>
 </html>

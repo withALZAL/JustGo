@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.justgo.alarm.model.service.AlarmService;
 import edu.kh.justgo.board.model.service.ReportService;
 import edu.kh.justgo.manager.model.dto.Report;
 import edu.kh.justgo.member.model.dto.Member;
@@ -25,6 +26,7 @@ public class ReportController {
 	
 	@Autowired
 	public ReportService service;
+	public AlarmService service1;
 	
 	
 	// 회원이 게시물 신고
@@ -41,7 +43,14 @@ public class ReportController {
 		
 //		System.out.println(report);
 		
-		int result = service.reportBoard(report);
+		int result = service.reportSelect(report);
+		
+		if(result>0) {
+			result = 0;
+		}else {
+			result = service.reportBoard(report);
+		}
+		
 		
     	return result;
     }

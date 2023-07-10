@@ -22,18 +22,18 @@ public class ProfileImageDeleteScheduler {
 	@Autowired
 	private WritingService service;
 
-	@Scheduled(cron = "0,30 * * * * *")
+	@Scheduled(cron = "0 0 * * * *") // 매 정시마다 프로필 이미지 비교 후 삭제
 	public void profileDummyImage() {
 		System.out.println("----- 게시판 프로필 DB 와 서버 불일치 파일 제거 -------");
 
 		// 1. 서버에 저장된 memberImage의 proflie 아래 모든 파일 목록 조회
 		// /resources/images/memberImage의 실제 서버 경로를 얻어옴
 		String filePath = servletContext.getRealPath("/resources/images/memberImage");
-		System.out.println("filePath : " + filePath);
+//		System.out.println("filePath : " + filePath);
 
 		// 2. filePath에 저장된 모든 파일 목록 읽어오기
 		File path = new File(filePath);
-		System.out.println("path : " + path);
+//		System.out.println("path : " + path);
 		File[] folderArr = path.listFiles();
 
 		int[] memberNos = new int[folderArr.length];
@@ -43,7 +43,7 @@ public class ProfileImageDeleteScheduler {
 			String filePath2 = folderArr[i].getPath();
 			// 파일 경로에서 숫자 부분 추출
 			String numberString = filePath2.substring(filePath2.lastIndexOf("\\") + 1);
-			System.out.println("numberString : " + numberString);
+//			System.out.println("numberString : " + numberString);
 			if (!numberString.isEmpty()) { // 빈 문자열인 경우에 예외처리를 추가
 				memberNos[i] = Integer.parseInt(numberString); // parseInt는 "1,2,3" 숫자 밖에 있는 쌍따옴표을 없애고 int 형식으로 바꾸겠다
 			}
@@ -75,11 +75,11 @@ public class ProfileImageDeleteScheduler {
 		if(!profileImageList.isEmpty()) {
 			for(String profile : profileImageList) {
 				
-				System.out.println("profile : " + profile);
+//				System.out.println("profile : " + profile);
 				
 				// DB 파일 목록에 profile 해당 이미지가 있지 않은 경우
 				if(!dbImageList.contains(profile)) {
-					System.out.println(profile + "삭제 !!");
+//					System.out.println(profile + "삭제 !!");
 					
 					// 파일 삭제 로직
 					
