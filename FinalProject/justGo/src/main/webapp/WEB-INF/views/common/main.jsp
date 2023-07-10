@@ -637,9 +637,10 @@
             <div class="textWave">
                 <span>어디로</span>
                 <span>떠나시나요?</span>
-                <span>JustGo가</span>
-                <span>저렴한</span>
+                <span>목적지로</span>
+                <span>떠나는</span>
                 <span>항공권을</span>
+                <span>JustGo가</span>
                 <span>찾아드립니다.</span>
             </div>
             <div class="common--airContentBox">
