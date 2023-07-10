@@ -291,14 +291,16 @@
 <div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
         <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne">
+                aria-controls="panelsStayOpen-collapseOne"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-fire" style="color:red; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
             <div class="card-body common--boardCards">
@@ -340,16 +342,18 @@
 <div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
         <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseTwo">
+                aria-controls="panelsStayOpen-collapseTwo"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-burger" style="color:orange; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>맛집</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
             <div class="card-body common--boardCards">
@@ -393,16 +397,18 @@
     <div class="accordion-item">
         <%-- <h2 class="accordion-header"> --%>
             <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseThree">
+                aria-controls="panelsStayOpen-collapseThree"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-bolt" style="color:yellow; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>꿀팁</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
             <%-- <div class="accordion-body common--boardCards"> --%>
@@ -445,16 +451,18 @@
 <div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
         <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <%-- <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseFour">
+                aria-controls="panelsStayOpen-collapseFour"> --%>
+            <div class="accordion-button">
                 <i class="fa-solid fa-seedling" style="color:green; font-size:20px; padding-top: 4px;"></i>
                 <div class="common--boardListTitle textWave">
                     <span>힐링</span>
                     <span>태그</span>
                     <span>인기게시글</span>
                 </div>
-            </button>
+            </div>
+            <%-- </button> --%>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
             <div class="card-body common--boardCards">
