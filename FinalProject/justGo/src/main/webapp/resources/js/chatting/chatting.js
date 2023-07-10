@@ -79,6 +79,7 @@ let chattingSock;
 
 if(loginMemberNo != ""){
     chattingSock = new SockJS("/chattingSock");
+    
 }
 
 // 채팅 입력
@@ -142,6 +143,10 @@ chattingSock.onmessage = function(e){
     const msg = JSON.parse(e.data);
     console.log(msg);
 
+    if(msg.senderNo == -2){ // 나감
+        
+    }
+
     if(chattingRoomNo == 1){
         const div = document.querySelector(".chattingList");
         const card = document.createElement("div");
@@ -195,3 +200,48 @@ chattingSock.onmessage = function(e){
 
 
 } 
+
+
+// 멤버
+
+let memberListSock;
+
+if(loginMemberNo != ""){
+    memberListSock = new SockJS("/memberListSock");
+}
+
+memberListSock.onmessage = function(e){
+
+    const members = JSON.parse(e.data);
+    console.log(members);
+
+    
+    const box = document.querySelector(".memberList");
+    box.innerHTML = "";
+
+    members.forEach(member => {
+        const memberCard = document.createElement("div");
+        memberCard.classList.add("memberCard");
+
+        const listImgBox = document.createElement("div");
+        listImgBox.classList.add("memberProflieImageBox");
+
+
+        const listImg = document.createElement("img");
+        listImg.setAttribute("src", member.profileImg);
+
+        const listNick = document.createElement("div");
+        listNick.classList.add("memberNickname");
+        listNick.innerText = member.memberNickname;
+
+
+        listImgBox.append(listImg);
+        memberCard.append(listImgBox,listNick);
+        box.append(memberCard);
+    });
+
+
+
+
+
+}

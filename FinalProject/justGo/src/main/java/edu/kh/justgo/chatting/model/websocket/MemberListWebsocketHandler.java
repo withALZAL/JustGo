@@ -1,5 +1,6 @@
 package edu.kh.justgo.chatting.model.websocket;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import edu.kh.justgo.chatting.model.service.ChattingService;
 import edu.kh.justgo.member.model.dto.Member;
@@ -28,23 +30,41 @@ public class MemberListWebsocketHandler extends TextWebSocketHandler {
 		
 		sessions.add(session);
 		
+		List<Member> memberList = new ArrayList<Member>();
+		
+		for(WebSocketSession s : sessions ) {
+			memberList.add( (Member)s.getAttributes().get("loginMember") );
+		}
+		
+		
+		for(WebSocketSession s : sessions ) {
+			s.sendMessage(new TextMessage(new Gson().toJson(memberList)));
+		}
+		
+		
 	}
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		
-		List<Member> memberList = service.loginMemberList();
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		String chattingMemberList = objectMapper.writeValueAsString(memberList);
-		
-		
-		
 	}
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+		
+	
 		sessions.remove(session);
+		
+		List<Member> memberList = new ArrayList<Member>();
+		
+		for(WebSocketSession s : sessions ) {
+			memberList.add( (Member)s.getAttributes().get("loginMember") );
+		}
+		
+		
+		for(WebSocketSession s : sessions ) {
+			s.sendMessage(new TextMessage(new Gson().toJson(memberList)));
+		}
+		
 	}
 	
 	

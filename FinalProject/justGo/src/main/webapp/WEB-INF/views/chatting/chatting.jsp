@@ -27,7 +27,8 @@
                 <section class="chatting--chatBox">
                     <div class="chattingTitle">채팅</div>
                     <div class="chattingList">
-                    <c:forEach var="i" begin="1" end="10">
+
+                    <%-- <c:forEach var="i" begin="1" end="10">
                         <div class="yourChattingCard">
                             <div class="chatProfile">
                                 <div class="chatProflieImageBox">
@@ -48,15 +49,15 @@
                             </div>
                             <div class="timeLog">15시 30분 30초</div>
                         </div>
-                    </c:forEach>
+                    </c:forEach> --%>
                     </div>
                 </section>
             <%-- 채팅 박스 끝 --%>
             <%-- 참여자 박스 시작 --%>
                 <section class="chatting--memberBox">
-                    <div class="memberListTitle">채팅 참여자 목록(000명)</div>
+                    <div class="memberListTitle">채팅 참여자 목록</div>
                     <div class="memberList">
-                    <c:forEach items="${memberList}" var="member">
+                    <%-- <c:forEach items="${memberList}" var="member">
                         <div class="memberCard">
                             <div class="memberProflieImageBox">
                                 <c:if test="${empty member.profileImg}" >
@@ -68,7 +69,7 @@
                             </div>
                             <div class="memberNickname">${member.memberNickname}</div>
                         </div>
-                    </c:forEach>
+                    </c:forEach> --%>
                     </div>
                 </section>
             <%-- 참여자 박스 끝 --%>
@@ -76,10 +77,10 @@
             <%-- 채팅 인풋 박스 시작 --%>
             <section class="chatting--inputBox">
                 <div class="inputBox--temp">
-                    <textarea class="inputMessage" max="500" id="inputChatting">${paramMap}</textarea>
+                    <textarea class="inputMessage" max="500" id="inputChatting"></textarea>
                     <div class="btnBox">
                         <button  id ="send" class="btn btn-primary btn-sm">전송</button>
-                        <button type="button" class="btn btn-primary btn-sm">취소</button>
+                        
                     </div>
                 </div>
             </section>

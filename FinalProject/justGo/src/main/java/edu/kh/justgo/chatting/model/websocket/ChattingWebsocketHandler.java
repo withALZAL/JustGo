@@ -65,6 +65,19 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		
 		sessions.remove(session);
+		
+		String memberNickname = ((Member)session.getAttributes().get("loginMember")).getMemberNickname();
+		
+		Message msg  = new Message();
+		msg.setSenderNo(-2);
+		msg.setMsgContent(memberNickname + "나감");
+		
+		for(WebSocketSession s : sessions) {
+			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+    			
+    	}
+		
+		
 	}
 	
 	
