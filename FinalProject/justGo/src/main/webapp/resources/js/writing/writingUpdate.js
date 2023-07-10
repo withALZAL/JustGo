@@ -83,6 +83,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const boardSelect = document.getElementById("boardSelect");
     const tagSelector = document.getElementById("tagSelector");
+    // 현재 선택된 옵션의 값을 변수 opt에 저장하고
+    const opt = boardSelect.options[boardSelect.selectedIndex];
+    // 선택된 옵션이 b을 가지고 있는 클래스을 hasClassB 변수에 저장
+    const hasClassB = opt.classList.contains("b");
 
     for (let i = 0; i<boardSelect.options.length ; i++){
 
@@ -96,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    if(boardSelect.options[boardSelect.selectedIndex].value == 2 ){
+    if(boardSelect.options[boardSelect.selectedIndex].value == 2 && hasClassB){
         tagSelector.style.display = "none";
         tagSelector.removeAttribute("name");
 
@@ -119,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
+// 수정버튼 눌렀을 때 자유게시판 선택 시 tagSelector 안보이게 하는 로직 
 const boardSelect1 = document.getElementById("boardSelect");
 const tagSelector1 = document.getElementById("tagSelector");
 

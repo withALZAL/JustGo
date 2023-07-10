@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     if (countryNo == '') { //처음 메인화면의 주소가 공백이라면 (질문, 자유)
-
         const optionList = document.querySelectorAll("#boardSelect .b"); // boardSelect 들 중에 자식인 b 전체을 선택
 
         for (let option of optionList) { // boardSelect의 optionList 의 요소들 중에 하나의 요소를 꺼내서
@@ -113,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         }
-        if(boardCode ==2){
+        if(boardCode ==2 ){
             const tagSelector = document.getElementById("tagSelector");
             tagSelector.style.display="none";
 
