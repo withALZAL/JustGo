@@ -132,7 +132,7 @@ afterCurrSelect.addEventListener('change', () => {
 
 /* 환율비 계산기 */
 function calcRate(beforeCurr, afterCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/" + beforeCurr;
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/1a747046c57a1e81f15de4c0/latest/" + beforeCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
 
     fetch(moneyUrl)
     .then(response => {return response.json();})
@@ -148,7 +148,7 @@ function calcRate(beforeCurr, afterCurr) {
 
 /* 역환율비 계산기 */
 function calcRateX(afterCurr, beforeCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/9a8b95f93d734ba858de3069/latest/" + afterCurr;
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/1a747046c57a1e81f15de4c0/latest/" + afterCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
 
     fetch(moneyUrl)
     .then(response => {return response.json();})

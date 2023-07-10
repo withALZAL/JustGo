@@ -59,14 +59,15 @@
 }
 
 /* 검색창 크기 등 조정 */
-.common--header__searchContainer > form > input {
+#query {
     height: 50px;
     border-radius: 50px;
     width: 90%;
     padding-left: 30px;
+    border: 2px solid black;
 }
-.common--header__searchContainer > form > input:hover {
-    border: 1px solid #8B89FF;
+#query:hover {
+    border: 2px solid #8B89FF;
 }
 
 /* 검색 아이콘 조정 */
