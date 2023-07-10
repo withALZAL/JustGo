@@ -30,6 +30,18 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		System.out.println("접속 : " + session.getId());
 		sessions.add(session);
+		
+		String memberNickname = ((Member)session.getAttributes().get("loginMember")).getMemberNickname();
+		
+		Message msg  = new Message();
+		msg.setSenderNo(-1);
+		msg.setMsgContent(memberNickname + " 님이 입장하셨습니다 ! ! ! ! ! ");
+		
+		for(WebSocketSession s :sessions) {
+			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+		}
+		
+		
 	}
 
 	@Override
@@ -50,14 +62,20 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
         	// 전역변수로 선언된 sessions에는 접속중인 모든 회원의 세션 정보가 담겨 있다
         	
         	for(WebSocketSession s : sessions) {
+        		
         		int chattingRoomNo = ((Member)s.getAttributes().get("loginMember")).getChattingNo();
         		
     			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
+    			
         			
         	}
         	
         	
         }
+        
+        
+        
+        
 		
 	}
 
@@ -70,7 +88,7 @@ public class ChattingWebsocketHandler extends TextWebSocketHandler {
 		
 		Message msg  = new Message();
 		msg.setSenderNo(-2);
-		msg.setMsgContent(memberNickname + "나감");
+		msg.setMsgContent(memberNickname + " 퇴장하셨습니다 ! ! ! ! ! ");
 		
 		for(WebSocketSession s : sessions) {
 			s.sendMessage(new TextMessage(new Gson().toJson(msg)));
