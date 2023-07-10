@@ -61,7 +61,7 @@
         <div class="writing--contentBox">
             <div class="writing--inputTitle">
                 <div>제목</div>
-                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="40" autocomplete="off"></div>
+                <div><input type="text" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="30" autocomplete="off"></div>
                 <div class="writing--selectorBox">
                     <select class="writing--boardSelector" name="boardCode" id="boardSelect" required>
                     <c:forEach var="writing" items="${writingList}">
