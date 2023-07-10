@@ -58,11 +58,11 @@
     <div class="manager--mainBox">
 
         <section class="dashboard__top">
-            <section class="dashboard1">
+            <section class="dashboard dashboard1">
             <div class="dashboardTitle">사용자 통계</div>
             <div class="dashboard1__content">
                 <div class="card stat1">
-                    <div class="card-header">
+                    <div class="card-header tt">
                         일반회원 수
                     </div>
                     <div class="card-body numberResult">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="card stat2">
-                    <div class="card-header">
+                    <div class="card-header tt">
                         관리자 수
                     </div>
                     <div class="card-body numberResult">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="card stat3">
-                    <div class="card-header">
+                    <div class="card-header tt">
                         탈퇴회원 수
                     </div>
                     <div class="card-body numberResult">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="card stat4">
-                    <div class="card-header">
+                    <div class="card-header tt">
                         게시글 수
                     </div>
                     <div class="card-body numberResult">
@@ -95,14 +95,14 @@
                 </div>
             </div>
             </section>
-            <section class="dashboard2">
+            <section class="dashboard dashboard2">
                 <div class="dashboardTitle">게시판별 게시글 통계</div>
                 <div class="dashboard2__content">
                     <canvas id="chartDoughnut">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard3">
+            <section class="dashboard dashboard3">
                 <div class="dashboardTitle">태그별 게시글 통계</div>
                 <div class="dashboard3__content">
                     <canvas id="chartTag">
@@ -110,15 +110,15 @@
                 </div>
             </section>
         </section>
-        <section class="dashboard__middle">
-            <section class="dashboard4">
+        <section class="dashboard__bottom">
+            <section class="dashboard dashboard4">
                 <div class="dashboardTitle">사용자 수 변화 통계</div>
                 <div class="dashboard4__content">
                     <canvas id="chartLine">
                     </canvas>
                 </div>
             </section>
-            <section class="dashboard5">
+            <section class="dashboard dashboard5">
                 <div class="dashboardTitle">신고 통계</div>
                 <div class="dashboard5__content">
                     <canvas id="chartBar">
@@ -126,7 +126,7 @@
                 </div>
             </section>
         </section>
-        <button id="chartDetailBtn" onclick="chartDetail()">게시판별/태그별 게시글 종합 통계 자세히보기</button>
+        <button type="button" id="chartDetailBtn" class="btn btn-primary btn-lg" onclick="chartDetail()">게시판별/태그별 게시글 종합 통계 자세히보기</button>
     </div>
 </div>
 </div>

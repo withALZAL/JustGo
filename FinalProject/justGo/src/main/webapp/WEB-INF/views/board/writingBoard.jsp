@@ -70,7 +70,7 @@
                                 <option value="${writing.boardCode}" class="b">${writing.boardName}</option>
                         </c:when>
                         <c:otherwise>
-                                <option value="${writing.boardCode}">${writing.boardName}</option> <%-- 여행 --%>
+                                <option value="${writing.boardCode}">${writing.boardName}게시판</option> <%-- 여행 --%>
                         </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -89,8 +89,8 @@
         <div class="writing--inputContentBox">
             <textarea class="writing--summernoteBox" id="summernote" name="boardText" ></textarea>
         <div class="writing--ButtonBox">
-                <button type="submit" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">게시</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                <button type="submit" class="btn btn-primary btn-lg" style="border:none;">게시</button>
+                <button type="button" class="btn btn-secondary btn-lg" style="border: none;" onclick="history.back()">취소</button>
         </div>
     </div>
 </div>

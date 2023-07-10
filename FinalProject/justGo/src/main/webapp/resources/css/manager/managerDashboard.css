@@ -51,14 +51,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.dashboard__middle {
+.dashboard__bottom {
     width: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.dashboard {
+    border: 1px solid #D9D9D9;
+    margin: 10px;
+    border-radius: 5px;
+}
+
 
 /* dashboard 제목 */
-.dashboard__top section {
+.dashboard__top section,
+.dashboard__bottom section {
     display: grid;
     grid-template-rows: 30px 1fr;
 }
@@ -89,6 +96,9 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
+.tt {
+    text-align: center;
+}
 
 /* dashboard2 */
 .dashboard2__content {
@@ -116,6 +126,11 @@
 }
 
 /* dashboard 팝업창 ----------------------------------------------- */
+
+/* dashboard6 버튼 */
+#chartDetailBtn {
+    border: none;
+}
 
 /* dashboard6 팝업창 */
 .manager--chartPopup {

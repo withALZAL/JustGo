@@ -58,62 +58,6 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
-    <form>
-        <a href="/account/test">
-            <button type="button" class="btn btn-secondary btn-sm">실험용상준</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/">
-            <button type="button" class="btn btn-secondary btn-sm">메인</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/manager/memberManager">
-            <button type="button" class="btn btn-secondary btn-sm">관리자</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/board/boardNotice">
-            <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/writingBoard">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/post">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form>
-        <a href="/board/boardAsk/{memberNo}">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/info">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/updateInfo">
-            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
-        </a>
-    </form>
-    <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="user@kh.or.kr">
-            <input type="hidden" name="memberPw" value="pass01!">
-            <button class="btn btn-secondary btn-sm">빠른로그인</button>
-    </form>
-
-    <form action="#">
-        <a href="#">
-            ---임시용|||실사용---
-        </a>    
-    </form>
 
     <c:choose>
         <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
