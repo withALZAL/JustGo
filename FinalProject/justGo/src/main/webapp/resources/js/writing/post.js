@@ -118,13 +118,35 @@ function reportBoardBtn(boardNo){
     
     let reportReason = document.getElementById("reportReason");
     let etc = document.getElementById("etc");
+    const category = document.querySelector('input[name="reportCategory"]:checked');
+    
+    if(!category){
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '신고 사유를 선택해주세요.' /* 메시지 담기 */
+        })
+        return;
+    }
 
     if(etc.checked){
         etc.value = reportReason.value;
     }
     
+    
     const reportCategory = document.querySelector('input[name="reportCategory"]:checked').value;
-
     const data = {"boardNo" : boardNo,
             "reportCategory" : reportCategory, 
             "memberNo" : loginMemberNo 
@@ -180,7 +202,7 @@ function reportBoardBtn(boardNo){
         
                 Toast.fire({
                     icon: 'warning', /* 아이디 실패 시 ! 경고 */
-                    title: '게시물 신고에 실패했습니다.' /* 메시지 담기 */
+                    title: '이미 신고한 게시글입니다.' /* 메시지 담기 */
                 })
         }
     })
