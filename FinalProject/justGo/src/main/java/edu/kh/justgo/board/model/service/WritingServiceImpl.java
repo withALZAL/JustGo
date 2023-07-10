@@ -88,7 +88,7 @@ public class WritingServiceImpl implements WritingService {
 		if (result > 0) {
 
 			// 3. BOARD_NO을 BOARD_IMG에서 조회해서 이미지 삭제
-			result = dao.writingDelete3(board);
+			dao.writingDelete3(board);
 
 			// 새로 업로드된 이미지 분류 작업
 			// 이미지 태그를 추출하기 위한 정규식.
@@ -139,7 +139,7 @@ public class WritingServiceImpl implements WritingService {
 		if (result > 0) {
 
 			// 3. 게시글에서 BOARD_NO을 조회해서 BOARD_IMG에서 이미지삭제
-			result = dao.writingDelete4(board);
+			dao.writingDelete4(board);
 
 			// 4.새로 업로드된 이미지 분류
 			// 새로 업로드된 이미지 분류 작업

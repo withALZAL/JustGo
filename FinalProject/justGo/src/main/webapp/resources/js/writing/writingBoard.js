@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 option.selected = true; // option의 value 일치하는 요소에 selected 속성 추가
                 
             }
+            
 
 
         }
