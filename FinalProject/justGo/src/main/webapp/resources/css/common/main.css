@@ -532,6 +532,9 @@
 .textWave span:nth-of-type(6) {
     animation-delay: .6s;
 }
+.textWave span:nth-of-type(7) {
+    animation-delay: .7s;
+}
 
 /* 텍스트 플리크 애니메이션 */
 @keyframes flash { 0%, 20%, 40%, to { opacity: 1; } 10%, 30% { opacity: 0; } }
