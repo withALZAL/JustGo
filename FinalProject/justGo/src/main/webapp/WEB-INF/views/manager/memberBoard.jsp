@@ -60,12 +60,12 @@ ${map.memberPostPagination} --%>
 
 
 <!-- 콘텐츠 시작 -->
-<div class="board--contentContainer">
-    <aside class="manager--sideContainer">
+<div class="board--contentContainer1">
+    <aside class="manager--sideContainer1">
         <jsp:include page="/WEB-INF/views/manager/managerMenuBox.jsp"/>
     </aside>
-<div class="board--contentBox">
-    <div class="board--contentBox__top">
+<div class="board--contentBox1">
+    <div class="board--contentBox__top1">
     <div class="template--pageTitleBox">
         <div class="manager--overlayedTitle">
         <c:choose>

@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // 편지 이모지 옆에 숫자 뜨게
         const alarmNum = document.createElement("span");
         alarmNum.classList.add("increaseNum");
-        alarmNum.innerHTML = 0;
+        alarmNum.innerHTML = "!";
         alarm_num.append(alarmNum);
 
-        alarmNum.innerHTML = ++alarmNum.innerHTML; 
+        // alarmNum.innerHTML = ++alarmNum.innerHTML; 
         // function alarmCount() {
             
         //     alarmNum.innerHTML = ++alarmNum.innerHTML;

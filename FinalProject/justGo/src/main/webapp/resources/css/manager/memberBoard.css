@@ -16,7 +16,7 @@
     align-items: center;
 }
 /* 관리자 사이드바 */
-.manager--sideContainer {
+.manager--sideContainer1{
     height: 100%;
     width: 100%;
     border-right: 1px solid #D9D9D9;
@@ -30,7 +30,7 @@
 /* 게시판 공통 ----------------------------------------------- */
 
 /* 게시판 컨테이너 */
-.board--contentContainer {
+.board--contentContainer1{
     height: 1000px;
     display: grid;
     grid-template-columns: 160px 1fr;
@@ -39,7 +39,7 @@
 }
 
 /* 게시판 박스 */
-.board--contentBox {
+.board--contentBox1{
     height: 1000px; /* 2) 이 높이를 적당히 조정하여 콘텐츠 박스를 사용 */
     width: 90%;
     margin: 10px 30px 10px 30px;
@@ -72,12 +72,12 @@
 }
 
 /* 게시판 top 조정 */
-.board--contentBox__top {
+.board--contentBox__top1{
     height: 50px;
     width: 100%;
     padding: 10px 30px 10px;
 }
-.board--contentBox__top {
+/* .board--contentBox__top {
     display: flex;
     justify-self: left;
     align-items: center;
@@ -94,7 +94,7 @@
 }
 .board--contentBox__top > form > div:hover {
     font-weight: bold;
-}
+} */
 
 /* 게시판 테이블 ----------------------------------------------- */
 
@@ -112,7 +112,7 @@
 .board--contentBox__main {
     height: 740px;
     width: 100%;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .board--contentBox__main table {
     width: 1000px;
