@@ -67,6 +67,13 @@
                         </c:if>
                     </span>
                     <span class="writing--commentProfileBox__profileName">${reply.memberNickname}</span>
+
+                    <%-- <div class="replyDropdown" style="display: none;">
+                        <a href="#">
+                            ${reply.memberNickname}의 작성글 보기
+                        </a>
+                    </div> --%>
+
                 </th>
                 <td class="writing--commentContentBox">${reply.replyContent}</td>
                 <c:if test="${reply.updateDate == null}" >
