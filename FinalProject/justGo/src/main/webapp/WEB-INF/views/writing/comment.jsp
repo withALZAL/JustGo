@@ -67,12 +67,10 @@
                         </c:if>
                     </span>
                     <span class="writing--commentProfileBox__profileName">${reply.memberNickname}</span>
-
-                    <%-- <div class="replyDropdown" style="display: none;">
-                        <a href="#">
-                            ${reply.memberNickname}의 작성글 보기
-                        </a>
-                    </div> --%>
+                    
+                    <button class="replyDropdown" onclick="writingView()" target = "_blank"> <%-- 드롭다운 --%>
+                        ${reply.memberNickname}의 작성글 보기
+                    </button>
 
                 </th>
                 <td class="writing--commentContentBox">${reply.replyContent}</td>

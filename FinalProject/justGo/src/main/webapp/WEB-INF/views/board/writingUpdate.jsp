@@ -77,7 +77,7 @@
                         <option value="3" class="b">질문게시판</option> -->
                         </c:forEach>
                         <c:forEach items="${typeList2}" var="board1">
-                            <option value="${board1.countryNo}">${board1.countryName}</option>
+                            <option value="${board1.countryNo}">${board1.countryName}게시판</option>
                            <!-- <option value="1">중국게시판</option>
                             <option value="3">베트남게시판</option>
                             <option value="4">태국게시판</option>

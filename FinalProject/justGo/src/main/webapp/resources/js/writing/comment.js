@@ -1,3 +1,11 @@
+// 작성글 보기 팝업
+function writingView() {
+    var url = "/writingView";
+    var name = "작성글 보기";
+    var option = "width = 1000, height = 600, top = 100, left = 200, location = no"
+    window.open(url, name, option);
+}
+
 
 // 댓글 목록 조회
 function selectReplyList(){
@@ -55,6 +63,12 @@ function selectReplyList(){
             const replyNickname = document.createElement("span");
             replyNickname.classList.add("writing--commentProfileBox__profileName");
             replyNickname.innerText = reply.memberNickname;
+
+                // 드롭다운
+                // const replyDropdown = document.createElement("div");
+                // replyDropdown.classList.add("replyDropdown");
+                // replyDropdown.style.display = "none");
+                // replyDropdown.onclick = writingPopup;
             
             // 작성자 영역에 프로필 관련 추가
             replyChild.append(replyCheck);
@@ -228,6 +242,12 @@ function selectReplyList(){
                 const replyNickname = document.createElement("span");
                 replyNickname.classList.add("writing--commentProfileBox__profileName");
                 replyNickname.innerText = reply.memberNickname;
+
+                    // 드롭다운
+                    // const replyDropdown = document.createElement("div");
+                    // replyDropdown.classList.add("replyDropdown");
+                    // replyDropdown.style.display = "none";
+                    // replyDropdown.onclick = writingPopup;
                 
                 // 작성자 영역에 프로필 관련 추가
                 
@@ -1034,22 +1054,3 @@ function insertChildComment(parentReplyNo, btn){
 
 
     }
-
-
-// 댓글 드롭다운
-const dropdownBtn = document.getElementsByClassName('writing--commentProfileBox__profileName');
-for (let i = 0; i < dropdownBtn.length; i++) {
-    dropdownBtn[i].addEventListener('click', () => {
-        const spanElement = dropdownBtn[i];
-        
-        const dropdownDiv = document.createElement("div");
-        dropdownDiv.className = "replyDropdown";
-        
-        const dropdownLink = document.createElement("a");
-        dropdownLink.href = "#";
-        dropdownLink.innerText = `${reply.memberNickname}의 작성글 보기`;
-        
-        dropdownDiv.appendChild(dropdownLink);
-        spanElement.parentNode.appendChild(dropdownDiv);
-    });
-}
