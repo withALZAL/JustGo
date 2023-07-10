@@ -33,6 +33,9 @@
     background-color: #CFE2FF;
     align-items: center;
 }
+.accordion-button:hover {
+    cursor: default;
+}
 
 /* 게시글 컨테이너 조정 */
 .common--boardListContainer {
