@@ -58,7 +58,7 @@ new Chart(chartLine, {
         }, {
             data: [post6m, post3m, post2m, post1m, post2w, post1w, postNow],
             label: "게시글 수",
-            borderColor: "orange",
+            borderColor: "lightblue",
             fill: false
         }, {
             data: [out6m, out3m, out2m, out1m, out2w, out1w, outNow],
@@ -68,7 +68,7 @@ new Chart(chartLine, {
         }, {
             data: [report6m, report3m, report2m, report1m, report2w, report1w, reportNow],
             label: "신고 수",
-            borderColor: "black",
+            borderColor: "orange",
             fill: false
         }
         ]
