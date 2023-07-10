@@ -14,7 +14,7 @@ const newPwConfirmMessage = document.getElementById("newPwConfirmMessage");
 newPw.addEventListener("input", () => {
     if(newPw.value.trim().length == ""){
         newPw.value = "";
-        newPwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
+        newPwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,$,%)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
         newPwMessage.classList.remove("confirm", "error"); 
         checkObj.newPw = false;
         return;

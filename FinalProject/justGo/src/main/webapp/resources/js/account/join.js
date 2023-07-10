@@ -98,7 +98,7 @@ memberPw.addEventListener("input", () => {
     // 비밀번호가 입력되지 않은 경우
     if(memberPw.value.trim().length == 0){
         memberPw.value = ""; 
-        pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,-,_)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
+        pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,$,%)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
         pwMessage.classList.remove("error", "confirm");
         checkObj.memberPw = false; 
         return;
@@ -168,7 +168,7 @@ memberNickname.addEventListener("input", () => {
     }
     
     // 정규표현식으로 유효성 검사
-    const regEx = /^[가-힣\w\d]{2,10}$/;
+    const regEx = /^[가-힣\w\d]{2,8}$/;
 
     if(regEx.test(memberNickname.value)){ // 유효
         
