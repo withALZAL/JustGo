@@ -38,7 +38,7 @@ function selectMsg(){
                 
             }else{
                 content.classList.add("yourChattingContent");
-                card.classList.add("yourChattingContent")
+                card.classList.add("yourChattingCard")
                 
 
                 const profile = document.createElement("div");
@@ -168,7 +168,7 @@ chattingSock.onmessage = function(e){
             
         }else{
             content.classList.add("yourChattingContent");
-            card.classList.add("yourChattingContent")
+            card.classList.add("yourChattingCard")
             
 
             const profile = document.createElement("div");
@@ -178,11 +178,11 @@ chattingSock.onmessage = function(e){
             imgBox.classList.add("chatProflieImageBox");
 
             const img = document.createElement("img");
-            img.setAttribute("src",msg.profileImg);
+            img.setAttribute("src", profileImage);
 
             const nick = document.createElement("span");
             nick.classList.add("nick");
-            nick.innerText = msg.memberNickname;
+            nick.innerText = nickName;
 
             imgBox.append(img);
             profile.append(imgBox,nick);

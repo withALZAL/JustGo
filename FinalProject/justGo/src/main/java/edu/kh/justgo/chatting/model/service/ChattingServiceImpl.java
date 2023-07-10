@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import edu.kh.justgo.chatting.model.dao.ChattingDAO;
 import edu.kh.justgo.chatting.model.dto.Message;
 import edu.kh.justgo.common.utility.Util;
+import edu.kh.justgo.member.model.dto.Member;
 
 @Service
 public class ChattingServiceImpl implements ChattingService {
@@ -36,6 +37,14 @@ public class ChattingServiceImpl implements ChattingService {
 		
 		return msgList;
 	}
+
+
+	@Override
+	public List<Member> loginMemberList() {
+
+		return dao.loginMemberList();
+	}
+	
 	
 	
 	

@@ -35,20 +35,24 @@ public class ChattingController {
 		loginMember.setChattingNo(chattingNo);
 		map.put("chattingNo", loginMember.getChattingNo());
 		
+		List<Member> memberList = service.loginMemberList(); 
+		
 		
 		model.addAttribute("map",map);
+		model.addAttribute("memberList",memberList);
 		
 		return "chatting/chatting";
 	}
 	
 	@GetMapping(value="/chatting/selectMessage", produces="application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Message> selectMessage(@RequestParam("chattingNo") int chattingNo){
+	public List<Message> selectMessage(@RequestParam("chattingNo") int chattingNo
+			,Model model){
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("chattingNo", chattingNo);
 		
-		
+		model.addAttribute("paramMap",paramMap);
 		
 		return service.selectMessage(paramMap);
 	}

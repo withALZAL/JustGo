@@ -20,6 +20,7 @@
 		<result property="memberEmail" column="MEMBER_EMAIL"/>
 		<result property="memberNickname" column="MEMBER_NICKNAME"/>
 		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberCondition" column="MEMBER_CONDITION" />
 	</resultMap>	
 
 
@@ -41,6 +42,13 @@
 	</select>
 	
 	
+	<!-- 로그인한 모든 회원 -->
+	<select id="loginMemberList" resultMap ="member_rm">
+	SELECT MEMBER_NO , MEMBER_NICKNAME,PROFILE_IMG
+	FROM MEMBER
+	WHERE MEMBER_CONDITION = 'N'
+	
+	</select>	
 
 </mapper>
 
