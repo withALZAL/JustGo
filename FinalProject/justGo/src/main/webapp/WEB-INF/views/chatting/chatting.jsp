@@ -81,8 +81,7 @@
                 <div class="inputBox--temp">
                     <textarea class="inputMessage" max="500" id="inputChatting"></textarea>
                     <div class="btnBox">
-                        <button  id ="send" class="btn btn-primary btn-sm">전송</button>
-                        
+                        <button  id ="send" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i>전송</button>
                     </div>
                 </div>
             </section>

@@ -24,7 +24,7 @@
 .chatting--chatBox {
     padding: 10px;
     border: none;
-    background-color: #D9D9D9;
+    background-color:#9bbbd4;
     border-radius: 10px;
     margin: 10px;
 }
@@ -98,7 +98,7 @@
 .memberOut {
     text-align: center;
     font-size: 0.8rem;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid grey;
 }
 
 
@@ -173,4 +173,19 @@
     height: 80px;
     width: 650px;
     resize: none;
+}
+#send {
+    border: none;
+    border-radius: 5px;;
+    padding: 5px 10px 5px;
+    background-color: #9bbbd4;
+    color: black;
+    font-weight: bold;
+}
+#send > i {
+    padding-right: 5px;
+}
+#send:hover {
+    cursor: pointer;
+    background-color: yellow;
 }
