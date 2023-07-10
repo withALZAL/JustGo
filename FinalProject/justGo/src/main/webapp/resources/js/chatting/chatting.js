@@ -1,3 +1,7 @@
+/* 채팅 스크롤 맨 아래 고정 */
+var chattingList = document.querySelector('.chattingList');
+chattingList.scrollTop = chattingList.scrollHeight;
+
 // 메세지 리스트를 불러옴 
 
 function selectMsg(){

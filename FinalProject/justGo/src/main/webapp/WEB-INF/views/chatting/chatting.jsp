@@ -27,8 +27,8 @@
                 <section class="chatting--chatBox">
                     <div class="chattingTitle">채팅</div>
                     <div class="chattingList">
-
-                    <%-- <c:forEach var="i" begin="1" end="10">
+<%-- 
+                    <c:forEach var="i" begin="1" end="10">
                         <div class="yourChattingCard">
                             <div class="chatProfile">
                                 <div class="chatProflieImageBox">
@@ -50,6 +50,8 @@
                             <div class="timeLog">15시 30분 30초</div>
                         </div>
                     </c:forEach> --%>
+                    <span class="memberIn"></span>
+                    <span class="memberOut"></span>
                     </div>
                 </section>
             <%-- 채팅 박스 끝 --%>
