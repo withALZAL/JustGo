@@ -59,7 +59,7 @@ public class ProfileImageDeleteScheduler {
 			
 			File folder = new File(profilePath);
 			
-			if(folder.exists() && folder.isDirectory()) { // 만약 profile 이 있고 profile 폴더(Directory)가 있다면
+			if(folder.exists() && folder.isDirectory()) { // 만약 profile 파일 이 있고 profile 폴더(Directory)가 있다면
 				File[] profileImageArr = folder.listFiles();
 				for(File image : profileImageArr) {
 					profileImageList.add("/resources/images/memberImage/" + memberNo + "/profile/" + image.getName());
