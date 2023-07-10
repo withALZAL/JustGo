@@ -130,8 +130,7 @@
 
     const countryNo = '${countryNo}';
 
-    // EL 은 Jsp 내장 객체인 request page application session 꺼내쓰는 건데 c:set / model (controller board에 있는지 확인)
-    const tagNo = '${board.tagNo}';
+    const tagContent = '${board.tagContent}';
 
 
 
