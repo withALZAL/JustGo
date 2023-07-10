@@ -96,7 +96,6 @@ function deleteAsuka() {
         })
 
         Toast.fire({
-            icon: 'warning', /* 아이디 실패 시 ! 경고 */
             title: `
             ⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
             ⠀⠀속았징?  ⢀⠀⠐⢤⠐⠈⠀⠀⠈⠀⠀⠀⠀⠀⠀
