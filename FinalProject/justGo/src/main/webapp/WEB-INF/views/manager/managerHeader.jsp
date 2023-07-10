@@ -44,21 +44,37 @@
         </a>
     </form> 
     <div class="manager--loginSession"> 
+        <a href="/manager/managerMain">
+            <i class="fa-solid fa-house fa-xl"></i>
+        </a>
         <form>
             <a href="/myPage/info">
                 <i class="fa-solid fa-circle-user fa-xl"></i>
                 <%-- <button type="button" class="btn btn-secondary btn-sm">마이페이지</button> --%>
             </a>
         </form>
-        <label for="alarmToggle">
+        <!-- Default dropend button -->
+        <div class="btn-group dropend">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="alarmBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-envelope fa-xl"></i>
+        </button>
+        <div id="alarm_num"></div>
+        <ul class="dropdown-menu" id="alarmBox">
+            <!-- 알람내용 받는 공간 -->
+            
+        </ul>
+        </div>
+
+        <%-- <label for="alarmToggle">
             <i class="fa-solid fa-envelope fa-xl"></i>
         </label>
         <input type="checkbox" id="alarmToggle" hidden>
+
         <div class="alarm-menu">
             알람받는 공간
             <ul id="alarmBox">
             </ul>
-        </div>
+        </div> --%>
     </div>
 </nav>
 <!-- loginNav 끝 -->
@@ -96,79 +112,6 @@
     
 </header>
 <!-- header 끝 -->
-
-
-
-<!-- nav 시작 -->
-<%-- <nav class="manager--navContainer sticky-top">
-    <ul class="nav justify-content-around" id="manager--boardList">
-        <c:forEach var="boardType" items="${boardTypeList}">
-            <c:if test="${boardType.BOARD_CODE == 1}">
-                <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
-                    <ul class="dropdown-menu manager--tripBoard" aria-labelledby="moreDropdown">
-                        <c:forEach items="${countryList}" var="country">
-                            <c:choose>
-                                <c:when test="${country.COUNTRY_NAME == '중국'}">
-                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/CHINAFLAG.png" alt="중국국기">${country.COUNTRY_NAME}게시판</a></li>
-                                </c:when>
-                                <c:when test="${country.COUNTRY_NAME == '일본'}">
-                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">${country.COUNTRY_NAME}게시판</a></li>
-                                </c:when>
-                                <c:when test="${country.COUNTRY_NAME == '베트남'}">
-                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/VIETNAMFLAG.png" alt="베트남국기">${country.COUNTRY_NAME}게시판</a></li>
-                                </c:when>
-                                <c:when test="${country.COUNTRY_NAME == '태국'}">
-                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/THAIFLAG.png" alt="태국국기">${country.COUNTRY_NAME}게시판</a></li>
-                                </c:when>
-                                <c:when test="${country.COUNTRY_NAME == '호주'}">
-                                    <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/AUSTRALIAFLAG.png" alt="호주국기">${country.COUNTRY_NAME}게시판</a></li>
-                                </c:when>
-                            </c:choose>
-                        </c:forEach>
-                    </ul>
-                </li>
-            </c:if>
-            <c:if test="${boardType.BOARD_CODE != 1 && boardType.BOARD_CODE != 4}" >
-                <li class="nav-item">
-                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
-                </li>
-            </c:if>
-            <c:if test="${!empty sessionScope.loginMember && boardType.BOARD_CODE == 4}">
-                <li class="nav-item">
-                    <a class="nav-link" href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
-                </li>
-            </c:if>
-        </c:forEach>   
-    </ul>
-</nav> --%>
-<!-- nav 끝 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </section>

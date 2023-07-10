@@ -1,0 +1,347 @@
+/* 글꼴 및 공통 ----------------------------------------------- */
+
+/* Noto Sans / Noto Serif 글꼴 지정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Noto Serif KR', serif; */
+
+/* 관리자 공통 ----------------------------------------------- */
+
+/* 관리자 컨테이너 */
+.manager--contentContainer {
+    height: 900px;
+    display: grid;
+    place-items: center;
+}
+
+/* 콘텐츠 박스 조정 */
+.manager--contentBox {
+    height: 800px;
+    width: 95%;
+    margin: 10px 30px 10px 30px;
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    place-items: center;
+    /* border: solid 1px red; */
+}
+
+/* 관리자 사이드바 */
+.manager--sideContainer {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    padding: 5px 0 5px;
+    margin-right: 15px;
+}
+
+
+/* mainBox 조정 */
+.manager--mainBox {
+    height: 750px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    /* border: solid 1px black; */
+    background-color: ghostwhite;
+    grid-auto-rows: 100px;
+    margin-left: 35px;
+    gap: 10px;
+    /* padding: 10px 0; */
+}
+
+/* managerMain ----------------------------------------------- */
+
+/* managerMain */
+
+.manager__top {
+    height: 480px;
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* border: solid 1px yellow; */
+    gap: 15px;
+
+}
+.manager__middle {
+    height: 300px;
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* border: solid 1px yellow; */
+    gap: 15px;
+}
+
+.manager_main1{
+    height: 250px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: solid 3px #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+
+
+
+
+.manager_main_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 10px;
+    
+}
+
+.manager_main_title *{
+    margin: 10px ;
+}
+
+.todaysContnent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.countBox{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    /* border: solid 1px salmon; */
+    padding: 10px;
+    
+}
+
+#newMember{
+    background-color: #C5E47E;
+}
+
+#newBoard{
+    background-color: #FFB2D9;
+}
+
+#newComment{
+    background-color: #FAED7D;
+}
+
+.count{
+    font-weight: bold;
+    font-size: 3rem;
+    
+}
+
+.more{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.todayBtn{
+    border-radius: 5px;
+    border: solid 1px #D9D9D9;
+    background-color: whitesmoke;
+    margin: 20px 5px 10px 5px;
+    font-size: 0.7rem;
+}
+
+.todayBtn:hover{
+    border: solid 1px cornflowerblue;
+    background-color: powderblue;
+}
+
+
+.manager_main2{
+    grid-column: 3/3;
+    grid-row-start: 1; 
+    grid-row-end: 3;
+    border: solid 3px #D9D9D9;
+    background-color: white;
+
+}
+
+.postList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.postList *{
+    list-style: none;
+    
+}
+
+.newPostBox{
+    /* border: solid 1px brown; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+}
+
+#newPostBox1{
+    border-right: #D9D9D9;
+}
+
+.boxTitle{
+    border-bottom: #D9D9D9;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0 5px 0;
+}
+
+.boxContent1{
+    font-size: 1rem;
+    margin: 5px 5px;
+    max-width: 200px;
+    overflow : hidden;
+    white-space: nowrap; /* 제목이 길어도 줄바꿈하지 않고 한 줄에 표시 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호로 표시 (선택 사항) */
+
+
+}
+.boxContent2{
+    font-size: 1rem;
+    margin: 5px 5px;
+}
+
+
+.manager_main3{
+    height: 200px;
+    border: solid 3px #D9D9D9;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.countBox1{
+    width: 200px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #D9D9D9;
+    padding: 10px;
+    margin: 15px 0 0 0;
+    
+}
+
+.count1{
+    font-weight: bold;
+    font-size: 1.2rem;
+    
+}
+
+#notComplete{
+    color: red;
+}
+.reportGo:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+#complete{
+    color: rgb(9, 167, 9);
+}
+
+.reportCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.manager_main4{
+    border: solid 3px #D9D9D9;
+    grid-column: 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    
+}
+
+.countBox2{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 1px salmon; */
+    padding: 10px;
+    
+}
+
+.askCount{
+    color:red;
+}    
+.askCount:hover{
+    text-decoration: underline;
+}
+
+
+
+.feedbackCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.manager_main5{
+    border: solid 3px #D9D9D9;
+    grid-column: 2 / span 1;
+    background-color: white;
+    
+}
+
+.feedbackList{
+    width: 591px;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 25px 0 15px 0;
+}
+
+.feedbackList *{
+    list-style: none;
+}
+
+.newFeedbackBox{
+    /* border: solid 1px brown; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 5px;
+}
+
+.boxContent1{
+    font-size: 1rem;
+    margin: 5px 5px;
+    max-width: 200px;
+    overflow : hidden;
+    white-space: nowrap; /* 제목이 길어도 줄바꿈하지 않고 한 줄에 표시 */
+    text-overflow: ellipsis; /* 넘치는 내용을 생략 부호로 표시 (선택 사항) */
+
+
+}
+.boxContent2{
+    font-size: 1rem;
+    margin: 5px 5px;
+}

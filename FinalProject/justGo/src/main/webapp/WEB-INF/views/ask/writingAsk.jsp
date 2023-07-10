@@ -65,10 +65,10 @@
         </div>
         <div class="writing--ButtonBox">
             <a href="javascript:history.back()">
-                <button type="submit" class="btn btn-secondary btn-sm" style="background-color: blueviolet;">게시</button>
+                <button type="submit" class="btn btn-primary btn-lg">게시</button>
             </a>
             <a href="javascript:history.back()">
-                <button type="button" class="btn btn-secondary btn-sm" onclick="history.back()">취소</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
             </a>
         </div>
     </div>

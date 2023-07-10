@@ -288,9 +288,9 @@
 
 
 <!-- 인기게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseOne">
@@ -301,7 +301,7 @@
             </button>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${hotBoardList}" var="hotList">
                     <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -337,9 +337,9 @@
 
 
 <!-- 맛집게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseTwo">
@@ -352,7 +352,7 @@
             </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${foodBoardList}" var="foodList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -388,9 +388,11 @@
 
 
 <!-- 꿀팁게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<%-- <div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample"> --%>
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <%-- <h2 class="accordion-header"> --%>
+            <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseThree">
@@ -403,7 +405,8 @@
             </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <%-- <div class="accordion-body common--boardCards"> --%>
+            <div class="card-body common--boardCards">
             <c:forEach items="${tipBoardList}" var="tipBoardList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -439,9 +442,9 @@
 
 
 <!-- 힐링게시글 시작 -->
-<div class="accordion common--boardListContainer" id="accordionPanelsStayOpenExample">
+<div class="card common--boardListContainer" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
-        <h2 class="accordion-header">
+        <h2 class="card-header tempCardHeader" style="background-color: #CFE2FF;">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
                 aria-controls="panelsStayOpen-collapseFour">
@@ -454,7 +457,7 @@
             </button>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
-            <div class="accordion-body common--boardCards">
+            <div class="card-body common--boardCards">
             <c:forEach items="${healBoardList}" var="healList">
                 <div class="card common--boardCard" style="width: 15rem;">
                     <c:choose>
@@ -508,7 +511,7 @@
             <span id="resultRateX" style="display: none;"></span> <%-- 역교환비 숨김 처리 --%>
             <div class="common--moneyRightBox">
                 <div class="topMoneyBox">
-                    <input id="beforeMoney" type="number" value="1.00">
+                    <input id="beforeMoney" type="number" value="1.00" min="0" max="999999999">
                     <select id="beforeCurrSelect" onchange="beforeMoneyChange();" class="common--cardExchangeSelector">
                         <option id="USD" selected>달러 | USD</option>
                         <option id="KRW">원 | KRW</option>
@@ -524,7 +527,7 @@
                     <i class="fa-solid fa-calculator fa-flip"></i>
                 </div>
                 <div class="bottomMoneyBox">
-                    <input id="afterMoney" type="number">
+                    <input id="afterMoney" type="number" min="0" max="999999999">
                     <select id="afterCurrSelect" onchange="resultCurrChange();" class="common--cardExchangeSelector">
                         <option id="USD">달러 | USD</option>
                         <option id="KRW" selected>원 | KRW</option>

@@ -59,36 +59,6 @@ ${map.memberPostPagination} --%>
 <section class="template--Section">
 
 
-
-<!-- 페이지 제목 시작 -->
-<%-- <div class="template--pageTitleContainer"> --%>
-    <%-- <div class="template--pageTitleBox">
-        <div class="manager--overlayedTitle">
-        <c:choose>
-            <c:when test="${!empty profileImg}">
-                <div class="manager--profileImage">
-                    <a href="/manager/memberPage/${memberNo}">
-                        <img src="${profileImg}" name="profileImage" alt="프로필 이미지" class="board--img">
-                    </a>
-                </div>
-                
-            </c:when>
-            <c:otherwise>
-                    <img src="/resources/images/officialProfile/COMMONPROFILE.png" name="profileImage" alt="기본 프로필 이미지" class="board--img">
-            </c:otherwise>
-        </c:choose>
-        <c:if test="${!empty memberNickname}">
-            <a href="/manager/memberPage/${memberNo}">
-                '${memberNickname}' 님의 게시판
-            </a>
-        </c:if>
-        </div>
-    </div> --%>
-<%-- </div> --%>
-<!-- 페이지 제목 끝 -->
-
-
-
 <!-- 콘텐츠 시작 -->
 <div class="board--contentContainer">
     <aside class="manager--sideContainer">
@@ -118,18 +88,6 @@ ${map.memberPostPagination} --%>
         </c:if>
         </div>
     </div>
-    <%-- 
-        <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
-        <form action="#" method="get">
-            <div><a href="#">일반</a></div>
-            <div><a href="#">꿀팁</a></div>
-            <div><a href="#">맛집</a></div>
-            <div><a href="#">힐링</a></div>
-            <button type="button" class="btn btn-secondary btn-sm">임시버튼</button>
-        </form>--%>
-    </div> 
-
-
 
 <!-- 글쓰기 테이블 시작 -->
     <div class="board--contentBox__main">
@@ -263,16 +221,14 @@ ${map.memberPostPagination} --%>
 </main>
 <!-- Template-main 끝 -->
 
-    
 <!-- ----------------------------------------------- -->
 <!-- Template-footer 시작 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <!-- Template-footer 끝 -->
 <!-- ----------------------------------------------- -->
-    
 
 <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!-- js -->
     <script src="/resources/js/template/template.js"></script>
     <script src="/resources/js/common/header.js"></script>
@@ -280,6 +236,6 @@ ${map.memberPostPagination} --%>
     <script src="/resources/js/common/footer.js"></script>
     <script src="/resources/js/board/board.js"></script>
     <script src="/resources/js/manager/memberBoard.js"></script>
-    <script> const postMemberNo= "${memberPost.memberNo}"</script>
+    <script> const postMemberNo= "${memberPost.memberNo}";</script>
 </body>
 </html>

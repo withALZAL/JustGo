@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="alarmMapper">
+<mapper namespace="managerMainMapper">
 	<!-- namespace : 공간(영역,지역,태그)의 이름 -->
 
 	<!--mapper 파일 생성 시 아래 태그 반드시 삭제! -->
@@ -121,17 +121,7 @@
 	</resultMap>
 
 
-	<!--알람 -->
-	<resultMap type="Alarm" id="alarm_rm">
-		<id property="alarmNo" column="ALARM_NO" />
-		<result property="alarmContent" column="ALARM_CONTENT" />
-		<result property="alarmDate" column="ALARM_DATE" />
-		<result property="alarmCheck" column="ALARM_CHECK" />
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="memberNickname" column="MEMBER_NICKNAME" />
 
-
-	</resultMap>
 
 
 	<!-- SQL 관련 태그의 속성 - parameterType : 전달받은 값의 자료형 기본 : 패키지명 + 클래스명 별칭 : Mybatis 
@@ -144,73 +134,90 @@
 		: SQL에 값 대입 시 양쪽에 ''붙여서 대입 ${변수명|필드명} : Statement : SQL 값 대입시 양쪽에 아무것도 붙이지 
 		않음 사용 예시 ) test1 = "user01" test2 = MEMBER_EMAIL - MEMBER_EMAIL이 'user 01' 
 		인 회원 조회 SELECT * FROM MEMBER WHERE MEMBER_EMAIL = #{test1} -->
-		
-		
-	<!-- 회원의 신고 조회 -->
-	<select id="sendReport" resultMap="report_rm">
-		SELECT REPORT_NO, MEMBER_NICKNAME, BOARD_TITLE, BOARD_NO, BOARD_DELETE
-		, REPORT_CATEGORY, BOARD_CODE, dCOUNTRY_NO,
-			<![CDATA[
-		    CASE  
-		       WHEN SYSDATE - REPORT_DATE < 1/24/60
-		       THEN FLOOR( (SYSDATE - REPORT_DATE) * 24 * 60 * 60 ) || '초 전'
-		       WHEN SYSDATE - REPORT_DATE < 1/24
-		       THEN FLOOR( (SYSDATE - REPORT_DATE) * 24 * 60) || '분 전'
-		       WHEN SYSDATE - REPORT_DATE < 1
-		       THEN FLOOR( (SYSDATE - REPORT_DATE) * 24) || '시간 전'
-		       ELSE TO_CHAR(REPORT_DATE, 'YYYY-MM-DD')
-		    END REPORT_DATE
-		    ]]>
-		, CONFIRM_FL
-		, (SELECT MEMBER_NICKNAME
-		FROM "MEMBER" M
-		WHERE M.MEMBER_NO = B.MEMBER_NO) REPORTED_NICKNAME
-		FROM "REPORT"
-		JOIN "MEMBER" USING(MEMBER_NO)
-		JOIN "BOARD" B USING(BOARD_NO)
-		WHERE BOARD_NO = #{boardNo}
-		ORDER BY REPORT_NO DESC
-	</select>
-	
-		
-		
 
-	<!-- 회원의 1:1문의 조회 -->
-	<select id="sendFeedback" resultMap="feedback_rm">
-		SELECT FEEDBACK_NO, MEMBER_NO, MEMBER_NICKNAME, FEEDBACK_TITLE, FEEDBACK_TEXT,
-			<![CDATA[
-            CASE  
-               WHEN SYSDATE - FEEDBACK_DATE < 1/24/60
-               THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60 * 60 ) || '초 전'
-               WHEN SYSDATE - FEEDBACK_DATE < 1/24
-               THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60) || '분 전'
-               WHEN SYSDATE - FEEDBACK_DATE < 1
-               THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24) || '시간 전'
-               ELSE TO_CHAR(FEEDBACK_DATE, 'YYYY-MM-DD')
-            END FEEDBACK_DATE
-            ]]>
-		FROM FEEDBACK
-		JOIN "MEMBER" USING(MEMBER_NO)
-		WHERE MEMBER_ROLE =2
-		AND FEEDBACK_DEL_FL ='N'
-		AND FEEDBACK_NO = #{feedbackNo}
-		ORDER BY FEEDBACK_NO DESC
+
+	<!-- 오늘 가입자수, 신규글 수, 댓글 수 -->
+	<select id="todaysCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM "MEMBER" WHERE ENROLL_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS MEMBER_COUNT,
+	    (SELECT COUNT(*) FROM "BOARD" WHERE CREATE_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS BOARD_COUNT,
+	    (SELECT COUNT(*) FROM "REPLY" WHERE REPLY_DATE > (SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)) AS REPLY_COUNT
+	   	FROM DUAL
+	]]>
 	</select>
 	
-	<!-- ============================================================================================================= -->
 	
-	<!-- 회원이 신고했을 때 알람 등록 -->
-      <insert id="insertAlarm">
-      	INSERT INTO "ALARM"
-		VALUES(SEQ_ALARM_NO.NEXTVAL, NULL, #{baordNo}, #{reportNo}, #{alarmContent}, DEFAULT, DEFAULT, #{MemberNo});
-      </insert>
+	<!-- 1:1문의 Count -->
+	<select id="feedbackCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM FEEDBACK) AS TOTAL_COUNT,
+	    (SELECT COUNT(*) FROM FEEDBACK WHERE CONFIRM_FL = 'N') AS UNCONFIRMED_COUNT
+	    FROM DUAL
+	]]>
+	</select>
 	
-	<!-- 신고알람 확인-->
-	<update id="reportAlarmConfirm">
-	 	UPDATE "ALARM" SET
-		ALARM_CHECK ='Y'
-		WHERE ALARM_NO = #{alarmNo}
-	 </update> 
+	<!-- 신고 Count -->
+	<select id="reportCount" resultType="map">
+	<![CDATA[
+		SELECT 
+	    (SELECT COUNT(*) FROM REPORT WHERE CONFIRM_FL = 'N') AS UNCONFIRMED_COUNT,
+	    (SELECT COUNT(*) FROM REPORT WHERE CONFIRM_FL = 'Y') AS CONFIRMED_COUNT,
+	    (SELECT COUNT(*) FROM REPORT) AS TOTAL_COUNT
+	    FROM DUAL
+	]]>
+	</select>
+	
+	
+	<!-- 최신글 List -->
+	<select id="newPost" resultType="map">
+	<![CDATA[
+		SELECT BOARD_NO, BOARD_CODE, COUNTRY_NO, BOARD_TITLE, MEMBER_NICKNAME, 
+			
+			CASE  
+		       WHEN SYSDATE - CREATE_DATE < 1/24/60
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+		       WHEN SYSDATE - CREATE_DATE < 1/24
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24 * 60) || '분 전'
+		       WHEN SYSDATE - CREATE_DATE < 1
+		       THEN FLOOR( (SYSDATE - CREATE_DATE) * 24) || '시간 전'
+		       ELSE TO_CHAR(CREATE_DATE, 'YYYY-MM-DD')
+		    END CREATE_DATE
+		
+		FROM "BOARD"
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE CREATE_DATE > 
+		(SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)
+		ORDER BY BOARD_NO DESC
+	]]>
+	</select>
+	
+	
+	<!-- 신규문의 List -->
+	<select id="newFeedback" resultType="map">
+	<![CDATA[
+		SELECT FEEDBACK_NO, FEEDBACK_TITLE, MEMBER_NICKNAME, 
+			CASE  
+		       WHEN SYSDATE - FEEDBACK_DATE < 1/24/60
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60 * 60 ) || '초 전'
+		       WHEN SYSDATE - FEEDBACK_DATE < 1/24
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24 * 60) || '분 전'
+		       WHEN SYSDATE - FEEDBACK_DATE < 1
+		       THEN FLOOR( (SYSDATE - FEEDBACK_DATE) * 24) || '시간 전'
+		       ELSE TO_CHAR(FEEDBACK_DATE, 'YYYY-MM-DD')
+		    END FEEDBACK_DATE
+		FROM FEEDBACK 
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE FEEDBACK_DATE > 
+		(SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') FROM DUAL)
+		ORDER BY FEEDBACK_NO DESC
+		]]>
+	</select>
+	
+	
+	
+	
 	
 
 </mapper>
