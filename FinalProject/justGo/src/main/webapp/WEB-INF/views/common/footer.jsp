@@ -63,7 +63,7 @@
     <div class="common--footerRight">
         <%-- <a href="/board/boardNotice">공지사항</a> 공지사항으로 이동 --%>
     <c:if test="${!empty sessionScope.loginMember && sessionScope.loginMemberRole == 2}">
-        <a href="/ask/writingAsk">1:1문의</a> <%-- 로그인 되었을 때만1:1문의로 이동 --%>
+        <a href="/ask/writingAsk">1:1문의</a> <%-- 로그인 되었을 때만 1:1문의로 이동 --%>
     </c:if>
     </div>
     <div class="fixed-bottom" id="common--toTopBtn">
@@ -73,6 +73,7 @@
         <input type="hidden" name="boardCode" value="1">    
         <input type="hidden" name="countryNo" value="${countryNo}">    
     </form> --%>
+        <c:if test="${sessionScope.loginMember.memberRole != 1}">
         <form action="/writing/writingBoard" method="get"> <%-- 글쓰기 버튼 --%>
             <button type="submit">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -80,6 +81,7 @@
             <input type="hidden" name="boardCode" value="${boardCode}" >  <%-- value ="3"은 boardCode --%>
             <input type="hidden" name="countryNo" value="${countryNo}">
         </form>
+        </c:if>
         <a onclick="popup()" target = "_blank">
             <%-- <button type="button" id="chattingBtn" data-bs-toggle="modal" data-bs-target="#chattingModal">
                 <i class="fa-solid fa-comment"></i>
