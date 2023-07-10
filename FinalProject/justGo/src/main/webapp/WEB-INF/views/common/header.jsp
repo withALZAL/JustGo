@@ -209,7 +209,7 @@
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '일본'}">
                                     <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
-                                    <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기">${country.COUNTRY_NAME}게시판</a></li>
+                                    <img src="/resources/images/officialFlag/JAPANFLAG_BLACKBORDER.png" alt="일본국기">${country.COUNTRY_NAME}게시판</a></li>
                                 </c:when>
                                 <c:when test="${country.COUNTRY_NAME == '베트남'}">
                                     <li><a class="dropdown-item" href="/board/1/${country.COUNTRY_NO}">
