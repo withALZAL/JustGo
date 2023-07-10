@@ -101,8 +101,8 @@
                     
                 <div class="writing--ButtonBox">
                 
-                    <button type="submit" id="updateBtn" class="btn btn-secondary btn-lg" style="background-color: blueviolet;">수정</button>
-                    <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
+                    <button type="submit" id="updateBtn" class="btn btn-primary btn-lg" style="border: none;">수정</button>
+                    <button type="button" class="btn btn-secondary btn-lg" style="border: none;" onclick="history.back()">취소</button>
                 </div>
         </div>
     </div>
