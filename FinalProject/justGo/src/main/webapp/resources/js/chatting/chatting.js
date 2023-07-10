@@ -1,6 +1,6 @@
 /* 채팅 스크롤 맨 아래 고정 */
 var chattingList = document.querySelector('.chattingList');
-chattingList.scrollTop = chattingList.scrollHeight;
+
 
 // 메세지 리스트를 불러옴 
 
@@ -118,6 +118,9 @@ const sendMessage = () =>{
         var obj = {
             "senderNo" : loginMemberNo,
             "msgContent" : inputChatting.value,
+            "memberNickname" : nickName,
+            "profileImg" : profileImage
+            
         };
         console.log(obj);
         
@@ -147,19 +150,31 @@ chattingSock.onmessage = function(e){
     const msg = JSON.parse(e.data);
     console.log(msg);
 
-    if(msg.senderNo == -2){ // 나감
-        
+    if(msg.senderNo == -1){
+        const div = document.querySelector(".chattingList");
+        const memberIn = document.createElement("span")
+        memberIn.classList.add("memberIn");
+        memberIn.innerText = msg.msgContent;
+        div.append(memberIn)
+    } else if(msg.senderNo == -2){ // 나감
+        const div = document.querySelector(".chattingList");
+        const memberOut = document.createElement("span")
+        memberOut.classList.add("memberOut");
+        memberOut.innerText = msg.msgContent;
+        div.append(memberOut)
     }
+    else{
 
-    if(chattingRoomNo == 1){
+        
+        
         const div = document.querySelector(".chattingList");
         const card = document.createElement("div");
-
+        
         // 채팅 칸
         const temp = document.createElement("div");
         temp.classList.add("myChattingContent_temp");
-
-
+        
+        
         // 메세지 내용
         const content = document.createElement("div");
         content.innerText = msg.msgContent;
@@ -179,28 +194,29 @@ chattingSock.onmessage = function(e){
             content.classList.add("yourChattingContent");
             card.classList.add("yourChattingCard")
             
-
+            
             const profile = document.createElement("div");
             profile.classList.add("chatProfile");
-
+            
             const imgBox = document.createElement("div");
             imgBox.classList.add("chatProflieImageBox");
-
+            
             const img = document.createElement("img");
-            img.setAttribute("src", profileImage);
-
+            img.setAttribute("src", msg.profileImg);
+            
             const nick = document.createElement("span");
             nick.classList.add("nick");
-            nick.innerText = nickName;
-
+            nick.innerText = msg.memberNickname;
+            
             imgBox.append(img);
             profile.append(imgBox,nick);
             card.append(profile,content,sendTime);
-
+            
         }         
         div.append(card);
-
     }
+        chattingList.scrollTop = chattingList.scrollHeight;
+    
 
 
 } 
@@ -234,9 +250,17 @@ memberListSock.onmessage = function(e){
         const listImg = document.createElement("img");
         listImg.setAttribute("src", member.profileImg);
 
-        const listNick = document.createElement("div");
-        listNick.classList.add("memberNickname");
-        listNick.innerText = member.memberNickname;
+        
+        
+            const listNick = document.createElement("div");
+            listNick.classList.add("memberNickname");
+            listNick.innerText = member.memberNickname;
+
+        
+            
+
+        
+        
 
 
         listImgBox.append(listImg);
