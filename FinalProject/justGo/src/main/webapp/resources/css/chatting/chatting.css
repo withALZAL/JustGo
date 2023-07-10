@@ -93,6 +93,14 @@
     font-weight: bold;
 }
 
+/* in & out */
+.memberIn,
+.memberOut {
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid lightgrey;
+}
+
 
 /* memberBox */
 .chatting--memberBox {
