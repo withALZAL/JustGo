@@ -74,7 +74,7 @@
         <c:if test="${countryNo == 2}" >
             <img src="/resources/images/officialPageTitle/PAGETITLE_JAPAN_CHERRYBLOSSOM.png" alt="일본_벚꽃">
             <div class="template--overlayedTitle" style="color: black;">
-                <img src="/resources/images/officialFlag/JAPANFLAG.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
+                <img src="/resources/images/officialFlag/JAPANFLAG_BLACKBORDER.png" alt="일본국기" style="height: 30px; padding-right: 10px;">
                 ${countryName}게시판
             </div>
             <c:if test="${not empty param.query}" >
