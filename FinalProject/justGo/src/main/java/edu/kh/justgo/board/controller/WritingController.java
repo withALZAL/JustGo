@@ -331,13 +331,14 @@ public class WritingController {
 			String path = "redirect:";
 			
 			if(result>0) {
-				message= "게시글 삭제 성공하였습니다";
+				message = "게시글 삭제 성공하였습니다";
 				path += "/board/{boardCode}/{countryNo}/{boardNo}";
 			} else {
 				message = "게시글 삭제가 실패하였습니다";
 				path += "/writing/{boardCode}/{countryNo}/{boardNo}";
 				
 			}
+			ra.addFlashAttribute("message", message);
 			
 			return path;
 		}
