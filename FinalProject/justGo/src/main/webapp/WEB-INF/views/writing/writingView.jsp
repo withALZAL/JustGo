@@ -36,8 +36,29 @@
                     </tr>
                     <c:forEach items="${myPostList}" var="post">
                         <tr class="wv">
-                            <td class="wv-board">${post.countryNo}</td>
-                            <td class="wv-title"><a href="#">${post.boardTitle}</a></td>
+                            <c:choose>
+                                <c:when test="${post.countryNo gt 0}">
+                                    <c:if test="${post.countryNo == 1}"><td class="wv-board">중국게시판</td></c:if>
+                                    <c:if test="${post.countryNo == 2}"><td class="wv-board">일본게시판</td></c:if>
+                                    <c:if test="${post.countryNo == 3}"><td class="wv-board">베트남게시판</td></c:if>
+                                    <c:if test="${post.countryNo == 4}"><td class="wv-board">태국게시판</td></c:if>
+                                    <c:if test="${post.countryNo == 5}"><td class="wv-board">호주게시판</td></c:if>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:if test="${post.boardCode == 2}"><td class="wv-board">자유게시판</td></c:if>
+                                    <c:if test="${post.boardCode == 3}"><td class="wv-board">질문게시판</td></c:if>
+                                </c:otherwise>
+                            </c:choose>
+                            <td class="wv-title">
+                            <c:choose>
+                                <c:when test="${post.countryNo gt 0}">
+                                    <a href="/board/${post.boardCode}/${post.countryNo}/${post.boardNo}" target="_blank">${post.boardTitle}</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/board/${post.boardCode}/${post.boardNo}" target="_blank">${post.boardTitle}</a>
+                                </c:otherwise>
+                            </c:choose>
+                            </td>
                             <td class="wv-viewCount">${post.readCount}</td>
                         </tr>
                     </c:forEach>
@@ -45,6 +66,7 @@
             </div>
             <div class="writingView--pagination">
                 <ul class="pagination">
+                    <c:if test="${pagination.maxPage gt 1}"> <%-- maxPage 1페이지 이상이여야 페이지네이션 등장 --%>
                 
                     <!-- 첫 페이지로 이동 -->
                     <li><a href="/board/${boardCode}?cp=1${sp}"><i class="fa-solid fa-forward fa-rotate-180"></i></a></li>
@@ -75,6 +97,7 @@
                     <!-- 끝 페이지로 이동 -->
                     <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-forward"></i></a></li>
 
+                    </c:if>
                 </ul>
             </div>
         </div>

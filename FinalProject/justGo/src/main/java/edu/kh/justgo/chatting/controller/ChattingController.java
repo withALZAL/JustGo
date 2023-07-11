@@ -38,8 +38,8 @@ public class ChattingController {
 		List<Member> memberList = service.loginMemberList(); 
 		
 		
-		model.addAttribute("map",map);
-		model.addAttribute("memberList",memberList);
+		model.addAttribute("map", map);
+		model.addAttribute("memberList", memberList);
 		
 		return "chatting/chatting";
 	}
