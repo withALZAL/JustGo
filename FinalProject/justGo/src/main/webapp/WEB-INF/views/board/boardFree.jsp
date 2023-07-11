@@ -72,11 +72,11 @@
             </div>
         </c:if>
         <c:if test="${not empty param.query}">
-        <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
-        <div class="template--overlayedTitle" style="color: black;">
-            ${boardName}
-        </div>
-        <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
+            <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
+            <div class="template--overlayedTitle" style="color: black;">
+                ${boardName}
+            </div>
+            <div class="template--overlayedSearch">'${param.query}' <br><i class="fa-solid fa-circle-check fa-shake"></i>&nbsp&nbsp검색결과</div>
         </c:if>
     </div>
 </div>
@@ -93,7 +93,7 @@
         <div style="font-size: 1.5rem; font-weight: bold;"><i class="fa-solid fa-tag"></i>  태그</div>
 
         <form id="tagForm" action="#" method="get">
-            <c:forEach items="${tagAllList}" var="tag">
+        <c:forEach items="${tagAllList}" var="tag">
             <div onclick="basic(${tag.tagNo})">${tag.tagContent}</div>
         </c:forEach>
     </c:when>
