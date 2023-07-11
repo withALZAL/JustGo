@@ -297,14 +297,16 @@ public class WritingController {
 			int result = service.writingDelete(board);
 			
 			String message = null;
-			String path = "redirect:";
+			String path = "redirect:"; 
+			// 주소를 요청 처리 후 자체적인 화면이 없어서 요청 화면이 있는 주소로 다시 호출
 			
 			if(result > 0) {
 				message = "게시글 삭제 성공하였습니다.";
-				path += "/board/{boardCode}";
+				path += "/board/" + boardCode ; // /board/2(자유일때)
+												// 삭제 후 -> 목록 조회 주소로 요청 
 			}else {
 				message = "게시글 삭제가 실패하였습니다.";
-				path += "/writing/{boardCode}/{boardNo}";
+				path += "/writing/" + boardCode + boardNo;
 			}
 			ra.addFlashAttribute("message", message);
 			
@@ -327,17 +329,18 @@ public class WritingController {
 			
 			int result = service.wiritngDelete2(board);
 			
-			String message = null;
-			String path = "redirect:";
+			String message = "";
+			String path = "redirect:";  //주소를 요청 처리 후 자체적인 화면이 없어서 요청 화면이 있는 주소로 다시 호출 여행게시글(목록 조회)
 			
 			if(result>0) {
 				message= "게시글 삭제 성공하였습니다";
-				path += "/board/{boardCode}/{countryNo}/{boardNo}";
+				path += "/board/1/" +countryNo;
 			} else {
 				message = "게시글 삭제가 실패하였습니다";
-				path += "/writing/{boardCode}/{countryNo}/{boardNo}";
+				path += "/writing/1/" + countryNo+ "/" + boardNo;
 				
 			}
+			ra.addFlashAttribute("message", message);
 			
 			return path;
 		}
