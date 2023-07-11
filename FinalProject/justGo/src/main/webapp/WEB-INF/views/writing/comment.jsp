@@ -68,7 +68,7 @@
                     </span>
                     <span class="writing--commentProfileBox__profileName" onclick="showButton(this)">${reply.memberNickname}</span>
                     
-                    <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;" memberNo="${reply.memberNo}" memberNickname="${reply.memberNickname}"> <%-- 드롭다운 --%>
+                    <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;" memberNo="${reply.memberNo}" memberNickname="${reply.memberNickname}">
                         ${reply.memberNickname}의 작성글 보기
                     </button>
 

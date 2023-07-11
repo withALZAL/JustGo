@@ -16,20 +16,26 @@ function showButton(element) {
     button.style.display = 'block';
 }
 // 작성글 보기 팝업창
-// function writingView(element) {
-//     var button = element;
-//     button.style.display = 'none';
+function writingView(element) {
+    var button = element;
+    button.style.display = 'none';
 
-//     var url = "/writingView";
-//     // var url = "/writingView?replyMemberNo=" + replyMemberNo;
-//     var name = "작성글 보기";
-//     var option = "width=1000, height=600, top=100, left=200, location=no";
-//     var newWindow = window.open(url, name, option);
+    var memberNo = button.getAttribute('memberNo');
+    var memberNickname = button.getAttribute('memberNickname');
 
-//     newWindow.onbeforeunload = function() {
-//         button.style.display = 'none';
-//     };
-// }
+    console.log(memberNo); // 잘 뜸
+    console.log(memberNickname); // 잘 뜸
+
+    // var url = "/writingView?replyMemberNo=" + memberNo;
+    var url = "/writingView?replyMemberNo=" + memberNo + "&replyMemberNickname=" + encodeURIComponent(memberNickname);
+    var name = "작성글 보기";
+    var option = "width=1000, height=600, top=100, left=200, location=no";
+    var newWindow = window.open(url, name, option);
+
+    newWindow.onbeforeunload = function() {
+        button.style.display = 'none';
+    };
+}
 
 const dropdownBtn = document.getElementsByClassName("writing--commentProfileBox__profileName");
 
@@ -90,11 +96,43 @@ function selectReplyList(){
             replyNickname.classList.add("writing--commentProfileBox__profileName");
             replyNickname.innerText = reply.memberNickname;
 
-                // 드롭다운
-                const replyDropdown = document.createElement("button");
-                replyDropdown.classList.add("replyDropdown");
-                replyDropdown.style.display = "none";
-                // replyDropdown.onclick = writingPopup; << 이게 맞다고 생각하십니까?
+// 버튼 요소 생성
+const replyDropdown = document.createElement("button");
+replyDropdown.classList.add("replyDropdown");
+replyDropdown.style.display = "none";
+replyDropdown.setAttribute("target", "_blank");
+replyDropdown.setAttribute("memberNo", reply.memberNo);
+replyDropdown.setAttribute("memberNickname", reply.memberNickname);
+replyDropdown.innerText = `${reply.memberNickname}의 작성글 보기`;
+replyNickname.addEventListener("click", e => {
+    replyDropdown.style.display = "block";
+
+});
+replyDropdown.addEventListener('click', e => {
+    replyDropdown.style.display = "none";
+
+    var memberNo = replyDropdown.getAttribute('memberNo');
+    var memberNickname = replyDropdown.getAttribute('memberNickname');
+    
+    console.log(memberNo); // 잘 뜸
+    console.log(memberNickname); // 잘 뜸
+    
+    // var url = "/writingView?replyMemberNo=" + memberNo;
+    var url = "/writingView?replyMemberNo=" + memberNo + "&replyMemberNickname=" + encodeURIComponent(memberNickname);
+    var name = "작성글 보기";
+    var option = "width=1000, height=600, top=100, left=200, location=no";
+    var newWindow = window.open(url, name, option);
+    
+    newWindow.onbeforeunload = function() {
+        button.style.display = 'none';
+    };
+});
+
+// 부모 요소에 버튼 추가
+replyWriter.appendChild(replyDropdown);
+
+// Append the button to the parent element
+replyWriter.appendChild(replyDropdown);
             
             // 작성자 영역에 프로필 관련 추가
             replyChild.append(replyCheck);
@@ -269,14 +307,39 @@ function selectReplyList(){
                 replyNickname.classList.add("writing--commentProfileBox__profileName");
                 replyNickname.innerText = reply.memberNickname;
 
-                    // 드롭다운
-                    const replyDropdown = document.createElement("button");
-                    replyDropdown.classList.add("replyDropdown");
-                    replyDropdown.style.display = "none";
-                    // replyDropdown.onclick = writingPopup;
+// 버튼 요소 생성
+const replyDropdown = document.createElement("button");
+replyDropdown.classList.add("replyDropdown");
+replyDropdown.style.display = "none";
+replyDropdown.setAttribute("target", "_blank");
+replyDropdown.setAttribute("memberNo", reply.memberNo);
+replyDropdown.setAttribute("memberNickname", reply.memberNickname);
+replyDropdown.innerText = `${reply.memberNickname}의 작성글 보기`;
+replyNickname.addEventListener("click", e => {
+    replyDropdown.style.display = "block";
+
+});
+replyDropdown.addEventListener('click', e => {
+    replyDropdown.style.display = "none";
+
+    var memberNo = replyDropdown.getAttribute('memberNo');
+    var memberNickname = replyDropdown.getAttribute('memberNickname');
+    
+    console.log(memberNo); // 잘 뜸
+    console.log(memberNickname); // 잘 뜸
+    
+    // var url = "/writingView?replyMemberNo=" + memberNo;
+    var url = "/writingView?replyMemberNo=" + memberNo + "&replyMemberNickname=" + encodeURIComponent(memberNickname);
+    var name = "작성글 보기";
+    var option = "width=1000, height=600, top=100, left=200, location=no";
+    var newWindow = window.open(url, name, option);
+    
+    newWindow.onbeforeunload = function() {
+        button.style.display = 'none';
+    };
+});
                 
                 // 작성자 영역에 프로필 관련 추가
-                
                 replyWriter.append(profileBox,replyNickname,replyDropdown);
                 profileBox.append(profileImage);
     
