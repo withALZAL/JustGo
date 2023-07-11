@@ -65,7 +65,6 @@ public class WritingController {
 
 	
 	
-	
 	// 포스트 연결
 	@GetMapping("/writing/post")
 	public String post() {
@@ -100,7 +99,7 @@ public class WritingController {
 		if (result > 0) { // 성공 시
 			int boardNo = board.getBoardNo();
 			
-			message = "게시글 등록 성공";
+			message = "게시글 등록에 성공했습니다.";
 	
 			if(board.getBoardCode() != 1) {
 				path += "board/" + board.getBoardCode() + "/" + boardNo;
@@ -110,7 +109,7 @@ public class WritingController {
 	
 
 		} else {
-			message = "게시글 등록 실패.......";
+			message = "게시글 등록에 실패했습니다.";
 			path += "board/writingBoard"; // 게시글 쓰는 화면
 		}
 
@@ -231,7 +230,7 @@ public class WritingController {
 			message = "게시글이 수정되었습니다";
 			path += "/board/"+boardCode+"/"+boardNo+"?cp" + cp; // 상세조회 페이지
 		}else {
-			message = "게시글이 수정이 실패하였습니다";
+			message = "게시글 수정에 실패하였습니다";
 			path += "update";
 		}
 		ra.addFlashAttribute("message", message);
@@ -272,7 +271,7 @@ public class WritingController {
 				message = "게시글이 수정되었습니다";
 				path += "/board/"+boardCode+"/"+countryNo+"/"+boardNo+"?cp" + cp; // 상세조회 페이지
 			}else {
-				message = "게시글이 수정이 실패하였습니다";
+				message = "게시글 수정에 실패하였습니다";
 				path += "update";
 			}
 			ra.addFlashAttribute("message", message);
@@ -301,12 +300,15 @@ public class WritingController {
 			// 주소를 요청 처리 후 자체적인 화면이 없어서 요청 화면이 있는 주소로 다시 호출
 			
 			if(result > 0) {
+
 				message = "게시글 삭제 성공하였습니다.";
 				path += "/board/" + boardCode ; // /board/2(자유일때)
 												// 삭제 후 -> 목록 조회 주소로 요청 
 			}else {
 				message = "게시글 삭제가 실패하였습니다.";
 				path += "/writing/" + boardCode + boardNo;
+
+
 			}
 			ra.addFlashAttribute("message", message);
 			
@@ -333,11 +335,13 @@ public class WritingController {
 			String path = "redirect:";  //주소를 요청 처리 후 자체적인 화면이 없어서 요청 화면이 있는 주소로 다시 호출 여행게시글(목록 조회)
 			
 			if(result>0) {
+
 				message= "게시글 삭제 성공하였습니다";
 				path += "/board/1/" +countryNo;
 			} else {
 				message = "게시글 삭제가 실패하였습니다";
 				path += "/writing/1/" + countryNo+ "/" + boardNo;
+
 				
 			}
 			ra.addFlashAttribute("message", message);
