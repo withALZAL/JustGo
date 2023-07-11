@@ -147,9 +147,32 @@ function reportBoardBtn(boardNo){
     if(etc.checked){
         etc.value = reportReason.value;
     }
-    
-    
     const reportCategory = document.querySelector('input[name="reportCategory"]:checked').value;
+
+    console.log(reportCategory);
+    if(reportCategory==''){
+        // alert("게시물 신고 실패...")
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end', /* 우측 상단 */
+            showConfirmButton: false, /* 컨펌버튼 없음 */
+            timer: 3000, /* 3초 간 뜨기 */
+            timerProgressBar: true, /* 진행바 */
+            showCloseButton: true, /* 취소 버튼 */
+            didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: 'warning', /* 아이디 실패 시 ! 경고 */
+            title: '신고 사유를 입력해주세요' /* 메시지 담기 */
+        })
+        return;
+    }
+    
+    
     const data = {"boardNo" : boardNo,
             "reportCategory" : reportCategory, 
             "memberNo" : loginMemberNo 
@@ -167,7 +190,7 @@ function reportBoardBtn(boardNo){
 
             // const alarmContent = memberNickname+"님께서 " + boardTitle +" 게시글을 신고하셨습니다.";
 
-            sendMessage(loginMemberNo, memberNickname, boardNo, boardTitle);
+            // sendMessage(loginMemberNo, memberNickname, boardNo, boardTitle);
             // alert("해당 게시글을 신고하였습니다.");
             const Toast = Swal.mixin({
                 toast: true,
@@ -189,25 +212,26 @@ function reportBoardBtn(boardNo){
             location.href =  location.href ;
             // sendMessage(1, memberNickname, boardTitle.replace(/"가 &quot;/g, ''));
         }else{
-            // alert("게시물 신고 실패...")
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end', /* 우측 상단 */
-                showConfirmButton: false, /* 컨펌버튼 없음 */
-                timer: 3000, /* 3초 간 뜨기 */
-                timerProgressBar: true, /* 진행바 */
-                showCloseButton: true, /* 취소 버튼 */
-                didOpen: (toast) => {
+                // alert("게시물 신고 실패...")
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end', /* 우측 상단 */
+                    showConfirmButton: false, /* 컨펌버튼 없음 */
+                    timer: 3000, /* 3초 간 뜨기 */
+                    timerProgressBar: true, /* 진행바 */
+                    showCloseButton: true, /* 취소 버튼 */
+                    didOpen: (toast) => {
                     toast.addEventListener('mouseenter', Swal.stopTimer)
                     toast.addEventListener('mouseleave', Swal.resumeTimer)
                 }
                 })
-        
+                
                 Toast.fire({
                     icon: 'warning', /* 아이디 실패 시 ! 경고 */
                     title: '이미 신고한 게시글입니다.' /* 메시지 담기 */
                 })
         }
+
     })
     .catch(err => console.log(err));
 }
