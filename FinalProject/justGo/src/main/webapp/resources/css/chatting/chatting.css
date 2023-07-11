@@ -127,22 +127,24 @@
     margin-bottom: 10px;
 }
 .memberProflieImageBox {
-    height: 40px;
     width: 40px;
+    height: 40px;
     overflow: hidden;
     border-radius: 100%;
 }
-.memberProfileImageBox img {
+.memberProflieImageBox > img {
     object-fit: cover;
     object-position: center center;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
 }
 .memberNickname {
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+
 
 /* inputBox */
 .chatting--inputBox {
