@@ -1,10 +1,35 @@
 // 작성글 보기 팝업
-function writingView() {
+var spanElements = document.querySelectorAll('.writing--commentProfileBox__profileName');
+for (var i = 0; i < spanElements.length; i++) {
+    spanElements[i].addEventListener('click', function () {
+        showButton(this);
+    });
+}
+var buttonElements = document.querySelectorAll('.replyDropdown');
+for (var j = 0; j < buttonElements.length; j++) {
+    buttonElements[j].addEventListener('click', function () {
+        writingView(this);
+    });
+}
+function showButton(element) {
+    var button = element.nextElementSibling; // 다음 형제 요소인 button 가져오기
+    button.style.display = 'block';
+}
+function writingView(element) {
+    var button = element;
+    button.style.display = 'none';
+
     var url = "/writingView";
     var name = "작성글 보기";
-    var option = "width = 1000, height = 600, top = 100, left = 200, location = no"
-    window.open(url, name, option);
+    var option = "width=1000, height=600, top=100, left=200, location=no";
+    var newWindow = window.open(url, name, option);
+
+    newWindow.onbeforeunload = function() {
+        button.style.display = 'none';
+    };
 }
+// 실험
+const dropdownBtn = document.getElementsByClassName("writing--commentProfileBox__profileName");
 
 
 // 댓글 목록 조회
