@@ -45,55 +45,23 @@
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="pso7364@naver.com">
             <input type="hidden" name="memberPw" value="12345678">
-            <button class="btn btn-secondary btn-sm">관리자로그인</button>
-    </form>
-    <form>
-        <a href="/">
-            <button type="button" class="btn btn-secondary btn-sm">메인</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/manager/managerMain">
-            <button type="button" class="btn btn-secondary btn-sm">관리자</button>
-        </a>    
-    </form>
-    <form>
-        <a href="/board/boardNotice">
-            <button type="button" class="btn btn-secondary btn-sm">공지사항</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/writingBoard">
-            <button type="button" class="btn btn-secondary btn-sm">글쓰기</button>
-        </a>
-    </form>
-    <form>
-        <a href="/writing/post">
-            <button type="button" class="btn btn-secondary btn-sm">포스트</button>
-        </a>
-    </form>
-    <form>
-        <a href="/board/boardAsk/{memberNo}">
-            <button type="button" class="btn btn-secondary btn-sm">1:1문의</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/info">
-            <button type="button" class="btn btn-secondary btn-sm">마이페이지</button>
-        </a>
-    </form>
-    <form>
-        <a href="/myPage/updateInfo">
-            <button type="button" class="btn btn-secondary btn-sm">개인정보수정</button>
-        </a>
+            <button class="btn btn-secondary btn-sm">관리자로그인</button> <%-- 송삼이 --%>
     </form>
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
-            <button class="btn btn-secondary btn-sm">빠른로그인</button>
+            <button class="btn btn-secondary btn-sm">따봉이로그인</button> <%-- 따봉이 --%>
     </form>
-
-
+    <form action="/account/login" method="post">
+            <input type="hidden" name="memberEmail" value="sangzoon0102@naver.com">
+            <input type="hidden" name="memberPw" value="#seoul01!!cns">
+            <button class="btn btn-secondary btn-sm">천성류로그인</button> <%-- 천성류 --%>
+    </form>
+    <form action="/account/login" method="post">
+            <input type="hidden" name="memberEmail" value="sangzoon0102@gmail.com">
+            <input type="hidden" name="memberPw" value="#seoul01!!cns">
+            <button class="btn btn-secondary btn-sm">핑핑이로그인</button> <%-- 핑핑이 --%>
+    </form>
     <form action="#">
         <a href="#">
             ---임시용|||실사용---

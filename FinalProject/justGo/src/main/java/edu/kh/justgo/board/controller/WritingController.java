@@ -100,7 +100,7 @@ public class WritingController {
 		if (result > 0) { // 성공 시
 			int boardNo = board.getBoardNo();
 			
-			message = "게시글 등록 성공";
+			message = "게시글 등록에 성공했습니다.";
 	
 			if(board.getBoardCode() != 1) {
 				path += "board/" + board.getBoardCode() + "/" + boardNo;
@@ -110,7 +110,7 @@ public class WritingController {
 	
 
 		} else {
-			message = "게시글 등록 실패.......";
+			message = "게시글 등록에 실패했습니다.";
 			path += "board/writingBoard"; // 게시글 쓰는 화면
 		}
 
@@ -231,7 +231,7 @@ public class WritingController {
 			message = "게시글이 수정되었습니다";
 			path += "/board/"+boardCode+"/"+boardNo+"?cp" + cp; // 상세조회 페이지
 		}else {
-			message = "게시글이 수정이 실패하였습니다";
+			message = "게시글 수정에 실패하였습니다";
 			path += "update";
 		}
 		ra.addFlashAttribute("message", message);
@@ -272,7 +272,7 @@ public class WritingController {
 				message = "게시글이 수정되었습니다";
 				path += "/board/"+boardCode+"/"+countryNo+"/"+boardNo+"?cp" + cp; // 상세조회 페이지
 			}else {
-				message = "게시글이 수정이 실패하였습니다";
+				message = "게시글 수정에 실패하였습니다";
 				path += "update";
 			}
 			ra.addFlashAttribute("message", message);
@@ -300,10 +300,10 @@ public class WritingController {
 			String path = "redirect:";
 			
 			if(result > 0) {
-				message = "게시글 삭제 성공하였습니다.";
+				message = "게시글 삭제에 성공하였습니다.";
 				path += "/board/{boardCode}";
 			}else {
-				message = "게시글 삭제가 실패하였습니다.";
+				message = "게시글 삭제에 실패하였습니다.";
 				path += "/writing/{boardCode}/{boardNo}";
 			}
 			ra.addFlashAttribute("message", message);
@@ -332,9 +332,10 @@ public class WritingController {
 			
 			if(result>0) {
 				message = "게시글 삭제 성공하였습니다";
+
 				path += "/board/{boardCode}/{countryNo}/{boardNo}";
 			} else {
-				message = "게시글 삭제가 실패하였습니다";
+				message = "게시글 삭제에 실패하였습니다.";
 				path += "/writing/{boardCode}/{countryNo}/{boardNo}";
 				
 			}
