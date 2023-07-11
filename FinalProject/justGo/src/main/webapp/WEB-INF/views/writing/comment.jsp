@@ -69,7 +69,7 @@
                     <span class="writing--commentProfileBox__profileName" onclick="showButton(this)">${reply.memberNickname}</span>
                     
                     <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;" memberNo="${reply.memberNo}" memberNickname="${reply.memberNickname}">
-                        ${reply.memberNickname}의 작성글 보기
+                        ${reply.memberNickname}의 작성글 보기<i class="fa-solid fa-circle-xmark" style="padding-left: 5px;"></i>
                     </button>
 
                 </th>
