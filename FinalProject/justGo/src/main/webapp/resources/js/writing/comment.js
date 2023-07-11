@@ -1,4 +1,4 @@
-// 작성글 보기 팝업
+// 작성글 보기 팝업 동작
 var spanElements = document.querySelectorAll('.writing--commentProfileBox__profileName');
 for (var i = 0; i < spanElements.length; i++) {
     spanElements[i].addEventListener('click', function () {
@@ -15,22 +15,23 @@ function showButton(element) {
     var button = element.nextElementSibling; // 다음 형제 요소인 button 가져오기
     button.style.display = 'block';
 }
-function writingView(element) {
-    var button = element;
-    button.style.display = 'none';
+// 작성글 보기 팝업창
+// function writingView(element) {
+//     var button = element;
+//     button.style.display = 'none';
 
-    var url = "/writingView";
-    var name = "작성글 보기";
-    var option = "width=1000, height=600, top=100, left=200, location=no";
-    var newWindow = window.open(url, name, option);
+//     var url = "/writingView";
+//     // var url = "/writingView?replyMemberNo=" + replyMemberNo;
+//     var name = "작성글 보기";
+//     var option = "width=1000, height=600, top=100, left=200, location=no";
+//     var newWindow = window.open(url, name, option);
 
-    newWindow.onbeforeunload = function() {
-        button.style.display = 'none';
-    };
-}
-// 실험
+//     newWindow.onbeforeunload = function() {
+//         button.style.display = 'none';
+//     };
+// }
+
 const dropdownBtn = document.getElementsByClassName("writing--commentProfileBox__profileName");
-
 
 // 댓글 목록 조회
 function selectReplyList(){
@@ -90,14 +91,14 @@ function selectReplyList(){
             replyNickname.innerText = reply.memberNickname;
 
                 // 드롭다운
-                // const replyDropdown = document.createElement("div");
-                // replyDropdown.classList.add("replyDropdown");
-                // replyDropdown.style.display = "none");
-                // replyDropdown.onclick = writingPopup;
+                const replyDropdown = document.createElement("button");
+                replyDropdown.classList.add("replyDropdown");
+                replyDropdown.style.display = "none";
+                // replyDropdown.onclick = writingPopup; << 이게 맞다고 생각하십니까?
             
             // 작성자 영역에 프로필 관련 추가
             replyChild.append(replyCheck);
-            replyWriter.append(replyChild,profileBox,replyNickname);
+            replyWriter.append(replyChild,profileBox,replyNickname,replyDropdown);
             profileBox.append(profileImage);
 
             // 댓글 내용
@@ -269,14 +270,14 @@ function selectReplyList(){
                 replyNickname.innerText = reply.memberNickname;
 
                     // 드롭다운
-                    // const replyDropdown = document.createElement("div");
-                    // replyDropdown.classList.add("replyDropdown");
-                    // replyDropdown.style.display = "none";
+                    const replyDropdown = document.createElement("button");
+                    replyDropdown.classList.add("replyDropdown");
+                    replyDropdown.style.display = "none";
                     // replyDropdown.onclick = writingPopup;
                 
                 // 작성자 영역에 프로필 관련 추가
                 
-                replyWriter.append(profileBox,replyNickname);
+                replyWriter.append(profileBox,replyNickname,replyDropdown);
                 profileBox.append(profileImage);
     
                 // 댓글 내용

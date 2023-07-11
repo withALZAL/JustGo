@@ -68,7 +68,7 @@
                     </span>
                     <span class="writing--commentProfileBox__profileName" onclick="showButton(this)">${reply.memberNickname}</span>
                     
-                    <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;"> <%-- 드롭다운 --%>
+                    <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;" memberNo="${reply.memberNo}" memberNickname="${reply.memberNickname}"> <%-- 드롭다운 --%>
                         ${reply.memberNickname}의 작성글 보기
                     </button>
 
@@ -151,5 +151,28 @@
     <script src="/resources/js/common/main.js"></script>
     <script src="/resources/js/writing/comment.js"></script>
     <script src="/resources/js/common/footer.js"></script>
+<!-- 작성글 보기 팝업창 -->
+    <script>
+        function writingView(element) {
+            var button = element;
+            button.style.display = 'none';
+
+            var memberNo = button.getAttribute('memberNo');
+            var memberNickname = button.getAttribute('memberNickname');
+
+            console.log(memberNo); // 잘 뜸
+            console.log(memberNickname); // 잘 뜸
+
+            // var url = "/writingView?replyMemberNo=" + memberNo;
+            var url = "/writingView?replyMemberNo=" + memberNo + "&replyMemberNickname=" + encodeURIComponent(memberNickname);
+            var name = "작성글 보기";
+            var option = "width=1000, height=600, top=100, left=200, location=no";
+            var newWindow = window.open(url, name, option);
+
+            newWindow.onbeforeunload = function() {
+                button.style.display = 'none';
+            };
+        }
+    </script>
 </body>
 </html>
