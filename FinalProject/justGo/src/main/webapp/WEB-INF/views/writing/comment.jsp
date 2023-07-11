@@ -66,9 +66,9 @@
                             <img src="${reply.profileImage}">
                         </c:if>
                     </span>
-                    <span class="writing--commentProfileBox__profileName">${reply.memberNickname}</span>
+                    <span class="writing--commentProfileBox__profileName" onclick="showButton(this)">${reply.memberNickname}</span>
                     
-                    <button class="replyDropdown" onclick="writingView()" target = "_blank"> <%-- 드롭다운 --%>
+                    <button class="replyDropdown" onclick="writingView(this)" target = "_blank" style="display: none;"> <%-- 드롭다운 --%>
                         ${reply.memberNickname}의 작성글 보기
                     </button>
 
