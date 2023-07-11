@@ -68,7 +68,7 @@ public class BoardController {
 
 			model.addAttribute("map", map);
 		}
-		return "board/boardFree";
+		return "board/boardFree"; // forward : 주소를 요청했을 때 요청 주소로 바뀌고 그 요청에 맞는 화면으로 변함
 	}
 
 	/*
