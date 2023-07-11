@@ -20,9 +20,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+    <c:set var="myPostList" value="${map.myPostList}"/>
+    <c:set var="pagination" value="${map.pagination}"/>
+
     <section class="writingView--container">
         <div class="writingView--box">
-            <div class="writingView--writer">바른말고운말의 작성글</div>
+            <div class="writingView--writer">${memberNickname}의 작성글</div>
             <div class="writingView--list">
                 <table class="wv-table">
                     <tr class="wv-top">
@@ -30,11 +34,11 @@
                         <th class="wv-title">제목</th>
                         <th class="wv-viewCount">조회수</th>
                     </tr>
-                    <c:forEach var="item" begin="1" end="10">
+                    <c:forEach items="${myPostList}" var="post">
                         <tr class="wv">
-                            <td class="wv-board">게시판이름</td>
-                            <td class="wv-title"><a href="#">제목</a></td>
-                            <td class="wv-viewCount">12</td>
+                            <td class="wv-board">${post.countryNo}</td>
+                            <td class="wv-title"><a href="#">${post.boardTitle}</a></td>
+                            <td class="wv-viewCount">${post.readCount}</td>
                         </tr>
                     </c:forEach>
                 </table>
