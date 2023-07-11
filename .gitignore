@@ -29,3 +29,6 @@ MANIFEST.MF
 settings.json
 
 config.properties
+
+# SSH key 깃 유출 방지
+JustGoKey.pem
