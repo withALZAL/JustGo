@@ -14,6 +14,10 @@ for (var j = 0; j < buttonElements.length; j++) {
 function showButton(element) {
     var button = element.nextElementSibling; // 다음 형제 요소인 button 가져오기
     button.style.display = 'block';
+
+    setTimeout(function() {
+        button.style.display = 'none';
+    }, 3000);
 }
 // 작성글 보기 팝업창
 function writingView(element) {
@@ -104,6 +108,12 @@ replyDropdown.setAttribute("target", "_blank");
 replyDropdown.setAttribute("memberNo", reply.memberNo);
 replyDropdown.setAttribute("memberNickname", reply.memberNickname);
 replyDropdown.innerText = `${reply.memberNickname}의 작성글 보기`;
+// const xmark = document.createElement("i");
+// xmark.classList.add("fa-solid");
+// xmark.classList.add("fa-circle-xmark");
+// xmark.classList.add("xmark");
+// replyDropdown.appendChild(xmark);
+
 replyNickname.addEventListener("click", e => {
     replyDropdown.style.display = "block";
 
@@ -311,6 +321,12 @@ replyDropdown.setAttribute("target", "_blank");
 replyDropdown.setAttribute("memberNo", reply.memberNo);
 replyDropdown.setAttribute("memberNickname", reply.memberNickname);
 replyDropdown.innerText = `${reply.memberNickname}의 작성글 보기`;
+// const xmark = document.createElement("i");
+// xmark.classList.add("fa-solid");
+// xmark.classList.add("fa-circle-xmark");
+// xmark.classList.add("xmark");
+// replyDropdown.appendChild(xmark);
+
 replyNickname.addEventListener("click", e => {
     replyDropdown.style.display = "block";
 
