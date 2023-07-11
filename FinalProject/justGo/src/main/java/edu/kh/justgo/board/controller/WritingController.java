@@ -65,7 +65,6 @@ public class WritingController {
 
 	
 	
-	
 	// 포스트 연결
 	@GetMapping("/writing/post")
 	public String post() {
