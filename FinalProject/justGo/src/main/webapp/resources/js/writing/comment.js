@@ -91,14 +91,14 @@ function selectReplyList(){
             replyNickname.innerText = reply.memberNickname;
 
                 // 드롭다운
-                // const replyDropdown = document.createElement("div");
-                // replyDropdown.classList.add("replyDropdown");
-                // replyDropdown.style.display = "none");
-                // replyDropdown.onclick = writingPopup;
+                const replyDropdown = document.createElement("button");
+                replyDropdown.classList.add("replyDropdown");
+                replyDropdown.style.display = "none";
+                // replyDropdown.onclick = writingPopup; << 이게 맞다고 생각하십니까?
             
             // 작성자 영역에 프로필 관련 추가
             replyChild.append(replyCheck);
-            replyWriter.append(replyChild,profileBox,replyNickname);
+            replyWriter.append(replyChild,profileBox,replyNickname,replyDropdown);
             profileBox.append(profileImage);
 
             // 댓글 내용
@@ -270,14 +270,14 @@ function selectReplyList(){
                 replyNickname.innerText = reply.memberNickname;
 
                     // 드롭다운
-                    // const replyDropdown = document.createElement("div");
-                    // replyDropdown.classList.add("replyDropdown");
-                    // replyDropdown.style.display = "none";
+                    const replyDropdown = document.createElement("button");
+                    replyDropdown.classList.add("replyDropdown");
+                    replyDropdown.style.display = "none";
                     // replyDropdown.onclick = writingPopup;
                 
                 // 작성자 영역에 프로필 관련 추가
                 
-                replyWriter.append(profileBox,replyNickname);
+                replyWriter.append(profileBox,replyNickname,replyDropdown);
                 profileBox.append(profileImage);
     
                 // 댓글 내용
