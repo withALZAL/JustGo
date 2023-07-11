@@ -104,6 +104,7 @@ document.getElementById("deleteBtn").addEventListener("click",()=>{
     if(confirm("정말 삭제 하시겠습니까")){
     const pathname =location.pathname.replace("board","writing")+ "/delete";
 
+    // replace : 경로에서 "board"라는 부분 문자열을 "writing"으로 대체 /  => 수정된 경로에 /delete를 추가
     location.href = pathname;
 
     }
