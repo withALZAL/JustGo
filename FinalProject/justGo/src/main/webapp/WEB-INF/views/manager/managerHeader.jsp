@@ -47,34 +47,10 @@
         <a href="/manager/managerMain">
             <i class="fa-solid fa-house fa-xl"></i>
         </a>
-        <form>
-            <a href="/myPage/info">
-                <i class="fa-solid fa-circle-user fa-xl"></i>
-                <%-- <button type="button" class="btn btn-secondary btn-sm">마이페이지</button> --%>
-            </a>
-        </form>
-        <!-- Default dropend button -->
-        <div class="btn-group dropend">
-        <button type="button" class="btn btn-secondary dropdown-toggle" id="alarmBtn" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-envelope fa-xl"></i>
-        </button>
-        <div id="alarm_num"></div>
-        <ul class="dropdown-menu" id="alarmBox">
-            <!-- 알람내용 받는 공간 -->
-            
-        </ul>
+        <a href="/myPage/info">
+            <i class="fa-solid fa-circle-user fa-xl"></i>
+        </a>
         </div>
-
-        <%-- <label for="alarmToggle">
-            <i class="fa-solid fa-envelope fa-xl"></i>
-        </label>
-        <input type="checkbox" id="alarmToggle" hidden>
-
-        <div class="alarm-menu">
-            알람받는 공간
-            <ul id="alarmBox">
-            </ul>
-        </div> --%>
     </div>
 </nav>
 <!-- loginNav 끝 -->
