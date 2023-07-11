@@ -68,6 +68,7 @@
         </a>    
     </form>
 
+
     <c:choose>
         <c:when test="${empty loginMember}"> <%-- 로그인 안했을 때 --%>
             <form>
