@@ -127,13 +127,9 @@ replyDropdown.addEventListener('click', e => {
         button.style.display = 'none';
     };
 });
-
 // 부모 요소에 버튼 추가
 replyWriter.appendChild(replyDropdown);
 
-// Append the button to the parent element
-replyWriter.appendChild(replyDropdown);
-            
             // 작성자 영역에 프로필 관련 추가
             replyChild.append(replyCheck);
             replyWriter.append(replyChild,profileBox,replyNickname,replyDropdown);
@@ -338,6 +334,8 @@ replyDropdown.addEventListener('click', e => {
         button.style.display = 'none';
     };
 });
+// 부모 요소에 버튼 추가
+replyWriter.appendChild(replyDropdown);
                 
                 // 작성자 영역에 프로필 관련 추가
                 replyWriter.append(profileBox,replyNickname,replyDropdown);
