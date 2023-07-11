@@ -58,9 +58,9 @@
             <button class="btn btn-secondary btn-sm">천성류로그인</button> <%-- 천성류 --%>
     </form>
     <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="sangzoon0102@daum.net">
+            <input type="hidden" name="memberEmail" value="sangzoon0102@gmail.com">
             <input type="hidden" name="memberPw" value="#seoul01!!cns">
-            <button class="btn btn-secondary btn-sm">칸나로그인</button> <%-- 칸나 --%>
+            <button class="btn btn-secondary btn-sm">핑핑이로그인</button> <%-- 핑핑이 --%>
     </form>
     <form action="#">
         <a href="#">
