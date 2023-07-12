@@ -104,7 +104,9 @@ memberPw.addEventListener("input", () => {
         return;
     }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
+
     if(regEx.test(memberPw.value)){
         checkObj.memberPw = true;
 

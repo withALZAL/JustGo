@@ -29,7 +29,8 @@ currentPw.addEventListener('keyup', e => {
 
 /* 현재 비밀번호 일치 여부 체크 */
 currentPw.addEventListener('input', () => {
-    const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx1 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if (regEx1.test(currentPw.value)) {
         fetch("/dupCheck/password", {
             method: "POST",

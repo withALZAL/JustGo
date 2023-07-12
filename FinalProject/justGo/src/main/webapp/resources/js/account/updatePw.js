@@ -27,7 +27,8 @@ currentPw.addEventListener("input", () => {
 
     console.log(memberNo);
 
-    const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx1 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if (regEx1.test(currentPw.value)) { 
 
         /* POST 방식 */
@@ -102,7 +103,8 @@ newPw.addEventListener("input", () => {
         return;
     }
 
-    const regEx2 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx2 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx2 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if(regEx2.test(newPw.value)){
         checkObj.newPw = true;
             newPwMessage.innerText = "유효한 비밀번호 형식입니다.";
@@ -228,7 +230,8 @@ document.getElementById("updateInfo").addEventListener("submit", e => {
     }
 
     // 새 비밀번호가 유효하지 않을 경우
-    const regEx3 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx3 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx3 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if(!regEx3.test(newPw.value)){
         const Toast = Swal.mixin({
             toast: true,
