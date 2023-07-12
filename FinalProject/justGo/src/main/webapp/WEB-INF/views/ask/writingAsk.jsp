@@ -65,7 +65,7 @@
         </div>
         <div class="writing--ButtonBox">
             <a href="javascript:history.back()">
-                <button type="submit" class="btn btn-primary btn-lg">게시</button>
+                <button type="submit" class="btn btn-primary btn-lg">확인</button>
             </a>
             <a href="javascript:history.back()">
                 <button type="button" class="btn btn-secondary btn-lg" onclick="history.back()">취소</button>
