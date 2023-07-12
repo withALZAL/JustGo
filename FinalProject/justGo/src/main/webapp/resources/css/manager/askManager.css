@@ -229,7 +229,7 @@
 }
 .manager--inquiryTable th:nth-child(2), /* 닉네임 컬럼 */
 .manager--inquiryTable td:nth-child(2) {
-    width: 150px;
+    width: 160px;
     text-align: center;
 }
 .manager--inquiryTable th:nth-child(3), /* 문의제목 컬럼 */

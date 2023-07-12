@@ -33,7 +33,7 @@
 <header class="template--header">
 <aside class="template--leftAside">
     <div class="template--easterEgg">
-        <img id="asuka" src="/resources/images/officialImages/EASTEREGG.gif" alt="아스카" style="display: none;" onclick="deleteAsuka()" class="fixed-top">
+        <img id="asuka" src="/resources/images/officialImages/earth.gif" alt="아스카" style="display: none;" onclick="deleteAsuka()" class="fixed-top">
     </div>
 </aside>
 <section class="template--Section">
