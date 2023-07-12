@@ -20,7 +20,9 @@ newPw.addEventListener("input", () => {
         return;
     }
 
-    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
+    
     if(regEx.test(newPw.value)){
         checkObj.newPw = true;
             newPwMessage.innerText = "유효한 비밀번호 형식입니다.";
@@ -71,7 +73,8 @@ const passwordFrm = document.getElementById("passwordFrm");
 
 passwordFrm.addEventListener("submit", e => {
     // 비밀번호 유효성 검사
-    const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    // const regEx = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
+    const regEx = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if(!regEx.test(newPw.value)){
         alert("비밀번호가 유효하지 않습니다");
         e.preventDefault();
