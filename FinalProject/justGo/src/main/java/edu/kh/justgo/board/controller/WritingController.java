@@ -48,9 +48,31 @@ public class WritingController {
 
 	// 글쓰기 연결
 	@GetMapping("/writing/writingBoard")
-	public String writingBoard(Model model
+	public String writingBoard(Model model,
+			@RequestParam int footerCheck,
+			@RequestParam String boardCode,
+			@RequestParam String countryNo
 			) {
 		
+		// 상준 시작
+		System.out.println("boardCode 타입: " + boardCode.getClass().getSimpleName());
+		System.out.println("countryNo 타입: " + countryNo.getClass().getSimpleName());
+
+		
+		System.out.println("footerCheck:"+footerCheck);
+		System.out.println("boardCode:"+boardCode);
+		System.out.println("countryNo:"+countryNo);
+		
+		int realFooter = 0;
+		
+		if (footerCheck == 1 && boardCode == "" && countryNo == "") {
+		    realFooter = 1;
+		} else {
+			realFooter = 0;
+		}
+		model.addAttribute("realFooter", realFooter);
+		System.out.println("그래서 realFooter는 "+realFooter);
+		// 상준 끝
 		
 		List<Board> writingList = boardService.writingList();
 		List<Board> boardTypeList3 = boardService.boardTypeList3();

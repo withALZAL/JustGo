@@ -54,6 +54,12 @@
 <!-- 페이지 제목 끝 -->
 
 
+<%-- 상준 추가 --%>
+<%-- <c:if test="${realFooter == 1}"> 
+    <h6>realFooter 1 들어옴!</h6>
+</c:if> --%>
+
+
 
 <!-- 콘텐츠 시작 -->
 <form action="/board/write" method="post" id="writeFrm" enctype="multipart/form-data">
@@ -75,17 +81,30 @@
                         </c:choose>
                     </c:forEach>
                     </select>
-                    
-                            
+                        
+                    <%-- 상준 수정 --%>
+                    <c:if test="${realFooter != 1}">
                     <select class="writing--tagSelector" name="tagNo" id="tagSelector">
                         <c:forEach items="${boardTypeList3}" var="tag">
                             <option value="${tag.tagNo}">${tag.tagContent}</option>
                         </c:forEach>
-                    
                     </select>
+                    </c:if>
+
+                    <c:if test="${realFooter == 1}">
+                    <select class="writing--tagSelector" name="tagNo" id="tagSelector" style="display: none;">
+                        <c:forEach items="${boardTypeList3}" var="tag">
+                            <option value="${tag.tagNo}">${tag.tagContent}</option>
+                        </c:forEach>
+                    </select>
+                    </c:if>
+                    <%-- 상준 수정 끝 --%>
             
                 </div>
             </div>
+
+
+
         <div class="writing--inputContentBox">
             <textarea class="writing--summernoteBox" id="summernote" name="boardText" ></textarea>
         <div class="writing--ButtonBox">
@@ -211,6 +230,27 @@
             });
         }
             
+    </script>
+<%-- 상준 긴급 추가 footer 글쓰기 버튼 오류 수정(종욱씨 요청) --%>
+    <script>
+        const boardSelector = document.getElementById("boardSelect");
+        const tagSelector = document.getElementById("tagSelector");
+        const realFooter = ${realFooter};
+        
+        function handleBoardSelectorChange() {
+
+            if (realFooter === 1 && boardSelector.value === "") {
+                tagSelector.style.display = "none";
+            } else {
+                tagSelector.style.display = "block";
+            }
+        }
+
+        // boardSelector 변경 감지
+        boardSelector.addEventListener("change", handleBoardSelectorChange);
+
+        // 페이지 로드 시 실행
+        handleBoardSelectorChange();
     </script>
 </body>
 </html>
