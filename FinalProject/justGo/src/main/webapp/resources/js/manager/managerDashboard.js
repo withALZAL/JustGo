@@ -8,7 +8,7 @@ new Chart(chartDoughnut, {
             label: '게시글 수',
             data: [countFree, countQuestion, countChina, countJapan, countVietnam, countThai, countAustralia],
             borderWidth: 1,
-            backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
+            backgroundColor: ["#FFA7A7", "#FFC19E", "#FAED7D", "#CEF279", "#B2EBF4", "#B2CCFF", "#D1B2FF"]
         }]
     },
     options: {
@@ -28,12 +28,12 @@ var chartTag = document.getElementById('chartTag');
 new Chart(chartTag, {
     type: 'pie',
     data: {
-        labels: ['일반', '맛집', '꿀팁', '힐링'],
+        labels: ['맛집', '꿀팁', '일반', '힐링'],
         datasets: [{
             label: '게시글 수',
-            data: [countTag1, countTag2, countTag3, countTag4],
+            data: [countTag2, countTag3, countTag1, countTag4],
             borderWidth: 1,
-            backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
+            backgroundColor: [ "#B5B2FF", "#FFE08C", "#FFB2D9", "#B2EBF4" ]
         }]
     },
     options: {
@@ -53,22 +53,22 @@ new Chart(chartLine, {
         datasets: [{
             data: [member6m, member3m, member2m, member1m, member2w, member1w, memberNow],
             label: "일반회원 수",
-            borderColor: "red",
+            borderColor: "#CEF279",
             fill: false
         }, {
             data: [post6m, post3m, post2m, post1m, post2w, post1w, postNow],
             label: "게시글 수",
-            borderColor: "lightblue",
+            borderColor: "#B5B2FF",
             fill: false
         }, {
             data: [out6m, out3m, out2m, out1m, out2w, out1w, outNow],
             label: "탈퇴회원 수",
-            borderColor: "grey",
+            borderColor: "#FFB2D9",
             fill: false
         }, {
             data: [report6m, report3m, report2m, report1m, report2w, report1w, reportNow],
             label: "신고 수",
-            borderColor: "orange",
+            borderColor: "#B2EBF4",
             fill: false
         }
         ]
@@ -91,7 +91,7 @@ new Chart(chartBar, {
             {
                 data: [report1, report2, report3, report4, report5, report6, report7, report8], /* 여기에 데이터를 넣습니다. */
                 label: "신고 수",
-                backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"],
+                backgroundColor: ["#FFA7A7", "#FFC19E", "#FAED7D", "#CEF279", "#B2EBF4", "#B2CCFF", "#D1B2FF", "#FFB2D9"],
             }
         ]
     },
