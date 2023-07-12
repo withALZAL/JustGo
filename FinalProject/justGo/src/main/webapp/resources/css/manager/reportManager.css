@@ -108,7 +108,7 @@
 }
 .manager--reportTable th:nth-child(2), /* 신고자 컬럼 */
 .manager--reportTable td:nth-child(2) {
-    width: 140px;
+    width: 150px;
     text-align: center;
 }
 .manager--reportTable th:nth-child(3), /* 신고사유 컬럼 */
