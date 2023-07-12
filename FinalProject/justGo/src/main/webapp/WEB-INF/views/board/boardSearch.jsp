@@ -67,13 +67,11 @@
     <div class="template--pageTitleBox">
         <img src="/resources/images/officialPageTitle/PAGETITLE_FREE.png" alt="자유">
         <div class="template--overlayedTitle" style="color: black;">
-            <a href="https://www.naver.com">
                 
 
                 <c:if test="${not empty param.query}" >
                     <h3 style="margin:30px">"${param.query}"검색결과</h3>
                 </c:if>
-            </a>
 
         </div>
     </div>
