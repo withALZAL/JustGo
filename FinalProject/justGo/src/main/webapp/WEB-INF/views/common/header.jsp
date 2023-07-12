@@ -62,6 +62,11 @@
             <input type="hidden" name="memberPw" value="#seoul01!!cns">
             <button class="btn btn-secondary btn-sm">핑핑이로그인</button> <%-- 핑핑이 --%>
     </form>
+    <form action="/account/login" method="post">
+            <input type="hidden" name="memberEmail" value="song2@mail2.com">
+            <input type="hidden" name="memberPw" value="password01!">
+            <button class="btn btn-secondary btn-sm">송일이로그인</button> <%-- 송삼이 --%>
+    </form>
     <form action="#">
         <a href="#">
             ---임시용|||실사용---
