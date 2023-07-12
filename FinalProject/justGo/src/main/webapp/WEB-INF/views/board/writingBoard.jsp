@@ -237,7 +237,7 @@
         const tagSelector = document.getElementById("tagSelector");
         const realFooter = ${realFooter};
         
-        function handleBoardSelectorChange() {
+        function funcRealFooter() {
 
             if (realFooter === 1 && boardSelector.value === "") {
                 tagSelector.style.display = "none";
@@ -247,10 +247,10 @@
         }
 
         // boardSelector 변경 감지
-        boardSelector.addEventListener("change", handleBoardSelectorChange);
+        boardSelector.addEventListener("change", funcRealFooter);
 
         // 페이지 로드 시 실행
-        handleBoardSelectorChange();
+        funcRealFooter();
     </script>
 </body>
 </html>
