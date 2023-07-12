@@ -174,7 +174,7 @@
                 </a>
             </form>
             <a href="/ask/writingAsk">
-                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">문의하기</button>
             </a>
         </div>
     </div>
