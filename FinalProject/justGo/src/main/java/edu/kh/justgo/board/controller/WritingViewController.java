@@ -26,23 +26,12 @@ public class WritingViewController {
 			Model model
 			) {
 		
-		System.out.println(memberNo); // 잘 나옴
-		System.out.println(memberNo);
-		System.out.println(memberNo);
-		System.out.println(memberNo);
-		System.out.println(memberNickname); // 잘 나옴
-		System.out.println(memberNickname);
-		System.out.println(memberNickname);
-		System.out.println(memberNickname);
-		
 		Map<String, Object> map = service.myPost(memberNo, cp);
-		System.out.println(map);
-		System.out.println(map);
-		System.out.println(map);
-		System.out.println(map);
-		System.out.println(map);
+		map.put("memberNo", memberNo);
+		map.put("cp", cp);
 		model.addAttribute("map", map);
 		model.addAttribute("memberNickname", memberNickname);
+		
 		
 		return "writing/writingView";
 	}
