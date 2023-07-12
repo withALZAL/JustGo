@@ -67,12 +67,11 @@
             <div class="writingView--pagination">
                 <ul class="pagination">
                     <c:if test="${pagination.maxPage gt 1}"> <%-- maxPage 1페이지 이상이여야 페이지네이션 등장 --%>
-                
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=1${sp}"><i class="fa-solid fa-forward fa-rotate-180"></i></a></li>
+                    <li><a href="/writingView?replyMemberNo=${map.memberNo}&replyMemberNickname=${memberNickname}&cp=1${sp}"><i class="fa-solid fa-forward fa-rotate-180"></i></a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}"><i class="fa-solid fa-caret-right fa-rotate-180"></i></a></li>
+                    <li><a href="/writingView?replyMemberNo=${map.memberNo}&replyMemberNickname=${memberNickname}&cp=${pagination.prevPage}${sp}"><i class="fa-solid fa-caret-right fa-rotate-180"></i></a></li>
 
 					
                     <!-- 특정 페이지로 이동 -->
@@ -83,19 +82,18 @@
                                 <!-- 현재 보고있는 페이지 -->
                                 <li><a class="current">${i}</a></li>
                             </c:when>
-                        
                             <c:otherwise>
                                 <!-- 현재 페이지를 제외한 나머지 -->
-                                <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                <li><a href="/writingView?replyMemberNo=${map.memberNo}&replyMemberNickname=${memberNickname}&cp=${i}${sp}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}${sp}"><i class="fa-solid fa-caret-right"></i></a></li>
+                    <li><a href="/writingView?replyMemberNo=${map.memberNo}&replyMemberNickname=${memberNickname}&cp=${pagination.nextPage}${sp}"><i class="fa-solid fa-caret-right"></i></a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-forward"></i></a></li>
+                    <li><a href="/writingView?replyMemberNo=${map.memberNo}&replyMemberNickname=${memberNickname}&cp=${pagination.maxPage}${sp}"><i class="fa-solid fa-forward"></i></a></li>
 
                     </c:if>
                 </ul>
