@@ -63,7 +63,7 @@ public class WritingController {
 			realFooter = 0;
 		}
 		model.addAttribute("realFooter", realFooter);
-		System.out.println("그래서 realFooter는 "+realFooter);
+//		System.out.println("그래서 realFooter는 "+realFooter);
 		// 상준 끝
 		
 		List<Board> writingList = boardService.writingList();
@@ -129,7 +129,7 @@ public class WritingController {
 
 		ra.addFlashAttribute("message", message);
 
-		System.out.println(path);
+//		System.out.println(path);
 
 		
 		 
@@ -271,7 +271,7 @@ public class WritingController {
 			board.setCountryNo(countryNo);
 			String th = board.getThumbnail();
 			
-			System.out.println("th :" + th);
+//			System.out.println("th :" + th);
 			
 			
 			// 2) 게시글 수정 서비스 호출
