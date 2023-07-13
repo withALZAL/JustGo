@@ -74,7 +74,9 @@ getWeather("Seoul"); // 초기값 서울
 /* 환율 API ----------------------------------------------- */
 
 /* 고정 1달러 환율(왼쪽) */
-let miniUrl = "https://v6.exchangerate-api.com/v6/619c3cb20ce7389defaa8e0c/latest/USD";
+let miniUrl = "https://v6.exchangerate-api.com/v6/30010e7e757036c3c5a68734/latest/USD";
+// let miniUrl = "https://v6.exchangerate-api.com/v6/f1dd4088537e2ae5a125be64/latest/USD"; /* 예비용 */
+// let miniUrl = "https://v6.exchangerate-api.com/v6/698063ec0013e867aa5c39c9/latest/USD"; /* 예비용 */
 fetch(miniUrl)
 .then(response => response.json())
 .then(resultMini => {
