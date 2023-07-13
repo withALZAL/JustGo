@@ -54,12 +54,6 @@
 <!-- 페이지 제목 끝 -->
 
 
-<%-- 상준 추가 --%>
-<%-- <c:if test="${realFooter == 1}"> 
-    <h6>realFooter 1 들어옴!</h6>
-</c:if> --%>
-
-
 
 <!-- 콘텐츠 시작 -->
 <form action="/board/write" method="post" id="writeFrm" enctype="multipart/form-data">
