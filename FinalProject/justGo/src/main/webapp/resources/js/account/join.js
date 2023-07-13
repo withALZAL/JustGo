@@ -93,6 +93,9 @@ email.addEventListener("input", () => {
 
 /* 비밀번호 유효성 검사 ----------------------------------------------------------------------------------- */
 
+pwMessage.innerText = "영문, 숫자, 특수문자(!,@,#,$,%)로 구성된 8~15글자 사이의 비밀번호를 입력해주세요.";
+
+
 memberPw.addEventListener("input", () => {
 
     // 비밀번호가 입력되지 않은 경우
@@ -155,7 +158,7 @@ memberPwConfirm.addEventListener('input', ()=>{
 
 
 
-
+nickMessage.innerText = "영문, 한글, 숫자로 구성된 2~8글자 사이의 닉네임을 입력해주세요.";
 
 // 닉네임이 입력이 되었을 때
 memberNickname.addEventListener("input", () => {
