@@ -93,7 +93,6 @@ writeFrm.addEventListener("submit", e => {
 });
 
 
-
 // 글쓰기 버튼을 눌렀을 때 countryNO의 select의 options 들 중에 value 일치하는 요소(배열에 있는 요소)에 selected 속성 추가하기 
 document.addEventListener("DOMContentLoaded", function () {
 

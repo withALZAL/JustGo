@@ -104,6 +104,7 @@
             </button>
             <input type="hidden" name="boardCode" value="${boardCode}" >  <%-- value ="3"은 boardCode --%>
             <input type="hidden" name="countryNo" value="${countryNo}">
+            <input type="hidden" name="footerCheck" value="1"> <%-- 상준 --%>
         </form>
         </c:if>
         <a onclick="popup()" target = "_blank">
