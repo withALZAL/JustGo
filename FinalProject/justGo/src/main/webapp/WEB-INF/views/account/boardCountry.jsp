@@ -240,6 +240,7 @@
                     <button type="submit" class="btn btn-secondary btn-lg" id="board--writingBtn">글쓰기</button>
                     <input type="hidden" name="boardCode" value="${boardCode}">
                     <input type="hidden" name="countryNo" value="${countryNo}">
+                    <input type="hidden" name="footerCheck" value="0"> <%-- 상준 --%>
                 </form>
             </c:if>
         </div>
