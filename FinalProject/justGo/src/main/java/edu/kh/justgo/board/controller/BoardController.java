@@ -71,57 +71,7 @@ public class BoardController {
 		return "board/boardFree"; // forward : 주소를 요청했을 때 요청 주소로 바뀌고 그 요청에 맞는 화면으로 변함
 	}
 
-	/*
-	// 1:1문의 연결(/board/4 버전)
-	@GetMapping("/4/{memberNo}")
-	public String writingQuestion(
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Member loginMember
-			, Model model
-			) {
-		
-		int memberNo = loginMember.getMemberNo();
-		
-		// 1:1문의정보 불러오기
-		Map<String, Object> map = service.selectAskList(cp, memberNo);
-		
-		model.addAttribute("map", map);
-		
-		return "/board/boardAsk";
-	}
 	
-	
-	// 1:1문의 상세페이지 연결(회원문의 + 관리자 답변)
-    @GetMapping("/boardAsk_detail/{feedbackNo}")
-    public String askManagerDetail(
-    		@PathVariable("feedbackNo") int feedbackNo
-    		, Model model
-    		) {
-    	
-//    	System.out.println("feedbackNo: " + feedbackNo);
-    	
-    	// 1:1문의 상세글 불러오기(회원문의글)
-    	Feedback memberAskList = service.selectMemberAskList(feedbackNo);
-        Feedback managerAnswerList = service.selectManagerAnswerList(feedbackNo);
-    	
-        Map<String, Object> map = new HashMap<String, Object>();
-        
-        map.put("memberAskList", memberAskList);
-        map.put("managerAnswerList", managerAnswerList);
-        
-//        System.out.println(map);
-        
-    	model.addAttribute("map", map);
-    	// 콘솔에서 확인
-//        System.out.println("model" +model);
-    	
-    	
-    	return "/board/boardAsk_detail";
-    }
-	
-	
-	
-	*/
 	
 	
 
@@ -175,7 +125,7 @@ public class BoardController {
 				map.put("memberNo", loginMember.getMemberNo());
 
 				int result = service.boardLikeCheck(map);
-				System.out.println(result);
+//				System.out.println(result);
 
 				if (result > 0)
 					model.addAttribute("likeCheck", "on");
@@ -281,7 +231,7 @@ public class BoardController {
 				map.put("memberNo", loginMember.getMemberNo());
 
 				int result = service.boardLikeCheck(map);
-				System.out.println(result);
+//				System.out.println(result);
 
 				if (result > 0)
 					model.addAttribute("likeCheck", "on");
@@ -370,7 +320,7 @@ public class BoardController {
 	@PostMapping("/like")
 	@ResponseBody
 	public int like(@RequestBody Map<String, Integer> paramMap) {
-		System.out.println(paramMap);
+//		System.out.println(paramMap);
 
 		return service.like(paramMap);
 	}
