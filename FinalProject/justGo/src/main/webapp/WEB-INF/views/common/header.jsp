@@ -42,26 +42,26 @@
 
 <!-- loginNav 시작 -->
 <nav class="common--loginNav__container"> <%-- 각종 버튼(임시용) --%>
-    <form action="/account/login" method="post">
+    <%-- <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="user@kh.or.kr">
             <input type="hidden" name="memberPw" value="pass01!">
-            <button class="btn btn-secondary btn-sm">따봉이로그인</button> <%-- 따봉이 --%>
+            <button class="btn btn-secondary btn-sm">따봉이로그인</button>
     </form>
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="sangzoon0102@naver.com">
             <input type="hidden" name="memberPw" value="#seoul01!!cns">
-            <button class="btn btn-secondary btn-sm">천성류로그인</button> <%-- 천성류 --%>
+            <button class="btn btn-secondary btn-sm">천성류로그인</button>
     </form>
     <form action="/account/login" method="post">
             <input type="hidden" name="memberEmail" value="sangzoon0102@gmail.com">
             <input type="hidden" name="memberPw" value="#seoul01!!cns">
-            <button class="btn btn-secondary btn-sm">핑핑이로그인</button> <%-- 핑핑이 --%>
+            <button class="btn btn-secondary btn-sm">핑핑이로그인</button>
     </form>
     <form action="#">
         <a href="#">
             ---임시용|||실사용---
         </a>    
-    </form>
+    </form> --%>
 
 
     <c:choose>

@@ -58,31 +58,9 @@
         <a href="https://github.com/jyh1108" target="_blank">정용화</a>
         <a href="https://github.com/WOOJo11" target="_blank">조우형</a>
         <br>
-        <div class="hiddenLogin">
-            <div>
-            Copyright 
-            </div>
-            <div>
-        <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="pso7364@naver.com">
-            <input type="hidden" name="memberPw" value="12345678">
-            <button class="logBtn">©</button>
-        </form>
-            </div>
-            <div>
-        1998-2023 JustGo 
-            </div>
-            <div>
-        <form action="/account/login" method="post">
-            <input type="hidden" name="memberEmail" value="song2@mail2.com">
-            <input type="hidden" name="memberPw" value="password01!">
-            <button class="logBtn">All</button>
-        </form>
-            </div>
-            <div>
-         Right Reserved<br>
-            </div>
-         </div>
+        <div>
+            Copyright © 1998-2023 JustGo All Right Reserved<br>
+        </div>
     </div>
     <div class="common--footerRight">
         <%-- <a href="/board/boardNotice">공지사항</a> 공지사항으로 이동 --%>
