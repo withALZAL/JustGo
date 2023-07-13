@@ -230,7 +230,7 @@ public class WritingController {
 		
 		// 1) boardCode, boardNo를 board에 세팅
 		board.setBoardCode(boardCode);
-		board.setBoardNo(boardNo);
+//		board.setBoardNo(boardNo);
 		
 		
 		// 2) 게시글 수정 서비스 호출

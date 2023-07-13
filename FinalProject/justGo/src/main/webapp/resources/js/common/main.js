@@ -74,9 +74,9 @@ getWeather("Seoul"); // 초기값 서울
 /* 환율 API ----------------------------------------------- */
 
 /* 고정 1달러 환율(왼쪽) */ /* 혹시 api key를 바꾸면 밑에 있는 링크 두 개도(137번째 153번째 라인) 확인하고 바꾸세요! */
-let miniUrl = "https://v6.exchangerate-api.com/v6/30010e7e757036c3c5a68734/latest/USD";
-// let miniUrl = "https://v6.exchangerate-api.com/v6/f1dd4088537e2ae5a125be64/latest/USD"; /* 예비용 */
-// let miniUrl = "https://v6.exchangerate-api.com/v6/698063ec0013e867aa5c39c9/latest/USD"; /* 예비용 */
+// let miniUrl = "https://v6.exchangerate-api.com/v6/30010e7e757036c3c5a68734/latest/USD"; /* 사용완 */
+let miniUrl = "https://v6.exchangerate-api.com/v6/f1dd4088537e2ae5a125be64/latest/USD";
+// let miniUrl = "https://v6.exchangerate-api.com/v6/698063ec0013e867aa5c39c9/latest/USD";
 fetch(miniUrl)
 .then(response => response.json())
 .then(resultMini => {
@@ -134,7 +134,7 @@ afterCurrSelect.addEventListener('change', () => {
 
 /* 환율비 계산기 */
 function calcRate(beforeCurr, afterCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/30010e7e757036c3c5a68734/latest/" + beforeCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/f1dd4088537e2ae5a125be64/latest/" + beforeCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
 
     fetch(moneyUrl)
     .then(response => {return response.json();})
@@ -150,7 +150,7 @@ function calcRate(beforeCurr, afterCurr) {
 
 /* 역환율비 계산기 */
 function calcRateX(afterCurr, beforeCurr) {
-    let moneyUrl = "https://v6.exchangerate-api.com/v6/30010e7e757036c3c5a68734/latest/" + afterCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
+    let moneyUrl = "https://v6.exchangerate-api.com/v6/f1dd4088537e2ae5a125be64/latest/" + afterCurr; /* api 총량이 1500건이라 API key를 자주 바꿔줘야 함 */
 
     fetch(moneyUrl)
     .then(response => {return response.json();})
