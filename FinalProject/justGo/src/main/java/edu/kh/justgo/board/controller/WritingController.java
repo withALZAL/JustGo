@@ -55,14 +55,6 @@ public class WritingController {
 			) {
 		
 		// 상준 시작
-		System.out.println("boardCode 타입: " + boardCode.getClass().getSimpleName());
-		System.out.println("countryNo 타입: " + countryNo.getClass().getSimpleName());
-
-		
-		System.out.println("footerCheck:"+footerCheck);
-		System.out.println("boardCode:"+boardCode);
-		System.out.println("countryNo:"+countryNo);
-		
 		int realFooter = 0;
 		
 		if (footerCheck == 1 && boardCode == "" && countryNo == "") {
