@@ -360,7 +360,7 @@
             </c:if>
         </a> <span>${board.likeCount}</span>
     </div>
-    <div class="writing--postBtn">
+    <div class="writing--postBtn"> <%-- memberRole 1 : 관리자 / 2 : 일반회원 --%>
             <c:if test="${loginMember.memberRole == 2 && board.memberRole == 2 && loginMember.memberNo != board.memberNo}">
                 <button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">신고</button>
             </c:if>
