@@ -28,7 +28,7 @@ currentPw.addEventListener("input", () => {
     console.log(memberNo);
 
     // const regEx1 = /^[a-zA-Z0-9\!\@\#\$\%]{8,15}$/;
-    const regEx1 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
+    // const regEx1 = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%])[a-zA-Z0-9!@#$%]{8,15}$/;
     if (regEx1.test(currentPw.value)) { 
 
         /* POST 방식 */
