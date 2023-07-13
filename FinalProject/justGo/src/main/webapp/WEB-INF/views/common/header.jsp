@@ -32,9 +32,9 @@
 <!-- Template-header 시작 -->
 <header class="template--header">
 <aside class="template--leftAside">
-    <div class="template--easterEgg">
+    <%-- <div class="template--easterEgg">
         <img id="asuka" src="/resources/images/officialImages/earth.gif" alt="아스카" style="display: none;" onclick="deleteAsuka()" class="fixed-top">
-    </div>
+    </div> --%>
 </aside>
 <section class="template--Section">
 
