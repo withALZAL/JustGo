@@ -162,7 +162,7 @@
         <div class="board--pagenationSearchBox" style="height: 50%; width: 100%;">
             <form action="#"></form>
             <form action="#" method="post">
-                <a>
+                <%-- <a>
                     <select class="board--searchSelector" name="boardSelect" id="boardSelect" onchange="changeSecondSelect()" required>
                         <option>제목+내용</option>
                         <option>제목</option>
@@ -171,7 +171,7 @@
                     </select>
                     <input type="text" maxlength="10" style="width: 300px;" autocomplete="off">
                     <button type="button" class="btn btn-secondary btn-sm">검색</button>
-                </a>
+                </a> --%>
             </form>
             <a href="/ask/writingAsk">
                 <button type="button" class="btn btn-secondary btn-lg" id="board--writingBtn">문의하기</button>
