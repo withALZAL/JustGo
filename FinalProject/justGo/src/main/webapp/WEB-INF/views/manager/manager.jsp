@@ -134,7 +134,7 @@
                                             <li class="page-item active" aria-current="page"><a class="page-link"  style="background:cornflowerblue;">${i}</a></li>
                                         </c:when>
                                         <c:otherwise>
-                                            <li class="page-item"><a class="page-link" href="/manager/meanager?cp=${i}${sp}">${i}</a></li>
+                                            <li class="page-item"><a class="page-link" href="/manager/manager?cp=${i}${sp}">${i}</a></li>
                                         </c:otherwise>
                                     </c:choose>
                                 </c:forEach>
